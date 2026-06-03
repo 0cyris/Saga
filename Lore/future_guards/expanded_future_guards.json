@@ -1,0 +1,295 @@
+{
+  "schemaVersion": 2,
+  "entries": [
+    {
+      "schemaVersion": 2,
+      "id": "future_guard_cedric_alive_before_third_task",
+      "title": "Cedric alive before Third Task",
+      "kind": "future_guard",
+      "category": "timeline",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 100,
+      "protected": true,
+      "locked": true,
+      "date": {
+        "validFrom": "1994-09-01",
+        "validTo": "1995-06-23",
+        "precision": "date",
+        "schoolYear": 4,
+        "book": "Goblet of Fire"
+      },
+      "scope": {
+        "characters": [
+          "Cedric Diggory"
+        ],
+        "topics": [
+          "Triwizard Tournament",
+          "Cedric"
+        ],
+        "spells": [],
+        "schoolYears": [
+          4
+        ],
+        "books": [
+          "Goblet of Fire"
+        ],
+        "phases": [
+          "term_start"
+        ]
+      },
+      "visibility": {},
+      "content": {
+        "fact": "Cedric Diggory is alive before the Third Task.",
+        "injection": "Do not imply Cedric is dead or that characters know he will die.",
+        "constraints": [
+          "Protect Cedric’s death as a future event."
+        ],
+        "antiLore": [],
+        "notes": ""
+      },
+      "effects": {
+        "addsTags": [
+          "future-guard",
+          "Cedric",
+          "year-4"
+        ],
+        "blocksTermsBeforeDate": [],
+        "protectsEntries": [],
+        "stateHints": {},
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "source": {
+        "work": "Harry Potter",
+        "book": "Goblet of Fire",
+        "chapter": "",
+        "confidence": 0.82,
+        "notes": "Expanded curated date constraint entry."
+      },
+      "ui": {},
+      "extensions": {
+        "consolidationPass": {
+          "appliedIn": "Wandlight duplicate/title consolidation pass",
+          "notes": "Automatic concise title cleanup for implementation-language wording."
+        }
+      },
+      "canonTiming": {
+        "canonExpectedUntil": "1995-06-23",
+        "hardValidTo": "",
+        "precision": "date",
+        "schoolYear": 4,
+        "book": "Goblet of Fire"
+      },
+      "activation": {
+        "requiresMissingEvents": [
+          "cedric_dies"
+        ]
+      },
+      "expiration": {
+        "expiresWhenEventsHappen": [
+          "cedric_dies"
+        ],
+        "autoMuteOnExpire": true
+      },
+      "gateType": "future_guard",
+      "userEditable": true,
+      "canon": "canon",
+      "relevance": "normal",
+      "lorePurpose": "temporal_gate",
+      "injectableByDefault": true,
+      "specificityScore": 85
+    },
+    {
+      "schemaVersion": 2,
+      "id": "future_guard_ministry_not_fallen_before_1997_august",
+      "title": "Ministry not fallen before August 1997",
+      "kind": "future_guard",
+      "category": "timeline",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 100,
+      "protected": true,
+      "locked": true,
+      "date": {
+        "validFrom": "1996-09-01",
+        "validTo": "1997-07-31",
+        "precision": "date",
+        "schoolYear": 6,
+        "book": "Half-Blood Prince"
+      },
+      "scope": {
+        "characters": [],
+        "topics": [
+          "Ministry of Magic",
+          "Death Eaters"
+        ],
+        "spells": [],
+        "schoolYears": [
+          6
+        ],
+        "books": [
+          "Half-Blood Prince"
+        ],
+        "phases": [
+          "term_start"
+        ]
+      },
+      "visibility": {},
+      "content": {
+        "fact": "The Ministry has not yet fallen to Death Eater control.",
+        "injection": "Do not write the Ministry as openly Death Eater-controlled unless our story has established otherwise.",
+        "constraints": [
+          "Protect the Ministry fall timing."
+        ],
+        "antiLore": [],
+        "notes": ""
+      },
+      "effects": {
+        "addsTags": [
+          "future-guard",
+          "Ministry",
+          "year-6"
+        ],
+        "blocksTermsBeforeDate": [],
+        "protectsEntries": [],
+        "stateHints": {},
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "source": {
+        "work": "Harry Potter",
+        "book": "Half-Blood Prince",
+        "chapter": "",
+        "confidence": 0.82,
+        "notes": "Expanded curated date constraint entry."
+      },
+      "ui": {},
+      "extensions": {
+        "consolidationPass": {
+          "appliedIn": "Wandlight duplicate/title consolidation pass",
+          "notes": "Automatic concise title cleanup for implementation-language wording."
+        }
+      },
+      "canonTiming": {
+        "canonExpectedUntil": "1997-07-31",
+        "hardValidTo": "",
+        "precision": "date",
+        "schoolYear": 6,
+        "book": "Half-Blood Prince"
+      },
+      "activation": {
+        "requiresMissingEvents": [
+          "ministry_falls"
+        ]
+      },
+      "expiration": {
+        "expiresWhenEventsHappen": [
+          "ministry_falls"
+        ],
+        "autoMuteOnExpire": true
+      },
+      "gateType": "future_guard",
+      "userEditable": true,
+      "canon": "canon",
+      "relevance": "normal",
+      "lorePurpose": "temporal_gate",
+      "injectableByDefault": true,
+      "specificityScore": 50
+    },
+    {
+      "schemaVersion": 2,
+      "id": "future_guard_battle_of_hogwarts_future",
+      "title": "Battle of Hogwarts future event",
+      "kind": "future_guard",
+      "category": "timeline",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 100,
+      "protected": true,
+      "locked": true,
+      "date": {
+        "validFrom": "1991-09-01",
+        "validTo": "1998-05-01",
+        "precision": "date",
+        "schoolYear": 7,
+        "book": "Deathly Hallows"
+      },
+      "scope": {
+        "characters": [],
+        "topics": [
+          "Battle of Hogwarts",
+          "war"
+        ],
+        "spells": [],
+        "schoolYears": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "books": [
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {},
+      "content": {
+        "fact": "The Battle of Hogwarts has not happened before May 1998.",
+        "injection": "Do not imply the Battle of Hogwarts has already occurred or that characters know its outcome.",
+        "constraints": [
+          "Protect the final battle as future canon."
+        ],
+        "antiLore": [],
+        "notes": ""
+      },
+      "effects": {
+        "addsTags": [
+          "future-guard",
+          "Battle of Hogwarts"
+        ],
+        "blocksTermsBeforeDate": [],
+        "protectsEntries": [],
+        "stateHints": {},
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "source": {
+        "work": "Harry Potter",
+        "book": "Deathly Hallows",
+        "chapter": "",
+        "confidence": 0.82,
+        "notes": "Expanded curated date constraint entry."
+      },
+      "ui": {},
+      "extensions": {
+        "consolidationPass": {
+          "appliedIn": "Wandlight duplicate/title consolidation pass",
+          "notes": "Automatic concise title cleanup for implementation-language wording."
+        }
+      },
+      "canonTiming": {
+        "canonExpectedUntil": "1998-05-01",
+        "hardValidTo": "",
+        "precision": "date",
+        "schoolYear": 1,
+        "book": "Deathly Hallows"
+      },
+      "gateType": "future_guard",
+      "userEditable": true,
+      "canon": "canon",
+      "relevance": "normal",
+      "lorePurpose": "temporal_gate",
+      "injectableByDefault": true,
+      "specificityScore": 70
+    }
+  ]
+}

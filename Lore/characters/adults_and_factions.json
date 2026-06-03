@@ -1,0 +1,218 @@
+{
+  "schemaVersion": 2,
+  "entries": [
+    {
+      "id": "canon_dumbledore_headmaster",
+      "title": "Dumbledore Before Tower",
+      "tags": [
+        "Dumbledore",
+        "Hogwarts",
+        "headmaster",
+        "Order"
+      ],
+      "category": "character",
+      "fact": "Albus Dumbledore is Headmaster of Hogwarts for most of the 1991-1997 canon period and is a central authority figure opposing Voldemort.",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "validFrom": "1991-09-01",
+      "validTo": "1997-06-30",
+      "branchId": "main",
+      "whoKnowsTruth": [],
+      "publicVersion": "Dumbledore is Hogwarts Headmaster.",
+      "revealPolicy": "public",
+      "activeWhen": {
+        "erasAny": [],
+        "locationsAny": [
+          "Hogwarts",
+          "Headmaster"
+        ],
+        "charactersPresentAny": [
+          "Dumbledore",
+          "Albus Dumbledore"
+        ],
+        "tagsAny": [
+          "Dumbledore"
+        ]
+      },
+      "priority": 90,
+      "status": "active",
+      "source": "canon-lore-db:characters/adults_and_factions.json",
+      "locked": true,
+      "content": {
+        "fact": "Before the Astronomy Tower event, Dumbledore is alive and remains Hogwarts Headmaster.",
+        "injection": "Before the Astronomy Tower event, Dumbledore is alive and remains a decisive authority at Hogwarts; do not treat him as dead, memorialized, or absent unless our story has established a different outcome.",
+        "constraints": [
+          "After the Tower event, use Dumbledore death-state lore instead."
+        ]
+      },
+      "scope": {
+        "characters": [
+          "Albus Dumbledore"
+        ],
+        "locations": [
+          "Hogwarts",
+          "Headmaster's office"
+        ],
+        "factions": [
+          "Hogwarts staff",
+          "Order of the Phoenix"
+        ],
+        "topics": [
+          "headmaster",
+          "authority figure",
+          "Voldemort resistance"
+        ],
+        "schoolYears": [
+          "Year 1",
+          "Year 2",
+          "Year 3",
+          "Year 4",
+          "Year 5",
+          "Year 6"
+        ],
+        "books": [
+          "Philosopher's Stone",
+          "Chamber of Secrets",
+          "Prisoner of Azkaban",
+          "Goblet of Fire",
+          "Order of the Phoenix",
+          "Half-Blood Prince"
+        ]
+      },
+      "date": {
+        "validFrom": "1991-09-01",
+        "validTo": "1997-06-30",
+        "precision": "date",
+        "schoolYear": null
+      },
+      "kind": "character_state",
+      "gateType": "character_state",
+      "protected": false,
+      "userEditable": true,
+      "canon": "canon",
+      "relevance": "low",
+      "canonTiming": {
+        "hardValidTo": "1997-06-30"
+      },
+      "activation": {
+        "requiresMissingEvents": [
+          "dumbledore_death_occurs"
+        ]
+      },
+      "expiration": {
+        "expiresWhenEventsHappen": [
+          "dumbledore_death_occurs"
+        ],
+        "autoMuteOnExpire": false
+      },
+      "extensions": {
+        "deathStateGatePass": {
+          "method": "living/office state expires at death",
+          "notes": "Dumbledore Headmaster state is bounded by his death.",
+          "appliedIn": "Wandlight relevance-tier regression repair pass"
+        },
+        "consolidationPass": {
+          "appliedIn": "Wandlight duplicate/title consolidation pass",
+          "notes": "Merged Dumbledore alive/headmaster gates."
+        }
+      },
+      "lorePurpose": "status_change",
+      "injectableByDefault": true,
+      "specificityScore": 60
+    },
+    {
+      "id": "canon_snape_potions_defense_role",
+      "title": "Severus Snape: professor role by era",
+      "tags": [
+        "Snape",
+        "Hogwarts",
+        "Potions",
+        "Defense"
+      ],
+      "category": "character",
+      "fact": "Severus Snape is a Hogwarts professor; he teaches Potions before the 1996-1997 school year and Defense Against the Dark Arts during Year 6.",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "validFrom": "1991-09-01",
+      "validTo": "1997-08-31",
+      "branchId": "main",
+      "whoKnowsTruth": [],
+      "publicVersion": "Snape is a Hogwarts professor with a severe reputation.",
+      "revealPolicy": "public",
+      "activeWhen": {
+        "erasAny": [
+          "Year 6",
+          "Half-Blood Prince",
+          "HBP"
+        ],
+        "locationsAny": [
+          "Hogwarts",
+          "dungeon",
+          "classroom"
+        ],
+        "charactersPresentAny": [
+          "Snape",
+          "Severus Snape"
+        ],
+        "tagsAny": [
+          "Snape"
+        ]
+      },
+      "priority": 75,
+      "status": "active",
+      "source": "canon-lore-db:characters/adults_and_factions.json",
+      "locked": true,
+      "content": {},
+      "scope": {
+        "characters": [
+          "Severus Snape"
+        ],
+        "locations": [
+          "Hogwarts",
+          "Potions classroom",
+          "Defense classroom"
+        ],
+        "factions": [
+          "Hogwarts staff"
+        ],
+        "topics": [
+          "professor",
+          "Potions",
+          "Defense Against the Dark Arts",
+          "school staff"
+        ],
+        "schoolYears": [
+          "Year 1",
+          "Year 2",
+          "Year 3",
+          "Year 4",
+          "Year 5",
+          "Year 6"
+        ],
+        "books": [
+          "Philosopher's Stone",
+          "Chamber of Secrets",
+          "Prisoner of Azkaban",
+          "Goblet of Fire",
+          "Order of the Phoenix",
+          "Half-Blood Prince"
+        ]
+      },
+      "date": {
+        "validFrom": "1991-09-01",
+        "validTo": "1997-08-31",
+        "precision": "date",
+        "schoolYear": null
+      },
+      "kind": "character_state",
+      "gateType": "character_state",
+      "protected": false,
+      "userEditable": true,
+      "canon": "canon",
+      "relevance": "low",
+      "lorePurpose": "status_change",
+      "injectableByDefault": true,
+      "specificityScore": 80
+    }
+  ]
+}
