@@ -873,12 +873,26 @@ export function removeLorepackLibraryPack(packId, options = {}) {
         return { ok: false, error: 'Bundled Lorepacks cannot be removed from the library.' };
     }
 
+    const state = getState();
     const settings = getSettings();
     const library = normalizeLorepackRegistry(settings.lorepackLibrary, DEFAULT_SETTINGS.lorepackLibrary);
-    if (!library.packs[id]) return { ok: false, error: 'Lorepack is not registered.' };
-    delete library.packs[id];
-    settings.lorepackLibrary = normalizeLorepackRegistry(library, DEFAULT_SETTINGS.lorepackLibrary);
-    saveSettings(settings);
+    let removed = false;
+    if (library.packs[id]) {
+        delete library.packs[id];
+        settings.lorepackLibrary = normalizeLorepackRegistry(library, DEFAULT_SETTINGS.lorepackLibrary);
+        saveSettings(settings);
+        removed = true;
+    }
+
+    const chatRegistry = normalizeLorepackRegistry(state?.lorepackRegistry, { schemaVersion: 1, packs: {} });
+    if (chatRegistry.packs[id]) {
+        delete chatRegistry.packs[id];
+        state.lorepackRegistry = normalizeLorepackRegistry(chatRegistry, { schemaVersion: 1, packs: {} });
+        saveState(state, { syncPrompt: false });
+        removed = true;
+    }
+
+    if (!removed) return { ok: false, error: 'Lorepack is not registered.' };
     return { ok: true, library: settings.lorepackLibrary };
 }
 

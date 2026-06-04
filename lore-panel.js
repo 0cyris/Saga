@@ -2381,6 +2381,21 @@ async function refreshLorepackLibraryWindowData(button = null) {
     }
 }
 
+function refreshLorepackSurfaces(options = {}) {
+    const {
+        preserveScroll = true,
+        preserveWindowScroll = true,
+        clearCanon = false,
+        clearStoryPosition = false,
+        renderLibrary = true,
+    } = options;
+    if (clearCanon) clearCanonLoreDatabaseCache();
+    if (clearStoryPosition) clearStoryPositionIndexCache();
+    refreshPanelBody({ preserveScroll, preserveWindowScroll });
+    refreshHeader();
+    if (renderLibrary && lorepackLibraryOpen) renderLorepackLibraryOverlay();
+}
+
 function createLorepackLibraryStatusBar(stack = [], library = [], canonDb = null, health = null) {
     const stats = getLorepackLibraryStackStats(stack, library, canonDb, health);
     const bar = document.createElement('div');
@@ -2995,6 +3010,13 @@ function createLorepackLibraryDetailActions(pack, stackItem = null, healthInfo =
     });
     exportButton.disabled = pack.type === 'bundled' || !canValidateLorepackInEditor(pack);
     actions.appendChild(exportButton);
+    const deleteButton = createButton('Delete Deck', pack.type === 'bundled'
+        ? 'Bundled Loredecks are built into Saga and cannot be deleted.'
+        : 'Delete this Custom or Generated Loredeck from the Library after confirmation.', () => {
+            void deleteLorepackLibraryPackWithConfirm(pack);
+        }, 'wandlight-danger-button');
+    deleteButton.disabled = pack.type === 'bundled';
+    actions.appendChild(deleteButton);
     return actions;
 }
 
@@ -4266,6 +4288,7 @@ function ensureLorepackCreatorGeneratedPack(cached = getLorepackCreatorBriefCach
         generatedPackTitle: record.title,
         generatedPackCreatedAt: cached.generatedPackCreatedAt || Date.now(),
     });
+    refreshLorepackSurfaces();
     return getLorepackDefinition(packId) || result.pack || record;
 }
 
@@ -6555,8 +6578,7 @@ async function refreshLorepackHealthCenterScan(context = getLorepackHealthCenter
             const result = await validateLorepackForEditor(context.pack, null, { quiet: true, updateLibrary: true });
             if (!result.health) throw new Error(result.error || 'Deck Health scan failed.');
             toast(`Deck Health: ${getLorepackHealthStatusDescriptor({ summary: result.health.summary || {}, status: result.health.status }, result.health).label}.`, result.health.errors?.length ? 'error' : (result.health.warnings?.length ? 'warning' : 'success'));
-            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-            refreshHeader();
+            refreshLorepackSurfaces();
         } else {
             clearCanonLoreDatabaseCache();
             clearStoryPositionIndexCache();
@@ -6809,8 +6831,7 @@ async function refreshLorepackHealthReport(button = null) {
         clearCanonLoreDatabaseCache();
         clearStoryPositionIndexCache();
         await loadCanonLoreDatabase();
-        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-        refreshHeader();
+        refreshLorepackSurfaces();
         toast('Deck Health refreshed.', 'success');
     } catch (e) {
         toast(e?.message || 'Deck Health refresh failed.', 'error');
@@ -7068,10 +7089,7 @@ async function registerLorepackManifestFromInput(manifestRef, options = {}) {
         const record = buildLorepackRecordFromManifest(manifest, ref);
         const result = upsertLorepackLibraryPack(record);
         if (!result.ok) throw new Error(result.error || 'Loredeck registration failed.');
-        clearCanonLoreDatabaseCache();
-        clearStoryPositionIndexCache();
-        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-        refreshHeader();
+        refreshLorepackSurfaces({ clearCanon: true, clearStoryPosition: true });
         toast(`${record.title} registered as a ${record.type} Loredeck.`, 'success');
         return result.pack;
     } catch (e) {
@@ -7106,8 +7124,7 @@ function importLorepackLibraryFromFile() {
             if (!result.ok) throw new Error(result.error || 'Import failed.');
             clearCanonLoreDatabaseCache();
             clearStoryPositionIndexCache();
-            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-            refreshHeader();
+            refreshLorepackSurfaces();
             const skipped = result.skippedCount ? ` Skipped ${result.skippedCount} bundled-id conflict(s).` : '';
             toast(`Imported ${result.importedCount || 0} Loredeck record(s).${skipped}`, result.skippedCount ? 'warning' : 'success');
         } catch (e) {
@@ -7438,12 +7455,9 @@ async function commitLorepackBundleInstall(parsed = {}, record = {}, options = {
     if (!result.ok) throw new Error(result.error || 'Loredeck install failed.');
     const installed = result.pack || record;
     cacheInstalledLorepackBundle(installed, parsed);
-    clearCanonLoreDatabaseCache();
-    clearStoryPositionIndexCache();
     selectLorepackForDetails(installed.packId, { refresh: false });
     options.overlay?.remove?.();
-    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-    refreshHeader();
+    refreshLorepackSurfaces({ clearCanon: true, clearStoryPosition: true });
     const message = options.action === 'replace'
         ? `Updated Custom Loredeck: ${installed.title || installed.packId}.`
         : `Installed Custom Loredeck: ${installed.title || installed.packId}.`;
@@ -7820,10 +7834,9 @@ function createLorepackLibraryRow(pack, stack, canonDb, health, categoryText, st
     actions.appendChild(action);
 
     if (pack.type !== 'bundled') {
-        const forget = createButton('Forget', 'Remove this Custom/Generated Loredeck from the global library. Remove it from the active stack first if it is loaded.', () => {
+        const forget = createButton('Delete', 'Delete this Custom/Generated Loredeck from the Library after confirmation.', () => {
             forgetLorepackLibraryPack(pack.packId);
         }, 'wandlight-danger-button');
-        forget.disabled = !!existing;
         actions.appendChild(forget);
     }
     row.appendChild(actions);
@@ -12121,8 +12134,7 @@ async function validateLorepackForEditor(pack, button = null, options = {}) {
         if (options.quiet !== true) {
             const summary = health.summary || {};
             toast(`Deck Health: ${health.status} (${summary.errorCount || 0} errors, ${summary.warningCount || 0} warnings).`, health.errors?.length ? 'error' : (health.warnings?.length ? 'warning' : 'success'));
-            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-            refreshHeader();
+            refreshLorepackSurfaces();
         }
         return { health, manifest, entryCache };
     } catch (e) {
@@ -12189,8 +12201,7 @@ async function repairLorepackSafeHealthIssues(pack, button = null) {
         clearStoryPositionIndexCache();
         lorepackEntryPreviewCache.delete(next.packId);
         await validateLorepackForEditor(next, null, { quiet: true, updateLibrary: true });
-        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-        refreshHeader();
+        refreshLorepackSurfaces();
         toast(`Safe repairs applied: stats refreshed${overrideRepairCount ? `, ${overrideRepairCount} override${overrideRepairCount === 1 ? '' : 's'} repaired` : ''}.`, 'success');
         return true;
     } catch (e) {
@@ -12279,9 +12290,7 @@ async function syncLorepackMetadataFromManifest(pack, button = null) {
                 error: '',
                 loadedAt: Date.now(),
             });
-            clearCanonLoreDatabaseCache();
-            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-            refreshHeader();
+            refreshLorepackSurfaces({ clearCanon: true });
             toast(`${record.title} refreshed from its base manifest.`, 'success');
             return;
         }
@@ -12308,8 +12317,7 @@ async function syncLorepackMetadataFromManifest(pack, button = null) {
         });
         selectLorepackForDetails(record.packId, { refresh: false });
         clearCanonLoreDatabaseCache();
-        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-        refreshHeader();
+        refreshLorepackSurfaces();
         toast(`${record.title} metadata synced from manifest.`, 'success');
     } catch (e) {
         toast(e?.message || 'Metadata sync failed.', 'error');
@@ -12371,8 +12379,7 @@ async function saveLorepackMetadataFromInputs(pack, fields, button = null) {
             lorepackTagRegistryCache.delete(pack.packId);
         }
         clearCanonLoreDatabaseCache();
-        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-        refreshHeader();
+        refreshLorepackSurfaces();
         toast(`${title} metadata saved.`, 'success');
     } catch (e) {
         toast(e?.message || 'Loredeck metadata save failed.', 'error');
@@ -12584,15 +12591,12 @@ async function duplicateLorepackAsCustom(sourcePack, fields, button = null) {
             error: '',
             loadedAt: Date.now(),
         });
-        clearCanonLoreDatabaseCache();
         fields.overlay?.remove?.();
         selectLorepackForDetails(packId, { refresh: false });
         if (fields.addToStackInput.checked) {
             addLorepackToStack(packId);
-        } else {
-            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-            refreshHeader();
         }
+        refreshLorepackSurfaces({ clearCanon: true, clearStoryPosition: true });
         toast(`${title} created as a Custom Loredeck.`, 'success');
     } catch (e) {
         toast(e?.message || 'Loredeck duplication failed.', 'error');
@@ -13531,10 +13535,7 @@ function persistLorepackLibraryRecordMutation(pack, mutator, message, options = 
         toast(result.error || options.errorMessage || 'Loredeck save failed.', 'error');
         return false;
     }
-    clearCanonLoreDatabaseCache();
-    clearStoryPositionIndexCache();
-    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-    refreshHeader();
+    refreshLorepackSurfaces({ clearCanon: true, clearStoryPosition: true });
     if (message) toast(message, 'success');
     return true;
 }
@@ -13691,8 +13692,7 @@ function selectLorepackForDetails(packId, options = {}) {
     state.lorePanel.selectedLorepackId = id;
     saveState(state, { syncPrompt: false });
     if (options.refresh !== false) {
-        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-        refreshHeader();
+        refreshLorepackSurfaces();
     }
 }
 
@@ -13737,21 +13737,57 @@ function formatLorepackCompatibility(compatibility) {
     return formatStructuredValue(compatibility) || 'unset';
 }
 
-function forgetLorepackLibraryPack(packId) {
+async function deleteLorepackLibraryPackWithConfirm(packOrId) {
+    const packId = String(typeof packOrId === 'string' ? packOrId : packOrId?.packId || '').trim();
+    if (!packId) {
+        toast('Missing Loredeck id.', 'warning');
+        return false;
+    }
+    const pack = getLorepackDefinition(packId) || (typeof packOrId === 'object' ? packOrId : null) || { packId };
+    if (pack.type === 'bundled' || DEFAULT_SETTINGS.lorepackLibrary?.packs?.[packId]?.type === 'bundled') {
+        toast('Bundled Loredecks are built into Saga and cannot be deleted.', 'warning');
+        return false;
+    }
+    const title = pack.title || packId;
+    const inStack = getLorepackStack(getState()).some(item => item.packId === packId);
+    const proceed = await confirmAction(
+        'Delete Loredeck?',
+        `Delete "${title}" from your Loredeck Library?${inStack ? ' It will also be removed from the active stack.' : ''} This cannot be undone unless you import or create it again.`
+    );
+    if (!proceed) return false;
+
+    if (inStack) {
+        commitLorepackStackMutation(`Deleted Loredeck ${title} from active stack`, stack => {
+            const index = stack.findIndex(item => item.packId === packId);
+            if (index >= 0) stack.splice(index, 1);
+        });
+    }
     const result = removeLorepackLibraryPack(packId);
     if (!result.ok) {
-        toast(result.error || 'Loredeck could not be removed.', 'warning');
-        return;
+        toast(result.error || 'Loredeck could not be deleted.', 'warning');
+        return false;
     }
-    clearCanonLoreDatabaseCache();
-    clearStoryPositionIndexCache();
+
+    const state = getState();
+    if (state?.lorePanel?.selectedLorepackId === packId) {
+        const nextPack = getLorepackLibrary().find(item => item.packId !== packId) || null;
+        if (!state.lorePanel) state.lorePanel = getDefaultState().lorePanel;
+        state.lorePanel.selectedLorepackId = nextPack?.packId || '';
+        saveState(state, { syncPrompt: false });
+    }
     lorepackManifestPreviewCache.delete(packId);
     lorepackEntryPreviewCache.delete(packId);
     lorepackTimelineRegistryCache.delete(packId);
     lorepackTagRegistryCache.delete(packId);
-    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-    refreshHeader();
-    toast(`${packId} removed from Loredeck Library.`, 'info');
+    lorepackAssistantDraftCache.delete(packId);
+    lorepackHealthRepairSelectionCache.delete(packId);
+    refreshLorepackSurfaces({ clearCanon: true, clearStoryPosition: true });
+    toast(`${title} deleted from Loredeck Library.`, 'info');
+    return true;
+}
+
+function forgetLorepackLibraryPack(packId) {
+    void deleteLorepackLibraryPackWithConfirm(packId);
 }
 
 function commitLorepackStackMutation(summary, mutator) {
@@ -13767,8 +13803,7 @@ function commitLorepackStackMutation(summary, mutator) {
     clearCanonLoreDatabaseCache();
     clearStoryPositionIndexCache();
     saveState(state);
-    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-    refreshHeader();
+    refreshLorepackSurfaces();
     return true;
 }
 

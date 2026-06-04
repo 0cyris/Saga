@@ -1537,6 +1537,110 @@
     max-height: calc(100vh - 24px);
 }
 
+.wandlight-lore-workbench-shell,
+.wandlight-new-lore-shell {
+    --wandlight-bg: rgba(18, 12, 18, 0.97);
+    --wandlight-bg-2: rgba(36, 16, 24, 0.94);
+    --wandlight-surface: rgba(43, 28, 28, 0.74);
+    --wandlight-surface-2: rgba(18, 18, 24, 0.62);
+    --wandlight-border: rgba(185, 139, 54, 0.38);
+    --wandlight-border-soft: rgba(185, 139, 54, 0.18);
+    --wandlight-border-strong: rgba(215, 181, 109, 0.58);
+    --wandlight-gold: #d7b56d;
+    --wandlight-red: #5c1724;
+    --wandlight-green: #1f4a38;
+    --wandlight-focus: #ffeaa7;
+    --wandlight-button: rgba(18, 18, 24, 0.72);
+    --wandlight-button-hover: rgba(92, 23, 36, 0.48);
+    --wandlight-button-text: #f1ead8;
+    --wandlight-input: rgba(18, 18, 24, 0.76);
+    --wandlight-input-border: rgba(185, 139, 54, 0.34);
+    --wandlight-text: #f1ead8;
+    --wandlight-muted: rgba(241, 234, 216, 0.68);
+    font-family: var(--SmartThemeFont, 'Segoe UI', sans-serif);
+    font-size: 12px;
+    color: var(--wandlight-text);
+}
+
+.wandlight-lore-workbench-shell button,
+.wandlight-lore-workbench-shell input,
+.wandlight-lore-workbench-shell select,
+.wandlight-lore-workbench-shell textarea,
+.wandlight-new-lore-shell button,
+.wandlight-new-lore-shell input,
+.wandlight-new-lore-shell select,
+.wandlight-new-lore-shell textarea {
+    font-family: inherit;
+}
+
+.wandlight-lore-workbench-shell .wandlight-runtime-button,
+.wandlight-new-lore-shell .wandlight-runtime-button {
+    min-height: 26px;
+    padding: 5px 9px;
+    border-radius: 6px;
+    background: var(--wandlight-button);
+    border-color: var(--wandlight-border-soft);
+    color: var(--wandlight-button-text);
+    font-size: 0.83em;
+    line-height: 1.2;
+}
+
+.wandlight-lore-workbench-shell .wandlight-runtime-button:hover:not(:disabled),
+.wandlight-new-lore-shell .wandlight-runtime-button:hover:not(:disabled),
+.wandlight-lore-workbench-shell .wandlight-primary-button,
+.wandlight-new-lore-shell .wandlight-primary-button {
+    background: var(--wandlight-button-hover);
+    border-color: var(--wandlight-border-strong);
+    color: var(--wandlight-gold);
+}
+
+.wandlight-lore-workbench-shell .wandlight-runtime-button:disabled,
+.wandlight-new-lore-shell .wandlight-runtime-button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.wandlight-lore-workbench-shell input[type="text"],
+.wandlight-lore-workbench-shell input[type="number"],
+.wandlight-lore-workbench-shell input[type="password"],
+.wandlight-lore-workbench-shell input[type="search"],
+.wandlight-lore-workbench-shell select,
+.wandlight-lore-workbench-shell textarea,
+.wandlight-lore-workbench-shell .text_pole,
+.wandlight-new-lore-shell input[type="text"],
+.wandlight-new-lore-shell input[type="number"],
+.wandlight-new-lore-shell input[type="password"],
+.wandlight-new-lore-shell input[type="search"],
+.wandlight-new-lore-shell select,
+.wandlight-new-lore-shell textarea,
+.wandlight-new-lore-shell .text_pole {
+    min-height: 28px;
+    border: 1px solid var(--wandlight-input-border);
+    border-radius: 6px;
+    background: var(--wandlight-input);
+    color: var(--wandlight-text);
+    font-size: 0.82em;
+}
+
+.wandlight-lore-workbench-shell input[type="range"],
+.wandlight-new-lore-shell input[type="range"],
+.wandlight-lore-workbench-shell input[type="checkbox"],
+.wandlight-new-lore-shell input[type="checkbox"] {
+    accent-color: var(--wandlight-gold);
+}
+
+.wandlight-lore-workbench-shell button:focus-visible,
+.wandlight-lore-workbench-shell input:focus-visible,
+.wandlight-lore-workbench-shell select:focus-visible,
+.wandlight-lore-workbench-shell textarea:focus-visible,
+.wandlight-new-lore-shell button:focus-visible,
+.wandlight-new-lore-shell input:focus-visible,
+.wandlight-new-lore-shell select:focus-visible,
+.wandlight-new-lore-shell textarea:focus-visible {
+    outline: 2px solid var(--wandlight-focus);
+    outline-offset: 2px;
+}
+
 .wandlight-lorepack-library-header {
     flex: 0 0 auto;
 }
