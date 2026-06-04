@@ -15,10 +15,10 @@
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
-        "Year 1",
+        "year-1",
         "1991",
-        "Philosopher's Stone",
-        "Hogwarts"
+        "philosophers-stone",
+        "hogwarts"
       ],
       "priority": 75,
       "status": "active",
@@ -107,10 +107,10 @@
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
-        "Year 2",
+        "year-2",
         "1992",
-        "Chamber Secrets",
-        "Hogwarts"
+        "chamber-secrets",
+        "hogwarts"
       ],
       "priority": 75,
       "status": "active",
@@ -197,10 +197,10 @@
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
-        "Year 3",
+        "year-3",
         "1993",
-        "Azkaban",
-        "Hogwarts"
+        "azkaban",
+        "hogwarts"
       ],
       "priority": 75,
       "status": "active",
@@ -287,10 +287,10 @@
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
-        "Year 4",
+        "year-4",
         "1994",
-        "Triwizard",
-        "Hogwarts"
+        "triwizard",
+        "hogwarts"
       ],
       "priority": 75,
       "status": "active",
@@ -381,10 +381,10 @@
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
-        "Year 5",
+        "year-5",
         "1995",
-        "Order Phoenix",
-        "Ministry"
+        "order-phoenix",
+        "ministry"
       ],
       "priority": 75,
       "status": "active",
@@ -479,10 +479,10 @@
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
-        "Year 6",
+        "year-6",
         "1996",
-        "Half Blood Prince",
-        "Voldemort"
+        "half-blood-prince",
+        "voldemort"
       ],
       "priority": 75,
       "status": "active",
@@ -573,9 +573,9 @@
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
-        "Year 7",
+        "year-7",
         "1997",
-        "Deathly Hallows",
+        "deathly-hallows",
         "war"
       ],
       "priority": 75,

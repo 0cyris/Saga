@@ -41,11 +41,12 @@ Passed:
 - JSON parse smoke across `Lorepacks`, `Lore`, `Presets`, and `manifest.json`.
 - Local visual smoke harness contract: validates the harness, seeded Custom Loredeck, update fixture, runtime panel strings, and CSS hooks.
 - Local visual smoke server self-check: serves the harness and update fixture without external dependencies.
+- First SillyTavern smoke pass: the extension loads without console errors, the shelf opens correctly, and the Loredecks tab renders well enough for focused UX feedback.
 
 ## Known Non-Blockers
 
 - `scripts\audit-canon-preview.mjs --json` reports 417 entries and 296 entries missing `ui.preview` metadata. This is existing lore-quality cleanup work, not a Story Position blocker.
-- No real browser/SillyTavern visual screenshot smoke was run in this checkpoint. The local harness, runbook, and server checks are ready, but the current Codex browser policy blocked local URLs and no local Chrome/Edge/Firefox binary was available from the workspace.
+- Formal screenshot capture is still pending after the first SillyTavern smoke pass. The local harness, runbook, and server checks are ready for repeatable before/after comparison.
 - The current Saga foundation is still uncommitted in the working tree.
 
 ## Next Production Slice
@@ -82,4 +83,9 @@ Position-aware Loredeck retrieval:
 - Done: add source/update handling for installed Loredecks, including check-for-updates from URL/GitHub metadata, GitHub raw/blob URL normalization, content-hash current-version detection, update/reinstall preview prompts, and local-modification warnings.
 - Done: add a local visual smoke harness and contract test for the Saga runtime shelf, seeded Custom Loredeck, Pending Review content, update-source preview fixture, Creator surface, and runtime CSS hooks.
 - Done: add a no-dependency visual smoke server and runbook so the harness can be opened in a normal browser or repeated inside SillyTavern with a concrete screenshot checklist.
-- Next: run the harness inside a real SillyTavern/local browser session and capture screenshots for the Loredeck shelf, install/update previews, Pending Review, Creator, Settings, and runtime injection paths before expanding install formats beyond JSON.
+- Done: complete the first real SillyTavern smoke pass and capture focused Loredecks UX feedback.
+- Done: apply the first low-risk Loredecks feedback fixes: collapsible Loredeck sections with reset defaults, stricter tag ID normalization, HP reference-deck tag cleanup, Lorecard-aligned metadata chips and titles, fullscreen Creator launcher, Saga-styled granularity labels/blurbs, stack arrow controls, individual-deck install focus, and Saga banner/minimized branding assets.
+- Next: run a targeted visual smoke pass in SillyTavern against these fixes, including collapsed-section defaults, Reset Window behavior, Loredeck chip/title styling, HP Deck Health malformed namespace warnings, Creator wizard launch, granularity copy, stack arrows, and runtime header branding.
+- Next: design individual Loredeck bulk export/import from selected Loredecks, producing one JSON file per deck and avoiding whole-library import/export.
+- Next: audit Loredecks actions that still trigger full panel refreshes or scroll snap-to-top behavior.
+- Next: run UX/UI studies before major implementation for Deck Health, the fullscreen Loredeck Library + Stack Loader workbench, and the Story Position editor.

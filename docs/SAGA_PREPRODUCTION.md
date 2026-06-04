@@ -148,8 +148,8 @@ Themepacks should be pure data, like Loredecks. They should not contain executab
     "mutedText": "#cfc5ad"
   },
   "icons": {
-    "brand.compact": "./Images/branding/wandlight-logo-minimized-256.png",
-    "brand.expanded": "./Images/branding/wandlight-logo-expanded-512.png",
+    "brand.compact": "./Images/branding/saga-s-256.png",
+    "brand.expanded": "./Images/branding/saga-banner-512.png",
     "tab.lorepacks": "./Images/runtime-icons/saga_tab_lorepacks_256.png"
   },
   "tags": [
@@ -1582,4 +1582,9 @@ Recent production completed **position-native Loredeck retrieval and HP referenc
 30. Done: add source/update handling for installed Loredecks, including check-for-updates from URL/GitHub metadata, GitHub raw/blob URL normalization, content-hash current-version detection, update/reinstall preview prompts, and local-modification warnings.
 31. Done: add a local visual smoke harness and contract test for the Saga runtime shelf, seeded Custom Loredeck, Pending Review content, update-source preview fixture, Creator surface, and runtime CSS hooks.
 32. Done: add a no-dependency visual smoke server and runbook so the harness can be opened in a normal browser or repeated inside SillyTavern with a concrete screenshot checklist.
-33. Next: run the harness inside a real SillyTavern/local browser session and capture screenshots for the Loredeck shelf, install/update previews, Pending Review, Creator, Settings, and runtime injection paths before expanding install formats beyond JSON.
+33. Done: complete the first real SillyTavern smoke pass. The shelf opens without console errors, the Loredecks tab renders, and the first UX feedback pass is captured.
+34. Done: apply the first low-risk Loredecks feedback fixes: collapsible Loredeck sections with reset defaults, stricter tag ID normalization, HP reference-deck tag cleanup, Lorecard-aligned metadata chips and titles, fullscreen Creator launcher, Saga-styled granularity labels/blurbs, stack arrow controls, individual-deck install focus, and Saga banner/minimized branding assets.
+35. Next: run a targeted visual smoke pass in SillyTavern against these fixes, including collapsed-section defaults, Reset Window behavior, Loredeck chip/title styling, HP Deck Health malformed namespace warnings, Creator wizard launch, granularity copy, stack arrows, and runtime header branding.
+36. Next: design and test individual Loredeck bulk export/import. Export should operate from selected Loredecks, produce one JSON file per deck, avoid whole-library export/import, and treat URL/GitHub updates as a previewed import/reinstall flow that protects locally modified decks.
+37. Next: complete a scroll-preservation audit for Loredecks actions that still trigger full panel refreshes or snap the runtime window to the top.
+38. Next: run UX/UI studies before major implementation for Deck Health, the fullscreen Loredeck Library + Stack Loader workbench, and the Story Position editor. Deck Health especially needs an advisory report model that is clearer without becoming punitive or visually noisy.

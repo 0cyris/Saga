@@ -259,10 +259,10 @@
       "truthStatus": "hidden",
       "revealPolicy": "do_not_reveal",
       "tags": [
-        "Horcrux",
-        "Voldemort",
+        "horcrux",
+        "voldemort",
         "secret",
-        "dark magic"
+        "dark-magic"
       ],
       "priority": 90,
       "status": "active",

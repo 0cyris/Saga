@@ -387,7 +387,11 @@ function cleanLorepackTagRegistryId(value) {
         .trim()
         .replace(/[\r\n]+/g, ' ')
         .replace(/[^\p{L}\p{N} _:\-./]+/gu, '')
-        .replace(/\s+/g, ' ')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/:+/g, ':')
+        .replace(/^[\s:._/-]+|[\s:._/-]+$/g, '')
+        .toLowerCase()
         .slice(0, 96)
         .trim();
 }

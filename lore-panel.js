@@ -410,8 +410,8 @@ const TAB_ICON_PATHS = {
 };
 
 const BRAND_LOGO_PATHS = {
-    compact: './Images/branding/wandlight-logo-minimized-256.png',
-    expanded: './Images/branding/wandlight-logo-expanded-512.png',
+    compact: './Images/branding/saga-s-256.png',
+    expanded: './Images/branding/saga-banner-512.png',
 };
 
 function getLocalAssetSrc(assetPath) {
@@ -1701,12 +1701,41 @@ function renderLorepacksTab(container, state) {
     summary.appendChild(createKeyValue('Stack order', enabled.length ? 'Top to bottom priority' : 'empty', 'Loredeck priority is stored by stack order.'));
     summary.appendChild(createKeyValue('Deck Health', getLorepackHealthText(health), 'Current Deck Health summary for the loaded canon Loredeck.'));
     summary.appendChild(createKeyValue('Position Index', formatStoryPositionIndexSummary(positionIndex), 'Loaded Story Position anchors from enabled Loredeck timeline registries.'));
-    container.appendChild(summary);
+    container.appendChild(createCollapsibleSection(
+        'lorepacks.activeStack',
+        'Active Stack',
+        'Current loaded deck count, priority, health, and Story Position index.',
+        true,
+        summary,
+        { className: 'wandlight-lorepack-collapsible', tooltip: 'Current loaded Loredeck stack summary.' }
+    ));
 
-    container.appendChild(createLorepackHealthReportCard(state, canonDb, health));
+    container.appendChild(createCollapsibleSection(
+        'lorepacks.health',
+        'Deck Health',
+        'Advisory validation report. Full redesign is queued for UX study.',
+        false,
+        () => createLorepackHealthReportCard(state, canonDb, health),
+        { className: 'wandlight-lorepack-collapsible', tooltip: 'Deck Health is advisory and will get a dedicated UI/UX study before major redesign.' }
+    ));
 
-    container.appendChild(createLorepackImportExportCard(state));
-    container.appendChild(createLorepackCreatorCard(state));
+    container.appendChild(createCollapsibleSection(
+        'lorepacks.importExport',
+        'Install / Import',
+        'Install individual Loredeck JSON bundles or register fetchable manifests.',
+        false,
+        () => createLorepackImportExportCard(state),
+        { className: 'wandlight-lorepack-collapsible', tooltip: 'Install or register individual Loredecks. Full-library import/export is intentionally not exposed.' }
+    ));
+
+    container.appendChild(createCollapsibleSection(
+        'lorepacks.creator',
+        'Loredeck Creator',
+        'Start or continue a staged Generated Loredeck draft.',
+        true,
+        () => createLorepackCreatorCard(state),
+        { className: 'wandlight-lorepack-collapsible', tooltip: 'Open the Saga Loredeck Creator wizard or continue the current staged draft.' }
+    ));
 
     const stackCard = document.createElement('div');
     stackCard.className = 'wandlight-runtime-card';
@@ -1724,9 +1753,23 @@ function renderLorepacksTab(container, state) {
         }
         stackCard.appendChild(stackList);
     }
-    container.appendChild(stackCard);
+    container.appendChild(createCollapsibleSection(
+        'lorepacks.loaded',
+        'Loaded Loredecks',
+        'Active play pile ordered from highest to lowest priority.',
+        true,
+        stackCard,
+        { className: 'wandlight-lorepack-collapsible', tooltip: 'Loaded Loredecks participate in retrieval and injection according to stack order.' }
+    ));
 
-    container.appendChild(createLorepackStoryPositionCard(state, positionIndex));
+    container.appendChild(createCollapsibleSection(
+        'lorepacks.storyPosition',
+        'Story Position',
+        'Current timeline position per loaded Loredeck.',
+        false,
+        () => createLorepackStoryPositionCard(state, positionIndex),
+        { className: 'wandlight-lorepack-collapsible', tooltip: 'Current Story Position controls. This surface is queued for a spreadsheet-style UX study.' }
+    ));
 
     const library = document.createElement('div');
     library.className = 'wandlight-runtime-card';
@@ -1739,9 +1782,23 @@ function renderLorepacksTab(container, state) {
         libraryList.appendChild(createLorepackLibraryRow(pack, stack, canonDb, health, categoryText, state));
     }
     library.appendChild(libraryList);
-    container.appendChild(library);
+    container.appendChild(createCollapsibleSection(
+        'lorepacks.library',
+        'Loredeck Library',
+        'Available decks that can be moved into the active stack.',
+        true,
+        library,
+        { className: 'wandlight-lorepack-collapsible', tooltip: 'Available Loredecks. A dedicated loader/library workbench is queued for UX study.' }
+    ));
 
-    container.appendChild(createLorepackDetailCard(state, canonDb, health));
+    container.appendChild(createCollapsibleSection(
+        'lorepacks.details',
+        'Loredeck Details',
+        'Metadata, editor controls, Pending Review, tags, timeline, and assistant tools for the selected deck.',
+        true,
+        () => createLorepackDetailCard(state, canonDb, health),
+        { className: 'wandlight-lorepack-collapsible', tooltip: 'Inspect and edit the selected Loredeck.' }
+    ));
 }
 
 function createLorepackImportExportCard(state) {
@@ -1749,12 +1806,12 @@ function createLorepackImportExportCard(state) {
     card.className = 'wandlight-runtime-card wandlight-lorepack-import-card';
 
     const title = document.createElement('h4');
-    title.textContent = 'Import / Export';
+    title.textContent = 'Install / Import';
     card.appendChild(title);
 
     const help = document.createElement('div');
     help.className = 'wandlight-runtime-help';
-    help.textContent = 'Register a fetchable lorepack.json path or URL. Local JSON file import here imports library metadata only; zip/local deck storage comes in a later slice.';
+    help.textContent = 'Install individual Saga Loredeck JSON bundles, or register a fetchable lorepack.json path from a local URL or GitHub.';
     card.appendChild(help);
 
     const row = document.createElement('div');
@@ -1773,12 +1830,6 @@ function createLorepackImportExportCard(state) {
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
-    actions.appendChild(createButton('Export Library', 'Download registered Loredeck Library metadata as JSON.', () => {
-        exportLorepackLibrary();
-    }));
-    actions.appendChild(createButton('Import Library JSON', 'Import a previously exported Loredeck Library metadata JSON file.', () => {
-        importLorepackLibraryFromFile();
-    }));
     actions.appendChild(createButton('Install Loredeck JSON', 'Install a Saga Loredeck bundle JSON as an editable Custom Loredeck.', () => {
         installLorepackBundleFromFile();
     }, 'wandlight-primary-button'));
@@ -1789,7 +1840,39 @@ function createLorepackImportExportCard(state) {
     return card;
 }
 
-function createLorepackCreatorCard(state = getState()) {
+function openLorepackCreatorWorkbench() {
+    document.querySelector('.wandlight-lorepack-creator-workbench-overlay')?.remove();
+    const overlay = document.createElement('div');
+    overlay.className = 'wandlight-lore-workbench-overlay wandlight-lorepack-creator-workbench-overlay';
+    document.body.appendChild(overlay);
+
+    const shell = document.createElement('div');
+    shell.className = 'wandlight-lore-workbench-shell wandlight-lorepack-creator-workbench-shell';
+    overlay.appendChild(shell);
+
+    const header = document.createElement('div');
+    header.className = 'wandlight-lore-workbench-header';
+    const titleWrap = document.createElement('div');
+    titleWrap.className = 'wandlight-lore-workbench-title-wrap';
+    const title = document.createElement('div');
+    title.className = 'wandlight-lore-workbench-title';
+    title.textContent = 'Loredeck Creator';
+    titleWrap.appendChild(title);
+    const subtitle = document.createElement('div');
+    subtitle.className = 'wandlight-lore-workbench-subtitle';
+    subtitle.textContent = 'Draft a Generated Loredeck in staged, reviewable passes.';
+    titleWrap.appendChild(subtitle);
+    header.appendChild(titleWrap);
+    header.appendChild(createButton('Close', 'Close the Loredeck Creator wizard.', () => overlay.remove()));
+    shell.appendChild(header);
+
+    const body = document.createElement('div');
+    body.className = 'wandlight-lorepack-creator-workbench-body';
+    body.appendChild(createLorepackCreatorCard(getState(), { embedded: true }));
+    shell.appendChild(body);
+}
+
+function createLorepackCreatorCard(state = getState(), options = {}) {
     void state;
     const card = document.createElement('div');
     card.className = 'wandlight-runtime-card wandlight-lorepack-creator-card';
@@ -1821,6 +1904,20 @@ function createLorepackCreatorCard(state = getState()) {
     }
     card.appendChild(summary);
 
+    if (options.embedded !== true) {
+        const launcher = document.createElement('div');
+        launcher.className = 'wandlight-lorepack-creator-launch-row';
+        const launcherText = document.createElement('div');
+        launcherText.className = 'wandlight-lorepack-creator-launch-text';
+        launcherText.textContent = 'Open the Creator as a staged fullscreen wizard.';
+        addTooltip(launcherText, 'The Creator belongs in a larger review-first workspace, similar to the Lorecard Workbench.');
+        launcher.appendChild(launcherText);
+        launcher.appendChild(createButton('Open Creator Wizard', 'Open the fullscreen Loredeck Creator wizard.', () => {
+            openLorepackCreatorWorkbench();
+        }, 'wandlight-primary-button'));
+        card.appendChild(launcher);
+    }
+
     const form = document.createElement('div');
     form.className = 'wandlight-new-lore-form wandlight-lorepack-creator-form';
     const fandomInput = createNewLoreInput(form, 'Fandom', 'Fandom, universe, or canon family.', lorepackCreatorFandom || '', false, 'One Piece');
@@ -1829,6 +1926,14 @@ function createLorepackCreatorCard(state = getState()) {
     grid.className = 'wandlight-new-lore-meta-grid';
     form.appendChild(grid);
     const granularitySelect = createNewLoreSelect(grid, 'Granularity', ['compact', 'focused', 'dense', 'scene_dense'], lorepackCreatorGranularity, formatLorepackCreatorGranularity);
+    const granularityBlurb = document.createElement('div');
+    granularityBlurb.className = 'wandlight-lorepack-granularity-blurb';
+    granularityBlurb.textContent = getLorepackCreatorGranularityBlurb(lorepackCreatorGranularity);
+    addTooltip(granularityBlurb, 'Granularity controls how far Saga zooms into the story when deriving Lorecard titles and metadata.');
+    grid.appendChild(granularityBlurb);
+    granularitySelect.addEventListener('change', () => {
+        granularityBlurb.textContent = getLorepackCreatorGranularityBlurb(granularitySelect.value);
+    });
     const notesInput = createNewLoreInput(form, 'Notes', 'Optional desired focus, exclusions, AU premise, or creator guidance.', lorepackCreatorNotes || '', true, 'Focus on playable secrets, pressure, relationships, and timing. Avoid broad wiki biography.');
     card.appendChild(form);
 
@@ -1896,12 +2001,22 @@ function clearLorepackCreatorBrief() {
 
 function formatLorepackCreatorGranularity(value = '') {
     const known = {
-        compact: 'Compact',
-        focused: 'Focused',
-        dense: 'Dense',
-        scene_dense: 'Scene Dense',
+        compact: 'Constellation View',
+        focused: 'Chapter Lens',
+        dense: 'Scene Loom',
+        scene_dense: 'Lantern Glass',
     };
     return known[String(value || '').trim()] || humanizeScopeKey(value || 'focused');
+}
+
+function getLorepackCreatorGranularityBlurb(value = '') {
+    const blurbs = {
+        compact: 'Only the bright stars: eras, factions, core cast, and broad brushstrokes.',
+        focused: 'A chapter-wise lens: the major beats, secrets, relationships, and pressure points.',
+        dense: 'The scene loom: enough threads for recurring locations, motives, tensions, and reveals.',
+        scene_dense: 'Lantern glass detail: close-up moments, tells, objects, and playable micro-lore.',
+    };
+    return blurbs[String(value || '').trim()] || blurbs.focused;
 }
 
 function createLorepackCreatorBriefReview(brief = {}, cached = {}) {
@@ -5146,11 +5261,13 @@ function createLorepackStackRow(item, index, stackLength, canonDb = null) {
     const actions = document.createElement('div');
     actions.className = 'wandlight-lorepack-row-actions';
 
-    const up = createButton('Up', 'Move this Loredeck higher in the loading priority stack.', () => moveLorepackInStack(item.packId, -1));
+    const up = createButton('↑', 'Move this Loredeck higher in the loading priority stack.', () => moveLorepackInStack(item.packId, -1), 'wandlight-lorepack-stack-arrow');
+    up.setAttribute('aria-label', 'Move Loredeck up');
     up.disabled = index <= 0;
     actions.appendChild(up);
 
-    const down = createButton('Down', 'Move this Loredeck lower in the loading priority stack.', () => moveLorepackInStack(item.packId, 1));
+    const down = createButton('↓', 'Move this Loredeck lower in the loading priority stack.', () => moveLorepackInStack(item.packId, 1), 'wandlight-lorepack-stack-arrow');
+    down.setAttribute('aria-label', 'Move Loredeck down');
     down.disabled = index >= stackLength - 1;
     actions.appendChild(down);
 
@@ -6522,7 +6639,17 @@ function getLorepackOverrideState(pack = {}) {
 }
 
 function normalizeLorepackTagId(value) {
-    return parseLorepackEntryTags([value], 1)[0] || '';
+    return String(value || '')
+        .trim()
+        .replace(/[\r\n]+/g, ' ')
+        .replace(/[^\p{L}\p{N} _:\-./]+/gu, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/:+/g, ':')
+        .replace(/^[\s:._/-]+|[\s:._/-]+$/g, '')
+        .toLowerCase()
+        .slice(0, 96)
+        .trim();
 }
 
 function normalizeLorepackTagColor(value) {
@@ -7015,13 +7142,7 @@ function parseLorepackEntryTags(value, limit = 64) {
     const tags = [];
     const seen = new Set();
     for (const raw of rawItems) {
-        const tag = String(raw || '')
-            .trim()
-            .replace(/[\r\n]+/g, ' ')
-            .replace(/[^\p{L}\p{N} _:\-./]+/gu, '')
-            .replace(/\s+/g, ' ')
-            .slice(0, 96)
-            .trim();
+        const tag = normalizeLorepackTagId(raw);
         if (!tag) continue;
         const key = tag.toLowerCase();
         if (seen.has(key)) continue;

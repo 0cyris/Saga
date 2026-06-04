@@ -1,7 +1,16 @@
 {
-  "brand": "Wandlight",
-  "source": "wandlight_logo_pack_transparent_modified.zip",
+  "brand": "Saga",
+  "source": "saga-banner.png",
   "assets": [
+    "saga-banner-1024.png",
+    "saga-banner-256.png",
+    "saga-banner-512.png",
+    "saga-banner-full.png",
+    "saga-banner.png",
+    "saga-s-128.png",
+    "saga-s-256.png",
+    "saga-s-512.png",
+    "saga-s-64.png",
     "wandlight-logo-expanded-1024.png",
     "wandlight-logo-expanded-256.png",
     "wandlight-logo-expanded-512.png",

@@ -893,10 +893,11 @@
 }
 
 .wandlight-lorepack-row-title {
-    color: #d4c8a8;
-    font-size: 0.86em;
+    color: var(--SmartThemeBodyColor, #e4dccb);
+    font-size: 0.82em;
     font-weight: 700;
-    line-height: 1.25;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
 }
 
 .wandlight-lorepack-row-description {
@@ -913,7 +914,104 @@
 
 .wandlight-lorepack-row-meta .wandlight-status-pill {
     max-width: 100%;
-    white-space: normal;
+    white-space: nowrap;
+}
+
+.wandlight-runtime-tab-body-lorepacks .wandlight-status-pill,
+.wandlight-runtime-tab-body-lorepacks .wandlight-lorepack-row-meta .wandlight-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    min-height: 16px;
+    padding: 0 5px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #d8d0c0;
+    font-size: 0.68em;
+    font-weight: 500;
+    line-height: 1.45;
+    letter-spacing: 0;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+.wandlight-runtime-tab-body-lorepacks .wandlight-status-pill-risk-low,
+.wandlight-runtime-tab-body-lorepacks .wandlight-status-pill-quality-high {
+    border-color: rgba(94, 178, 126, 0.42);
+    background: rgba(94, 178, 126, 0.12);
+}
+
+.wandlight-runtime-tab-body-lorepacks .wandlight-status-pill-risk-medium,
+.wandlight-runtime-tab-body-lorepacks .wandlight-status-pill-health-impact,
+.wandlight-runtime-tab-body-lorepacks .wandlight-status-pill-health-stale,
+.wandlight-runtime-tab-body-lorepacks .wandlight-status-pill-quality-medium,
+.wandlight-runtime-tab-body-lorepacks .wandlight-status-pill-quality-flag {
+    border-color: rgba(226, 177, 98, 0.48);
+    background: rgba(226, 177, 98, 0.13);
+}
+
+.wandlight-runtime-tab-body-lorepacks .wandlight-status-pill-risk-high,
+.wandlight-runtime-tab-body-lorepacks .wandlight-status-pill-quality-low {
+    border-color: rgba(219, 105, 105, 0.52);
+    background: rgba(219, 105, 105, 0.13);
+}
+
+.wandlight-runtime-tab-body-lorepacks .wandlight-status-pill-risk-unknown,
+.wandlight-runtime-tab-body-lorepacks .wandlight-status-pill-quality-not_applicable {
+    border-color: rgba(159, 174, 194, 0.4);
+    background: rgba(159, 174, 194, 0.1);
+}
+
+.wandlight-lorepack-stack-arrow {
+    width: 30px;
+    min-width: 30px;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 1.02em;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.wandlight-lorepack-creator-launch-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 8px;
+    border: 1px solid rgba(185, 139, 54, 0.2);
+    border-radius: 7px;
+    background: rgba(10, 12, 16, 0.28);
+}
+
+.wandlight-lorepack-creator-launch-text {
+    min-width: 0;
+    color: var(--wandlight-muted, rgba(241, 234, 216, 0.72));
+    font-size: 0.78em;
+    line-height: 1.3;
+}
+
+.wandlight-lorepack-granularity-blurb {
+    align-self: stretch;
+    min-height: 34px;
+    display: flex;
+    align-items: center;
+    padding: 6px 8px;
+    border: 1px solid rgba(126, 145, 165, 0.18);
+    border-radius: 7px;
+    background: rgba(10, 12, 16, 0.24);
+    color: var(--wandlight-muted, rgba(241, 234, 216, 0.72));
+    font-size: 0.76em;
+    line-height: 1.3;
+    box-sizing: border-box;
+}
+
+.wandlight-lorepack-creator-workbench-body {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .wandlight-lorepack-detail-card {
@@ -933,10 +1031,10 @@
 }
 
 .wandlight-lorepack-detail-title {
-    color: #d4c8a8;
-    font-size: 0.94em;
+    color: var(--SmartThemeBodyColor, #e4dccb);
+    font-size: 0.88em;
     font-weight: 700;
-    line-height: 1.25;
+    line-height: 1.2;
 }
 
 .wandlight-lorepack-detail-grid {
