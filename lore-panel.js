@@ -4645,10 +4645,22 @@ function createLorepackHealthIssueGroupCard(group, context, options = {}) {
     main.appendChild(title);
     const meta = document.createElement('div');
     meta.className = 'wandlight-lorepack-row-meta';
-    meta.appendChild(createStatusPill(humanizeScopeKey(group.severity), 'Issue severity.'));
-    meta.appendChild(createStatusPill(group.affectedLabel, 'Affected scope.'));
-    if (group.files.length) meta.appendChild(createStatusPill(`${group.files.length} file${group.files.length === 1 ? '' : 's'}`, group.files.join(', ')));
-    if (group.autoFixLabel) meta.appendChild(createStatusPill(group.autoFixLabel, group.autoFixTooltip));
+    const severityPill = createStatusPill(humanizeScopeKey(group.severity), 'Issue severity.');
+    severityPill.classList.add('wandlight-lorepack-health-chip', `wandlight-lorepack-health-chip-${group.severity}`);
+    meta.appendChild(severityPill);
+    const affectedPill = createStatusPill(group.affectedLabel, 'Affected scope.');
+    affectedPill.classList.add('wandlight-lorepack-health-chip', 'wandlight-lorepack-health-chip-affected');
+    meta.appendChild(affectedPill);
+    if (group.files.length) {
+        const filePill = createStatusPill(`${group.files.length} file${group.files.length === 1 ? '' : 's'}`, group.files.join(', '));
+        filePill.classList.add('wandlight-lorepack-health-chip', 'wandlight-lorepack-health-chip-file');
+        meta.appendChild(filePill);
+    }
+    if (group.autoFixLabel) {
+        const fixPill = createStatusPill(group.autoFixLabel, group.autoFixTooltip);
+        fixPill.classList.add('wandlight-lorepack-health-chip', 'wandlight-lorepack-health-chip-fix');
+        meta.appendChild(fixPill);
+    }
     main.appendChild(meta);
     const message = document.createElement('div');
     message.className = 'wandlight-lorepack-health-group-message';
@@ -12465,13 +12477,6 @@ function createProviderSettingsCard(settings = getSettings()) {
     card.appendChild(providers);
 
     card.appendChild(createProviderPresetStatusCard());
-
-    const fallback = document.createElement('div');
-    fallback.className = 'wandlight-primary-actions wandlight-provider-legacy-actions';
-    fallback.appendChild(createButton('Show Extension Panel', 'Scroll to the extension dropdown panel. Provider controls now live in this Settings tab.', () => {
-        openLegacyApiSettingsPanel();
-    }));
-    card.appendChild(fallback);
     return card;
 }
 
@@ -13245,16 +13250,6 @@ async function installBundledProviderPreset() {
     }
 
     return { selectionTouched: previousName !== WANDLIGHT_PROVIDER_PRESET_NAME, restored };
-}
-
-function openLegacyApiSettingsPanel() {
-    const panel = document.getElementById('wandlight_settings');
-    if (!panel) {
-        toast('Extension settings panel is not mounted.', 'warning');
-        return;
-    }
-    panel.scrollIntoView({ block: 'center', behavior: 'smooth' });
-    toast('Provider controls now live in the SAGA runtime Settings tab.', 'info');
 }
 
 function createThemeSettingsCard(settings = getSettings()) {

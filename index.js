@@ -293,7 +293,11 @@ function registerSlashCommands(ctx) {
  */
 async function mountSettingsPanel(ctx) {
     // ── Duplicate panel guard ────────────────────────────────────────────────
-    if (document.getElementById('wandlight_settings')) {
+    const existingPanel = document.getElementById('wandlight_settings');
+    if (existingPanel) {
+        renderSettingsPanel(existingPanel);
+        wireSettingsPanel(existingPanel);
+        installExtensionsMenuButton();
         console.warn(`${LOG_PREFIX} Settings panel already mounted; skipping duplicate mount`);
         return;
     }

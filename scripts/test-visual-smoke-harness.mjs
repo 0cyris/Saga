@@ -6,6 +6,7 @@ const harnessPath = path.join(root, 'tests', 'visual-smoke.html');
 const fixturePath = path.join(root, 'tests', 'fixtures', 'arlong-park-update.saga-lorepack.json');
 const panelPath = path.join(root, 'lore-panel.js');
 const stylePath = path.join(root, 'style.css');
+const settingsTemplatePath = path.join(root, 'settings.html');
 
 function read(file) {
     return fs.readFileSync(file, 'utf8');
@@ -21,6 +22,7 @@ const harness = read(harnessPath);
 const fixture = JSON.parse(read(fixturePath));
 const panel = read(panelPath);
 const style = read(stylePath);
+const settingsTemplate = read(settingsTemplatePath);
 
 assert(harness.includes("import { showLorePanel } from '../lore-panel.js';"), 'Harness must import the real runtime panel.');
 assert(harness.includes('window.SillyTavern'), 'Harness must stub SillyTavern before importing modules.');
@@ -30,6 +32,8 @@ assert(harness.includes("selectedLorepackId: customPack.packId"), 'Harness must 
 assert(harness.includes('pendingChanges'), 'Harness must seed Pending Review content.');
 assert(harness.includes('source: {'), 'Harness must seed source/update metadata.');
 assert(harness.includes('./fixtures/arlong-park-update.saga-lorepack.json'), 'Harness must point at the local update fixture.');
+assert(!settingsTemplate.includes('Provider Settings'), 'Extension menu settings must not expose the old Provider Settings dropdown.');
+assert(!settingsTemplate.includes('API and model controls'), 'Extension menu settings must not expose legacy API/model controls.');
 
 assert(fixture.bundleType === 'saga_lorepack_json', 'Fixture must be a Saga Loredeck bundle.');
 assert(fixture.pack?.packId === 'smoke-arlong-park', 'Fixture pack ID must match the harness deck.');
