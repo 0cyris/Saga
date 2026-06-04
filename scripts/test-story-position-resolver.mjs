@@ -54,6 +54,7 @@ assert.equal(dateResolution.results[0].anchor.id, 'hp.hbp.year_6');
 assert.equal(dateResolution.results[0].matchType, 'date');
 assert.equal(dateResolution.results[0].patch.source, 'header');
 assert.equal(dateResolution.results[0].patch.sceneDate, 'Saturday, Jan 25, 1997');
+assert.equal(dateResolution.results[0].patch.positionSortKey, Math.floor(Date.UTC(1997, 0, 25) / 86400000));
 
 const aliasResolution = resolveStoryPositionsFromContext({
   canonBoundary: 'after Sirius reveal',
@@ -68,6 +69,7 @@ assert.equal(aliasResolution.resolvedCount, 1);
 assert.equal(aliasResolution.results[0].anchor.id, 'hp.poa.sirius_truth_to_trio');
 assert.equal(aliasResolution.results[0].matchType, 'alias');
 assert.equal(aliasResolution.results[0].patch.branchId, 'au-test');
+assert.equal(aliasResolution.results[0].patch.positionSortKey, Math.floor(Date.UTC(1994, 5, 6) / 86400000));
 
 const lockedResolution = resolveStoryPositionsFromContext({
   canonBoundary: 'after Sirius reveal',

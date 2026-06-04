@@ -140,6 +140,11 @@ function parseContextDate(context = {}) {
     return parseDateLike(context.sceneDate || context.subjectiveDate || '', 'exact');
 }
 
+function getDatePositionSortKey(dateRecord = null) {
+    if (!dateRecord || !Number.isFinite(Number(dateRecord.epoch))) return null;
+    return Math.floor(Number(dateRecord.epoch) / 86400000);
+}
+
 function parseAnchorRange(anchor = {}) {
     const from = parseDateLike(anchor.dateRange?.from || '', 'from');
     const to = parseDateLike(anchor.dateRange?.to || anchor.dateRange?.from || '', 'to');
@@ -220,6 +225,8 @@ function confidenceFromAliasScore(score = 0) {
 
 export function buildStoryPositionPatchFromAnchor(anchor = {}, options = {}) {
     const firstDate = cleanString(anchor.dateRange?.from || anchor.dateRange?.to, 80);
+    const firstDateSortKey = getDatePositionSortKey(parseDateLike(firstDate, 'exact'));
+    const anchorSortKey = Number.isFinite(Number(anchor.sortKey)) ? Number(anchor.sortKey) : null;
     return {
         positionType: anchor.positionType || 'anchor',
         anchorId: anchor.id || '',
@@ -227,6 +234,9 @@ export function buildStoryPositionPatchFromAnchor(anchor = {}, options = {}) {
         anchorTo: '',
         label: anchor.label || anchor.id || '',
         sceneDate: firstDate,
+        positionSortKey: Number.isFinite(Number(options.positionSortKey))
+            ? Number(options.positionSortKey)
+            : (firstDateSortKey ?? anchorSortKey),
         arc: anchor.arc || '',
         phase: anchor.phase || '',
         season: anchor.season || '',
@@ -249,6 +259,7 @@ function buildResolutionFromMatch(packId, match, context = {}, options = {}) {
     });
     if (context.sceneDate && match.matchType === 'date') {
         patch.sceneDate = cleanString(context.sceneDate, 80);
+        patch.positionSortKey = getDatePositionSortKey(parseDateLike(context.sceneDate, 'exact')) ?? patch.positionSortKey;
     }
     if (context.branchId) patch.branchId = cleanString(context.branchId, 120) || 'main';
     return {
@@ -307,6 +318,7 @@ function patchChangesPosition(current = {}, patch = {}) {
         'positionType',
         'label',
         'sceneDate',
+        'positionSortKey',
         'anchorId',
         'anchorFrom',
         'anchorTo',

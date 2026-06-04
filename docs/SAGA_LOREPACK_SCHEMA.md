@@ -749,7 +749,7 @@ When both `date` and `position` exist:
 - `position` handles pack-local timeline filtering.
 - An entry should generally be eligible if it matches the active Story Position and does not contradict a hard date bound.
 
-MVP may keep date matching primary for the HP pack, then add position matching incrementally.
+For bundled Saga Lorepacks, `position` should become the primary entry gate. Calendar dates should live mainly in `timeline.json` as resolver coordinates, so a user can pick a date and Saga resolves it to the active Story Position. Date fallback remains for older imported packs and migration safety.
 
 ## Coordinates Block
 
@@ -1382,6 +1382,7 @@ Current retrieval behavior:
 - Entries with a matching `position` block can qualify even when no parseable date exists.
 - A mismatched `position` block blocks the entry.
 - An unresolved `position` block falls back to legacy date matching and receives `positionUnresolvedPenalty` when it still qualifies by date.
+- Bundled Saga packs should migrate toward position-native entries; date-only entry gates are compatibility support, not the desired long-term shape.
 
 These values are a draft. Pack stack order should influence tie-breaks and candidate ranking without making top packs blindly suppress useful lower-pack entries.
 
@@ -1435,6 +1436,7 @@ Each active Lorepack can have its own context.
       "label": "Order of the Phoenix, Year 5",
       "sceneDate": "1995-10-31",
       "subjectiveDate": "",
+      "positionSortKey": 9434,
       "anchorId": "hp.ootp.year_5",
       "anchorFrom": "",
       "anchorTo": "",
@@ -1461,6 +1463,7 @@ Each active Lorepack can have its own context.
       "label": "After Age of Ultron, before Civil War",
       "sceneDate": "",
       "subjectiveDate": "",
+      "positionSortKey": 2400,
       "anchorId": "",
       "anchorFrom": "mcu.age_of_ultron",
       "anchorTo": "mcu.civil_war",
@@ -1483,6 +1486,8 @@ Each active Lorepack can have its own context.
   }
 }
 ```
+
+`positionSortKey` is optional but important for date-capable packs. For Harry Potter, a picked date can resolve to a date-derived sort key while still preserving the chosen anchor/window label. Position-native entries can then use `position.sortKeyFrom` and `position.sortKeyTo` without every calendar day needing a named anchor.
 
 ### Context Sources
 

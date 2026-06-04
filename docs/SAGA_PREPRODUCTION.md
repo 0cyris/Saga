@@ -1132,8 +1132,8 @@ The initial Lorepack foundation is implemented: `hp-golden-trio` is scaffolded, 
 The current production slice is **position-aware Lorepack retrieval**. Build it in small, behavior-preserving steps:
 
 1. Done: normalize entry-level `position` metadata in the lore entry pipeline while preserving legacy `date` and `canonTiming` behavior.
-2. Done: evaluate entry `position` gates against each loaded Lorepack's `lorepackContexts` without blocking legacy HP date-gated entries.
+2. Done: evaluate entry `position` gates against each loaded Lorepack's `lorepackContexts`, while keeping date fallback for older/imported packs.
 3. Done: route position eligibility into canon suggestion candidate selection and relevance scoring.
 4. Done: add visible source and position/gating chips on suggested and pending lore cards.
 5. Done: expand Pack Health for broken anchor references, invalid position windows, and entries that can never match a known Story Position.
-6. Next: add broader compatibility tests for HP legacy date behavior and non-date anchor-window examples beyond the current smoke coverage.
+6. Next: migrate the bundled Harry Potter Lorepack toward position-native entries. Dates remain HP timeline coordinates and user-facing resolver input, but bundled entries should match by Story Position ranges/anchors instead of relying on entry-local date gates.

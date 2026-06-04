@@ -200,6 +200,7 @@ function buildDefaultLorepackStoryPosition(packId = '', legacyContext = {}) {
         label: canonBoundary || sceneDate || '',
         sceneDate,
         subjectiveDate: cleanStoryPositionString(legacyContext?.subjectiveDate, 80),
+        positionSortKey: null,
         anchorId: '',
         anchorFrom: '',
         anchorTo: '',
@@ -233,6 +234,9 @@ function normalizeLorepackStoryPosition(value, packId = '', legacyContext = {}) 
         label: cleanStoryPositionField(input, 'label', 240, defaults.label),
         sceneDate: cleanStoryPositionField(input, 'sceneDate', 80, defaults.sceneDate),
         subjectiveDate: cleanStoryPositionField(input, 'subjectiveDate', 80, defaults.subjectiveDate),
+        positionSortKey: Number.isFinite(Number(input.positionSortKey ?? input.sortKey))
+            ? Number(input.positionSortKey ?? input.sortKey)
+            : defaults.positionSortKey,
         anchorId: cleanStoryPositionField(input, 'anchorId', 180, ''),
         anchorFrom: cleanStoryPositionField(input, 'anchorFrom', 180, ''),
         anchorTo: cleanStoryPositionField(input, 'anchorTo', 180, ''),
