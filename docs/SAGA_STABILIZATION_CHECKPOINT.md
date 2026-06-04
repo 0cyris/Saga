@@ -53,4 +53,9 @@ Position-aware Lorepack retrieval:
 - Done: remove HP entry-local date gates and route canon suggestions through position-native eligibility.
 - Done: add source chips and position/gating chips to suggested and pending lore cards.
 - Done: expand Pack Health checks for invalid position references, broken anchor windows, and entries that can never match a known Story Position.
-- Next: use the HP v3 conformance test as the baseline for Pack Health and creator/export validation.
+- Done: generalize the HP v3 conformance test into reusable Pack Health checks for schema v3 entries, manifest stats, duplicate manifest files, wide-lore retrieval policy, and date-derived timeline sort keys.
+- Done: wire these Pack Health rules into Lorepack editor validation, validated Custom/Generated export, safe repair actions, and schema v3-safe override persistence.
+- Done: add Story Position and retrieval fields to the Custom entry editor so new schema v3 entries can be authored fully instead of only preserving source entry positions.
+- Done: add timeline anchor search/pickers and bulk Story Position editing to make v3 authoring less manual.
+- Done: add bulk tag editing and a first Tag Manager surface for Custom Lorepack entries, including tag counts, tag filtering, add/remove/rename operations, and namespaced tag preservation.
+- Next: wire Tag Manager into `tags.json` registry editing and Pack Health checks for undefined or deprecated tags.

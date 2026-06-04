@@ -7,6 +7,11 @@ const {
   normalizeTimelineRegistryForHealth,
   createTimelineHealthIndex,
   analyzeTimelineWindowHealth,
+  analyzeTimelineDateDerivedSortKeys,
+  analyzeManifestFileListHealth,
+  buildLorepackHealthForData,
+  normalizeLorepackEntryForSchemaV3,
+  repairLorepackEntryForHealth,
   analyzeEntries,
   analyzeEntryPositionHealth,
 } = __lorepackLoaderTestHooks;
@@ -96,19 +101,190 @@ assert.equal(noTimelineHealth.status, 'good');
 const schemaHealth = createHealth('schema-pack');
 analyzeEntries(schemaHealth, [{
   file: 'v3.json',
-  entries: [{
-    schemaVersion: 3,
-    id: 'bad_v3_entry',
-    title: 'Bad V3 Entry',
-    category: 'event',
-    date: { validFrom: '1991-09-01' },
-    position: { scope: 'window', sortKeyFrom: 1, sortKeyTo: 2 },
-    content: { fact: 'Bad.', injection: 'Bad.' },
-  }],
-}]);
+  schemaVersion: 3,
+  entries: [
+    {
+      schemaVersion: 3,
+      id: 'bad_v3_entry',
+      title: 'Bad V3 Entry',
+      category: 'event',
+      date: { validFrom: '1991-09-01' },
+      position: {
+        scope: 'window',
+        sortKeyFrom: 1,
+        sortKeyTo: 365,
+        precision: 'date_window',
+        windowKind: 'wide',
+        label: 'Wide bad',
+      },
+      content: { fact: 'Bad.', injection: 'Bad.' },
+      retrieval: {
+        activation: 'position_or_topic',
+        frequency: 'normal',
+        positionalBoost: 'medium',
+      },
+    },
+    {
+      schemaVersion: 3,
+      id: 'missing_v3_shape',
+      title: 'Missing V3 Shape',
+      category: 'event',
+      content: { fact: 'Bad.', injection: '' },
+    },
+  ],
+}], {
+  stats: {
+    entryCount: 999,
+    categoryCounts: { event: 1 },
+  },
+});
 finalizeHealth(schemaHealth);
-assert.equal(schemaHealth.errors.length, 1);
-assert.equal(schemaHealth.errors[0].code, 'schema_v3_legacy_timing_fields');
+const schemaErrorCodes = schemaHealth.errors.map(issue => issue.code);
+const schemaWarningCodes = schemaHealth.warnings.map(issue => issue.code);
+assert.ok(schemaErrorCodes.includes('schema_v3_legacy_timing_fields'));
+assert.ok(schemaErrorCodes.includes('schema_v3_missing_position'));
+assert.ok(schemaErrorCodes.includes('schema_v3_missing_retrieval'));
+assert.ok(schemaErrorCodes.includes('schema_v3_missing_content'));
+assert.ok(schemaWarningCodes.includes('schema_v3_wide_lore_retrieval'));
+assert.ok(schemaWarningCodes.includes('manifest_entry_count_mismatch'));
+assert.ok(schemaWarningCodes.includes('manifest_category_counts_mismatch'));
+assert.equal(schemaHealth.summary.schemaV3EntryCount, 2);
+assert.equal(schemaHealth.summary.manifestStatsMismatchCount, 2);
 assert.equal(schemaHealth.status, 'has_errors');
+
+const manifestHealth = createHealth('manifest-pack');
+analyzeManifestFileListHealth(manifestHealth, {
+  files: ['entries/a.json', 'entries/a.json'],
+});
+finalizeHealth(manifestHealth);
+assert.equal(manifestHealth.warnings[0].code, 'duplicate_manifest_file');
+assert.equal(manifestHealth.status, 'needs_review');
+
+const dateDerivedHealth = createHealth('timeline-pack');
+const dateDerivedTimeline = createTimelineHealthIndex({
+  ...normalizeTimelineRegistryForHealth({
+    sortKeyScale: 'date-derived-day',
+    anchors: [
+      { id: 'hp.start', sortKey: 1, dateRange: { from: '1991-09-01', to: '1991-09-03' } },
+      { id: 'hp.end', sortKey: 2, dateRange: { from: '1991-09-10', to: '1991-09-12' } },
+    ],
+    windows: [
+      { id: 'hp.window', anchorFrom: 'hp.start', anchorTo: 'hp.end', sortKeyFrom: 1, sortKeyTo: 2 },
+    ],
+  }, 'timeline-pack'),
+  packId: 'timeline-pack',
+  timelineRef: 'timeline.json',
+  hasTimelineRef: true,
+});
+analyzeTimelineDateDerivedSortKeys(dateDerivedHealth, dateDerivedTimeline);
+finalizeHealth(dateDerivedHealth);
+const dateDerivedWarningCodes = dateDerivedHealth.warnings.map(issue => issue.code);
+assert.ok(dateDerivedWarningCodes.includes('timeline_anchor_sortkey_mismatch'));
+assert.ok(dateDerivedWarningCodes.includes('timeline_window_sortkey_mismatch'));
+assert.equal(dateDerivedHealth.status, 'needs_review');
+
+const repairedV3Entry = repairLorepackEntryForHealth({
+  schemaVersion: 3,
+  id: 'wide_override',
+  title: 'Wide Override',
+  category: 'event',
+  fact: 'Legacy top-level fact.',
+  date: { validFrom: '1991-09-01' },
+  publicVersion: 'Legacy public version.',
+  position: {
+    scope: 'global',
+    sortKeyFrom: 1,
+    sortKeyTo: 3650,
+    precision: 'series_window',
+    windowKind: 'series',
+    label: 'Full series',
+  },
+  retrieval: {
+    activation: 'position_or_topic',
+    frequency: 'normal',
+    positionalBoost: 'medium',
+  },
+  content: {
+    fact: 'Content fact.',
+    injection: 'Content injection.',
+  },
+}, { forceSchemaVersion: 3 });
+
+assert.equal(repairedV3Entry.schemaVersion, 3);
+assert.equal(Object.prototype.hasOwnProperty.call(repairedV3Entry, 'fact'), false);
+assert.equal(Object.prototype.hasOwnProperty.call(repairedV3Entry, 'date'), false);
+assert.equal(Object.prototype.hasOwnProperty.call(repairedV3Entry, 'publicVersion'), false);
+assert.equal(repairedV3Entry.content.fact, 'Content fact.');
+assert.equal(repairedV3Entry.retrieval.activation, 'topic_or_entity');
+assert.equal(repairedV3Entry.retrieval.frequency, 'low');
+assert.equal(repairedV3Entry.retrieval.positionalBoost, 'low');
+
+const normalizedV3Entry = normalizeLorepackEntryForSchemaV3({
+  schemaVersion: 3,
+  id: 'normalized_override',
+  title: 'Normalized Override',
+  category: 'event',
+  fact: 'Fallback fact.',
+  content: { injection: 'Injection only.' },
+});
+assert.equal(normalizedV3Entry.content.fact, 'Fallback fact.');
+assert.equal(normalizedV3Entry.content.injection, 'Injection only.');
+assert.equal(Object.prototype.hasOwnProperty.call(normalizedV3Entry, 'fact'), false);
+
+const draftHealth = buildLorepackHealthForData({
+  packId: 'draft-pack',
+  manifest: {
+    id: 'draft-pack',
+    entrySchemaVersion: 3,
+    files: ['entries/core.json'],
+    stats: {
+      entryCount: 1,
+      categoryCounts: { event: 1 },
+    },
+    registries: { timeline: 'timeline.json' },
+  },
+  timeline: {
+    anchors: [
+      { id: 'draft.start', sortKey: 100 },
+      { id: 'draft.end', sortKey: 200 },
+    ],
+    windows: [
+      { id: 'draft.window', anchorFrom: 'draft.start', anchorTo: 'draft.end', sortKeyFrom: 100, sortKeyTo: 200 },
+    ],
+  },
+  entryFiles: [{
+    file: 'entries/core.json',
+    schemaVersion: 3,
+    entries: [{
+      schemaVersion: 3,
+      id: 'draft_entry',
+      title: 'Draft Entry',
+      category: 'event',
+      priority: 50,
+      position: {
+        scope: 'window',
+        validFromAnchor: 'draft.start',
+        validToAnchor: 'draft.end',
+        sortKeyFrom: 100,
+        sortKeyTo: 200,
+        precision: 'anchor_window',
+        windowKind: 'bounded',
+        label: 'Draft window',
+      },
+      retrieval: {
+        activation: 'topic_or_entity',
+        frequency: 'normal',
+        positionalBoost: 'medium',
+      },
+      content: {
+        fact: 'Draft fact.',
+        injection: 'Draft injection.',
+      },
+    }],
+  }],
+});
+assert.equal(draftHealth.status, 'good');
+assert.equal(draftHealth.summary.schemaV3EntryCount, 1);
+assert.equal(draftHealth.summary.manifestStatsMismatchCount, 0);
 
 console.log('Lorepack position health tests passed.');

@@ -367,6 +367,7 @@ function normalizeLorepackRegistry(value, defaults = getDefaultState().lorepackR
             era: String(raw.era || '').trim(),
             author: String(raw.author || '').trim(),
             version: String(raw.version || '').trim(),
+            entrySchemaVersion: Number.isFinite(Number(raw.entrySchemaVersion)) ? Number(raw.entrySchemaVersion) : 0,
             manifest: String(raw.manifest || '').trim(),
             source: {
                 kind: String(source.kind || (type === 'bundled' ? 'bundled' : 'local')).trim(),

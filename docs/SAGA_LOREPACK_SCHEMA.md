@@ -1623,11 +1623,23 @@ Errors:
 - `duplicate_entry_id`
 - `missing_entry_file`
 - `unsupported_schema`
+- `schema_v3_legacy_timing_fields`
+- `schema_v3_missing_position`
+- `schema_v3_invalid_position_scope`
+- `schema_v3_missing_position_sort_keys`
+- `schema_v3_missing_position_precision`
+- `schema_v3_missing_position_label`
+- `schema_v3_missing_retrieval`
+- `schema_v3_incomplete_retrieval`
+- `schema_v3_missing_content`
 
 Warnings:
 
 - `duplicate_pack_loaded`
 - `likely_duplicate_pack`
+- `duplicate_manifest_file`
+- `manifest_entry_count_mismatch`
+- `manifest_category_counts_mismatch`
 - `undefined_tag`
 - `deprecated_tag`
 - `unknown_entity_reference`
@@ -1637,7 +1649,10 @@ Warnings:
 - `unmatchable_position_gate`
 - `story_position_timeline_invalid_ref`
 - `story_position_timeline_load_failed`
+- `timeline_anchor_sortkey_mismatch`
+- `timeline_window_sortkey_mismatch`
 - `duplicate_timeline_anchor_id`
+- `schema_v3_wide_lore_retrieval`
 - `invalid_trigger_expression`
 - `unknown_template_variable`
 - `missing_injection`
@@ -1664,8 +1679,19 @@ Current Story Position health behavior:
 - `broken_anchor_reference` warns when an entry or timeline window references an anchor not defined in the pack timeline registry.
 - `invalid_position_window` warns when anchor sort order or explicit sort keys make a position window start after it ends.
 - `unmatchable_position_gate` warns when an anchor/window-only entry gate cannot match known timeline anchors.
+- `timeline_anchor_sortkey_mismatch` and `timeline_window_sortkey_mismatch` warn when date-derived-day timelines drift from their date ranges.
 - `position_gates_without_timeline` is a suggestion, not a warning, because Custom Lorepacks may be useful before they have a timeline registry.
 - Missing or empty timeline registries never block pack loading.
+
+Current schema v3 health behavior:
+
+- Schema v3 entries must be Story Position-native and use `position` instead of legacy top-level date/timing fields.
+- Schema v3 entries must include `content.fact`, `content.injection`, and retrieval metadata.
+- Wide or global lore remains allowed, but Pack Health warns when it is not configured for conservative topic/entity retrieval.
+- Manifest `stats.entryCount` and `stats.categoryCounts` are checked against loaded entries as warnings, not load blockers.
+- Editor validation, validated Custom/Generated export, and safe repair actions should call the same Pack Health rules as runtime loading.
+- The Custom entry editor should expose Story Position fields, timeline anchor search/pickers, retrieval metadata, and bulk Story Position edits for schema v3 entries.
+- The first Tag Manager surface should preserve namespaced tags and support bulk add, remove, and rename operations through Custom override layers.
 
 ## Import And Export Bundle
 

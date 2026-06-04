@@ -61,6 +61,7 @@ import {
 } from './lore-llm-client.js';
 import { storeNamedApiKey, deleteNamedApiKey, getNamedApiKeyStorageInfo } from './secure-keyring.js';
 import { proposeCanonLoreForContext, previewCanonLoreForContext, addCanonLorePreviewEntriesToPending, getLoreTaxonomySync, loadCanonLoreDatabase, getCanonLoreDatabaseSync, clearCanonLoreDatabaseCache } from './canon-lore-db.js';
+import { buildLorepackHealthForData, normalizeLorepackEntryForSchemaV3, repairLorepackEntryForHealth } from './lorepack-loader.js';
 import { clearStoryPositionIndexCache, findStoryPositionAnchors, getStoryPositionIndexSync, loadStoryPositionIndex } from './story-position-index.js';
 import { resolveAndApplyStoryPositionsFromContext, resolveStoryPositionsWithModel } from './story-position-resolver.js';
 import { runAutoRelevance, applyAutoRelevanceSuggestions, clearAutoRelevanceSuggestions, rejectAutoRelevanceSuggestions } from './auto-relevance.js';
@@ -320,6 +321,7 @@ let bundledProviderPresetCache = null;
 const lorepackManifestPreviewCache = new Map();
 const lorepackEntryPreviewCache = new Map();
 let lorepackEntryOverrideQuery = '';
+let lorepackTagManagerQuery = '';
 
 const CATEGORY_LABELS = {
     all: 'All',
@@ -1907,6 +1909,166 @@ function formatAnchorDateRange(anchor = {}) {
     return from || to || '';
 }
 
+function parseLorepackAnchorDateSortKey(value = '') {
+    const match = String(value || '').trim().match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if (!match) return null;
+    const year = Number(match[1]);
+    const month = Number(match[2]);
+    const day = Number(match[3]);
+    const epoch = Date.UTC(year, month - 1, day);
+    const check = new Date(epoch);
+    if (check.getUTCFullYear() !== year || check.getUTCMonth() + 1 !== month || check.getUTCDate() !== day) return null;
+    return Math.floor(epoch / 86400000);
+}
+
+function getLorepackAnchorStartSortKey(anchor = {}) {
+    const explicit = Number(anchor.sortKey);
+    if (Number.isFinite(explicit)) return explicit;
+    return parseLorepackAnchorDateSortKey(anchor.dateRange?.from || anchor.dateRange?.to || '');
+}
+
+function getLorepackAnchorEndSortKey(anchor = {}) {
+    return parseLorepackAnchorDateSortKey(anchor.dateRange?.to || anchor.dateRange?.from || '') ?? getLorepackAnchorStartSortKey(anchor);
+}
+
+function setLorepackPositionInputValue(input, value) {
+    if (!input) return;
+    input.value = value === null || value === undefined ? '' : String(value);
+}
+
+function applyAnchorToLorepackPositionFields(anchor = {}, fields = {}, mode = 'exact') {
+    if (!fields || !anchor?.id) return;
+    const id = String(anchor.id || '').trim();
+    const label = String(anchor.label || id).trim();
+    const startSort = getLorepackAnchorStartSortKey(anchor);
+    const endSort = getLorepackAnchorEndSortKey(anchor);
+    const precision = anchor.positionType === 'calendar' ? 'date_anchor' : 'anchor';
+
+    if (mode === 'from') {
+        if (fields.scopeSelect) fields.scopeSelect.value = 'window';
+        setLorepackPositionInputValue(fields.validFromAnchorInput, id);
+        setLorepackPositionInputValue(fields.sortKeyFromInput, startSort);
+        if (!fields.precisionInput?.value) setLorepackPositionInputValue(fields.precisionInput, 'anchor_window');
+        if (!fields.labelInput?.value) setLorepackPositionInputValue(fields.labelInput, `After ${label}`);
+        return;
+    }
+
+    if (mode === 'to') {
+        if (fields.scopeSelect) fields.scopeSelect.value = 'window';
+        setLorepackPositionInputValue(fields.validToAnchorInput, id);
+        setLorepackPositionInputValue(fields.sortKeyToInput, endSort);
+        if (!fields.precisionInput?.value) setLorepackPositionInputValue(fields.precisionInput, 'anchor_window');
+        if (!fields.labelInput?.value) setLorepackPositionInputValue(fields.labelInput, `Before ${label}`);
+        return;
+    }
+
+    if (fields.scopeSelect) fields.scopeSelect.value = 'anchor';
+    setLorepackPositionInputValue(fields.anchorIdInput, id);
+    setLorepackPositionInputValue(fields.validFromAnchorInput, id);
+    setLorepackPositionInputValue(fields.validToAnchorInput, id);
+    setLorepackPositionInputValue(fields.sortKeyFromInput, startSort);
+    setLorepackPositionInputValue(fields.sortKeyToInput, endSort);
+    if (fields.windowKindSelect) fields.windowKindSelect.value = 'bounded';
+    setLorepackPositionInputValue(fields.precisionInput, fields.precisionInput?.value || precision);
+    setLorepackPositionInputValue(fields.labelInput, label);
+}
+
+function createLorepackEntryAnchorPicker(pack, positionFields = {}, options = {}) {
+    const box = document.createElement('div');
+    box.className = 'wandlight-story-position-anchor-lookup';
+
+    const top = document.createElement('div');
+    top.className = 'wandlight-story-position-anchor-lookup-top';
+
+    const input = document.createElement('input');
+    input.type = 'search';
+    input.className = 'wandlight-lore-editor-input';
+    input.placeholder = 'Search timeline anchors';
+    addTooltip(input, 'Search this Lorepack timeline by book, event, arc, alias, date, or tag.');
+    input.addEventListener('click', e => e.stopPropagation());
+    input.addEventListener('mousedown', e => e.stopPropagation());
+    top.appendChild(input);
+
+    const results = document.createElement('div');
+    results.className = 'wandlight-story-position-anchor-results';
+
+    const renderResults = () => {
+        results.innerHTML = '';
+        const positionIndex = getStoryPositionIndexSync();
+        const packId = String(pack?.packId || '').trim();
+        const query = input.value.trim();
+        const packIndex = getStoryPositionPackSummary(positionIndex, packId);
+        if (!positionIndex) {
+            results.appendChild(createEmptyMessage('Position index is loading. Load this Lorepack in the active stack to search anchors.'));
+            return;
+        }
+        if (!packIndex?.hasIndex) {
+            results.appendChild(createEmptyMessage('No loaded timeline registry for this Lorepack. Add it to the active stack or inspect a pack with timeline data.'));
+            return;
+        }
+        if (!query) {
+            results.appendChild(createEmptyMessage('Search by event, book, arc, date, alias, or tag.'));
+            return;
+        }
+        const matches = findStoryPositionAnchors(query, { packId, limit: options.limit || 8, index: positionIndex });
+        if (!matches.length) {
+            results.appendChild(createEmptyMessage('No matching anchors.'));
+            return;
+        }
+        for (const anchor of matches) {
+            results.appendChild(createLorepackEntryAnchorPickerResult(anchor, positionFields));
+        }
+    };
+
+    top.appendChild(createButton('Find', 'Search timeline anchors in this Lorepack.', renderResults));
+    input.addEventListener('keydown', event => {
+        if (event.key !== 'Enter') return;
+        event.preventDefault();
+        renderResults();
+    });
+    box.appendChild(top);
+    results.appendChild(createEmptyMessage('Search loaded timeline anchors to fill Story Position fields.'));
+    box.appendChild(results);
+    return box;
+}
+
+function createLorepackEntryAnchorPickerResult(anchor = {}, positionFields = {}) {
+    const row = document.createElement('div');
+    row.className = 'wandlight-story-position-anchor-result';
+
+    const main = document.createElement('div');
+    main.className = 'wandlight-story-position-anchor-main';
+    const title = document.createElement('div');
+    title.className = 'wandlight-story-position-anchor-title';
+    title.textContent = anchor.label || anchor.id || 'Anchor';
+    main.appendChild(title);
+    const meta = document.createElement('div');
+    meta.className = 'wandlight-story-position-anchor-meta';
+    meta.textContent = [
+        anchor.id,
+        formatAnchorDateRange(anchor),
+        anchor.book,
+        anchor.arc,
+        anchor.aliases?.slice(0, 2).join(', '),
+    ].filter(Boolean).join(' | ');
+    main.appendChild(meta);
+    row.appendChild(main);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-lorepack-row-actions';
+    actions.appendChild(createButton('Exact', 'Use this anchor as the exact position.', () => {
+        applyAnchorToLorepackPositionFields(anchor, positionFields, 'exact');
+    }, 'wandlight-primary-button'));
+    actions.appendChild(createButton('From', 'Use this anchor as the start of a position window.', () => {
+        applyAnchorToLorepackPositionFields(anchor, positionFields, 'from');
+    }));
+    actions.appendChild(createButton('To', 'Use this anchor as the end of a position window.', () => {
+        applyAnchorToLorepackPositionFields(anchor, positionFields, 'to');
+    }));
+    row.appendChild(actions);
+    return row;
+}
+
 function createStoryPositionAnchorLookup(packId, positionIndex = getStoryPositionIndexSync()) {
     const box = document.createElement('div');
     box.className = 'wandlight-story-position-anchor-lookup';
@@ -2261,6 +2423,9 @@ function createLorepackHealthReportCard(state, canonDb = null, health = null) {
     grid.appendChild(createLorepackHealthMetric('Stack Duplicates', String(report.duplicateEntryIdCount || 0), 'Duplicate entry IDs resolved by stack priority.'));
     grid.appendChild(createLorepackHealthMetric('Position Gates', String(summary.positionGateCount || 0), 'Entries with Story Position gates.'));
     grid.appendChild(createLorepackHealthMetric('Timeline', `${summary.timelineAnchorCount || 0}/${summary.timelineWindowCount || 0}`, 'Loaded Story Position anchors/windows.'));
+    grid.appendChild(createLorepackHealthMetric('Schema v3', String(summary.schemaV3EntryCount || 0), 'Loaded entries checked against Saga schema v3 rules.'));
+    grid.appendChild(createLorepackHealthMetric('v3 Issues', String(summary.schemaV3IssueCount || 0), 'Schema v3 Pack Health issues across loaded entries.'));
+    grid.appendChild(createLorepackHealthMetric('Stats Drift', String(summary.manifestStatsMismatchCount || 0), 'Manifest stats mismatches found during validation.'));
     grid.appendChild(createLorepackHealthMetric('Anchor Issues', String(summary.brokenAnchorReferenceCount || 0), 'Broken Story Position anchor references.'));
     grid.appendChild(createLorepackHealthMetric('Window Issues', String(summary.invalidPositionWindowCount || 0), 'Invalid Story Position windows.'));
     grid.appendChild(createLorepackHealthMetric('Unmatchable', String(summary.unmatchablePositionGateCount || 0), 'Position-gated entries that cannot match known Story Position anchors.'));
@@ -2579,6 +2744,7 @@ function buildLorepackRecordFromManifest(manifest, manifestRef) {
         era: String(manifest.era || '').trim(),
         author: String(manifest.author || '').trim(),
         version: String(manifest.version || '').trim(),
+        entrySchemaVersion: Number.isFinite(Number(manifest.entrySchemaVersion)) ? Number(manifest.entrySchemaVersion) : 0,
         manifest: String(manifestRef || '').trim(),
         source: {
             kind: isRemote ? 'url' : 'path',
@@ -2623,6 +2789,9 @@ function buildEmbeddedCustomManifest(sourceManifest = {}, metadata = {}) {
     manifest.era = String(metadata.era || manifest.era || '').trim();
     manifest.author = String(metadata.author || manifest.author || '').trim();
     manifest.version = String(metadata.version || manifest.version || '1.0.0').trim();
+    if (Number.isFinite(Number(metadata.entrySchemaVersion)) && Number(metadata.entrySchemaVersion) > 0) {
+        manifest.entrySchemaVersion = Number(metadata.entrySchemaVersion);
+    }
     manifest.tags = Array.isArray(metadata.tags) ? metadata.tags : (Array.isArray(manifest.tags) ? manifest.tags : []);
     manifest.source = metadata.source || manifest.source || {};
     manifest.update = {
@@ -2955,6 +3124,11 @@ function createLorepackDetailCard(state, canonDb = null, health = null) {
     }, 'wandlight-primary-button');
     refreshButton.disabled = !pack.manifest;
     actions.appendChild(refreshButton);
+    const validateButton = createButton('Validate Pack', 'Load this Lorepack data and run Pack Health validation with the same rules used at runtime.', async (btn) => {
+        await validateLorepackForEditor(pack, btn);
+    });
+    validateButton.disabled = !pack.manifest;
+    actions.appendChild(validateButton);
     actions.appendChild(createButton('Duplicate as Custom', 'Create a Custom Lorepack copy with its own pack ID and metadata.', () => {
         openDuplicateLorepackDialog(pack);
     }));
@@ -2978,6 +3152,18 @@ function createLorepackDetailCard(state, canonDb = null, health = null) {
         });
         syncButton.disabled = !pack.manifest;
         actions.appendChild(syncButton);
+
+        const repairButton = createButton('Repair Safe Issues', 'Apply safe Pack Health repairs to Custom metadata and existing overrides.', async (btn) => {
+            await repairLorepackSafeHealthIssues(pack, btn);
+        });
+        repairButton.disabled = !pack.manifest;
+        actions.appendChild(repairButton);
+
+        const exportButton = createButton('Export Validated Draft', 'Validate this Custom/Generated Lorepack record, then export it with Pack Health metadata.', async (btn) => {
+            await exportValidatedLorepackDraft(pack, btn);
+        });
+        exportButton.disabled = !pack.manifest;
+        actions.appendChild(exportButton);
     } else {
         const note = document.createElement('div');
         note.className = 'wandlight-runtime-help';
@@ -3055,6 +3241,17 @@ function createLorepackManifestPreview(pack) {
     summary.appendChild(createKeyValue('Update URL', manifest.update?.url || pack.source?.updateUrl || 'none', 'Optional update-check source for creator-published packs.'));
     preview.appendChild(summary);
 
+    if (cached.health) {
+        const validation = document.createElement('div');
+        validation.className = 'wandlight-lorepack-detail-grid';
+        const healthSummary = cached.health.summary || {};
+        validation.appendChild(createKeyValue('Validation', cached.health.status || 'unknown', 'Latest Pack Health validation run from the Lorepack editor/export path.'));
+        validation.appendChild(createKeyValue('Validation Issues', `${healthSummary.errorCount || 0} errors / ${healthSummary.warningCount || 0} warnings / ${healthSummary.suggestionCount || 0} suggestions`, 'Issue counts from latest validation.'));
+        validation.appendChild(createKeyValue('Schema v3', `${healthSummary.schemaV3EntryCount || 0} entries / ${healthSummary.schemaV3IssueCount || 0} issues`, 'Schema v3 conformance count from latest validation.'));
+        validation.appendChild(createKeyValue('Stats Drift', String(healthSummary.manifestStatsMismatchCount || 0), 'Manifest stats mismatches from latest validation.'));
+        preview.appendChild(validation);
+    }
+
     const fileList = document.createElement('div');
     fileList.className = 'wandlight-lorepack-file-list';
     for (const file of files.slice(0, 14)) {
@@ -3103,6 +3300,10 @@ function createLorepackEntryOverrideCard(pack) {
     help.textContent = 'Overrides are stored in the Custom Lorepack library record. They do not edit bundled files.';
     card.appendChild(help);
 
+    const rows = getLorepackEditableEntryRows(pack, cached?.entries || []);
+    const filteredRows = filterLorepackEditableEntryRows(rows, lorepackEntryOverrideQuery);
+    const bulkRows = lorepackEntryOverrideQuery ? filteredRows : rows;
+
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
     const loadButton = createButton(cached?.entries?.length ? 'Reload Entries' : 'Load Entries', 'Fetch source entry files for browsing and editing.', async (btn) => {
@@ -3113,13 +3314,31 @@ function createLorepackEntryOverrideCard(pack) {
     actions.appendChild(createButton('New Entry', 'Create a new custom entry in this Lorepack.', () => {
         openLorepackEntryOverrideDialog(pack, null);
     }));
+    const bulkTagsButton = createButton('Bulk Tags', 'Add, remove, or rename tags for loaded entries or the current search result.', () => {
+        openLorepackBulkTagsDialog(pack, bulkRows);
+    });
+    bulkTagsButton.disabled = !bulkRows.length;
+    actions.appendChild(bulkTagsButton);
+    const bulkButton = createButton('Bulk Position', 'Apply one Story Position and retrieval block to loaded entries or the current search result.', () => {
+        openLorepackBulkPositionDialog(pack, bulkRows);
+    });
+    bulkButton.disabled = !bulkRows.length;
+    actions.appendChild(bulkButton);
+    if (state.overrideCount) {
+        actions.appendChild(createButton('Repair Overrides', 'Apply safe schema v3 repairs to saved override entries.', async (btn) => {
+            await repairLorepackSafeHealthIssues(pack, btn);
+        }));
+    }
     card.appendChild(actions);
 
     if (cached?.error) {
         card.appendChild(createKeyValue('Load Error', cached.error, 'Last entry load error.'));
     }
 
-    const rows = getLorepackEditableEntryRows(pack, cached?.entries || []);
+    if (rows.length) {
+        card.appendChild(createLorepackTagManagerCard(pack, rows, filteredRows));
+    }
+
     if (rows.length) {
         const search = document.createElement('input');
         search.type = 'text';
@@ -3144,7 +3363,7 @@ function createLorepackEntryOverrideCard(pack) {
 
         const list = document.createElement('div');
         list.className = 'wandlight-lorepack-entry-list';
-        const visible = filterLorepackEditableEntryRows(rows, lorepackEntryOverrideQuery).slice(0, 30);
+        const visible = filteredRows.slice(0, 30);
         for (const row of visible) {
             list.appendChild(createLorepackEntryOverrideRow(pack, row));
         }
@@ -3192,6 +3411,207 @@ function getLorepackOverrideState(pack = {}) {
     };
 }
 
+function parseLorepackEntryTags(value, limit = 64) {
+    const rawItems = Array.isArray(value)
+        ? value.flatMap(item => Array.isArray(item) ? item : [item])
+        : String(value || '').split(/[,;\n\r]+/);
+    const tags = [];
+    const seen = new Set();
+    for (const raw of rawItems) {
+        const tag = String(raw || '')
+            .trim()
+            .replace(/[\r\n]+/g, ' ')
+            .replace(/[^\p{L}\p{N} _:\-./]+/gu, '')
+            .replace(/\s+/g, ' ')
+            .slice(0, 96)
+            .trim();
+        if (!tag) continue;
+        const key = tag.toLowerCase();
+        if (seen.has(key)) continue;
+        seen.add(key);
+        tags.push(tag);
+        if (tags.length >= limit) break;
+    }
+    return tags;
+}
+
+function mergeLorepackEntryTags(current = [], additions = []) {
+    const tags = parseLorepackEntryTags(current);
+    const seen = new Set(tags.map(tag => tag.toLowerCase()));
+    for (const tag of parseLorepackEntryTags(additions)) {
+        const key = tag.toLowerCase();
+        if (seen.has(key)) continue;
+        seen.add(key);
+        tags.push(tag);
+    }
+    return tags.slice(0, 64);
+}
+
+function removeLorepackEntryTags(current = [], removals = []) {
+    const removeSet = new Set(parseLorepackEntryTags(removals).map(tag => tag.toLowerCase()));
+    if (!removeSet.size) return parseLorepackEntryTags(current);
+    return parseLorepackEntryTags(current).filter(tag => !removeSet.has(tag.toLowerCase()));
+}
+
+function replaceLorepackEntryTag(current = [], fromTag = '', toTag = '') {
+    const from = parseLorepackEntryTags([fromTag])[0] || '';
+    if (!from) return parseLorepackEntryTags(current);
+    const to = parseLorepackEntryTags([toTag])[0] || '';
+    const next = removeLorepackEntryTags(current, [from]);
+    return to ? mergeLorepackEntryTags(next, [to]) : next;
+}
+
+function getLorepackEntryTags(entry = {}) {
+    return parseLorepackEntryTags(Array.isArray(entry.tags) ? entry.tags : []);
+}
+
+function getLorepackEntryRowsForBulk(rows = []) {
+    return (rows || []).filter(row => row?.id && !row.disabled);
+}
+
+function buildLorepackTagStats(rows = []) {
+    const map = new Map();
+    for (const row of rows || []) {
+        if (row?.disabled) continue;
+        for (const tag of getLorepackEntryTags(row.entry || {})) {
+            const key = tag.toLowerCase();
+            if (!map.has(key)) {
+                map.set(key, {
+                    tag,
+                    count: 0,
+                    overrideCount: 0,
+                    sourceCount: 0,
+                    entryIds: [],
+                });
+            }
+            const item = map.get(key);
+            item.count += 1;
+            if (row.overrideEntry) item.overrideCount += 1;
+            else item.sourceCount += 1;
+            if (item.entryIds.length < 50) item.entryIds.push(row.id);
+        }
+    }
+    return Array.from(map.values()).sort((a, b) => b.count - a.count || a.tag.localeCompare(b.tag));
+}
+
+function createLorepackTagManagerCard(pack, rows = [], filteredRows = []) {
+    const wrap = document.createElement('div');
+    wrap.className = 'wandlight-lorepack-manifest-preview';
+
+    const title = document.createElement('div');
+    title.className = 'wandlight-runtime-card-title';
+    title.textContent = 'Tag Manager';
+    wrap.appendChild(title);
+
+    const allStats = buildLorepackTagStats(rows);
+    const targetRows = lorepackEntryOverrideQuery ? filteredRows : rows;
+    const editableTargetCount = getLorepackEntryRowsForBulk(targetRows).length;
+
+    const summary = document.createElement('div');
+    summary.className = 'wandlight-lorepack-entry-summary';
+    summary.appendChild(createStatusPill(`${allStats.length} tag${allStats.length === 1 ? '' : 's'}`, 'Unique tags across loaded source entries and saved overrides.'));
+    summary.appendChild(createStatusPill(`${editableTargetCount} target entr${editableTargetCount === 1 ? 'y' : 'ies'}`, 'Entries affected by bulk tag actions. Current entry search narrows this target set.'));
+    if (lorepackEntryOverrideQuery) summary.appendChild(createStatusPill('Search scoped', 'Bulk tag actions will target the current entry search result.'));
+    wrap.appendChild(summary);
+
+    const help = document.createElement('div');
+    help.className = 'wandlight-runtime-help';
+    help.textContent = 'Tags are edited through Custom overrides. Use entry search first to narrow bulk tag actions to a subset.';
+    wrap.appendChild(help);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    const bulk = createButton('Bulk Tags', 'Add, remove, or rename tags for the current target entries.', () => {
+        openLorepackBulkTagsDialog(pack, targetRows);
+    }, 'wandlight-primary-button');
+    bulk.disabled = !editableTargetCount;
+    actions.appendChild(bulk);
+    wrap.appendChild(actions);
+
+    const search = document.createElement('input');
+    search.type = 'search';
+    search.className = 'wandlight-lorepack-entry-search';
+    search.placeholder = 'Search tags...';
+    search.value = lorepackTagManagerQuery || '';
+    addTooltip(search, 'Search tags by namespace or label.');
+    search.addEventListener('click', e => e.stopPropagation());
+    search.addEventListener('mousedown', e => e.stopPropagation());
+    search.addEventListener('keydown', e => {
+        if (e.key !== 'Enter') return;
+        e.preventDefault();
+        lorepackTagManagerQuery = search.value;
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    });
+    search.addEventListener('change', () => {
+        lorepackTagManagerQuery = search.value;
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    });
+    wrap.appendChild(search);
+
+    const q = String(lorepackTagManagerQuery || '').trim().toLowerCase();
+    const visible = allStats
+        .filter(item => !q || item.tag.toLowerCase().includes(q))
+        .slice(0, 24);
+
+    if (!visible.length) {
+        wrap.appendChild(createEmptyMessage(allStats.length ? 'No matching tags.' : 'No tags found in loaded entries.'));
+        return wrap;
+    }
+
+    const list = document.createElement('div');
+    list.className = 'wandlight-lorepack-entry-list';
+    for (const item of visible) {
+        list.appendChild(createLorepackTagManagerRow(pack, rows, item));
+    }
+    if (visible.length < allStats.length) {
+        const more = document.createElement('div');
+        more.className = 'wandlight-runtime-help';
+        more.textContent = `Showing ${visible.length} of ${allStats.length} tags. Search to narrow the list.`;
+        list.appendChild(more);
+    }
+    wrap.appendChild(list);
+    return wrap;
+}
+
+function createLorepackTagManagerRow(pack, rows = [], item = {}) {
+    const row = document.createElement('div');
+    row.className = 'wandlight-lorepack-entry-row';
+
+    const main = document.createElement('div');
+    main.className = 'wandlight-lorepack-row-main';
+    const title = document.createElement('div');
+    title.className = 'wandlight-lorepack-row-title';
+    title.textContent = item.tag || 'tag';
+    main.appendChild(title);
+    const desc = document.createElement('div');
+    desc.className = 'wandlight-lorepack-row-description';
+    desc.textContent = `${item.count || 0} entr${item.count === 1 ? 'y' : 'ies'} use this tag.`;
+    main.appendChild(desc);
+    const meta = document.createElement('div');
+    meta.className = 'wandlight-lorepack-row-meta';
+    meta.appendChild(createStatusPill(`${item.count || 0} total`, 'Total entries with this tag.'));
+    if (item.overrideCount) meta.appendChild(createStatusPill(`${item.overrideCount} override${item.overrideCount === 1 ? '' : 's'}`, 'Saved overrides using this tag.'));
+    if (item.sourceCount) meta.appendChild(createStatusPill(`${item.sourceCount} source`, 'Source entries using this tag.'));
+    main.appendChild(meta);
+    row.appendChild(main);
+
+    const tagRows = rows.filter(entryRow => getLorepackEntryTags(entryRow.entry || {}).some(tag => tag.toLowerCase() === String(item.tag || '').toLowerCase()));
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-lorepack-row-actions';
+    actions.appendChild(createButton('Filter', 'Filter entry rows to this tag.', () => {
+        lorepackEntryOverrideQuery = item.tag || '';
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    }));
+    actions.appendChild(createButton('Rename', 'Rename this tag across entries that currently use it.', () => {
+        openLorepackBulkTagsDialog(pack, tagRows, { mode: 'replace', fromTag: item.tag || '' });
+    }));
+    actions.appendChild(createButton('Remove', 'Remove this tag across entries that currently use it.', () => {
+        openLorepackBulkTagsDialog(pack, tagRows, { mode: 'remove', removeTags: item.tag || '' });
+    }, 'wandlight-danger-button'));
+    row.appendChild(actions);
+    return row;
+}
+
 function getLorepackEditableEntryRows(pack, sourceEntries = []) {
     const state = getLorepackOverrideState(pack);
     const sourceMap = new Map();
@@ -3236,6 +3656,8 @@ function filterLorepackEditableEntryRows(rows, query) {
             row.status,
             entry.title,
             entry.fact,
+            entry.content?.fact,
+            entry.content?.injection,
             entry.category,
             entry.canon || entry.canonStatus,
             ...(Array.isArray(entry.tags) ? entry.tags : []),
@@ -3264,6 +3686,8 @@ function createLorepackEntryOverrideRow(pack, row) {
     meta.appendChild(createStatusPill(row.id, 'Lore entry ID.'));
     if (row.entry?.category) meta.appendChild(createStatusPill(row.entry.category, 'Entry category.'));
     if (row.entry?.relevance) meta.appendChild(createStatusPill(row.entry.relevance, 'Entry relevance tier.'));
+    if (row.entry?.position?.label) meta.appendChild(createStatusPill(row.entry.position.label, 'Story Position label for this entry.'));
+    if (row.entry?.retrieval?.activation) meta.appendChild(createStatusPill(row.entry.retrieval.activation, 'Retrieval activation mode.'));
     main.appendChild(meta);
     wrap.appendChild(main);
 
@@ -3300,6 +3724,62 @@ async function fetchJsonForLorepackEditor(url) {
     }
 }
 
+async function fetchLorepackEntryFilesForEditor(pack, manifest = null, baseUrl = null) {
+    const displayManifest = manifest || await getDisplayManifestForPack(pack);
+    const resolvedBaseUrl = baseUrl || resolveManifestUrlForFetch(pack.manifest);
+    if (!resolvedBaseUrl) throw new Error('Lorepack needs a fetchable base manifest path to load entries.');
+    const entries = [];
+    const entryFiles = [];
+    for (const file of Array.isArray(displayManifest.files) ? displayManifest.files : []) {
+        const filePath = String(file || '').trim();
+        if (!filePath) continue;
+        try {
+            const json = await fetchJsonForLorepackEditor(new URL(filePath, resolvedBaseUrl));
+            const fileEntries = entryListFromLorepackFileJson(json)
+                .filter(entry => entry && typeof entry === 'object' && !Array.isArray(entry))
+                .map(entry => ({
+                    ...entry,
+                    schemaVersion: entry.schemaVersion || json?.schemaVersion || displayManifest.entrySchemaVersion || 2,
+                    extensions: {
+                        ...(entry.extensions || {}),
+                        sagaLorepackSourceFile: filePath,
+                    },
+                }));
+            entries.push(...fileEntries);
+            entryFiles.push({
+                file: filePath,
+                url: new URL(filePath, resolvedBaseUrl),
+                ok: true,
+                json,
+                entries: fileEntries,
+                schemaVersion: json?.schemaVersion || displayManifest.entrySchemaVersion || 2,
+            });
+        } catch (e) {
+            console.warn('[Wandlight] Lorepack entry file failed in editor:', filePath, e);
+            entryFiles.push({
+                file: filePath,
+                url: null,
+                ok: false,
+                json: null,
+                entries: [],
+                schemaVersion: 0,
+                error: e?.message || 'Entry file failed to load.',
+            });
+        }
+    }
+    return { manifest: displayManifest, baseUrl: resolvedBaseUrl, entries, entryFiles };
+}
+
+async function fetchLorepackTimelineForEditor(manifest = {}, baseUrl = null) {
+    if (!baseUrl) return null;
+    const registries = manifest?.registries && typeof manifest.registries === 'object' && !Array.isArray(manifest.registries)
+        ? manifest.registries
+        : {};
+    const ref = String(registries.timeline || manifest.timeline || '').trim();
+    if (!ref) return null;
+    return fetchJsonForLorepackEditor(new URL(ref, baseUrl));
+}
+
 async function loadLorepackEntriesForEditor(pack, button = null) {
     const originalText = button?.textContent;
     if (button) {
@@ -3307,31 +3787,10 @@ async function loadLorepackEntriesForEditor(pack, button = null) {
         button.textContent = 'Loading...';
     }
     try {
-        const manifest = await getDisplayManifestForPack(pack);
-        const baseUrl = resolveManifestUrlForFetch(pack.manifest);
-        if (!baseUrl) throw new Error('Lorepack needs a fetchable base manifest path to load entries.');
-        const entries = [];
-        for (const file of Array.isArray(manifest.files) ? manifest.files : []) {
-            const filePath = String(file || '').trim();
-            if (!filePath) continue;
-            try {
-                const json = await fetchJsonForLorepackEditor(new URL(filePath, baseUrl));
-                for (const entry of entryListFromLorepackFileJson(json)) {
-                    if (!entry || typeof entry !== 'object') continue;
-                    entries.push({
-                        ...entry,
-                        extensions: {
-                            ...(entry.extensions || {}),
-                            sagaLorepackSourceFile: filePath,
-                        },
-                    });
-                }
-            } catch (e) {
-                console.warn('[Wandlight] Lorepack entry file failed in editor:', filePath, e);
-            }
-        }
+        const { entries, entryFiles } = await fetchLorepackEntryFilesForEditor(pack);
         lorepackEntryPreviewCache.set(pack.packId, {
             entries,
+            entryFiles,
             error: '',
             loadedAt: Date.now(),
         });
@@ -3388,6 +3847,203 @@ async function loadLorepackManifestPreview(pack, button = null) {
     }
 }
 
+function getCachedLorepackManifest(packId) {
+    const cached = lorepackManifestPreviewCache.get(String(packId || '').trim());
+    return cached?.manifest && typeof cached.manifest === 'object' && !Array.isArray(cached.manifest)
+        ? cached.manifest
+        : null;
+}
+
+function getExpectedLorepackEntrySchemaVersion(pack = {}, manifest = null) {
+    const cachedManifest = manifest || getCachedLorepackManifest(pack.packId);
+    const candidates = [
+        cachedManifest?.entrySchemaVersion,
+        pack.entrySchemaVersion,
+        pack.manifestData?.entrySchemaVersion,
+    ];
+    for (const raw of candidates) {
+        const version = Number(raw);
+        if (Number.isFinite(version) && version > 0) return version;
+    }
+    return 2;
+}
+
+function cacheLorepackValidation(packId, manifest, entryCache, health) {
+    const cachedManifest = lorepackManifestPreviewCache.get(packId) || {};
+    lorepackManifestPreviewCache.set(packId, {
+        ...cachedManifest,
+        manifest,
+        health,
+        error: '',
+        loadedAt: Date.now(),
+    });
+    const cachedEntries = lorepackEntryPreviewCache.get(packId) || {};
+    lorepackEntryPreviewCache.set(packId, {
+        ...cachedEntries,
+        ...(entryCache || {}),
+        health,
+        error: '',
+        loadedAt: Date.now(),
+    });
+}
+
+async function validateLorepackForEditor(pack, button = null, options = {}) {
+    const originalText = button?.textContent;
+    if (button) {
+        button.disabled = true;
+        button.textContent = 'Validating...';
+    }
+    try {
+        const fresh = getFreshLorepackLibraryPack(pack.packId, pack);
+        if (!fresh?.manifest) throw new Error('Lorepack needs a fetchable manifest path to validate.');
+        const manifest = await getDisplayManifestForPack(fresh);
+        const baseUrl = resolveManifestUrlForFetch(fresh.manifest);
+        if (!baseUrl) throw new Error('Lorepack manifest path or URL is invalid.');
+        const entryCache = await fetchLorepackEntryFilesForEditor(fresh, manifest, baseUrl);
+        let timeline = null;
+        try {
+            timeline = await fetchLorepackTimelineForEditor(manifest, baseUrl);
+        } catch (e) {
+            console.warn('[Wandlight] Lorepack timeline failed during editor validation:', e);
+        }
+        const health = buildLorepackHealthForData({
+            packId: fresh.packId,
+            manifest,
+            entryFiles: entryCache.entryFiles,
+            timeline,
+            registryRecord: fresh,
+        });
+        cacheLorepackValidation(fresh.packId, manifest, entryCache, health);
+
+        if (fresh.type !== 'bundled' && options.updateLibrary !== false) {
+            const record = {
+                ...fresh,
+                entrySchemaVersion: getExpectedLorepackEntrySchemaVersion(fresh, manifest),
+                healthStatus: health.status,
+                updatedAt: Date.now(),
+            };
+            const result = upsertLorepackLibraryPack(record);
+            if (!result.ok) throw new Error(result.error || 'Pack Health status save failed.');
+        }
+
+        if (options.quiet !== true) {
+            const summary = health.summary || {};
+            toast(`Pack Health: ${health.status} (${summary.errorCount || 0} errors, ${summary.warningCount || 0} warnings).`, health.errors?.length ? 'error' : (health.warnings?.length ? 'warning' : 'success'));
+            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+            refreshHeader();
+        }
+        return { health, manifest, entryCache };
+    } catch (e) {
+        if (options.quiet !== true) toast(e?.message || 'Lorepack validation failed.', 'error');
+        return { health: null, manifest: null, entryCache: null, error: e?.message || 'Lorepack validation failed.' };
+    } finally {
+        if (button) {
+            button.disabled = false;
+            button.textContent = originalText || 'Validate Pack';
+        }
+    }
+}
+
+async function repairLorepackSafeHealthIssues(pack, button = null) {
+    const originalText = button?.textContent;
+    if (button) {
+        button.disabled = true;
+        button.textContent = 'Repairing...';
+    }
+    try {
+        const fresh = getFreshLorepackLibraryPack(pack.packId, pack);
+        if (!fresh || fresh.type === 'bundled') {
+            toast('Bundled Lorepacks cannot be repaired directly. Duplicate as Custom first.', 'warning');
+            return false;
+        }
+        const validation = await validateLorepackForEditor(fresh, null, { quiet: true, updateLibrary: false });
+        if (!validation.health) throw new Error(validation.error || 'Validation failed before repair.');
+        const summary = validation.health.summary || {};
+        const entrySchemaVersion = getExpectedLorepackEntrySchemaVersion(fresh, validation.manifest);
+        const next = {
+            ...fresh,
+            entrySchemaVersion,
+            healthStatus: validation.health.status,
+            stats: {
+                entryCount: Number(summary.entryCount) || 0,
+                categoryCounts: summary.categoryCounts && typeof summary.categoryCounts === 'object' && !Array.isArray(summary.categoryCounts)
+                    ? { ...summary.categoryCounts }
+                    : {},
+            },
+            entryOverrides: { ...(fresh.entryOverrides || {}) },
+            disabledEntryIds: Array.isArray(fresh.disabledEntryIds) ? [...fresh.disabledEntryIds] : [],
+            updatedAt: Date.now(),
+        };
+
+        let overrideRepairCount = 0;
+        if (entrySchemaVersion >= 3) {
+            for (const [id, raw] of Object.entries(next.entryOverrides || {})) {
+                const repaired = repairLorepackEntryForHealth(raw, { forceSchemaVersion: 3 });
+                if (JSON.stringify(repaired) !== JSON.stringify(raw)) {
+                    next.entryOverrides[id] = repaired;
+                    overrideRepairCount += 1;
+                }
+            }
+        }
+        if (isVirtualLorepackPack(next)) {
+            next.manifestData = buildEmbeddedCustomManifest(next.manifestData || validation.manifest, next);
+        }
+        const result = upsertLorepackLibraryPack(next);
+        if (!result.ok) throw new Error(result.error || 'Safe repair failed.');
+        clearCanonLoreDatabaseCache();
+        clearStoryPositionIndexCache();
+        lorepackEntryPreviewCache.delete(next.packId);
+        await validateLorepackForEditor(next, null, { quiet: true, updateLibrary: true });
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        refreshHeader();
+        toast(`Safe repairs applied: stats refreshed${overrideRepairCount ? `, ${overrideRepairCount} override${overrideRepairCount === 1 ? '' : 's'} repaired` : ''}.`, 'success');
+        return true;
+    } catch (e) {
+        toast(e?.message || 'Safe repair failed.', 'error');
+        return false;
+    } finally {
+        if (button) {
+            button.disabled = false;
+            button.textContent = originalText || 'Repair Safe Issues';
+        }
+    }
+}
+
+async function exportValidatedLorepackDraft(pack, button = null) {
+    const originalText = button?.textContent;
+    if (button) {
+        button.disabled = true;
+        button.textContent = 'Exporting...';
+    }
+    try {
+        const validation = await validateLorepackForEditor(pack, null, { quiet: true, updateLibrary: true });
+        if (!validation.health) throw new Error(validation.error || 'Validation failed before export.');
+        const fresh = getFreshLorepackLibraryPack(pack.packId, pack);
+        const bundle = {
+            bundleSchemaVersion: 1,
+            bundleType: 'saga_lorepack_library_record',
+            exportedAt: Date.now(),
+            pack: {
+                ...(cloneLorepackJson(fresh) || {}),
+                healthStatus: validation.health.status,
+            },
+            manifest: validation.manifest,
+            entryOverrides: fresh?.entryOverrides || {},
+            disabledEntryIds: fresh?.disabledEntryIds || [],
+            health: validation.health,
+        };
+        downloadJson(bundle, `${sanitizeFileStem(fresh?.packId || pack.packId || 'saga-lorepack')}.saga-lorepack.json`);
+        toast('Validated Lorepack draft exported.', validation.health.errors?.length ? 'warning' : 'success');
+    } catch (e) {
+        toast(e?.message || 'Validated Lorepack export failed.', 'error');
+    } finally {
+        if (button) {
+            button.disabled = false;
+            button.textContent = originalText || 'Export Validated Draft';
+        }
+    }
+}
+
 async function syncLorepackMetadataFromManifest(pack, button = null) {
     const originalText = button?.textContent;
     if (button) {
@@ -3400,6 +4056,7 @@ async function syncLorepackMetadataFromManifest(pack, button = null) {
             const record = {
                 ...pack,
                 type: 'custom',
+                entrySchemaVersion: Number.isFinite(Number(baseManifest.entrySchemaVersion)) ? Number(baseManifest.entrySchemaVersion) : (Number(pack.entrySchemaVersion) || 0),
                 stats: {
                     entryCount: Number.isFinite(Number(baseManifest.stats?.entryCount)) && Number(baseManifest.stats.entryCount) > 0
                         ? Math.max(0, Number(baseManifest.stats.entryCount))
@@ -3677,6 +4334,7 @@ async function duplicateLorepackAsCustom(sourcePack, fields, button = null) {
             era: sourcePack.era || sourceManifest.era || '',
             author: fields.authorInput.value.trim(),
             version: fields.versionInput.value.trim() || '1.0.0',
+            entrySchemaVersion: Number.isFinite(Number(sourceManifest.entrySchemaVersion)) ? Number(sourceManifest.entrySchemaVersion) : (Number(sourcePack.entrySchemaVersion) || 0),
             manifest: baseManifest,
             source: {
                 kind: 'derived',
@@ -3729,6 +4387,85 @@ function normalizeLorepackEntryId(value) {
         .slice(0, 140);
 }
 
+function getLorepackEntryEditorString(value, maxLength = 240) {
+    return String(value || '').trim().slice(0, maxLength);
+}
+
+function getLorepackEntryEditorNumber(value) {
+    const text = String(value ?? '').trim();
+    if (!text) return null;
+    const number = Number(text);
+    return Number.isFinite(number) ? number : null;
+}
+
+function getLorepackEntryEditorNumberText(value) {
+    const number = Number(value);
+    return Number.isFinite(number) ? String(number) : '';
+}
+
+function appendLorepackEntryEditorSection(form, titleText) {
+    const title = document.createElement('div');
+    title.className = 'wandlight-runtime-card-title';
+    title.textContent = titleText;
+    form.appendChild(title);
+
+    const grid = document.createElement('div');
+    grid.className = 'wandlight-new-lore-meta-grid';
+    form.appendChild(grid);
+    return grid;
+}
+
+function buildLorepackPositionFromEditorFields(fields = {}) {
+    if (!fields.scopeSelect) return {};
+    const scope = getLorepackEntryEditorString(fields.scopeSelect.value, 60);
+    const anchorId = getLorepackEntryEditorString(fields.anchorIdInput?.value, 180);
+    const validFromAnchor = getLorepackEntryEditorString(fields.validFromAnchorInput?.value, 180);
+    const validToAnchor = getLorepackEntryEditorString(fields.validToAnchorInput?.value, 180);
+    const sortKeyFrom = getLorepackEntryEditorNumber(fields.sortKeyFromInput?.value);
+    const sortKeyTo = getLorepackEntryEditorNumber(fields.sortKeyToInput?.value);
+    const precision = getLorepackEntryEditorString(fields.precisionInput?.value, 120);
+    const windowKind = getLorepackEntryEditorString(fields.windowKindSelect?.value, 120);
+    const label = getLorepackEntryEditorString(fields.labelInput?.value, 240);
+    const position = {
+        scope,
+        anchorId,
+        validFromAnchor: validFromAnchor || (scope === 'anchor' ? anchorId : ''),
+        validToAnchor: validToAnchor || (scope === 'anchor' ? anchorId : ''),
+        sortKeyFrom,
+        sortKeyTo,
+        precision,
+        windowKind,
+        label,
+    };
+    return Object.fromEntries(Object.entries(position).filter(([, value]) => value !== '' && value !== null && value !== undefined));
+}
+
+function buildLorepackRetrievalFromEditorFields(fields = {}) {
+    if (!fields.activationSelect) return {};
+    return {
+        activation: getLorepackEntryEditorString(fields.activationSelect.value, 80),
+        frequency: getLorepackEntryEditorString(fields.frequencySelect.value, 80),
+        positionalBoost: getLorepackEntryEditorString(fields.positionalBoostSelect.value, 80),
+        triggers: {},
+    };
+}
+
+function validateLorepackV3EditorFields(position = {}, retrieval = {}) {
+    const errors = [];
+    if (!['anchor', 'window', 'global'].includes(position.scope)) errors.push('position scope');
+    if (!Number.isFinite(Number(position.sortKeyFrom))) errors.push('sort key from');
+    if (!Number.isFinite(Number(position.sortKeyTo))) errors.push('sort key to');
+    if (Number.isFinite(Number(position.sortKeyFrom)) && Number.isFinite(Number(position.sortKeyTo)) && Number(position.sortKeyFrom) > Number(position.sortKeyTo)) {
+        errors.push('sort key order');
+    }
+    if (!getLorepackEntryEditorString(position.precision, 120)) errors.push('position precision');
+    if (!getLorepackEntryEditorString(position.label, 240)) errors.push('position label');
+    if (!getLorepackEntryEditorString(retrieval.activation, 80)) errors.push('retrieval activation');
+    if (!getLorepackEntryEditorString(retrieval.frequency, 80)) errors.push('retrieval frequency');
+    if (!getLorepackEntryEditorString(retrieval.positionalBoost, 80)) errors.push('retrieval boost');
+    return errors;
+}
+
 function openLorepackEntryOverrideDialog(pack, row = null) {
     const existing = document.querySelector('.wandlight-lorepack-entry-override-overlay');
     existing?.remove();
@@ -3743,6 +4480,10 @@ function openLorepackEntryOverrideDialog(pack, row = null) {
 
     const sourceEntry = row?.entry || {};
     const isExisting = !!row?.id;
+    const entrySchemaVersion = Math.max(
+        Number(sourceEntry.schemaVersion) || 0,
+        getExpectedLorepackEntrySchemaVersion(pack)
+    );
 
     const header = document.createElement('div');
     header.className = 'wandlight-lore-workbench-header';
@@ -3782,6 +4523,49 @@ function openLorepackEntryOverrideDialog(pack, row = null) {
     const revealSelect = createNewLoreSelect(metaGrid, 'Reveal', getLoreRegistryValues('revealPolicies', ['private', 'public', 'do_not_reveal']), sourceEntry.revealPolicy || 'private');
     const tagsInput = createNewLoreInput(form, 'Tags', 'Comma-separated tags.', Array.isArray(sourceEntry.tags) ? sourceEntry.tags.join(', ') : '', false, 'au-change, custom-pack');
 
+    let positionFields = null;
+    let retrievalFields = null;
+    if (entrySchemaVersion >= 3) {
+        const sourcePosition = sourceEntry.position && typeof sourceEntry.position === 'object' && !Array.isArray(sourceEntry.position) ? sourceEntry.position : {};
+        const sourceRetrieval = sourceEntry.retrieval && typeof sourceEntry.retrieval === 'object' && !Array.isArray(sourceEntry.retrieval) ? sourceEntry.retrieval : {};
+        const widePosition = sourcePosition.scope === 'global' || ['wide', 'series'].includes(String(sourcePosition.windowKind || '').trim());
+
+        const positionGrid = appendLorepackEntryEditorSection(form, 'Story Position');
+        const scopeSelect = createNewLoreSelect(positionGrid, 'Scope', ['window', 'anchor', 'global'], sourcePosition.scope || 'window', value => humanizeScopeKey(value));
+        const anchorIdInput = createNewLoreInput(positionGrid, 'Anchor ID', 'Optional exact Story Position anchor ID for anchor-scoped entries.', sourcePosition.anchorId || '', false, 'hp.ootp.year_5');
+        const validFromAnchorInput = createNewLoreInput(positionGrid, 'From Anchor', 'Optional starting Story Position anchor ID.', sourcePosition.validFromAnchor || sourcePosition.anchorFrom || '', false, 'hp.ootp.year_5');
+        const validToAnchorInput = createNewLoreInput(positionGrid, 'To Anchor', 'Optional ending Story Position anchor ID.', sourcePosition.validToAnchor || sourcePosition.anchorTo || '', false, 'hp.ootp.year_5');
+        const sortKeyFromInput = createNewLoreInput(positionGrid, 'Sort From', 'Required numeric Story Position sort key where this entry starts being eligible.', getLorepackEntryEditorNumberText(sourcePosition.sortKeyFrom), false, '9374');
+        const sortKeyToInput = createNewLoreInput(positionGrid, 'Sort To', 'Required numeric Story Position sort key where this entry stops being eligible.', getLorepackEntryEditorNumberText(sourcePosition.sortKeyTo), false, '9739');
+        sortKeyFromInput.inputMode = 'decimal';
+        sortKeyToInput.inputMode = 'decimal';
+        const precisionInput = createNewLoreInput(positionGrid, 'Precision', 'Required precision label for this Story Position gate.', sourcePosition.precision || '', false, 'anchor_window');
+        const windowKindSelect = createNewLoreSelect(positionGrid, 'Window Kind', ['bounded', 'school_year', 'arc', 'phase', 'relative', 'wide', 'series'], sourcePosition.windowKind || 'bounded', value => humanizeScopeKey(value));
+        const labelInput = createNewLoreInput(positionGrid, 'Position Label', 'Required human-readable Story Position label.', sourcePosition.label || '', false, 'After Year 5 begins');
+        positionFields = {
+            scopeSelect,
+            anchorIdInput,
+            validFromAnchorInput,
+            validToAnchorInput,
+            sortKeyFromInput,
+            sortKeyToInput,
+            precisionInput,
+            windowKindSelect,
+            labelInput,
+        };
+        form.appendChild(createLorepackEntryAnchorPicker(pack, positionFields));
+
+        const retrievalGrid = appendLorepackEntryEditorSection(form, 'Retrieval');
+        const activationSelect = createNewLoreSelect(retrievalGrid, 'Activation', ['topic_or_entity', 'position_or_topic', 'position_only', 'constant', 'manual'], sourceRetrieval.activation || 'topic_or_entity', value => humanizeScopeKey(value));
+        const frequencySelect = createNewLoreSelect(retrievalGrid, 'Frequency', ['low', 'normal', 'high'], sourceRetrieval.frequency || (widePosition ? 'low' : 'normal'), value => humanizeScopeKey(value));
+        const positionalBoostSelect = createNewLoreSelect(retrievalGrid, 'Position Boost', ['low', 'medium', 'high'], sourceRetrieval.positionalBoost || (widePosition ? 'low' : 'medium'), value => humanizeScopeKey(value));
+        retrievalFields = {
+            activationSelect,
+            frequencySelect,
+            positionalBoostSelect,
+        };
+    }
+
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
     actions.appendChild(createButton('Save Override', 'Save this entry into the Custom Lorepack override layer.', () => {
@@ -3791,7 +4575,16 @@ function openLorepackEntryOverrideDialog(pack, row = null) {
             toast('Entry override needs an ID, title, and lore text.', 'warning');
             return;
         }
-        const entry = normalizeLoreEntry({
+        const position = buildLorepackPositionFromEditorFields(positionFields);
+        const retrieval = buildLorepackRetrievalFromEditorFields(retrievalFields);
+        if (entrySchemaVersion >= 3) {
+            const v3Errors = validateLorepackV3EditorFields(position, retrieval);
+            if (v3Errors.length) {
+                toast(`Schema v3 entry needs: ${v3Errors.join(', ')}.`, 'warning');
+                return;
+            }
+        }
+        let entry = normalizeLoreEntry({
             ...sourceEntry,
             id,
             title: titleInput.value.trim(),
@@ -3803,7 +4596,12 @@ function openLorepackEntryOverrideDialog(pack, row = null) {
             priority: Number(prioritySelect.value) || 50,
             truthStatus: truthSelect.value,
             revealPolicy: revealSelect.value,
-            tags: tagsInput.value,
+            tags: parseLorepackEntryTags(tagsInput.value),
+            ...(entrySchemaVersion >= 3 ? {
+                schemaVersion: 3,
+                position,
+                retrieval,
+            } : {}),
             source: sourceEntry.source || `saga-lorepack:${pack.packId}:override`,
             sourceInfo: {
                 ...(sourceEntry.sourceInfo || {}),
@@ -3830,6 +4628,17 @@ function openLorepackEntryOverrideDialog(pack, row = null) {
             },
         });
         entry.id = id;
+        entry.tags = parseLorepackEntryTags(tagsInput.value);
+        if (entrySchemaVersion >= 3) {
+            entry = normalizeLorepackEntryForSchemaV3({
+                ...entry,
+                id,
+                schemaVersion: 3,
+                position,
+                retrieval,
+            });
+            entry.tags = parseLorepackEntryTags(tagsInput.value);
+        }
         saveLorepackEntryOverride(pack, entry);
         overlay.remove();
     }, 'wandlight-primary-button'));
@@ -3843,6 +4652,319 @@ function openLorepackEntryOverrideDialog(pack, row = null) {
     form.appendChild(actions);
 
     requestAnimationFrame(() => (isExisting ? titleInput : idInput).focus());
+}
+
+function buildBulkLorepackTagOverrideEntry(pack, row, tags = []) {
+    const baseEntry = row.overrideEntry || row.sourceEntry || row.entry || {};
+    const entrySchemaVersion = Math.max(Number(baseEntry.schemaVersion) || 0, getExpectedLorepackEntrySchemaVersion(pack));
+    const id = String(row.id || baseEntry.id || '').trim();
+    const title = String(baseEntry.title || id || 'Lorepack Entry').trim();
+    const fact = String(baseEntry.content?.fact || baseEntry.fact || baseEntry.description || baseEntry.detail || title).trim();
+    const injection = String(baseEntry.content?.injection || baseEntry.injection || fact).trim();
+    const cleanTags = parseLorepackEntryTags(tags);
+    let entry = normalizeLoreEntry({
+        ...baseEntry,
+        id,
+        title,
+        tags: cleanTags,
+        content: {
+            ...(baseEntry.content || {}),
+            fact,
+            injection,
+        },
+        userEditable: true,
+        userEdited: true,
+        extensions: {
+            ...(baseEntry.extensions || {}),
+            sagaLorepackOverride: {
+                kind: row.sourceEntry ? 'override' : 'addition',
+                packId: pack.packId,
+                sourceEntryId: row.sourceEntry?.id || '',
+                updatedAt: Date.now(),
+            },
+        },
+    });
+    entry.id = id;
+    entry.tags = cleanTags;
+    if (entrySchemaVersion >= 3) {
+        entry = normalizeLorepackEntryForSchemaV3({
+            ...entry,
+            id,
+            schemaVersion: 3,
+            tags: cleanTags,
+        });
+        entry.tags = cleanTags;
+    }
+    return entry;
+}
+
+function computeLorepackBulkTagUpdates(pack, rows = [], mode = 'add', fields = {}) {
+    const updates = [];
+    const addTags = parseLorepackEntryTags(fields.addTags);
+    const removeTags = parseLorepackEntryTags(fields.removeTags);
+    const fromTag = parseLorepackEntryTags([fields.fromTag])[0] || '';
+    const toTag = parseLorepackEntryTags([fields.toTag])[0] || '';
+
+    for (const row of getLorepackEntryRowsForBulk(rows)) {
+        const current = getLorepackEntryTags(row.entry || {});
+        let next = current;
+        if (mode === 'add') next = mergeLorepackEntryTags(current, addTags);
+        else if (mode === 'remove') next = removeLorepackEntryTags(current, removeTags);
+        else if (mode === 'replace') next = replaceLorepackEntryTag(current, fromTag, toTag);
+
+        if (JSON.stringify(current.map(tag => tag.toLowerCase()).sort()) === JSON.stringify(next.map(tag => tag.toLowerCase()).sort())) continue;
+        updates.push(buildBulkLorepackTagOverrideEntry(pack, row, next));
+    }
+    return updates;
+}
+
+function openLorepackBulkTagsDialog(pack, rows = [], options = {}) {
+    const editableRows = getLorepackEntryRowsForBulk(rows);
+    if (!editableRows.length) {
+        toast('No editable entries are available for bulk tag editing.', 'warning');
+        return;
+    }
+
+    const existing = document.querySelector('.wandlight-lorepack-bulk-tags-overlay');
+    existing?.remove();
+
+    const overlay = document.createElement('div');
+    overlay.className = 'wandlight-new-lore-overlay wandlight-lorepack-bulk-tags-overlay';
+    document.body.appendChild(overlay);
+
+    const shell = document.createElement('div');
+    shell.className = 'wandlight-new-lore-shell wandlight-lorepack-entry-override-shell';
+    overlay.appendChild(shell);
+
+    const header = document.createElement('div');
+    header.className = 'wandlight-lore-workbench-header';
+    const titleWrap = document.createElement('div');
+    titleWrap.className = 'wandlight-lore-workbench-title-wrap';
+    const title = document.createElement('div');
+    title.className = 'wandlight-lore-workbench-title';
+    title.textContent = 'Bulk Tags';
+    titleWrap.appendChild(title);
+    const subtitle = document.createElement('div');
+    subtitle.className = 'wandlight-lore-workbench-subtitle';
+    subtitle.textContent = `${pack.title || pack.packId} | ${editableRows.length} entr${editableRows.length === 1 ? 'y' : 'ies'}`;
+    titleWrap.appendChild(subtitle);
+    header.appendChild(titleWrap);
+    header.appendChild(createButton('Close', 'Close without applying bulk tag edits.', () => overlay.remove()));
+    shell.appendChild(header);
+
+    const form = document.createElement('div');
+    form.className = 'wandlight-new-lore-form wandlight-lorepack-entry-override-form';
+    shell.appendChild(form);
+
+    const help = document.createElement('div');
+    help.className = 'wandlight-runtime-help';
+    help.textContent = 'Bulk tag edits create or update Custom overrides. Source Lorepack files are not edited.';
+    form.appendChild(help);
+
+    const grid = appendLorepackEntryEditorSection(form, 'Tag Operation');
+    const modeSelect = createNewLoreSelect(grid, 'Mode', ['add', 'remove', 'replace'], options.mode || 'add', value => humanizeScopeKey(value));
+    const addInput = createNewLoreInput(grid, 'Tags To Add', 'Comma-separated tags to add in Add mode.', options.addTags || '', false, 'character:hermione-granger, meta:crossover');
+    const removeInput = createNewLoreInput(grid, 'Tags To Remove', 'Comma-separated tags to remove in Remove mode.', options.removeTags || '', false, 'deprecated:old-tag');
+    const fromInput = createNewLoreInput(grid, 'Rename From', 'Existing tag to rename or delete in Replace mode.', options.fromTag || '', false, 'character:old-name');
+    const toInput = createNewLoreInput(grid, 'Rename To', 'Replacement tag in Replace mode. Leave blank to delete Rename From.', options.toTag || '', false, 'character:new-name');
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    actions.appendChild(createButton('Apply Tags', 'Apply this tag operation to the target entries.', () => {
+        const mode = modeSelect.value;
+        if (mode === 'add' && !parseLorepackEntryTags(addInput.value).length) {
+            toast('Enter at least one tag to add.', 'warning');
+            return;
+        }
+        if (mode === 'remove' && !parseLorepackEntryTags(removeInput.value).length) {
+            toast('Enter at least one tag to remove.', 'warning');
+            return;
+        }
+        if (mode === 'replace' && !parseLorepackEntryTags([fromInput.value]).length) {
+            toast('Enter the tag to rename or delete.', 'warning');
+            return;
+        }
+
+        const updates = computeLorepackBulkTagUpdates(pack, editableRows, mode, {
+            addTags: addInput.value,
+            removeTags: removeInput.value,
+            fromTag: fromInput.value,
+            toTag: toInput.value,
+        });
+        if (!updates.length) {
+            toast('No tag changes were needed for the target entries.', 'info');
+            return;
+        }
+        const applied = persistLorepackEntryLayer(pack, next => {
+            for (const entry of updates) {
+                if (!entry.id) continue;
+                next.entryOverrides[entry.id] = entry;
+                next.disabledEntryIds = next.disabledEntryIds.filter(entryId => entryId !== entry.id);
+            }
+        }, `Updated tags on ${updates.length} entr${updates.length === 1 ? 'y' : 'ies'}.`);
+        if (applied) overlay.remove();
+    }, 'wandlight-primary-button'));
+    actions.appendChild(createButton('Cancel', 'Close without applying bulk tag edits.', () => overlay.remove()));
+    form.appendChild(actions);
+
+    requestAnimationFrame(() => {
+        if (options.mode === 'replace') fromInput.focus();
+        else if (options.mode === 'remove') removeInput.focus();
+        else addInput.focus();
+    });
+}
+
+function buildBulkLorepackPositionOverrideEntry(pack, row, position, retrieval) {
+    const baseEntry = row.overrideEntry || row.sourceEntry || row.entry || {};
+    const id = String(row.id || baseEntry.id || '').trim();
+    const title = String(baseEntry.title || id || 'Lorepack Entry').trim();
+    const fact = String(baseEntry.content?.fact || baseEntry.fact || baseEntry.description || baseEntry.detail || title).trim();
+    const injection = String(baseEntry.content?.injection || baseEntry.injection || fact).trim();
+    let entry = normalizeLoreEntry({
+        ...baseEntry,
+        id,
+        title,
+        schemaVersion: 3,
+        position,
+        retrieval,
+        tags: getLorepackEntryTags(baseEntry),
+        content: {
+            ...(baseEntry.content || {}),
+            fact,
+            injection,
+        },
+        userEditable: true,
+        userEdited: true,
+        extensions: {
+            ...(baseEntry.extensions || {}),
+            sagaLorepackOverride: {
+                kind: row.sourceEntry ? 'override' : 'addition',
+                packId: pack.packId,
+                sourceEntryId: row.sourceEntry?.id || '',
+                updatedAt: Date.now(),
+            },
+        },
+    });
+    entry.id = id;
+    entry.tags = getLorepackEntryTags(baseEntry);
+    return normalizeLorepackEntryForSchemaV3({
+        ...entry,
+        id,
+        schemaVersion: 3,
+        position,
+        retrieval,
+        tags: getLorepackEntryTags(baseEntry),
+    });
+}
+
+function openLorepackBulkPositionDialog(pack, rows = []) {
+    const entrySchemaVersion = getExpectedLorepackEntrySchemaVersion(pack);
+    if (entrySchemaVersion < 3) {
+        toast('Bulk Story Position editing is available for schema v3 Lorepacks.', 'warning');
+        return;
+    }
+
+    const editableRows = (rows || []).filter(row => row?.id && !row.disabled);
+    if (!editableRows.length) {
+        toast('No editable entries are available for bulk Story Position editing.', 'warning');
+        return;
+    }
+
+    const existing = document.querySelector('.wandlight-lorepack-bulk-position-overlay');
+    existing?.remove();
+
+    const overlay = document.createElement('div');
+    overlay.className = 'wandlight-new-lore-overlay wandlight-lorepack-bulk-position-overlay';
+    document.body.appendChild(overlay);
+
+    const shell = document.createElement('div');
+    shell.className = 'wandlight-new-lore-shell wandlight-lorepack-entry-override-shell';
+    overlay.appendChild(shell);
+
+    const header = document.createElement('div');
+    header.className = 'wandlight-lore-workbench-header';
+    const titleWrap = document.createElement('div');
+    titleWrap.className = 'wandlight-lore-workbench-title-wrap';
+    const title = document.createElement('div');
+    title.className = 'wandlight-lore-workbench-title';
+    title.textContent = 'Bulk Story Position';
+    titleWrap.appendChild(title);
+    const subtitle = document.createElement('div');
+    subtitle.className = 'wandlight-lore-workbench-subtitle';
+    subtitle.textContent = `${pack.title || pack.packId} | ${editableRows.length} entr${editableRows.length === 1 ? 'y' : 'ies'}`;
+    titleWrap.appendChild(subtitle);
+    header.appendChild(titleWrap);
+    header.appendChild(createButton('Close', 'Close without applying bulk Story Position edits.', () => overlay.remove()));
+    shell.appendChild(header);
+
+    const form = document.createElement('div');
+    form.className = 'wandlight-new-lore-form wandlight-lorepack-entry-override-form';
+    shell.appendChild(form);
+
+    const help = document.createElement('div');
+    help.className = 'wandlight-runtime-help';
+    help.textContent = 'This creates or updates Custom overrides for the chosen entries. Source Lorepack files are not edited.';
+    form.appendChild(help);
+
+    const positionGrid = appendLorepackEntryEditorSection(form, 'Story Position');
+    const scopeSelect = createNewLoreSelect(positionGrid, 'Scope', ['window', 'anchor', 'global'], 'window', value => humanizeScopeKey(value));
+    const anchorIdInput = createNewLoreInput(positionGrid, 'Anchor ID', 'Optional exact Story Position anchor ID for anchor-scoped entries.', '', false, 'hp.ootp.year_5');
+    const validFromAnchorInput = createNewLoreInput(positionGrid, 'From Anchor', 'Optional starting Story Position anchor ID.', '', false, 'hp.ootp.year_5');
+    const validToAnchorInput = createNewLoreInput(positionGrid, 'To Anchor', 'Optional ending Story Position anchor ID.', '', false, 'hp.ootp.year_5');
+    const sortKeyFromInput = createNewLoreInput(positionGrid, 'Sort From', 'Required numeric Story Position sort key where these entries start being eligible.', '', false, '9374');
+    const sortKeyToInput = createNewLoreInput(positionGrid, 'Sort To', 'Required numeric Story Position sort key where these entries stop being eligible.', '', false, '9739');
+    sortKeyFromInput.inputMode = 'decimal';
+    sortKeyToInput.inputMode = 'decimal';
+    const precisionInput = createNewLoreInput(positionGrid, 'Precision', 'Required precision label for this Story Position gate.', 'anchor_window', false, 'anchor_window');
+    const windowKindSelect = createNewLoreSelect(positionGrid, 'Window Kind', ['bounded', 'school_year', 'arc', 'phase', 'relative', 'wide', 'series'], 'bounded', value => humanizeScopeKey(value));
+    const labelInput = createNewLoreInput(positionGrid, 'Position Label', 'Required human-readable Story Position label.', '', false, 'After Year 5 begins');
+    const positionFields = {
+        scopeSelect,
+        anchorIdInput,
+        validFromAnchorInput,
+        validToAnchorInput,
+        sortKeyFromInput,
+        sortKeyToInput,
+        precisionInput,
+        windowKindSelect,
+        labelInput,
+    };
+    form.appendChild(createLorepackEntryAnchorPicker(pack, positionFields));
+
+    const retrievalGrid = appendLorepackEntryEditorSection(form, 'Retrieval');
+    const activationSelect = createNewLoreSelect(retrievalGrid, 'Activation', ['topic_or_entity', 'position_or_topic', 'position_only', 'constant', 'manual'], 'topic_or_entity', value => humanizeScopeKey(value));
+    const frequencySelect = createNewLoreSelect(retrievalGrid, 'Frequency', ['low', 'normal', 'high'], 'normal', value => humanizeScopeKey(value));
+    const positionalBoostSelect = createNewLoreSelect(retrievalGrid, 'Position Boost', ['low', 'medium', 'high'], 'medium', value => humanizeScopeKey(value));
+    const retrievalFields = {
+        activationSelect,
+        frequencySelect,
+        positionalBoostSelect,
+    };
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    actions.appendChild(createButton('Apply To Entries', 'Create or update Custom overrides with this Story Position and retrieval metadata.', () => {
+        const position = buildLorepackPositionFromEditorFields(positionFields);
+        const retrieval = buildLorepackRetrievalFromEditorFields(retrievalFields);
+        const v3Errors = validateLorepackV3EditorFields(position, retrieval);
+        if (v3Errors.length) {
+            toast(`Schema v3 entries need: ${v3Errors.join(', ')}.`, 'warning');
+            return;
+        }
+        const applied = persistLorepackEntryLayer(pack, next => {
+            for (const row of editableRows) {
+                const entry = buildBulkLorepackPositionOverrideEntry(pack, row, position, retrieval);
+                if (!entry.id) continue;
+                next.entryOverrides[entry.id] = entry;
+                next.disabledEntryIds = next.disabledEntryIds.filter(entryId => entryId !== entry.id);
+            }
+        }, `Applied Story Position to ${editableRows.length} entr${editableRows.length === 1 ? 'y' : 'ies'}.`);
+        if (applied) overlay.remove();
+    }, 'wandlight-primary-button'));
+    actions.appendChild(createButton('Cancel', 'Close without applying bulk Story Position edits.', () => overlay.remove()));
+    form.appendChild(actions);
+
+    requestAnimationFrame(() => labelInput.focus());
 }
 
 function getFreshLorepackLibraryPack(packId, fallback = null) {
@@ -5278,6 +6400,7 @@ function normalizeLorepackLibraryPack(raw = {}) {
         era: String(raw.era || '').trim(),
         author: String(raw.author || '').trim(),
         version: String(raw.version || '').trim(),
+        entrySchemaVersion: Number.isFinite(Number(raw.entrySchemaVersion)) ? Number(raw.entrySchemaVersion) : 0,
         manifest: String(raw.manifest || '').trim(),
         source: raw.source && typeof raw.source === 'object' && !Array.isArray(raw.source) ? raw.source : {},
         tags: Array.isArray(raw.tags) ? raw.tags.map(tag => String(tag || '').trim()).filter(Boolean) : [],

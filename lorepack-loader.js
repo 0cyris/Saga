@@ -66,6 +66,9 @@ function createHealth(packId = '') {
             brokenAnchorReferenceCount: 0,
             invalidPositionWindowCount: 0,
             unmatchablePositionGateCount: 0,
+            schemaV3EntryCount: 0,
+            schemaV3IssueCount: 0,
+            manifestStatsMismatchCount: 0,
             categoryCounts: {},
             errorCount: 0,
             warningCount: 0,
@@ -113,6 +116,26 @@ function cleanHealthNumber(value) {
     return Number.isFinite(number) ? number : null;
 }
 
+function parseIsoDateSortKey(value = '') {
+    const match = cleanHealthString(value, 80).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if (!match) return null;
+    const year = Number(match[1]);
+    const month = Number(match[2]);
+    const day = Number(match[3]);
+    const epoch = Date.UTC(year, month - 1, day);
+    const check = new Date(epoch);
+    if (check.getUTCFullYear() !== year || check.getUTCMonth() + 1 !== month || check.getUTCDate() !== day) return null;
+    return Math.floor(epoch / 86400000);
+}
+
+function normalizeTimelineHealthDateRange(value = {}) {
+    const input = isPlainObject(value) ? value : {};
+    return {
+        from: cleanHealthString(input.from || input.start || input.validFrom, 80),
+        to: cleanHealthString(input.to || input.end || input.validTo, 80),
+    };
+}
+
 function getTimelineRegistryRef(manifest = {}) {
     if (!isPlainObject(manifest)) return '';
     const registries = isPlainObject(manifest.registries) ? manifest.registries : {};
@@ -138,6 +161,7 @@ function normalizeTimelineHealthAnchor(raw = {}, packId = '', index = 0) {
         id,
         label: cleanHealthString(raw.label || raw.title || id, 240),
         sortKey: cleanHealthNumber(raw.sortKey) ?? index + 1,
+        dateRange: normalizeTimelineHealthDateRange(raw.dateRange || raw.date || raw.canonTiming),
         arc: cleanHealthString(raw.arc, 180),
         phase: cleanHealthString(raw.phase, 180),
         season: cleanHealthString(raw.season, 80),
@@ -160,6 +184,7 @@ function normalizeTimelineHealthWindow(raw = {}, packId = '', index = 0) {
         anchorTo: cleanHealthString(raw.anchorTo || raw.to || raw.validToAnchor, 180),
         sortKeyFrom: cleanHealthNumber(raw.sortKeyFrom),
         sortKeyTo: cleanHealthNumber(raw.sortKeyTo),
+        dateRange: normalizeTimelineHealthDateRange(raw.dateRange || raw.date),
     };
 }
 
@@ -173,7 +198,11 @@ function normalizeTimelineRegistryForHealth(raw = {}, packId = '') {
         ...(Array.isArray(input.arcs) ? input.arcs : []),
         ...(Array.isArray(input.phases) ? input.phases : []),
     ].map((window, index) => normalizeTimelineHealthWindow(window, packId, index)).filter(Boolean);
-    return { anchors, windows };
+    return {
+        sortKeyScale: cleanHealthString(input.sortKeyScale, 160),
+        anchors,
+        windows,
+    };
 }
 
 function createTimelineHealthIndex(timeline = {}) {
@@ -195,6 +224,11 @@ function getAnchorSortKey(timeline = {}, anchorId = '') {
     const anchor = timeline.anchorById?.get(cleanHealthString(anchorId, 180));
     const number = cleanHealthNumber(anchor?.sortKey);
     return number === null ? null : number;
+}
+
+function getAnchorRangeEndSortKey(timeline = {}, anchorId = '') {
+    const anchor = timeline.anchorById?.get(cleanHealthString(anchorId, 180));
+    return parseIsoDateSortKey(anchor?.dateRange?.to || anchor?.dateRange?.from || '') ?? getAnchorSortKey(timeline, anchorId);
 }
 
 function addPositionHealthIssue(health, severity, code, message, extra = {}) {
@@ -235,6 +269,46 @@ function analyzeTimelineWindowHealth(health, timeline = {}) {
                 anchorTo: window.anchorTo,
                 sortKeyFrom: fromSort,
                 sortKeyTo: toSort,
+                timelineRef: timeline.timelineRef,
+            });
+        }
+    }
+}
+
+function analyzeTimelineDateDerivedSortKeys(health, timeline = {}) {
+    if (timeline.sortKeyScale !== 'date-derived-day') return;
+
+    for (const anchor of timeline.anchors || []) {
+        const expected = parseIsoDateSortKey(anchor.dateRange?.from || '');
+        if (expected === null) continue;
+        if (Number(anchor.sortKey) !== expected) {
+            addPositionHealthIssue(health, 'warning', 'timeline_anchor_sortkey_mismatch', `Timeline anchor ${anchor.id} sortKey should match dateRange.from for date-derived-day timelines.`, {
+                anchorId: anchor.id,
+                sortKey: anchor.sortKey,
+                expectedSortKey: expected,
+                timelineRef: timeline.timelineRef,
+            });
+        }
+    }
+
+    for (const window of timeline.windows || []) {
+        const expectedFrom = getAnchorSortKey(timeline, window.anchorFrom);
+        const expectedTo = getAnchorRangeEndSortKey(timeline, window.anchorTo);
+        if (expectedFrom !== null && Number(window.sortKeyFrom) !== expectedFrom) {
+            addPositionHealthIssue(health, 'warning', 'timeline_window_sortkey_mismatch', `Timeline window ${window.id} sortKeyFrom should match its start anchor for date-derived-day timelines.`, {
+                timelineWindowId: window.id,
+                anchorFrom: window.anchorFrom,
+                sortKeyFrom: window.sortKeyFrom,
+                expectedSortKeyFrom: expectedFrom,
+                timelineRef: timeline.timelineRef,
+            });
+        }
+        if (expectedTo !== null && Number(window.sortKeyTo) !== expectedTo) {
+            addPositionHealthIssue(health, 'warning', 'timeline_window_sortkey_mismatch', `Timeline window ${window.id} sortKeyTo should match its end anchor range end for date-derived-day timelines.`, {
+                timelineWindowId: window.id,
+                anchorTo: window.anchorTo,
+                sortKeyTo: window.sortKeyTo,
+                expectedSortKeyTo: expectedTo,
                 timelineRef: timeline.timelineRef,
             });
         }
@@ -289,6 +363,7 @@ async function loadTimelineRegistryForHealth(manifest = {}, baseUrl = null, heal
         });
     }
     analyzeTimelineWindowHealth(health, timeline);
+    analyzeTimelineDateDerivedSortKeys(health, timeline);
     return timeline;
 }
 
@@ -298,6 +373,7 @@ function hasFinitePositionNumber(value) {
 
 function hasPositionGate(position = {}, coordinates = []) {
     const fields = [
+        'scope',
         'anchorId',
         'validFromAnchor',
         'validToAnchor',
@@ -444,13 +520,339 @@ function analyzeEntryPositionHealth(health, entryFiles = [], timeline = {}) {
     }
 }
 
-function analyzeEntries(health, entryFiles = []) {
+const SCHEMA_V3_LEGACY_ENTRY_FIELDS = Object.freeze([
+    'date',
+    'canonTiming',
+    'validFrom',
+    'validTo',
+    'activeWhen',
+    'whoKnowsTruth',
+    'whoSuspects',
+    'whoBelievesPublicVersion',
+    'publicVersion',
+    'fact',
+]);
+
+const SCHEMA_V3_POSITION_SCOPES = new Set(['anchor', 'window', 'global']);
+
+function addSchemaV3HealthIssue(health, severity, code, message, extra = {}) {
+    health.summary.schemaV3IssueCount = (Number(health.summary.schemaV3IssueCount) || 0) + 1;
+    addHealthIssue(health, severity, code, message, extra);
+}
+
+function isSchemaV3Entry(entry = {}, fileRecord = {}) {
+    return Number(entry?.schemaVersion ?? fileRecord?.schemaVersion) >= 3;
+}
+
+function hasNonEmptyString(value) {
+    return typeof value === 'string' && value.trim().length > 0;
+}
+
+function getSchemaV3EntryLabel(entry = {}) {
+    return cleanHealthString(entry.id || entry.title || '(missing id)', 180);
+}
+
+function analyzeSchemaV3EntryHealth(health, entry = {}, fileRecord = {}) {
+    if (!isSchemaV3Entry(entry, fileRecord)) return;
+
+    health.summary.schemaV3EntryCount = (Number(health.summary.schemaV3EntryCount) || 0) + 1;
+    const id = cleanHealthString(entry?.id, 180);
+    const label = getSchemaV3EntryLabel(entry);
+    const file = fileRecord.file;
+    const entryIds = id ? [id] : [];
+    const position = isPlainObject(entry.position) ? entry.position : null;
+    const retrieval = isPlainObject(entry.retrieval) ? entry.retrieval : null;
+    const content = isPlainObject(entry.content) ? entry.content : {};
+
+    const presentLegacyFields = SCHEMA_V3_LEGACY_ENTRY_FIELDS.filter(field => Object.prototype.hasOwnProperty.call(entry || {}, field));
+    if (presentLegacyFields.length) {
+        addSchemaV3HealthIssue(health, 'error', 'schema_v3_legacy_timing_fields', `Schema v3 entry ${label} still has legacy timing fields: ${presentLegacyFields.join(', ')}.`, {
+            entryIds,
+            file,
+            fields: presentLegacyFields,
+        });
+    }
+
+    if (!position) {
+        addSchemaV3HealthIssue(health, 'error', 'schema_v3_missing_position', `Schema v3 entry ${label} is missing a Story Position block.`, {
+            entryIds,
+            file,
+        });
+    } else {
+        const scope = cleanHealthString(position.scope, 60);
+        if (!SCHEMA_V3_POSITION_SCOPES.has(scope)) {
+            addSchemaV3HealthIssue(health, 'error', 'schema_v3_invalid_position_scope', `Schema v3 entry ${label} must declare position.scope as anchor, window, or global.`, {
+                entryIds,
+                file,
+                scope,
+            });
+        }
+        if (!hasFinitePositionNumber(position.sortKeyFrom) || !hasFinitePositionNumber(position.sortKeyTo)) {
+            addSchemaV3HealthIssue(health, 'error', 'schema_v3_missing_position_sort_keys', `Schema v3 entry ${label} must define numeric position.sortKeyFrom and position.sortKeyTo.`, {
+                entryIds,
+                file,
+            });
+        }
+        if (!hasNonEmptyString(position.precision)) {
+            addSchemaV3HealthIssue(health, 'error', 'schema_v3_missing_position_precision', `Schema v3 entry ${label} must define position.precision.`, {
+                entryIds,
+                file,
+            });
+        }
+        if (!hasNonEmptyString(position.label)) {
+            addSchemaV3HealthIssue(health, 'error', 'schema_v3_missing_position_label', `Schema v3 entry ${label} must define a human-readable position.label.`, {
+                entryIds,
+                file,
+            });
+        }
+    }
+
+    if (!retrieval) {
+        addSchemaV3HealthIssue(health, 'error', 'schema_v3_missing_retrieval', `Schema v3 entry ${label} is missing retrieval metadata.`, {
+            entryIds,
+            file,
+        });
+    } else {
+        const missing = ['activation', 'frequency', 'positionalBoost'].filter(field => !hasNonEmptyString(retrieval[field]));
+        if (missing.length) {
+            addSchemaV3HealthIssue(health, 'error', 'schema_v3_incomplete_retrieval', `Schema v3 entry ${label} has incomplete retrieval metadata: ${missing.join(', ')}.`, {
+                entryIds,
+                file,
+                fields: missing,
+            });
+        }
+    }
+
+    if (!hasNonEmptyString(content.fact) || !hasNonEmptyString(content.injection)) {
+        addSchemaV3HealthIssue(health, 'error', 'schema_v3_missing_content', `Schema v3 entry ${label} must define content.fact and content.injection.`, {
+            entryIds,
+            file,
+            missingFields: [
+                !hasNonEmptyString(content.fact) ? 'content.fact' : '',
+                !hasNonEmptyString(content.injection) ? 'content.injection' : '',
+            ].filter(Boolean),
+        });
+    }
+
+    if (position && retrieval) {
+        const from = Number(position.sortKeyFrom);
+        const to = Number(position.sortKeyTo);
+        const span = Number.isFinite(from) && Number.isFinite(to) ? Math.max(1, to - from + 1) : null;
+        const wide = position.scope === 'global'
+            || ['series', 'wide'].includes(cleanHealthString(position.windowKind, 80))
+            || (span !== null && span >= 365);
+        if (wide) {
+            const expected = {
+                activation: 'topic_or_entity',
+                frequency: 'low',
+                positionalBoost: 'low',
+            };
+            const mismatches = Object.entries(expected)
+                .filter(([field, value]) => cleanHealthString(retrieval[field], 80) !== value)
+                .map(([field, value]) => `${field}=${value}`);
+            if (mismatches.length) {
+                addSchemaV3HealthIssue(health, 'warning', 'schema_v3_wide_lore_retrieval', `Schema v3 wide entry ${label} should use conservative retrieval metadata: ${mismatches.join(', ')}.`, {
+                    entryIds,
+                    file,
+                    expected,
+                    actual: {
+                        activation: cleanHealthString(retrieval.activation, 80),
+                        frequency: cleanHealthString(retrieval.frequency, 80),
+                        positionalBoost: cleanHealthString(retrieval.positionalBoost, 80),
+                    },
+                });
+            }
+        }
+    }
+}
+
+function normalizeCategoryCounts(value = {}) {
+    const input = isPlainObject(value) ? value : {};
+    const out = {};
+    for (const [key, raw] of Object.entries(input)) {
+        const category = cleanHealthString(key, 80);
+        const count = Number(raw);
+        if (!category || !Number.isFinite(count)) continue;
+        out[category] = count;
+    }
+    return Object.fromEntries(Object.entries(out).sort((a, b) => a[0].localeCompare(b[0])));
+}
+
+function analyzeManifestStatsHealth(health, manifest = {}) {
+    const stats = isPlainObject(manifest.stats) ? manifest.stats : {};
+    const expectedEntryCount = Number(stats.entryCount);
+    if (Number.isFinite(expectedEntryCount) && expectedEntryCount !== health.summary.entryCount) {
+        health.summary.manifestStatsMismatchCount += 1;
+        addHealthIssue(health, 'warning', 'manifest_entry_count_mismatch', `Manifest stats.entryCount is ${expectedEntryCount}, but Pack Health counted ${health.summary.entryCount} loaded entries.`, {
+            expectedEntryCount,
+            actualEntryCount: health.summary.entryCount,
+        });
+    }
+
+    const expectedCategoryCounts = normalizeCategoryCounts(stats.categoryCounts);
+    if (Object.keys(expectedCategoryCounts).length) {
+        const actualCategoryCounts = normalizeCategoryCounts(health.summary.categoryCounts);
+        if (JSON.stringify(expectedCategoryCounts) !== JSON.stringify(actualCategoryCounts)) {
+            health.summary.manifestStatsMismatchCount += 1;
+            addHealthIssue(health, 'warning', 'manifest_category_counts_mismatch', 'Manifest stats.categoryCounts do not match loaded entry categories.', {
+                expectedCategoryCounts,
+                actualCategoryCounts,
+            });
+        }
+    }
+}
+
+function analyzeManifestFileListHealth(health, manifest = {}) {
+    const files = Array.isArray(manifest.files) ? manifest.files.map(file => cleanHealthString(file, 400)).filter(Boolean) : [];
+    const seen = new Set();
+    const duplicates = [];
+    for (const file of files) {
+        const key = file.replace(/\\/g, '/').toLowerCase();
+        if (seen.has(key)) duplicates.push(file);
+        else seen.add(key);
+    }
+    if (duplicates.length) {
+        addHealthIssue(health, 'warning', 'duplicate_manifest_file', `Lorepack manifest lists duplicate entry file${duplicates.length === 1 ? '' : 's'}: ${duplicates.join(', ')}.`, {
+            files: duplicates,
+        });
+    }
+}
+
+function normalizeHealthEntryFileRecord(fileRecord = {}, manifest = {}) {
+    const json = fileRecord.json && typeof fileRecord.json === 'object' ? fileRecord.json : null;
+    const file = cleanHealthString(fileRecord.file || fileRecord.path || '__memory_entries__', 400);
+    const entries = Array.isArray(fileRecord.entries) ? fileRecord.entries : entryListFromJson(json);
+    const schemaVersion = Number(fileRecord.schemaVersion ?? json?.schemaVersion ?? manifest.entrySchemaVersion ?? 2);
+    return {
+        ...fileRecord,
+        file,
+        ok: fileRecord.ok !== false,
+        json,
+        entries,
+        schemaVersion: Number.isFinite(schemaVersion) ? schemaVersion : 2,
+    };
+}
+
+function createEmptyTimelineHealthIndex(packId = '', timelineRef = '') {
+    return {
+        packId,
+        timelineRef,
+        hasTimelineRef: false,
+        anchors: [],
+        windows: [],
+        anchorById: new Map(),
+        duplicateAnchorIds: new Set(),
+    };
+}
+
+function createInMemoryTimelineHealthIndex(manifest = {}, timeline = null, health) {
+    const packId = cleanHealthString(manifest.id || health?.packId, 160);
+    const timelineRef = getTimelineRegistryRef(manifest);
+    if (!isPlainObject(timeline)) return createEmptyTimelineHealthIndex(packId, timelineRef);
+
+    const index = createTimelineHealthIndex({
+        ...normalizeTimelineRegistryForHealth(timeline, packId),
+        packId,
+        timelineRef,
+        hasTimelineRef: true,
+    });
+    health.summary.timelineAnchorCount = index.anchors.length;
+    health.summary.timelineWindowCount = index.windows.length;
+    if (!index.anchors.length && !index.windows.length) {
+        addHealthIssue(health, 'suggestion', 'story_position_timeline_empty', `Timeline registry ${timelineRef || '(in-memory)'} has no anchors or windows.`, {
+            timelineRef,
+        });
+    }
+    analyzeTimelineWindowHealth(health, index);
+    analyzeTimelineDateDerivedSortKeys(health, index);
+    return index;
+}
+
+function schemaV3ContentFact(entry = {}) {
+    const content = isPlainObject(entry.content) ? entry.content : {};
+    return String(content.fact || entry.fact || entry.description || entry.detail || entry.text || entry.summary || '').trim();
+}
+
+function schemaV3ContentInjection(entry = {}, fact = '') {
+    const content = isPlainObject(entry.content) ? entry.content : {};
+    return String(content.injection || entry.injection || fact || '').trim();
+}
+
+export function normalizeLorepackEntryForSchemaV3(entry = {}) {
+    const next = clonePlainObject(entry) || {};
+    const fact = schemaV3ContentFact(next);
+    const injection = schemaV3ContentInjection(next, fact);
+    next.schemaVersion = 3;
+    next.content = {
+        ...(isPlainObject(next.content) ? next.content : {}),
+        fact,
+        injection,
+    };
+    for (const field of SCHEMA_V3_LEGACY_ENTRY_FIELDS) {
+        delete next[field];
+    }
+    return next;
+}
+
+export function repairLorepackEntryForHealth(entry = {}, options = {}) {
+    const forceSchemaV3 = options.forceSchemaVersion === 3 || Number(entry?.schemaVersion) >= 3;
+    let next = forceSchemaV3 ? normalizeLorepackEntryForSchemaV3(entry) : (clonePlainObject(entry) || {});
+    if (forceSchemaV3) {
+        const position = isPlainObject(next.position) ? next.position : {};
+        const from = Number(position.sortKeyFrom);
+        const to = Number(position.sortKeyTo);
+        const span = Number.isFinite(from) && Number.isFinite(to) ? Math.max(1, to - from + 1) : null;
+        const wide = position.scope === 'global'
+            || ['series', 'wide'].includes(cleanHealthString(position.windowKind, 80))
+            || (span !== null && span >= 365);
+        if (wide) {
+            next.retrieval = {
+                ...(isPlainObject(next.retrieval) ? next.retrieval : {}),
+                activation: 'topic_or_entity',
+                frequency: 'low',
+                positionalBoost: 'low',
+            };
+        }
+    }
+    return next;
+}
+
+export function buildLorepackHealthForData(options = {}) {
+    const manifest = isPlainObject(options.manifest) ? options.manifest : {};
+    const packId = cleanHealthString(options.packId || manifest.id || 'draft-lorepack', 160);
+    const health = createHealth(packId);
+    const files = Array.isArray(manifest.files) ? manifest.files : [];
+    const entryFiles = Array.isArray(options.entryFiles)
+        ? options.entryFiles.map(fileRecord => normalizeHealthEntryFileRecord(fileRecord, manifest))
+        : [];
+
+    health.summary.fileCount = files.length || entryFiles.length;
+    health.summary.loadedFileCount = entryFiles.filter(fileRecord => fileRecord.ok !== false).length;
+    health.summary.missingFileCount = entryFiles.filter(fileRecord => fileRecord.ok === false).length;
+    analyzeManifestFileListHealth(health, manifest);
+    for (const fileRecord of entryFiles) {
+        if (fileRecord.ok !== false) continue;
+        addHealthIssue(health, 'error', 'missing_entry_file', `Lorepack entry file failed to load: ${fileRecord.file}.`, {
+            file: fileRecord.file,
+            detail: fileRecord.error || '',
+        });
+    }
+
+    const finalEntryFiles = options.registryRecord
+        ? applyRegistryEntryOverrides(entryFiles, options.registryRecord, manifest, health)
+        : entryFiles;
+    const timeline = createInMemoryTimelineHealthIndex(manifest, options.timeline, health);
+    analyzeEntryPositionHealth(health, finalEntryFiles, timeline);
+    analyzeEntries(health, finalEntryFiles, manifest);
+    return finalizeHealth(health);
+}
+
+function analyzeEntries(health, entryFiles = [], manifest = {}) {
     const seenIds = new Map();
     const duplicateIds = new Set();
     let missingEntryIds = 0;
     let entryCount = 0;
     const categoryCounts = {};
-    const legacyTimingFields = ['date', 'canonTiming', 'validFrom', 'validTo', 'activeWhen', 'whoKnowsTruth', 'whoSuspects', 'whoBelievesPublicVersion', 'publicVersion', 'fact'];
 
     for (const fileRecord of entryFiles) {
         for (const entry of fileRecord.entries || []) {
@@ -472,17 +874,7 @@ function analyzeEntries(health, entryFiles = []) {
 
             const category = String(entry?.category || 'other').trim() || 'other';
             categoryCounts[category] = (categoryCounts[category] || 0) + 1;
-
-            if (Number(entry?.schemaVersion) >= 3) {
-                const presentLegacyFields = legacyTimingFields.filter(field => Object.prototype.hasOwnProperty.call(entry || {}, field));
-                if (presentLegacyFields.length) {
-                    addHealthIssue(health, 'error', 'schema_v3_legacy_timing_fields', `Schema v3 entry ${id || entry?.title || '(missing id)'} still has legacy timing fields: ${presentLegacyFields.join(', ')}.`, {
-                        entryIds: id ? [id] : [],
-                        file: fileRecord.file,
-                        fields: presentLegacyFields,
-                    });
-                }
-            }
+            analyzeSchemaV3EntryHealth(health, entry, fileRecord);
         }
     }
 
@@ -490,6 +882,7 @@ function analyzeEntries(health, entryFiles = []) {
     health.summary.duplicateEntryIdCount = duplicateIds.size;
     health.summary.missingEntryIdCount = missingEntryIds;
     health.summary.categoryCounts = categoryCounts;
+    analyzeManifestStatsHealth(health, manifest);
 }
 
 function buildLorepackMeta(manifest = {}, stackPriority = 100, stackIndex = 0) {
@@ -700,6 +1093,7 @@ async function loadEntryFiles(manifest = {}, baseUrl, health, registryRecord = n
     const files = Array.isArray(manifest.files) ? manifest.files : [];
     const entryFiles = [];
     health.summary.fileCount = files.length;
+    analyzeManifestFileListHealth(health, manifest);
 
     for (const file of files) {
         const url = new URL(file, baseUrl);
@@ -730,7 +1124,7 @@ async function loadEntryFiles(manifest = {}, baseUrl, health, registryRecord = n
     const finalEntryFiles = applyRegistryEntryOverrides(entryFiles, registryRecord, manifest, health);
     const timeline = await loadTimelineRegistryForHealth(manifest, baseUrl, health);
     analyzeEntryPositionHealth(health, finalEntryFiles, timeline);
-    analyzeEntries(health, finalEntryFiles);
+    analyzeEntries(health, finalEntryFiles, manifest);
     return finalEntryFiles;
 }
 
@@ -931,6 +1325,9 @@ export function combineLorepackHealth(sources = []) {
         health.summary.brokenAnchorReferenceCount = (Number(health.summary.brokenAnchorReferenceCount) || 0) + (Number(summary.brokenAnchorReferenceCount) || 0);
         health.summary.invalidPositionWindowCount = (Number(health.summary.invalidPositionWindowCount) || 0) + (Number(summary.invalidPositionWindowCount) || 0);
         health.summary.unmatchablePositionGateCount = (Number(health.summary.unmatchablePositionGateCount) || 0) + (Number(summary.unmatchablePositionGateCount) || 0);
+        health.summary.schemaV3EntryCount = (Number(health.summary.schemaV3EntryCount) || 0) + (Number(summary.schemaV3EntryCount) || 0);
+        health.summary.schemaV3IssueCount = (Number(health.summary.schemaV3IssueCount) || 0) + (Number(summary.schemaV3IssueCount) || 0);
+        health.summary.manifestStatsMismatchCount = (Number(health.summary.manifestStatsMismatchCount) || 0) + (Number(summary.manifestStatsMismatchCount) || 0);
         for (const [category, count] of Object.entries(summary.categoryCounts || {})) {
             health.summary.categoryCounts[category] = (health.summary.categoryCounts[category] || 0) + (Number(count) || 0);
         }
@@ -954,6 +1351,13 @@ export const __lorepackLoaderTestHooks = {
     normalizeTimelineRegistryForHealth,
     createTimelineHealthIndex,
     analyzeTimelineWindowHealth,
+    analyzeTimelineDateDerivedSortKeys,
+    analyzeManifestFileListHealth,
+    buildLorepackHealthForData,
+    normalizeLorepackEntryForSchemaV3,
+    repairLorepackEntryForHealth,
     analyzeEntries,
+    analyzeSchemaV3EntryHealth,
+    analyzeManifestStatsHealth,
     analyzeEntryPositionHealth,
 };

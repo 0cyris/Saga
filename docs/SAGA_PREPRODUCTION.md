@@ -1139,4 +1139,9 @@ The current production slice is **position-native Lorepack retrieval and HP refe
 4. Done: add visible source and position/gating chips on suggested and pending lore cards.
 5. Done: expand Pack Health for broken anchor references, invalid position windows, and entries that can never match a known Story Position.
 6. Done: migrate the bundled Harry Potter Lorepack to schema v3 Story Position-native entries with no legacy entry date gates.
-7. Next: use the HP v3 conformance test as the reference for Pack Health rules and creator/export validation.
+7. Done: generalize the HP v3 conformance baseline into reusable Pack Health checks for schema v3 shape, manifest stats, duplicate manifest files, wide-lore retrieval policy, and date-derived timeline sort keys.
+8. Done: wire reusable Pack Health checks into Lorepack editor validation, validated Custom/Generated export, safe metadata/override repair actions, and schema v3-safe override persistence.
+9. Done: add Story Position and retrieval fields to the Custom entry editor so new schema v3 entries can be authored fully instead of only preserving source entry positions.
+10. Done: add timeline anchor search/pickers and bulk Story Position editing to make v3 authoring less manual.
+11. Done: add bulk tag editing and a first Tag Manager surface for Custom Lorepack entries, including tag counts, tag filtering, add/remove/rename operations, and namespaced tag preservation.
+12. Next: wire Tag Manager into `tags.json` registry editing and Pack Health checks for undefined or deprecated tags.
