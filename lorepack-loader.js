@@ -1433,6 +1433,43 @@ function normalizeDisabledEntryIdSet(value) {
     return output;
 }
 
+function isGeneratedRegistryRecord(registryRecord = null) {
+    return String(registryRecord?.type || registryRecord?.manifestData?.type || '').trim() === 'generated';
+}
+
+function getAcceptedGeneratedRegistryEntries(registryRecord = null, manifest = {}) {
+    if (!isGeneratedRegistryRecord(registryRecord)) return [];
+    const overrides = normalizeEntryOverrideMap(registryRecord?.entryOverrides);
+    const disabledIds = normalizeDisabledEntryIdSet(registryRecord?.disabledEntryIds);
+    const schemaVersion = Number(manifest.entrySchemaVersion || registryRecord?.entrySchemaVersion || registryRecord?.manifestData?.entrySchemaVersion) || 3;
+    const entries = [];
+    for (const [id, raw] of overrides.entries()) {
+        if (disabledIds.has(id)) continue;
+        const entry = clonePlainObject(raw) || {};
+        entry.id = id;
+        entry.schemaVersion = Number(entry.schemaVersion) || Math.max(3, schemaVersion);
+        entries.push(entry);
+    }
+    return entries;
+}
+
+function buildGeneratedEntryFilesFromRegistry(registryRecord = null, manifest = {}) {
+    const entries = getAcceptedGeneratedRegistryEntries(registryRecord, manifest);
+    const schemaVersion = Math.max(3, Number(manifest.entrySchemaVersion || registryRecord?.entrySchemaVersion || registryRecord?.manifestData?.entrySchemaVersion) || 0);
+    if (!entries.length) return [];
+    return [{
+        file: '__saga_generated_entries__',
+        url: null,
+        ok: true,
+        json: {
+            schemaVersion,
+            entries,
+        },
+        entries,
+        schemaVersion,
+    }];
+}
+
 function buildOverrideEntry(override, baseEntry, packId, kind) {
     const entry = {
         ...(baseEntry || {}),
@@ -1603,13 +1640,37 @@ async function loadEntryFiles(manifest = {}, baseUrl, health, registryRecord = n
 
 export async function loadLorepackSourceById(packId = DEFAULT_LOREPACK_ID, options = {}) {
     const registryRecord = options.registryRecord || getRegistryRecord(options.registry, packId);
-    const manifestUrl = getLorepackManifestUrl(packId, registryRecord);
+    const generatedWithoutManifest = isGeneratedRegistryRecord(registryRecord) && !String(registryRecord?.manifest || '').trim();
+    const manifestUrl = generatedWithoutManifest ? null : getLorepackManifestUrl(packId, registryRecord);
     const stackPriority = Number.isFinite(Number(options.stackPriority)) ? Number(options.stackPriority) : 100;
     const stackIndex = Number.isFinite(Number(options.stackIndex)) ? Number(options.stackIndex) : 0;
     const embeddedManifest = buildEmbeddedManifest(registryRecord, packId);
     if (embeddedManifest) {
-        const health = createHealth(embeddedManifest.id || packId);
         if (!manifestUrl) {
+            if (isGeneratedRegistryRecord(registryRecord)) {
+                const entryFiles = buildGeneratedEntryFilesFromRegistry(registryRecord, embeddedManifest);
+                const health = buildLorepackHealthForData({
+                    packId: embeddedManifest.id || packId,
+                    manifest: embeddedManifest,
+                    entryFiles,
+                    timeline: registryRecord?.timelineRegistry || null,
+                    tagRegistry: registryRecord?.tagRegistry || null,
+                    registryRecord: null,
+                });
+                return {
+                    manifest: embeddedManifest,
+                    baseUrl: null,
+                    sourceKind: 'generated_virtual',
+                    registryRecord,
+                    pack: {
+                        ...buildLorepackMeta(embeddedManifest, stackPriority, stackIndex),
+                        source: embeddedManifest.source || registryRecord?.source || {},
+                    },
+                    health,
+                    entryFiles,
+                };
+            }
+            const health = createHealth(embeddedManifest.id || packId);
             addHealthIssue(health, 'error', 'missing_virtual_lorepack_base_manifest', `Custom Lorepack ${embeddedManifest.id || packId} has embedded manifest metadata but no base manifest path for file resolution.`, {
                 packId: embeddedManifest.id || packId,
             });
@@ -1623,6 +1684,7 @@ export async function loadLorepackSourceById(packId = DEFAULT_LOREPACK_ID, optio
                 entryFiles: [],
             };
         }
+        const health = createHealth(embeddedManifest.id || packId);
         const entryFiles = await loadEntryFiles(embeddedManifest, manifestUrl, health, registryRecord);
         return {
             manifest: embeddedManifest,

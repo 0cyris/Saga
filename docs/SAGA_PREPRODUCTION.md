@@ -1010,7 +1010,7 @@ Approximate entry count should not be front-facing. Saga should derive it dynami
 - Number of power systems, items, concepts, or social rules.
 - Chosen granularity.
 
-The user chooses density, not a number. Saga estimates the number only after it understands the scope and can show it for review.
+The user chooses density, not a number. Saga may estimate count internally after it understands the scope, but the review surface should focus on granularity, coverage, and generated title batches rather than asking the user to approve a number.
 
 Granularity presets:
 
@@ -1053,7 +1053,7 @@ The output of scope negotiation should be a short pack brief:
 - Coverage range.
 - Granularity.
 - Expected timeline style inferred by Saga.
-- Estimated entry range.
+- Derived generation scale kept as internal planning data.
 - Any assumptions Saga will use.
 
 The user approves or revises the brief before generation proceeds.
@@ -1078,20 +1078,22 @@ This is the bridge from Lore Assistant MVP to Lorepack Creator. The Creator shou
 1. User requests a Lorepack.
 2. Saga identifies fandom, coverage range, and granularity.
 3. Saga narrows vague or oversized scope when needed.
-4. Saga produces a pack brief with assumptions and an estimated entry range.
+4. Saga produces a pack brief with assumptions and internal derived generation scale.
 5. User approves or revises the brief.
-6. Saga drafts timeline/windows/anchors appropriate to the coverage range.
-7. User reviews the timeline draft.
-8. Saga drafts tag/entity registries.
-9. User reviews tag/entity registries.
-10. Saga drafts entry titles only.
-11. User adds, removes, merges, splits, or approves titles.
-12. Saga generates full entries for approved titles in batches.
-13. Saga runs Pack Health.
-14. User reviews generated entries, Pack Health warnings, and diffs.
-15. User accepts selected entries into the Generated Lorepack.
+6. Saga drafts entry titles only as a reviewable planning batch.
+7. User adds, removes, merges, splits, revises, or approves titles.
+8. Saga drafts timeline anchors/windows and tag/entity definitions appropriate to the approved coverage and title shape.
+9. User reviews the timeline/tag planning proposals in Pending Review.
+10. User accepts selected planning metadata into the Generated Lorepack.
+11. Saga uses accepted planning metadata plus approved titles as the full-entry generation context.
+12. Saga drafts full schema v3 entries for approved titles into an edit-before-queue draft batch.
+13. User reviews, edits, drops, revises, or queues selected entry drafts into Pending Review.
+14. User accepts selected entry proposals into the Generated Lorepack.
+15. Saga runs Pack Health and export validation on the accepted Generated Lorepack.
 
-No full card generation should happen until the scope, timeline, tag/entity registry, and entry title list have been reviewed.
+No full card generation should happen until the scope, title list, timeline, and tag/entity registry have been reviewed.
+
+The initial title pass is intentionally allowed before timeline and tag generation because titles are cheap to review and expose scope mistakes early. Approved titles are not entries; they are planning records that guide later timeline, tag, and full-entry stages.
 
 ### Coverage Versus Injection
 
@@ -1299,12 +1301,16 @@ Implemented MVP behavior:
 - Requests Lore Value Rubric metadata for assistant proposals and surfaces scene utility, behavioral impact, Story Position fit, wiki-summary risk, rubric notes, and local quality flags in Pending Review.
 - Drafts now land in an Assistant Draft Batch first, where users can select proposals, queue selected/all into Pending Review, drop selected proposals, edit draft JSON, or ask the assistant to revise selected proposals before queueing.
 - Pack Health validation issues can now be selected from the editor validation preview and sent to the Lore Assistant as repair-planning context; returned repairs land in the Assistant Draft Batch before Pending Review.
+- Lorepack Creator intake now drafts an approval-gated pack brief from fandom, scope, granularity, and notes. The brief records internal derived generation scale, Story Position approach, timeline/tag/title-pass plans, assumptions, exclusions, risks, and next stage before any generated entries exist.
+- Lorepack Creator title-pass and planning now generate reviewable titles first, then queue timeline anchors/windows and tag definitions onto a Generated Lorepack shell through Pending Review before full entry generation exists.
+- Lorepack Creator entry drafting now uses accepted planning metadata plus approved titles to draft schema v3 entry proposals into the same edit-before-queue batch used by the Lore Assistant before they can enter Pending Review.
+- Generated Lorepacks now validate and export from accepted Creator entries without requiring a fetchable manifest path; the virtual generated manifest derives entry stats, local timeline/tag registries feed Pack Health, and export readiness blocks unresolved Pending Review or draft-batch state.
 - Leaves runtime behavior unchanged until the user accepts queued Pending Review items.
 
 Not included yet:
 
 - Multi-turn assistant chat memory.
-- Full Lorepack Creator staged generation.
+- Import/install/update polish for exported Lorepack bundles.
 - Automatic Pack Health rerun after accepting assistant proposals.
 
 ## Lorepack Editor
@@ -1466,6 +1472,7 @@ Do not include the full Lorepack Creator in MVP. Design for it, then build it af
 - Pending review queue integration.
 - Pack Health loop.
 - Save as Generated Lorepack.
+- Validate/export accepted Generated Lorepacks.
 - Convert reviewed Generated Lorepack to Custom Lorepack.
 
 ### Milestone 7: Lore Assistant
@@ -1563,4 +1570,9 @@ Recent production completed **position-native Lorepack retrieval and HP referenc
 20. Done: add Lore Assistant quality-rubric guardrails and proposal review affordances so AI revisions steer toward high-value Saga lore instead of generic wiki summaries.
 21. Done: add assistant batch review controls for edit-before-queue, queue selected/all, drop selected, edit draft JSON, and revise selected proposals before they enter Pending Review.
 22. Done: wire Pack Health issue repair planning into the Lore Assistant so users can turn selected health warnings into reviewable repair proposals.
-23. Next: begin the Lorepack Creator intake scaffold with staged scope briefing, granularity selection, and title-pass generation that reuses Assistant Draft Batch review.
+23. Done: begin the Lorepack Creator intake scaffold with staged scope briefing, granularity selection, generated pack brief review, revision, and approval.
+24. Done: add Creator title-pass generation from an approved brief, with selectable title drafts, approve/drop controls, revise-selected generation, and JSON editing before full entries exist.
+25. Done: add Creator timeline/tag planning from the approved brief and title shape, creating a Generated Lorepack shell and routing generated anchors/windows/tag definitions through Pending Review before full entry generation.
+26. Done: generate full schema v3 entry drafts from approved titles plus accepted planning metadata, landing them in the same edit-before-queue and Pending Review pipeline before activation.
+27. Done: harden Generated Lorepack validation/export for accepted Creator entries, including virtual generated manifest stats, Pack Health rerun affordances, runtime loading for virtual generated entries, and export readiness checks.
+28. Next: build import/install handling for exported Saga Lorepack bundles, including Generated-to-Custom install choices, duplicate-pack warnings, and update-source metadata for creator-shared packs.

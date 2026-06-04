@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { __lorepackLoaderTestHooks } from '../lorepack-loader.js';
+import { __lorepackLoaderTestHooks, loadLorepackSourceById } from '../lorepack-loader.js';
 
 const {
   createHealth,
@@ -440,5 +440,90 @@ analyzeEntryTagHealth(missingRegistryHealth, [{
 finalizeHealth(missingRegistryHealth);
 assert.equal(missingRegistryHealth.status, 'good');
 assert.equal(missingRegistryHealth.suggestions[0].code, 'tag_registry_missing');
+
+const generatedSource = await loadLorepackSourceById('generated-arlong-park', {
+  allowLegacyFallback: false,
+  registry: {
+    packs: {
+      'generated-arlong-park': {
+        packId: 'generated-arlong-park',
+        type: 'generated',
+        title: 'Generated Arlong Park',
+        fandom: 'One Piece',
+        era: 'Arlong Park Arc',
+        entrySchemaVersion: 3,
+        manifestData: {
+          id: 'generated-arlong-park',
+          type: 'generated',
+          title: 'Generated Arlong Park',
+          entrySchemaVersion: 3,
+          files: [],
+          registries: {
+            timeline: 'local',
+            tags: 'local',
+          },
+          stats: {
+            entryCount: 1,
+            categoryCounts: { character: 1 },
+          },
+        },
+        timelineRegistry: {
+          anchors: [
+            { id: 'arlong_park.start', label: 'Arlong Park Begins', sortKey: 100 },
+            { id: 'arlong_park.end', label: 'Arlong Park Ends', sortKey: 200 },
+          ],
+          windows: [
+            { id: 'arlong_park.window', anchorFrom: 'arlong_park.start', anchorTo: 'arlong_park.end', sortKeyFrom: 100, sortKeyTo: 200 },
+          ],
+        },
+        tagRegistry: {
+          schemaVersion: 1,
+          tags: {
+            'character:arlong': {
+              label: 'Arlong',
+              aliases: ['sawshark fish-man'],
+            },
+          },
+        },
+        entryOverrides: {
+          arlong_generated: {
+            schemaVersion: 3,
+            id: 'arlong_generated',
+            title: 'Arlong',
+            category: 'character',
+            priority: 72,
+            tags: ['character:arlong'],
+            position: {
+              scope: 'window',
+              validFromAnchor: 'arlong_park.start',
+              validToAnchor: 'arlong_park.end',
+              sortKeyFrom: 100,
+              sortKeyTo: 200,
+              precision: 'anchor_window',
+              windowKind: 'bounded',
+              label: 'Arlong Park Arc',
+            },
+            retrieval: {
+              activation: 'topic_or_entity',
+              frequency: 'normal',
+              positionalBoost: 'medium',
+            },
+            content: {
+              fact: 'Arlong controls Cocoyasi Village through extortion and intimidation.',
+              injection: 'Arlong should apply pressure through extortion, intimidation, and contempt for humans.',
+            },
+          },
+        },
+      },
+    },
+  },
+});
+assert.equal(generatedSource.sourceKind, 'generated_virtual');
+assert.equal(generatedSource.entryFiles.length, 1);
+assert.equal(generatedSource.entryFiles[0].entries.length, 1);
+assert.equal(generatedSource.health.status, 'good');
+assert.equal(generatedSource.health.summary.entryCount, 1);
+assert.equal(generatedSource.health.summary.timelineAnchorCount, 2);
+assert.equal(generatedSource.health.summary.tagRegistryTagCount, 1);
 
 console.log('Lorepack position health tests passed.');

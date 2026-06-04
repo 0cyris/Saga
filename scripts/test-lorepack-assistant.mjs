@@ -2,7 +2,17 @@ import assert from 'node:assert/strict';
 import {
   buildLorepackAssistantSystemPrompt,
   buildLorepackAssistantUserPrompt,
+  buildLorepackCreatorBriefSystemPrompt,
+  buildLorepackCreatorBriefUserPrompt,
+  buildLorepackCreatorTitleSystemPrompt,
+  buildLorepackCreatorTitleUserPrompt,
+  buildLorepackCreatorPlanningSystemPrompt,
+  buildLorepackCreatorPlanningUserPrompt,
+  buildLorepackCreatorEntrySystemPrompt,
+  buildLorepackCreatorEntryUserPrompt,
   parseLorepackAssistantResponse,
+  parseLorepackCreatorBriefResponse,
+  parseLorepackCreatorTitleResponse,
 } from '../lorepack-assistant.js';
 
 const parsed = parseLorepackAssistantResponse(`\`\`\`json
@@ -89,5 +99,169 @@ assert.equal(userJson.loreValueRubric.target, 'High-value scene context, not wik
 assert.ok(userJson.loreValueRubric.rubricKeys.includes('behavioralImpact'));
 assert.equal(userJson.selectedDraftProposals[0].changeId, 'lpchg_1');
 assert.equal(userJson.selectedHealthIssues[0].code, 'undefined_tag');
+
+const creatorBrief = parseLorepackCreatorBriefResponse(`{
+  "summary": "Arlong Park is a workable focused arc.",
+  "clarifyingQuestions": [],
+  "brief": {
+    "title": "Arlong Park Arc",
+    "packId": "one-piece-arlong-park",
+    "fandom": "One Piece",
+    "scope": "Arlong Park Arc",
+    "granularity": "focused",
+    "coverage": "Covers Nami's bargain, Arlong's control, Cocoyasi pressure, and Straw Hat intervention.",
+    "storyPositionApproach": "Use arc windows plus anchors for arrival, Nami reveal, battle, and aftermath.",
+    "estimatedEntryRange": { "min": 70, "max": 120, "rationale": "Focused arc with several factions and relationship states." },
+    "timelinePlan": ["Draft arc start/reveal/battle/aftermath anchors."],
+    "tagPlan": ["character:nami", "faction:arlong-pirates"],
+    "titlePassPlan": ["Generate character pressure titles first."],
+    "assumptions": ["Anime/manga broad canon treated together."],
+    "exclusions": ["Post-Arlong Park material."],
+    "risks": ["Avoid broad biography."],
+    "nextStage": "Draft timeline anchors/windows."
+  }
+}`);
+assert.equal(creatorBrief.brief.title, 'Arlong Park Arc');
+assert.equal(creatorBrief.brief.estimatedEntryRange.min, 70);
+assert.equal(creatorBrief.brief.timelinePlan[0], 'Draft arc start/reveal/battle/aftermath anchors.');
+
+const creatorClarification = parseLorepackCreatorBriefResponse(`{
+  "summary": "Scope is too broad.",
+  "clarifyingQuestions": ["Which One Piece arc should this cover?"],
+  "brief": null
+}`);
+assert.equal(creatorClarification.brief, null);
+assert.equal(creatorClarification.clarifyingQuestions[0], 'Which One Piece arc should this cover?');
+
+const creatorSystemPrompt = buildLorepackCreatorBriefSystemPrompt();
+assert.ok(creatorSystemPrompt.includes('Do not generate entries'));
+assert.ok(creatorSystemPrompt.includes('Entry count is derived from granularity'));
+
+const creatorUserPrompt = buildLorepackCreatorBriefUserPrompt({
+  fandom: 'One Piece',
+  scope: 'Arlong Park Arc',
+  granularity: 'focused',
+  notes: 'Focus on pressure and secrets.',
+  previousBrief: creatorBrief.brief,
+  revisionInstruction: 'Narrow the title pass around Nami.',
+});
+const creatorUserJson = JSON.parse(creatorUserPrompt);
+assert.equal(creatorUserJson.fandom, 'One Piece');
+assert.equal(creatorUserJson.constraints.entryCountMustBeDerived, true);
+assert.equal(creatorUserJson.previousBrief.packId, 'one-piece-arlong-park');
+
+const creatorTitlePass = parseLorepackCreatorTitleResponse(`{
+  "summary": "Drafted character pressure titles.",
+  "clarifyingQuestions": [],
+  "batch": {
+    "label": "Character pressure",
+    "coverage": "Nami, Arlong, villagers, and Straw Hat pressure points.",
+    "nextBatchHint": "Faction and setting constraints.",
+    "complete": false
+  },
+  "titleDrafts": [
+    {
+      "titleId": "nami-hides-her-bargain",
+      "title": "Nami hides her bargain with Arlong",
+      "category": "character_pressure",
+      "priority": 88,
+      "relevance": "high",
+      "positionHint": "From Cocoyasi arrival until Nami asks for help.",
+      "tags": ["character:nami", "faction:arlong-pirates"],
+      "reason": "Creates secrecy, pressure, and timing.",
+      "rubric": {
+        "sceneUtility": "high",
+        "activationClarity": "high",
+        "behavioralImpact": "high",
+        "relationshipImpact": "medium",
+        "conflictStakes": "high",
+        "nonRedundancy": "high",
+        "injectionQuality": "medium",
+        "storyPositionFit": "high",
+        "wikiSummaryRisk": "low",
+        "notes": ["Playable pressure, not biography."]
+      }
+    }
+  ]
+}`);
+assert.equal(creatorTitlePass.titleDrafts.length, 1);
+assert.equal(creatorTitlePass.titleDrafts[0].titleId, 'nami-hides-her-bargain');
+assert.equal(creatorTitlePass.titleDrafts[0].rubric.wikiSummaryRisk, 'low');
+assert.equal(creatorTitlePass.batch.nextBatchHint, 'Faction and setting constraints.');
+
+const creatorTitleSystemPrompt = buildLorepackCreatorTitleSystemPrompt();
+assert.ok(creatorTitleSystemPrompt.includes('Generate titles only'));
+assert.ok(creatorTitleSystemPrompt.includes('Do not generate full lore entries'));
+assert.ok(creatorTitleSystemPrompt.includes('selectedTitleDrafts'));
+
+const creatorTitleUserPrompt = buildLorepackCreatorTitleUserPrompt({
+  brief: creatorBrief.brief,
+  notes: 'Keep titles practical.',
+  previousTitleDrafts: creatorTitlePass.titleDrafts,
+  selectedTitleDrafts: creatorTitlePass.titleDrafts,
+  revisionInstruction: 'Make the title more coercive.',
+  titlePassLimit: 80,
+});
+const creatorTitleUserJson = JSON.parse(creatorTitleUserPrompt);
+assert.equal(creatorTitleUserJson.approvedBrief.packId, 'one-piece-arlong-park');
+assert.equal(creatorTitleUserJson.constraints.titlesOnly, true);
+assert.equal(creatorTitleUserJson.constraints.entryCountMustBeDerived, true);
+assert.equal(creatorTitleUserJson.selectedTitleDrafts[0].titleId, 'nami-hides-her-bargain');
+
+const creatorPlanningSystemPrompt = buildLorepackCreatorPlanningSystemPrompt();
+assert.ok(creatorPlanningSystemPrompt.includes('Do not generate full lore entries'));
+assert.ok(creatorPlanningSystemPrompt.includes('upsert_timeline_anchor'));
+assert.ok(creatorPlanningSystemPrompt.includes('upsert_tag_definition'));
+
+const creatorPlanningUserPrompt = buildLorepackCreatorPlanningUserPrompt({
+  generatedPackId: 'one-piece-arlong-park',
+  brief: creatorBrief.brief,
+  approvedTitleDrafts: creatorTitlePass.titleDrafts,
+  notes: 'Draft a compact registry foundation.',
+  existingTimelineIds: ['one-piece.arlong.start'],
+  existingTagIds: ['character:nami'],
+  proposalLimit: 40,
+});
+const creatorPlanningUserJson = JSON.parse(creatorPlanningUserPrompt);
+assert.equal(creatorPlanningUserJson.generatedPackId, 'one-piece-arlong-park');
+assert.equal(creatorPlanningUserJson.constraints.timelineAndTagsOnly, true);
+assert.equal(creatorPlanningUserJson.constraints.noEntryGenerationYet, true);
+assert.equal(creatorPlanningUserJson.approvedTitleDrafts[0].titleId, 'nami-hides-her-bargain');
+assert.equal(creatorPlanningUserJson.existingTagIds[0], 'character:nami');
+
+const creatorEntrySystemPrompt = buildLorepackCreatorEntrySystemPrompt();
+assert.ok(creatorEntrySystemPrompt.includes('Return only upsert_entry proposals'));
+assert.ok(creatorEntrySystemPrompt.includes('schemaVersion 3'));
+assert.ok(creatorEntrySystemPrompt.includes('content.fact'));
+assert.ok(creatorEntrySystemPrompt.includes('content.injection'));
+
+const creatorEntryUserPrompt = buildLorepackCreatorEntryUserPrompt({
+  generatedPackId: 'one-piece-arlong-park',
+  brief: creatorBrief.brief,
+  targetTitleDrafts: [{
+    ...creatorTitlePass.titleDrafts[0],
+    targetEntryId: 'nami-hides-her-bargain',
+  }],
+  timelineRegistry: {
+    anchors: [{ id: 'one-piece.arlong.cocoyasi-arrival', label: 'Cocoyasi arrival', sortKey: 120 }],
+    windows: [{ id: 'one-piece.arlong.nami-secret', label: 'Nami secret', anchorFrom: 'one-piece.arlong.cocoyasi-arrival', anchorTo: 'one-piece.arlong.nami-asks-for-help' }],
+  },
+  tagRegistry: {
+    tags: {
+      'character:nami': { label: 'Nami', description: 'Navigator under pressure.' },
+      'faction:arlong-pirates': { label: 'Arlong Pirates' },
+    },
+  },
+  existingEntryIds: ['already-drafted'],
+  notes: 'Keep this playable.',
+  entryBatchLimit: 1,
+});
+const creatorEntryUserJson = JSON.parse(creatorEntryUserPrompt);
+assert.equal(creatorEntryUserJson.generatedPackId, 'one-piece-arlong-park');
+assert.equal(creatorEntryUserJson.constraints.upsertEntriesOnly, true);
+assert.equal(creatorEntryUserJson.constraints.schemaVersion, 3);
+assert.equal(creatorEntryUserJson.constraints.requirePosition, true);
+assert.equal(creatorEntryUserJson.targetTitleDrafts[0].targetEntryId, 'nami-hides-her-bargain');
+assert.equal(creatorEntryUserJson.acceptedTagRegistry.tags['character:nami'].label, 'Nami');
 
 console.log('Lorepack assistant tests passed.');

@@ -68,4 +68,9 @@ Position-aware Lorepack retrieval:
 - Done: add Lore Assistant quality-rubric guardrails and proposal review affordances before deeper Lorepack Creator work.
 - Done: add assistant batch review controls for edit-before-queue, queue selected/all, drop selected, edit draft JSON, and revise selected proposals before they enter Pending Review.
 - Done: wire Pack Health issue repair planning into the Lore Assistant so users can turn selected health warnings into reviewable repair proposals.
-- Next: begin the Lorepack Creator intake scaffold with staged scope briefing, granularity selection, and title-pass generation that reuses Assistant Draft Batch review.
+- Done: begin the Lorepack Creator intake scaffold with staged scope briefing, granularity selection, generated pack brief review, revision, and approval.
+- Done: add Creator title-pass generation from an approved brief, with selectable title drafts, approve/drop controls, revise-selected generation, and JSON editing before full entries exist.
+- Done: add Creator timeline/tag planning from the approved brief and title shape, creating a Generated Lorepack shell and routing generated anchors/windows/tag definitions through Pending Review before full entry generation.
+- Done: generate full schema v3 entry drafts from approved titles plus accepted planning metadata, landing them in the same edit-before-queue and Pending Review pipeline before activation.
+- Done: harden Generated Lorepack validation/export for accepted Creator entries, including virtual generated manifest stats, Pack Health rerun affordances, runtime loading for virtual generated entries, and export readiness checks.
+- Next: build import/install handling for exported Saga Lorepack bundles, including Generated-to-Custom install choices, duplicate-pack warnings, and update-source metadata for creator-shared packs.

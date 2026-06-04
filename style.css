@@ -996,6 +996,37 @@
     font-style: italic;
 }
 
+.wandlight-lorepack-generated-readiness {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.wandlight-lorepack-generated-readiness-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.wandlight-lorepack-generated-readiness-item {
+    border: 1px solid rgba(180, 160, 140, 0.14);
+    border-left-width: 3px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.14);
+    color: var(--wandlight-muted, rgba(241, 234, 216, 0.76));
+    padding: 5px 7px;
+    font-size: 0.76em;
+    line-height: 1.35;
+}
+
+.wandlight-lorepack-generated-readiness-blocker {
+    border-left-color: rgba(190, 80, 92, 0.82);
+}
+
+.wandlight-lorepack-generated-readiness-warning {
+    border-left-color: rgba(215, 181, 109, 0.78);
+}
+
 .wandlight-lorepack-entry-overrides {
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     padding-top: 7px;
@@ -1210,6 +1241,58 @@
 
 .wandlight-lorepack-assistant-draft-json {
     min-height: 360px;
+}
+
+.wandlight-lorepack-creator-card {
+    gap: 8px;
+}
+
+.wandlight-lorepack-creator-form,
+.wandlight-lorepack-creator-revise-form {
+    padding: 0;
+    overflow: visible;
+}
+
+.wandlight-lorepack-creator-brief {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    border: 1px solid rgba(180, 160, 140, 0.14);
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.13);
+    padding: 8px;
+}
+
+.wandlight-lorepack-creator-brief-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    border-top: 1px solid rgba(180, 160, 140, 0.12);
+    padding-top: 6px;
+}
+
+.wandlight-lorepack-creator-title-pass {
+    gap: 7px;
+}
+
+.wandlight-lorepack-creator-title-row {
+    border-left-color: rgba(215, 181, 109, 0.78);
+}
+
+.wandlight-lorepack-creator-title-label {
+    min-width: 0;
+}
+
+.wandlight-lorepack-creator-title-json {
+    min-height: 320px;
+}
+
+.wandlight-lorepack-creator-planning {
+    border-left: 3px solid rgba(126, 166, 219, 0.72);
+}
+
+.wandlight-lorepack-creator-entry-drafts {
+    border-left: 3px solid rgba(104, 186, 132, 0.76);
 }
 
 .wandlight-lorepack-entry-override-shell {

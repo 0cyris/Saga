@@ -37,6 +37,15 @@ function cleanId(value, maxLength = 180) {
     return String(value || '').trim().slice(0, maxLength);
 }
 
+function cleanPackId(value, maxLength = 140) {
+    return cleanId(value, maxLength)
+        .toLowerCase()
+        .replace(/[^a-z0-9_.:-]+/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/^-+|-+$/g, '')
+        .slice(0, maxLength);
+}
+
 function cleanStringArray(value = [], limit = 24, maxLength = 240) {
     const input = Array.isArray(value) ? value : [];
     const output = [];
@@ -49,6 +58,12 @@ function cleanStringArray(value = [], limit = 24, maxLength = 240) {
         if (output.length >= limit) break;
     }
     return output;
+}
+
+function cleanInteger(value, fallback = 0, min = 0, max = 100000) {
+    const number = Number(value);
+    if (!Number.isFinite(number)) return fallback;
+    return Math.max(min, Math.min(max, Math.round(number)));
 }
 
 function cleanStringList(value = [], limit = 24, maxLength = 240) {
@@ -218,9 +233,11 @@ function normalizeAssistantProposal(raw = {}, index = 0) {
 }
 
 export function parseLorepackAssistantResponse(text = '') {
-    const parsed = coerceAssistantShape(parseAssistantJson(text));
+    const parsedJson = parseAssistantJson(text);
+    const parsed = coerceAssistantShape(parsedJson);
+    const raw = isPlainObject(parsedJson) ? parsedJson : {};
     const proposals = [];
-    const warnings = [];
+    const warnings = cleanStringArray(raw.warnings, 12, 300);
     for (const [index, raw] of (parsed.proposals || []).entries()) {
         const proposal = normalizeAssistantProposal(raw, index);
         if (!proposal) {
@@ -235,6 +252,489 @@ export function parseLorepackAssistantResponse(text = '') {
         proposals,
         warnings,
     };
+}
+
+function normalizeCreatorBrief(raw = {}) {
+    const source = isPlainObject(raw?.brief)
+        ? raw.brief
+        : (isPlainObject(raw?.packBrief)
+            ? raw.packBrief
+            : (isPlainObject(raw) ? raw : {}));
+    if (!isPlainObject(source)) return null;
+    const range = isPlainObject(source.estimatedEntryRange || source.entryRange)
+        ? (source.estimatedEntryRange || source.entryRange)
+        : {};
+    const min = cleanInteger(range.min ?? range.low, 0, 0, 10000);
+    const max = cleanInteger(range.max ?? range.high, min, min, 10000);
+    const brief = {
+        title: cleanString(source.title || source.name, 180),
+        packId: cleanPackId(source.packId || source.id || source.title || source.name, 140),
+        fandom: cleanString(source.fandom, 120),
+        scope: cleanString(source.scope || source.coverageRange || source.coverage, 240),
+        granularity: cleanString(source.granularity || source.density, 80),
+        coverage: cleanString(source.coverage || source.coverageSummary, 1000),
+        storyPositionApproach: cleanString(source.storyPositionApproach || source.timelineApproach, 1000),
+        estimatedEntryRange: {
+            min,
+            max,
+            rationale: cleanString(range.rationale || source.entryRangeRationale, 500),
+        },
+        timelinePlan: cleanStringArray(source.timelinePlan || source.timeline || source.anchors, 12, 240),
+        tagPlan: cleanStringArray(source.tagPlan || source.tags || source.entityPlan, 16, 180),
+        titlePassPlan: cleanStringArray(source.titlePassPlan || source.entryTitlePassPlan || source.titlePlan, 12, 240),
+        assumptions: cleanStringArray(source.assumptions, 12, 240),
+        exclusions: cleanStringArray(source.exclusions || source.outOfScope, 12, 240),
+        risks: cleanStringArray(source.risks || source.openRisks, 12, 240),
+        nextStage: cleanString(source.nextStage, 500),
+    };
+    return Object.values(brief).some(value => {
+        if (Array.isArray(value)) return value.length > 0;
+        if (isPlainObject(value)) return Object.values(value).some(Boolean);
+        return !!value;
+    }) ? brief : null;
+}
+
+function normalizeCreatorTitleDraft(raw = {}, index = 0) {
+    if (!isPlainObject(raw)) return null;
+    const title = cleanString(raw.title || raw.name || raw.label, 220);
+    if (!title) return null;
+    const fallbackId = `title-${index + 1}`;
+    const titleId = cleanPackId(raw.titleId || raw.id || raw.entryId || title || fallbackId, 160) || fallbackId;
+    const relevance = cleanRubricLevel(raw.relevance || raw.importance || raw.priorityBand);
+    const draft = {
+        titleId,
+        title,
+        category: cleanString(raw.category || raw.type || raw.kind, 120),
+        priority: cleanInteger(raw.priority ?? raw.weight ?? raw.rank, 50, 0, 100),
+        relevance: relevance && relevance !== 'not_applicable' ? relevance : '',
+        positionHint: cleanString(raw.positionHint || raw.storyPositionHint || raw.timelineHint || raw.windowHint, 500),
+        tags: cleanStringArray(raw.tags || raw.tagHints || raw.suggestedTags, 24, 140),
+        reason: cleanString(raw.reason || raw.rationale || raw.description, 1000),
+        rubric: normalizeAssistantRubric(raw),
+        warnings: cleanStringArray(raw.warnings || raw.qualityWarnings, 8, 240),
+    };
+    return draft;
+}
+
+export function parseLorepackCreatorBriefResponse(text = '') {
+    const parsedJson = parseAssistantJson(text);
+    const parsed = coerceAssistantShape(parsedJson);
+    const raw = isPlainObject(parsedJson) ? parsedJson : {};
+    const brief = normalizeCreatorBrief(raw);
+    return {
+        summary: cleanString(raw.summary || parsed.summary, 1000),
+        clarifyingQuestions: cleanStringArray(raw.clarifyingQuestions || raw.questions || parsed.clarifyingQuestions, 8, 300),
+        brief,
+        warnings: cleanStringArray(raw.warnings, 8, 300),
+    };
+}
+
+export function parseLorepackCreatorTitleResponse(text = '') {
+    const parsedJson = parseAssistantJson(text);
+    const parsed = coerceAssistantShape(parsedJson);
+    const raw = isPlainObject(parsedJson) ? parsedJson : {};
+    const titleRows = Array.isArray(parsedJson)
+        ? parsedJson
+        : (Array.isArray(raw.titleDrafts)
+            ? raw.titleDrafts
+            : (Array.isArray(raw.titles)
+                ? raw.titles
+                : (Array.isArray(raw.entries) ? raw.entries : [])));
+    const titleDrafts = [];
+    const warnings = cleanStringArray(raw.warnings, 12, 300);
+    const seenIds = new Set();
+    for (const [index, row] of titleRows.entries()) {
+        const draft = normalizeCreatorTitleDraft(row, index);
+        if (!draft) {
+            warnings.push(`Skipped unsupported title draft ${index + 1}.`);
+            continue;
+        }
+        let id = draft.titleId;
+        if (seenIds.has(id)) id = `${id}-${index + 1}`;
+        seenIds.add(id);
+        titleDrafts.push({ ...draft, titleId: id });
+    }
+    const batch = isPlainObject(raw.batch || raw.titleBatch) ? (raw.batch || raw.titleBatch) : {};
+    return {
+        summary: cleanString(raw.summary || parsed.summary, 1000),
+        clarifyingQuestions: cleanStringArray(raw.clarifyingQuestions || raw.questions || parsed.clarifyingQuestions, 8, 300),
+        warnings,
+        titleDrafts,
+        batch: {
+            label: cleanString(batch.label || batch.name, 160),
+            coverage: cleanString(batch.coverage || batch.scope || raw.batchCoverage, 500),
+            nextBatchHint: cleanString(batch.nextBatchHint || raw.nextBatchHint, 500),
+            complete: batch.complete === true || raw.complete === true,
+        },
+    };
+}
+
+export function buildLorepackCreatorBriefSystemPrompt() {
+    return `You are Saga's Lorepack Creator intake assistant.
+
+Return JSON only. Do not include markdown.
+
+Your task is to turn a user's fandom, scope, and granularity into a short pack brief for approval. Do not generate entries, timeline anchors, or tag registries yet.
+
+Creator principles:
+- Narrow vague or oversized requests into a practical story scope.
+- Do not require spoiler boundary, adaptation, continuity, or approximate entry count from the user.
+- Coverage says what the pack may contain; Story Position later decides what can inject.
+- Entry count is derived from granularity, coverage size, and story density.
+- Prefer high-value roleplay/fanfic scene context over wiki completeness.
+- Flag assumptions and risks clearly.
+- If the request is too broad or ambiguous, ask 1-3 clarifying questions and leave brief null.
+
+Granularity meanings:
+- compact: key constraints and major character/state changes only.
+- focused: practical arc-level play with enough detail for long-form roleplay.
+- dense: many anchors, relationships, and scene-specific constraints.
+- scene_dense: intensive coverage for a short span with many moment-level entries.
+
+Output shape:
+{
+  "summary": "short summary",
+  "clarifyingQuestions": [],
+  "warnings": [],
+  "brief": {
+    "title": "Arlong Park Arc",
+    "packId": "one-piece-arlong-park",
+    "fandom": "One Piece",
+    "scope": "Arlong Park Arc",
+    "granularity": "focused",
+    "coverage": "What this pack should cover.",
+    "storyPositionApproach": "How timeline anchors/windows should likely be organized later.",
+    "estimatedEntryRange": { "min": 70, "max": 120, "rationale": "Derived from scope and granularity." },
+    "timelinePlan": ["High-level anchor/window plan only."],
+    "tagPlan": ["High-level tag/entity plan only."],
+    "titlePassPlan": ["How the next title-pass should be organized."],
+    "assumptions": ["Assumption to confirm."],
+    "exclusions": ["Out-of-scope material."],
+    "risks": ["Known risk."],
+    "nextStage": "Recommended next generation stage."
+  }
+}`;
+}
+
+export function buildLorepackCreatorBriefUserPrompt(context = {}) {
+    return JSON.stringify({
+        task: cleanString(context.task || 'Draft a reviewable Lorepack Creator pack brief only.', 500),
+        fandom: cleanString(context.fandom, 200),
+        scope: cleanString(context.scope, 1000),
+        granularity: cleanString(context.granularity || 'focused', 80),
+        notes: cleanString(context.notes, 2000),
+        revisionInstruction: cleanString(context.revisionInstruction, 2000),
+        previousBrief: isPlainObject(context.previousBrief) ? context.previousBrief : null,
+        constraints: {
+            noEntryGenerationYet: true,
+            noTimelineGenerationYet: true,
+            noRequiredSpoilerBoundary: true,
+            noRequiredAdaptationOrContinuityQuestion: true,
+            entryCountMustBeDerived: true,
+            coverageIsNotInjectionBoundary: true,
+            sagaUseCase: 'long-form fanfic and roleplay Lorepacks',
+        },
+    }, null, 2);
+}
+
+export function buildLorepackCreatorTitleSystemPrompt() {
+    return `You are Saga's Lorepack Creator title-pass assistant.
+
+Return JSON only. Do not include markdown.
+
+Your task is to turn an approved Creator brief into reviewable future lore-entry titles. Generate titles only.
+
+Hard limits:
+- Do not generate full lore entries, facts, injection text, timeline anchors, timeline windows, or tag registries yet.
+- Do not ask the user for an approximate entry count. Derive title count from the approved brief's granularity, coverage size, story density, and entry range.
+- If a pack is too large for one response, return a coherent first title batch and use batch.nextBatchHint to describe the next batch.
+- When selectedTitleDrafts are supplied, revise only those selected title drafts and return replacements for them.
+
+Title quality rules:
+- Prefer high-value roleplay/fanfic scene context over wiki completeness.
+- Each title should imply playable pressure, constraints, relationships, secrets, powers, obligations, setting response, or story-position consequences.
+- Include broad/wide titles only when they are genuinely useful across a large window; mark that in positionHint.
+- Avoid duplicate titles and avoid generic biography titles.
+- Use category, priority, relevance, positionHint, tags, reason, and rubric so the user can review before entry generation.
+
+Output shape:
+{
+  "summary": "short summary",
+  "clarifyingQuestions": [],
+  "warnings": [],
+  "batch": {
+    "label": "Characters and pressure",
+    "coverage": "What this title batch covers.",
+    "nextBatchHint": "What should be generated next, if anything.",
+    "complete": false
+  },
+  "titleDrafts": [
+    {
+      "titleId": "nami-hides-her-bargain",
+      "title": "Nami hides her bargain with Arlong",
+      "category": "character_pressure",
+      "priority": 85,
+      "relevance": "high",
+      "positionHint": "From the crew's Cocoyasi arrival until Nami asks for help.",
+      "tags": ["character:nami", "faction:arlong-pirates"],
+      "reason": "Creates secrecy, pressure, and timing for scenes.",
+      "rubric": {
+        "sceneUtility": "high",
+        "activationClarity": "high",
+        "behavioralImpact": "high",
+        "relationshipImpact": "medium",
+        "conflictStakes": "high",
+        "nonRedundancy": "high",
+        "injectionQuality": "medium",
+        "storyPositionFit": "high",
+        "wikiSummaryRisk": "low",
+        "notes": ["Title points toward playable behavior, not biography."]
+      },
+      "warnings": []
+    }
+  ]
+}`;
+}
+
+export function buildLorepackCreatorTitleUserPrompt(context = {}) {
+    return JSON.stringify({
+        task: cleanString(context.task || 'Draft a reviewable Creator title pass only.', 500),
+        approvedBrief: isPlainObject(context.brief) ? context.brief : null,
+        notes: cleanString(context.notes, 2000),
+        revisionInstruction: cleanString(context.revisionInstruction, 2000),
+        previousTitleDrafts: Array.isArray(context.previousTitleDrafts) ? context.previousTitleDrafts : [],
+        selectedTitleDrafts: Array.isArray(context.selectedTitleDrafts) ? context.selectedTitleDrafts : [],
+        titlePassLimit: cleanInteger(context.titlePassLimit, 80, 10, 120),
+        constraints: {
+            approvedBriefRequired: true,
+            titlesOnly: true,
+            noEntryGenerationYet: true,
+            noTimelineGenerationYet: true,
+            noTagRegistryGenerationYet: true,
+            entryCountMustBeDerived: true,
+            preserveTitleIdsWhenRevising: true,
+            sagaUseCase: 'long-form fanfic and roleplay Lorepacks',
+        },
+    }, null, 2);
+}
+
+export function buildLorepackCreatorPlanningSystemPrompt() {
+    return `You are Saga's Lorepack Creator timeline and tag planning assistant.
+
+Return JSON only. Do not include markdown.
+
+Your task is to turn an approved Creator brief and approved title drafts into reviewable planning proposals for Pending Review.
+
+Hard limits:
+- Do not generate full lore entries, facts, injection text, entry bodies, or entry overrides yet.
+- Return only supported planning proposal actions: upsert_timeline_anchor, upsert_timeline_window, and upsert_tag_definition.
+- Do not claim proposals are applied. They are drafts for Pending Review.
+- Preserve stable IDs and namespaced tags.
+- Timeline anchors/windows should be useful for Story Position gating and should prevent future canon leakage.
+- Tags should support retrieval, filtering, Pack Health, and future entry generation. Avoid tag spam and avoid vague unnamespaced tags when a namespace is natural.
+- Use approvedTitleDrafts to infer the minimum useful timeline and tag shape; do not attempt full pack completeness in one pass.
+- If the approved title shape is insufficient, ask 1-3 clarifying questions and return an empty proposals array.
+
+Planning guidance:
+- Use anchors for meaningful story moments, reveals, arrivals, battles, state changes, relationship pivots, or date/arc boundaries.
+- Use windows for spans where entries should be eligible between two anchors.
+- Use tag definitions for characters, factions, locations, arcs, concepts, powers, secrets, and relationship/state clusters that the approved titles imply.
+- Prefer a compact but robust registry foundation over exhaustive wiki coverage.
+- Include confidence, risk, reason, and rubric on every proposal.
+
+Supported proposal actions:
+- upsert_timeline_anchor with {timelineAnchor}
+- upsert_timeline_window with {timelineWindow}
+- upsert_tag_definition with {tagDefinition}
+
+Output shape:
+{
+  "summary": "short summary",
+  "clarifyingQuestions": [],
+  "warnings": [],
+  "proposals": [
+    {
+      "action": "upsert_timeline_anchor",
+      "title": "Create anchor: crew reaches Cocoyasi",
+      "timelineId": "one-piece.arlong.cocoyasi-arrival",
+      "timelineAnchor": {
+        "id": "one-piece.arlong.cocoyasi-arrival",
+        "label": "Straw Hats reach Cocoyasi Village",
+        "positionType": "arc_event",
+        "sortKey": 120,
+        "arc": "Arlong Park",
+        "aliases": ["Cocoyasi arrival", "crew reaches Nami's village"],
+        "tags": ["arc:arlong-park", "location:cocoyasi-village"],
+        "notes": "Anchor for early Cocoyasi scenes before the full Nami reveal."
+      },
+      "reason": "Gives Story Position a clear early-arc boundary.",
+      "confidence": 0.82,
+      "risk": "low",
+      "rubric": {
+        "sceneUtility": "high",
+        "activationClarity": "high",
+        "behavioralImpact": "medium",
+        "relationshipImpact": "medium",
+        "conflictStakes": "medium",
+        "nonRedundancy": "high",
+        "injectionQuality": "not_applicable",
+        "storyPositionFit": "high",
+        "wikiSummaryRisk": "low",
+        "notes": ["Planning metadata, not wiki recap."]
+      }
+    }
+  ]
+}`;
+}
+
+export function buildLorepackCreatorPlanningUserPrompt(context = {}) {
+    return JSON.stringify({
+        task: cleanString(context.task || 'Draft reviewable Creator timeline anchors/windows and tag definitions only.', 500),
+        generatedPackId: cleanPackId(context.generatedPackId || '', 140),
+        approvedBrief: isPlainObject(context.brief) ? context.brief : null,
+        approvedTitleDrafts: Array.isArray(context.approvedTitleDrafts) ? context.approvedTitleDrafts : [],
+        notes: cleanString(context.notes, 2000),
+        existingTimelineIds: cleanStringArray(context.existingTimelineIds, 160, 180),
+        existingTagIds: cleanStringArray(context.existingTagIds, 240, 140),
+        proposalLimit: cleanInteger(context.proposalLimit, 40, 8, 80),
+        constraints: {
+            approvedBriefRequired: true,
+            approvedTitlesRequired: true,
+            timelineAndTagsOnly: true,
+            noEntryGenerationYet: true,
+            noEntryFactsOrInjectionYet: true,
+            pendingReviewOnly: true,
+            preserveStableIds: true,
+            sagaUseCase: 'long-form fanfic and roleplay Lorepacks',
+        },
+    }, null, 2);
+}
+
+export function buildLorepackCreatorEntrySystemPrompt() {
+    return `You are Saga's Lorepack Creator entry drafting assistant.
+
+Return JSON only. Do not include markdown.
+
+Your task is to generate reviewable schema v3 lore entry proposals from approved title drafts and accepted planning metadata.
+
+Hard limits:
+- Return only upsert_entry proposals. Do not return timeline, tag, disable, restore, manifest, or settings proposals.
+- Do not claim entries are applied. They are drafts for edit-before-queue review, then Pending Review, then acceptance.
+- Generate one entry proposal per targetTitleDraft.
+- Use targetTitleDraft.titleId as entry.id unless it is invalid; preserve stable IDs.
+- Use only acceptedTimelineRegistry anchors/windows and acceptedTagRegistry tags. Do not invent anchor IDs or tag IDs at this stage.
+- Every entry must be schemaVersion 3 with content.fact, content.injection, position, retrieval, tags, category, canon/canonStatus, relevance, and priority.
+- Do not write wiki summaries. The fact should state the useful story constraint; the injection should tell the roleplay prompt what changes in-scene.
+
+Schema v3 entry requirements:
+- entry.position.scope must be "anchor", "window", or "global".
+- entry.position.sortKeyFrom and entry.position.sortKeyTo must be numeric.
+- entry.position.precision and entry.position.label must be non-empty.
+- window entries should use validFromAnchor/validToAnchor when a matching accepted window exists.
+- anchor entries should use anchorId when tied to a single accepted anchor.
+- global/wide entries must use conservative retrieval: activation "topic_or_entity", frequency "low", positionalBoost "low".
+- entry.retrieval.activation, frequency, and positionalBoost must be non-empty.
+
+High-value lore rules:
+- Prefer playable scene pressure over completeness.
+- Encode what characters know, hide, want, fear, expect, avoid, misunderstand, reveal, protect, threaten, or risk.
+- Include consequences, relationship pressure, secrets, obligations, local rules, faction expectations, or setting reactions.
+- Keep content.injection concise and directly usable in a prompt.
+- Avoid future canon leakage outside the chosen position window.
+- Ask 1-3 clarifying questions and return no proposals if accepted planning metadata is insufficient.
+
+Use the Lore Value Rubric for every proposal.
+
+Output shape:
+{
+  "summary": "short summary",
+  "clarifyingQuestions": [],
+  "warnings": [],
+  "proposals": [
+    {
+      "action": "upsert_entry",
+      "title": "Draft entry: Nami hides her bargain with Arlong",
+      "entryId": "nami-hides-her-bargain",
+      "entry": {
+        "id": "nami-hides-her-bargain",
+        "schemaVersion": 3,
+        "title": "Nami hides her bargain with Arlong",
+        "category": "secret",
+        "canon": "canon",
+        "canonStatus": "canon",
+        "relevance": "high",
+        "priority": 88,
+        "tags": ["character:nami", "faction:arlong-pirates"],
+        "position": {
+          "scope": "window",
+          "validFromAnchor": "one-piece.arlong.cocoyasi-arrival",
+          "validToAnchor": "one-piece.arlong.nami-asks-for-help",
+          "sortKeyFrom": 120,
+          "sortKeyTo": 180,
+          "precision": "anchor_window",
+          "windowKind": "arc",
+          "label": "Cocoyasi arrival through Nami asking for help"
+        },
+        "retrieval": {
+          "activation": "position_or_topic",
+          "frequency": "normal",
+          "positionalBoost": "high"
+        },
+        "content": {
+          "fact": "Nami conceals that she is trying to buy Cocoyasi's freedom from Arlong, so her apparent betrayal is a protective deception rather than loyalty to Arlong.",
+          "injection": "When Nami, Arlong, Cocoyasi, money, betrayal, or the Straw Hats' trust are in focus during this window, frame Nami as evasive and desperate: she protects the village by lying, pushing allies away, and hiding how much leverage Arlong holds over her.",
+          "notes": "Playable secrecy and relationship pressure, not a biography."
+        },
+        "source": "saga-lorepack:one-piece-arlong-park:creator"
+      },
+      "reason": "Creates scene behavior, secrecy, and timing pressure.",
+      "confidence": 0.84,
+      "risk": "low",
+      "rubric": {
+        "sceneUtility": "high",
+        "activationClarity": "high",
+        "behavioralImpact": "high",
+        "relationshipImpact": "high",
+        "conflictStakes": "high",
+        "nonRedundancy": "high",
+        "injectionQuality": "high",
+        "storyPositionFit": "high",
+        "wikiSummaryRisk": "low",
+        "notes": ["Entry drives deception and pressure in scenes."]
+      }
+    }
+  ]
+}`;
+}
+
+export function buildLorepackCreatorEntryUserPrompt(context = {}) {
+    return JSON.stringify({
+        task: cleanString(context.task || 'Draft schema v3 lore entry proposals only.', 500),
+        generatedPackId: cleanPackId(context.generatedPackId || '', 140),
+        approvedBrief: isPlainObject(context.brief) ? context.brief : null,
+        targetTitleDrafts: Array.isArray(context.targetTitleDrafts) ? context.targetTitleDrafts : [],
+        acceptedTimelineRegistry: isPlainObject(context.timelineRegistry) ? context.timelineRegistry : null,
+        acceptedTagRegistry: isPlainObject(context.tagRegistry) ? context.tagRegistry : null,
+        existingEntryIds: cleanStringArray(context.existingEntryIds, 240, 180),
+        notes: cleanString(context.notes, 2000),
+        entryBatchLimit: cleanInteger(context.entryBatchLimit, 8, 1, 20),
+        constraints: {
+            generatedPackRequired: true,
+            approvedBriefRequired: true,
+            approvedTitlesRequired: true,
+            acceptedPlanningMetadataRequired: true,
+            upsertEntriesOnly: true,
+            schemaVersion: 3,
+            requirePosition: true,
+            requireRetrieval: true,
+            requireContentFactAndInjection: true,
+            useAcceptedTimelineIdsOnly: true,
+            useAcceptedTagIdsOnly: true,
+            noWikiSummaries: true,
+            pendingReviewOnly: true,
+            sagaUseCase: 'long-form fanfic and roleplay Lorepacks',
+        },
+    }, null, 2);
 }
 
 export function buildLorepackAssistantSystemPrompt() {
