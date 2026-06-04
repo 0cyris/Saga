@@ -13,13 +13,11 @@
  */
 
 import { LOG_PREFIX } from './constants.js';
-import { getState, getSettings, saveState, pushStateSnapshot, MAX_PENDING_LORE_ENTRIES } from './state-manager.js';
+import { getState, getSettings, saveState, pushStateSnapshot, MAX_PENDING_LORE_ENTRIES, getLorepackLibraryRegistry } from './state-manager.js';
 import { normalizeLoreMatrix, buildLoreGenerationKey } from './lore-matrix.js';
 import { preprocessPendingLoreEntries } from './pending-lore-preprocessor.js';
 import { normalizeLorePurpose, computeSpecificityScore, isSpecificLorePurpose } from './lore-relevance.js';
-
-const MANIFEST_URL = new URL('./Lore/manifest.json', import.meta.url);
-const LEGACY_INDEX_URL = new URL('./Lore/index.json', import.meta.url);
+import { combineLorepackHealth, fetchJson, loadLorepackStackSources } from './lorepack-loader.js';
 
 let _dbCache = null;
 let _dbLoadPromise = null;
@@ -109,16 +107,6 @@ export const DEFAULT_SCORING = Object.freeze({
     },
 });
 
-async function fetchJson(url, fallback = null) {
-    try {
-        const response = await fetch(url);
-        if (!response.ok) return fallback;
-        return await response.json();
-    } catch (e) {
-        return fallback;
-    }
-}
-
 function mergeRegistry(defaults, loaded) {
     if (!loaded || typeof loaded !== 'object') return defaults;
     const output = { ...defaults, ...loaded };
@@ -142,69 +130,206 @@ export function getLoreScoringSync() {
     return _dbCache?.scoring || DEFAULT_SCORING;
 }
 
+export function getCanonLoreDatabaseSync() {
+    return _dbCache;
+}
+
+function getLorepackStackIndex(entry = {}) {
+    const value = Number(entry.extensions?.sagaLorepack?.stackIndex);
+    return Number.isFinite(value) ? value : 9999;
+}
+
+function getLorepackStackPriority(entry = {}) {
+    const value = Number(entry.extensions?.sagaLorepack?.stackPriority);
+    return Number.isFinite(value) ? value : 0;
+}
+
+function compareLorepackStackPosition(a = {}, b = {}) {
+    const stackIndex = getLorepackStackIndex(a) - getLorepackStackIndex(b);
+    if (stackIndex) return stackIndex;
+    return getLorepackStackPriority(b) - getLorepackStackPriority(a);
+}
+
+function compareLorepackSourceStackPosition(a = {}, b = {}) {
+    const aIndex = Number.isFinite(Number(a?.pack?.stackIndex)) ? Number(a.pack.stackIndex) : 9999;
+    const bIndex = Number.isFinite(Number(b?.pack?.stackIndex)) ? Number(b.pack.stackIndex) : 9999;
+    if (aIndex !== bIndex) return aIndex - bIndex;
+    const aPriority = Number.isFinite(Number(a?.pack?.stackPriority)) ? Number(a.pack.stackPriority) : 0;
+    const bPriority = Number.isFinite(Number(b?.pack?.stackPriority)) ? Number(b.pack.stackPriority) : 0;
+    return bPriority - aPriority;
+}
+
+function sourceSuppressesEntry(suppressorSource = {}, targetSource = {}, entryId = '') {
+    const id = String(entryId || '').trim();
+    if (!id) return false;
+    if (compareLorepackSourceStackPosition(suppressorSource, targetSource) >= 0) return false;
+    const targetPackId = String(targetSource?.pack?.id || targetSource?.manifest?.id || '').trim();
+    const derivedFromId = String(suppressorSource?.pack?.derivedFrom?.packId || suppressorSource?.manifest?.derivedFrom?.packId || '').trim();
+    if (!targetPackId || derivedFromId !== targetPackId) return false;
+    const disabled = Array.isArray(suppressorSource?.pack?.disabledEntryIds)
+        ? suppressorSource.pack.disabledEntryIds
+        : [];
+    return disabled.includes(id);
+}
+
+function entrySuppressedByHigherPrioritySource(sources = [], targetSource = {}, entryId = '') {
+    return sources.some(source => source !== targetSource && sourceSuppressesEntry(source, targetSource, entryId));
+}
+
+function updateHealthCounts(health) {
+    if (!health?.summary) return health;
+    health.summary.errorCount = Array.isArray(health.errors) ? health.errors.length : 0;
+    health.summary.warningCount = Array.isArray(health.warnings) ? health.warnings.length : 0;
+    health.summary.suggestionCount = Array.isArray(health.suggestions) ? health.suggestions.length : 0;
+    health.status = health.summary.errorCount
+        ? 'has_errors'
+        : health.summary.warningCount
+            ? 'needs_review'
+            : 'good';
+    return health;
+}
+
+function dedupeLorepackEntriesByStack(entries = [], health = null) {
+    const grouped = new Map();
+    const passthrough = [];
+    for (const entry of entries) {
+        const id = String(entry?.id || '').trim();
+        if (!id) {
+            passthrough.push(entry);
+            continue;
+        }
+        if (!grouped.has(id)) grouped.set(id, []);
+        grouped.get(id).push(entry);
+    }
+
+    const output = [...passthrough];
+    const duplicateEntryIds = [];
+    for (const [id, group] of grouped.entries()) {
+        if (group.length === 1) {
+            output.push(group[0]);
+            continue;
+        }
+        group.sort(compareLorepackStackPosition);
+        const winner = group[0];
+        duplicateEntryIds.push(id);
+        output.push(winner);
+        if (health) {
+            if (!Array.isArray(health.warnings)) health.warnings = [];
+            health.warnings.push({
+                code: 'duplicate_entry_id_across_stack',
+                severity: 'warning',
+                message: `Duplicate entry id across loaded Lorepacks: ${id}. The higher-priority stack entry was kept.`,
+                entryIds: [id],
+                winningPackId: winner.extensions?.sagaLorepack?.packId || '',
+                droppedPackIds: group.slice(1).map(entry => entry.extensions?.sagaLorepack?.packId || '').filter(Boolean),
+            });
+            if (health.summary) {
+                health.summary.duplicateEntryIdCount = (Number(health.summary.duplicateEntryIdCount) || 0) + 1;
+            }
+        }
+    }
+    updateHealthCounts(health);
+    return { entries: output, duplicateEntryIds };
+}
+
 export async function loadCanonLoreDatabase() {
     if (_dbCache) return _dbCache;
     if (_dbLoadPromise) return _dbLoadPromise;
 
     _dbLoadPromise = (async () => {
-        let manifest = await fetchJson(MANIFEST_URL, null);
-        let baseUrl = MANIFEST_URL;
-        if (!manifest) {
-            manifest = await fetchJson(LEGACY_INDEX_URL, null);
-            baseUrl = LEGACY_INDEX_URL;
-        }
-        if (!manifest) {
-            throw new Error('Canon lore manifest/index failed to load.');
+        const state = getState();
+        const sources = await loadLorepackStackSources(state?.lorepackStack || [], {
+            registry: getLorepackLibraryRegistry(state),
+        });
+        const usableSources = sources.filter(source => source?.manifest && source?.baseUrl);
+        const health = combineLorepackHealth(sources);
+
+        let taxonomy = DEFAULT_LORE_TAXONOMY;
+        let gateTypes = DEFAULT_GATE_TYPES;
+        let scoring = DEFAULT_SCORING;
+        for (const source of usableSources.slice().reverse()) {
+            const registries = source.manifest.registries || {};
+            taxonomy = mergeRegistry(
+                taxonomy,
+                registries.taxonomy ? await fetchJson(new URL(registries.taxonomy, source.baseUrl), null) : null
+            );
+            gateTypes = mergeRegistry(
+                gateTypes,
+                registries.gateTypes ? await fetchJson(new URL(registries.gateTypes, source.baseUrl), null) : null
+            );
+            scoring = mergeRegistry(
+                scoring,
+                registries.scoring ? await fetchJson(new URL(registries.scoring, source.baseUrl), null) : null
+            );
         }
 
-        const registries = manifest.registries || {};
-        const taxonomy = mergeRegistry(
-            DEFAULT_LORE_TAXONOMY,
-            registries.taxonomy ? await fetchJson(new URL(registries.taxonomy, baseUrl), null) : null
-        );
-        const gateTypes = mergeRegistry(
-            DEFAULT_GATE_TYPES,
-            registries.gateTypes ? await fetchJson(new URL(registries.gateTypes, baseUrl), null) : null
-        );
-        const scoring = mergeRegistry(
-            DEFAULT_SCORING,
-            registries.scoring ? await fetchJson(new URL(registries.scoring, baseUrl), null) : null
-        );
-
-        const files = Array.isArray(manifest.files) ? manifest.files : [];
         const entries = [];
 
-        for (const file of files) {
-            try {
-                const url = new URL(file, baseUrl);
-                const json = await fetchJson(url, null);
-                if (!json) {
+        for (const source of usableSources) {
+            const { manifest, pack, entryFiles } = source;
+            const entrySchemaVersion = manifest.entrySchemaVersion || 2;
+            for (const fileRecord of entryFiles || []) {
+                const file = fileRecord.file;
+                if (!fileRecord.ok) {
                     console.warn(`${LOG_PREFIX} Canon lore file failed to load: ${file}`);
                     continue;
                 }
-                const fileEntries = Array.isArray(json.entries) ? json.entries : (Array.isArray(json) ? json : []);
-                entries.push(...fileEntries.map(entry => ({
-                    ...entry,
-                    source: entry?.source || `${CANON_DB_SOURCE}:${file}`,
-                    canonStatus: entry?.canonStatus || 'canon',
-                    branchId: entry?.branchId || 'main',
-                    schemaVersion: entry?.schemaVersion || manifest.schemaVersion || 2,
-                })));
-            } catch (e) {
-                console.warn(`${LOG_PREFIX} Canon lore file could not be read: ${file}`, e);
+                try {
+                    const fileEntries = Array.isArray(fileRecord.entries) ? fileRecord.entries : [];
+                    entries.push(...fileEntries.map(entry => ({
+                        ...entry,
+                        source: entry?.source || `${CANON_DB_SOURCE}:${pack?.id || manifest.id || 'unknown'}:${file}`,
+                        canonStatus: entry?.canonStatus || 'canon',
+                        branchId: entry?.branchId || 'main',
+                        schemaVersion: entry?.schemaVersion || fileRecord.schemaVersion || entrySchemaVersion,
+                        extensions: {
+                            ...(entry?.extensions || {}),
+                            ...(pack ? {
+                                sagaLorepack: {
+                                    packId: pack.id,
+                                    packType: pack.type,
+                                    packTitle: pack.title,
+                                    file,
+                                    stackPriority: pack.stackPriority,
+                                    stackIndex: pack.stackIndex,
+                                },
+                            } : {}),
+                        },
+                    })).filter(entry => !entrySuppressedByHigherPrioritySource(usableSources, source, entry.id)));
+                } catch (e) {
+                    console.warn(`${LOG_PREFIX} Canon lore file could not be read: ${file}`, e);
+                }
             }
         }
 
+        const packs = usableSources.map(source => ({
+            id: source.pack?.id || source.manifest?.id || '',
+            type: source.pack?.type || source.manifest?.type || 'custom',
+            title: source.pack?.title || source.manifest?.title || source.pack?.id || '',
+            stackPriority: source.pack?.stackPriority ?? 0,
+            stackIndex: source.pack?.stackIndex ?? 0,
+            sourceKind: source.sourceKind || 'lorepack',
+            entryCount: source.health?.summary?.entryCount || 0,
+            healthStatus: source.health?.status || 'unknown',
+        }));
+        const deduped = dedupeLorepackEntriesByStack(entries, health);
+        const firstManifest = usableSources[0]?.manifest || {};
+
         _dbCache = {
-            version: manifest.schemaVersion || manifest.version || 2,
-            databaseId: manifest.databaseId || 'wandlight.canon',
-            title: manifest.title || 'Wandlight Canon Lore Database',
-            generatedAt: manifest.generatedAt || '',
-            files,
+            version: firstManifest.entrySchemaVersion || firstManifest.schemaVersion || firstManifest.version || 2,
+            databaseId: packs.length === 1 ? (firstManifest.databaseId || packs[0].id || 'wandlight.canon') : 'saga.lorepack-stack',
+            title: packs.length === 1 ? (firstManifest.title || packs[0].title || 'Wandlight Canon Lore Database') : 'Saga Lorepack Stack',
+            generatedAt: firstManifest.generatedAt || '',
+            sourceKind: packs.length === 1 ? (packs[0].sourceKind || 'lorepack') : 'lorepack-stack',
+            health,
+            lorepack: packs[0] || null,
+            lorepacks: packs,
+            files: usableSources.flatMap(source => Array.isArray(source.manifest?.files) ? source.manifest.files.map(file => `${source.pack?.id || source.manifest?.id || 'unknown'}:${file}`) : []),
             taxonomy,
             gateTypes,
             scoring,
-            entries: normalizeLoreMatrix(entries),
+            duplicateEntryIds: deduped.duplicateEntryIds,
+            entries: normalizeLoreMatrix(deduped.entries),
         };
         return _dbCache;
     })();
@@ -352,6 +477,8 @@ function scoreCanonEntry(entry, state, context, sceneIso, scoring = DEFAULT_SCOR
     if (entry.category === 'character' && present.length) score += 5;
     if (entry.category === 'knowledge' || entry.truthStatus === 'hidden') score += 4;
     if (entry.priority) score += Math.min(Number(weights.priority) || 15, Number(entry.priority) / 6);
+    const stackIndex = getLorepackStackIndex(entry);
+    if (Number.isFinite(stackIndex) && stackIndex < 9999) score += Math.max(0, 12 - (stackIndex * 2));
 
     return score;
 }
@@ -390,7 +517,9 @@ function canonKindQuotaKey(entry = {}) {
 function sortCanonCandidates(a, b) {
     const ap = Number(a.entry.priority) || 50;
     const bp = Number(b.entry.priority) || 50;
-    return canonPriorityBand(bp) - canonPriorityBand(ap)
+    const stackOrder = compareLorepackStackPosition(a.entry, b.entry);
+    return stackOrder
+        || canonPriorityBand(bp) - canonPriorityBand(ap)
         || b.score - a.score
         || bp - ap
         || canonScopeSpecificity(b.entry) - canonScopeSpecificity(a.entry)

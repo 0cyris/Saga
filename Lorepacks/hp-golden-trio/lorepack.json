@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "entrySchemaVersion": 2,
+  "id": "hp-golden-trio",
+  "type": "bundled",
+  "title": "Harry Potter: Golden Trio",
+  "description": "Chronology, knowledge gates, future guards, spells, ages, behavior, locations, items, and event constraints for the seven-book Harry Potter era.",
+  "fandom": "Harry Potter",
+  "era": "Golden Trio",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "1.0.0",
+  "defaultLocale": "en",
+  "generatedAt": "2026-06-03",
+  "databaseId": "saga.hp-golden-trio",
+  "tags": [
+    "fandom:harry-potter",
+    "era:golden-trio",
+    "structure:school-year",
+    "quality:human-vetted"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": ""
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "continuity": {
+    "continuityId": "hp-books",
+    "canonTier": "primary",
+    "adaptation": "book",
+    "sourceBoundary": "Seven-book Golden Trio era"
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "registries": {
+    "taxonomy": "taxonomy.json",
+    "timeline": "timeline.json",
+    "gateTypes": "gate-types.json",
+    "scoring": "scoring.json"
+  },
+  "files": [
+    "chronology/school_years.json",
+    "chronology/major_events.json",
+    "characters/adults_and_factions.json",
+    "characters/death_states.json",
+    "characters/present_character_baselines.json",
+    "characters/adult_character_phase_baselines.json",
+    "items/artifacts_and_objects.json",
+    "knowledge/secret_knowledge.json",
+    "knowledge_gates/core_knowledge_gates.json",
+    "knowledge_gates/consolidated_story_gates.json",
+    "future_guards/major_spoilers.json",
+    "spell_gates/spell_gates.json",
+    "skills/school_year_skill_bands.json",
+    "ages/core_character_ages.json",
+    "behavior_gates/core_behaviors.json",
+    "places/institution_states.json",
+    "expanded_books/book_1_philosophers_stone_expansion.json",
+    "expanded_books/book_2_chamber_of_secrets_expansion.json",
+    "expanded_books/book_3_prisoner_of_azkaban_expansion.json",
+    "expanded_books/book_4_goblet_of_fire_expansion.json",
+    "expanded_books/book_5_order_of_the_phoenix_expansion.json",
+    "expanded_books/book_6_half_blood_prince_expansion.json",
+    "expanded_books/book_7_deathly_hallows_expansion.json",
+    "lexicon_calendars/year_1_ps_calendar_anchors.json",
+    "lexicon_calendars/year_2_cos_calendar_anchors.json",
+    "lexicon_calendars/year_3_poa_calendar_anchors.json",
+    "lexicon_calendars/year_4_gof_calendar_anchors.json",
+    "lexicon_calendars/year_5_ootp_calendar_anchors.json",
+    "lexicon_calendars/year_6_hbp_calendar_anchors.json",
+    "lexicon_calendars/year_7_dh_calendar_anchors.json",
+    "user/custom_entries.json",
+    "spell_gates/expanded_spell_gates.json",
+    "knowledge_gates/expanded_knowledge_gates.json",
+    "future_guards/expanded_future_guards.json",
+    "behavior_gates/expanded_behaviors.json",
+    "ages/expanded_character_ages.json",
+    "knowledge_gates/added_contextual_gates.json"
+  ],
+  "compatibility": {
+    "sagaSchemaMin": 1,
+    "sagaSchemaMax": 1
+  },
+  "stats": {
+    "entryCount": 0,
+    "categoryCounts": {}
+  }
+}

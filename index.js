@@ -380,9 +380,9 @@ function installExtensionsMenuButton() {
     const btn = document.createElement('div');
     btn.id = 'wandlight-extensions-menu-button';
     btn.className = 'list-group-item flex-container flexGap5 interactable';
-    btn.title = 'Open Wandlight runtime window and extension settings.';
+    btn.title = 'Open SAGA runtime window and extension settings.';
 
-    btn.innerHTML = `\uD83E\uDE84 <span>Wandlight</span>`;
+    btn.innerHTML = `\uD83E\uDE84 <span>SAGA</span>`;
 
     // Click opens settings panel + optionally lore panel
     btn.addEventListener('click', () => {
@@ -398,7 +398,7 @@ function installExtensionsMenuButton() {
                 }
             });
         } else {
-            if (typeof toastr !== 'undefined') toastr.info('Wandlight settings panel not yet mounted. It will appear shortly.');
+            if (typeof toastr !== 'undefined') toastr.info('SAGA settings panel not yet mounted. It will appear shortly.');
         }
     });
 

@@ -29,6 +29,49 @@ const migratedStateRefs = new WeakSet();
 
 const RETIRED_CONTINUITY_CONFIG_KEYS = ['knowledge', 'secrets', 'relationships', 'flags', 'storyMilestones'];
 const ACTIVE_CONTINUITY_CHANGE_KEYS = ['canon', 'scene', 'characters', 'inventory', 'objectives', 'threads'];
+const LOREPACK_STORY_POSITION_TYPES = Object.freeze([
+    'calendar',
+    'anchor',
+    'anchor_window',
+    'arc',
+    'phase',
+    'season_episode',
+    'stardate',
+    'relative',
+    'hybrid',
+    'custom',
+]);
+const LOREPACK_STORY_POSITION_SOURCES = Object.freeze([
+    'manual',
+    'header',
+    'local_alias',
+    'model',
+    'imported',
+    'unknown',
+]);
+const BUNDLED_THEME_PACK_IDS = Object.freeze(['wandlight-default', 'saga-slate']);
+const THEME_COLOR_KEYS = Object.freeze([
+    'background',
+    'backgroundAlt',
+    'gradientStart',
+    'gradientEnd',
+    'surface',
+    'surfaceAlt',
+    'border',
+    'borderStrong',
+    'accent',
+    'danger',
+    'success',
+    'warning',
+    'focus',
+    'button',
+    'buttonHover',
+    'buttonText',
+    'input',
+    'inputBorder',
+    'text',
+    'mutedText',
+]);
 
 function disableRetiredContinuitySections(state) {
     if (!state || typeof state !== 'object') return state;
@@ -93,6 +136,525 @@ function ensureTierCompressionStatus(state = {}) {
         }
         normalizeCompressionStatusNumbers(state.loreCompressionStatusByRelevance[tier]);
     }
+}
+
+function normalizeLorepackStack(value) {
+    const defaultStack = getDefaultState().lorepackStack;
+    const input = Array.isArray(value) ? value : defaultStack;
+    const output = [];
+    const seen = new Set();
+
+    for (const item of input) {
+        if (!item || typeof item !== 'object') continue;
+        const packId = String(item.packId || '').trim();
+        if (!packId || seen.has(packId)) continue;
+        seen.add(packId);
+        const priority = Number(item.priority);
+        output.push({
+            packId,
+            enabled: item.enabled !== false,
+            priority: Number.isFinite(priority) ? priority : Math.max(1, 100 - output.length),
+            locked: item.locked === true,
+            addedAt: Number.isFinite(Number(item.addedAt)) ? Number(item.addedAt) : 0,
+        });
+    }
+
+    return output.length ? output : JSON.parse(JSON.stringify(defaultStack));
+}
+
+function normalizeStoryPositionType(value, fallback = 'custom') {
+    const normalized = String(value || '').trim().toLowerCase();
+    return LOREPACK_STORY_POSITION_TYPES.includes(normalized) ? normalized : fallback;
+}
+
+function normalizeStoryPositionSource(value, fallback = 'unknown') {
+    const normalized = String(value || '').trim().toLowerCase();
+    return LOREPACK_STORY_POSITION_SOURCES.includes(normalized) ? normalized : fallback;
+}
+
+function clampStoryPositionConfidence(value, fallback = 0) {
+    const number = Number(value);
+    if (!Number.isFinite(number)) return fallback;
+    if (number > 1 && number <= 100) return Math.max(0, Math.min(1, number / 100));
+    return Math.max(0, Math.min(1, number));
+}
+
+function cleanStoryPositionString(value, maxLength = 240) {
+    return String(value || '').trim().slice(0, maxLength);
+}
+
+function cleanStoryPositionField(input, key, maxLength, fallback = '') {
+    return Object.prototype.hasOwnProperty.call(input || {}, key)
+        ? cleanStoryPositionString(input[key], maxLength)
+        : fallback;
+}
+
+function buildDefaultLorepackStoryPosition(packId = '', legacyContext = {}) {
+    const id = cleanStoryPositionString(packId, 120);
+    const sceneDate = cleanStoryPositionString(legacyContext?.sceneDate, 80);
+    const canonBoundary = cleanStoryPositionString(legacyContext?.canonBoundary, 240);
+    return {
+        schemaVersion: 1,
+        packId: id,
+        positionType: id === 'hp-golden-trio' ? 'calendar' : 'custom',
+        label: canonBoundary || sceneDate || '',
+        sceneDate,
+        subjectiveDate: cleanStoryPositionString(legacyContext?.subjectiveDate, 80),
+        anchorId: '',
+        anchorFrom: '',
+        anchorTo: '',
+        arc: '',
+        phase: '',
+        season: '',
+        episode: '',
+        chapter: '',
+        issue: '',
+        quest: '',
+        gameStage: '',
+        alias: canonBoundary || '',
+        notes: '',
+        branchId: cleanStoryPositionString(legacyContext?.branchId || 'main', 120) || 'main',
+        confidence: sceneDate || canonBoundary ? 0.5 : 0,
+        manualLock: false,
+        source: sceneDate || canonBoundary ? 'unknown' : 'unknown',
+        updatedAt: Number.isFinite(Number(legacyContext?.lastDetectedAt)) ? Number(legacyContext.lastDetectedAt) : 0,
+    };
+}
+
+function normalizeLorepackStoryPosition(value, packId = '', legacyContext = {}) {
+    const id = cleanStoryPositionString(value?.packId || packId, 120);
+    const defaults = buildDefaultLorepackStoryPosition(id, legacyContext);
+    const input = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+    const output = {
+        ...defaults,
+        schemaVersion: 1,
+        packId: id || defaults.packId,
+        positionType: normalizeStoryPositionType(input.positionType, defaults.positionType),
+        label: cleanStoryPositionField(input, 'label', 240, defaults.label),
+        sceneDate: cleanStoryPositionField(input, 'sceneDate', 80, defaults.sceneDate),
+        subjectiveDate: cleanStoryPositionField(input, 'subjectiveDate', 80, defaults.subjectiveDate),
+        anchorId: cleanStoryPositionField(input, 'anchorId', 180, ''),
+        anchorFrom: cleanStoryPositionField(input, 'anchorFrom', 180, ''),
+        anchorTo: cleanStoryPositionField(input, 'anchorTo', 180, ''),
+        arc: cleanStoryPositionField(input, 'arc', 180, ''),
+        phase: cleanStoryPositionField(input, 'phase', 180, ''),
+        season: cleanStoryPositionField(input, 'season', 80, ''),
+        episode: cleanStoryPositionField(input, 'episode', 80, ''),
+        chapter: cleanStoryPositionField(input, 'chapter', 80, ''),
+        issue: cleanStoryPositionField(input, 'issue', 80, ''),
+        quest: cleanStoryPositionField(input, 'quest', 180, ''),
+        gameStage: cleanStoryPositionField(input, 'gameStage', 180, ''),
+        alias: cleanStoryPositionField(input, 'alias', 240, defaults.alias),
+        notes: cleanStoryPositionField(input, 'notes', 1000, ''),
+        branchId: cleanStoryPositionString(input.branchId || defaults.branchId || 'main', 120) || 'main',
+        confidence: clampStoryPositionConfidence(input.confidence, defaults.confidence),
+        manualLock: input.manualLock === true,
+        source: normalizeStoryPositionSource(input.source, defaults.source),
+        updatedAt: Number.isFinite(Number(input.updatedAt)) ? Number(input.updatedAt) : defaults.updatedAt,
+    };
+    if (!output.label) {
+        output.label = [
+            output.arc,
+            output.phase,
+            output.anchorId,
+            output.sceneDate,
+            output.alias,
+        ].filter(Boolean)[0] || '';
+    }
+    return output;
+}
+
+function normalizeLorepackContexts(value, state = {}) {
+    const input = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+    const output = {};
+    for (const [rawPackId, rawContext] of Object.entries(input)) {
+        const packId = cleanStoryPositionString(rawContext?.packId || rawPackId, 120);
+        if (!packId) continue;
+        output[packId] = normalizeLorepackStoryPosition(rawContext, packId, state?.loreContext || {});
+    }
+
+    const stack = normalizeLorepackStack(state?.lorepackStack || []);
+    for (const item of stack) {
+        if (!item.packId || output[item.packId]) continue;
+        output[item.packId] = normalizeLorepackStoryPosition(null, item.packId, state?.loreContext || {});
+    }
+
+    return output;
+}
+
+function cloneLorepackPlainObject(value, maxLength = 200000) {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+    try {
+        const text = JSON.stringify(value);
+        if (!text || text.length > maxLength) return null;
+        return JSON.parse(text);
+    } catch (_) {
+        return null;
+    }
+}
+
+function normalizeEmbeddedLorepackManifest(value) {
+    const manifest = cloneLorepackPlainObject(value);
+    if (!manifest) return null;
+    delete manifest.entries;
+    if (!Array.isArray(manifest.files)) manifest.files = [];
+    manifest.files = manifest.files.map(file => String(file || '').trim()).filter(Boolean).slice(0, 1000);
+    if (Array.isArray(manifest.tags)) {
+        manifest.tags = manifest.tags.map(tag => String(tag || '').trim()).filter(Boolean).slice(0, 64);
+    }
+    return manifest;
+}
+
+function normalizeLorepackEntryOverrides(value) {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return {};
+    const output = {};
+    let count = 0;
+    for (const [key, raw] of Object.entries(value)) {
+        if (!raw || typeof raw !== 'object' || Array.isArray(raw)) continue;
+        const id = String(raw.id || key || '').trim();
+        if (!id) continue;
+        const entry = normalizeLoreEntry({
+            ...raw,
+            id,
+            userEditable: raw.userEditable !== false,
+            userEdited: true,
+        });
+        entry.id = id;
+        output[id] = entry;
+        count += 1;
+        if (count >= 500) break;
+    }
+    return output;
+}
+
+function normalizeLorepackDisabledEntryIds(value) {
+    if (!Array.isArray(value)) return [];
+    const seen = new Set();
+    const output = [];
+    for (const raw of value) {
+        const id = String(raw || '').trim();
+        if (!id || seen.has(id)) continue;
+        seen.add(id);
+        output.push(id);
+        if (output.length >= 1000) break;
+    }
+    return output;
+}
+
+function normalizeLorepackRegistry(value, defaults = getDefaultState().lorepackRegistry) {
+    const input = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+    const inputPacks = input.packs && typeof input.packs === 'object' && !Array.isArray(input.packs) ? input.packs : {};
+    const defaultPacks = defaults.packs || {};
+    const packs = {};
+
+    for (const [packId, raw] of Object.entries({ ...defaultPacks, ...inputPacks })) {
+        if (!raw || typeof raw !== 'object' || Array.isArray(raw)) continue;
+        const id = String(raw.packId || packId || '').trim();
+        if (!id) continue;
+        const type = ['bundled', 'custom', 'generated'].includes(raw.type) ? raw.type : 'custom';
+        const source = raw.source && typeof raw.source === 'object' && !Array.isArray(raw.source) ? raw.source : {};
+        const stats = raw.stats && typeof raw.stats === 'object' && !Array.isArray(raw.stats) ? raw.stats : {};
+        const pack = {
+            packId: id,
+            type,
+            title: String(raw.title || id).trim(),
+            description: String(raw.description || '').trim(),
+            fandom: String(raw.fandom || '').trim(),
+            era: String(raw.era || '').trim(),
+            author: String(raw.author || '').trim(),
+            version: String(raw.version || '').trim(),
+            manifest: String(raw.manifest || '').trim(),
+            source: {
+                kind: String(source.kind || (type === 'bundled' ? 'bundled' : 'local')).trim(),
+                url: String(source.url || '').trim(),
+                updateUrl: String(source.updateUrl || '').trim(),
+            },
+            tags: Array.isArray(raw.tags) ? raw.tags.map(tag => String(tag || '').trim()).filter(Boolean).slice(0, 64) : [],
+            stats: {
+                entryCount: Number.isFinite(Number(stats.entryCount)) ? Math.max(0, Number(stats.entryCount)) : 0,
+                categoryCounts: stats.categoryCounts && typeof stats.categoryCounts === 'object' && !Array.isArray(stats.categoryCounts)
+                    ? { ...stats.categoryCounts }
+                    : {},
+            },
+            healthStatus: String(raw.healthStatus || '').trim(),
+            installedAt: Number.isFinite(Number(raw.installedAt)) ? Number(raw.installedAt) : 0,
+            updatedAt: Number.isFinite(Number(raw.updatedAt)) ? Number(raw.updatedAt) : 0,
+        };
+        const derivedFrom = cloneLorepackPlainObject(raw.derivedFrom, 20000);
+        if (derivedFrom) pack.derivedFrom = derivedFrom;
+        const manifestData = normalizeEmbeddedLorepackManifest(raw.manifestData);
+        if (manifestData) pack.manifestData = manifestData;
+        pack.entryOverrides = normalizeLorepackEntryOverrides(raw.entryOverrides);
+        pack.disabledEntryIds = normalizeLorepackDisabledEntryIds(raw.disabledEntryIds);
+        packs[id] = pack;
+    }
+
+    return {
+        schemaVersion: 1,
+        packs,
+    };
+}
+
+function normalizeThemeHexColor(value) {
+    const text = String(value || '').trim();
+    if (/^#[0-9a-f]{6}$/i.test(text)) return text.toLowerCase();
+    if (/^#[0-9a-f]{3}$/i.test(text)) {
+        return `#${text[1]}${text[1]}${text[2]}${text[2]}${text[3]}${text[3]}`.toLowerCase();
+    }
+    return '';
+}
+
+function normalizeThemeColorMap(value) {
+    const input = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+    const colors = {};
+    for (const key of THEME_COLOR_KEYS) {
+        const color = normalizeThemeHexColor(input[key]);
+        if (color) colors[key] = color;
+    }
+    return colors;
+}
+
+function normalizeThemeIconMap(value) {
+    const input = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+    const icons = {};
+    let count = 0;
+    for (const [rawKey, rawValue] of Object.entries(input)) {
+        const key = String(rawKey || '').trim().slice(0, 80);
+        const icon = String(rawValue || '').trim().slice(0, 500);
+        if (!key || !icon) continue;
+        icons[key] = icon;
+        count += 1;
+        if (count >= 80) break;
+    }
+    return icons;
+}
+
+function normalizeThemePackRegistry(value, defaults = DEFAULT_SETTINGS.themePackLibrary) {
+    const input = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+    const inputPacks = input.packs && typeof input.packs === 'object' && !Array.isArray(input.packs) ? input.packs : {};
+    const defaultPacks = defaults?.packs || {};
+    const packs = {};
+
+    for (const [themeId, raw] of Object.entries({ ...defaultPacks, ...inputPacks })) {
+        if (!raw || typeof raw !== 'object' || Array.isArray(raw)) continue;
+        const id = String(raw.id || raw.themeId || themeId || '').trim();
+        if (!id) continue;
+        const isBundledDefault = defaultPacks[id]?.type === 'bundled' || BUNDLED_THEME_PACK_IDS.includes(id);
+        const type = raw.type === 'bundled' && isBundledDefault ? 'bundled' : 'custom';
+        const source = raw.source && typeof raw.source === 'object' && !Array.isArray(raw.source) ? raw.source : {};
+        const iconPackId = String(raw.iconPackId || raw.icons?.packId || 'wandlight-default').trim();
+        const pack = {
+            id,
+            type,
+            title: String(raw.title || id).trim(),
+            description: String(raw.description || '').trim(),
+            author: String(raw.author || '').trim(),
+            version: String(raw.version || '').trim(),
+            iconPackId,
+            colors: normalizeThemeColorMap(raw.colors),
+            icons: normalizeThemeIconMap(raw.icons),
+            source: {
+                kind: String(source.kind || (type === 'bundled' ? 'bundled' : 'local')).trim(),
+                url: String(source.url || '').trim(),
+                updateUrl: String(source.updateUrl || '').trim(),
+            },
+            tags: Array.isArray(raw.tags) ? raw.tags.map(tag => String(tag || '').trim()).filter(Boolean).slice(0, 64) : [],
+            installedAt: Number.isFinite(Number(raw.installedAt)) ? Number(raw.installedAt) : 0,
+            updatedAt: Number.isFinite(Number(raw.updatedAt)) ? Number(raw.updatedAt) : 0,
+        };
+        packs[id] = pack;
+    }
+
+    return {
+        schemaVersion: 1,
+        packs,
+    };
+}
+
+export function getThemePackLibraryRegistry() {
+    const settings = getSettings();
+    return normalizeThemePackRegistry(settings.themePackLibrary, DEFAULT_SETTINGS.themePackLibrary);
+}
+
+export function upsertThemePackLibraryPack(packRecord = {}) {
+    const normalized = normalizeThemePackRegistry(
+        { schemaVersion: 1, packs: { [packRecord.id || packRecord.themeId || '']: { ...packRecord, type: 'custom' } } },
+        { schemaVersion: 1, packs: {} }
+    );
+    const [themeId, pack] = Object.entries(normalized.packs || {})[0] || [];
+    if (!themeId || !pack) {
+        return { ok: false, error: 'Theme Pack record must include an id.' };
+    }
+    if (BUNDLED_THEME_PACK_IDS.includes(themeId)) {
+        return { ok: false, error: 'Custom Theme Packs cannot replace a Bundled Theme Pack with the same id.' };
+    }
+
+    const settings = getSettings();
+    const library = normalizeThemePackRegistry(settings.themePackLibrary, DEFAULT_SETTINGS.themePackLibrary);
+    library.packs[themeId] = {
+        ...(library.packs[themeId] || {}),
+        ...pack,
+        installedAt: library.packs[themeId]?.installedAt || pack.installedAt || Date.now(),
+        updatedAt: Date.now(),
+    };
+    settings.themePackLibrary = library;
+    saveSettings(settings);
+    return { ok: true, pack: library.packs[themeId], library };
+}
+
+export function removeThemePackLibraryPack(themeId, options = {}) {
+    const id = String(themeId || '').trim();
+    if (!id) return { ok: false, error: 'Missing Theme Pack id.' };
+    if (options.allowBundled !== true && BUNDLED_THEME_PACK_IDS.includes(id)) {
+        return { ok: false, error: 'Bundled Theme Packs cannot be removed from the library.' };
+    }
+
+    const settings = getSettings();
+    const library = normalizeThemePackRegistry(settings.themePackLibrary, DEFAULT_SETTINGS.themePackLibrary);
+    if (!library.packs[id]) return { ok: false, error: 'Theme Pack is not installed.' };
+    delete library.packs[id];
+    settings.themePackLibrary = normalizeThemePackRegistry(library, DEFAULT_SETTINGS.themePackLibrary);
+    saveSettings(settings);
+    return { ok: true, library: settings.themePackLibrary };
+}
+
+export function importThemePackLibraryRegistry(registry = {}, options = {}) {
+    const incoming = normalizeThemePackRegistry(registry, { schemaVersion: 1, packs: {} });
+    const settings = getSettings();
+    const current = options.replace === true
+        ? normalizeThemePackRegistry(DEFAULT_SETTINGS.themePackLibrary, DEFAULT_SETTINGS.themePackLibrary)
+        : normalizeThemePackRegistry(settings.themePackLibrary, DEFAULT_SETTINGS.themePackLibrary);
+
+    let importedCount = 0;
+    let skippedCount = 0;
+    for (const [themeId, pack] of Object.entries(incoming.packs || {})) {
+        if (BUNDLED_THEME_PACK_IDS.includes(themeId)) {
+            skippedCount += 1;
+            continue;
+        }
+        current.packs[themeId] = {
+            ...(current.packs[themeId] || {}),
+            ...pack,
+            type: 'custom',
+            installedAt: current.packs[themeId]?.installedAt || pack.installedAt || Date.now(),
+            updatedAt: Date.now(),
+        };
+        importedCount += 1;
+    }
+
+    settings.themePackLibrary = normalizeThemePackRegistry(current, DEFAULT_SETTINGS.themePackLibrary);
+    saveSettings(settings);
+    return { ok: true, importedCount, skippedCount, library: settings.themePackLibrary };
+}
+
+export function getLorepackLibraryRegistry(state = null) {
+    const settings = getSettings();
+    const globalLibrary = normalizeLorepackRegistry(settings.lorepackLibrary, DEFAULT_SETTINGS.lorepackLibrary);
+    const chatRegistry = normalizeLorepackRegistry(
+        state?.lorepackRegistry,
+        { schemaVersion: 1, packs: {} }
+    );
+    return {
+        schemaVersion: 1,
+        packs: {
+            ...(chatRegistry.packs || {}),
+            ...(globalLibrary.packs || {}),
+        },
+    };
+}
+
+export function upsertLorepackLibraryPack(packRecord = {}) {
+    const normalized = normalizeLorepackRegistry(
+        { schemaVersion: 1, packs: { [packRecord.packId || packRecord.id || '']: packRecord } },
+        { schemaVersion: 1, packs: {} }
+    );
+    const [packId, pack] = Object.entries(normalized.packs || {})[0] || [];
+    if (!packId || !pack) {
+        return { ok: false, error: 'Lorepack record must include a packId/id.' };
+    }
+    const bundledDefault = DEFAULT_SETTINGS.lorepackLibrary?.packs?.[packId];
+    if (bundledDefault?.type === 'bundled' && pack.type !== 'bundled') {
+        return { ok: false, error: 'A Custom or Generated Lorepack cannot replace a Bundled Lorepack with the same id.' };
+    }
+
+    const settings = getSettings();
+    const library = normalizeLorepackRegistry(settings.lorepackLibrary, DEFAULT_SETTINGS.lorepackLibrary);
+    library.packs[packId] = {
+        ...(library.packs[packId] || {}),
+        ...pack,
+        installedAt: library.packs[packId]?.installedAt || pack.installedAt || Date.now(),
+        updatedAt: Date.now(),
+    };
+    settings.lorepackLibrary = library;
+    saveSettings(settings);
+    return { ok: true, pack: library.packs[packId], library };
+}
+
+export function removeLorepackLibraryPack(packId, options = {}) {
+    const id = String(packId || '').trim();
+    if (!id) return { ok: false, error: 'Missing Lorepack id.' };
+    if (options.allowBundled !== true && DEFAULT_SETTINGS.lorepackLibrary?.packs?.[id]?.type === 'bundled') {
+        return { ok: false, error: 'Bundled Lorepacks cannot be removed from the library.' };
+    }
+
+    const settings = getSettings();
+    const library = normalizeLorepackRegistry(settings.lorepackLibrary, DEFAULT_SETTINGS.lorepackLibrary);
+    if (!library.packs[id]) return { ok: false, error: 'Lorepack is not registered.' };
+    delete library.packs[id];
+    settings.lorepackLibrary = normalizeLorepackRegistry(library, DEFAULT_SETTINGS.lorepackLibrary);
+    saveSettings(settings);
+    return { ok: true, library: settings.lorepackLibrary };
+}
+
+export function importLorepackLibraryRegistry(registry = {}, options = {}) {
+    const incoming = normalizeLorepackRegistry(registry, { schemaVersion: 1, packs: {} });
+    const settings = getSettings();
+    const current = options.replace === true
+        ? normalizeLorepackRegistry(DEFAULT_SETTINGS.lorepackLibrary, DEFAULT_SETTINGS.lorepackLibrary)
+        : normalizeLorepackRegistry(settings.lorepackLibrary, DEFAULT_SETTINGS.lorepackLibrary);
+
+    let importedCount = 0;
+    let skippedCount = 0;
+    for (const [packId, pack] of Object.entries(incoming.packs || {})) {
+        const bundledDefault = DEFAULT_SETTINGS.lorepackLibrary?.packs?.[packId];
+        if (bundledDefault?.type === 'bundled' && pack.type !== 'bundled') {
+            skippedCount += 1;
+            continue;
+        }
+        current.packs[packId] = {
+            ...(current.packs[packId] || {}),
+            ...pack,
+            installedAt: current.packs[packId]?.installedAt || pack.installedAt || Date.now(),
+            updatedAt: Date.now(),
+        };
+        importedCount += 1;
+    }
+
+    settings.lorepackLibrary = normalizeLorepackRegistry(current, DEFAULT_SETTINGS.lorepackLibrary);
+    saveSettings(settings);
+    return { ok: true, importedCount, skippedCount, library: settings.lorepackLibrary };
+}
+
+function promoteChatLorepackRegistryToSettings(state = {}) {
+    const chatRegistry = normalizeLorepackRegistry(
+        state?.lorepackRegistry,
+        { schemaVersion: 1, packs: {} }
+    );
+    const chatPacks = chatRegistry.packs || {};
+    if (!Object.keys(chatPacks).length) return;
+
+    const settings = getSettings();
+    const globalLibrary = normalizeLorepackRegistry(settings.lorepackLibrary, DEFAULT_SETTINGS.lorepackLibrary);
+    let changed = false;
+    for (const [packId, pack] of Object.entries(chatPacks)) {
+        if (!globalLibrary.packs[packId]) {
+            globalLibrary.packs[packId] = pack;
+            changed = true;
+        }
+    }
+    if (!changed) return;
+    settings.lorepackLibrary = globalLibrary;
+    saveSettings(settings);
 }
 
 
@@ -166,6 +728,14 @@ export function getSettings() {
         ...(DEFAULT_SETTINGS.continuitySectionPrompts || {}),
         ...(stored.continuitySectionPrompts || {}),
     };
+    merged.lorepackLibrary = normalizeLorepackRegistry(
+        stored.lorepackLibrary || DEFAULT_SETTINGS.lorepackLibrary,
+        DEFAULT_SETTINGS.lorepackLibrary
+    );
+    merged.themePackLibrary = normalizeThemePackRegistry(
+        stored.themePackLibrary || DEFAULT_SETTINGS.themePackLibrary,
+        DEFAULT_SETTINGS.themePackLibrary
+    );
 
     const hasStoredSettings = hasStoredWandlightSettings(stored);
     const legacyAutomationMode = normalizeAutomationModeValue(stored.workflowMode, '');
@@ -307,6 +877,10 @@ export function saveSettings(settings) {
     const ctx = SillyTavern.getContext();
     if (!ctx || !ctx.extensionSettings) return;
     const { extensionSettings, saveSettingsDebounced } = ctx;
+    if (settings && typeof settings === 'object') {
+        settings.lorepackLibrary = normalizeLorepackRegistry(settings.lorepackLibrary, DEFAULT_SETTINGS.lorepackLibrary);
+        settings.themePackLibrary = normalizeThemePackRegistry(settings.themePackLibrary, DEFAULT_SETTINGS.themePackLibrary);
+    }
     extensionSettings[MODULE_KEY] = settings;
     removeLegacyBuckets(extensionSettings);
     if (typeof saveSettingsDebounced === 'function') {
@@ -622,6 +1196,7 @@ function prePruneLoreEntryForNormalization(entry) {
 
     pruned.tags = prePruneStringArray(entry.tags, 10, 40);
     const generation = entry.extensions?.wandlightGeneration;
+    const sagaLorepack = entry.extensions?.sagaLorepack;
     const relevanceMigration = entry.extensions?.relevanceMigration;
     const autoRelevance = entry.extensions?.autoRelevance;
     const pendingReview = entry.extensions?.wandlightPendingReview;
@@ -650,6 +1225,15 @@ function prePruneLoreEntryForNormalization(entry) {
             candidateCategory: truncateText(generation.candidateCategory, 60),
             generatedAt: Number.isFinite(Number(generation.generatedAt)) ? Number(generation.generatedAt) : 0,
             targetTotal: Number.isFinite(Number(generation.targetTotal)) ? Number(generation.targetTotal) : 0,
+        };
+    }
+    if (sagaLorepack && typeof sagaLorepack === 'object') {
+        extensions.sagaLorepack = {
+            packId: truncateText(sagaLorepack.packId, 120),
+            packType: truncateText(sagaLorepack.packType, 40),
+            packTitle: truncateText(sagaLorepack.packTitle, 160),
+            file: truncateText(sagaLorepack.file, 240),
+            stackPriority: Number.isFinite(Number(sagaLorepack.stackPriority)) ? Number(sagaLorepack.stackPriority) : 0,
         };
     }
     if (relevanceMigration && typeof relevanceMigration === 'object') extensions.relevanceMigration = {
@@ -1204,6 +1788,25 @@ export function migrateState(state) {
         state._version = 18;
     }
 
+    // Schema v19: Saga Lorepack stack/context scaffolding
+    if (state._version < 19) {
+        state.lorepackStack = normalizeLorepackStack(state.lorepackStack);
+        state.lorepackContexts = normalizeLorepackContexts(state.lorepackContexts, state);
+        state._version = 19;
+    }
+
+    // Schema v20: Saga Lorepack registry for bundled/custom/generated library metadata
+    if (state._version < 20) {
+        state.lorepackRegistry = normalizeLorepackRegistry(state.lorepackRegistry);
+        state._version = 20;
+    }
+
+    // Schema v21: normalized per-Lorepack Story Position state
+    if (state._version < 21) {
+        state.lorepackContexts = normalizeLorepackContexts(state.lorepackContexts, state);
+        state._version = 21;
+    }
+
     // ── Always normalize lore fields post-migration ────────────────────────
     // First compact known-heavy canon DB payloads and oversized pending batches so
     // a poisoned chat can recover instead of freezing during panel render/save.
@@ -1216,6 +1819,10 @@ export function migrateState(state) {
     sanitizeLoreArraysForStorage(state);
 
     normalizeContinuityStructure(state);
+    state.lorepackStack = normalizeLorepackStack(state.lorepackStack);
+    state.lorepackRegistry = normalizeLorepackRegistry(state.lorepackRegistry);
+    promoteChatLorepackRegistryToSettings(state);
+    state.lorepackContexts = normalizeLorepackContexts(state.lorepackContexts, state);
 
     if (!state.loreCompressionStatus || typeof state.loreCompressionStatus !== 'object') {
         state.loreCompressionStatus = getDefaultState().loreCompressionStatus;
@@ -1243,7 +1850,8 @@ export function migrateState(state) {
         state.lorePanel.selectedCategory = state.lorePanel.selectedCategory || 'all';
         state.lorePanel.search = state.lorePanel.search || '';
         state.lorePanel.selectedEntryId = state.lorePanel.selectedEntryId || '';
-        state.lorePanel.activeTab = ['session', 'continuity', 'context', 'lore', 'injection'].includes(state.lorePanel.activeTab)
+        state.lorePanel.selectedLorepackId = String(state.lorePanel.selectedLorepackId || defaultsPanel.selectedLorepackId || '').trim();
+        state.lorePanel.activeTab = ['lorepacks', 'session', 'continuity', 'context', 'lore', 'injection', 'settings'].includes(state.lorePanel.activeTab)
             ? state.lorePanel.activeTab
             : (state.lorePanel.activeTab === 'generate' ? 'context' : (state.lorePanel.activeTab === 'review' ? 'lore' : 'session'));
         state.lorePanel.reviewSelectedIds = Array.isArray(state.lorePanel.reviewSelectedIds) ? state.lorePanel.reviewSelectedIds : [];
@@ -2281,6 +2889,40 @@ export function setLoreContext(contextUpdate) {
  * @param {Object} [options={}] - { increment?: boolean } — whether to bump attemptCount
  * @returns {Object} Updated state
  */
+export function getLorepackStoryPosition(state = getState(), packId = '') {
+    const id = cleanStoryPositionString(packId, 120);
+    if (!id) return normalizeLorepackStoryPosition(null, '', state?.loreContext || {});
+    const contexts = normalizeLorepackContexts(state?.lorepackContexts || {}, state || {});
+    return contexts[id] || normalizeLorepackStoryPosition(null, id, state?.loreContext || {});
+}
+
+export function setLorepackStoryPosition(packId, patch = {}) {
+    const id = cleanStoryPositionString(packId, 120);
+    if (!id) return getState();
+    const state = getState();
+    state.lorepackContexts = normalizeLorepackContexts(state.lorepackContexts, state);
+    const previous = state.lorepackContexts[id] || normalizeLorepackStoryPosition(null, id, state.loreContext || {});
+    state.lorepackContexts[id] = normalizeLorepackStoryPosition({
+        ...previous,
+        ...(patch || {}),
+        packId: id,
+        updatedAt: Number.isFinite(Number(patch?.updatedAt)) ? Number(patch.updatedAt) : Date.now(),
+    }, id, state.loreContext || {});
+    saveState(state);
+    return state;
+}
+
+export function resetLorepackStoryPosition(packId) {
+    const id = cleanStoryPositionString(packId, 120);
+    if (!id) return getState();
+    const state = getState();
+    state.lorepackContexts = normalizeLorepackContexts(state.lorepackContexts, state);
+    state.lorepackContexts[id] = normalizeLorepackStoryPosition(null, id, {});
+    state.lorepackContexts[id].updatedAt = Date.now();
+    saveState(state);
+    return state;
+}
+
 export function recordLoreAttempt(contextKey, patch = {}, options = {}) {
     const { increment = true, syncPrompt = true } = options;
     const state = getState();

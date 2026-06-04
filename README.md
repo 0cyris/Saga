@@ -4,11 +4,13 @@
 
 # Wandlight
 
-Wandlight is a SillyTavern extension for long-form Harry Potter writing, roleplay, and fanfiction where canon timing, secrets, alternate branches, and durable story memory matter.
+**SAGA: Fandom Loresystem.**
+
+Wandlight is the Harry Potter-focused foundation for SAGA, a SillyTavern fandom loresystem for long-form writing, roleplay, and fanfiction where canon timing, secrets, alternate branches, and durable story memory matter.
 
 LLMs tend to be lore-rich but timeline-poor. They know fandoms broadly, but lose track of what's true on a specific date, who should know a secret, which canon events have happened, and what your particular story has changed. Generalized ST memory extensions aren't meant to know how established canon characters should act or evolve over a specific span of time, or what facts belong in the current scene at this exact point in the timeline--they're recorders of the story, not arbitrators of truth.
 
-Wandlight is built to be that arbitrator, with a local date-aware lore database, reviewable lore cards, lightweight continuity tracking, and relevance-tiered prompt injection. Because of its focus on durable-lore, it can be used in tandem with memory extensions such as [MemoryBooks](https://github.com/aikohanasaki/SillyTavern-MemoryBooks), [Summaryception](https://github.com/Lodactio/Extension-Summaryception), and [VectFox](https://github.com/KritBlade/VectFox).
+SAGA is built to be that arbitrator, with Lorepacks, reviewable lore cards, lightweight continuity tracking, relevance-tiered prompt injection, and themeable runtime tools. Because of its focus on durable lore, it can be used in tandem with memory extensions such as [MemoryBooks](https://github.com/aikohanasaki/SillyTavern-MemoryBooks), [Summaryception](https://github.com/Lodactio/Extension-Summaryception), and [VectFox](https://github.com/KritBlade/VectFox).
 
 ## Table of Contents
 
@@ -60,6 +62,10 @@ Wandlight is built to be that arbitrator, with a local date-aware lore database,
     <td width="50%" valign="top"><strong>Guided Walkthroughs</strong><br>Built-in walkthroughs introduce the core workflow in Basic mode and the full operator toolset in Advanced mode, highlighting the relevant controls directly inside the runtime window.</td>
   </tr>
   <tr>
+    <td width="50%" valign="top"><strong>Lorepack Stack</strong><br>SAGA organizes fandom canon and custom AU/crossover material into loadable Lorepacks. The active stack controls which source packs influence context, canon suggestions, relevance, and injection priority. Bundled packs can be duplicated into Custom Lorepacks for AU or crossover work, with entry-level overrides stored in the custom pack record.</td>
+    <td width="50%" valign="top"><strong>Themepacks</strong><br>SAGA is gaining installable Theme Packs for runtime colors and icons, with configurable backgrounds, gradients, surfaces, borders, buttons, inputs, status colors, text colors, and advisory accessibility checks.</td>
+  </tr>
+  <tr>
     <td width="50%" valign="top"><strong>Flexible Automation Modes</strong><br>Manual, Assisted, and Automatic modes let users choose how much Wandlight does in the background, from click-only operation to automatic continuity, context, lore, and relevance maintenance.</td>
     <td width="50%" valign="top"></td>
   </tr>
@@ -102,7 +108,7 @@ After installation, restart or reload SillyTavern. Open Wandlight from the **Run
 ### Recommended First Workflow
 
 1. Open Wandlight from the Extensions menu's **Runtime Window** dropdown and confirm it is active.
-2. Open **API and Model Settings** from the Extensions menu if you want Wandlight to run model-backed tasks. Configure the provider, API, and model settings before using context detection fallback, continuity scans, compression, or story-lore generation. If using a Connection Profile provider, install the **Provider preset** from that provider row, then create or update a SillyTavern Connection Profile that uses it.
+2. Open the runtime **Settings** tab if you want Wandlight to run model-backed tasks. Configure the provider, API, and model settings before using context detection fallback, continuity scans, compression, or story-lore generation. If using a Connection Profile provider, install the **Provider preset** from the provider settings card, then create or update a SillyTavern Connection Profile that uses it.
 3. Check the Wandlight preset status. Install or update the preset if you want structured scene headers.
 4. Detect Story Context so Wandlight knows the current date, canon boundary, and branch.
 5. Preview Canon Packs or scan Story Lore.
@@ -327,11 +333,7 @@ Compression prompts control how Wandlight compacts Continuity and relevance-tier
 
 ### Settings And Providers
 
-Use **API and Model Settings** from SillyTavern's Extensions menu to configure Wandlight's model-backed behavior. This is where you choose provider roles, API mode, model names, token limits, sampling settings, and connection tests.
-
-<p align="center">
-  <img src="Images/documentation/renders/wandlight-API-settings-dropdown.png" alt="API and Model Settings Dropdown" width="420">
-</p>
+Use the runtime **Settings** tab to configure Wandlight's model-backed behavior. This is where you choose provider roles, API mode, model names, token limits, sampling settings, stored keys, Provider preset setup, and connection tests.
 
 Wandlight has two provider roles:
 
@@ -351,7 +353,7 @@ Each provider can use:
 - a SillyTavern connection profile
 - a direct OpenAI-compatible endpoint with an encrypted local API key
 
-Direct OpenAI-compatible endpoints are the simplest provider path when you are comfortable storing a Wandlight-specific key in the browser session. Connection Profiles are useful when you want SillyTavern to hold the provider key server-side, but they also carry a settings preset. When using a Connection Profile provider, install the **Provider preset** from that provider row in **API and Model Settings**, then create or update a SillyTavern Connection Profile that uses the Provider preset with your preferred provider, model, and key. The bundled Provider preset is intentionally thin, avoiding provider-specific model defaults, normal-chat prompt scaffolding, and the full Wandlight preset in background utility/reasoning calls.
+Direct OpenAI-compatible endpoints are the simplest provider path when you are comfortable storing a Wandlight-specific key in the browser session. Connection Profiles are useful when you want SillyTavern to hold the provider key server-side, but they also carry a settings preset. When using a Connection Profile provider, install the **Provider preset** from the runtime **Settings** tab, then create or update a SillyTavern Connection Profile that uses the Provider preset with your preferred provider, model, and key. The bundled Provider preset is intentionally thin, avoiding provider-specific model defaults, normal-chat prompt scaffolding, and the full Wandlight preset in background utility/reasoning calls.
 
 For direct endpoints and the current SillyTavern model, Wandlight exposes temperature, top-p, max tokens, reset defaults, and connection testing. For Connection Profiles, tune sampling and token settings in the SillyTavern profile/preset instead; Wandlight disables those local fields to avoid implying they own the profile.
 
@@ -367,7 +369,7 @@ Use separate profiles when you want different models for different job types. A 
 
 Recommended setup:
 
-1. In Wandlight's **API and Model Settings**, set Utility Provider and/or Reasoning Provider to **Connection Profile**.
+1. In the runtime **Settings** tab, set Utility Provider and/or Reasoning Provider to **Connection Profile**.
 2. Install or reinstall the **Provider preset** from the matching provider row.
 3. In SillyTavern, create or update a Connection Profile using your preferred provider, model, key, and the Provider preset.
 4. Return to Wandlight, select the saved Connection Profile from the dropdown, then run **Test Utility** or **Test Reasoning**.

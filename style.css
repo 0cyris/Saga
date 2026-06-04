@@ -796,6 +796,814 @@
     border-bottom: none;
 }
 
+.wandlight-lorepack-stack-list,
+.wandlight-lorepack-library-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.wandlight-lorepack-import-card {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.wandlight-lorepack-register-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 6px;
+    align-items: center;
+}
+
+.wandlight-lorepack-manifest-input {
+    min-width: 0;
+    width: 100%;
+}
+
+.wandlight-lorepack-stack-row,
+.wandlight-lorepack-library-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px;
+    align-items: start;
+    border: 1px solid rgba(180, 160, 140, 0.16);
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.16);
+    padding: 7px;
+}
+
+.wandlight-lorepack-stack-row-disabled {
+    opacity: 0.68;
+}
+
+.wandlight-lorepack-library-row-active {
+    border-color: rgba(215, 181, 109, 0.58);
+    background: rgba(215, 181, 109, 0.08);
+}
+
+.wandlight-lorepack-row-main {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.wandlight-lorepack-row-title {
+    color: #d4c8a8;
+    font-size: 0.86em;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.wandlight-lorepack-row-description {
+    font-size: 0.76em;
+    line-height: 1.35;
+    opacity: 0.76;
+}
+
+.wandlight-lorepack-row-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.wandlight-lorepack-row-meta .wandlight-status-pill {
+    max-width: 100%;
+    white-space: normal;
+}
+
+.wandlight-lorepack-detail-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.wandlight-lorepack-detail-header {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border: 1px solid rgba(180, 160, 140, 0.14);
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.12);
+    padding: 7px;
+}
+
+.wandlight-lorepack-detail-title {
+    color: #d4c8a8;
+    font-size: 0.94em;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.wandlight-lorepack-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 4px 10px;
+}
+
+.wandlight-lorepack-edit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 7px;
+}
+
+.wandlight-lorepack-editor-field {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    font-size: 0.78em;
+}
+
+.wandlight-lorepack-editor-field-full {
+    grid-column: 1 / -1;
+}
+
+.wandlight-lorepack-editor-field > span {
+    color: #d4c8a8;
+    font-weight: 650;
+}
+
+.wandlight-lorepack-manifest-preview {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 7px;
+}
+
+.wandlight-lorepack-file-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 4px;
+    margin-top: 6px;
+}
+
+.wandlight-lorepack-file-item {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    border: 1px solid rgba(180, 160, 140, 0.12);
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.14);
+    padding: 4px 6px;
+    font-size: 0.74em;
+    line-height: 1.25;
+}
+
+.wandlight-lorepack-file-item-muted {
+    opacity: 0.72;
+    font-style: italic;
+}
+
+.wandlight-lorepack-entry-overrides {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 7px;
+}
+
+.wandlight-lorepack-story-position-card {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.wandlight-lorepack-story-position-list {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.wandlight-lorepack-story-position-row {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    border: 1px solid var(--wandlight-border-soft, rgba(180, 160, 140, 0.16));
+    border-radius: 7px;
+    background: var(--wandlight-surface-2, rgba(0, 0, 0, 0.14));
+    padding: 7px;
+}
+
+.wandlight-lorepack-story-position-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 7px;
+}
+
+.wandlight-lorepack-story-position-summary {
+    border: 1px solid var(--wandlight-border-soft, rgba(180, 160, 140, 0.14));
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.13);
+    color: var(--wandlight-muted, rgba(241, 234, 216, 0.72));
+    padding: 5px 6px;
+    font-size: 0.76em;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+}
+
+.wandlight-lorepack-story-position-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+    gap: 7px;
+}
+
+.wandlight-story-position-index-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.wandlight-story-position-anchor-lookup {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border: 1px solid var(--wandlight-border-soft, rgba(180, 160, 140, 0.14));
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.12);
+    padding: 6px;
+}
+
+.wandlight-story-position-anchor-lookup-top {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 6px;
+    align-items: center;
+}
+
+.wandlight-story-position-anchor-results {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.wandlight-story-position-anchor-result {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 7px;
+    align-items: center;
+    border: 1px solid rgba(180, 160, 140, 0.12);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 5px 6px;
+}
+
+.wandlight-story-position-anchor-main {
+    min-width: 0;
+}
+
+.wandlight-story-position-anchor-title {
+    min-width: 0;
+    color: var(--wandlight-text, #f1ead8);
+    font-size: 0.82em;
+    font-weight: 700;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+}
+
+.wandlight-story-position-anchor-meta {
+    min-width: 0;
+    color: var(--wandlight-muted, rgba(241, 234, 216, 0.68));
+    font-size: 0.74em;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+}
+
+.wandlight-lorepack-story-position-check {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    border: 1px solid var(--wandlight-border-soft, rgba(180, 160, 140, 0.16));
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.14);
+    padding: 7px;
+    font-size: 0.78em;
+    cursor: pointer;
+}
+
+.wandlight-lorepack-story-position-check input {
+    margin: 0;
+    accent-color: var(--wandlight-gold, #d7b56d);
+}
+
+.wandlight-lorepack-story-position-check span {
+    min-width: 0;
+    color: #d4c8a8;
+    font-weight: 650;
+}
+
+.wandlight-lorepack-entry-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 5px;
+}
+
+.wandlight-lorepack-entry-search {
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 4px 0 6px;
+}
+
+.wandlight-lorepack-entry-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-height: 360px;
+    overflow-y: auto;
+    padding-right: 2px;
+}
+
+.wandlight-lorepack-entry-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px;
+    align-items: start;
+    border: 1px solid rgba(180, 160, 140, 0.14);
+    border-left-width: 3px;
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.14);
+    padding: 7px;
+}
+
+.wandlight-lorepack-entry-row-overridden {
+    border-left-color: rgba(215, 181, 109, 0.78);
+}
+
+.wandlight-lorepack-entry-row-added {
+    border-left-color: rgba(104, 186, 132, 0.76);
+}
+
+.wandlight-lorepack-entry-row-disabled {
+    border-left-color: rgba(190, 80, 92, 0.82);
+    opacity: 0.72;
+}
+
+.wandlight-lorepack-entry-override-shell {
+    width: min(820px, calc(100vw - 36px));
+}
+
+.wandlight-lorepack-duplicate-source {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 4px 10px;
+    border: 1px solid rgba(180, 160, 140, 0.14);
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.14);
+    padding: 7px;
+}
+
+.wandlight-lorepack-duplicate-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(180, 160, 140, 0.14);
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.12);
+    padding: 7px;
+    font-size: 0.82em;
+    cursor: pointer;
+}
+
+.wandlight-lorepack-duplicate-option input {
+    margin: 0;
+}
+
+.wandlight-lorepack-row-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 4px;
+    max-width: 150px;
+}
+
+.wandlight-lorepack-row-actions .wandlight-runtime-button {
+    min-width: 58px;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+.wandlight-lorepack-health-card {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.wandlight-lorepack-health-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+    gap: 6px;
+}
+
+.wandlight-lorepack-health-metric {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    border: 1px solid rgba(180, 160, 140, 0.14);
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.14);
+    padding: 6px;
+}
+
+.wandlight-lorepack-health-metric span {
+    color: var(--wandlight-muted, rgba(241, 234, 216, 0.68));
+    font-size: 0.72em;
+}
+
+.wandlight-lorepack-health-metric strong {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    color: #d4c8a8;
+    font-size: 0.92em;
+    line-height: 1.2;
+}
+
+.wandlight-lorepack-health-pack-list,
+.wandlight-lorepack-health-issue-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.wandlight-lorepack-health-pack-row,
+.wandlight-lorepack-health-issue {
+    border: 1px solid rgba(180, 160, 140, 0.14);
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.13);
+    padding: 7px;
+}
+
+.wandlight-lorepack-health-issue {
+    border-left-width: 3px;
+}
+
+.wandlight-lorepack-health-issue-error {
+    border-left-color: rgba(210, 78, 88, 0.86);
+}
+
+.wandlight-lorepack-health-issue-warning {
+    border-left-color: rgba(215, 181, 109, 0.82);
+}
+
+.wandlight-lorepack-health-issue-suggestion {
+    border-left-color: rgba(106, 168, 198, 0.78);
+}
+
+.wandlight-lorepack-health-issue-code {
+    color: #d4c8a8;
+    font-size: 0.76em;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.wandlight-lorepack-health-issue-message {
+    margin: 3px 0;
+    font-size: 0.76em;
+    line-height: 1.35;
+    opacity: 0.84;
+    overflow-wrap: anywhere;
+}
+
+.wandlight-settings-provider-card,
+.wandlight-settings-theme-card {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.wandlight-provider-runtime-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.wandlight-provider-runtime-block,
+.wandlight-provider-preset-status-card {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    border: 1px solid var(--wandlight-border-soft, rgba(180, 160, 140, 0.16));
+    border-radius: 7px;
+    background: var(--wandlight-surface-2, rgba(0, 0, 0, 0.14));
+    padding: 8px;
+}
+
+.wandlight-provider-runtime-header,
+.wandlight-provider-preset-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.wandlight-provider-runtime-title-group {
+    min-width: 0;
+}
+
+.wandlight-provider-runtime-title-group h5 {
+    margin: 0 0 2px 0;
+    color: var(--wandlight-gold, #d7b56d);
+    font-size: 0.92em;
+}
+
+.wandlight-provider-status-ready {
+    border-color: rgba(93, 176, 128, 0.42);
+    background: rgba(31, 74, 56, 0.22);
+}
+
+.wandlight-provider-status-warning {
+    border-color: rgba(215, 181, 109, 0.44);
+    background: rgba(185, 139, 54, 0.16);
+}
+
+.wandlight-provider-runtime-section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border: 1px solid var(--wandlight-border-soft, rgba(180, 160, 140, 0.14));
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.12);
+    padding: 7px;
+}
+
+.wandlight-provider-runtime-section-title {
+    font-size: 0.78em;
+    font-weight: 700;
+    color: var(--wandlight-gold, #d7b56d);
+}
+
+.wandlight-provider-runtime-field {
+    display: grid;
+    grid-template-columns: minmax(96px, 132px) minmax(0, 1fr);
+    align-items: center;
+    gap: 7px;
+    margin: 0;
+    min-width: 0;
+    font-size: 0.80em;
+}
+
+.wandlight-provider-runtime-field > span {
+    color: var(--wandlight-muted, rgba(241, 234, 216, 0.72));
+    font-weight: 700;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.wandlight-provider-runtime-field input,
+.wandlight-provider-runtime-field select {
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid var(--wandlight-input-border, var(--wandlight-border-soft, rgba(185, 139, 54, 0.18)));
+    border-radius: 5px;
+    background: var(--wandlight-input, rgba(0, 0, 0, 0.36));
+    color: var(--wandlight-text, #f1ead8);
+    font-family: inherit;
+    font-size: 0.92em;
+    line-height: 1.2;
+    padding: 5px 7px;
+}
+
+.wandlight-provider-runtime-field input:focus,
+.wandlight-provider-runtime-field select:focus {
+    outline: none;
+    border-color: var(--wandlight-border, rgba(185, 139, 54, 0.38));
+    box-shadow: 0 0 0 1px var(--wandlight-focus, rgba(215, 181, 109, 0.22));
+}
+
+.wandlight-provider-runtime-field input:disabled,
+.wandlight-provider-runtime-field select:disabled {
+    opacity: 0.58;
+    cursor: not-allowed;
+}
+
+.wandlight-provider-runtime-field-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.wandlight-provider-runtime-control-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+}
+
+.wandlight-provider-runtime-control-row input {
+    flex: 1 1 160px;
+}
+
+.wandlight-provider-runtime-control-row .wandlight-runtime-button {
+    flex: 0 0 auto;
+    white-space: nowrap;
+}
+
+.wandlight-provider-runtime-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
+    gap: 6px;
+}
+
+.wandlight-provider-runtime-grid .wandlight-provider-runtime-field {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+    gap: 3px;
+}
+
+.wandlight-provider-runtime-status,
+.wandlight-provider-preset-message,
+.wandlight-provider-connection-status {
+    font-size: 0.74em;
+    line-height: 1.35;
+    color: var(--wandlight-muted, rgba(241, 234, 216, 0.72));
+    overflow-wrap: anywhere;
+}
+
+.wandlight-provider-connection-warning {
+    border-left: 3px solid var(--wandlight-warning, #b9903c);
+    padding-left: 7px;
+}
+
+.wandlight-provider-preset-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(116px, 1fr));
+    gap: 5px;
+}
+
+.wandlight-provider-legacy-actions {
+    margin-top: 0;
+}
+
+@media (max-width: 520px) {
+    .wandlight-provider-runtime-header,
+    .wandlight-provider-preset-header {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .wandlight-provider-runtime-field {
+        grid-template-columns: 1fr;
+        align-items: stretch;
+    }
+
+    .wandlight-provider-runtime-control-row {
+        flex-wrap: wrap;
+    }
+
+    .wandlight-provider-runtime-control-row .wandlight-runtime-button {
+        flex: 1 1 auto;
+    }
+}
+
+.wandlight-theme-preset-field {
+    max-width: 100%;
+}
+
+.wandlight-theme-pack-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 4px 10px;
+    border: 1px solid var(--wandlight-border-soft, rgba(185, 139, 54, 0.18));
+    border-radius: 7px;
+    background: var(--wandlight-surface-2, rgba(0, 0, 0, 0.14));
+    padding: 7px;
+}
+
+.wandlight-theme-color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(126px, 1fr));
+    gap: 6px;
+}
+
+.wandlight-theme-color-field {
+    min-width: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 34px;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid var(--wandlight-border-soft, rgba(180, 160, 140, 0.16));
+    border-radius: 7px;
+    background: var(--wandlight-surface-2, rgba(0, 0, 0, 0.14));
+    padding: 6px;
+    font-size: 0.78em;
+}
+
+.wandlight-theme-color-field span {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.wandlight-theme-color-field input[type="color"] {
+    width: 34px;
+    height: 26px;
+    padding: 0;
+    border: 1px solid rgba(180, 160, 140, 0.24);
+    border-radius: 5px;
+    background: transparent;
+}
+
+.wandlight-theme-color-field input[type="color"]:disabled {
+    opacity: 0.48;
+    cursor: not-allowed;
+}
+
+.wandlight-theme-accessibility {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border: 1px solid var(--wandlight-border-soft, rgba(180, 160, 140, 0.16));
+    border-radius: 7px;
+    background: var(--wandlight-surface-2, rgba(0, 0, 0, 0.14));
+    padding: 7px;
+}
+
+.wandlight-theme-accessibility-warning {
+    border-left: 3px solid var(--wandlight-warning, #b9903c);
+}
+
+.wandlight-theme-accessibility-good {
+    border-left: 3px solid var(--wandlight-green, #1f4a38);
+}
+
+.wandlight-theme-accessibility-header,
+.wandlight-theme-accessibility-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.wandlight-theme-accessibility-header strong {
+    color: var(--wandlight-gold, #d7b56d);
+}
+
+.wandlight-theme-accessibility-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.wandlight-theme-accessibility-row {
+    border: 1px solid var(--wandlight-border-soft, rgba(180, 160, 140, 0.14));
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.12);
+    padding: 5px 6px;
+}
+
+.wandlight-theme-accessibility-main {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.wandlight-theme-accessibility-main span {
+    color: var(--wandlight-text, #f1ead8);
+    font-size: 0.78em;
+    font-weight: 650;
+}
+
+.wandlight-theme-accessibility-main small {
+    color: var(--wandlight-muted, rgba(241, 234, 216, 0.68));
+    font-size: 0.72em;
+    line-height: 1.25;
+}
+
+.wandlight-theme-accessibility-score {
+    flex: 0 0 auto;
+    color: var(--wandlight-gold, #d7b56d);
+    font-size: 0.76em;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.wandlight-theme-accessibility-fail .wandlight-theme-accessibility-score {
+    color: #f0b0a0;
+}
+
+@media (max-width: 560px) {
+    .wandlight-lorepack-register-row {
+        grid-template-columns: 1fr;
+    }
+
+    .wandlight-lorepack-stack-row,
+    .wandlight-lorepack-library-row,
+    .wandlight-lorepack-entry-row {
+        grid-template-columns: 1fr;
+    }
+
+    .wandlight-lorepack-row-actions {
+        justify-content: flex-start;
+        max-width: none;
+    }
+}
+
 .wandlight-preset-status-card {
     display: flex;
     flex-direction: column;
@@ -1819,19 +2627,30 @@
 .wandlight-lore-panel {
     --wandlight-bg: rgba(18, 12, 18, 0.97);
     --wandlight-bg-2: rgba(36, 16, 24, 0.94);
+    --wandlight-bg-gradient-start: rgba(18, 12, 18, 0.985);
+    --wandlight-bg-gradient-end: rgba(9, 12, 18, 0.98);
     --wandlight-surface: rgba(43, 28, 28, 0.74);
     --wandlight-surface-2: rgba(18, 18, 24, 0.62);
     --wandlight-border: rgba(185, 139, 54, 0.38);
     --wandlight-border-soft: rgba(185, 139, 54, 0.18);
+    --wandlight-border-strong: rgba(215, 181, 109, 0.58);
     --wandlight-gold: #d7b56d;
     --wandlight-gold-soft: #b9903c;
     --wandlight-red: #5c1724;
     --wandlight-green: #1f4a38;
+    --wandlight-warning: #b9903c;
+    --wandlight-focus: #ffeaa7;
+    --wandlight-button: rgba(18, 18, 24, 0.72);
+    --wandlight-button-hover: rgba(92, 23, 36, 0.48);
+    --wandlight-button-text: #f1ead8;
+    --wandlight-input: rgba(18, 18, 24, 0.76);
+    --wandlight-input-border: rgba(185, 139, 54, 0.34);
     --wandlight-text: #f1ead8;
     --wandlight-muted: rgba(241, 234, 216, 0.68);
+    --wandlight-text-muted: rgba(241, 234, 216, 0.68);
     background:
         radial-gradient(circle at top left, rgba(92, 23, 36, 0.42), transparent 36%),
-        linear-gradient(145deg, var(--wandlight-bg), rgba(9, 12, 18, 0.98));
+        linear-gradient(145deg, var(--wandlight-bg-gradient-start), var(--wandlight-bg-gradient-end));
     border-color: var(--wandlight-border);
     color: var(--wandlight-text);
     box-shadow: 0 10px 36px rgba(0, 0, 0, 0.72), 0 0 0 1px rgba(215, 181, 109, 0.08) inset;
@@ -1864,9 +2683,9 @@
 .wandlight-mode-button,
 .wandlight-runtime-button,
 .wandlight-lore-tab {
-    background: rgba(18, 18, 24, 0.72);
+    background: var(--wandlight-button, rgba(18, 18, 24, 0.72));
     border-color: var(--wandlight-border-soft);
-    color: var(--wandlight-text);
+    color: var(--wandlight-button-text, var(--wandlight-text));
 }
 
 .wandlight-runtime-tab:hover,
@@ -1877,9 +2696,30 @@
 .wandlight-primary-button,
 .wandlight-lore-tab:hover,
 .wandlight-lore-tab-active {
-    background: rgba(92, 23, 36, 0.48);
-    border-color: var(--wandlight-border);
+    background: var(--wandlight-button-hover, rgba(92, 23, 36, 0.48));
+    border-color: var(--wandlight-border-strong, var(--wandlight-border));
     color: var(--wandlight-gold);
+}
+
+.wandlight-lore-panel button:focus-visible,
+.wandlight-lore-panel input:focus-visible,
+.wandlight-lore-panel select:focus-visible,
+.wandlight-lore-panel textarea:focus-visible,
+.wandlight-lore-panel [tabindex]:focus-visible {
+    outline: 2px solid var(--wandlight-focus, #ffeaa7);
+    outline-offset: 2px;
+}
+
+.wandlight-lore-panel input[type="text"],
+.wandlight-lore-panel input[type="number"],
+.wandlight-lore-panel input[type="password"],
+.wandlight-lore-panel input[type="search"],
+.wandlight-lore-panel select,
+.wandlight-lore-panel textarea,
+.wandlight-lore-panel .text_pole {
+    background: var(--wandlight-input, rgba(18, 18, 24, 0.76));
+    border-color: var(--wandlight-input-border, rgba(185, 139, 54, 0.34));
+    color: var(--wandlight-text, #f1ead8);
 }
 
 .wandlight-danger-zone-card {
@@ -1892,12 +2732,12 @@
 }
 
 .wandlight-danger-button {
-    border-color: rgba(176, 58, 58, 0.48);
+    border-color: var(--wandlight-red, rgba(176, 58, 58, 0.48));
 }
 
 .wandlight-danger-button:hover {
-    background: rgba(120, 28, 36, 0.42);
-    border-color: rgba(220, 100, 90, 0.72);
+    background: var(--wandlight-red, rgba(120, 28, 36, 0.42));
+    border-color: var(--wandlight-border-strong, rgba(220, 100, 90, 0.72));
 }
 
 .wandlight-lore-panel-resize-handle {
@@ -4396,9 +5236,9 @@
     gap: 7px;
     padding: 7px;
     background:
-        radial-gradient(circle at 18% 8%, rgba(92, 23, 36, 0.56), transparent 34%),
-        radial-gradient(circle at 88% 94%, rgba(185, 139, 54, 0.16), transparent 38%),
-        linear-gradient(145deg, rgba(18, 12, 18, 0.985), rgba(9, 12, 18, 0.975));
+        radial-gradient(circle at 18% 8%, var(--wandlight-button-hover, rgba(92, 23, 36, 0.56)), transparent 34%),
+        radial-gradient(circle at 88% 94%, var(--wandlight-border-soft, rgba(185, 139, 54, 0.16)), transparent 38%),
+        linear-gradient(145deg, var(--wandlight-bg-gradient-start, rgba(18, 12, 18, 0.985)), var(--wandlight-bg-gradient-end, rgba(9, 12, 18, 0.975)));
     border: 1px solid var(--wandlight-border, rgba(185, 139, 54, 0.38));
     box-shadow:
         0 10px 32px rgba(0, 0, 0, 0.72),
@@ -4408,7 +5248,7 @@
 
 .wandlight-runtime-rail-drag {
     background:
-        linear-gradient(90deg, rgba(92, 23, 36, 0.72), rgba(20, 24, 32, 0.88));
+        linear-gradient(90deg, var(--wandlight-button-hover, rgba(92, 23, 36, 0.72)), var(--wandlight-bg-2, rgba(20, 24, 32, 0.88)));
     border: 1px solid var(--wandlight-border-soft, rgba(185, 139, 54, 0.18));
     box-shadow: 0 0 0 1px rgba(215, 181, 109, 0.05) inset;
 }
@@ -4435,7 +5275,7 @@
     border: 1px solid rgba(185, 139, 54, 0.36);
     border-radius: 6px;
     background:
-        linear-gradient(180deg, rgba(20, 18, 20, 0.92), rgba(10, 12, 16, 0.92));
+        linear-gradient(180deg, var(--wandlight-button, rgba(20, 18, 20, 0.92)), var(--wandlight-input, rgba(10, 12, 16, 0.92)));
     color: rgba(241, 234, 216, 0.72);
     font: inherit;
     box-sizing: border-box;
@@ -4468,7 +5308,7 @@
 }
 
 .wandlight-experience-switch-label:focus-visible {
-    outline: 1px solid rgba(255, 235, 168, 0.9);
+    outline: 1px solid var(--wandlight-focus, rgba(255, 235, 168, 0.9));
     outline-offset: -2px;
     border-radius: 4px;
 }
@@ -4526,7 +5366,7 @@
 .wandlight-runtime-rail-tab,
 .wandlight-runtime-rail-control {
     background:
-        linear-gradient(180deg, rgba(18, 18, 24, 0.78), rgba(18, 12, 18, 0.66));
+        linear-gradient(180deg, var(--wandlight-button, rgba(18, 18, 24, 0.78)), var(--wandlight-surface-2, rgba(18, 12, 18, 0.66)));
     border-color: var(--wandlight-border-soft, rgba(185, 139, 54, 0.18));
     color: var(--wandlight-text, #f1ead8);
     box-shadow: 0 0 0 1px rgba(215, 181, 109, 0.035) inset;
@@ -4536,7 +5376,7 @@
 .wandlight-runtime-rail-control:hover {
     background:
         radial-gradient(circle at 20% 0%, rgba(215, 181, 109, 0.12), transparent 36%),
-        linear-gradient(180deg, rgba(92, 23, 36, 0.52), rgba(26, 18, 24, 0.82));
+        linear-gradient(180deg, var(--wandlight-button-hover, rgba(92, 23, 36, 0.52)), var(--wandlight-button, rgba(26, 18, 24, 0.82)));
     border-color: var(--wandlight-border, rgba(185, 139, 54, 0.38));
     color: var(--wandlight-gold, #d7b56d);
 }
@@ -4561,8 +5401,8 @@
 .wandlight-runtime-rail-tab-active {
     background:
         radial-gradient(circle at 28% 12%, rgba(215, 181, 109, 0.2), transparent 34%),
-        linear-gradient(180deg, rgba(92, 23, 36, 0.66), rgba(34, 16, 22, 0.9));
-    border-color: rgba(215, 181, 109, 0.58);
+        linear-gradient(180deg, var(--wandlight-button-hover, rgba(92, 23, 36, 0.66)), var(--wandlight-button, rgba(34, 16, 22, 0.9)));
+    border-color: var(--wandlight-border-strong, rgba(215, 181, 109, 0.58));
     color: var(--wandlight-gold, #d7b56d);
     box-shadow:
         0 0 0 1px rgba(215, 181, 109, 0.12) inset,
@@ -4577,7 +5417,7 @@
     border-radius: 6px;
     background:
         radial-gradient(circle at 50% 44%, rgba(215, 181, 109, 0.16), transparent 56%),
-        linear-gradient(180deg, rgba(0, 0, 0, 0.22), rgba(18, 12, 18, 0.42));
+        linear-gradient(180deg, rgba(0, 0, 0, 0.22), var(--wandlight-surface-2, rgba(18, 12, 18, 0.42)));
     color: var(--wandlight-gold, #d7b56d);
     border: 1px solid rgba(185, 139, 54, 0.14);
     overflow: hidden;
@@ -4632,9 +5472,9 @@
 
 .wandlight-runtime-drawer {
     background:
-        radial-gradient(circle at 8% 0%, rgba(92, 23, 36, 0.42), transparent 36%),
-        radial-gradient(circle at 100% 100%, rgba(185, 139, 54, 0.11), transparent 42%),
-        linear-gradient(145deg, rgba(18, 12, 18, 0.985), rgba(9, 12, 18, 0.98));
+        radial-gradient(circle at 8% 0%, var(--wandlight-button-hover, rgba(92, 23, 36, 0.42)), transparent 36%),
+        radial-gradient(circle at 100% 100%, var(--wandlight-border-soft, rgba(185, 139, 54, 0.11)), transparent 42%),
+        linear-gradient(145deg, var(--wandlight-bg-gradient-start, rgba(18, 12, 18, 0.985)), var(--wandlight-bg-gradient-end, rgba(9, 12, 18, 0.98)));
     border: 1px solid var(--wandlight-border, rgba(185, 139, 54, 0.38));
     box-shadow:
         0 10px 36px rgba(0, 0, 0, 0.72),
@@ -4643,7 +5483,7 @@
 }
 
 .wandlight-runtime-drawer-header {
-    background: linear-gradient(90deg, rgba(92, 23, 36, 0.72), rgba(20, 24, 32, 0.9));
+    background: linear-gradient(90deg, var(--wandlight-button-hover, rgba(92, 23, 36, 0.72)), var(--wandlight-bg-2, rgba(20, 24, 32, 0.9)));
     border-bottom: 1px solid var(--wandlight-border-soft, rgba(185, 139, 54, 0.18));
     box-shadow: 0 -1px 0 rgba(215, 181, 109, 0.07) inset;
 }
@@ -4691,7 +5531,7 @@
     overscroll-behavior: contain !important;
     scrollbar-gutter: stable !important;
     scrollbar-width: thin !important;
-    scrollbar-color: rgba(215, 181, 109, 0.62) rgba(10, 12, 16, 0.38) !important;
+    scrollbar-color: var(--wandlight-border-strong, rgba(215, 181, 109, 0.62)) var(--wandlight-input, rgba(10, 12, 16, 0.38)) !important;
     padding-right: 8px !important;
     box-sizing: border-box !important;
 }
@@ -4701,12 +5541,12 @@
 }
 
 .wandlight-runtime-drawer .wandlight-runtime-tab-body::-webkit-scrollbar-track {
-    background: rgba(10, 12, 16, 0.38);
+    background: var(--wandlight-input, rgba(10, 12, 16, 0.38));
     border-radius: 999px;
 }
 
 .wandlight-runtime-drawer .wandlight-runtime-tab-body::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, rgba(215, 181, 109, 0.74), rgba(92, 23, 36, 0.58));
+    background: linear-gradient(180deg, var(--wandlight-border-strong, rgba(215, 181, 109, 0.74)), var(--wandlight-button-hover, rgba(92, 23, 36, 0.58)));
     border-radius: 999px;
     border: 2px solid rgba(10, 12, 16, 0.42);
 }

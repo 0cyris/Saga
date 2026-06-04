@@ -1,8 +1,10 @@
 # Saga Pre-Production
 
+**SAGA: Fandom Loresystem.**
+
 ## Purpose
 
-Saga is the planned evolution of Wandlight from a Harry Potter-focused SillyTavern lore extension into a general framework for fandom-specific, date-aware, arc-aware, and story-position-aware lore support.
+Saga is the planned evolution of Wandlight from a Harry Potter-focused SillyTavern lore extension into SAGA: Fandom Loresystem, a general framework for fandom-specific, date-aware, arc-aware, and story-position-aware lore support.
 
 Wandlight already proves the core product idea:
 
@@ -89,10 +91,86 @@ Current rail order should evolve toward:
 4. Continuity
 5. Lore
 6. Injection
+7. Settings
 
 The Lorepack tab is intentionally above the rest because the active Lorepack stack determines what Context, Lore, Relevance, and Injection mean.
 
 The existing Lore tab should continue to handle chat-specific pending and accepted lore. The new Lorepack tab handles source packs.
+
+The Settings tab should sit at the end because it configures Saga itself rather than the active roleplay state. It now absorbs the extension-menu API settings so users can configure providers from the same runtime surface they use during play.
+
+## Runtime Settings And Themepacks
+
+Saga's runtime Settings tab has three main areas:
+
+- Provider settings: Utility provider and Reasoning provider configuration, including profile selection, OpenAI-compatible endpoint settings, generation parameters, and test actions.
+- Appearance settings: colors, density, rail/drawer styling, card surfaces, borders, accent colors, status colors, and text contrast.
+- Themepacks: named presets that bundle appearance colors and icon/button theme metadata.
+
+The extension-menu settings panel remains as a compatibility and recovery surface. The runtime Settings tab is the primary user-facing home for provider controls.
+
+### Themepack Draft
+
+Themepacks should be pure data, like Lorepacks. They should not contain executable code.
+
+```json
+{
+  "schemaVersion": 1,
+  "id": "saga-archive",
+  "title": "Saga Archive",
+  "type": "bundled",
+  "description": "Bundled dark archive theme for SAGA: Fandom Loresystem.",
+  "iconPackId": "wandlight-default",
+  "colors": {
+    "background": "#120c12",
+    "backgroundAlt": "#241018",
+    "gradientStart": "#120c12",
+    "gradientEnd": "#090c12",
+    "surface": "#2b1c1c",
+    "surfaceAlt": "#121218",
+    "border": "#b98b36",
+    "borderStrong": "#d7b56d",
+    "accent": "#d7b56d",
+    "danger": "#5c1724",
+    "success": "#1f4a38",
+    "warning": "#b9903c",
+    "focus": "#ffeaa7",
+    "button": "#18121a",
+    "buttonHover": "#5c1724",
+    "buttonText": "#f1ead8",
+    "input": "#121218",
+    "inputBorder": "#b98b36",
+    "text": "#f1ead8",
+    "mutedText": "#cfc5ad"
+  },
+  "icons": {
+    "brand.compact": "./Images/branding/wandlight-logo-minimized-256.png",
+    "brand.expanded": "./Images/branding/wandlight-logo-expanded-512.png",
+    "tab.lorepacks": "./Images/runtime-icons/saga_tab_lorepacks_256.png"
+  },
+  "tags": [
+    "theme:dark",
+    "style:archive"
+  ]
+}
+```
+
+The first implementation stores theme settings in normal extension settings and applies them as CSS variables on the runtime panel. Bundled presets live in code. User-made Theme Packs install into a global `themePackLibrary` registry in extension settings.
+
+Reasonable first-wave color tokens:
+
+- Backgrounds: base background, alternate background, gradient start, gradient end.
+- Surfaces: card/panel surface and nested/secondary surface.
+- Borders: normal border and stronger selected/focus-adjacent border.
+- Controls: button, button hover, button text, input background, input border.
+- Status and accents: accent, danger, success, warning, focus.
+- Text: primary text and muted/help text.
+
+Theme Pack icon overrides are keyed by UI target, such as `brand.compact`, `brand.expanded`, `tab.lorepacks`, `tab.context`, or `tab.settings`. Values must be passive image paths, data URLs, or fetchable image URLs. They do not grant code execution.
+
+Installed Custom Theme Packs should be importable from a single Theme Pack JSON file or a Theme Pack Library JSON file. Custom imports must not overwrite Bundled Theme Pack IDs.
+
+Accessibility should be handled like Pack Health: advisory and visible, not gatekeeping. The runtime Settings tab should report contrast checks for primary text, muted text, button text, accent controls, focus rings, and danger surfaces. Targets should follow common WCAG-style ratios: 4.5:1 for normal text and 3:1 for UI affordances.
 
 ## Lorepack Stack
 
@@ -161,6 +239,55 @@ Right column: Active Stack
 
 The numeric priority can be internal. The UI should mostly show order.
 
+### Library Ownership
+
+Saga should keep Lorepack library metadata globally, while each chat keeps only its active stack and per-pack story context.
+
+Global extension settings own:
+
+- Bundled, Custom, and Generated Lorepack metadata.
+- Manifest paths or source URLs.
+- Update metadata.
+- Pack tags, author, version, source, and cached stats.
+
+Per-chat state owns:
+
+- `lorepackStack`: loaded pack IDs, enabled state, and order.
+- `lorepackContexts`: Story Position per loaded pack.
+- Chat-specific accepted lore and pending lore.
+
+Older Wandlight/Saga builds temporarily stored `lorepackRegistry` in chat state. That registry remains a compatibility fallback, and opening an older chat should promote missing registry records into the global library when possible.
+
+### Import/Export Staging
+
+The first import/export slice should support:
+
+- Registering a fetchable `lorepack.json` path or URL into the global library.
+- Exporting global Lorepack Library metadata as JSON.
+- Importing previously exported Lorepack Library metadata JSON.
+
+This does not yet mean Saga can persist arbitrary local folder contents from a browser file picker. Browser-selected local manifests do not grant durable access to sibling entry files. Full local pack support should come through a zip importer or a SillyTavern-managed storage location.
+
+For now, registered Custom Lorepacks are expected to use manifest paths or URLs that remain fetchable by the browser. Entry files resolve relative to the registered manifest.
+
+### Custom Duplicate Staging
+
+Until Saga has durable zip/local pack storage, duplicating a pack creates a Custom Lorepack library record with:
+
+- A new Custom pack ID and editable metadata.
+- `derivedFrom` metadata pointing at the source pack.
+- Embedded `manifestData` with the Custom identity.
+- The source `manifest` path retained as the base for resolving entry files.
+
+This makes the duplicate loadable immediately without writing a new folder. If the original and duplicate are both loaded, stack priority and duplicate-entry handling determine which entries win. Later entry-level editing can layer changed entries into the Custom pack.
+
+The first entry-editing slice stores that layer as library metadata:
+
+- `entryOverrides`: edited or newly added lore entries keyed by entry ID.
+- `disabledEntryIds`: source entry IDs suppressed by the Custom pack.
+
+The loader applies these before Pack Health and canon database normalization, so the active stack sees the Custom pack's edited entry set instead of the untouched source files.
+
 ## Story Position And Lorepack Context
 
 Wandlight currently centers on a story date. Saga needs a more general primitive: Story Position.
@@ -189,23 +316,55 @@ Each loaded Lorepack can have its own context slot.
 {
   "lorepackContexts": {
     "hp-golden-trio": {
+      "schemaVersion": 1,
+      "packId": "hp-golden-trio",
       "positionType": "calendar",
-      "sceneDate": "1995-10-31",
-      "anchorId": "hp.ootp.year_5",
       "label": "Order of the Phoenix, Year 5",
+      "sceneDate": "1995-10-31",
+      "subjectiveDate": "",
+      "anchorId": "hp.ootp.year_5",
+      "anchorFrom": "",
+      "anchorTo": "",
+      "arc": "Order of the Phoenix",
+      "phase": "",
+      "season": "",
+      "episode": "",
+      "chapter": "",
+      "issue": "",
+      "quest": "",
+      "gameStage": "",
+      "alias": "Year 5 Halloween",
+      "notes": "",
       "branchId": "main",
       "confidence": 0.94,
       "manualLock": false,
+      "source": "header",
       "updatedAt": 0
     },
     "mcu-infinity-saga": {
+      "schemaVersion": 1,
+      "packId": "mcu-infinity-saga",
       "positionType": "anchor_window",
+      "label": "After Age of Ultron, before Civil War",
+      "sceneDate": "",
+      "subjectiveDate": "",
+      "anchorId": "",
       "anchorFrom": "mcu.age_of_ultron",
       "anchorTo": "mcu.civil_war",
-      "label": "After Age of Ultron, before Civil War",
+      "arc": "",
+      "phase": "Phase 3",
+      "season": "",
+      "episode": "",
+      "chapter": "",
+      "issue": "",
+      "quest": "",
+      "gameStage": "",
+      "alias": "pre-Civil War",
+      "notes": "",
       "branchId": "main",
       "confidence": 0.82,
       "manualLock": true,
+      "source": "manual",
       "updatedAt": 0
     }
   }
@@ -213,6 +372,17 @@ Each loaded Lorepack can have its own context slot.
 ```
 
 Manual locks are important. If a user chooses "before Civil War", Saga should not overwrite that just because later chat text mentions Civil War in dialogue or comparison.
+
+### Story Position v1 Implementation
+
+The first production implementation is manual-first:
+
+- `lorepackContexts` is normalized during state migration.
+- Every loaded Lorepack receives a Story Position slot.
+- The Lorepacks tab exposes a manual editor for date, label, branch, arc, phase, season, episode, chapter, issue, quest, game stage, anchors, alias, notes, source, confidence, and manual lock.
+- Manual field edits set `source: "manual"`, `manualLock: true`, and high confidence by default.
+- The editor can seed a pack position from the legacy Story Context fields while Saga transitions from one global date to per-pack positions.
+- Automated alias/model resolvers should respect `manualLock` in later slices.
 
 ### Timeline Modes
 
@@ -279,6 +449,46 @@ Calendar dates should be one timeline coordinate, not the universal foundation.
 ```
 
 `sortKey` is the internal ordering mechanism. It lets Saga compare story positions without pretending every fandom has exact dates.
+
+### Position Index v1 Implementation
+
+Step 3 adds a runtime Story Position Index:
+
+- `registries.timeline` points at a Lorepack-owned `timeline.json`.
+- `story-position-index.js` loads timeline registries from enabled Lorepacks.
+- The aggregate index preserves pack priority, stack order, anchor IDs, aliases, tags, dates, arcs, phases, and media-specific coordinates.
+- The Lorepacks tab shows index status and per-pack anchor counts.
+- The Story Position editor can search a pack's local anchors and apply one into normalized Lorepack Context.
+
+The first concrete registry is `Lorepacks/hp-golden-trio/timeline.json`. It includes Golden Trio book/year anchors, major event anchors, and broad windows like pre-Hogwarts, canon Hogwarts years, and post-war.
+
+Design constraint: missing timeline registries are allowed. Saga should treat timeline support as a Pack Health/advisory dimension, not as a hard validity gate, because some Custom Lorepacks may be scenario-first, keyword-first, or still under construction.
+
+### Local Resolver v1 Implementation
+
+Step 4 adds a local, non-model resolver:
+
+- `story-position-resolver.js` resolves unlocked loaded Lorepacks from current Story Context.
+- Date matching compares `sceneDate` / `subjectiveDate` against pack-local anchor date ranges.
+- Alias matching searches anchor labels, aliases, tags, books, arcs, phases, and other timeline fields.
+- Manual locks are respected unless a future caller explicitly forces overwrite.
+- Context detection now runs the local Story Position resolver after header/model/local Story Context detection.
+- The Lorepacks tab can manually run `Resolve From Context`.
+
+This keeps the common path free: a structured reply header or clear context note can update pack-specific Story Position without a model call.
+
+### Model Fallback Resolver v1 Implementation
+
+Step 5 adds a controlled model fallback:
+
+- The Lorepacks tab exposes `Model Fallback`.
+- The action first applies confident local matches, then sends only unresolved unlocked Lorepacks to the Reasoning Provider.
+- The prompt includes only known timeline anchors from the active Story Position Index.
+- Model output is accepted only when it references a known anchor ID for that pack.
+- Low-confidence and invented-anchor results are rejected as unresolved.
+- Manual locks remain protected.
+
+The model fallback is intentionally explicit rather than automatic. It is for ambiguous fandom phrasing, arc names, user notes, and non-date-heavy settings where local matching is not enough.
 
 ### Entry Gating Draft
 
@@ -521,6 +731,21 @@ Suggestions:
   }
 }
 ```
+
+### Runtime Health Report Slice
+
+The first runtime Pack Health report should show:
+
+- Active stack status and summary counts.
+- Loaded entry/file counts.
+- Error, warning, and suggestion lists.
+- Per-pack health rows.
+- Custom override/addition/disabled-entry counts.
+- Duplicate entry IDs resolved by stack priority.
+- Likely duplicate Custom pack insights.
+- Exportable `saga-pack-health.json`.
+
+This report remains advisory. Users can still load and use packs with warnings.
 
 ## Duplicate And Conflict Handling
 
@@ -908,4 +1133,3 @@ Mitigation: Build a runtime index, cache loaded manifests, score candidates in s
 4. Add a Lorepack loader that can read the new manifest while preserving the old `Lore/manifest.json` fallback.
 5. Add a placeholder Lorepack rail tab above existing runtime tabs.
 6. Route current canon suggestions through the active Lorepack.
-

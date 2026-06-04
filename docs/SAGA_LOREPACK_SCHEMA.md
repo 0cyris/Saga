@@ -1,5 +1,7 @@
 # Saga Lorepack Schema Draft
 
+**SAGA: Fandom Loresystem.**
+
 ## Status
 
 This is a pre-implementation schema draft for Saga Lorepacks.
@@ -50,6 +52,7 @@ Lorepacks/
     lorepack.json
     taxonomy.json
     tags.json
+    entities.json
     timeline.json
     resolver.json
     gate-types.json
@@ -73,6 +76,7 @@ Every Lorepack should have:
 Recommended registries:
 
 - `tags.json`
+- `entities.json`
 - `timeline.json`
 - `resolver.json`
 - `taxonomy.json`
@@ -103,11 +107,14 @@ Existing Wandlight packs can start with `lorepack.json` plus the current entry f
 | --- | --- | --- |
 | `fandom` | string | Fandom or setting name. |
 | `era` | string | Era, scope, adaptation, arc, or continuity range. |
+| `contentKind` | string | Internal content shape, such as `fandom`, `setting`, `scenario`, or `mechanics`. |
 | `author` | string | Creator or maintainer. |
 | `defaultLocale` | string | Locale code, usually `en`. |
 | `tags` | string[] | Pack-level tags. |
 | `registries` | object | Relative paths to registry files. |
 | `resolver` | string | Relative path to resolver metadata. |
+| `continuity` | object | Continuity, adaptation, or canon-tier metadata for the pack. |
+| `runtimeDefaults` | object | Default retrieval/trigger/injection behavior for imported or keyword-heavy packs. |
 | `compatibility` | object | Saga schema compatibility range. |
 | `stats` | object | Optional cached entry/category counts. |
 
@@ -118,6 +125,9 @@ Existing Wandlight packs can start with `lorepack.json` plus the current entry f
 | `source` | object | Import/source metadata. |
 | `update` | object | Update-check metadata. |
 | `derivedFrom` | object | Source pack metadata if this pack was duplicated or generated from another pack. |
+| `manifestData` | object | Library-only embedded manifest metadata for virtual Custom duplicates before durable local storage exists. |
+| `entryOverrides` | object | Library-only map of edited or added lore entries keyed by entry ID. |
+| `disabledEntryIds` | string[] | Library-only source entry IDs suppressed by this Custom Lorepack. |
 | `generatedBy` | object | Lorepack Creator metadata. |
 | `license` | object | Pack license and usage notes. |
 | `health` | object | Last known Pack Health summary. |
@@ -135,6 +145,7 @@ Existing Wandlight packs can start with `lorepack.json` plus the current entry f
   "description": "Chronology, knowledge gates, future guards, spells, ages, behavior, and event constraints for the seven-book Harry Potter era.",
   "fandom": "Harry Potter",
   "era": "Golden Trio",
+  "contentKind": "fandom",
   "author": "Saga",
   "version": "1.0.0",
   "defaultLocale": "en",
@@ -156,11 +167,23 @@ Existing Wandlight packs can start with `lorepack.json` plus the current entry f
   "registries": {
     "taxonomy": "taxonomy.json",
     "tags": "tags.json",
+    "entities": "entities.json",
     "timeline": "timeline.json",
     "gateTypes": "gate-types.json",
     "scoring": "scoring.json"
   },
   "resolver": "resolver.json",
+  "continuity": {
+    "continuityId": "hp-books",
+    "canonTier": "primary",
+    "adaptation": "book",
+    "sourceBoundary": "Seven-book Golden Trio era"
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
   "files": [
     "chronology/school_years.json",
     "knowledge_gates/core_knowledge_gates.json",
@@ -252,6 +275,35 @@ Suggested `source.kind` values:
 
 If a user edits an imported Custom Lorepack, Saga should mark it as locally modified and avoid overwriting it during updates without explicit confirmation.
 
+### Virtual Custom Duplicates
+
+Before full local zip/folder storage exists, Saga may represent a duplicated pack as a Custom library record that stores:
+
+- `manifest`: the source manifest path used as the file-resolution base.
+- `manifestData`: an embedded manifest copy with the new Custom `id`, type, title, tags, and derivation metadata.
+- `derivedFrom`: the source pack ID, title, version, manifest path, and duplicate timestamp.
+
+The UI still shows this as a Custom Lorepack. The virtual duplicate is loadable because entry files resolve relative to the source manifest, while runtime pack identity comes from `manifestData.id`.
+
+### Custom Entry Overrides
+
+Before Saga can write durable local pack folders, a Custom Lorepack may store entry-level changes in its library record:
+
+```json
+{
+  "entryOverrides": {
+    "entry_id": {
+      "id": "entry_id",
+      "title": "Edited or added lore entry",
+      "fact": "The custom fact or override text."
+    }
+  },
+  "disabledEntryIds": ["source_entry_id"]
+}
+```
+
+When loading a pack, Saga applies `entryOverrides` before Pack Health and canon database normalization. An override with the same ID as a source entry replaces that entry for this Custom pack. An override with a new ID becomes an added entry. A disabled entry ID suppresses the matching source entry.
+
 ## Dependencies
 
 Dependencies are advisory in MVP.
@@ -316,9 +368,14 @@ Saga entries should remain compatible with current Wandlight lore entries.
 | `truthStatus` | string | `true`, `hidden`, `rumor`, etc. |
 | `revealPolicy` | string | Reveal behavior. |
 | `tags` | string[] | Search/scoring tags. |
+| `triggers` | object | Keyword, constant, probability, and recursive activation hints. |
 | `scope` | object | Characters, locations, topics, objects, spells, factions, etc. |
 | `date` | object | Calendar-style eligibility. |
 | `position` | object | Saga Story Position eligibility. |
+| `coordinates` | object[] | Multi-axis Story Position coordinates. |
+| `continuity` | object | Entry-level continuity, adaptation, route, or canon-tier metadata. |
+| `ability` | object | Generic ability-system metadata for spells, quirks, jutsu, Force abilities, cyberware, etc. |
+| `template` | object | Placeholder/template variable metadata for imported lorebook entries. |
 | `visibility` | object | Who knows what and when. |
 | `effects` | object | Search, blocking, protection, or injection effects. |
 | `sourceInfo` | object | Work/source metadata. |
@@ -348,6 +405,31 @@ Use the existing supported category values for MVP:
 
 `spell` should remain supported for Wandlight compatibility. Later Saga may add a generic `ability` category, with `spell` as a fandom-specific specialization or alias.
 
+### Reserved Future Categories
+
+Saga should reserve, but not necessarily expose in MVP, these broader categories:
+
+```json
+[
+  "ability",
+  "mechanic",
+  "scenario",
+  "style",
+  "organization",
+  "species",
+  "technology"
+]
+```
+
+These are important for non-HP packs:
+
+- `ability`: Quirks, jutsu, cursed techniques, Devil Fruits, Haki, Force powers, cyberware, spells.
+- `mechanic`: Pokemon type rules, game stats, TTRPG systems, combat mechanics.
+- `scenario`: Operator themes, mission setups, roleplay premises, custom campaigns.
+- `style`: Imported style or prose-guidance lorebooks that are not Saga's primary focus but may appear in imported packs.
+
+Until the UI supports these directly, packs can store them as tags, `kind`, `lorePurpose`, or `extensions`.
+
 ### Lore Purposes
 
 Use the existing specific-lore purpose set:
@@ -372,6 +454,139 @@ Use the existing specific-lore purpose set:
 ```
 
 These are more important than categories for Pack Health and generated pack quality.
+
+## Content Kind
+
+`contentKind` is manifest-level metadata. It is not a user-facing Lorepack type.
+
+It describes what sort of content the pack mainly contains.
+
+Suggested values:
+
+```json
+[
+  "fandom",
+  "setting",
+  "scenario",
+  "characterbook",
+  "mechanics",
+  "style",
+  "mixed"
+]
+```
+
+Saga's main focus is canon with stories, so `fandom` and `setting` packs are the primary target. However, imported lorebook ecosystems also contain operator themes, RPG systems, prose styles, and scenario packs. `contentKind` lets Saga represent those without pretending every pack is a story-canon pack.
+
+Example:
+
+```json
+{
+  "contentKind": "scenario",
+  "fandom": "Call of Duty",
+  "era": "Modern military operator theme"
+}
+```
+
+This can be useful as a Custom Lorepack, but Saga should not treat it as strongly Story Position-driven unless the pack defines an actual campaign/story timeline.
+
+## Continuity Block
+
+`canon: canon|au` is intentionally simple for the user-facing card model. It is not enough for major multimedia fandoms.
+
+Use `continuity` for deeper metadata about adaptation, canon tier, route, game path, or source family.
+
+### Continuity Fields
+
+| Field | Type | Meaning |
+| --- | --- | --- |
+| `continuityId` | string | Stable continuity ID, such as `mcu`, `dc-batfamily`, `star-wars-legends`, or `naruto-manga`. |
+| `canonTier` | string | `primary`, `secondary`, `filler`, `legends`, `expanded`, `fanon`, `au`, or pack-defined tier. |
+| `adaptation` | string | `book`, `film`, `comics`, `manga`, `anime`, `game`, `novel`, `show`, `ttrpg`, etc. |
+| `medium` | string | Optional broader medium label. |
+| `route` | string | Game route, ending, lifepath, romance route, or branch. |
+| `sourceBoundary` | string | Human-readable boundary, such as "Manga through Shibuya Incident". |
+| `variantOf` | string | Parent continuity or adaptation ID. |
+| `notes` | string | Human-readable clarification. |
+
+### Continuity Example
+
+```json
+{
+  "continuity": {
+    "continuityId": "cyberpunk-2077-game",
+    "canonTier": "primary",
+    "adaptation": "game",
+    "route": "streetkid",
+    "sourceBoundary": "Base game before Phantom Liberty",
+    "notes": "Quest and ending state may vary by user-selected route."
+  }
+}
+```
+
+This is important for:
+
+- Marvel: MCU versus comics versus animated continuities.
+- DC/Batfamily: Post-Crisis, New 52, Rebirth, fanon Batfamily blends.
+- Star Wars: Legends versus Disney canon.
+- Naruto/One Piece/JJK/Chainsaw Man: manga versus anime, filler, movie continuity.
+- Cyberpunk 2077: lifepath, quest state, endings, Edgerunners, TTRPG lore.
+
+## Trigger Block
+
+Saga's local canon suggestions should be Story Position and relevance driven, but imported lorebooks often rely on keyword triggers. Saga should preserve these semantics.
+
+`triggers` allows Chub/SillyTavern/NovelAI-style lorebooks to import cleanly and gives Custom packs a precise activation layer when Story Position is not enough.
+
+### Trigger Fields
+
+| Field | Type | Meaning |
+| --- | --- | --- |
+| `keywords` | string[] | Primary trigger keywords. |
+| `secondaryKeywords` | string[] | Optional secondary required/context keywords. |
+| `excludeKeywords` | string[] | Keywords that suppress activation. |
+| `logic` | string | `any`, `all`, `keyword_and_secondary`, `expression`, or `manual`. |
+| `expression` | string | Optional expression for advanced trigger logic. |
+| `caseSensitive` | boolean | Whether keyword case must match. |
+| `wholeWord` | boolean | Whether keyword should match whole words only. |
+| `recursive` | boolean | Whether this entry can trigger additional scans. |
+| `constant` | boolean | Whether the entry is always eligible when pack/context gates pass. |
+| `probability` | number | 0 to 1 activation probability for imported systems that support it. |
+| `scanDepth` | number/null | Message depth override. |
+| `tokenBudget` | number/null | Entry-specific token budget hint. |
+| `insertionOrder` | number | Imported lorebook insertion ordering hint. |
+| `matchTags` | string[] | Tags that can act as semantic triggers. |
+
+### Trigger Example
+
+```json
+{
+  "triggers": {
+    "keywords": [
+      "Sokovia Accords",
+      "Civil War"
+    ],
+    "secondaryKeywords": [
+      "Tony Stark",
+      "Steve Rogers"
+    ],
+    "excludeKeywords": [],
+    "logic": "any",
+    "caseSensitive": false,
+    "wholeWord": true,
+    "recursive": false,
+    "constant": false,
+    "probability": 1,
+    "scanDepth": null,
+    "tokenBudget": null,
+    "insertionOrder": 100,
+    "matchTags": [
+      "event:sokovia-accords"
+    ]
+  }
+}
+```
+
+Saga should treat triggers as one input to relevance and suggestion, not as a replacement for Story Position.
 
 ### Entry Example
 
@@ -525,6 +740,165 @@ When both `date` and `position` exist:
 
 MVP may keep date matching primary for the HP pack, then add position matching incrementally.
 
+## Coordinates Block
+
+`position` handles the common single-axis case. Some fandoms need multiple axes at the same time.
+
+Use `coordinates` when an entry depends on more than one story dimension.
+
+Examples:
+
+- One Piece: arc plus pre/post-timeskip.
+- Naruto: arc plus manga/anime/filler status.
+- Cyberpunk 2077: quest state plus lifepath plus ending route.
+- DC/Batfamily: continuity era plus family roster state.
+- Genshin Impact: nation/archon quest chapter plus character story quest progress.
+- Honkai: Star Rail: Trailblaze mission chapter plus world/planet.
+
+### Coordinate Fields
+
+| Field | Type | Meaning |
+| --- | --- | --- |
+| `axis` | string | Coordinate axis, such as `arc`, `phase`, `adaptation`, `route`, `quest`, `power_stage`, or `roster_state`. |
+| `id` | string | Stable coordinate ID. |
+| `label` | string | Human-readable label. |
+| `from` | string/number | Optional lower bound. |
+| `to` | string/number | Optional upper bound. |
+| `confidence` | number | Optional 0 to 1 confidence. |
+| `required` | boolean | Whether this coordinate must match for eligibility. |
+
+### Coordinates Example
+
+```json
+{
+  "coordinates": [
+    {
+      "axis": "arc",
+      "id": "one-piece.enies-lobby",
+      "label": "Enies Lobby",
+      "required": true
+    },
+    {
+      "axis": "power_stage",
+      "id": "one-piece.pre-timeskip",
+      "label": "Pre-timeskip",
+      "required": true
+    },
+    {
+      "axis": "adaptation",
+      "id": "manga",
+      "label": "Manga continuity",
+      "required": false
+    }
+  ]
+}
+```
+
+Saga should not require all packs to use coordinates. They exist for fandoms whose story state is not a single clean date or anchor.
+
+## Ability Block
+
+`spell` is too Harry Potter-specific for Saga's broader target set.
+
+Use `ability` for fandom power systems, skills, supernatural techniques, technology, cyberware, or game mechanics.
+
+### Ability Fields
+
+| Field | Type | Meaning |
+| --- | --- | --- |
+| `system` | string | Power or ability system, such as `spell`, `quirk`, `jutsu`, `haki`, `devil_fruit`, `cursed_technique`, `force`, `cyberware`, `pokemon_move`, or `vision`. |
+| `name` | string | Ability name. |
+| `stage` | string | Training/mastery/progression stage. |
+| `ownerEntityIds` | string[] | Entity IDs for known users/owners. |
+| `requiredTags` | string[] | Tags needed for eligibility. |
+| `constraints` | string[] | Ability limitations or plausibility rules. |
+| `antiLore` | string[] | Common ability mistakes to prevent. |
+
+### Ability Example
+
+```json
+{
+  "ability": {
+    "system": "quirk",
+    "name": "One For All",
+    "stage": "early_training",
+    "ownerEntityIds": [
+      "mha:midoriya-izuku"
+    ],
+    "constraints": [
+      "Early Izuku cannot use One For All at full power without serious injury."
+    ],
+    "antiLore": [
+      "Do not portray early Izuku as casually controlling One For All at 100%."
+    ]
+  }
+}
+```
+
+This keeps HP spells, MHA Quirks, Naruto jutsu, One Piece Haki/Devil Fruits, JJK cursed techniques, Star Wars Force abilities, Pokemon moves, Genshin Visions, and Cyberpunk cyberware in one schema family.
+
+## Template Block
+
+Imported lorebooks may contain placeholders such as `{{char}}`, `{{user}}`, or SillyTavern/NovelAI-style variables.
+
+Saga should preserve placeholders instead of stripping or blindly expanding them.
+
+### Template Fields
+
+| Field | Type | Meaning |
+| --- | --- | --- |
+| `mode` | string | `sillytavern`, `novelai`, `generic`, or pack-defined mode. |
+| `variables` | string[] | Known variables used by the entry. |
+| `unsafeVariables` | string[] | Variables Saga should not expand automatically. |
+| `preserveRaw` | boolean | Whether to preserve raw template syntax on export. |
+
+### Template Example
+
+```json
+{
+  "template": {
+    "mode": "sillytavern",
+    "variables": [
+      "char",
+      "user"
+    ],
+    "unsafeVariables": [],
+    "preserveRaw": true
+  }
+}
+```
+
+Pack Health should warn about unknown or malformed variables, but imported packs should remain usable.
+
+## Entity References
+
+Entries may reference entities by ID through:
+
+- `scope.entityIds`
+- `ability.ownerEntityIds`
+- `visibility.knownByEntityIds`
+- `tags`
+- `extensions`
+
+Entity IDs are optional in MVP, but they will become important for serious Custom and Bundled Lorepacks.
+
+Example:
+
+```json
+{
+  "scope": {
+    "entityIds": [
+      "dc:bruce-wayne",
+      "dc:batman"
+    ],
+    "characters": [
+      "Bruce Wayne",
+      "Batman"
+    ]
+  }
+}
+```
+
 ## tags.json
 
 Tags are first-class search, filter, scoring, and health-check metadata.
@@ -592,6 +966,90 @@ Namespaces are not mandatory for all user-created packs, but Bundled Lorepacks s
 | `replacement` | string | Replacement tag ID. |
 
 Undefined tags should be Pack Health warnings, not load blockers.
+
+## entities.json
+
+`entities.json` defines canonical entity IDs, names, aliases, and metadata.
+
+Tags are good for search and grouping. Entities are better for identity.
+
+This matters because major fandoms often have:
+
+- Civilian names and hero names.
+- Multiple titles.
+- Transformed states.
+- Team memberships.
+- Family names.
+- Aliases and epithets.
+- Translation variants.
+- Fandom shorthand.
+
+Examples:
+
+- Bruce Wayne / Batman.
+- Izuku Midoriya / Deku.
+- Monkey D. Luffy / Straw Hat Luffy.
+- Anakin Skywalker / Darth Vader.
+- Satoru Gojo / Gojo-sensei.
+- Harry Potter / The Boy Who Lived.
+
+### Entity Registry Example
+
+```json
+{
+  "schemaVersion": 1,
+  "entities": {
+    "dc:bruce-wayne": {
+      "type": "character",
+      "label": "Bruce Wayne",
+      "aliases": [
+        "Batman",
+        "The Dark Knight",
+        "Master Bruce"
+      ],
+      "canonicalNames": [
+        "Bruce Wayne",
+        "Batman"
+      ],
+      "tags": [
+        "character:bruce-wayne",
+        "dc:batfamily",
+        "role:vigilante"
+      ],
+      "relationships": [
+        {
+          "type": "identity_alias",
+          "targetEntityId": "dc:batman"
+        }
+      ],
+      "continuity": {
+        "continuityId": "dc-batfamily",
+        "canonTier": "primary"
+      },
+      "sourceInfo": {
+        "work": "DC Comics",
+        "confidence": 0.9
+      }
+    }
+  }
+}
+```
+
+### Entity Fields
+
+| Field | Type | Meaning |
+| --- | --- | --- |
+| `type` | string | `character`, `location`, `faction`, `item`, `ability`, `species`, `technology`, `event`, etc. |
+| `label` | string | Display name. |
+| `aliases` | string[] | Search and resolver aliases. |
+| `canonicalNames` | string[] | Important formal names. |
+| `tags` | string[] | Entity tags. |
+| `relationships` | object[] | Lightweight identity/team/family/ownership links. |
+| `continuity` | object | Continuity metadata. |
+| `sourceInfo` | object | Source metadata. |
+| `extensions` | object | Future metadata. |
+
+Entities should not be required for every Custom pack. They should be strongly recommended for Bundled packs and generated canon-scale packs.
 
 ## timeline.json
 
@@ -723,6 +1181,21 @@ Example:
 2000 = next film/book/arc
 ```
 
+### Runtime Position Index
+
+Saga loads `registries.timeline` from each enabled Lorepack and builds a runtime Story Position Index.
+
+The index is stack-aware:
+
+- Packs are read in loaded Lorepack priority order.
+- Each anchor keeps its `packId`, pack title, stack index, and pack priority.
+- Anchor search is pack-local by default in the Story Position editor.
+- Suggest Lore, preprocessing, and Relevance can later use the same index for pack-aware temporal promotion.
+
+Missing `timeline.json` is allowed. Some Custom Lorepacks may be keyword-first, scenario-first, or still in early drafting. Pack Health may suggest adding timeline anchors, but Saga should not reject a pack only because it has no Story Position registry.
+
+Timeline registries are not lore entry files. They are compact resolver/index data used to help map phrases like `after Shibuya`, `Civil War era`, `Year 4`, `post-war`, or `before the Battle of Hogwarts` into normalized Lorepack Context fields.
+
 ## resolver.json
 
 `resolver.json` tells Saga how to map user phrasing, headers, notes, and model output into a Lorepack Context.
@@ -780,6 +1253,28 @@ Saga should resolve Story Position in this order:
 3. Model fallback.
 
 Manual locks should prevent automatic overwrites.
+
+### Model Fallback Contract
+
+Model fallback should be bounded by the active Story Position Index.
+
+Saga should send the model:
+
+- Current Story Context.
+- Optional supporting user/header text.
+- Target Lorepack IDs.
+- Known timeline anchors for those packs.
+
+The model should return only known anchor IDs or mark a pack unresolved.
+
+Saga should reject:
+
+- Anchor IDs that do not exist in the target pack.
+- Results below the confidence threshold.
+- Results for locked packs.
+- Invented dates, arcs, phases, or labels that do not map to known anchors.
+
+This makes the model a resolver, not an authority. The Lorepack remains the source of timeline truth.
 
 ## taxonomy.json
 
@@ -913,12 +1408,25 @@ Each active Lorepack can have its own context.
 {
   "lorepackContexts": {
     "hp-golden-trio": {
+      "schemaVersion": 1,
+      "packId": "hp-golden-trio",
       "positionType": "calendar",
+      "label": "Order of the Phoenix, Year 5",
       "sceneDate": "1995-10-31",
+      "subjectiveDate": "",
       "anchorId": "hp.ootp.year_5",
       "anchorFrom": "",
       "anchorTo": "",
-      "label": "Order of the Phoenix, Year 5",
+      "arc": "Order of the Phoenix",
+      "phase": "",
+      "season": "",
+      "episode": "",
+      "chapter": "",
+      "issue": "",
+      "quest": "",
+      "gameStage": "",
+      "alias": "Year 5 Halloween",
+      "notes": "",
       "branchId": "main",
       "confidence": 0.94,
       "manualLock": false,
@@ -926,12 +1434,25 @@ Each active Lorepack can have its own context.
       "updatedAt": 0
     },
     "mcu-infinity-saga": {
+      "schemaVersion": 1,
+      "packId": "mcu-infinity-saga",
       "positionType": "anchor_window",
+      "label": "After Age of Ultron, before Civil War",
       "sceneDate": "",
+      "subjectiveDate": "",
       "anchorId": "",
       "anchorFrom": "mcu.age_of_ultron",
       "anchorTo": "mcu.civil_war",
-      "label": "After Age of Ultron, before Civil War",
+      "arc": "",
+      "phase": "Phase 3",
+      "season": "",
+      "episode": "",
+      "chapter": "",
+      "issue": "",
+      "quest": "",
+      "gameStage": "",
+      "alias": "pre-Civil War",
+      "notes": "",
       "branchId": "main",
       "confidence": 0.82,
       "manualLock": true,
@@ -952,6 +1473,31 @@ Suggested `source` values:
 - `model`
 - `imported`
 - `unknown`
+
+### Position Type Values
+
+```json
+[
+  "calendar",
+  "anchor",
+  "anchor_window",
+  "arc",
+  "phase",
+  "season_episode",
+  "stardate",
+  "relative",
+  "hybrid",
+  "custom"
+]
+```
+
+### V1 State Rules
+
+- `manualLock: true` means automated resolvers should not overwrite this pack context.
+- Manual UI edits should set `source: "manual"` and confidence to `1` unless the user edits confidence directly.
+- `label` is the human-readable display value. `alias` preserves user phrasing for later local alias matching.
+- Empty media-coordinate fields are allowed. A fandom does not need to use season, episode, chapter, issue, quest, and date simultaneously.
+- `branchId` defaults to `main` and can represent AU, crossover, time-travel, or custom continuity branches.
 
 ## Pack Health Report
 
@@ -1030,9 +1576,12 @@ Warnings:
 - `likely_duplicate_pack`
 - `undefined_tag`
 - `deprecated_tag`
+- `unknown_entity_reference`
 - `broken_anchor_reference`
 - `invalid_date`
 - `invalid_position_window`
+- `invalid_trigger_expression`
+- `unknown_template_variable`
 - `missing_injection`
 - `entry_too_long`
 - `likely_wiki_summary`
@@ -1042,7 +1591,9 @@ Warnings:
 Suggestions:
 
 - `missing_tags`
+- `missing_entities`
 - `missing_scope`
+- `missing_triggers`
 - `missing_resolver_aliases`
 - `broad_entry`
 - `category_imbalance`
@@ -1064,6 +1615,7 @@ A JSON bundle can embed every file in one document.
   "files": {
     "taxonomy.json": {},
     "tags.json": {},
+    "entities.json": {},
     "timeline.json": {},
     "resolver.json": {},
     "entries/core.json": {
@@ -1082,6 +1634,7 @@ A zip bundle should contain a `lorepack.json` at the root.
 my-pack.zip
   lorepack.json
   tags.json
+  entities.json
   timeline.json
   entries/
     core.json
@@ -1100,6 +1653,7 @@ The loader should produce a normalized runtime object, separate from raw pack fi
   "registries": {
     "taxonomy": {},
     "tags": {},
+    "entities": {},
     "timeline": {},
     "gateTypes": {},
     "scoring": {}
@@ -1123,6 +1677,53 @@ The runtime object should annotate each normalized entry with:
 ```
 
 These fields can live under `extensions.sagaLorepack` if we want to avoid polluting the top-level entry schema.
+
+## Imported Lorebook Compatibility
+
+Saga's native model is Story Position plus relevance-tiered injection.
+
+Many public lorebook ecosystems are keyword-first. Saga should preserve those semantics during import instead of forcing everything into Story Position.
+
+The schema should preserve common imported lorebook concepts:
+
+- Primary keywords.
+- Secondary keywords.
+- Constant insertion.
+- Selective insertion.
+- Recursive scanning.
+- Scan depth.
+- Token budget.
+- Insertion order.
+- Case sensitivity.
+- Whole-word matching.
+- Activation probability.
+- Template variables such as `{{char}}` and `{{user}}`.
+
+These map mainly to:
+
+- `triggers`
+- `template`
+- `runtimeDefaults`
+- `priority`
+- `content.injection`
+- `extensions.import`
+
+Example import metadata:
+
+```json
+{
+  "extensions": {
+    "import": {
+      "sourceFormat": "chub_lorebook",
+      "sourceEntryId": "12345",
+      "originalKeys": {},
+      "importedAt": 0
+    }
+  }
+}
+```
+
+Imported keyword-heavy packs may not have Story Position data. That should be allowed. Pack Health can suggest adding position gates without blocking the pack.
 
 ## Suggested extensions.sagaLorepack Block
 
@@ -1161,6 +1762,53 @@ The initial HP pack can preserve its current entry files and add `tags.json`, `t
 
 MVP should keep legacy `Lore/manifest.json` fallback until the new loader is stable.
 
+## Fandom Stress Test
+
+The schema should be checked against popular roleplay universes before implementation hardens.
+
+Saga's main target is canon with stories, but Custom packs may also represent themes, scenarios, mechanics, or looser settings.
+
+| Universe | Saga Fit | Schema Pressure Points |
+| --- | --- | --- |
+| Call of Duty | Medium for theme/scenario packs, lower for canon-story packs. | `contentKind: scenario`, factions, operators, weapons, mission themes, low Story Position dependence. |
+| My Hero Academia | High. | Arcs, school years, internships, hero names, Quirk progression, manga/anime/filler boundaries, entity aliases. |
+| Marvel | High but complex. | MCU/comics/animated continuities, multiverse variants, phases, films, identities, teams, power systems. |
+| DC / Batfamily | High but continuity-heavy. | Comic eras, fanon blends, aliases, family roster state, hero identities, city/location state. |
+| Genshin Impact | High for story/setting packs. | Archon quests, nations, character story quests, Visions/elements, playable character unlock assumptions. |
+| Resident Evil | High. | Game chronology, outbreak/location state, organizations, infection types, remakes versus originals. |
+| Harry Potter | High and already proven by Wandlight. | Dates, school years, knowledge gates, spells, secrets, Marauders/Legacy era splits. |
+| Wizarding World: Marauders / Legacy | High. | Era-separated packs, school years, character generations, game quest state, institutional state. |
+| Star Wars | High. | Legends/Disney canon split, BBY/ABY dates, eras, factions, Force abilities, titles, locations. |
+| Jujutsu Kaisen | High. | Manga/anime arcs, cursed techniques, domains, spoiler guards, character death/status changes. |
+| Hazbin Hotel / Helluva Boss | Medium-high. | Series/episode position, Hell hierarchy, factions, character relationships, limited hard dates. |
+| Demon Slayer | High. | Arcs, breathing styles, demon status, Corps ranks, spoiler/death guards. |
+| Bungou Stray Dogs | High. | Organizations, ability names, arcs, aliases, manga/anime adaptation state. |
+| FNAF | Medium-high but ambiguity-heavy. | Theories, timelines, game entries, animatronic identities, contested canon, route/ending variants. |
+| Pokemon | Medium-high, depending on pack scope. | Regions, anime/game continuity, species/moves/types, mechanics, trainer parties, generational boundaries. |
+| Honkai: Star Rail | High. | Trailblaze mission chapters, worlds/planets, factions, Aeons/Paths, character quest state. |
+| Percy Jackson | High. | Book chronology, cabins, prophecy knowledge, gods/monsters, character age/status. |
+| Sonic | Medium-high. | Game/comic/show continuities, zones, teams, transformations, loose chronology. |
+| One Piece | High. | Arcs, islands, pre/post-timeskip, Devil Fruits, Haki, crews, bounties, spoiler/status guards. |
+| Naruto | High. | Manga/anime/filler boundaries, arcs, villages, jutsu, kekkei genkai, ranks, team membership. |
+| Arcane / League of Legends | High but continuity-sensitive. | Arcane versus League canon, regions, factions, champions, hextech/magic, season/act position. |
+| ASOIAF / Game of Thrones | High. | Book/show split, houses, geography, political state, character death/status, prophecy knowledge. |
+| Stranger Things | High. | Seasons, episode position, Upside Down knowledge, character status, Hawkins location state. |
+| Cyberpunk 2077 | High for game-story packs. | Lifepath, quest state, endings, Edgerunners/TTRPG continuity, cyberware, factions. |
+| Chainsaw Man | High. | Manga arcs, Devil contracts, Public Safety state, character death/status, spoiler guards. |
+| Undertale / Deltarune | Medium-high. | Routes, timelines/resets, chapters, player choices, alternate worlds, entity aliases. |
+
+Schema features added specifically for this stress test:
+
+- `contentKind` for story packs versus scenario/theme/mechanics/style packs.
+- `continuity` for canon tiers, adaptations, routes, and source boundaries.
+- `coordinates` for multi-axis position state.
+- `entities.json` for aliases, hero names, titles, transformations, and identity links.
+- `ability` for non-HP power systems and mechanics.
+- `triggers` for keyword-first imported lorebooks.
+- `template` for placeholder-preserving imports.
+
+If a future top fandom strains the schema, prefer adding pack-defined registries or optional metadata blocks over changing the core required entry fields.
+
 ## MVP Schema Scope
 
 The first implementation should support:
@@ -1171,8 +1819,10 @@ The first implementation should support:
 - existing `gate-types.json`
 - existing `scoring.json`
 - optional `tags.json`
+- optional `entities.json`
 - optional `timeline.json`
 - optional `resolver.json`
+- additive entry fields for `triggers`, `continuity`, `coordinates`, `ability`, and `template`
 - single active Lorepack
 - legacy `Lore/manifest.json` fallback
 - basic Pack Health
@@ -1195,4 +1845,6 @@ It does not need to fully support:
 - Should Generated Lorepacks require user review before auto-suggest can use them?
 - How should a pack declare adaptation variants, such as manga versus anime or theatrical versus extended cuts?
 - Should tags be globally registered across packs, or merged only at runtime from loaded packs?
-
+- Should keyword `triggers` be evaluated before Story Position gates, after Story Position gates, or both with different scoring weights?
+- Should `contentKind: mechanics` packs be allowed into the same injection tiers as fandom-story packs, or get a separate handling path?
+- Should `entities.json` eventually become required for Bundled Lorepacks?

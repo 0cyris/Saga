@@ -51,7 +51,7 @@ export function detectExtensionFolder(fallback = EXTENSION_FOLDER) {
 export const LOG_PREFIX = '[Wandlight]';
 
 // ── Schema version ──────────────────────────────────────────────────────────────
-export const SCHEMA_VERSION = 18;
+export const SCHEMA_VERSION = 21;
 
 export const AUTOMATION_MODE_VALUES = Object.freeze(['manual', 'assisted', 'automatic']);
 export const EXPERIENCE_MODE_VALUES = Object.freeze(['basic', 'advanced']);
@@ -122,6 +122,64 @@ export const DEFAULT_SETTINGS = {
     experienceMode: 'basic',
     advancedExperienceSettingsBackup: null,
     basicExperienceProfileVersion: BASIC_EXPERIENCE_PROFILE_VERSION,
+    themePackId: 'wandlight-default',
+    themeIconPackId: 'wandlight-default',
+    themeCustomEnabled: false,
+    themeBackgroundColor: '#120c12',
+    themeBackgroundAltColor: '#241018',
+    themeSurfaceColor: '#2b1c1c',
+    themeSurfaceAltColor: '#121218',
+    themeGradientStartColor: '#120c12',
+    themeGradientEndColor: '#090c12',
+    themeBorderColor: '#b98b36',
+    themeBorderStrongColor: '#d7b56d',
+    themeAccentColor: '#d7b56d',
+    themeDangerColor: '#5c1724',
+    themeSuccessColor: '#1f4a38',
+    themeWarningColor: '#b9903c',
+    themeFocusColor: '#ffeaa7',
+    themeButtonColor: '#18121a',
+    themeButtonHoverColor: '#5c1724',
+    themeButtonTextColor: '#f1ead8',
+    themeInputColor: '#121218',
+    themeInputBorderColor: '#b98b36',
+    themeTextColor: '#f1ead8',
+    themeMutedTextColor: '#cfc5ad',
+    themePackLibrary: {
+        schemaVersion: 1,
+        packs: {},
+    },
+    lorepackLibrary: {
+        schemaVersion: 1,
+        packs: {
+            'hp-golden-trio': {
+                packId: 'hp-golden-trio',
+                type: 'bundled',
+                title: 'Harry Potter: Golden Trio',
+                description: 'Golden Trio era canon scaffolded from the current Wandlight lore database.',
+                fandom: 'Harry Potter',
+                era: 'Golden Trio',
+                author: 'Saga',
+                version: '1.0.0',
+                manifest: 'Lorepacks/hp-golden-trio/lorepack.json',
+                source: {
+                    kind: 'bundled',
+                    url: '',
+                },
+                tags: [
+                    'fandom:harry-potter',
+                    'era:golden-trio',
+                    'quality:human-vetted',
+                ],
+                stats: {
+                    entryCount: 417,
+                    categoryCounts: {},
+                },
+                installedAt: 0,
+                updatedAt: 0,
+            },
+        },
+    },
 
     // Runtime automation modes. These replace the old single workflow preset for new behavior.
     automationMode: 'manual',
@@ -467,6 +525,75 @@ export function getDefaultState() {
             lastStatus: 'Not queried.',
         },
 
+        lorepackStack: [
+            {
+                packId: 'hp-golden-trio',
+                enabled: true,
+                priority: 100,
+                locked: false,
+                addedAt: 0,
+            },
+        ],
+        lorepackRegistry: {
+            schemaVersion: 1,
+            packs: {
+                'hp-golden-trio': {
+                    packId: 'hp-golden-trio',
+                    type: 'bundled',
+                    title: 'Harry Potter: Golden Trio',
+                    description: 'Golden Trio era canon scaffolded from the current Wandlight lore database.',
+                    fandom: 'Harry Potter',
+                    era: 'Golden Trio',
+                    author: 'Saga',
+                    version: '1.0.0',
+                    manifest: 'Lorepacks/hp-golden-trio/lorepack.json',
+                    source: {
+                        kind: 'bundled',
+                        url: '',
+                    },
+                    tags: [
+                        'fandom:harry-potter',
+                        'era:golden-trio',
+                        'quality:human-vetted',
+                    ],
+                    stats: {
+                        entryCount: 417,
+                        categoryCounts: {},
+                    },
+                    installedAt: 0,
+                    updatedAt: 0,
+                },
+            },
+        },
+        lorepackContexts: {
+            'hp-golden-trio': {
+                schemaVersion: 1,
+                packId: 'hp-golden-trio',
+                positionType: 'calendar',
+                label: '',
+                sceneDate: '',
+                subjectiveDate: '',
+                anchorId: '',
+                anchorFrom: '',
+                anchorTo: '',
+                arc: '',
+                phase: '',
+                season: '',
+                episode: '',
+                chapter: '',
+                issue: '',
+                quest: '',
+                gameStage: '',
+                alias: '',
+                notes: '',
+                branchId: 'main',
+                confidence: 0,
+                manualLock: false,
+                source: 'unknown',
+                updatedAt: 0,
+            },
+        },
+
         loreGeneration: {
             lastAttemptedFor: '',
             lastProposedFor: '',
@@ -574,6 +701,7 @@ export function getDefaultState() {
             selectedCategory: 'all',
             search: '',
             selectedEntryId: '',
+            selectedLorepackId: 'hp-golden-trio',
             activeTab: 'session',
             reviewSelectedIds: [],
             acceptedSelectedIds: [],

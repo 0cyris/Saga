@@ -1,0 +1,287 @@
+{
+  "schemaVersion": 2,
+  "entries": [
+    {
+      "schemaVersion": 2,
+      "id": "knowledge_gate_prophecy_before_department",
+      "title": "Prophecy before Department of Mysteries",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "priority": 90,
+      "protected": true,
+      "locked": true,
+      "date": {
+        "validFrom": "1991-09-01",
+        "validTo": "1996-06-18",
+        "precision": "date",
+        "schoolYear": null,
+        "book": ""
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter"
+        ],
+        "topics": [
+          "full prophecy",
+          "knowledge gate"
+        ],
+        "books": [],
+        "schoolYears": []
+      },
+      "visibility": {
+        "notKnownByBefore": {
+          "Harry Potter": "1996-06-18"
+        }
+      },
+      "content": {
+        "fact": "Harry does not know the full prophecy contents.",
+        "injection": "Harry Potter should not know or casually discuss full prophecy unless this story established it.",
+        "constraints": [
+          "Block premature knowledge of full prophecy."
+        ],
+        "antiLore": [
+          "Do not have Harry Potter explain full prophecy ."
+        ],
+        "notes": ""
+      },
+      "effects": {
+        "addsTags": [
+          "full prophecy",
+          "knowledge-gate",
+          "future-guard"
+        ],
+        "blocksTermsBeforeDate": [],
+        "protectsEntries": [],
+        "stateHints": {},
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "source": {
+        "work": "Harry Potter",
+        "book": "",
+        "chapter": "",
+        "confidence": 0.85,
+        "notes": "Curated date constraint seed entry."
+      },
+      "ui": {},
+      "extensions": {
+        "consolidationPass": {
+          "appliedIn": "Wandlight duplicate/title consolidation pass",
+          "notes": "Automatic concise title cleanup for implementation-language wording."
+        }
+      },
+      "canonTiming": {
+        "canonExpectedFrom": "1991-09-01",
+        "canonExpectedUntil": "1996-06-18",
+        "precision": "date",
+        "schoolYear": null,
+        "book": ""
+      },
+      "activation": {
+        "requiresMissingEvents": [
+          "prophecy_revealed_to_harry"
+        ]
+      },
+      "expiration": {
+        "expiresWhenEventsHappen": [
+          "prophecy_revealed_to_harry"
+        ],
+        "autoMuteOnExpire": true
+      },
+      "gateType": "knowledge_gate",
+      "userEditable": true,
+      "canon": "canon",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "injectableByDefault": true,
+      "specificityScore": 100
+    },
+    {
+      "schemaVersion": 2,
+      "id": "knowledge_gate_snape_prince_before_year6",
+      "title": "Half-Blood Prince identity gate",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "priority": 90,
+      "protected": true,
+      "locked": true,
+      "date": {
+        "validFrom": "1991-09-01",
+        "validTo": "1997-06-30",
+        "precision": "date",
+        "schoolYear": null,
+        "book": ""
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Hermione Granger",
+          "Ron Weasley"
+        ],
+        "topics": [
+          "Half-Blood Prince identity",
+          "knowledge gate"
+        ],
+        "books": [],
+        "schoolYears": []
+      },
+      "visibility": {
+        "notKnownByBefore": {
+          "Harry Potter": "1997-06-30",
+          "Hermione Granger": "1997-06-30",
+          "Ron Weasley": "1997-06-30"
+        }
+      },
+      "content": {
+        "fact": "The trio should not know that Snape is the Half-Blood Prince.",
+        "injection": "Harry Potter, Hermione Granger, Ron Weasley should not know or casually discuss Half-Blood Prince identity unless this story established it.",
+        "constraints": [
+          "Block premature knowledge of Half-Blood Prince identity."
+        ],
+        "antiLore": [
+          "Do not have Harry Potter explain Half-Blood Prince identity .",
+          "Do not have Hermione Granger explain Half-Blood Prince identity .",
+          "Do not have Ron Weasley explain Half-Blood Prince identity ."
+        ],
+        "notes": ""
+      },
+      "effects": {
+        "addsTags": [
+          "Half-Blood Prince identity",
+          "knowledge-gate",
+          "future-guard"
+        ],
+        "blocksTermsBeforeDate": [],
+        "protectsEntries": [],
+        "stateHints": {},
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "source": {
+        "work": "Harry Potter",
+        "book": "",
+        "chapter": "",
+        "confidence": 0.85,
+        "notes": "Curated date constraint seed entry."
+      },
+      "ui": {},
+      "extensions": {},
+      "canonTiming": {
+        "canonExpectedFrom": "1991-09-01",
+        "canonExpectedUntil": "1997-06-30",
+        "precision": "date",
+        "schoolYear": null,
+        "book": ""
+      },
+      "gateType": "knowledge_gate",
+      "userEditable": true,
+      "canon": "canon",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "injectableByDefault": true,
+      "specificityScore": 100
+    },
+    {
+      "schemaVersion": 2,
+      "id": "knowledge_gate_voldemort_return_before_graveyard",
+      "title": "Pre-Graveyard Voldemort Return",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "priority": 100,
+      "protected": true,
+      "locked": true,
+      "date": {
+        "validFrom": "1991-09-01",
+        "validTo": "1995-06-23",
+        "precision": "date",
+        "schoolYear": null,
+        "book": ""
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Hermione Granger",
+          "Ron Weasley"
+        ],
+        "topics": [
+          "Voldemort return",
+          "knowledge gate"
+        ],
+        "books": [],
+        "schoolYears": []
+      },
+      "visibility": {
+        "notKnownByBefore": {
+          "Harry Potter": "1995-06-24",
+          "Hermione Granger": "1995-06-24",
+          "Ron Weasley": "1995-06-24"
+        }
+      },
+      "content": {
+        "fact": "Before the graveyard event, characters should not know or discuss Voldemort as physically returned unless our story has established otherwise.",
+        "injection": "Before the graveyard event, Harry, Ron, Hermione, and ordinary wizarding society should not know or discuss Voldemort as physically returned unless our story has established otherwise.",
+        "constraints": [
+          "Block premature public or trio knowledge of Voldemort’s physical return."
+        ],
+        "antiLore": [
+          "Do not have Harry Potter explain Voldemort return .",
+          "Do not have Hermione Granger explain Voldemort return .",
+          "Do not have Ron Weasley explain Voldemort return ."
+        ],
+        "notes": ""
+      },
+      "effects": {
+        "addsTags": [
+          "Voldemort return",
+          "knowledge-gate",
+          "future-guard"
+        ],
+        "blocksTermsBeforeDate": [],
+        "protectsEntries": [],
+        "stateHints": {},
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "source": {
+        "work": "Harry Potter",
+        "book": "",
+        "chapter": "",
+        "confidence": 0.85,
+        "notes": "Curated date constraint seed entry."
+      },
+      "ui": {},
+      "extensions": {
+        "consolidationPass": {
+          "appliedIn": "Wandlight duplicate/title consolidation pass",
+          "notes": "Title/content cleanup for concise pre-graveyard knowledge boundary."
+        }
+      },
+      "canonTiming": {
+        "canonExpectedFrom": "1991-09-01",
+        "canonExpectedUntil": "1995-06-23",
+        "precision": "date",
+        "schoolYear": null,
+        "book": ""
+      },
+      "gateType": "knowledge_gate",
+      "userEditable": true,
+      "canon": "canon",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "injectableByDefault": true,
+      "specificityScore": 100
+    }
+  ]
+}

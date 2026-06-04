@@ -14,6 +14,9 @@ import {
     WANDLIGHT_PRESET_NAME,
     WANDLIGHT_PRESET_VERSION,
     WANDLIGHT_PRESET_ASSET_PATH,
+    WANDLIGHT_PROVIDER_PRESET_NAME,
+    WANDLIGHT_PROVIDER_PRESET_VERSION,
+    WANDLIGHT_PROVIDER_PRESET_ASSET_PATH,
     BASIC_EXPERIENCE_SETTINGS,
     BASIC_EXPERIENCE_MANAGED_SETTING_KEYS,
     BASIC_EXPERIENCE_PROFILE_VERSION,
@@ -32,12 +35,34 @@ import {
     appendPendingLoreEntries,
     restoreLoreTimelineEntriesToPending,
     setLoreContext,
+    getLorepackStoryPosition,
+    setLorepackStoryPosition,
+    resetLorepackStoryPosition,
+    getLorepackLibraryRegistry,
+    upsertLorepackLibraryPack,
+    removeLorepackLibraryPack,
+    importLorepackLibraryRegistry,
+    getThemePackLibraryRegistry,
+    upsertThemePackLibraryPack,
+    removeThemePackLibraryPack,
+    importThemePackLibraryRegistry,
 } from './state-manager.js';
 import { buildContinuityPreview, buildLorePreview, getCompressionSourceSignature } from './memo-builder.js';
 import { onExtractionTriggered } from './extractor.js';
 import { runLoreContextDetection, runBulkLoreGeneration } from './lore-generator.js';
-import { sendLoreRequest, validateLoreProviderConfiguration } from './lore-llm-client.js';
-import { proposeCanonLoreForContext, previewCanonLoreForContext, addCanonLorePreviewEntriesToPending, getLoreTaxonomySync } from './canon-lore-db.js';
+import {
+    sendLoreRequest,
+    validateLoreProviderConfiguration,
+    getAvailableConnectionProfiles,
+    fetchLoreModels,
+    testLoreConnection,
+    loadApiKey,
+    clearCachedApiKey,
+} from './lore-llm-client.js';
+import { storeNamedApiKey, deleteNamedApiKey, getNamedApiKeyStorageInfo } from './secure-keyring.js';
+import { proposeCanonLoreForContext, previewCanonLoreForContext, addCanonLorePreviewEntriesToPending, getLoreTaxonomySync, loadCanonLoreDatabase, getCanonLoreDatabaseSync, clearCanonLoreDatabaseCache } from './canon-lore-db.js';
+import { clearStoryPositionIndexCache, findStoryPositionAnchors, getStoryPositionIndexSync, loadStoryPositionIndex } from './story-position-index.js';
+import { resolveAndApplyStoryPositionsFromContext, resolveStoryPositionsWithModel } from './story-position-resolver.js';
 import { runAutoRelevance, applyAutoRelevanceSuggestions, clearAutoRelevanceSuggestions, rejectAutoRelevanceSuggestions } from './auto-relevance.js';
 import {
     captureLoreTimelineState,
@@ -170,7 +195,131 @@ const AUTO_RELEVANCE_SETTING_KEYS = Object.freeze([
     'autoRelevanceModelRecentChars',
 ]);
 
+const BUNDLED_LOREPACK_LIBRARY = Object.freeze([
+    {
+        packId: 'hp-golden-trio',
+        type: 'bundled',
+        title: 'Harry Potter: Golden Trio',
+        description: 'Golden Trio era canon scaffolded from the current Wandlight lore database.',
+        entryCount: 417,
+    },
+]);
+
+const STORY_POSITION_TYPE_OPTIONS = Object.freeze([
+    ['calendar', 'Calendar'],
+    ['anchor', 'Anchor'],
+    ['anchor_window', 'Anchor Window'],
+    ['arc', 'Arc'],
+    ['phase', 'Phase'],
+    ['season_episode', 'Season / Episode'],
+    ['stardate', 'Stardate'],
+    ['relative', 'Relative'],
+    ['hybrid', 'Hybrid'],
+    ['custom', 'Custom'],
+]);
+
+const STORY_POSITION_SOURCE_OPTIONS = Object.freeze([
+    ['manual', 'Manual'],
+    ['header', 'Header'],
+    ['local_alias', 'Local Alias'],
+    ['model', 'Model'],
+    ['imported', 'Imported'],
+    ['unknown', 'Unknown'],
+]);
+
+const THEMEPACK_PRESETS = Object.freeze([
+    {
+        id: 'wandlight-default',
+        type: 'bundled',
+        title: 'SAGA Archive',
+        description: 'Bundled dark archive theme for SAGA: Fandom Loresystem.',
+        iconPackId: 'wandlight-default',
+        colors: {
+            background: '#120c12',
+            backgroundAlt: '#241018',
+            gradientStart: '#120c12',
+            gradientEnd: '#090c12',
+            surface: '#2b1c1c',
+            surfaceAlt: '#121218',
+            border: '#b98b36',
+            borderStrong: '#d7b56d',
+            accent: '#d7b56d',
+            danger: '#5c1724',
+            success: '#1f4a38',
+            warning: '#b9903c',
+            focus: '#ffeaa7',
+            button: '#18121a',
+            buttonHover: '#5c1724',
+            buttonText: '#f1ead8',
+            input: '#121218',
+            inputBorder: '#b98b36',
+            text: '#f1ead8',
+            mutedText: '#cfc5ad',
+        },
+        icons: {},
+        tags: ['theme:dark', 'style:archive', 'quality:bundled'],
+    },
+    {
+        id: 'saga-slate',
+        type: 'bundled',
+        title: 'Saga Slate',
+        description: 'Bundled neutral slate theme for longer runtime sessions.',
+        iconPackId: 'wandlight-default',
+        colors: {
+            background: '#111318',
+            backgroundAlt: '#1d242b',
+            gradientStart: '#111318',
+            gradientEnd: '#0a1015',
+            surface: '#20242a',
+            surfaceAlt: '#15191f',
+            border: '#6f8797',
+            borderStrong: '#d1b25f',
+            accent: '#d1b25f',
+            danger: '#65313b',
+            success: '#24523e',
+            warning: '#aa842f',
+            focus: '#f0d27a',
+            button: '#15191f',
+            buttonHover: '#263240',
+            buttonText: '#edf0f2',
+            input: '#101419',
+            inputBorder: '#6f8797',
+            text: '#edf0f2',
+            mutedText: '#bbc5ca',
+        },
+        icons: {},
+        tags: ['theme:dark', 'style:slate', 'quality:bundled'],
+    },
+]);
+
+const THEME_COLOR_FIELDS = Object.freeze([
+    ['Background', 'themeBackgroundColor', 'background'],
+    ['Background Alt', 'themeBackgroundAltColor', 'backgroundAlt'],
+    ['Gradient Start', 'themeGradientStartColor', 'gradientStart'],
+    ['Gradient End', 'themeGradientEndColor', 'gradientEnd'],
+    ['Surface', 'themeSurfaceColor', 'surface'],
+    ['Surface Alt', 'themeSurfaceAltColor', 'surfaceAlt'],
+    ['Border', 'themeBorderColor', 'border'],
+    ['Strong Border', 'themeBorderStrongColor', 'borderStrong'],
+    ['Accent', 'themeAccentColor', 'accent'],
+    ['Danger', 'themeDangerColor', 'danger'],
+    ['Success', 'themeSuccessColor', 'success'],
+    ['Warning', 'themeWarningColor', 'warning'],
+    ['Focus', 'themeFocusColor', 'focus'],
+    ['Button', 'themeButtonColor', 'button'],
+    ['Button Hover', 'themeButtonHoverColor', 'buttonHover'],
+    ['Button Text', 'themeButtonTextColor', 'buttonText'],
+    ['Input', 'themeInputColor', 'input'],
+    ['Input Border', 'themeInputBorderColor', 'inputBorder'],
+    ['Text', 'themeTextColor', 'text'],
+    ['Muted Text', 'themeMutedTextColor', 'mutedText'],
+]);
+
 let bundledWandlightPresetCache = null;
+let bundledProviderPresetCache = null;
+const lorepackManifestPreviewCache = new Map();
+const lorepackEntryPreviewCache = new Map();
+let lorepackEntryOverrideQuery = '';
 
 const CATEGORY_LABELS = {
     all: 'All',
@@ -200,19 +349,23 @@ const CATEGORY_LABELS = {
 };
 
 const TAB_LABELS = {
+    lorepacks: 'Lorepacks',
     session: 'Session',
     context: 'Context',
     continuity: 'Continuity',
     lore: 'Lore',
     injection: 'Injection',
+    settings: 'Settings',
 };
 
 const TAB_ICONS = {
+    lorepacks: 'P',
     session: 'S',
     context: 'C',
     continuity: 'K',
     lore: 'L',
     injection: 'I',
+    settings: 'O',
 };
 
 const TAB_ICON_PATHS = {
@@ -237,21 +390,201 @@ function getLocalAssetSrc(assetPath) {
     }
 }
 
-function getTabIconSrc(tabId) {
-    return getLocalAssetSrc(TAB_ICON_PATHS[tabId]);
+function getTabIconSrc(tabId, settings = getSettings()) {
+    const themedIcon = getThemeIconPath(`tab.${tabId}`, settings) || getThemeIconPath(tabId, settings);
+    return getLocalAssetSrc(themedIcon || TAB_ICON_PATHS[tabId]);
 }
 
-function getBrandLogoSrc(railMode) {
+function getBrandLogoSrc(railMode, settings = getSettings()) {
     const key = normalizeRailMode(railMode) === 'expanded' ? 'expanded' : 'compact';
-    return getLocalAssetSrc(BRAND_LOGO_PATHS[key]);
+    const themedIcon = getThemeIconPath(`brand.${key}`, settings) || getThemeIconPath(`brand.${railMode}`, settings);
+    return getLocalAssetSrc(themedIcon || BRAND_LOGO_PATHS[key]);
+}
+
+function normalizeHexColor(value, fallback = '#000000') {
+    const text = String(value || '').trim();
+    if (/^#[0-9a-f]{6}$/i.test(text)) return text.toLowerCase();
+    if (/^#[0-9a-f]{3}$/i.test(text)) {
+        return `#${text[1]}${text[1]}${text[2]}${text[2]}${text[3]}${text[3]}`.toLowerCase();
+    }
+    return fallback;
+}
+
+function hexToRgba(hex, alpha = 1) {
+    const color = normalizeHexColor(hex, '#000000').slice(1);
+    const value = parseInt(color, 16);
+    const r = (value >> 16) & 255;
+    const g = (value >> 8) & 255;
+    const b = value & 255;
+    const a = Math.max(0, Math.min(1, Number(alpha)));
+    return `rgba(${r}, ${g}, ${b}, ${a})`;
+}
+
+function getThemePackLibrary(settings = getSettings()) {
+    const registry = settings?.themePackLibrary || getThemePackLibraryRegistry();
+    const customPacks = Object.values(registry?.packs || {})
+        .filter(pack => pack && typeof pack === 'object')
+        .map(pack => ({
+            ...pack,
+            type: pack.type === 'bundled' ? 'bundled' : 'custom',
+            colors: { ...(pack.colors || {}) },
+            icons: { ...(pack.icons || {}) },
+            tags: Array.isArray(pack.tags) ? [...pack.tags] : [],
+        }));
+    return [
+        ...THEMEPACK_PRESETS,
+        ...customPacks.filter(pack => !THEMEPACK_PRESETS.some(preset => preset.id === pack.id)),
+    ];
+}
+
+function getThemePreset(id, settings = getSettings()) {
+    return getThemePackLibrary(settings).find(theme => theme.id === id) || THEMEPACK_PRESETS[0];
+}
+
+function getThemeIconPath(iconKey, settings = getSettings()) {
+    const preset = getThemePreset(settings.themePackId, settings);
+    const icons = preset?.icons && typeof preset.icons === 'object' ? preset.icons : {};
+    const value = icons[iconKey];
+    return typeof value === 'string' ? value.trim() : '';
+}
+
+function completeThemeColors(colors = {}) {
+    const fallback = THEMEPACK_PRESETS[0].colors;
+    const merged = {
+        ...fallback,
+        ...colors,
+    };
+    merged.gradientStart = merged.gradientStart || merged.background;
+    merged.gradientEnd = merged.gradientEnd || merged.backgroundAlt || merged.background;
+    merged.borderStrong = merged.borderStrong || merged.border;
+    merged.button = merged.button || merged.surfaceAlt || merged.surface;
+    merged.buttonHover = merged.buttonHover || merged.backgroundAlt || merged.button;
+    merged.buttonText = merged.buttonText || merged.text;
+    merged.input = merged.input || merged.surfaceAlt || merged.surface;
+    merged.inputBorder = merged.inputBorder || merged.border;
+    merged.focus = merged.focus || merged.accent;
+    merged.success = merged.success || '#1f4a38';
+    merged.warning = merged.warning || merged.accent;
+
+    const output = {};
+    for (const [, , colorKey] of THEME_COLOR_FIELDS) {
+        output[colorKey] = normalizeHexColor(merged[colorKey], fallback[colorKey] || '#000000');
+    }
+    return output;
+}
+
+function getActiveThemeColors(settings = getSettings()) {
+    const preset = getThemePreset(settings.themePackId, settings);
+    const colors = completeThemeColors(preset?.colors || {});
+    if (settings.themeCustomEnabled === true) {
+        for (const [, settingKey, colorKey] of THEME_COLOR_FIELDS) {
+            colors[colorKey] = normalizeHexColor(settings[settingKey], colors[colorKey]);
+        }
+    }
+    return completeThemeColors(colors);
+}
+
+function writeThemeColorsToSettings(settings, colors = {}) {
+    const complete = completeThemeColors(colors);
+    for (const [, settingKey, colorKey] of THEME_COLOR_FIELDS) {
+        settings[settingKey] = complete[colorKey];
+    }
+    return settings;
+}
+
+function applyRuntimeTheme(root = panelRoot, settings = getSettings()) {
+    if (!root?.style) return;
+    const colors = getActiveThemeColors(settings);
+    root.style.setProperty('--wandlight-bg', hexToRgba(colors.background, 0.97));
+    root.style.setProperty('--wandlight-bg-2', hexToRgba(colors.backgroundAlt, 0.94));
+    root.style.setProperty('--wandlight-bg-gradient-start', hexToRgba(colors.gradientStart, 0.985));
+    root.style.setProperty('--wandlight-bg-gradient-end', hexToRgba(colors.gradientEnd, 0.98));
+    root.style.setProperty('--wandlight-surface', hexToRgba(colors.surface, 0.74));
+    root.style.setProperty('--wandlight-surface-2', hexToRgba(colors.surfaceAlt, 0.62));
+    root.style.setProperty('--wandlight-border', hexToRgba(colors.border, 0.38));
+    root.style.setProperty('--wandlight-border-soft', hexToRgba(colors.border, 0.18));
+    root.style.setProperty('--wandlight-border-strong', hexToRgba(colors.borderStrong, 0.58));
+    root.style.setProperty('--wandlight-gold', colors.accent);
+    root.style.setProperty('--wandlight-gold-soft', hexToRgba(colors.accent, 0.74));
+    root.style.setProperty('--wandlight-red', colors.danger);
+    root.style.setProperty('--wandlight-green', colors.success);
+    root.style.setProperty('--wandlight-warning', colors.warning);
+    root.style.setProperty('--wandlight-focus', colors.focus);
+    root.style.setProperty('--wandlight-button', hexToRgba(colors.button, 0.82));
+    root.style.setProperty('--wandlight-button-hover', hexToRgba(colors.buttonHover, 0.82));
+    root.style.setProperty('--wandlight-button-text', colors.buttonText);
+    root.style.setProperty('--wandlight-input', hexToRgba(colors.input, 0.76));
+    root.style.setProperty('--wandlight-input-border', hexToRgba(colors.inputBorder, 0.34));
+    root.style.setProperty('--wandlight-text', colors.text);
+    root.style.setProperty('--wandlight-muted', hexToRgba(colors.mutedText, 0.68));
+    root.style.setProperty('--wandlight-text-muted', hexToRgba(colors.mutedText, 0.68));
+}
+
+function hexToRgbParts(hex) {
+    const color = normalizeHexColor(hex, '#000000').slice(1);
+    const value = parseInt(color, 16);
+    return {
+        r: (value >> 16) & 255,
+        g: (value >> 8) & 255,
+        b: value & 255,
+    };
+}
+
+function getRelativeLuminance(hex) {
+    const { r, g, b } = hexToRgbParts(hex);
+    const convert = (channel) => {
+        const value = channel / 255;
+        return value <= 0.03928 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4;
+    };
+    return (0.2126 * convert(r)) + (0.7152 * convert(g)) + (0.0722 * convert(b));
+}
+
+function getContrastRatio(foreground, background) {
+    const fg = getRelativeLuminance(foreground);
+    const bg = getRelativeLuminance(background);
+    const lighter = Math.max(fg, bg);
+    const darker = Math.min(fg, bg);
+    return (lighter + 0.05) / (darker + 0.05);
+}
+
+function formatContrastRatio(value) {
+    return `${Math.round(Number(value || 0) * 10) / 10}:1`;
+}
+
+function buildThemeAccessibilityReport(colors = {}) {
+    const complete = completeThemeColors(colors);
+    const checks = [
+        { key: 'body', label: 'Body Text', foreground: complete.text, background: complete.background, target: 4.5, purpose: 'Primary runtime text.' },
+        { key: 'muted', label: 'Muted Text', foreground: complete.mutedText, background: complete.surface, target: 4.5, purpose: 'Secondary labels and help text.' },
+        { key: 'button', label: 'Button Text', foreground: complete.buttonText, background: complete.button, target: 4.5, purpose: 'Action buttons.' },
+        { key: 'accent', label: 'Accent Controls', foreground: complete.accent, background: complete.background, target: 3, purpose: 'Selected tabs, links, and highlights.' },
+        { key: 'focus', label: 'Focus Ring', foreground: complete.focus, background: complete.background, target: 3, purpose: 'Keyboard focus visibility.' },
+        { key: 'danger', label: 'Danger Surface', foreground: complete.text, background: complete.danger, target: 4.5, purpose: 'Danger-zone controls and warnings.' },
+    ].map(check => {
+        const ratio = getContrastRatio(check.foreground, check.background);
+        return {
+            ...check,
+            ratio,
+            passes: ratio >= check.target,
+        };
+    });
+
+    const failed = checks.filter(check => !check.passes);
+    return {
+        status: failed.length ? 'Needs Attention' : 'Good',
+        failedCount: failed.length,
+        checks,
+    };
 }
 
 const TAB_TOOLTIPS = {
+    lorepacks: 'Load, order, inspect, and eventually edit Saga Lorepacks.',
     session: 'Runtime overview, preset status, instructions, and destructive cleanup actions.',
     continuity: 'Scan, automatically track, view, and edit lightweight live continuity state: scene/timeline, active characters, key items, and active goals/threads.',
     context: 'Detect, automatically update, view, and edit story context: scene date, canon reference point, branch, and source range.',
     lore: 'Generate pending lore, review generated entries, and manage accepted lore with search, filters, tags, pinning, and muting.',
     injection: 'Choose what Wandlight sends to the model: continuity state, lore entries, direct/compressed handling, and live split injection previews.',
+    settings: 'Configure providers, runtime appearance, and future Saga Themepacks.',
 };
 
 
@@ -510,7 +843,7 @@ const AUTOMATION_MODES = {
     },
 };
 
-const BASIC_EXPERIENCE_TABS = Object.freeze(['session', 'context', 'lore', 'injection']);
+const BASIC_EXPERIENCE_TABS = Object.freeze(['lorepacks', 'session', 'context', 'lore', 'injection', 'settings']);
 const ADVANCED_EXPERIENCE_TABS = Object.freeze(Object.keys(TAB_LABELS));
 
 function guideStep(id, title, body, tab, target, options = {}) {
@@ -1007,6 +1340,7 @@ export function refreshLorePanel() {
     }
 
     normalizePanelLayoutState(state);
+    applyRuntimeTheme(existing, getSettings());
     const hasDrawer = !!existing.querySelector('.wandlight-runtime-drawer');
     if ((state.lorePanel.drawerOpen === true) !== hasDrawer) {
         renderPanelShell(existing, state);
@@ -1033,6 +1367,7 @@ function renderPanelShell(root, state) {
     const railMode = normalizeRailMode(panelState.railMode);
     const drawerOpen = panelState.drawerOpen === true;
     const drawerDirection = drawerOpen ? resolveDrawerDirection(panelState) : 'right';
+    const settings = getSettings();
 
     root.innerHTML = '';
     root.className = 'wandlight-lore-panel wandlight-runtime-shell';
@@ -1043,6 +1378,7 @@ function renderPanelShell(root, state) {
     root.style.setProperty('--wandlight-rail-width', `${getRailWidth(panelState)}px`);
     root.style.setProperty('--wandlight-drawer-width', `${getConstrainedDrawerWidth(panelState, drawerDirection)}px`);
     root.style.setProperty('--wandlight-drawer-height', `${getConstrainedDrawerHeight(panelState)}px`);
+    applyRuntimeTheme(root, settings);
 
     root.appendChild(renderRail(state));
     if (drawerOpen) root.appendChild(renderDrawer(state, drawerDirection));
@@ -1071,12 +1407,12 @@ function renderRail(state) {
 
     const markImg = document.createElement('img');
     markImg.className = 'wandlight-runtime-rail-logo-img';
-    markImg.src = getBrandLogoSrc(railMode);
-    markImg.alt = railMode === 'compact' ? 'Wandlight' : 'Wandlight logo';
+    markImg.src = getBrandLogoSrc(railMode, settings);
+    markImg.alt = railMode === 'compact' ? 'SAGA' : 'SAGA logo';
     markImg.draggable = false;
     markImg.addEventListener('error', () => {
         markImg.remove();
-        mark.textContent = railMode === 'compact' ? 'W' : 'Wandlight';
+        mark.textContent = railMode === 'compact' ? 'S' : 'SAGA';
         mark.classList.add('wandlight-runtime-rail-mark-fallback');
     }, { once: true });
     mark.appendChild(markImg);
@@ -1084,7 +1420,7 @@ function renderRail(state) {
 
     const sub = document.createElement('div');
     sub.className = 'wandlight-runtime-rail-subtitle';
-    sub.textContent = '';
+    sub.textContent = railMode === 'expanded' ? 'Fandom Loresystem' : '';
     drag.appendChild(sub);
     rail.appendChild(drag);
     rail.appendChild(createExperienceModeSwitch(settings));
@@ -1103,7 +1439,7 @@ function renderRail(state) {
         const icon = document.createElement('span');
         icon.className = 'wandlight-runtime-rail-icon';
         icon.dataset.fallbackIcon = TAB_ICONS[tabId] || label.slice(0, 1);
-        const iconSrc = getTabIconSrc(tabId);
+        const iconSrc = getTabIconSrc(tabId, settings);
         if (iconSrc) {
             const iconImg = document.createElement('img');
             iconImg.className = 'wandlight-runtime-rail-icon-img';
@@ -1293,6 +1629,3536 @@ function refreshHeader() {
     void counts;
 }
 
+function renderLorepacksTab(container, state) {
+    const stack = getLorepackStack(state);
+    const enabled = stack.filter(item => item.enabled);
+    const canonDb = getCanonLoreDatabaseSync();
+    const positionIndex = getStoryPositionIndexSync();
+    if (!canonDb) {
+        loadCanonLoreDatabase()
+            .then(() => refreshLorePanel({ preserveScroll: true }))
+            .catch(e => console.warn('[Wandlight] Lorepack health load failed:', e));
+    }
+    if (!positionIndex) {
+        loadStoryPositionIndex()
+            .then(() => refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true }))
+            .catch(e => console.warn('[Wandlight] Story Position index load failed:', e));
+    }
+    const health = canonDb?.health || null;
+    const summaryStats = health?.summary || {};
+    const categoryCounts = summaryStats.categoryCounts || {};
+    const categoryText = Object.entries(categoryCounts)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 4)
+        .map(([category, count]) => `${category}: ${count}`)
+        .join(', ') || 'Not checked';
+
+    container.appendChild(createSectionHeader(
+        'Lorepacks',
+        'Source packs loaded for canon suggestions, relevance, and future Saga pack editing.'
+    ));
+
+    const summary = document.createElement('div');
+    summary.className = 'wandlight-runtime-card';
+    const title = document.createElement('h4');
+    title.textContent = 'Active Stack';
+    summary.appendChild(title);
+    summary.appendChild(createKeyValue('Loaded packs', String(enabled.length), 'Enabled Lorepacks in the current chat stack.'));
+    summary.appendChild(createKeyValue('Top priority', enabled[0] ? getLorepackDisplayName(enabled[0].packId) : 'none', 'Highest-priority enabled Lorepack.'));
+    summary.appendChild(createKeyValue('Stack order', enabled.length ? 'Top to bottom priority' : 'empty', 'Lorepack priority is stored by stack order.'));
+    summary.appendChild(createKeyValue('Pack Health', getLorepackHealthText(health), 'Current Pack Health summary for the loaded canon Lorepack.'));
+    summary.appendChild(createKeyValue('Position Index', formatStoryPositionIndexSummary(positionIndex), 'Loaded Story Position anchors from enabled Lorepack timeline registries.'));
+    container.appendChild(summary);
+
+    container.appendChild(createLorepackHealthReportCard(state, canonDb, health));
+
+    container.appendChild(createLorepackImportExportCard(state));
+
+    const stackCard = document.createElement('div');
+    stackCard.className = 'wandlight-runtime-card';
+    const stackTitle = document.createElement('h4');
+    stackTitle.textContent = 'Loaded Lorepacks';
+    stackCard.appendChild(stackTitle);
+
+    if (!stack.length) {
+        stackCard.appendChild(createEmptyMessage('No Lorepacks loaded.'));
+    } else {
+        const stackList = document.createElement('div');
+        stackList.className = 'wandlight-lorepack-stack-list';
+        for (let index = 0; index < stack.length; index += 1) {
+            stackList.appendChild(createLorepackStackRow(stack[index], index, stack.length, canonDb));
+        }
+        stackCard.appendChild(stackList);
+    }
+    container.appendChild(stackCard);
+
+    container.appendChild(createLorepackStoryPositionCard(state, positionIndex));
+
+    const library = document.createElement('div');
+    library.className = 'wandlight-runtime-card';
+    const libraryTitle = document.createElement('h4');
+    libraryTitle.textContent = 'Lorepack Library';
+    library.appendChild(libraryTitle);
+    const libraryList = document.createElement('div');
+    libraryList.className = 'wandlight-lorepack-library-list';
+    for (const pack of getLorepackLibrary(state)) {
+        libraryList.appendChild(createLorepackLibraryRow(pack, stack, canonDb, health, categoryText, state));
+    }
+    library.appendChild(libraryList);
+    container.appendChild(library);
+
+    container.appendChild(createLorepackDetailCard(state, canonDb, health));
+}
+
+function createLorepackImportExportCard(state) {
+    const card = document.createElement('div');
+    card.className = 'wandlight-runtime-card wandlight-lorepack-import-card';
+
+    const title = document.createElement('h4');
+    title.textContent = 'Import / Export';
+    card.appendChild(title);
+
+    const help = document.createElement('div');
+    help.className = 'wandlight-runtime-help';
+    help.textContent = 'Register a fetchable lorepack.json path or URL. Local JSON file import here imports library metadata only; zip/local pack storage comes in a later slice.';
+    card.appendChild(help);
+
+    const row = document.createElement('div');
+    row.className = 'wandlight-lorepack-register-row';
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.className = 'text_pole wandlight-lorepack-manifest-input';
+    input.placeholder = 'Lorepacks/my-pack/lorepack.json or https://example.com/lorepack.json';
+    addTooltip(input, 'Manifest must be fetchable by the browser. Entry file paths are resolved relative to this manifest.');
+    row.appendChild(input);
+
+    row.appendChild(createButton('Register', 'Fetch and register this Lorepack manifest as a Custom Lorepack.', async (btn) => {
+        await registerLorepackManifestFromInput(input.value, { addToStack: false, button: btn });
+    }, 'wandlight-primary-button'));
+    card.appendChild(row);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    actions.appendChild(createButton('Export Library', 'Download registered Lorepack Library metadata as JSON.', () => {
+        exportLorepackLibrary();
+    }));
+    actions.appendChild(createButton('Import Library JSON', 'Import a previously exported Lorepack Library metadata JSON file.', () => {
+        importLorepackLibraryFromFile();
+    }));
+    card.appendChild(actions);
+
+    const registry = getLorepackLibraryRegistry(state);
+    card.appendChild(createKeyValue('Registered packs', String(Object.keys(registry.packs || {}).length), 'Global library packs plus legacy chat fallback records.'));
+    return card;
+}
+
+function createLorepackStoryPositionCard(state = getState(), positionIndex = getStoryPositionIndexSync()) {
+    const stack = getLorepackStack(state).filter(item => item.enabled);
+    const card = document.createElement('div');
+    card.className = 'wandlight-runtime-card wandlight-lorepack-story-position-card';
+
+    const title = document.createElement('h4');
+    title.textContent = 'Story Position';
+    card.appendChild(title);
+
+    const help = document.createElement('div');
+    help.className = 'wandlight-runtime-help';
+    help.textContent = 'Set where this chat sits inside each loaded Lorepack. Manual edits lock by default so automated resolvers do not overwrite your chosen canon point.';
+    card.appendChild(help);
+
+    if (!stack.length) {
+        card.appendChild(createEmptyMessage('No enabled Lorepacks need Story Position context.'));
+        return card;
+    }
+
+    const indexMeta = document.createElement('div');
+    indexMeta.className = 'wandlight-story-position-index-summary';
+    indexMeta.appendChild(createStatusPill(formatStoryPositionIndexSummary(positionIndex), 'Story Position timeline registry status for the enabled Lorepack stack.'));
+    if (positionIndex?.summary?.issueCount) {
+        indexMeta.appendChild(createStatusPill(`${positionIndex.summary.issueCount} index issue${positionIndex.summary.issueCount === 1 ? '' : 's'}`, 'Timeline registry load warnings or suggestions.'));
+    }
+    card.appendChild(indexMeta);
+
+    const resolveActions = document.createElement('div');
+    resolveActions.className = 'wandlight-primary-actions';
+    resolveActions.appendChild(createButton('Resolve From Context', 'Use current Story Context and Lorepack timeline aliases to update unlocked Story Positions.', async (btn) => {
+        await handleResolveStoryPositionsFromContext(btn);
+    }, 'wandlight-primary-button'));
+    resolveActions.appendChild(createButton('Model Fallback', 'Ask the configured Reasoning Provider to resolve unresolved Story Positions using known timeline anchors only.', async (btn) => {
+        await handleModelResolveStoryPositions(btn);
+    }));
+    card.appendChild(resolveActions);
+
+    const list = document.createElement('div');
+    list.className = 'wandlight-lorepack-story-position-list';
+    for (const item of stack) {
+        list.appendChild(createLorepackStoryPositionRow(item, state, positionIndex));
+    }
+    card.appendChild(list);
+    return card;
+}
+
+function createLorepackStoryPositionRow(item, state = getState(), positionIndex = getStoryPositionIndexSync()) {
+    const packId = item.packId;
+    const context = getLorepackStoryPosition(state, packId);
+    const packIndex = getStoryPositionPackSummary(positionIndex, packId);
+    const row = document.createElement('div');
+    row.className = 'wandlight-lorepack-story-position-row';
+
+    const header = document.createElement('div');
+    header.className = 'wandlight-lorepack-story-position-header';
+    const title = document.createElement('div');
+    title.className = 'wandlight-lorepack-row-title';
+    title.textContent = getLorepackDisplayName(packId);
+    header.appendChild(title);
+
+    const chips = document.createElement('div');
+    chips.className = 'wandlight-lorepack-row-meta';
+    chips.appendChild(createStatusPill(getStoryPositionTypeLabel(context.positionType), 'Story Position mode for this Lorepack.'));
+    chips.appendChild(createStatusPill(formatStoryPositionSource(context.source), 'How this Story Position was last set.'));
+    chips.appendChild(createStatusPill(context.manualLock ? 'Locked' : 'Unlocked', 'Locked positions should not be overwritten by automatic resolvers.'));
+    chips.appendChild(createStatusPill(`${Math.round((Number(context.confidence) || 0) * 100)}%`, 'Resolver confidence. Manual choices default to high confidence.'));
+    if (packIndex?.hasIndex) {
+        chips.appendChild(createStatusPill(`${packIndex.anchorCount || 0} anchors`, 'Timeline anchors available from this Lorepack registry.'));
+    } else {
+        chips.appendChild(createStatusPill(positionIndex ? 'No index' : 'Index loading', 'This Lorepack has no loaded timeline registry yet.'));
+    }
+    header.appendChild(chips);
+    row.appendChild(header);
+
+    const summary = document.createElement('div');
+    summary.className = 'wandlight-lorepack-story-position-summary';
+    summary.textContent = formatStoryPositionSummary(context);
+    row.appendChild(summary);
+
+    row.appendChild(createStoryPositionAnchorLookup(packId, positionIndex));
+
+    const grid = document.createElement('div');
+    grid.className = 'wandlight-lorepack-story-position-grid';
+    createStoryPositionSelectField(grid, 'Type', packId, 'positionType', context.positionType, STORY_POSITION_TYPE_OPTIONS, 'How this Lorepack represents story progress.');
+    createStoryPositionTextField(grid, 'Label', packId, 'label', context.label, 'Human-readable story position label.');
+    createStoryPositionTextField(grid, 'Scene Date', packId, 'sceneDate', context.sceneDate, 'Exact or approximate in-universe date when the pack supports dates.');
+    createStoryPositionTextField(grid, 'Branch', packId, 'branchId', context.branchId || 'main', 'Use main for canon baseline, or a custom branch for AU/time travel.');
+    createStoryPositionTextField(grid, 'Arc', packId, 'arc', context.arc, 'Named arc, saga, route, or campaign segment.');
+    createStoryPositionTextField(grid, 'Phase', packId, 'phase', context.phase, 'Broad phase or era, such as MCU Phase 3.');
+    createStoryPositionTextField(grid, 'Season', packId, 'season', context.season, 'Television/anime season when relevant.');
+    createStoryPositionTextField(grid, 'Episode', packId, 'episode', context.episode, 'Episode number, title, or range when relevant.');
+    createStoryPositionTextField(grid, 'Chapter', packId, 'chapter', context.chapter, 'Book/manga/webnovel chapter when relevant.');
+    createStoryPositionTextField(grid, 'Issue', packId, 'issue', context.issue, 'Comic issue or run position when relevant.');
+    createStoryPositionTextField(grid, 'Quest', packId, 'quest', context.quest, 'Game quest, mission, route, or scenario marker.');
+    createStoryPositionTextField(grid, 'Game Stage', packId, 'gameStage', context.gameStage, 'Game progression marker when a calendar date is not useful.');
+    createStoryPositionTextField(grid, 'Anchor', packId, 'anchorId', context.anchorId, 'Selected event/book/film/arc anchor ID or label.');
+    createStoryPositionTextField(grid, 'After', packId, 'anchorFrom', context.anchorFrom, 'Lower bound anchor for before/after windows.');
+    createStoryPositionTextField(grid, 'Before', packId, 'anchorTo', context.anchorTo, 'Upper bound anchor for before/after windows.');
+    createStoryPositionTextField(grid, 'Alias / User Note', packId, 'alias', context.alias, 'Freeform user phrasing, such as after Shibuya Incident or pre-Endgame.');
+    createStoryPositionSelectField(grid, 'Source', packId, 'source', context.source, STORY_POSITION_SOURCE_OPTIONS, 'Where this Story Position came from.', { manual: false });
+    createStoryPositionNumberField(grid, 'Confidence', packId, 'confidence', context.confidence, 'Confidence from 0 to 1. Manual choices commonly use 1.0.', { manual: false });
+    createStoryPositionCheckboxField(grid, 'Manual Lock', packId, 'manualLock', context.manualLock, 'Prevent future automatic Story Position resolvers from overwriting this pack context.');
+    createStoryPositionTextField(grid, 'Notes', packId, 'notes', context.notes, 'Private notes for this pack-specific Story Position.', { multiline: true, full: true });
+    row.appendChild(grid);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    actions.appendChild(createButton('Use Legacy Context', 'Seed this Story Position from the current legacy Story Context fields.', () => {
+        const current = getState();
+        const legacy = current?.loreContext || {};
+        commitLorepackStoryPositionPatch(packId, {
+            positionType: packId === 'hp-golden-trio' ? 'calendar' : context.positionType || 'custom',
+            sceneDate: legacy.sceneDate || '',
+            subjectiveDate: legacy.subjectiveDate || '',
+            label: legacy.canonBoundary || legacy.sceneDate || context.label || '',
+            alias: legacy.canonBoundary || context.alias || '',
+            branchId: legacy.branchId || 'main',
+        }, `Seed Story Position from legacy context: ${getLorepackDisplayName(packId)}`);
+    }));
+    actions.appendChild(createButton('Reset Position', 'Clear this Lorepack Story Position back to an empty default.', async () => {
+        const ok = await confirmAction('Reset Story Position', `Clear Story Position for ${getLorepackDisplayName(packId)}?`);
+        if (!ok) return;
+        const current = getState();
+        pushStateSnapshot(current, `Reset Story Position: ${getLorepackDisplayName(packId)}`, getSettings().maxSnapshots);
+        resetLorepackStoryPosition(packId);
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        refreshHeader();
+        toast('Story Position reset.', 'info');
+    }, 'wandlight-danger-button'));
+    row.appendChild(actions);
+
+    return row;
+}
+
+function getStoryPositionPackSummary(positionIndex, packId) {
+    const id = String(packId || '').trim();
+    if (!id || !positionIndex?.packs?.length) return null;
+    return positionIndex.packs.find(pack => pack.packId === id) || null;
+}
+
+function formatStoryPositionIndexSummary(positionIndex) {
+    const summary = positionIndex?.summary || null;
+    if (!summary) return 'Loading';
+    if (!summary.packCount) return 'No packs';
+    if (!summary.indexCount) return `${summary.packCount} pack${summary.packCount === 1 ? '' : 's'}, no timelines`;
+    return `${summary.anchorCount || 0} anchors, ${summary.windowCount || 0} windows`;
+}
+
+function formatAnchorDateRange(anchor = {}) {
+    const from = String(anchor.dateRange?.from || '').trim();
+    const to = String(anchor.dateRange?.to || '').trim();
+    if (from && to && from !== to) return `${from} to ${to}`;
+    return from || to || '';
+}
+
+function createStoryPositionAnchorLookup(packId, positionIndex = getStoryPositionIndexSync()) {
+    const box = document.createElement('div');
+    box.className = 'wandlight-story-position-anchor-lookup';
+
+    const top = document.createElement('div');
+    top.className = 'wandlight-story-position-anchor-lookup-top';
+
+    const input = document.createElement('input');
+    input.type = 'search';
+    input.className = 'wandlight-lore-editor-input';
+    input.placeholder = 'Search timeline anchors';
+    addTooltip(input, 'Search this Lorepack timeline by book, event, arc, alias, date, or tag.');
+    input.addEventListener('click', e => e.stopPropagation());
+    input.addEventListener('mousedown', e => e.stopPropagation());
+    top.appendChild(input);
+
+    const results = document.createElement('div');
+    results.className = 'wandlight-story-position-anchor-results';
+
+    const renderResults = () => {
+        results.innerHTML = '';
+        const query = input.value.trim();
+        const packIndex = getStoryPositionPackSummary(positionIndex, packId);
+        if (!positionIndex) {
+            results.appendChild(createEmptyMessage('Position index is loading.'));
+            return;
+        }
+        if (!packIndex?.hasIndex) {
+            results.appendChild(createEmptyMessage('This Lorepack has no timeline registry loaded.'));
+            return;
+        }
+        if (!query) {
+            results.appendChild(createEmptyMessage('Search by event, book, arc, date, alias, or tag.'));
+            return;
+        }
+        const matches = findStoryPositionAnchors(query, { packId, limit: 6, index: positionIndex });
+        if (!matches.length) {
+            results.appendChild(createEmptyMessage('No matching anchors.'));
+            return;
+        }
+        for (const anchor of matches) {
+            results.appendChild(createStoryPositionAnchorResult(packId, anchor));
+        }
+    };
+
+    top.appendChild(createButton('Find', 'Search timeline anchors in this Lorepack.', renderResults));
+    input.addEventListener('keydown', event => {
+        if (event.key !== 'Enter') return;
+        event.preventDefault();
+        renderResults();
+    });
+    box.appendChild(top);
+    renderResults();
+    box.appendChild(results);
+    return box;
+}
+
+function createStoryPositionAnchorResult(packId, anchor = {}) {
+    const row = document.createElement('div');
+    row.className = 'wandlight-story-position-anchor-result';
+
+    const main = document.createElement('div');
+    main.className = 'wandlight-story-position-anchor-main';
+
+    const title = document.createElement('div');
+    title.className = 'wandlight-story-position-anchor-title';
+    title.textContent = anchor.label || anchor.id || 'Anchor';
+    main.appendChild(title);
+
+    const meta = document.createElement('div');
+    meta.className = 'wandlight-story-position-anchor-meta';
+    const details = [
+        formatAnchorDateRange(anchor),
+        anchor.book,
+        anchor.arc,
+        anchor.aliases?.slice(0, 2).join(', '),
+    ].filter(Boolean);
+    meta.textContent = details.join(' | ') || anchor.id || '';
+    main.appendChild(meta);
+    row.appendChild(main);
+
+    row.appendChild(createButton('Use', 'Use this anchor as the Story Position for this Lorepack.', () => {
+        applyStoryPositionAnchor(packId, anchor);
+    }, 'wandlight-primary-button'));
+    return row;
+}
+
+function applyStoryPositionAnchor(packId, anchor = {}) {
+    const firstDate = String(anchor.dateRange?.from || anchor.dateRange?.to || '').trim();
+    commitLorepackStoryPositionPatch(packId, {
+        positionType: anchor.positionType || 'anchor',
+        anchorId: anchor.id || '',
+        anchorFrom: '',
+        anchorTo: '',
+        label: anchor.label || anchor.id || '',
+        sceneDate: firstDate,
+        arc: anchor.arc || '',
+        phase: anchor.phase || '',
+        season: anchor.season || '',
+        episode: anchor.episode || '',
+        chapter: anchor.chapter || '',
+        issue: anchor.issue || '',
+        quest: anchor.quest || '',
+        gameStage: anchor.gameStage || '',
+        alias: anchor.aliases?.[0] || anchor.label || anchor.id || '',
+        source: 'local_alias',
+    }, `Set Story Position anchor: ${getLorepackDisplayName(packId)}`);
+}
+
+async function handleResolveStoryPositionsFromContext(btn = null) {
+    await runBusyAction(btn, 'Resolving...', async () => {
+        const state = getState();
+        const context = state?.loreContext || {};
+        const result = await resolveAndApplyStoryPositionsFromContext(context, {
+            contextSource: 'local_alias',
+            sourceText: [
+                context.sceneDate,
+                context.subjectiveDate,
+                context.canonBoundary,
+                context.branchId,
+            ].filter(Boolean).join(' | '),
+        });
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        refreshHeader();
+        if (result.appliedCount > 0) {
+            toast(`Story Position resolved for ${result.appliedCount} Lorepack${result.appliedCount === 1 ? '' : 's'}.`, 'success');
+            return;
+        }
+        if (result.resolvedCount > 0) {
+            toast('Story Position already matches the current context.', 'info');
+            return;
+        }
+        if (result.skippedCount > 0 && !result.unresolvedCount) {
+            toast('Story Position resolver skipped locked Lorepacks.', 'warning');
+            return;
+        }
+        toast('No local Story Position match found. Try a clearer date, arc, book, event, or anchor alias.', 'warning');
+    });
+}
+
+async function handleModelResolveStoryPositions(btn = null) {
+    await runBusyAction(btn, 'Asking...', async () => {
+        const validation = validateLoreProviderConfiguration('lore');
+        if (!validation.ok) {
+            toast(`Reasoning Provider is not ready: ${validation.message}`, 'error');
+            return;
+        }
+        const state = getState();
+        const context = state?.loreContext || {};
+        const result = await resolveStoryPositionsWithModel(context, {
+            sourceText: [
+                context.sceneDate,
+                context.subjectiveDate,
+                context.canonBoundary,
+                context.branchId,
+                context.timeTravelMode,
+            ].filter(Boolean).join(' | '),
+        });
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        refreshHeader();
+        if (result.appliedCount > 0) {
+            toast(`Model resolved Story Position for ${result.appliedCount} Lorepack${result.appliedCount === 1 ? '' : 's'}.`, 'success');
+            return;
+        }
+        if (result.status === 'resolved_locally') {
+            toast('Local resolver already matched the current context.', 'info');
+            return;
+        }
+        if (!result.targetPackIds?.length) {
+            toast('No unlocked unresolved Lorepacks need model fallback.', 'info');
+            return;
+        }
+        toast('Model fallback did not find a confident anchor match.', 'warning');
+    });
+}
+
+function createStoryPositionTextField(container, labelText, packId, key, value, tooltip, options = {}) {
+    const label = document.createElement('label');
+    label.className = `wandlight-lorepack-editor-field${options.full ? ' wandlight-lorepack-editor-field-full' : ''}`;
+    const span = document.createElement('span');
+    span.textContent = labelText;
+    addTooltip(span, tooltip || labelText);
+    label.appendChild(span);
+
+    const input = options.multiline ? document.createElement('textarea') : document.createElement('input');
+    input.className = options.multiline ? 'wandlight-lore-editor-textarea' : 'wandlight-lore-editor-input';
+    if (!options.multiline) input.type = 'text';
+    input.value = String(value || '');
+    input.addEventListener('click', e => e.stopPropagation());
+    input.addEventListener('mousedown', e => e.stopPropagation());
+    input.addEventListener('change', () => {
+        commitLorepackStoryPositionPatch(packId, { [key]: input.value.trim() }, `Edit Story Position ${labelText}: ${getLorepackDisplayName(packId)}`, options);
+    });
+    label.appendChild(input);
+    container.appendChild(label);
+    return input;
+}
+
+function createStoryPositionSelectField(container, labelText, packId, key, value, optionsList, tooltip, options = {}) {
+    const label = document.createElement('label');
+    label.className = 'wandlight-lorepack-editor-field';
+    const span = document.createElement('span');
+    span.textContent = labelText;
+    addTooltip(span, tooltip || labelText);
+    label.appendChild(span);
+
+    const select = document.createElement('select');
+    select.className = 'wandlight-lore-editor-input';
+    for (const [optionValue, optionLabel] of optionsList) {
+        const option = document.createElement('option');
+        option.value = optionValue;
+        option.textContent = optionLabel;
+        select.appendChild(option);
+    }
+    select.value = String(value || optionsList[0]?.[0] || '');
+    select.addEventListener('change', () => {
+        commitLorepackStoryPositionPatch(packId, { [key]: select.value }, `Edit Story Position ${labelText}: ${getLorepackDisplayName(packId)}`, options);
+    });
+    label.appendChild(select);
+    container.appendChild(label);
+    return select;
+}
+
+function createStoryPositionNumberField(container, labelText, packId, key, value, tooltip, options = {}) {
+    const label = document.createElement('label');
+    label.className = 'wandlight-lorepack-editor-field';
+    const span = document.createElement('span');
+    span.textContent = labelText;
+    addTooltip(span, tooltip || labelText);
+    label.appendChild(span);
+
+    const input = document.createElement('input');
+    input.className = 'wandlight-lore-editor-input';
+    input.type = 'number';
+    input.min = '0';
+    input.max = '1';
+    input.step = '0.05';
+    input.value = String(Number.isFinite(Number(value)) ? Number(value) : 0);
+    input.addEventListener('change', () => {
+        commitLorepackStoryPositionPatch(packId, { [key]: input.value }, `Edit Story Position ${labelText}: ${getLorepackDisplayName(packId)}`, options);
+    });
+    label.appendChild(input);
+    container.appendChild(label);
+    return input;
+}
+
+function createStoryPositionCheckboxField(container, labelText, packId, key, value, tooltip) {
+    const label = document.createElement('label');
+    label.className = 'wandlight-lorepack-story-position-check';
+    addTooltip(label, tooltip || labelText);
+    const input = document.createElement('input');
+    input.type = 'checkbox';
+    input.checked = value === true;
+    input.addEventListener('change', () => {
+        commitLorepackStoryPositionPatch(packId, { [key]: input.checked }, `Edit Story Position ${labelText}: ${getLorepackDisplayName(packId)}`, { manual: false });
+    });
+    label.appendChild(input);
+    const span = document.createElement('span');
+    span.textContent = labelText;
+    label.appendChild(span);
+    container.appendChild(label);
+    return input;
+}
+
+function commitLorepackStoryPositionPatch(packId, patch = {}, summary = 'Edit Story Position', options = {}) {
+    const current = getState();
+    pushStateSnapshot(current, summary, getSettings().maxSnapshots);
+    const nextPatch = { ...(patch || {}) };
+    if (options.manual !== false) {
+        if (!Object.prototype.hasOwnProperty.call(nextPatch, 'source')) nextPatch.source = 'manual';
+        if (!Object.prototype.hasOwnProperty.call(nextPatch, 'manualLock')) nextPatch.manualLock = true;
+        if (!Object.prototype.hasOwnProperty.call(nextPatch, 'confidence')) nextPatch.confidence = 1;
+    }
+    setLorepackStoryPosition(packId, nextPatch);
+    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    refreshHeader();
+    toast('Story Position updated.', 'success');
+}
+
+function getStoryPositionTypeLabel(value) {
+    const option = STORY_POSITION_TYPE_OPTIONS.find(([key]) => key === value);
+    return option?.[1] || 'Custom';
+}
+
+function formatStoryPositionSource(value) {
+    const option = STORY_POSITION_SOURCE_OPTIONS.find(([key]) => key === value);
+    return option?.[1] || 'Unknown';
+}
+
+function formatStoryPositionSummary(context = {}) {
+    const parts = [];
+    if (context.label) parts.push(context.label);
+    if (context.sceneDate) parts.push(context.sceneDate);
+    if (context.arc) parts.push(`Arc: ${context.arc}`);
+    if (context.phase) parts.push(`Phase: ${context.phase}`);
+    if (context.season || context.episode) parts.push(`S${context.season || '?'} E${context.episode || '?'}`);
+    if (context.chapter) parts.push(`Chapter: ${context.chapter}`);
+    if (context.issue) parts.push(`Issue: ${context.issue}`);
+    if (context.quest) parts.push(`Quest: ${context.quest}`);
+    if (context.gameStage) parts.push(`Game: ${context.gameStage}`);
+    if (context.anchorId) parts.push(`Anchor: ${context.anchorId}`);
+    if (context.anchorFrom || context.anchorTo) parts.push(`Window: ${context.anchorFrom || 'start'} -> ${context.anchorTo || 'open'}`);
+    if (context.alias && !parts.includes(context.alias)) parts.push(context.alias);
+    if (context.branchId && context.branchId !== 'main') parts.push(`Branch: ${context.branchId}`);
+    return parts.length ? parts.join(' | ') : 'Unset. Add a date, arc, anchor, chapter, episode, quest, or freeform alias.';
+}
+
+function createLorepackHealthReportCard(state, canonDb = null, health = null) {
+    const card = document.createElement('div');
+    card.className = 'wandlight-runtime-card wandlight-lorepack-health-card';
+
+    const title = document.createElement('h4');
+    title.textContent = 'Pack Health';
+    card.appendChild(title);
+
+    const help = document.createElement('div');
+    help.className = 'wandlight-runtime-help';
+    help.textContent = 'Pack Health is advisory. It helps creators find likely issues; it does not decide whether a pack is allowed to run.';
+    card.appendChild(help);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    actions.appendChild(createButton('Refresh Health', 'Reload active Lorepacks and recompute Pack Health.', async (btn) => {
+        await refreshLorepackHealthReport(btn);
+    }, 'wandlight-primary-button'));
+    const exportButton = createButton('Export Health JSON', 'Download the current Pack Health report as JSON.', () => {
+        exportLorepackHealthReport(state, canonDb, health);
+    });
+    exportButton.disabled = !health;
+    actions.appendChild(exportButton);
+    card.appendChild(actions);
+
+    if (!canonDb || !health) {
+        card.appendChild(createEmptyMessage('Pack Health is loading. Use Refresh Health if it does not appear.'));
+        return card;
+    }
+
+    const report = buildLorepackHealthReport(state, canonDb, health);
+    const summary = report.summary || {};
+
+    const grid = document.createElement('div');
+    grid.className = 'wandlight-lorepack-health-grid';
+    grid.appendChild(createLorepackHealthMetric('Status', report.status, 'Overall active stack health status.'));
+    grid.appendChild(createLorepackHealthMetric('Entries', String(summary.entryCount || 0), 'Loaded entry count after Custom overrides and stack dedupe.'));
+    grid.appendChild(createLorepackHealthMetric('Files', `${summary.loadedFileCount || 0}/${summary.fileCount || 0}`, 'Loaded files over declared files.'));
+    grid.appendChild(createLorepackHealthMetric('Errors', String(summary.errorCount || 0), 'Technical failures that should be fixed.'));
+    grid.appendChild(createLorepackHealthMetric('Warnings', String(summary.warningCount || 0), 'Likely issues that may affect results.'));
+    grid.appendChild(createLorepackHealthMetric('Suggestions', String(summary.suggestionCount || 0), 'Improvement hints for creators.'));
+    grid.appendChild(createLorepackHealthMetric('Overrides', String(summary.entryOverrideCount || 0), 'Custom entry overrides applied in loaded packs.'));
+    grid.appendChild(createLorepackHealthMetric('Added', String(summary.entryAdditionCount || 0), 'Custom entries added through override layers.'));
+    grid.appendChild(createLorepackHealthMetric('Disabled', String(summary.suppressedEntryCount || 0), 'Source entries suppressed by Custom packs.'));
+    grid.appendChild(createLorepackHealthMetric('Stack Duplicates', String(report.duplicateEntryIdCount || 0), 'Duplicate entry IDs resolved by stack priority.'));
+    card.appendChild(grid);
+
+    if (report.packs.length) {
+        const packs = document.createElement('div');
+        packs.className = 'wandlight-lorepack-health-pack-list';
+        for (const pack of report.packs) {
+            packs.appendChild(createLorepackHealthPackRow(pack));
+        }
+        card.appendChild(packs);
+    }
+
+    if (report.insights.length) {
+        card.appendChild(createLorepackHealthIssueList('Stack Insights', report.insights, 'warning'));
+    }
+    card.appendChild(createLorepackHealthIssueList('Errors', report.errors, 'error'));
+    card.appendChild(createLorepackHealthIssueList('Warnings', report.warnings, 'warning'));
+    card.appendChild(createLorepackHealthIssueList('Suggestions', report.suggestions, 'suggestion'));
+
+    const categories = formatCategoryCounts(summary.categoryCounts || {});
+    if (categories) {
+        const categoryRow = document.createElement('div');
+        categoryRow.className = 'wandlight-runtime-help';
+        categoryRow.textContent = `Top categories: ${categories}`;
+        card.appendChild(categoryRow);
+    }
+
+    return card;
+}
+
+function createLorepackHealthMetric(label, value, tooltip) {
+    const metric = document.createElement('div');
+    metric.className = 'wandlight-lorepack-health-metric';
+    addTooltip(metric, tooltip || label);
+    const k = document.createElement('span');
+    k.textContent = label;
+    metric.appendChild(k);
+    const v = document.createElement('strong');
+    v.textContent = value || '0';
+    metric.appendChild(v);
+    return metric;
+}
+
+function createLorepackHealthPackRow(pack) {
+    const row = document.createElement('div');
+    row.className = 'wandlight-lorepack-health-pack-row';
+    const main = document.createElement('div');
+    main.className = 'wandlight-lorepack-row-main';
+    const title = document.createElement('div');
+    title.className = 'wandlight-lorepack-row-title';
+    title.textContent = pack.title || pack.packId;
+    main.appendChild(title);
+
+    const desc = document.createElement('div');
+    desc.className = 'wandlight-lorepack-row-description';
+    desc.textContent = pack.description || pack.manifest || pack.packId;
+    main.appendChild(desc);
+
+    const meta = document.createElement('div');
+    meta.className = 'wandlight-lorepack-row-meta';
+    meta.appendChild(createStatusPill(pack.typeLabel || pack.type || 'Custom', 'Lorepack type.'));
+    meta.appendChild(createStatusPill(`${pack.entryCount || 0} entries`, 'Loaded entries from this pack.'));
+    meta.appendChild(createStatusPill(pack.healthStatus || 'unknown', 'Per-pack health status.'));
+    if (pack.overrideCount) meta.appendChild(createStatusPill(`${pack.overrideCount} overrides`, 'Saved entry overrides in the library record.'));
+    if (pack.disabledCount) meta.appendChild(createStatusPill(`${pack.disabledCount} disabled`, 'Disabled source entry IDs in the library record.'));
+    if (pack.derivedFrom) meta.appendChild(createStatusPill(`from ${pack.derivedFrom}`, 'Source pack recorded in derivedFrom metadata.'));
+    main.appendChild(meta);
+    row.appendChild(main);
+    return row;
+}
+
+function createLorepackHealthIssueList(titleText, issues = [], severity = 'suggestion') {
+    const wrap = document.createElement('div');
+    wrap.className = `wandlight-lorepack-health-issue-section wandlight-lorepack-health-issue-section-${severity}`;
+
+    const title = document.createElement('div');
+    title.className = 'wandlight-runtime-card-title';
+    title.textContent = `${titleText}: ${issues.length}`;
+    wrap.appendChild(title);
+
+    if (!issues.length) {
+        wrap.appendChild(createEmptyMessage(`No ${titleText.toLowerCase()}.`));
+        return wrap;
+    }
+
+    const list = document.createElement('div');
+    list.className = 'wandlight-lorepack-health-issue-list';
+    for (const issue of issues.slice(0, 12)) {
+        const item = document.createElement('div');
+        item.className = `wandlight-lorepack-health-issue wandlight-lorepack-health-issue-${severity}`;
+        const code = document.createElement('div');
+        code.className = 'wandlight-lorepack-health-issue-code';
+        code.textContent = issue.code || severity;
+        item.appendChild(code);
+        const message = document.createElement('div');
+        message.className = 'wandlight-lorepack-health-issue-message';
+        message.textContent = issue.message || 'No message.';
+        item.appendChild(message);
+        const meta = document.createElement('div');
+        meta.className = 'wandlight-lorepack-row-meta';
+        if (issue.packId) meta.appendChild(createStatusPill(issue.packId, 'Affected pack ID.'));
+        if (Array.isArray(issue.entryIds) && issue.entryIds.length) meta.appendChild(createStatusPill(`${issue.entryIds.length} entr${issue.entryIds.length === 1 ? 'y' : 'ies'}`, 'Affected entry IDs.'));
+        if (issue.file) meta.appendChild(createStatusPill(issue.file, 'Affected file.'));
+        if (issue.winningPackId) meta.appendChild(createStatusPill(`winner: ${issue.winningPackId}`, 'Winning pack after stack duplicate resolution.'));
+        item.appendChild(meta);
+        list.appendChild(item);
+    }
+    if (issues.length > 12) {
+        const more = document.createElement('div');
+        more.className = 'wandlight-runtime-help';
+        more.textContent = `Showing first 12 of ${issues.length}. Export Health JSON for the full list.`;
+        list.appendChild(more);
+    }
+    wrap.appendChild(list);
+    return wrap;
+}
+
+function buildLorepackHealthReport(state, canonDb = null, health = null) {
+    const stack = getLorepackStack(state);
+    const enabledIds = new Set(stack.filter(item => item.enabled).map(item => item.packId));
+    const library = new Map(getLorepackLibrary(state).map(pack => [pack.packId, pack]));
+    const loadedPacks = Array.isArray(canonDb?.lorepacks) ? canonDb.lorepacks : [];
+    const packs = loadedPacks.map(loaded => {
+        const libraryPack = library.get(loaded.id) || {};
+        const overrideCount = libraryPack.entryOverrides && typeof libraryPack.entryOverrides === 'object' && !Array.isArray(libraryPack.entryOverrides)
+            ? Object.keys(libraryPack.entryOverrides).length
+            : 0;
+        const disabledCount = Array.isArray(libraryPack.disabledEntryIds) ? libraryPack.disabledEntryIds.length : 0;
+        return {
+            packId: loaded.id,
+            title: loaded.title || libraryPack.title || loaded.id,
+            type: loaded.type || libraryPack.type || 'custom',
+            typeLabel: getLorepackTypeLabel(loaded.id),
+            description: libraryPack.description || '',
+            manifest: libraryPack.manifest || '',
+            derivedFrom: libraryPack.derivedFrom?.packId || '',
+            stackIndex: loaded.stackIndex,
+            stackPriority: loaded.stackPriority,
+            sourceKind: loaded.sourceKind,
+            entryCount: loaded.entryCount || 0,
+            healthStatus: loaded.healthStatus || 'unknown',
+            overrideCount,
+            disabledCount,
+        };
+    });
+    const duplicateEntryIdCount = Array.isArray(canonDb?.duplicateEntryIds)
+        ? canonDb.duplicateEntryIds.length
+        : Number(health?.summary?.duplicateEntryIdCount || 0);
+    return {
+        schemaVersion: 1,
+        generatedAt: Date.now(),
+        status: health?.status || 'unknown',
+        databaseId: canonDb?.databaseId || '',
+        enabledPackIds: Array.from(enabledIds),
+        summary: health?.summary || {},
+        duplicateEntryIdCount,
+        packs,
+        errors: Array.isArray(health?.errors) ? health.errors : [],
+        warnings: Array.isArray(health?.warnings) ? health.warnings : [],
+        suggestions: Array.isArray(health?.suggestions) ? health.suggestions : [],
+        insights: getLorepackStackHealthInsights(state, loadedPacks),
+    };
+}
+
+function getLorepackStackHealthInsights(state, loadedPacks = []) {
+    const stack = getLorepackStack(state).filter(item => item.enabled);
+    const library = new Map(getLorepackLibrary(state).map(pack => [pack.packId, pack]));
+    const loadedIds = new Set(loadedPacks.map(pack => pack.id));
+    const issues = [];
+
+    for (const item of stack) {
+        const pack = library.get(item.packId);
+        if (!pack) {
+            issues.push({
+                severity: 'warning',
+                code: 'loaded_pack_missing_library_record',
+                packId: item.packId,
+                message: `Loaded pack ${item.packId} is not present in the Lorepack Library.`,
+            });
+            continue;
+        }
+        if (!loadedIds.has(item.packId)) {
+            issues.push({
+                severity: 'warning',
+                code: 'loaded_pack_not_available',
+                packId: item.packId,
+                message: `Loaded pack ${item.packId} did not produce a usable Lorepack source.`,
+            });
+        }
+    }
+
+    const manifestGroups = new Map();
+    for (const item of stack) {
+        const pack = library.get(item.packId);
+        const manifest = String(pack?.manifest || '').trim();
+        if (!manifest) continue;
+        if (!manifestGroups.has(manifest)) manifestGroups.set(manifest, []);
+        manifestGroups.get(manifest).push(pack);
+    }
+    for (const [manifest, packs] of manifestGroups.entries()) {
+        if (packs.length <= 1) continue;
+        const names = packs.map(pack => pack?.title || pack?.packId).join(', ');
+        const editableCount = packs.filter(pack => {
+            const overrides = pack?.entryOverrides && typeof pack.entryOverrides === 'object' && !Array.isArray(pack.entryOverrides)
+                ? Object.keys(pack.entryOverrides).length
+                : 0;
+            const disabled = Array.isArray(pack?.disabledEntryIds) ? pack.disabledEntryIds.length : 0;
+            return overrides + disabled > 0;
+        }).length;
+        issues.push({
+            severity: editableCount ? 'suggestion' : 'warning',
+            code: editableCount ? 'shared_manifest_with_overrides' : 'likely_duplicate_pack',
+            packId: packs[0]?.packId || '',
+            message: editableCount
+                ? `Multiple loaded packs share ${manifest}; ${editableCount} have Custom entry changes. Stack priority decides duplicate IDs.`
+                : `Multiple loaded packs share ${manifest} with no Custom entry changes: ${names}. This may be an unedited duplicate load.`,
+        });
+    }
+
+    for (const pack of library.values()) {
+        if (!pack?.derivedFrom?.packId) continue;
+        if (!stack.some(item => item.packId === pack.packId)) continue;
+        const overrides = pack.entryOverrides && typeof pack.entryOverrides === 'object' && !Array.isArray(pack.entryOverrides)
+            ? Object.keys(pack.entryOverrides).length
+            : 0;
+        const disabled = Array.isArray(pack.disabledEntryIds) ? pack.disabledEntryIds.length : 0;
+        if (overrides + disabled === 0) {
+            issues.push({
+                severity: 'warning',
+                code: 'custom_duplicate_has_no_entry_changes',
+                packId: pack.packId,
+                message: `${pack.title || pack.packId} is derived from ${pack.derivedFrom.packId} but has no entry overrides or disabled entries.`,
+            });
+        }
+    }
+    return issues;
+}
+
+async function refreshLorepackHealthReport(button = null) {
+    const originalText = button?.textContent;
+    if (button) {
+        button.disabled = true;
+        button.textContent = 'Refreshing...';
+    }
+    try {
+        clearCanonLoreDatabaseCache();
+        clearStoryPositionIndexCache();
+        await loadCanonLoreDatabase();
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        refreshHeader();
+        toast('Pack Health refreshed.', 'success');
+    } catch (e) {
+        toast(e?.message || 'Pack Health refresh failed.', 'error');
+    } finally {
+        if (button) {
+            button.disabled = false;
+            button.textContent = originalText || 'Refresh Health';
+        }
+    }
+}
+
+function exportLorepackHealthReport(state, canonDb = null, health = null) {
+    if (!health) {
+        toast('Pack Health has not loaded yet.', 'warning');
+        return;
+    }
+    downloadJson(buildLorepackHealthReport(state, canonDb, health), 'saga-pack-health.json');
+    toast('Pack Health report exported.', 'info');
+}
+
+function resolveManifestUrlForFetch(manifestRef) {
+    const text = String(manifestRef || '').trim();
+    if (!text) return null;
+    try {
+        return new URL(text, import.meta.url);
+    } catch (_) {
+        return null;
+    }
+}
+
+async function fetchLorepackManifest(manifestRef) {
+    const url = resolveManifestUrlForFetch(manifestRef);
+    if (!url) throw new Error('Manifest path or URL is invalid.');
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(`Manifest failed to load: HTTP ${response.status}`);
+    try {
+        return await response.json();
+    } catch (e) {
+        throw new Error(`Manifest is not valid JSON: ${e?.message || 'parse failed'}`);
+    }
+}
+
+function buildLorepackRecordFromManifest(manifest, manifestRef) {
+    if (!manifest || typeof manifest !== 'object' || Array.isArray(manifest)) {
+        throw new Error('Lorepack manifest must be a JSON object.');
+    }
+    const packId = String(manifest.id || '').trim();
+    if (!packId) throw new Error('Lorepack manifest is missing required id.');
+    if (!Array.isArray(manifest.files)) throw new Error('Lorepack manifest is missing required files array.');
+    const sourceUrl = String(manifest.source?.url || manifestRef || '').trim();
+    const isRemote = /^https?:\/\//i.test(String(manifestRef || ''));
+    const manifestType = ['generated', 'custom'].includes(manifest.type) ? manifest.type : 'custom';
+    return {
+        packId,
+        type: manifestType,
+        title: String(manifest.title || packId).trim(),
+        description: String(manifest.description || '').trim(),
+        fandom: String(manifest.fandom || '').trim(),
+        era: String(manifest.era || '').trim(),
+        author: String(manifest.author || '').trim(),
+        version: String(manifest.version || '').trim(),
+        manifest: String(manifestRef || '').trim(),
+        source: {
+            kind: isRemote ? 'url' : 'path',
+            url: sourceUrl,
+            updateUrl: String(manifest.update?.url || '').trim(),
+        },
+        tags: Array.isArray(manifest.tags) ? manifest.tags.map(tag => String(tag || '').trim()).filter(Boolean) : [],
+        stats: {
+            entryCount: Number.isFinite(Number(manifest.stats?.entryCount)) ? Math.max(0, Number(manifest.stats.entryCount)) : 0,
+            categoryCounts: manifest.stats?.categoryCounts && typeof manifest.stats.categoryCounts === 'object' && !Array.isArray(manifest.stats.categoryCounts)
+                ? { ...manifest.stats.categoryCounts }
+                : {},
+        },
+        healthStatus: String(manifest.health?.status || '').trim(),
+        installedAt: Date.now(),
+        updatedAt: Date.now(),
+    };
+}
+
+function cloneLorepackJson(value) {
+    if (!value || typeof value !== 'object') return null;
+    try {
+        return JSON.parse(JSON.stringify(value));
+    } catch (_) {
+        return null;
+    }
+}
+
+function isVirtualLorepackPack(pack) {
+    return !!(pack?.manifestData && typeof pack.manifestData === 'object' && !Array.isArray(pack.manifestData));
+}
+
+function buildEmbeddedCustomManifest(sourceManifest = {}, metadata = {}) {
+    const manifest = cloneLorepackJson(sourceManifest) || {};
+    delete manifest.entries;
+    const packId = String(metadata.packId || manifest.id || '').trim();
+    manifest.id = packId;
+    manifest.type = 'custom';
+    manifest.title = String(metadata.title || manifest.title || packId).trim();
+    manifest.description = String(metadata.description || manifest.description || '').trim();
+    manifest.fandom = String(metadata.fandom || manifest.fandom || '').trim();
+    manifest.era = String(metadata.era || manifest.era || '').trim();
+    manifest.author = String(metadata.author || manifest.author || '').trim();
+    manifest.version = String(metadata.version || manifest.version || '1.0.0').trim();
+    manifest.tags = Array.isArray(metadata.tags) ? metadata.tags : (Array.isArray(manifest.tags) ? manifest.tags : []);
+    manifest.source = metadata.source || manifest.source || {};
+    manifest.update = {
+        ...(manifest.update || {}),
+        checkForUpdates: false,
+        url: '',
+    };
+    if (metadata.derivedFrom) manifest.derivedFrom = metadata.derivedFrom;
+    if (metadata.stats) manifest.stats = metadata.stats;
+    if (!Array.isArray(manifest.files)) manifest.files = [];
+    return manifest;
+}
+
+async function getDisplayManifestForPack(pack, options = {}) {
+    if (isVirtualLorepackPack(pack)) {
+        let baseManifest = {};
+        if (pack.manifest) {
+            baseManifest = await fetchLorepackManifest(pack.manifest);
+        } else if (options.requireFetch !== false) {
+            throw new Error('Virtual Custom Lorepack is missing its base manifest path.');
+        }
+        return buildEmbeddedCustomManifest(
+            {
+                ...baseManifest,
+                ...(pack.manifestData || {}),
+            },
+            pack
+        );
+    }
+    return fetchLorepackManifest(pack.manifest);
+}
+
+async function registerLorepackManifestFromInput(manifestRef, options = {}) {
+    const button = options.button || null;
+    const originalText = button?.textContent;
+    if (button) {
+        button.disabled = true;
+        button.textContent = 'Registering...';
+    }
+    try {
+        const ref = String(manifestRef || '').trim();
+        if (!ref) throw new Error('Enter a lorepack.json path or URL.');
+        const manifest = await fetchLorepackManifest(ref);
+        const record = buildLorepackRecordFromManifest(manifest, ref);
+        const result = upsertLorepackLibraryPack(record);
+        if (!result.ok) throw new Error(result.error || 'Lorepack registration failed.');
+        clearCanonLoreDatabaseCache();
+        clearStoryPositionIndexCache();
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        refreshHeader();
+        toast(`${record.title} registered as a ${record.type} Lorepack.`, 'success');
+        return result.pack;
+    } catch (e) {
+        toast(e?.message || 'Lorepack registration failed.', 'error');
+        return null;
+    } finally {
+        if (button) {
+            button.disabled = false;
+            button.textContent = originalText || 'Register';
+        }
+    }
+}
+
+function exportLorepackLibrary() {
+    const settings = getSettings();
+    const library = settings.lorepackLibrary || getLorepackLibraryRegistry(getState());
+    downloadJson(library, 'saga-lorepack-library.json');
+    toast('Lorepack Library exported.', 'info');
+}
+
+function importLorepackLibraryFromFile() {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'application/json,.json';
+    input.addEventListener('change', async () => {
+        const file = input.files?.[0];
+        if (!file) return;
+        try {
+            const text = await file.text();
+            const parsed = JSON.parse(text);
+            const result = importLorepackLibraryRegistry(parsed, { replace: false });
+            if (!result.ok) throw new Error(result.error || 'Import failed.');
+            clearCanonLoreDatabaseCache();
+            clearStoryPositionIndexCache();
+            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+            refreshHeader();
+            const skipped = result.skippedCount ? ` Skipped ${result.skippedCount} bundled-id conflict(s).` : '';
+            toast(`Imported ${result.importedCount || 0} Lorepack record(s).${skipped}`, result.skippedCount ? 'warning' : 'success');
+        } catch (e) {
+            toast(e?.message || 'Lorepack Library import failed.', 'error');
+        }
+    }, { once: true });
+    input.click();
+}
+
+function createLorepackStackRow(item, index, stackLength, canonDb = null) {
+    const row = document.createElement('div');
+    row.className = 'wandlight-lorepack-stack-row';
+    if (!item.enabled) row.classList.add('wandlight-lorepack-stack-row-disabled');
+    addTooltip(row, `${item.enabled ? 'Enabled' : 'Disabled'} Lorepack: ${item.packId}`);
+
+    const main = document.createElement('div');
+    main.className = 'wandlight-lorepack-row-main';
+
+    const title = document.createElement('div');
+    title.className = 'wandlight-lorepack-row-title';
+    title.textContent = getLorepackDisplayName(item.packId);
+    main.appendChild(title);
+
+    const desc = document.createElement('div');
+    desc.className = 'wandlight-lorepack-row-description';
+    const definition = getLorepackDefinition(item.packId);
+    desc.textContent = definition?.description || `${getLorepackTypeLabel(item.packId)} Lorepack`;
+    main.appendChild(desc);
+
+    const meta = document.createElement('div');
+    meta.className = 'wandlight-lorepack-row-meta';
+    meta.appendChild(createStatusPill(`#${index + 1}`, 'Stack priority order. Earlier Lorepacks outrank later Lorepacks.'));
+    meta.appendChild(createStatusPill(getLorepackTypeLabel(item.packId), 'Lorepack source type.'));
+    meta.appendChild(createStatusPill(item.enabled ? 'Enabled' : 'Disabled', 'Disabled Lorepacks stay in the stack but do not participate in retrieval.'));
+    meta.appendChild(createStatusPill(`P${item.priority}`, 'Stored numeric stack priority.'));
+    const loadedMeta = (canonDb?.lorepacks || []).find(pack => pack.id === item.packId);
+    if (loadedMeta) {
+        meta.appendChild(createStatusPill(`${loadedMeta.entryCount || 0} entries`, 'Loaded entries from this Lorepack.'));
+    }
+    const storyPosition = getLorepackStoryPosition(getState(), item.packId);
+    meta.appendChild(createStatusPill(formatStoryPositionSummary(storyPosition), 'Current Story Position for this loaded Lorepack.'));
+    main.appendChild(meta);
+
+    row.appendChild(main);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-lorepack-row-actions';
+
+    const up = createButton('Up', 'Move this Lorepack higher in the loading priority stack.', () => moveLorepackInStack(item.packId, -1));
+    up.disabled = index <= 0;
+    actions.appendChild(up);
+
+    const down = createButton('Down', 'Move this Lorepack lower in the loading priority stack.', () => moveLorepackInStack(item.packId, 1));
+    down.disabled = index >= stackLength - 1;
+    actions.appendChild(down);
+
+    actions.appendChild(createButton(
+        item.enabled ? 'Disable' : 'Enable',
+        item.enabled ? 'Keep this Lorepack in the stack but exclude it from retrieval.' : 'Enable this Lorepack for retrieval.',
+        () => setLorepackEnabled(item.packId, !item.enabled)
+    ));
+
+    const remove = createButton('Remove', 'Remove this Lorepack from the current stack.', () => removeLorepackFromStack(item.packId), 'wandlight-danger-button');
+    remove.disabled = stackLength <= 1;
+    actions.appendChild(remove);
+
+    row.appendChild(actions);
+    return row;
+}
+
+function createLorepackLibraryRow(pack, stack, canonDb, health, categoryText, state = getState()) {
+    const row = document.createElement('div');
+    row.className = 'wandlight-lorepack-library-row';
+    const selectedPackId = String(state?.lorePanel?.selectedLorepackId || '').trim();
+    if (selectedPackId === pack.packId) row.classList.add('wandlight-lorepack-library-row-active');
+
+    const main = document.createElement('div');
+    main.className = 'wandlight-lorepack-row-main';
+
+    const title = document.createElement('div');
+    title.className = 'wandlight-lorepack-row-title';
+    title.textContent = pack.title;
+    main.appendChild(title);
+
+    const description = document.createElement('div');
+    description.className = 'wandlight-lorepack-row-description';
+    const entryCount = pack.packId === 'hp-golden-trio' && canonDb?.entries?.length ? canonDb.entries.length : pack.entryCount;
+    description.textContent = `${pack.description} ${entryCount} entries.`;
+    main.appendChild(description);
+
+    const meta = document.createElement('div');
+    meta.className = 'wandlight-lorepack-row-meta';
+    meta.appendChild(createStatusPill(getLorepackTypeLabel(pack.packId), 'Lorepack source type.'));
+    if (pack.fandom) meta.appendChild(createStatusPill(pack.fandom, 'Fandom or setting.'));
+    if (pack.era) meta.appendChild(createStatusPill(pack.era, 'Era, arc, adaptation, or scope.'));
+    meta.appendChild(createStatusPill(getLorepackHealthText(health), 'Basic Pack Health: manifest, files, duplicate IDs, entry count, and category counts.'));
+    meta.appendChild(createStatusPill(categoryText, 'Top loaded entry categories from Pack Health.'));
+    for (const tag of (pack.tags || []).slice(0, 3)) {
+        meta.appendChild(createStatusPill(tag, 'Pack tag.'));
+    }
+    main.appendChild(meta);
+
+    row.appendChild(main);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-lorepack-row-actions';
+    actions.appendChild(createButton(
+        selectedPackId === pack.packId ? 'Inspecting' : 'Inspect',
+        'Open this Lorepack in the detail/editor panel.',
+        () => selectLorepackForDetails(pack.packId),
+        selectedPackId === pack.packId ? 'wandlight-primary-button' : ''
+    ));
+
+    const existing = stack.find(item => item.packId === pack.packId);
+    const label = existing ? (existing.enabled ? 'In Stack' : 'Enable') : 'Add';
+    const action = createButton(
+        label,
+        existing
+            ? (existing.enabled ? 'This Lorepack is already active in the stack.' : 'Enable this Lorepack in the current stack.')
+            : 'Add this Lorepack to the current stack.',
+        () => {
+            if (existing && existing.enabled) return;
+            if (existing) setLorepackEnabled(pack.packId, true);
+            else addLorepackToStack(pack.packId);
+        },
+        existing?.enabled ? '' : 'wandlight-primary-button'
+    );
+    action.disabled = existing?.enabled === true;
+    actions.appendChild(action);
+
+    if (pack.type !== 'bundled') {
+        const forget = createButton('Forget', 'Remove this Custom/Generated Lorepack from the global library. Remove it from the active stack first if it is loaded.', () => {
+            forgetLorepackLibraryPack(pack.packId);
+        }, 'wandlight-danger-button');
+        forget.disabled = !!existing;
+        actions.appendChild(forget);
+    }
+    row.appendChild(actions);
+
+    return row;
+}
+
+function createLorepackDetailCard(state, canonDb = null, health = null) {
+    const library = getLorepackLibrary(state);
+    const selectedId = String(state?.lorePanel?.selectedLorepackId || '').trim();
+    const pack = library.find(item => item.packId === selectedId) || library[0];
+
+    const card = document.createElement('div');
+    card.className = 'wandlight-runtime-card wandlight-lorepack-detail-card';
+
+    const title = document.createElement('h4');
+    title.textContent = 'Lorepack Details';
+    card.appendChild(title);
+
+    if (!pack) {
+        card.appendChild(createEmptyMessage('Select or register a Lorepack to inspect it.'));
+        return card;
+    }
+
+    const loadedMeta = (canonDb?.lorepacks || []).find(item => item.id === pack.packId);
+    const entryCount = loadedMeta?.entryCount ?? pack.entryCount ?? 0;
+    const categoryText = formatCategoryCounts(loadedMeta?.categoryCounts || pack.stats?.categoryCounts || {});
+    const readOnly = pack.type === 'bundled';
+    const virtualDuplicate = isVirtualLorepackPack(pack);
+
+    const header = document.createElement('div');
+    header.className = 'wandlight-lorepack-detail-header';
+    const heading = document.createElement('div');
+    heading.className = 'wandlight-lorepack-detail-title';
+    heading.textContent = pack.title || pack.packId;
+    header.appendChild(heading);
+
+    const chips = document.createElement('div');
+    chips.className = 'wandlight-lorepack-row-meta';
+    chips.appendChild(createStatusPill(getLorepackTypeLabel(pack.packId), 'Lorepack source type.'));
+    if (virtualDuplicate) chips.appendChild(createStatusPill('Virtual Copy', 'Custom duplicate that uses embedded manifest metadata and resolves files from its source manifest.'));
+    chips.appendChild(createStatusPill(`${entryCount} entries`, 'Entry count from loaded Pack Health or registered metadata.'));
+    chips.appendChild(createStatusPill(pack.healthStatus || getLorepackHealthText(health), 'Pack Health is advisory and does not block use.'));
+    for (const tag of (pack.tags || []).slice(0, 6)) {
+        chips.appendChild(createStatusPill(tag, 'Lorepack tag.'));
+    }
+    header.appendChild(chips);
+    card.appendChild(header);
+
+    const overview = document.createElement('div');
+    overview.className = 'wandlight-lorepack-detail-grid';
+    overview.appendChild(createKeyValue('Pack ID', pack.packId, 'Stable Lorepack identifier used by the stack and registry.'));
+    overview.appendChild(createKeyValue('Fandom', pack.fandom || 'unset', 'Fandom, canon, universe, or setting.'));
+    overview.appendChild(createKeyValue('Era', pack.era || 'unset', 'Era, arc, continuity slice, adaptation, or scope.'));
+    overview.appendChild(createKeyValue('Author', pack.author || 'unset', 'Pack author or publisher.'));
+    overview.appendChild(createKeyValue('Version', pack.version || 'unset', 'Pack version from metadata or manifest.'));
+    overview.appendChild(createKeyValue('Categories', categoryText || 'Not checked', 'Entry counts by category when available.'));
+    overview.appendChild(createKeyValue(virtualDuplicate ? 'Base Manifest' : 'Manifest', pack.manifest || 'unset', virtualDuplicate ? 'Source manifest used to resolve entry files for this Custom duplicate.' : 'Fetchable lorepack.json path or URL.'));
+    overview.appendChild(createKeyValue('Source', getLorepackSourceSummary(pack), 'Source and update metadata for this Lorepack record.'));
+    if (pack.derivedFrom?.packId || pack.derivedFrom?.title) {
+        overview.appendChild(createKeyValue('Derived From', pack.derivedFrom.title || pack.derivedFrom.packId, 'Source pack metadata recorded when this Custom Lorepack was duplicated or generated.'));
+    }
+    card.appendChild(overview);
+
+    const edit = document.createElement('div');
+    edit.className = 'wandlight-lorepack-edit-grid';
+    const titleInput = createLorepackEditorField(edit, 'Title', pack.title, {
+        disabled: readOnly,
+        tooltip: 'Display title shown in the Lorepack Library and stack.',
+    });
+    const fandomInput = createLorepackEditorField(edit, 'Fandom', pack.fandom, {
+        disabled: readOnly,
+        tooltip: 'Primary fandom or setting label.',
+    });
+    const eraInput = createLorepackEditorField(edit, 'Era', pack.era, {
+        disabled: readOnly,
+        tooltip: 'Era, arc, adaptation, continuity slice, or scope.',
+    });
+    const authorInput = createLorepackEditorField(edit, 'Author', pack.author, {
+        disabled: readOnly,
+        tooltip: 'Pack creator or publisher.',
+    });
+    const versionInput = createLorepackEditorField(edit, 'Version', pack.version, {
+        disabled: readOnly,
+        tooltip: 'Pack metadata version.',
+    });
+    const manifestInput = createLorepackEditorField(edit, virtualDuplicate ? 'Base Manifest' : 'Manifest', pack.manifest, {
+        disabled: readOnly || virtualDuplicate,
+        tooltip: virtualDuplicate
+            ? 'Virtual Custom duplicates keep their source manifest as the file-resolution base.'
+            : 'Fetchable lorepack.json path or URL. Entry paths resolve relative to this manifest.',
+    });
+    const tagsInput = createLorepackEditorField(edit, 'Tags', (pack.tags || []).join(', '), {
+        disabled: readOnly,
+        tooltip: 'Comma-separated metadata tags. Tags are first-class Saga metadata.',
+    });
+    const descriptionInput = createLorepackEditorField(edit, 'Description', pack.description, {
+        disabled: readOnly,
+        multiline: true,
+        full: true,
+        tooltip: 'Short library description shown on the Lorepack card.',
+    });
+    card.appendChild(edit);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    const refreshButton = createButton('Inspect Manifest', 'Fetch and preview this Lorepack manifest.', async (btn) => {
+        await loadLorepackManifestPreview(pack, btn);
+    }, 'wandlight-primary-button');
+    refreshButton.disabled = !pack.manifest;
+    actions.appendChild(refreshButton);
+    actions.appendChild(createButton('Duplicate as Custom', 'Create a Custom Lorepack copy with its own pack ID and metadata.', () => {
+        openDuplicateLorepackDialog(pack);
+    }));
+
+    if (!readOnly) {
+        actions.appendChild(createButton('Save Metadata', 'Save edited Custom/Generated Lorepack library metadata.', async (btn) => {
+            await saveLorepackMetadataFromInputs(pack, {
+                titleInput,
+                descriptionInput,
+                fandomInput,
+                eraInput,
+                authorInput,
+                versionInput,
+                manifestInput,
+                tagsInput,
+            }, btn);
+        }, 'wandlight-primary-button'));
+
+        const syncButton = createButton('Sync From Manifest', 'Fetch the manifest and refresh this library record from its metadata.', async (btn) => {
+            await syncLorepackMetadataFromManifest(pack, btn);
+        });
+        syncButton.disabled = !pack.manifest;
+        actions.appendChild(syncButton);
+    } else {
+        const note = document.createElement('div');
+        note.className = 'wandlight-runtime-help';
+        note.textContent = 'Bundled Lorepack metadata is read-only. Use Duplicate as Custom to create an editable copy.';
+        actions.appendChild(note);
+    }
+    card.appendChild(actions);
+
+    card.appendChild(createLorepackManifestPreview(pack));
+    if (!readOnly) {
+        card.appendChild(createLorepackEntryOverrideCard(pack));
+    }
+    return card;
+}
+
+function createLorepackEditorField(container, labelText, value = '', options = {}) {
+    const label = document.createElement('label');
+    label.className = `wandlight-lorepack-editor-field${options.full ? ' wandlight-lorepack-editor-field-full' : ''}`;
+    const span = document.createElement('span');
+    span.textContent = labelText;
+    addTooltip(span, options.tooltip || labelText);
+    label.appendChild(span);
+
+    const input = options.multiline ? document.createElement('textarea') : document.createElement('input');
+    input.className = options.multiline ? 'wandlight-lore-editor-textarea' : 'wandlight-lore-editor-input';
+    if (!options.multiline) input.type = 'text';
+    input.value = String(value || '');
+    input.disabled = options.disabled === true;
+    input.addEventListener('click', e => e.stopPropagation());
+    input.addEventListener('mousedown', e => e.stopPropagation());
+    label.appendChild(input);
+    container.appendChild(label);
+    return input;
+}
+
+function createLorepackManifestPreview(pack) {
+    const preview = document.createElement('div');
+    preview.className = 'wandlight-lorepack-manifest-preview';
+    const cached = lorepackManifestPreviewCache.get(pack.packId);
+
+    const title = document.createElement('div');
+    title.className = 'wandlight-runtime-card-title';
+    title.textContent = 'Manifest Preview';
+    preview.appendChild(title);
+
+    if (!pack.manifest) {
+        preview.appendChild(createEmptyMessage('No manifest path or URL is registered for this Lorepack.'));
+        return preview;
+    }
+    if (!cached) {
+        preview.appendChild(createEmptyMessage('Manifest not loaded. Use Inspect Manifest to preview files and schema metadata.'));
+        return preview;
+    }
+    if (cached.error) {
+        preview.appendChild(createKeyValue('Status', 'Load failed', 'Manifest preview load status.'));
+        preview.appendChild(createKeyValue('Error', cached.error, 'Last manifest fetch error.'));
+        return preview;
+    }
+
+    const manifest = cached.manifest || {};
+    const files = Array.isArray(manifest.files) ? manifest.files.map(file => String(file || '').trim()).filter(Boolean) : [];
+    const registries = manifest.registries && typeof manifest.registries === 'object' && !Array.isArray(manifest.registries)
+        ? manifest.registries
+        : {};
+
+    const summary = document.createElement('div');
+    summary.className = 'wandlight-lorepack-detail-grid';
+    summary.appendChild(createKeyValue('Schema', String(manifest.schemaVersion || 'unset'), 'Lorepack manifest schema version.'));
+    summary.appendChild(createKeyValue('Entry Schema', String(manifest.entrySchemaVersion || 'unset'), 'Lore entry schema version used by pack files.'));
+    summary.appendChild(createKeyValue('Content Kind', manifest.contentKind || 'unset', 'Fandom, original, system, or other pack content kind.'));
+    summary.appendChild(createKeyValue('Files', String(files.length), 'Entry JSON files referenced by the manifest.'));
+    summary.appendChild(createKeyValue('Registries', Object.keys(registries).join(', ') || 'none', 'Taxonomy, gate, scoring, or other registry files declared by the manifest.'));
+    summary.appendChild(createKeyValue('Continuity', formatLorepackManifestContinuity(manifest.continuity), 'Canon/adaptation/source-boundary metadata.'));
+    summary.appendChild(createKeyValue('Compatibility', formatLorepackCompatibility(manifest.compatibility), 'Saga schema compatibility declared by the pack.'));
+    summary.appendChild(createKeyValue('Update URL', manifest.update?.url || pack.source?.updateUrl || 'none', 'Optional update-check source for creator-published packs.'));
+    preview.appendChild(summary);
+
+    const fileList = document.createElement('div');
+    fileList.className = 'wandlight-lorepack-file-list';
+    for (const file of files.slice(0, 14)) {
+        const item = document.createElement('div');
+        item.className = 'wandlight-lorepack-file-item';
+        item.textContent = file;
+        fileList.appendChild(item);
+    }
+    if (files.length > 14) {
+        const more = document.createElement('div');
+        more.className = 'wandlight-lorepack-file-item wandlight-lorepack-file-item-muted';
+        more.textContent = `+${files.length - 14} more file${files.length - 14 === 1 ? '' : 's'}`;
+        fileList.appendChild(more);
+    }
+    preview.appendChild(fileList);
+
+    if (cached.loadedAt) {
+        const loaded = document.createElement('div');
+        loaded.className = 'wandlight-runtime-help';
+        loaded.textContent = `Last inspected ${new Date(cached.loadedAt).toLocaleString()}.`;
+        preview.appendChild(loaded);
+    }
+    return preview;
+}
+
+function createLorepackEntryOverrideCard(pack) {
+    const state = getLorepackOverrideState(pack);
+    const cached = lorepackEntryPreviewCache.get(pack.packId);
+    const card = document.createElement('div');
+    card.className = 'wandlight-lorepack-entry-overrides';
+
+    const title = document.createElement('div');
+    title.className = 'wandlight-runtime-card-title';
+    title.textContent = 'Entry Overrides';
+    card.appendChild(title);
+
+    const summary = document.createElement('div');
+    summary.className = 'wandlight-lorepack-entry-summary';
+    summary.appendChild(createStatusPill(`${state.overrideCount} override${state.overrideCount === 1 ? '' : 's'}`, 'Saved edited or added entries in this Custom Lorepack.'));
+    summary.appendChild(createStatusPill(`${state.disabledEntryIds.length} disabled`, 'Source entry IDs suppressed by this Custom Lorepack.'));
+    if (cached?.entries?.length) summary.appendChild(createStatusPill(`${cached.entries.length} source entries`, 'Source entries loaded for browsing and editing.'));
+    card.appendChild(summary);
+
+    const help = document.createElement('div');
+    help.className = 'wandlight-runtime-help';
+    help.textContent = 'Overrides are stored in the Custom Lorepack library record. They do not edit bundled files.';
+    card.appendChild(help);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    const loadButton = createButton(cached?.entries?.length ? 'Reload Entries' : 'Load Entries', 'Fetch source entry files for browsing and editing.', async (btn) => {
+        await loadLorepackEntriesForEditor(pack, btn);
+    }, 'wandlight-primary-button');
+    loadButton.disabled = !pack.manifest;
+    actions.appendChild(loadButton);
+    actions.appendChild(createButton('New Entry', 'Create a new custom entry in this Lorepack.', () => {
+        openLorepackEntryOverrideDialog(pack, null);
+    }));
+    card.appendChild(actions);
+
+    if (cached?.error) {
+        card.appendChild(createKeyValue('Load Error', cached.error, 'Last entry load error.'));
+    }
+
+    const rows = getLorepackEditableEntryRows(pack, cached?.entries || []);
+    if (rows.length) {
+        const search = document.createElement('input');
+        search.type = 'text';
+        search.className = 'wandlight-lorepack-entry-search';
+        search.placeholder = 'Search entries...';
+        search.value = lorepackEntryOverrideQuery || '';
+        addTooltip(search, 'Search loaded source entries, saved overrides, and disabled IDs. Press Enter or leave the field to refresh.');
+        search.addEventListener('click', e => e.stopPropagation());
+        search.addEventListener('mousedown', e => e.stopPropagation());
+        search.addEventListener('keydown', e => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                lorepackEntryOverrideQuery = search.value;
+                refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+            }
+        });
+        search.addEventListener('change', () => {
+            lorepackEntryOverrideQuery = search.value;
+            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        });
+        card.appendChild(search);
+
+        const list = document.createElement('div');
+        list.className = 'wandlight-lorepack-entry-list';
+        const visible = filterLorepackEditableEntryRows(rows, lorepackEntryOverrideQuery).slice(0, 30);
+        for (const row of visible) {
+            list.appendChild(createLorepackEntryOverrideRow(pack, row));
+        }
+        if (visible.length < rows.length) {
+            const more = document.createElement('div');
+            more.className = 'wandlight-runtime-help';
+            more.textContent = `Showing ${visible.length} of ${rows.length}. Narrow search to reduce the list.`;
+            list.appendChild(more);
+        }
+        card.appendChild(list);
+    } else {
+        card.appendChild(createEmptyMessage('Load entries or create a new entry to begin editing this Custom Lorepack.'));
+    }
+
+    return card;
+}
+
+function getLorepackOverrideState(pack = {}) {
+    const overrides = {};
+    const rawOverrides = pack.entryOverrides && typeof pack.entryOverrides === 'object' && !Array.isArray(pack.entryOverrides)
+        ? pack.entryOverrides
+        : {};
+    for (const [key, raw] of Object.entries(rawOverrides)) {
+        if (!raw || typeof raw !== 'object' || Array.isArray(raw)) continue;
+        const id = String(raw.id || key || '').trim();
+        if (!id) continue;
+        overrides[id] = {
+            ...raw,
+            id,
+        };
+    }
+    const disabledEntryIds = [];
+    const seen = new Set();
+    for (const raw of Array.isArray(pack.disabledEntryIds) ? pack.disabledEntryIds : []) {
+        const id = String(raw || '').trim();
+        if (!id || seen.has(id)) continue;
+        seen.add(id);
+        disabledEntryIds.push(id);
+    }
+    return {
+        overrides,
+        disabledEntryIds,
+        disabledSet: new Set(disabledEntryIds),
+        overrideCount: Object.keys(overrides).length,
+    };
+}
+
+function getLorepackEditableEntryRows(pack, sourceEntries = []) {
+    const state = getLorepackOverrideState(pack);
+    const sourceMap = new Map();
+    for (const entry of sourceEntries || []) {
+        const id = String(entry?.id || '').trim();
+        if (!id || sourceMap.has(id)) continue;
+        sourceMap.set(id, entry);
+    }
+
+    const ids = new Set([
+        ...sourceMap.keys(),
+        ...Object.keys(state.overrides),
+        ...state.disabledEntryIds,
+    ]);
+    return Array.from(ids).map(id => {
+        const sourceEntry = sourceMap.get(id) || null;
+        const overrideEntry = state.overrides[id] || null;
+        const disabled = state.disabledSet.has(id);
+        const entry = overrideEntry || sourceEntry || { id, title: id };
+        const status = disabled
+            ? 'disabled'
+            : overrideEntry && sourceEntry
+                ? 'overridden'
+                : overrideEntry
+                    ? 'added'
+                    : 'source';
+        return { id, entry, sourceEntry, overrideEntry, disabled, status };
+    }).sort((a, b) => {
+        const order = { overridden: 0, added: 1, disabled: 2, source: 3 };
+        return (order[a.status] ?? 9) - (order[b.status] ?? 9)
+            || String(a.entry.title || a.id).localeCompare(String(b.entry.title || b.id));
+    });
+}
+
+function filterLorepackEditableEntryRows(rows, query) {
+    const q = String(query || '').trim().toLowerCase();
+    if (!q) return rows;
+    return rows.filter(row => {
+        const entry = row.entry || {};
+        return [
+            row.id,
+            row.status,
+            entry.title,
+            entry.fact,
+            entry.category,
+            entry.canon || entry.canonStatus,
+            ...(Array.isArray(entry.tags) ? entry.tags : []),
+        ].filter(Boolean).join(' ').toLowerCase().includes(q);
+    });
+}
+
+function createLorepackEntryOverrideRow(pack, row) {
+    const wrap = document.createElement('div');
+    wrap.className = `wandlight-lorepack-entry-row wandlight-lorepack-entry-row-${row.status}`.trim();
+    const main = document.createElement('div');
+    main.className = 'wandlight-lorepack-row-main';
+    const title = document.createElement('div');
+    title.className = 'wandlight-lorepack-row-title';
+    title.textContent = row.entry?.title || row.id;
+    main.appendChild(title);
+
+    const desc = document.createElement('div');
+    desc.className = 'wandlight-lorepack-row-description';
+    desc.textContent = truncateText(row.entry?.fact || row.entry?.content?.fact || row.entry?.content?.notes || row.id, 180);
+    main.appendChild(desc);
+
+    const meta = document.createElement('div');
+    meta.className = 'wandlight-lorepack-row-meta';
+    meta.appendChild(createStatusPill(row.status, 'Entry override status in this Custom Lorepack.'));
+    meta.appendChild(createStatusPill(row.id, 'Lore entry ID.'));
+    if (row.entry?.category) meta.appendChild(createStatusPill(row.entry.category, 'Entry category.'));
+    if (row.entry?.relevance) meta.appendChild(createStatusPill(row.entry.relevance, 'Entry relevance tier.'));
+    main.appendChild(meta);
+    wrap.appendChild(main);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-lorepack-row-actions';
+    actions.appendChild(createButton('Edit', 'Edit or create an override for this entry.', () => {
+        openLorepackEntryOverrideDialog(pack, row);
+    }, row.overrideEntry ? 'wandlight-primary-button' : ''));
+    actions.appendChild(createButton(row.disabled ? 'Restore' : 'Disable', row.disabled ? 'Restore this source/custom entry.' : 'Suppress this entry inside this Custom Lorepack.', () => {
+        setLorepackEntryDisabled(pack, row.id, !row.disabled);
+    }));
+    if (row.overrideEntry) {
+        actions.appendChild(createButton('Remove Override', 'Remove the saved override. Source entry remains unless disabled.', () => {
+            removeLorepackEntryOverride(pack, row.id);
+        }, 'wandlight-danger-button'));
+    }
+    wrap.appendChild(actions);
+    return wrap;
+}
+
+function entryListFromLorepackFileJson(json) {
+    if (Array.isArray(json?.entries)) return json.entries;
+    if (Array.isArray(json)) return json;
+    return [];
+}
+
+async function fetchJsonForLorepackEditor(url) {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    try {
+        return await response.json();
+    } catch (e) {
+        throw new Error(e?.message || 'Invalid JSON');
+    }
+}
+
+async function loadLorepackEntriesForEditor(pack, button = null) {
+    const originalText = button?.textContent;
+    if (button) {
+        button.disabled = true;
+        button.textContent = 'Loading...';
+    }
+    try {
+        const manifest = await getDisplayManifestForPack(pack);
+        const baseUrl = resolveManifestUrlForFetch(pack.manifest);
+        if (!baseUrl) throw new Error('Lorepack needs a fetchable base manifest path to load entries.');
+        const entries = [];
+        for (const file of Array.isArray(manifest.files) ? manifest.files : []) {
+            const filePath = String(file || '').trim();
+            if (!filePath) continue;
+            try {
+                const json = await fetchJsonForLorepackEditor(new URL(filePath, baseUrl));
+                for (const entry of entryListFromLorepackFileJson(json)) {
+                    if (!entry || typeof entry !== 'object') continue;
+                    entries.push({
+                        ...entry,
+                        extensions: {
+                            ...(entry.extensions || {}),
+                            sagaLorepackSourceFile: filePath,
+                        },
+                    });
+                }
+            } catch (e) {
+                console.warn('[Wandlight] Lorepack entry file failed in editor:', filePath, e);
+            }
+        }
+        lorepackEntryPreviewCache.set(pack.packId, {
+            entries,
+            error: '',
+            loadedAt: Date.now(),
+        });
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        toast(`${entries.length} entries loaded for ${pack.title || pack.packId}.`, entries.length ? 'success' : 'warning');
+        return entries;
+    } catch (e) {
+        lorepackEntryPreviewCache.set(pack.packId, {
+            entries: [],
+            error: e?.message || 'Entry load failed.',
+            loadedAt: Date.now(),
+        });
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        toast(e?.message || 'Entry load failed.', 'error');
+        return [];
+    } finally {
+        if (button) {
+            button.disabled = false;
+            button.textContent = originalText || 'Load Entries';
+        }
+    }
+}
+
+async function loadLorepackManifestPreview(pack, button = null) {
+    const originalText = button?.textContent;
+    if (button) {
+        button.disabled = true;
+        button.textContent = 'Inspecting...';
+    }
+    try {
+        const manifest = await getDisplayManifestForPack(pack);
+        lorepackManifestPreviewCache.set(pack.packId, {
+            manifest,
+            error: '',
+            loadedAt: Date.now(),
+        });
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        toast(`${pack.title || pack.packId} manifest inspected.`, 'success');
+        return manifest;
+    } catch (e) {
+        lorepackManifestPreviewCache.set(pack.packId, {
+            manifest: null,
+            error: e?.message || 'Manifest inspection failed.',
+            loadedAt: Date.now(),
+        });
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        toast(e?.message || 'Manifest inspection failed.', 'error');
+        return null;
+    } finally {
+        if (button) {
+            button.disabled = false;
+            button.textContent = originalText || 'Inspect Manifest';
+        }
+    }
+}
+
+async function syncLorepackMetadataFromManifest(pack, button = null) {
+    const originalText = button?.textContent;
+    if (button) {
+        button.disabled = true;
+        button.textContent = 'Syncing...';
+    }
+    try {
+        if (isVirtualLorepackPack(pack)) {
+            const baseManifest = await fetchLorepackManifest(pack.manifest);
+            const record = {
+                ...pack,
+                type: 'custom',
+                stats: {
+                    entryCount: Number.isFinite(Number(baseManifest.stats?.entryCount)) && Number(baseManifest.stats.entryCount) > 0
+                        ? Math.max(0, Number(baseManifest.stats.entryCount))
+                        : Math.max(0, Number(pack.entryCount || pack.stats?.entryCount) || 0),
+                    categoryCounts: baseManifest.stats?.categoryCounts && typeof baseManifest.stats.categoryCounts === 'object' && !Array.isArray(baseManifest.stats.categoryCounts)
+                        ? { ...baseManifest.stats.categoryCounts }
+                        : (pack.stats?.categoryCounts || {}),
+                },
+            };
+            record.manifestData = buildEmbeddedCustomManifest(baseManifest, record);
+            const result = upsertLorepackLibraryPack(record);
+            if (!result.ok) throw new Error(result.error || 'Metadata sync failed.');
+            lorepackManifestPreviewCache.set(record.packId, {
+                manifest: record.manifestData,
+                error: '',
+                loadedAt: Date.now(),
+            });
+            clearCanonLoreDatabaseCache();
+            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+            refreshHeader();
+            toast(`${record.title} refreshed from its base manifest.`, 'success');
+            return;
+        }
+        const manifest = await fetchLorepackManifest(pack.manifest);
+        const record = buildLorepackRecordFromManifest(manifest, pack.manifest);
+        if (record.packId !== pack.packId) {
+            throw new Error(`Manifest id ${record.packId} does not match selected Lorepack id ${pack.packId}. Register it as a separate Lorepack instead.`);
+        }
+        record.type = pack.type === 'generated' ? 'generated' : 'custom';
+        record.installedAt = pack.installedAt || Date.now();
+        const result = upsertLorepackLibraryPack(record);
+        if (!result.ok) throw new Error(result.error || 'Metadata sync failed.');
+        lorepackManifestPreviewCache.set(record.packId, {
+            manifest,
+            error: '',
+            loadedAt: Date.now(),
+        });
+        selectLorepackForDetails(record.packId, { refresh: false });
+        clearCanonLoreDatabaseCache();
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        refreshHeader();
+        toast(`${record.title} metadata synced from manifest.`, 'success');
+    } catch (e) {
+        toast(e?.message || 'Metadata sync failed.', 'error');
+    } finally {
+        if (button) {
+            button.disabled = false;
+            button.textContent = originalText || 'Sync From Manifest';
+        }
+    }
+}
+
+async function saveLorepackMetadataFromInputs(pack, fields, button = null) {
+    const originalText = button?.textContent;
+    if (button) {
+        button.disabled = true;
+        button.textContent = 'Saving...';
+    }
+    try {
+        const title = fields.titleInput.value.trim() || pack.title || pack.packId;
+        const nextManifest = fields.manifestInput.value.trim();
+        if (nextManifest && nextManifest !== pack.manifest) {
+            const manifest = await fetchLorepackManifest(nextManifest);
+            const manifestId = String(manifest?.id || '').trim();
+            if (!manifestId) throw new Error('Manifest is missing required id.');
+            if (manifestId !== pack.packId) {
+                throw new Error(`Manifest id ${manifestId} does not match selected Lorepack id ${pack.packId}. Register it as a separate Lorepack instead.`);
+            }
+            lorepackManifestPreviewCache.set(pack.packId, {
+                manifest,
+                error: '',
+                loadedAt: Date.now(),
+            });
+        }
+        const record = {
+            ...pack,
+            type: pack.type === 'generated' ? 'generated' : 'custom',
+            title,
+            description: fields.descriptionInput.value.trim(),
+            fandom: fields.fandomInput.value.trim(),
+            era: fields.eraInput.value.trim(),
+            author: fields.authorInput.value.trim(),
+            version: fields.versionInput.value.trim(),
+            manifest: nextManifest,
+            tags: parseLorepackTags(fields.tagsInput.value),
+            updatedAt: Date.now(),
+        };
+        if (isVirtualLorepackPack(pack)) {
+            record.manifestData = buildEmbeddedCustomManifest(pack.manifestData, record);
+        }
+        const result = upsertLorepackLibraryPack(record);
+        if (!result.ok) throw new Error(result.error || 'Lorepack metadata save failed.');
+        if (record.manifest !== pack.manifest) lorepackManifestPreviewCache.delete(pack.packId);
+        clearCanonLoreDatabaseCache();
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        refreshHeader();
+        toast(`${title} metadata saved.`, 'success');
+    } catch (e) {
+        toast(e?.message || 'Lorepack metadata save failed.', 'error');
+    } finally {
+        if (button) {
+            button.disabled = false;
+            button.textContent = originalText || 'Save Metadata';
+        }
+    }
+}
+
+function parseLorepackTags(value) {
+    const seen = new Set();
+    const tags = [];
+    for (const raw of String(value || '').split(',')) {
+        const tag = String(raw || '')
+            .trim()
+            .replace(/[\r\n]+/g, ' ')
+            .replace(/[^\p{L}\p{N} _:\-./]+/gu, '')
+            .replace(/\s+/g, ' ')
+            .slice(0, 64)
+            .trim();
+        if (!tag) continue;
+        const key = tag.toLowerCase();
+        if (seen.has(key)) continue;
+        seen.add(key);
+        tags.push(tag);
+        if (tags.length >= 32) break;
+    }
+    return tags;
+}
+
+function normalizeLorepackPackId(value) {
+    return String(value || '')
+        .trim()
+        .toLowerCase()
+        .replace(/[^a-z0-9._-]+/g, '-')
+        .replace(/^[^a-z0-9]+/, '')
+        .replace(/[^a-z0-9]+$/, '')
+        .slice(0, 96);
+}
+
+function getUniqueLorepackPackId(baseId, library = getLorepackLibrary(getState())) {
+    const existing = new Set(library.map(pack => pack.packId));
+    const base = normalizeLorepackPackId(baseId) || 'custom-lorepack';
+    if (!existing.has(base)) return base;
+    for (let index = 2; index < 1000; index += 1) {
+        const candidate = `${base}-${index}`;
+        if (!existing.has(candidate)) return candidate;
+    }
+    return `${base}-${Date.now()}`;
+}
+
+function getDefaultDuplicateLorepackTags(pack, manifest = {}) {
+    const sourceTags = Array.isArray(pack?.tags) && pack.tags.length ? pack.tags : (Array.isArray(manifest.tags) ? manifest.tags : []);
+    return parseLorepackTags([
+        ...sourceTags.filter(tag => !String(tag || '').toLowerCase().startsWith('quality:')),
+        'origin:duplicate',
+        'quality:user-managed',
+    ].join(', '));
+}
+
+function openDuplicateLorepackDialog(sourcePack) {
+    const existing = document.querySelector('.wandlight-lorepack-duplicate-overlay');
+    existing?.remove();
+
+    const overlay = document.createElement('div');
+    overlay.className = 'wandlight-new-lore-overlay wandlight-lorepack-duplicate-overlay';
+    document.body.appendChild(overlay);
+
+    const shell = document.createElement('div');
+    shell.className = 'wandlight-new-lore-shell wandlight-lorepack-duplicate-shell';
+    overlay.appendChild(shell);
+
+    const header = document.createElement('div');
+    header.className = 'wandlight-lore-workbench-header';
+    const titleWrap = document.createElement('div');
+    titleWrap.className = 'wandlight-lore-workbench-title-wrap';
+    const title = document.createElement('div');
+    title.className = 'wandlight-lore-workbench-title';
+    title.textContent = 'Duplicate Lorepack';
+    titleWrap.appendChild(title);
+    const subtitle = document.createElement('div');
+    subtitle.className = 'wandlight-lore-workbench-subtitle';
+    subtitle.textContent = 'Creates a Custom Lorepack copy with its own pack ID and metadata.';
+    titleWrap.appendChild(subtitle);
+    header.appendChild(titleWrap);
+    header.appendChild(createButton('Close', 'Close without duplicating this Lorepack.', () => overlay.remove()));
+    shell.appendChild(header);
+
+    const form = document.createElement('div');
+    form.className = 'wandlight-new-lore-form wandlight-lorepack-duplicate-form';
+    shell.appendChild(form);
+
+    const source = document.createElement('div');
+    source.className = 'wandlight-lorepack-duplicate-source';
+    source.appendChild(createKeyValue('Source', sourcePack.title || sourcePack.packId, 'Lorepack being duplicated.'));
+    source.appendChild(createKeyValue('Source ID', sourcePack.packId, 'Original pack ID recorded in derivedFrom metadata.'));
+    source.appendChild(createKeyValue('Base Manifest', sourcePack.manifest || 'unset', 'Source manifest used for entry-file resolution.'));
+    form.appendChild(source);
+
+    const library = getLorepackLibrary(getState());
+    const suggestedId = getUniqueLorepackPackId(`${sourcePack.packId}-custom`, library);
+    const suggestedTitle = `${sourcePack.title || sourcePack.packId} Custom`;
+    const defaultTags = getDefaultDuplicateLorepackTags(sourcePack);
+
+    const idInput = createNewLoreInput(form, 'Pack ID', 'Stable lowercase ID for the Custom Lorepack.', suggestedId, false, 'my-custom-lorepack');
+    const titleInput = createNewLoreInput(form, 'Title', 'Display title shown in the Lorepack Library and stack.', suggestedTitle, false, 'My Custom Lorepack');
+    const descriptionInput = createNewLoreInput(form, 'Description', 'Short description for the Custom Lorepack.', sourcePack.description || '', true, 'Custom AU/crossover copy for my story.');
+    const authorInput = createNewLoreInput(form, 'Author', 'Creator shown in pack metadata.', 'User', false, 'User');
+    const versionInput = createNewLoreInput(form, 'Version', 'Starting version for the Custom copy.', '1.0.0', false, '1.0.0');
+    const tagsInput = createNewLoreInput(form, 'Tags', 'Comma-separated pack tags.', defaultTags.join(', '), false, 'origin:duplicate, quality:user-managed');
+
+    const options = document.createElement('label');
+    options.className = 'wandlight-lorepack-duplicate-option';
+    const addToStackInput = document.createElement('input');
+    addToStackInput.type = 'checkbox';
+    options.appendChild(addToStackInput);
+    const optionText = document.createElement('span');
+    optionText.textContent = 'Add copy to current Lorepack stack';
+    options.appendChild(optionText);
+    addTooltip(options, 'Adds the new Custom Lorepack to the active stack after creating it. You can still reorder priority later.');
+    form.appendChild(options);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    actions.appendChild(createButton('Create Custom Lorepack', 'Duplicate this pack into the Custom Lorepack Library.', async (btn) => {
+        await duplicateLorepackAsCustom(sourcePack, {
+            overlay,
+            idInput,
+            titleInput,
+            descriptionInput,
+            authorInput,
+            versionInput,
+            tagsInput,
+            addToStackInput,
+        }, btn);
+    }, 'wandlight-primary-button'));
+    actions.appendChild(createButton('Cancel', 'Close without duplicating this Lorepack.', () => overlay.remove()));
+    form.appendChild(actions);
+
+    requestAnimationFrame(() => idInput.focus());
+}
+
+async function duplicateLorepackAsCustom(sourcePack, fields, button = null) {
+    const originalText = button?.textContent;
+    if (button) {
+        button.disabled = true;
+        button.textContent = 'Creating...';
+    }
+    try {
+        const packId = normalizeLorepackPackId(fields.idInput.value);
+        if (!packId) throw new Error('Custom Lorepack needs a valid pack ID.');
+        if (getLorepackDefinition(packId)) throw new Error(`A Lorepack with id ${packId} already exists.`);
+        const title = fields.titleInput.value.trim() || packId;
+        const sourceManifest = await getDisplayManifestForPack(sourcePack);
+        const baseManifest = sourcePack.manifest || sourcePack.source?.url || '';
+        if (!baseManifest) throw new Error('Source Lorepack does not have a fetchable manifest path.');
+        const stats = {
+            entryCount: Number.isFinite(Number(sourcePack.entryCount)) ? Math.max(0, Number(sourcePack.entryCount)) : (Number(sourceManifest.stats?.entryCount) || 0),
+            categoryCounts: sourceManifest.stats?.categoryCounts && typeof sourceManifest.stats.categoryCounts === 'object' && !Array.isArray(sourceManifest.stats.categoryCounts)
+                ? { ...sourceManifest.stats.categoryCounts }
+                : (sourcePack.stats?.categoryCounts || {}),
+        };
+        const derivedFrom = {
+            packId: sourcePack.packId,
+            title: sourcePack.title || sourcePack.packId,
+            type: sourcePack.type || 'custom',
+            version: sourcePack.version || sourceManifest.version || '',
+            manifest: baseManifest,
+            duplicatedAt: Date.now(),
+        };
+        const record = {
+            packId,
+            type: 'custom',
+            title,
+            description: fields.descriptionInput.value.trim(),
+            fandom: sourcePack.fandom || sourceManifest.fandom || '',
+            era: sourcePack.era || sourceManifest.era || '',
+            author: fields.authorInput.value.trim(),
+            version: fields.versionInput.value.trim() || '1.0.0',
+            manifest: baseManifest,
+            source: {
+                kind: 'derived',
+                url: baseManifest,
+                updateUrl: '',
+            },
+            tags: parseLorepackTags(fields.tagsInput.value),
+            stats,
+            healthStatus: '',
+            derivedFrom,
+            entryOverrides: {},
+            disabledEntryIds: [],
+            installedAt: Date.now(),
+            updatedAt: Date.now(),
+        };
+        record.manifestData = buildEmbeddedCustomManifest(sourceManifest, record);
+        const result = upsertLorepackLibraryPack(record);
+        if (!result.ok) throw new Error(result.error || 'Lorepack duplication failed.');
+        lorepackManifestPreviewCache.set(packId, {
+            manifest: record.manifestData,
+            error: '',
+            loadedAt: Date.now(),
+        });
+        clearCanonLoreDatabaseCache();
+        fields.overlay?.remove?.();
+        selectLorepackForDetails(packId, { refresh: false });
+        if (fields.addToStackInput.checked) {
+            addLorepackToStack(packId);
+        } else {
+            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+            refreshHeader();
+        }
+        toast(`${title} created as a Custom Lorepack.`, 'success');
+    } catch (e) {
+        toast(e?.message || 'Lorepack duplication failed.', 'error');
+    } finally {
+        if (button) {
+            button.disabled = false;
+            button.textContent = originalText || 'Create Custom Lorepack';
+        }
+    }
+}
+
+function normalizeLorepackEntryId(value) {
+    return String(value || '')
+        .trim()
+        .toLowerCase()
+        .replace(/[^a-z0-9._:-]+/g, '_')
+        .replace(/^_+|_+$/g, '')
+        .slice(0, 140);
+}
+
+function openLorepackEntryOverrideDialog(pack, row = null) {
+    const existing = document.querySelector('.wandlight-lorepack-entry-override-overlay');
+    existing?.remove();
+
+    const overlay = document.createElement('div');
+    overlay.className = 'wandlight-new-lore-overlay wandlight-lorepack-entry-override-overlay';
+    document.body.appendChild(overlay);
+
+    const shell = document.createElement('div');
+    shell.className = 'wandlight-new-lore-shell wandlight-lorepack-entry-override-shell';
+    overlay.appendChild(shell);
+
+    const sourceEntry = row?.entry || {};
+    const isExisting = !!row?.id;
+
+    const header = document.createElement('div');
+    header.className = 'wandlight-lore-workbench-header';
+    const titleWrap = document.createElement('div');
+    titleWrap.className = 'wandlight-lore-workbench-title-wrap';
+    const title = document.createElement('div');
+    title.className = 'wandlight-lore-workbench-title';
+    title.textContent = isExisting ? 'Edit Lorepack Entry' : 'New Lorepack Entry';
+    titleWrap.appendChild(title);
+    const subtitle = document.createElement('div');
+    subtitle.className = 'wandlight-lore-workbench-subtitle';
+    subtitle.textContent = `${pack.title || pack.packId} | Custom override storage`;
+    titleWrap.appendChild(subtitle);
+    header.appendChild(titleWrap);
+    header.appendChild(createButton('Close', 'Close without saving this entry override.', () => overlay.remove()));
+    shell.appendChild(header);
+
+    const form = document.createElement('div');
+    form.className = 'wandlight-new-lore-form wandlight-lorepack-entry-override-form';
+    shell.appendChild(form);
+
+    const idInput = createNewLoreInput(form, 'Entry ID', 'Stable entry ID inside this Lorepack.', row?.id || '', false, 'my_custom_entry');
+    idInput.disabled = isExisting;
+    const titleInput = createNewLoreInput(form, 'Title', 'Short descriptive title.', sourceEntry.title || '', false, 'Custom lore entry');
+    const factInput = createNewLoreInput(form, 'Lore Text', 'The durable fact, rule, constraint, or state to remember.', sourceEntry.fact || sourceEntry.content?.fact || '', true, 'The durable lore fact to remember.');
+    const injectionInput = createNewLoreInput(form, 'Injection Override', 'Optional model-facing phrasing; blank uses Lore Text.', sourceEntry.content?.injection || '', true, 'Optional model-facing wording.');
+    const notesInput = createNewLoreInput(form, 'Notes', 'Optional private notes for this override.', sourceEntry.notes || sourceEntry.content?.notes || '', true, 'Why this entry was changed or added.');
+
+    const metaGrid = document.createElement('div');
+    metaGrid.className = 'wandlight-new-lore-meta-grid';
+    form.appendChild(metaGrid);
+    const categorySelect = createNewLoreSelect(metaGrid, 'Category', getLoreRegistryValues('categories', LORE_CATEGORY_VALUES), sourceEntry.category || 'other');
+    const canonSelect = createNewLoreSelect(metaGrid, 'Canon', getLoreRegistryValues('canonStatuses', ['canon', 'au']), sourceEntry.canon || sourceEntry.canonStatus || 'au');
+    const relevanceSelect = createNewLoreSelect(metaGrid, 'Relevance', LORE_RELEVANCE_TIERS, sourceEntry.relevance || 'normal', value => RELEVANCE_META[value]?.label || value);
+    const prioritySelect = createNewLoreSelect(metaGrid, 'Priority', LORE_PRIORITY_VALUES.map(String), String(sourceEntry.priority || 50));
+    const truthSelect = createNewLoreSelect(metaGrid, 'Truth', getLoreRegistryValues('truthStatuses', ['true', 'rumor', 'contested', 'hidden']), sourceEntry.truthStatus || 'true');
+    const revealSelect = createNewLoreSelect(metaGrid, 'Reveal', getLoreRegistryValues('revealPolicies', ['private', 'public', 'do_not_reveal']), sourceEntry.revealPolicy || 'private');
+    const tagsInput = createNewLoreInput(form, 'Tags', 'Comma-separated tags.', Array.isArray(sourceEntry.tags) ? sourceEntry.tags.join(', ') : '', false, 'au-change, custom-pack');
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    actions.appendChild(createButton('Save Override', 'Save this entry into the Custom Lorepack override layer.', () => {
+        const id = isExisting ? row.id : normalizeLorepackEntryId(idInput.value);
+        const fact = factInput.value.trim();
+        if (!id || !titleInput.value.trim() || !fact) {
+            toast('Entry override needs an ID, title, and lore text.', 'warning');
+            return;
+        }
+        const entry = normalizeLoreEntry({
+            ...sourceEntry,
+            id,
+            title: titleInput.value.trim(),
+            fact,
+            category: categorySelect.value,
+            canon: canonSelect.value,
+            canonStatus: canonSelect.value,
+            relevance: normalizeLoreRelevance(relevanceSelect.value),
+            priority: Number(prioritySelect.value) || 50,
+            truthStatus: truthSelect.value,
+            revealPolicy: revealSelect.value,
+            tags: tagsInput.value,
+            source: sourceEntry.source || `saga-lorepack:${pack.packId}:override`,
+            sourceInfo: {
+                ...(sourceEntry.sourceInfo || {}),
+                work: pack.title || pack.packId,
+                notes: 'Saved as a Custom Lorepack entry override.',
+                confidence: Number(sourceEntry.sourceInfo?.confidence || 1),
+            },
+            content: {
+                ...(sourceEntry.content || {}),
+                fact,
+                injection: injectionInput.value.trim() || fact,
+                notes: notesInput.value.trim(),
+            },
+            userEditable: true,
+            userEdited: true,
+            extensions: {
+                ...(sourceEntry.extensions || {}),
+                sagaLorepackOverride: {
+                    kind: row?.sourceEntry ? 'override' : 'addition',
+                    packId: pack.packId,
+                    sourceEntryId: row?.sourceEntry?.id || '',
+                    updatedAt: Date.now(),
+                },
+            },
+        });
+        entry.id = id;
+        saveLorepackEntryOverride(pack, entry);
+        overlay.remove();
+    }, 'wandlight-primary-button'));
+    if (isExisting) {
+        actions.appendChild(createButton(row?.disabled ? 'Restore Entry' : 'Disable Entry', row?.disabled ? 'Restore this entry in the Custom Lorepack.' : 'Suppress this entry in the Custom Lorepack.', () => {
+            setLorepackEntryDisabled(pack, row.id, !row.disabled);
+            overlay.remove();
+        }));
+    }
+    actions.appendChild(createButton('Cancel', 'Close without saving this entry override.', () => overlay.remove()));
+    form.appendChild(actions);
+
+    requestAnimationFrame(() => (isExisting ? titleInput : idInput).focus());
+}
+
+function getFreshLorepackLibraryPack(packId, fallback = null) {
+    return getLorepackDefinition(packId) || fallback;
+}
+
+function persistLorepackEntryLayer(pack, mutator, message) {
+    const fresh = getFreshLorepackLibraryPack(pack.packId, pack);
+    if (!fresh || fresh.type === 'bundled') {
+        toast('Bundled Lorepacks cannot be edited directly. Duplicate as Custom first.', 'warning');
+        return false;
+    }
+    const next = {
+        ...fresh,
+        entryOverrides: { ...(fresh.entryOverrides || {}) },
+        disabledEntryIds: Array.isArray(fresh.disabledEntryIds) ? [...fresh.disabledEntryIds] : [],
+        updatedAt: Date.now(),
+    };
+    mutator(next);
+    if (isVirtualLorepackPack(next)) {
+        next.manifestData = buildEmbeddedCustomManifest(next.manifestData, next);
+    }
+    const result = upsertLorepackLibraryPack(next);
+    if (!result.ok) {
+        toast(result.error || 'Lorepack entry layer save failed.', 'error');
+        return false;
+    }
+    clearCanonLoreDatabaseCache();
+    clearStoryPositionIndexCache();
+    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    refreshHeader();
+    if (message) toast(message, 'success');
+    return true;
+}
+
+function saveLorepackEntryOverride(pack, entry) {
+    const id = String(entry?.id || '').trim();
+    if (!id) {
+        toast('Entry override needs an ID.', 'warning');
+        return false;
+    }
+    return persistLorepackEntryLayer(pack, next => {
+        next.entryOverrides[id] = entry;
+        next.disabledEntryIds = next.disabledEntryIds.filter(entryId => entryId !== id);
+    }, `Saved override for ${entry.title || id}.`);
+}
+
+function removeLorepackEntryOverride(pack, entryId) {
+    const id = String(entryId || '').trim();
+    if (!id) return false;
+    return persistLorepackEntryLayer(pack, next => {
+        delete next.entryOverrides[id];
+    }, `Removed override for ${id}.`);
+}
+
+function setLorepackEntryDisabled(pack, entryId, disabled) {
+    const id = String(entryId || '').trim();
+    if (!id) return false;
+    return persistLorepackEntryLayer(pack, next => {
+        const set = new Set(next.disabledEntryIds || []);
+        if (disabled) set.add(id);
+        else set.delete(id);
+        next.disabledEntryIds = Array.from(set);
+    }, `${disabled ? 'Disabled' : 'Restored'} ${id}.`);
+}
+
+function selectLorepackForDetails(packId, options = {}) {
+    const id = String(packId || '').trim();
+    if (!id) return;
+    const state = getState();
+    if (!state.lorePanel) state.lorePanel = getDefaultState().lorePanel;
+    state.lorePanel.selectedLorepackId = id;
+    saveState(state, { syncPrompt: false });
+    if (options.refresh !== false) {
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        refreshHeader();
+    }
+}
+
+function formatCategoryCounts(categoryCounts = {}) {
+    if (!categoryCounts || typeof categoryCounts !== 'object' || Array.isArray(categoryCounts)) return '';
+    return Object.entries(categoryCounts)
+        .filter(([, count]) => Number(count) > 0)
+        .sort((a, b) => Number(b[1]) - Number(a[1]))
+        .slice(0, 6)
+        .map(([category, count]) => `${humanizeScopeKey(category)}: ${count}`)
+        .join(', ');
+}
+
+function getLorepackSourceSummary(pack) {
+    const source = pack?.source && typeof pack.source === 'object' && !Array.isArray(pack.source) ? pack.source : {};
+    const kind = source.kind || (pack?.manifest ? (/^https?:\/\//i.test(pack.manifest) ? 'url' : 'path') : 'unknown');
+    const updateUrl = source.updateUrl || '';
+    if (updateUrl) return `${kind} | update URL registered`;
+    return kind;
+}
+
+function formatLorepackManifestContinuity(continuity) {
+    if (!continuity || typeof continuity !== 'object' || Array.isArray(continuity)) return 'unset';
+    const parts = [
+        continuity.continuityId ? `ID: ${continuity.continuityId}` : '',
+        continuity.canonTier ? `tier: ${continuity.canonTier}` : '',
+        continuity.adaptation ? `adaptation: ${continuity.adaptation}` : '',
+        continuity.sourceBoundary ? `boundary: ${continuity.sourceBoundary}` : '',
+    ].filter(Boolean);
+    return parts.join(' | ') || 'unset';
+}
+
+function formatLorepackCompatibility(compatibility) {
+    if (!compatibility || typeof compatibility !== 'object' || Array.isArray(compatibility)) return 'unset';
+    const min = compatibility.sagaSchemaMin ?? compatibility.min ?? '';
+    const max = compatibility.sagaSchemaMax ?? compatibility.max ?? '';
+    if (min || max) return `Saga schema ${min || '?'}-${max || '?'}`;
+    return formatStructuredValue(compatibility) || 'unset';
+}
+
+function forgetLorepackLibraryPack(packId) {
+    const result = removeLorepackLibraryPack(packId);
+    if (!result.ok) {
+        toast(result.error || 'Lorepack could not be removed.', 'warning');
+        return;
+    }
+    clearCanonLoreDatabaseCache();
+    clearStoryPositionIndexCache();
+    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    refreshHeader();
+    toast(`${packId} removed from Lorepack Library.`, 'info');
+}
+
+function commitLorepackStackMutation(summary, mutator) {
+    const state = getState();
+    const current = getLorepackStack(state);
+    const next = current.map(item => ({ ...item }));
+    mutator?.(next);
+    const normalized = normalizeLorepackStackPriority(next);
+    if (JSON.stringify(current) === JSON.stringify(normalized)) return false;
+
+    pushStateSnapshot(state, summary, getSettings().maxSnapshots);
+    state.lorepackStack = normalized;
+    clearCanonLoreDatabaseCache();
+    clearStoryPositionIndexCache();
+    saveState(state);
+    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    refreshHeader();
+    return true;
+}
+
+function normalizeLorepackStackPriority(stack = []) {
+    const output = [];
+    const seen = new Set();
+    for (const item of stack) {
+        const packId = String(item?.packId || '').trim();
+        if (!packId || seen.has(packId)) continue;
+        seen.add(packId);
+        output.push({
+            packId,
+            enabled: item.enabled !== false,
+            priority: Math.max(1, 100 - output.length),
+            locked: item.locked === true,
+            addedAt: Number.isFinite(Number(item.addedAt)) ? Number(item.addedAt) : Date.now(),
+        });
+    }
+    return output;
+}
+
+function addLorepackToStack(packId) {
+    const definition = getLorepackDefinition(packId);
+    const changed = commitLorepackStackMutation(`Added Lorepack ${getLorepackDisplayName(packId)}`, stack => {
+        const existing = stack.find(item => item.packId === packId);
+        if (existing) {
+            existing.enabled = true;
+            return;
+        }
+        stack.push({
+            packId,
+            enabled: true,
+            priority: 1,
+            locked: false,
+            addedAt: Date.now(),
+        });
+    });
+    if (changed) toast(`${definition?.title || packId} added to Lorepack stack.`, 'success');
+}
+
+function setLorepackEnabled(packId, enabled) {
+    const changed = commitLorepackStackMutation(`${enabled ? 'Enabled' : 'Disabled'} Lorepack ${getLorepackDisplayName(packId)}`, stack => {
+        const item = stack.find(entry => entry.packId === packId);
+        if (item) item.enabled = enabled !== false;
+    });
+    if (changed) toast(`${getLorepackDisplayName(packId)} ${enabled ? 'enabled' : 'disabled'}.`, 'success');
+}
+
+function moveLorepackInStack(packId, direction) {
+    const step = Number(direction) < 0 ? -1 : 1;
+    const changed = commitLorepackStackMutation(`Reordered Lorepack ${getLorepackDisplayName(packId)}`, stack => {
+        const index = stack.findIndex(item => item.packId === packId);
+        const nextIndex = index + step;
+        if (index < 0 || nextIndex < 0 || nextIndex >= stack.length) return;
+        const [item] = stack.splice(index, 1);
+        stack.splice(nextIndex, 0, item);
+    });
+    if (changed) toast('Lorepack stack order updated.', 'success');
+}
+
+function removeLorepackFromStack(packId) {
+    const changed = commitLorepackStackMutation(`Removed Lorepack ${getLorepackDisplayName(packId)}`, stack => {
+        if (stack.length <= 1) return;
+        const index = stack.findIndex(item => item.packId === packId);
+        if (index >= 0) stack.splice(index, 1);
+    });
+    if (changed) toast(`${getLorepackDisplayName(packId)} removed from Lorepack stack.`, 'success');
+}
+
+function renderSettingsTab(container, state) {
+    void state;
+    const settings = getSettings();
+    container.appendChild(createSectionHeader('SAGA', 'Fandom Loresystem.'));
+
+    const identity = document.createElement('div');
+    identity.className = 'wandlight-runtime-card';
+    const identityTitle = document.createElement('h4');
+    identityTitle.textContent = 'SAGA: Fandom Loresystem';
+    identity.appendChild(identityTitle);
+    identity.appendChild(createKeyValue('Runtime', 'Wandlight compatibility mode', 'Saga is being developed from the existing Wandlight runtime.'));
+    identity.appendChild(createKeyValue('Lorepacks', getLorepackStackMetric(getState()), 'Enabled Lorepacks in the current chat stack.'));
+    identity.appendChild(createKeyValue('Library packs', String(Object.keys(getLorepackLibraryRegistry(getState()).packs || {}).length), 'Lorepacks registered globally in extension settings, plus legacy chat fallback records.'));
+    identity.appendChild(createKeyValue('Theme', getThemePreset(settings.themePackId)?.title || 'Custom', 'Active Themepack preset.'));
+    container.appendChild(identity);
+
+    container.appendChild(createProviderSettingsCard(settings));
+    container.appendChild(createThemeSettingsCard(settings));
+}
+
+function createProviderSettingsCard(settings = getSettings()) {
+    const card = document.createElement('div');
+    card.className = 'wandlight-runtime-card wandlight-settings-provider-card';
+    const title = document.createElement('h4');
+    title.textContent = 'Providers';
+    card.appendChild(title);
+
+    const help = document.createElement('div');
+    help.className = 'wandlight-runtime-help';
+    help.textContent = 'Configure the Utility and Reasoning providers used by Saga model-backed workflows.';
+    card.appendChild(help);
+
+    const providers = document.createElement('div');
+    providers.className = 'wandlight-provider-runtime-list';
+    providers.appendChild(createRuntimeProviderBlock('continuity', settings));
+    providers.appendChild(createRuntimeProviderBlock('lore', settings));
+    card.appendChild(providers);
+
+    card.appendChild(createProviderPresetStatusCard());
+
+    const fallback = document.createElement('div');
+    fallback.className = 'wandlight-primary-actions wandlight-provider-legacy-actions';
+    fallback.appendChild(createButton('Show Extension Panel', 'Scroll to the extension dropdown panel. Provider controls now live in this Settings tab.', () => {
+        openLegacyApiSettingsPanel();
+    }));
+    card.appendChild(fallback);
+    return card;
+}
+
+function createRuntimeProviderBlock(kind, settings = getSettings()) {
+    const cfg = getProviderUiConfig(kind);
+    const prefix = getProviderPrefix(kind);
+    const provider = settings[`${prefix}Provider`] || 'st';
+    const validation = safeValidateProviderConfiguration(kind);
+
+    const block = document.createElement('section');
+    block.className = `wandlight-provider-runtime-block wandlight-provider-runtime-${kind}`;
+
+    const header = document.createElement('div');
+    header.className = 'wandlight-provider-runtime-header';
+    const titleGroup = document.createElement('div');
+    titleGroup.className = 'wandlight-provider-runtime-title-group';
+    const blockTitle = document.createElement('h5');
+    blockTitle.textContent = cfg.title;
+    titleGroup.appendChild(blockTitle);
+    const description = document.createElement('div');
+    description.className = 'wandlight-runtime-help';
+    description.textContent = cfg.description;
+    titleGroup.appendChild(description);
+    header.appendChild(titleGroup);
+    const status = createStatusPill(validation.ok ? 'Ready' : 'Needs setup', validation.message || `${cfg.title} provider status.`);
+    status.classList.add(validation.ok ? 'wandlight-provider-status-ready' : 'wandlight-provider-status-warning');
+    header.appendChild(status);
+    block.appendChild(header);
+
+    block.appendChild(createProviderChoiceField(kind, settings));
+
+    if (provider === 'profile') block.appendChild(createProviderProfileSection(kind, settings));
+    if (provider === 'openai_compatible') block.appendChild(createProviderOpenAiSection(kind, settings));
+
+    block.appendChild(createProviderGenerationSection(kind, settings));
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions wandlight-provider-runtime-actions';
+    actions.appendChild(createButton(`Test ${cfg.shortTitle}`, `Send a tiny JSON test request through the ${cfg.shortTitle} provider.`, async (btn) => {
+        await runBusyAction(btn, 'Testing...', async () => {
+            const result = await testLoreConnection(kind);
+            toast(`${cfg.shortTitle} provider connected: ${String(result.response || '').slice(0, 80)}`, 'success');
+            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        });
+    }, 'wandlight-primary-button'));
+    actions.appendChild(createButton('Reset Defaults', `Reset ${cfg.shortTitle} provider settings to bundled defaults. Stored API keys are preserved.`, async () => {
+        const proceed = await confirmAction(`Reset ${cfg.shortTitle} provider?`, `This resets the ${cfg.shortTitle} provider selection, endpoint, model, and generation parameters to bundled defaults. Stored API keys are preserved. Continue?`);
+        if (!proceed) return;
+        resetProviderSettingsToDefaults(kind);
+    }));
+    block.appendChild(actions);
+
+    if (!validation.ok && validation.message) {
+        const note = document.createElement('div');
+        note.className = 'wandlight-provider-connection-status wandlight-provider-connection-warning';
+        note.textContent = validation.message;
+        block.appendChild(note);
+    }
+
+    return block;
+}
+
+function getProviderUiConfig(kind) {
+    if (kind === 'continuity') {
+        return {
+            prefix: 'continuity',
+            title: 'Utility Provider',
+            shortTitle: 'Utility',
+            secretName: 'continuityOpenAI',
+            description: 'Used by compression and scene continuity scans. Choose a fast, inexpensive model for frequent background work.',
+        };
+    }
+    return {
+        prefix: 'lore',
+        title: 'Reasoning Provider',
+        shortTitle: 'Reasoning',
+        secretName: 'loreOpenAI',
+        description: 'Used by Detect Story Context, Story Lore generation, and Story Position model fallback. Choose a stronger model for structured reasoning.',
+    };
+}
+
+function getProviderPrefix(kind) {
+    return getProviderUiConfig(kind).prefix;
+}
+
+function getProviderSettingKey(kind, suffix) {
+    return `${getProviderPrefix(kind)}${suffix}`;
+}
+
+function getProviderLabel(provider) {
+    const labels = {
+        st: 'Current SillyTavern Model',
+        profile: 'Connection Profile',
+        openai_compatible: 'OpenAI-Compatible Endpoint',
+    };
+    return labels[provider] || provider || 'Unknown';
+}
+
+function safeValidateProviderConfiguration(kind) {
+    try {
+        return validateLoreProviderConfiguration(kind);
+    } catch (e) {
+        return { ok: false, provider: '', kind, message: e?.message || String(e) };
+    }
+}
+
+function createProviderChoiceField(kind, settings = getSettings()) {
+    const prefix = getProviderPrefix(kind);
+    const cfg = getProviderUiConfig(kind);
+    const select = document.createElement('select');
+    select.id = `wandlight_${prefix}_provider_runtime`;
+    select.appendChild(createOption('st', 'Current SillyTavern Model'));
+    select.appendChild(createOption('profile', 'Connection Profile'));
+    select.appendChild(createOption('openai_compatible', 'OpenAI-Compatible Endpoint'));
+    select.value = settings[`${prefix}Provider`] || 'st';
+    select.addEventListener('change', () => {
+        saveProviderSetting(kind, 'Provider', select.value);
+        toast(`${cfg.shortTitle} provider set to ${getProviderLabel(select.value)}.`, 'success');
+    });
+    return createProviderField('Provider', `Select which model source Saga uses for ${cfg.shortTitle.toLowerCase()} tasks.`, select);
+}
+
+function createProviderProfileSection(kind, settings = getSettings()) {
+    const cfg = getProviderUiConfig(kind);
+    const prefix = getProviderPrefix(kind);
+    const section = createProviderRuntimeSection('Connection Profile');
+
+    const help = document.createElement('div');
+    help.className = 'wandlight-runtime-help';
+    help.textContent = 'Connection Profiles keep provider routing and keys in SillyTavern. Use the thin Provider preset with the selected profile.';
+    section.appendChild(help);
+
+    const select = document.createElement('select');
+    select.id = `wandlight_${prefix}_profile_id_runtime`;
+    const profiles = getNormalizedConnectionProfiles();
+    select.appendChild(createOption('', profiles.length ? 'Select Profile' : 'No connection profiles found'));
+    for (const profile of profiles) {
+        select.appendChild(createOption(profile.id, profile.label));
+    }
+    select.value = settings[`${prefix}ProfileId`] || '';
+    select.disabled = profiles.length === 0;
+    select.addEventListener('change', () => {
+        saveProviderSetting(kind, 'ProfileId', select.value);
+        toast(`${cfg.shortTitle} connection profile updated.`, 'success');
+    });
+    section.appendChild(createProviderField('Profile', `Connection Profile used for ${cfg.shortTitle.toLowerCase()} tasks.`, select));
+    return section;
+}
+
+function getNormalizedConnectionProfiles() {
+    let profiles = [];
+    try {
+        profiles = getAvailableConnectionProfiles() || [];
+    } catch (e) {
+        console.warn('[Wandlight] Could not list connection profiles:', e);
+    }
+    const seen = new Set();
+    const out = [];
+    for (const item of profiles) {
+        if (!item || typeof item !== 'object') continue;
+        const id = String(item.id || item.name || item.profileId || item.uuid || item.profile_id || item.label || '').trim();
+        if (!id || seen.has(id)) continue;
+        seen.add(id);
+        const label = String(item.name || item.label || item.profileName || item.model || id).trim();
+        out.push({ id, label });
+    }
+    return out;
+}
+
+function createProviderOpenAiSection(kind, settings = getSettings()) {
+    const cfg = getProviderUiConfig(kind);
+    const prefix = getProviderPrefix(kind);
+    const section = createProviderRuntimeSection('OpenAI-Compatible Endpoint');
+
+    const baseInput = createProviderTextControl({
+        id: `wandlight_${prefix}_openai_base_url_runtime`,
+        value: settings[`${prefix}OpenAIBaseUrl`] || '',
+        placeholder: 'https://api.openai.com',
+        tooltip: `OpenAI-compatible base URL for ${cfg.shortTitle.toLowerCase()} tasks.`,
+    });
+    baseInput.addEventListener('change', () => saveProviderSetting(kind, 'OpenAIBaseUrl', baseInput.value.trim(), { refresh: false }));
+    baseInput.addEventListener('keydown', (event) => commitProviderTextOnEnter(event, kind, 'OpenAIBaseUrl', baseInput));
+    section.appendChild(createProviderField('Base URL', `OpenAI-compatible base URL for ${cfg.shortTitle.toLowerCase()} tasks.`, baseInput));
+
+    const modelInput = createProviderTextControl({
+        id: `wandlight_${prefix}_openai_model_search_runtime`,
+        value: settings[`${prefix}OpenAIModel`] || '',
+        placeholder: 'Search or type model ID...',
+        tooltip: 'Type to filter fetched models, or type an exact model ID.',
+    });
+    modelInput.addEventListener('change', () => saveProviderSetting(kind, 'OpenAIModel', modelInput.value.trim(), { refresh: false }));
+    modelInput.addEventListener('keydown', (event) => commitProviderTextOnEnter(event, kind, 'OpenAIModel', modelInput));
+
+    const modelSelect = document.createElement('select');
+    modelSelect.id = `wandlight_${prefix}_openai_model_runtime`;
+    modelSelect.disabled = true;
+    modelSelect.appendChild(createOption('', 'Fetch models or type a model ID above'));
+
+    let fetchedModels = [];
+    modelInput.addEventListener('input', () => {
+        if (fetchedModels.length) renderProviderModelOptions(modelSelect, fetchedModels, modelInput.value, modelInput.value);
+    });
+    modelSelect.addEventListener('change', () => {
+        if (!modelSelect.value) return;
+        modelInput.value = modelSelect.value;
+        saveProviderSetting(kind, 'OpenAIModel', modelSelect.value);
+        toast(`${cfg.shortTitle} model set to ${modelSelect.value}.`, 'success');
+    });
+
+    const modelStatus = document.createElement('small');
+    modelStatus.className = 'wandlight-provider-runtime-status';
+    modelStatus.textContent = settings[`${prefix}OpenAIModel`] ? `Saved model: ${settings[`${prefix}OpenAIModel`]}` : 'Fetch models or type an exact model ID.';
+
+    const modelRow = document.createElement('div');
+    modelRow.className = 'wandlight-provider-runtime-control-row';
+    modelRow.appendChild(modelInput);
+    modelRow.appendChild(createButton('Fetch Models', `Fetch available models from the ${cfg.shortTitle.toLowerCase()} API endpoint.`, async (btn) => {
+        await runBusyAction(btn, 'Fetching...', async () => {
+            saveProviderSetting(kind, 'OpenAIBaseUrl', baseInput.value.trim(), { refresh: false });
+            saveProviderSetting(kind, 'OpenAIModel', modelInput.value.trim(), { refresh: false });
+            modelStatus.textContent = 'Fetching models...';
+            fetchedModels = await fetchLoreModels(kind);
+            renderProviderModelOptions(modelSelect, fetchedModels, modelInput.value, modelInput.value);
+            modelStatus.textContent = `${fetchedModels.length} model${fetchedModels.length === 1 ? '' : 's'} fetched.`;
+            toast(`${cfg.shortTitle} model list fetched.`, 'success');
+        });
+    }));
+
+    const modelField = document.createElement('div');
+    modelField.className = 'wandlight-provider-runtime-field wandlight-provider-runtime-model-field';
+    const modelLabel = document.createElement('span');
+    modelLabel.textContent = 'Model';
+    addTooltip(modelLabel, 'Model used by this OpenAI-compatible provider.');
+    modelField.appendChild(modelLabel);
+    const modelControls = document.createElement('div');
+    modelControls.className = 'wandlight-provider-runtime-field-stack';
+    modelControls.appendChild(modelRow);
+    modelControls.appendChild(modelSelect);
+    modelControls.appendChild(modelStatus);
+    modelField.appendChild(modelControls);
+    section.appendChild(modelField);
+
+    section.appendChild(createProviderApiKeyField(kind, settings));
+    return section;
+}
+
+function renderProviderModelOptions(select, models, filterText = '', currentModel = '') {
+    if (!select) return;
+    const filter = String(filterText || '').trim().toLowerCase();
+    const matches = (Array.isArray(models) ? models : [])
+        .filter(model => {
+            const id = String(model?.id || '').trim();
+            const name = String(model?.name || '').trim();
+            if (!id) return false;
+            if (!filter) return true;
+            return id.toLowerCase().includes(filter) || name.toLowerCase().includes(filter);
+        })
+        .slice(0, 200);
+
+    select.textContent = '';
+    select.disabled = matches.length === 0;
+    select.appendChild(createOption('', matches.length ? 'Select fetched model' : 'No matching models'));
+    for (const model of matches) {
+        const id = String(model.id || '').trim();
+        const name = String(model.name || id).trim();
+        select.appendChild(createOption(id, name && name !== id ? `${id} - ${name}` : id));
+    }
+    if (matches.some(model => String(model.id || '') === currentModel)) select.value = currentModel;
+}
+
+function createProviderApiKeyField(kind, settings = getSettings()) {
+    const cfg = getProviderUiConfig(kind);
+    const prefix = getProviderPrefix(kind);
+    const secretName = cfg.secretName;
+    const storageInfo = getNamedApiKeyStorageInfo(secretName);
+
+    const field = document.createElement('div');
+    field.className = 'wandlight-provider-runtime-field wandlight-provider-key-field';
+    const label = document.createElement('span');
+    label.textContent = 'API Key';
+    addTooltip(label, `API key stored encrypted locally for ${cfg.shortTitle.toLowerCase()} tasks.`);
+    field.appendChild(label);
+
+    const stack = document.createElement('div');
+    stack.className = 'wandlight-provider-runtime-field-stack';
+    const row = document.createElement('div');
+    row.className = 'wandlight-provider-runtime-control-row';
+    const input = document.createElement('input');
+    input.id = `wandlight_${prefix}_openai_key_runtime`;
+    input.type = 'password';
+    input.placeholder = storageInfo.isStored ? 'Stored key is hidden' : 'Enter API key';
+    addTooltip(input, `API key stored encrypted locally for ${cfg.shortTitle.toLowerCase()} tasks.`);
+    row.appendChild(input);
+
+    row.appendChild(createButton('Store', `Encrypt and store the entered ${cfg.shortTitle.toLowerCase()} API key.`, async (btn) => {
+        await runBusyAction(btn, 'Storing...', async () => {
+            const value = String(input.value || '').trim();
+            if (!value) throw new Error('Enter an API key first.');
+            await storeNamedApiKey(secretName, value);
+            clearCachedApiKey(kind);
+            await loadApiKey(kind);
+            input.value = '';
+            toast(`${cfg.shortTitle} API key stored.`, 'success');
+            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        });
+    }));
+    row.appendChild(createButton('Clear', `Remove the stored ${cfg.shortTitle.toLowerCase()} API key.`, async (btn) => {
+        await runBusyAction(btn, 'Clearing...', async () => {
+            await deleteNamedApiKey(secretName);
+            clearCachedApiKey(kind);
+            toast(`${cfg.shortTitle} API key cleared.`, 'info');
+            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        });
+    }, 'wandlight-danger-button'));
+    stack.appendChild(row);
+
+    const status = document.createElement('small');
+    status.className = 'wandlight-provider-runtime-status';
+    status.textContent = formatProviderKeyStorageInfo(storageInfo, settings[`${prefix}OpenAIKeySet`]);
+    addTooltip(status, getProviderKeyStorageTooltip(storageInfo));
+    stack.appendChild(status);
+
+    field.appendChild(stack);
+    return field;
+}
+
+function formatProviderKeyStorageInfo(info, keySetFallback = false) {
+    if (!info?.isStored && !keySetFallback) return 'Not stored.';
+    if (info?.compatibilityStorage) return 'Stored using compatibility encryption.';
+    if (info?.encryptedAtRest) return 'Stored encrypted at rest.';
+    return 'Stored.';
+}
+
+function getProviderKeyStorageTooltip(info) {
+    if (!info?.isStored) return 'No local API key is currently stored for this provider role.';
+    if (info.compatibilityStorage) return 'Stored with the fallback compatibility cipher because WebCrypto was unavailable.';
+    return info.webCryptoAvailable ? 'Stored with browser WebCrypto AES-GCM.' : 'Stored key metadata exists, but WebCrypto is unavailable in this session.';
+}
+
+function createProviderGenerationSection(kind, settings = getSettings()) {
+    const cfg = getProviderUiConfig(kind);
+    const prefix = getProviderPrefix(kind);
+    const provider = settings[`${prefix}Provider`] || 'st';
+    const disabled = provider === 'profile';
+    const section = createProviderRuntimeSection(`${cfg.shortTitle} Generation Parameters`);
+
+    if (disabled) {
+        const note = document.createElement('div');
+        note.className = 'wandlight-runtime-help';
+        note.textContent = 'Controlled by the selected Connection Profile and Provider preset.';
+        section.appendChild(note);
+    }
+
+    const grid = document.createElement('div');
+    grid.className = 'wandlight-provider-runtime-grid';
+    grid.appendChild(createProviderNumberField(kind, 'Temperature', 'Temperature', settings[`${prefix}Temperature`] ?? 0.7, {
+        min: 0,
+        max: 2,
+        step: 0.05,
+        disabled,
+        tooltip: `Temperature for ${cfg.shortTitle.toLowerCase()} calls.`,
+    }));
+    grid.appendChild(createProviderNumberField(kind, 'Top P', 'TopP', settings[`${prefix}TopP`] ?? 0.98, {
+        min: 0,
+        max: 1,
+        step: 0.05,
+        disabled,
+        tooltip: `Top-p sampling value for ${cfg.shortTitle.toLowerCase()} calls.`,
+    }));
+    grid.appendChild(createProviderNumberField(kind, 'Max Tokens', 'MaxTokens', settings[`${prefix}MaxTokens`] ?? 8192, {
+        min: 64,
+        max: 16384,
+        step: 64,
+        disabled,
+        integer: true,
+        tooltip: `Maximum response tokens for ${cfg.shortTitle.toLowerCase()} calls.`,
+    }));
+    section.appendChild(grid);
+    return section;
+}
+
+function createProviderNumberField(kind, labelText, suffix, value, options = {}) {
+    const input = document.createElement('input');
+    input.type = 'number';
+    input.value = String(value);
+    input.min = String(options.min ?? '');
+    input.max = String(options.max ?? '');
+    input.step = String(options.step ?? 1);
+    input.disabled = !!options.disabled;
+    addTooltip(input, options.tooltip || labelText);
+    input.addEventListener('change', () => {
+        const normalized = normalizeProviderNumber(input.value, value, options);
+        input.value = String(normalized);
+        saveProviderSetting(kind, suffix, normalized, { refresh: false });
+    });
+    return createProviderField(labelText, options.tooltip || labelText, input, 'wandlight-provider-number-field');
+}
+
+function normalizeProviderNumber(value, fallback, options = {}) {
+    let next = Number(value);
+    if (!Number.isFinite(next)) next = Number(fallback);
+    if (!Number.isFinite(next)) next = 0;
+    if (Number.isFinite(Number(options.min))) next = Math.max(Number(options.min), next);
+    if (Number.isFinite(Number(options.max))) next = Math.min(Number(options.max), next);
+    if (options.integer) next = Math.round(next);
+    return Number(next.toFixed(options.integer ? 0 : 3));
+}
+
+function createProviderField(labelText, tooltip, control, className = '') {
+    const field = document.createElement('label');
+    field.className = `wandlight-provider-runtime-field ${className}`.trim();
+    const label = document.createElement('span');
+    label.textContent = labelText;
+    addTooltip(label, tooltip || labelText);
+    field.appendChild(label);
+    field.appendChild(control);
+    return field;
+}
+
+function createProviderRuntimeSection(titleText) {
+    const section = document.createElement('div');
+    section.className = 'wandlight-provider-runtime-section';
+    const title = document.createElement('div');
+    title.className = 'wandlight-provider-runtime-section-title';
+    title.textContent = titleText;
+    section.appendChild(title);
+    return section;
+}
+
+function createProviderTextControl({ id, value = '', placeholder = '', tooltip = '' }) {
+    const input = document.createElement('input');
+    input.id = id;
+    input.type = 'text';
+    input.value = value;
+    input.placeholder = placeholder;
+    addTooltip(input, tooltip);
+    return input;
+}
+
+function commitProviderTextOnEnter(event, kind, suffix, input) {
+    if (event.key !== 'Enter') return;
+    event.preventDefault();
+    saveProviderSetting(kind, suffix, input.value.trim(), { refresh: false });
+    toast('Provider setting saved.', 'success');
+}
+
+function createOption(value, label) {
+    const option = document.createElement('option');
+    option.value = value;
+    option.textContent = label;
+    return option;
+}
+
+function saveProviderSetting(kind, suffix, value, options = {}) {
+    const next = getSettings();
+    next[getProviderSettingKey(kind, suffix)] = value;
+    saveSettings(next);
+    if (options.refresh !== false) {
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        refreshHeader();
+    }
+}
+
+function resetProviderSettingsToDefaults(kind) {
+    const prefix = getProviderPrefix(kind);
+    const cfg = getProviderUiConfig(kind);
+    const keys = [
+        'Provider',
+        'ProfileId',
+        'CompletionPresetId',
+        'OpenAIBaseUrl',
+        'OpenAIModel',
+        'OpenAIUseJsonMode',
+        'OpenAIUseSTProxy',
+        'Temperature',
+        'TopP',
+        'MaxTokens',
+    ];
+    const next = getSettings();
+    for (const suffix of keys) {
+        const key = `${prefix}${suffix}`;
+        if (Object.prototype.hasOwnProperty.call(DEFAULT_SETTINGS, key)) {
+            next[key] = cloneJson(DEFAULT_SETTINGS[key]);
+        }
+    }
+    saveSettings(next);
+    clearCachedApiKey(kind);
+    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    refreshHeader();
+    toast(`${cfg.shortTitle} provider settings reset. Stored API keys were preserved.`, 'info');
+}
+
+function getProviderStatusText(kind, settings = getSettings()) {
+    const prefix = kind === 'continuity' ? 'continuity' : 'lore';
+    const provider = settings[`${prefix}Provider`] || 'st';
+    let status = '';
+    try {
+        const validation = validateLoreProviderConfiguration(kind);
+        status = validation?.ok ? 'ready' : 'needs setup';
+    } catch (_) {
+        status = 'unknown';
+    }
+    return `${getProviderLabel(provider)} | ${status}`;
+}
+
+function createProviderPresetStatusCard() {
+    const card = document.createElement('div');
+    card.className = 'wandlight-provider-preset-status-card';
+    card.textContent = 'Checking Provider preset...';
+    refreshProviderPresetStatusCard(card);
+    return card;
+}
+
+async function refreshProviderPresetStatusCard(card) {
+    if (!card) return;
+    card.textContent = '';
+
+    let status;
+    try {
+        status = await getProviderPresetStatus();
+    } catch (e) {
+        status = {
+            state: 'error',
+            pill: 'Error',
+            message: e?.message || 'Could not check Provider preset.',
+            installedVersion: 'unknown',
+            bundledVersion: WANDLIGHT_PROVIDER_PRESET_VERSION,
+            canDownload: true,
+        };
+    }
+
+    const header = document.createElement('div');
+    header.className = 'wandlight-provider-preset-header';
+    const title = document.createElement('div');
+    title.className = 'wandlight-provider-runtime-section-title';
+    title.textContent = 'Provider Preset';
+    addTooltip(title, 'Thin bundled preset for SillyTavern Connection Profile provider calls.');
+    header.appendChild(title);
+    header.appendChild(createStatusPill(status.pill || 'Unknown', status.message || 'Provider preset status'));
+    card.appendChild(header);
+
+    const message = document.createElement('div');
+    message.className = 'wandlight-provider-preset-message';
+    message.textContent = status.message || '';
+    card.appendChild(message);
+
+    const meta = document.createElement('div');
+    meta.className = 'wandlight-provider-preset-meta';
+    meta.appendChild(createCompactPresetStat('Installed', status.installedVersion || 'not found'));
+    meta.appendChild(createCompactPresetStat('Bundled', status.bundledVersion || WANDLIGHT_PROVIDER_PRESET_VERSION));
+    card.appendChild(meta);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    if (status.actionLabel) {
+        actions.appendChild(createButton(status.actionLabel, status.actionTooltip || status.actionLabel, async (btn) => {
+            await handleInstallProviderPreset(btn, card, status);
+        }, status.primaryAction ? 'wandlight-primary-button' : ''));
+    }
+    if (status.canDownload) {
+        actions.appendChild(createButton('Download JSON', 'Download the bundled Provider preset for manual import.', async (btn) => {
+            await runBusyAction(btn, 'Downloading...', async () => {
+                const preset = await loadBundledProviderPreset();
+                downloadJson(preset, `${WANDLIGHT_PROVIDER_PRESET_VERSION}.json`);
+                toast('Bundled Provider preset downloaded.', 'info');
+            });
+        }));
+    }
+    if (actions.childElementCount) card.appendChild(actions);
+}
+
+async function getProviderPresetStatus() {
+    const bundled = await loadBundledProviderPreset();
+    const bundledMeta = getProviderPresetMetadata(bundled, { fallbackVersion: WANDLIGHT_PROVIDER_PRESET_VERSION });
+    const bundledVersion = bundledMeta.displayVersion || WANDLIGHT_PROVIDER_PRESET_VERSION;
+    const pm = getWandlightPresetManager();
+
+    if (!pm) {
+        return {
+            state: 'unavailable',
+            pill: 'Manual',
+            message: 'Preset manager unavailable. Download the bundled JSON and import it manually.',
+            installedVersion: 'unknown',
+            bundledVersion,
+            canDownload: true,
+        };
+    }
+
+    const installed = getInstalledProviderPreset(pm);
+    if (!installed.preset) {
+        return {
+            state: 'missing',
+            pill: 'Not Installed',
+            message: 'Install the thin Provider preset, then assign it to SillyTavern Connection Profiles used by Saga providers.',
+            installedVersion: 'not found',
+            bundledVersion,
+            actionLabel: 'Install',
+            actionTooltip: 'Import the bundled Provider preset into Chat Completion presets.',
+            primaryAction: true,
+            canInstall: true,
+            canDownload: true,
+        };
+    }
+
+    const installedMeta = getProviderPresetMetadata(installed.preset);
+    const installedVersion = installedMeta.displayVersion || 'unknown';
+    const comparison = compareProviderPresetVersions(installedVersion, bundledVersion);
+    if (comparison === null || comparison < 0) {
+        return {
+            state: comparison === null ? 'unknown' : 'behind',
+            pill: comparison === null ? 'Version Unknown' : 'Update Available',
+            message: comparison === null
+                ? 'A Provider preset is installed, but its version metadata is missing or unreadable.'
+                : 'The installed Provider preset is older than the bundled preset.',
+            installedVersion,
+            bundledVersion,
+            actionLabel: 'Update',
+            actionTooltip: 'Replace the installed Provider preset with the bundled version.',
+            primaryAction: true,
+            canInstall: true,
+            canDownload: true,
+        };
+    }
+    if (comparison > 0) {
+        return {
+            state: 'ahead',
+            pill: 'Newer Installed',
+            message: 'The installed Provider preset appears newer than the bundled preset. No update needed.',
+            installedVersion,
+            bundledVersion,
+            canDownload: true,
+        };
+    }
+    return {
+        state: 'current',
+        pill: 'Current',
+        message: 'The installed Provider preset matches the bundled version.',
+        installedVersion,
+        bundledVersion,
+        actionLabel: 'Reinstall',
+        actionTooltip: 'Reset the installed Provider preset to bundled defaults.',
+        canInstall: true,
+        canDownload: true,
+    };
+}
+
+function getInstalledProviderPreset(pm) {
+    const name = WANDLIGHT_PROVIDER_PRESET_NAME;
+    const preset = getProviderPresetByName(pm, name);
+    return { name: preset ? name : '', preset };
+}
+
+function getProviderPresetByName(pm, name) {
+    if (!name) return null;
+    let preset = null;
+    if (typeof pm?.getCompletionPresetByName === 'function') {
+        preset = pm.getCompletionPresetByName(name) || null;
+    }
+    if (!preset && typeof pm?.readPresetExtensionField === 'function') {
+        const wandlightMeta = pm.readPresetExtensionField({ name, path: 'wandlight' });
+        if (wandlightMeta) preset = { extensions: { wandlight: wandlightMeta } };
+    }
+    return preset;
+}
+
+async function loadBundledProviderPreset() {
+    if (bundledProviderPresetCache) return cloneJson(bundledProviderPresetCache);
+    const response = await fetch(getLocalAssetSrc(WANDLIGHT_PROVIDER_PRESET_ASSET_PATH), { cache: 'no-store' });
+    if (!response.ok) throw new Error('Bundled Provider preset could not be loaded.');
+    const preset = ensureProviderPresetMetadata(await response.json());
+    bundledProviderPresetCache = preset;
+    return cloneJson(preset);
+}
+
+function ensureProviderPresetMetadata(preset) {
+    const next = cloneJson(preset || {});
+    next.extensions = isPlainObjectValue(next.extensions) ? next.extensions : {};
+    next.extensions.wandlight = {
+        ...(isPlainObjectValue(next.extensions.wandlight) ? next.extensions.wandlight : {}),
+        presetName: WANDLIGHT_PROVIDER_PRESET_NAME,
+        presetVersion: WANDLIGHT_PROVIDER_PRESET_VERSION,
+        version: formatProviderPresetVersion(WANDLIGHT_PROVIDER_PRESET_VERSION) || '1.2',
+        providerPreset: true,
+        supportsReplyHeaders: false,
+    };
+    return next;
+}
+
+function getProviderPresetMetadata(preset, options = {}) {
+    const ext = isPlainObjectValue(preset?.extensions?.wandlight) ? preset.extensions.wandlight : {};
+    const notes = String(preset?.notes || '');
+    const explicit = ext.presetVersion || ext.version || '';
+    const noteMatch = notes.match(/\bProvider[-\s]+v?(\d+(?:\.\d+){0,3})\b/i);
+    const rawVersion = explicit || (noteMatch ? noteMatch[1] : '') || options.fallbackVersion || '';
+    const comparable = formatProviderPresetVersion(rawVersion);
+    return {
+        displayVersion: comparable ? `Provider-${comparable}` : '',
+        comparable,
+    };
+}
+
+function formatProviderPresetVersion(value) {
+    const match = String(value || '').trim().match(/(?:Provider[-\s]*)?v?(\d+(?:\.\d+){0,3})/i);
+    return match?.[1] || '';
+}
+
+function compareProviderPresetVersions(installed, bundled) {
+    const a = formatProviderPresetVersion(installed);
+    const b = formatProviderPresetVersion(bundled);
+    if (!a || !b) return null;
+    const left = a.split('.').map(v => Number(v) || 0);
+    const right = b.split('.').map(v => Number(v) || 0);
+    const length = Math.max(left.length, right.length, 3);
+    for (let i = 0; i < length; i += 1) {
+        const av = left[i] || 0;
+        const bv = right[i] || 0;
+        if (av < bv) return -1;
+        if (av > bv) return 1;
+    }
+    return 0;
+}
+
+async function handleInstallProviderPreset(btn, card, status) {
+    const isReinstall = status.state === 'current';
+    const busyLabel = status.state === 'missing' ? 'Installing...' : isReinstall ? 'Reinstalling...' : 'Updating...';
+    await runBusyAction(btn, busyLabel, async () => {
+        if (status.state !== 'missing') {
+            const title = isReinstall ? 'Reinstall Provider preset?' : 'Update Provider preset?';
+            const message = isReinstall
+                ? "This resets the Provider preset's values to bundled defaults. It will not intentionally switch your active preset."
+                : 'This replaces the installed Provider preset with the bundled version. It will not intentionally switch your active preset.';
+            const proceed = await confirmAction(title, `${message} Continue?`);
+            if (!proceed) return;
+        }
+
+        const result = await installBundledProviderPreset();
+        await refreshProviderPresetStatusCard(card);
+        toast(status.state === 'missing' ? 'Provider preset installed.' : isReinstall ? 'Provider preset reinstalled.' : 'Provider preset updated.', 'success');
+        if (result?.selectionTouched) {
+            await showNoticePopup(
+                'Preset saved',
+                'SillyTavern may briefly change the active preset while importing. I restored the previous selection where possible; verify your active preset and connection profiles before generating.'
+            );
+        }
+    });
+}
+
+async function installBundledProviderPreset() {
+    const pm = getWandlightPresetManager();
+    if (!pm || typeof pm.savePreset !== 'function') {
+        throw new Error('SillyTavern preset manager is unavailable.');
+    }
+
+    const preset = await loadBundledProviderPreset();
+    const previousValue = typeof pm.getSelectedPreset === 'function' ? pm.getSelectedPreset() : '';
+    const previousName = typeof pm.getSelectedPresetName === 'function' ? pm.getSelectedPresetName() : '';
+
+    await pm.savePreset(WANDLIGHT_PROVIDER_PRESET_NAME, preset);
+
+    let restored = false;
+    if (previousValue && typeof pm.selectPreset === 'function') {
+        try {
+            const currentName = typeof pm.getSelectedPresetName === 'function' ? pm.getSelectedPresetName() : '';
+            if (currentName !== previousName) {
+                pm.selectPreset(previousValue);
+                restored = true;
+            }
+        } catch (e) {
+            console.warn('[Wandlight] Could not restore previous preset after importing Provider preset:', e);
+        }
+    }
+
+    return { selectionTouched: previousName !== WANDLIGHT_PROVIDER_PRESET_NAME, restored };
+}
+
+function openLegacyApiSettingsPanel() {
+    const panel = document.getElementById('wandlight_settings');
+    if (!panel) {
+        toast('Extension settings panel is not mounted.', 'warning');
+        return;
+    }
+    panel.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    toast('Provider controls now live in the SAGA runtime Settings tab.', 'info');
+}
+
+function createThemeSettingsCard(settings = getSettings()) {
+    const card = document.createElement('div');
+    card.className = 'wandlight-runtime-card wandlight-settings-theme-card';
+    const title = document.createElement('h4');
+    title.textContent = 'Themepack';
+    card.appendChild(title);
+
+    const help = document.createElement('div');
+    help.className = 'wandlight-runtime-help';
+    help.textContent = 'Theme Packs are JSON-only appearance presets. They can set colors and icon paths, but they cannot run code.';
+    card.appendChild(help);
+
+    const presetRow = document.createElement('label');
+    presetRow.className = 'wandlight-inline-field wandlight-theme-preset-field';
+    const presetLabel = document.createElement('span');
+    presetLabel.textContent = 'Theme Pack';
+    addTooltip(presetLabel, 'Named color and icon preset for the Saga runtime.');
+    const select = document.createElement('select');
+    const themeLibrary = getThemePackLibrary(settings);
+    const activePreset = getThemePreset(settings.themePackId, settings);
+    for (const preset of themeLibrary) {
+        const option = document.createElement('option');
+        option.value = preset.id;
+        option.textContent = `${preset.title}${preset.type === 'custom' ? ' (Custom)' : ' (Bundled)'}`;
+        select.appendChild(option);
+    }
+    select.value = activePreset?.id || THEMEPACK_PRESETS[0].id;
+    select.addEventListener('change', () => {
+        applyThemePreset(select.value);
+    });
+    presetRow.appendChild(presetLabel);
+    presetRow.appendChild(select);
+    card.appendChild(presetRow);
+
+    const summary = document.createElement('div');
+    summary.className = 'wandlight-theme-pack-summary';
+    summary.appendChild(createKeyValue('Type', activePreset?.type === 'custom' ? 'Custom' : 'Bundled', 'Bundled Theme Packs ship with Saga. Custom Theme Packs are installed from JSON.'));
+    summary.appendChild(createKeyValue('Installed custom packs', String(Object.keys(settings.themePackLibrary?.packs || {}).length), 'Custom Theme Packs installed into extension settings.'));
+    summary.appendChild(createKeyValue('Icon pack', activePreset?.iconPackId || settings.themeIconPackId || 'wandlight-default', 'Icon pack metadata selected by the active Theme Pack.'));
+    summary.appendChild(createKeyValue('Icon overrides', String(Object.keys(activePreset?.icons || {}).length), 'Theme Pack icon path overrides, such as tab.lorepacks or brand.expanded.'));
+    card.appendChild(summary);
+
+    if (Array.isArray(activePreset?.tags) && activePreset.tags.length) {
+        const tags = document.createElement('div');
+        tags.className = 'wandlight-lorepack-row-meta';
+        for (const tag of activePreset.tags.slice(0, 8)) {
+            tags.appendChild(createStatusPill(tag, 'Theme Pack metadata tag.'));
+        }
+        card.appendChild(tags);
+    }
+
+    card.appendChild(createToggleCard(
+        'Custom Colors',
+        settings.themeCustomEnabled === true,
+        'Override the selected Themepack colors.',
+        (checked) => {
+            const next = getSettings();
+            next.themeCustomEnabled = checked;
+            saveSettings(next);
+            applyRuntimeTheme(panelRoot, next);
+            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        }
+    ));
+
+    const grid = document.createElement('div');
+    grid.className = 'wandlight-theme-color-grid';
+    const colors = getActiveThemeColors(settings);
+    for (const [label, settingKey, colorKey] of THEME_COLOR_FIELDS) {
+        grid.appendChild(createThemeColorField(label, settingKey, colors[colorKey], settings.themeCustomEnabled === true));
+    }
+    card.appendChild(grid);
+
+    card.appendChild(createThemeAccessibilityCard(colors));
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    actions.appendChild(createButton('Reset Theme', 'Restore the default SAGA Archive Themepack.', () => {
+        resetThemeSettings();
+    }));
+    actions.appendChild(createButton('Export Active Theme', 'Download the active theme as a Custom Theme Pack JSON file.', () => {
+        exportActiveThemePack();
+    }));
+    actions.appendChild(createButton('Import Theme Pack JSON', 'Install a user-made Theme Pack from a JSON file.', () => {
+        importThemePackFromFile();
+    }, 'wandlight-primary-button'));
+    actions.appendChild(createButton('Export Theme Library', 'Download installed Custom Theme Pack metadata as JSON.', () => {
+        exportThemePackLibrary();
+    }));
+    if (activePreset?.type === 'custom') {
+        actions.appendChild(createButton('Forget Theme Pack', 'Remove this Custom Theme Pack from installed settings.', async () => {
+            await forgetThemePack(activePreset.id);
+        }, 'wandlight-danger-button'));
+    }
+    card.appendChild(actions);
+    return card;
+}
+
+function createThemeColorField(labelText, settingKey, value, enabled) {
+    const label = document.createElement('label');
+    label.className = 'wandlight-theme-color-field';
+    const text = document.createElement('span');
+    text.textContent = labelText;
+    label.appendChild(text);
+
+    const input = document.createElement('input');
+    input.type = 'color';
+    input.value = normalizeHexColor(value, '#000000');
+    input.disabled = !enabled;
+    input.addEventListener('input', () => {
+        const next = getSettings();
+        next.themeCustomEnabled = true;
+        next[settingKey] = normalizeHexColor(input.value, next[settingKey] || '#000000');
+        saveSettings(next);
+        applyRuntimeTheme(panelRoot, next);
+    });
+    input.addEventListener('change', () => {
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    });
+    label.appendChild(input);
+    return label;
+}
+
+function createThemeAccessibilityCard(colors = {}) {
+    const report = buildThemeAccessibilityReport(colors);
+    const shell = document.createElement('div');
+    shell.className = `wandlight-theme-accessibility wandlight-theme-accessibility-${report.failedCount ? 'warning' : 'good'}`;
+
+    const header = document.createElement('div');
+    header.className = 'wandlight-theme-accessibility-header';
+    const title = document.createElement('strong');
+    title.textContent = 'Accessibility';
+    header.appendChild(title);
+    header.appendChild(createStatusPill(report.status, 'Theme contrast health is advisory and does not block use.'));
+    shell.appendChild(header);
+
+    const help = document.createElement('div');
+    help.className = 'wandlight-runtime-help';
+    help.textContent = 'Contrast checks use common WCAG ratios: 4.5:1 for normal text and 3:1 for UI affordances.';
+    shell.appendChild(help);
+
+    const list = document.createElement('div');
+    list.className = 'wandlight-theme-accessibility-list';
+    for (const check of report.checks) {
+        const row = document.createElement('div');
+        row.className = `wandlight-theme-accessibility-row ${check.passes ? 'wandlight-theme-accessibility-pass' : 'wandlight-theme-accessibility-fail'}`;
+
+        const main = document.createElement('div');
+        main.className = 'wandlight-theme-accessibility-main';
+        const label = document.createElement('span');
+        label.textContent = check.label;
+        main.appendChild(label);
+        const purpose = document.createElement('small');
+        purpose.textContent = check.purpose;
+        main.appendChild(purpose);
+        row.appendChild(main);
+
+        const score = document.createElement('span');
+        score.className = 'wandlight-theme-accessibility-score';
+        score.textContent = `${formatContrastRatio(check.ratio)} / ${check.target}:1`;
+        addTooltip(score, check.passes ? 'Passes the advisory contrast target.' : 'Below the advisory contrast target.');
+        row.appendChild(score);
+        list.appendChild(row);
+    }
+    shell.appendChild(list);
+    return shell;
+}
+
+function applyThemePreset(themeId) {
+    const current = getSettings();
+    const preset = getThemePreset(themeId, current);
+    const next = getSettings();
+    next.themePackId = preset.id;
+    next.themeIconPackId = preset.iconPackId || 'wandlight-default';
+    writeThemeColorsToSettings(next, preset.colors || {});
+    saveSettings(next);
+    applyRuntimeTheme(panelRoot, next);
+    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    refreshHeader();
+    toast(`Themepack set to ${preset.title}.`, 'success');
+}
+
+function resetThemeSettings() {
+    const preset = THEMEPACK_PRESETS[0];
+    const next = getSettings();
+    next.themePackId = preset.id;
+    next.themeIconPackId = preset.iconPackId || 'wandlight-default';
+    next.themeCustomEnabled = false;
+    writeThemeColorsToSettings(next, preset.colors || {});
+    saveSettings(next);
+    applyRuntimeTheme(panelRoot, next);
+    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    refreshHeader();
+    toast('Theme reset.', 'info');
+}
+
+function exportActiveThemePack() {
+    const settings = getSettings();
+    const preset = getThemePreset(settings.themePackId, settings);
+    const colors = getActiveThemeColors(settings);
+    const isCustomOverride = settings.themeCustomEnabled === true;
+    const exportedId = isCustomOverride && preset.type !== 'custom'
+        ? `${preset.id}-custom`
+        : preset.id;
+    const themePack = {
+        schemaVersion: 1,
+        id: exportedId,
+        type: 'custom',
+        title: isCustomOverride && preset.type !== 'custom' ? `${preset.title} Custom` : preset.title,
+        description: preset.description || 'Custom Theme Pack exported from Saga.',
+        author: preset.author || '',
+        version: preset.version || '1.0.0',
+        iconPackId: preset.iconPackId || settings.themeIconPackId || 'wandlight-default',
+        colors,
+        icons: preset.icons || {},
+        tags: Array.isArray(preset.tags) ? preset.tags.filter(tag => tag !== 'quality:bundled') : [],
+    };
+    downloadJson(themePack, `${sanitizeFileStem(themePack.id || 'saga-theme')}.theme.json`);
+    toast('Active Theme Pack exported.', 'info');
+}
+
+function exportThemePackLibrary() {
+    const settings = getSettings();
+    const library = settings.themePackLibrary || getThemePackLibraryRegistry();
+    downloadJson(library, 'saga-theme-pack-library.json');
+    toast('Theme Pack Library exported.', 'info');
+}
+
+function importThemePackFromFile() {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'application/json,.json';
+    input.addEventListener('change', async () => {
+        const file = input.files?.[0];
+        if (!file) return;
+        try {
+            const text = await file.text();
+            const parsed = JSON.parse(text);
+            if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
+                throw new Error('Theme Pack import must be a JSON object.');
+            }
+
+            if (parsed.packs && typeof parsed.packs === 'object') {
+                const result = importThemePackLibraryRegistry(parsed, { replace: false });
+                if (!result.ok) throw new Error(result.error || 'Import failed.');
+                refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+                const skipped = result.skippedCount ? ` Skipped ${result.skippedCount} bundled-id conflict(s).` : '';
+                toast(`Imported ${result.importedCount || 0} Theme Pack record(s).${skipped}`, result.skippedCount ? 'warning' : 'success');
+                return;
+            }
+
+            const result = upsertThemePackLibraryPack({ ...parsed, type: 'custom' });
+            if (!result.ok) throw new Error(result.error || 'Import failed.');
+            applyThemePreset(result.pack.id);
+            toast(`Installed Theme Pack: ${result.pack.title}.`, 'success');
+        } catch (e) {
+            toast(e?.message || 'Theme Pack import failed.', 'error');
+        }
+    }, { once: true });
+    input.click();
+}
+
+async function forgetThemePack(themeId) {
+    const pack = getThemePreset(themeId, getSettings());
+    const ok = await confirmAction(
+        'Forget Theme Pack',
+        `Remove "${pack.title || themeId}" from installed Custom Theme Packs?`
+    );
+    if (!ok) return;
+    const result = removeThemePackLibraryPack(themeId);
+    if (!result.ok) {
+        toast(result.error || 'Theme Pack could not be removed.', 'error');
+        return;
+    }
+    const settings = getSettings();
+    if (settings.themePackId === themeId) {
+        resetThemeSettings();
+    } else {
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    }
+    toast('Theme Pack forgotten.', 'info');
+}
+
 function renderPanelBody(container, state) {
     container.innerHTML = '';
 
@@ -1301,7 +5167,9 @@ function renderPanelBody(container, state) {
     tabBody.className = `wandlight-runtime-tab-body wandlight-runtime-tab-body-${activeTab}`;
     container.appendChild(tabBody);
 
-    if (activeTab === 'session') {
+    if (activeTab === 'lorepacks') {
+        renderLorepacksTab(tabBody, state);
+    } else if (activeTab === 'session') {
         renderSessionTab(tabBody, state);
     } else if (activeTab === 'context') {
         renderContextTab(tabBody, state);
@@ -1309,6 +5177,8 @@ function renderPanelBody(container, state) {
         renderContinuityTab(tabBody, state);
     } else if (activeTab === 'lore') {
         renderLoreTab(tabBody, state);
+    } else if (activeTab === 'settings') {
+        renderSettingsTab(tabBody, state);
     } else {
         renderInjectionTab(tabBody, state);
     }
@@ -1357,12 +5227,118 @@ function getRailMetrics(state, settings = getSettings()) {
     const liveItems = [state?.scene?.location, state?.scene?.currentActivity].filter(Boolean).length;
 
     return {
+        lorepacks: getLorepackStackMetric(state),
         session: settings.enabled ? getExperienceLabel(settings) : 'Paused',
         context: sceneDate || canonBoundary || 'No date',
         continuity: `${activeCharacters || liveItems || 0} live`,
         lore: pendingLore ? `${counts.active || 0}+${pendingLore}` : `${counts.active || 0} active`,
         injection: injectionStats.totalChars ? `${injectionStats.totalTokens} tk` : `${selectedLore} lore`,
+        settings: getThemePreset(settings.themePackId)?.title || 'Theme',
     };
+}
+
+function getLorepackStack(state = getState()) {
+    const stack = Array.isArray(state?.lorepackStack) ? state.lorepackStack : [];
+    return stack
+        .filter(item => item && typeof item === 'object')
+        .map((item, index) => ({
+            packId: String(item.packId || '').trim(),
+            enabled: item.enabled !== false,
+            priority: Number.isFinite(Number(item.priority)) ? Number(item.priority) : Math.max(1, 100 - index),
+            locked: item.locked === true,
+            addedAt: Number.isFinite(Number(item.addedAt)) ? Number(item.addedAt) : 0,
+        }))
+        .filter(item => item.packId);
+}
+
+function normalizeLorepackLibraryPack(raw = {}) {
+    const packId = String(raw.packId || raw.id || '').trim();
+    if (!packId) return null;
+    const stats = raw.stats && typeof raw.stats === 'object' && !Array.isArray(raw.stats) ? raw.stats : {};
+    const derivedFrom = raw.derivedFrom && typeof raw.derivedFrom === 'object' && !Array.isArray(raw.derivedFrom) ? raw.derivedFrom : null;
+    const manifestData = raw.manifestData && typeof raw.manifestData === 'object' && !Array.isArray(raw.manifestData) ? raw.manifestData : null;
+    const entryOverrides = raw.entryOverrides && typeof raw.entryOverrides === 'object' && !Array.isArray(raw.entryOverrides) ? raw.entryOverrides : {};
+    const disabledEntryIds = Array.isArray(raw.disabledEntryIds) ? raw.disabledEntryIds.map(id => String(id || '').trim()).filter(Boolean) : [];
+    return {
+        packId,
+        type: ['bundled', 'custom', 'generated'].includes(raw.type) ? raw.type : 'custom',
+        title: String(raw.title || packId).trim(),
+        description: String(raw.description || '').trim(),
+        fandom: String(raw.fandom || '').trim(),
+        era: String(raw.era || '').trim(),
+        author: String(raw.author || '').trim(),
+        version: String(raw.version || '').trim(),
+        manifest: String(raw.manifest || '').trim(),
+        source: raw.source && typeof raw.source === 'object' && !Array.isArray(raw.source) ? raw.source : {},
+        tags: Array.isArray(raw.tags) ? raw.tags.map(tag => String(tag || '').trim()).filter(Boolean) : [],
+        stats,
+        entryCount: Number.isFinite(Number(raw.entryCount)) ? Number(raw.entryCount) : (Number.isFinite(Number(stats.entryCount)) ? Number(stats.entryCount) : 0),
+        healthStatus: String(raw.healthStatus || '').trim(),
+        derivedFrom,
+        manifestData,
+        entryOverrides,
+        disabledEntryIds,
+        installedAt: Number.isFinite(Number(raw.installedAt)) ? Number(raw.installedAt) : 0,
+        updatedAt: Number.isFinite(Number(raw.updatedAt)) ? Number(raw.updatedAt) : 0,
+    };
+}
+
+function getLorepackLibrary(state = getState()) {
+    const packs = new Map();
+    for (const pack of BUNDLED_LOREPACK_LIBRARY) {
+        const normalized = normalizeLorepackLibraryPack(pack);
+        if (normalized) packs.set(normalized.packId, normalized);
+    }
+    const registry = getLorepackLibraryRegistry(state);
+    const registryPacks = registry?.packs && typeof registry.packs === 'object' && !Array.isArray(registry.packs)
+        ? registry.packs
+        : {};
+    for (const pack of Object.values(registryPacks)) {
+        const normalized = normalizeLorepackLibraryPack(pack);
+        if (normalized) packs.set(normalized.packId, { ...(packs.get(normalized.packId) || {}), ...normalized });
+    }
+    return [...packs.values()].sort((a, b) => {
+        const typeOrder = { bundled: 0, custom: 1, generated: 2 };
+        return (typeOrder[a.type] ?? 9) - (typeOrder[b.type] ?? 9)
+            || a.title.localeCompare(b.title);
+    });
+}
+
+function getLorepackDisplayName(packId) {
+    const definition = getLorepackDefinition(packId);
+    if (definition?.title) return definition.title;
+    const known = {
+        'hp-golden-trio': 'Harry Potter: Golden Trio',
+    };
+    return known[packId] || packId;
+}
+
+function getLorepackTypeLabel(packId) {
+    const definition = getLorepackDefinition(packId);
+    if (definition?.type) return definition.type === 'bundled' ? 'Bundled' : humanizeScopeKey(definition.type);
+    const known = {
+        'hp-golden-trio': 'Bundled',
+    };
+    return known[packId] || 'Custom';
+}
+
+function getLorepackDefinition(packId) {
+    return getLorepackLibrary().find(pack => pack.packId === packId) || null;
+}
+
+function getLorepackStackMetric(state = getState()) {
+    const stack = getLorepackStack(state);
+    const enabled = stack.filter(item => item.enabled).length;
+    return enabled ? `${enabled} loaded` : 'None';
+}
+
+function getLorepackHealthText(health) {
+    if (!health) return 'Not checked';
+    const summary = health.summary || {};
+    const status = String(health.status || 'unknown').replace(/_/g, ' ');
+    const errors = Number(summary.errorCount) || 0;
+    const warnings = Number(summary.warningCount) || 0;
+    return `${status} | ${errors} errors | ${warnings} warnings`;
 }
 
 function normalizePanelLayoutState(state, options = {}) {
@@ -2074,6 +6050,15 @@ function downloadJson(data, filename) {
     a.click();
     a.remove();
     setTimeout(() => URL.revokeObjectURL(url), 0);
+}
+
+function sanitizeFileStem(value) {
+    const text = String(value || '')
+        .trim()
+        .toLowerCase()
+        .replace(/[^a-z0-9._-]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+    return text || 'saga-export';
 }
 
 function cloneJson(value) {
