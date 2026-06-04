@@ -30,6 +30,8 @@ The extension should help users answer:
 
 Saga should support single-fandom campaigns, alternate universes, crossovers, custom settings, and user-created packs without forcing every fandom into Harry Potter's calendar-shaped structure.
 
+Saga's lore target is high-value scene context, not wiki completeness. A good Saga entry should change how the model writes a scene: what characters know, hide, want, fear, misunderstand, expect, avoid, or react to at the current Story Position.
+
 ## Product Terms
 
 Only three Lorepack types should be exposed in the UI.
@@ -308,6 +310,10 @@ For Star Trek, that may be a season, episode range, stardate, or Dominion War ph
 
 For Star Wars, that may be BBY/ABY, era, conflict, book series, or before/after a major event.
 
+Coverage determines what a Lorepack contains. Story Position determines what Saga is allowed to inject from that pack at runtime.
+
+This distinction matters for large and modular fandom packs. A Lorepack can contain future canon as long as its entries are position-native and properly gated. Saga should prevent future canon leakage through Story Position eligibility, exclusionary lore, retrieval scoring, and manual locks, not through a pack-level spoiler boundary.
+
 ### Lorepack Context
 
 Each loaded Lorepack can have its own context slot.
@@ -449,6 +455,48 @@ Calendar dates should be one timeline coordinate, not the universal foundation.
 ```
 
 `sortKey` is the internal ordering mechanism. It lets Saga compare story positions without pretending every fandom has exact dates.
+
+### Timeline Registry Editor
+
+The Timeline Registry Editor defines a Lorepack's Story Position coordinate system. It does not primarily edit lore entries. It edits the map that entries attach to.
+
+The editor should support three primary object types:
+
+- Anchors: specific story positions, such as `Harry arrives at Hogwarts`, `Arlong Park begins`, `Battle of New York`, `Episode 31`, or `Chapter 69`.
+- Windows: ranges across the story, such as `First Year`, `Arlong Park Arc`, `Book One: Water`, `Infinity Saga`, or `Post-Marineford`.
+- Coordinates: normalized ordering values and optional media fields that let Saga compare story positions across date-heavy and date-light fandoms.
+
+The registry should work for many timeline styles:
+
+- Date-driven timelines, such as Harry Potter.
+- Arc-driven timelines, such as One Piece or My Hero Academia.
+- Episode/chapter-driven timelines, common in anime and manga.
+- Phase-driven timelines, such as MCU.
+- Era-driven timelines, such as Star Wars.
+- Artificial indexed timelines, where Saga creates stable sort keys because the fandom has no reliable hard dates.
+
+Required editor tools:
+
+- Searchable anchor/window list.
+- Anchor and window create/edit/duplicate/delete.
+- Stable ID editing with duplicate warnings.
+- Label, alias, tag, date range, sort key, and notes editing.
+- Start/end anchor selection for windows.
+- Bulk edit for aliases, tags, sort-key ranges, labels, and window assignment.
+- Drag/reorder support where a registry uses artificial ordering.
+- Preview of lore entries attached to an anchor or window.
+- Validation for duplicate IDs, dangling window references, invalid sort ranges, missing labels, malformed dates, and anchors that are referenced by entries but absent from the registry.
+
+Large registries should be expected. Harry Potter alone may eventually have hundreds or thousands of anchors when dates, events, school years, knowledge reveals, and wide windows are all represented. That is acceptable if the editor and runtime use:
+
+- Stable IDs instead of labels as references.
+- Numeric sort keys for comparisons.
+- Cached lookup maps.
+- Indexed local search.
+- Lazy UI rendering.
+- Pack Health warnings instead of fragile hard failures for advisory issues.
+
+The Timeline Registry Editor should use model assistance heavily because building large registries by hand is tedious. The model can draft anchors, windows, aliases, artificial sort keys, missing-event suggestions, and bulk revisions. The model should not silently mutate the registry. It should return structured patches with before/after previews that the user accepts, rejects, or edits.
 
 ### Position Index v1 Implementation
 
@@ -895,34 +943,120 @@ This source/update metadata is internal. The UI type remains Custom Lorepack.
 
 The built-in Lorepack Creator is a major differentiating feature.
 
-It should create Generated Lorepacks from:
+It should create Generated Lorepacks from a small, natural-language intake:
 
-- Fandom and scope entered by the user.
-- User notes.
-- Existing chat/story history.
-- Pasted outline.
-- Existing Lorepack used as a starting point.
-- Model knowledge, clearly marked as generated and lower confidence.
+- Fandom.
+- Lorepack scope / coverage range.
+- Granularity.
 
-The creator should produce reviewable draft entries, not pretend to produce final authority packs.
+Optional supporting context can include user notes, existing chat/story history, a pasted outline, or an existing Lorepack used as a starting point. These should help generation without becoming required front-door questions.
+
+The creator should not feel like a taxonomy form. It should feel like the user asks for the pack they want, Saga narrows scope when needed, then shows reviewable drafts before spending model calls on full entries.
+
+### Creator Intake
+
+The only front-facing required fields should be:
+
+1. Fandom.
+2. Lorepack Scope / Coverage Range.
+3. Granularity.
+
+Do not ask casual users to define adaptation, continuity, canon line, intended use, spoiler boundary, included/excluded characters, or approximate entry count during the core flow.
+
+Saga is for long-form fanfic and roleplay, so intended use is already known. Fandoms should be treated broadly unless the user naturally scopes the pack to a distinct source line in plain language, such as `Star Wars Legends`, `MCU`, or `Hogwarts Legacy`. That source distinction belongs in the pack title, scope, source notes, and generated metadata, not as a required abstract intake question.
+
+Approximate entry count should not be front-facing. Saga should derive it dynamically from:
+
+- Scope size.
+- Story density.
+- Number of major characters.
+- Number of factions/groups.
+- Number of locations.
+- Number of major events.
+- Number of power systems, items, concepts, or social rules.
+- Chosen granularity.
+
+The user chooses density, not a number. Saga estimates the number only after it understands the scope and can show it for review.
+
+Granularity presets:
+
+- Lean: core characters, core setting, essential events, and must-not-leak constraints only.
+- Standard: major cast, major locations, important relationships, key events, factions, and core concepts.
+- Detailed: secondary cast, sub-events, recurring objects, faction details, local social context, and more retrieval metadata.
+- Exhaustive: minor cast, granular timeline moments, aliases, variants, edge-case concepts, dense tags, and dense Story Position metadata.
+
+### Creator Scope Negotiation
+
+Many users will request something too broad, such as `One Piece Lorepack` or `Marvel Lorepack`.
+
+Saga should respond by helping narrow the request to a useful coverage range:
+
+- An arc.
+- A book.
+- A season.
+- A game chapter.
+- A film phase.
+- A tightly bounded era.
+- A character-centered slice if the user is intentionally creating a focused pack.
+
+The assistant should avoid overwhelming the user with formal options. It should ask a small number of practical clarifying questions only when the request is too large or ambiguous.
+
+Good scope:
+
+```text
+One Piece: Arlong Park Arc, standard granularity.
+```
+
+Too broad:
+
+```text
+One Piece, exhaustive granularity.
+```
+
+The output of scope negotiation should be a short pack brief:
+
+- Fandom.
+- Coverage range.
+- Granularity.
+- Expected timeline style inferred by Saga.
+- Estimated entry range.
+- Any assumptions Saga will use.
+
+The user approves or revises the brief before generation proceeds.
 
 ### Creator Flow
 
-1. Choose fandom and scope.
-2. Choose timeline style: date, arc, phase, season/episode, anchor window, hybrid.
-3. Define spoiler boundary or story position.
-4. Generate/propose timeline anchors.
-5. Generate/propose tags.
-6. Generate candidate lore entries in batches.
-7. Run Pack Health.
-8. Review entries in a workbench.
-9. Bulk edit, accept, reject, merge, or regenerate.
-10. Save as Generated Lorepack.
-11. Optional: user marks as reviewed and converts to Custom Lorepack.
+1. User requests a Lorepack.
+2. Saga identifies fandom, coverage range, and granularity.
+3. Saga narrows vague or oversized scope when needed.
+4. Saga produces a pack brief with assumptions and an estimated entry range.
+5. User approves or revises the brief.
+6. Saga drafts timeline/windows/anchors appropriate to the coverage range.
+7. User reviews the timeline draft.
+8. Saga drafts tag/entity registries.
+9. User reviews tag/entity registries.
+10. Saga drafts entry titles only.
+11. User adds, removes, merges, splits, or approves titles.
+12. Saga generates full entries for approved titles in batches.
+13. Saga runs Pack Health.
+14. User reviews generated entries, Pack Health warnings, and diffs.
+15. User accepts selected entries into the Generated Lorepack.
+
+No full card generation should happen until the scope, timeline, tag/entity registry, and entry title list have been reviewed.
+
+### Coverage Versus Injection
+
+The creator should not ask for a spoiler boundary as a required field.
+
+A Lorepack's coverage range determines what Saga generates. Story Position determines what Saga injects.
+
+For example, an `Arlong Park Arc` pack can contain late-arc reveals and consequences. Those entries should not inject before their Story Position becomes eligible. This is handled by `position`, timeline anchors/windows, exclusionary lore, retrieval scoring, and current Lorepack Context.
 
 ### Creator Quality Goals
 
-The generator should prefer specific constraints:
+The creator should generate usable roleplay/fanfic context, not wiki summaries.
+
+The generator should prefer specific scene constraints:
 
 ```text
 Before Civil War, Tony should not treat the Sokovia Accords as enacted law.
@@ -951,6 +1085,151 @@ Generated entries should include:
 - Confidence.
 - Source note or generation note.
 
+### Lore Value Rubric
+
+Saga should steer generation and revision toward high-value lore. A strong entry should score well on most of these criteria:
+
+- Scene Utility: improves dialogue, action, tension, characterization, or setting behavior.
+- Activation Clarity: has a clear Story Position, window, trigger, or retrieval purpose.
+- Behavioral Impact: changes what characters do, say, know, believe, hide, avoid, or expect.
+- Relationship Impact: affects trust, suspicion, allegiance, intimacy, rivalry, family pressure, or social standing.
+- Conflict / Stakes: adds meaningful danger, obligation, taboo, mystery, leverage, consequence, or pressure.
+- Non-Redundancy: is distinct from nearby entries and does not repeat generic canon summary.
+- Injection Quality: is concise, direct, and useful when placed into the prompt.
+- Story Position Fit: avoids future leakage and matches the intended activation window.
+
+The creator should use the rubric in title generation, content generation, revision, and Pack Health suggestions.
+
+Strong title examples:
+
+- `Nami hides her bargain with Arlong`.
+- `Arlong Park villagers live under tribute pressure`.
+- `Zoro is badly wounded after Mihawk`.
+
+Weak title examples:
+
+- `Nami biography`.
+- `Arlong facts`.
+- `Cocoyasi Village summary`.
+
+Pack Health should eventually warn softly when a Generated Lorepack has too many biography-style entries, vague activation, repeated summary content, bloated injections, missing tags, or no behavioral implication.
+
+## Lore Assistant
+
+The Lore Assistant is Saga's AI helper for creating, revising, repairing, and expanding Lorepacks. It should be available from the Lorepack Creator, Lorepack Editor, Timeline Registry Editor, Tag Manager, Pack Health report, and Lore Entries workbenches.
+
+Core rule:
+
+```text
+The Lore Assistant proposes changes into Pending. Users promote them into Accepted.
+```
+
+The assistant is not the source of truth. Saga's schema, Story Position system, Pack Health checks, and user approval remain the authority.
+
+### Assistant Capabilities
+
+The assistant should support:
+
+- Lorepack generation from fandom, coverage range, and granularity.
+- Timeline anchor/window drafting.
+- Tag and entity registry drafting.
+- New entry suggestions.
+- Existing entry revision.
+- Bulk lore revision from natural-language instructions.
+- Metadata repair for tags, scope, retrieval, category, and Story Position fields.
+- Pack Health issue repair suggestions.
+- Low-value lore cleanup, such as reducing wiki tone or splitting overloaded entries.
+
+Example request:
+
+```text
+Arlong and crew are too kind. Revise their character cards to make them more evil.
+```
+
+For subjective revisions, the assistant should clarify intent before editing:
+
+```text
+Do you want them to be more openly sadistic, more manipulative, more greedy, more violent, or some combination?
+```
+
+After clarification, it should propose a patch across affected entries, not directly modify accepted content.
+
+### Pending And Accepted Integration
+
+Assistant output should flow through the same lifecycle as human-edited lore:
+
+- Pending New Entry: a proposed new lore card.
+- Pending Edit: a proposed change to an existing accepted entry.
+- Pending Delete / Deprecation: a proposed removal, suppression, or retirement.
+
+The assistant should never silently overwrite Accepted lore.
+
+For a revision of existing entries:
+
+1. User selects accepted entries.
+2. User gives a revision instruction.
+3. Assistant proposes field-level changes.
+4. Proposed changes appear as Pending edits tied to their original entries.
+5. User reviews diffs.
+6. User accepts selected changes.
+7. Accepted entries update only after approval.
+
+For new entries:
+
+1. Assistant proposes missing entries.
+2. They enter as Pending new entries.
+3. User reviews, edits, accepts, or rejects them.
+4. Accepted entries become part of the Lorepack.
+
+This workflow should apply to Generated, Custom, and imported Custom Lorepacks. Bundled Lorepacks remain read-only.
+
+### Bundled Pack Protection
+
+Bundled Lorepacks should never be edited in place.
+
+If a user wants to revise a Bundled pack through the assistant, Saga should force one of these paths:
+
+- Duplicate it into an editable Custom Lorepack.
+- Create Custom overrides layered above the Bundled Lorepack.
+
+Assistant proposals may target Bundled content for review, but accepted results must save into user-owned editable data.
+
+### Patch-Based Assistant Output
+
+The assistant should return structured patches rather than raw rewritten files.
+
+A patch should include:
+
+- Target pack.
+- Affected entries.
+- Output mode: pending new, pending edit, or pending delete/deprecation.
+- Field-level changes.
+- Before/after preview.
+- Reason for each change.
+- Confidence or risk level.
+- Whether the change is mechanical, metadata-focused, or creative.
+
+The user should be able to:
+
+- Accept all.
+- Accept selected.
+- Reject selected.
+- Edit before accepting.
+- Ask for another pass.
+
+### Assistant Guardrails
+
+The assistant should:
+
+- Preserve IDs unless intentionally creating new entries.
+- Preserve namespaced tags unless asked to change them.
+- Avoid future canon leakage in entries whose Story Position is earlier.
+- Use known timeline anchors instead of inventing anchor IDs.
+- Ask clarifying questions for subjective creative changes.
+- Avoid claiming perfect canon certainty.
+- Prefer high-value scene context over wiki summaries.
+- Run Pack Health after major changes.
+
 ## Lorepack Editor
 
 The Lorepack tab should eventually include a full editor, similar in spirit to the accepted/pending lore workbenches.
@@ -961,13 +1240,15 @@ Required views:
 - Active Stack.
 - Pack Detail.
 - Entry Workbench.
+- Pending Review Queue.
 - Bulk Edit.
 - Tag Manager.
-- Timeline / Story Position Editor.
+- Timeline Registry Editor.
 - Resolver Alias Editor.
 - Pack Health Report.
 - Import / Export / Update.
 - Lorepack Creator.
+- Lore Assistant panel.
 
 ### Entry Workbench
 
@@ -977,6 +1258,7 @@ The entry workbench should support:
 - Category filters.
 - Tag filters.
 - Pack source filters.
+- Entry state filters: source, override, pending new, pending edit, pending delete, accepted.
 - Relevance filters.
 - Canon/AU filters.
 - Story Position filters.
@@ -990,12 +1272,36 @@ The entry workbench should support:
 - Entry clone.
 - Entry disable.
 - Entry delete.
+- Assistant revise selected entries.
+- Assistant suggest missing entries from the current filter/search result.
+- Diff preview for pending edits.
+- Accept/reject selected pending changes.
+- Promote accepted Bundled-pack edits into Custom overrides rather than mutating Bundled files.
+
+### Pending Review Queue
+
+The Pending Review Queue is the shared review surface for human and assistant proposals.
+
+It should support:
+
+- Pending new entries.
+- Pending edits tied to accepted/source entries.
+- Pending delete, deprecation, or disable proposals.
+- Field-level diffs.
+- Pack Health validation before acceptance.
+- Accept all / accept selected / reject selected.
+- Edit before accepting.
+- Source chips showing whether a proposal came from manual editing, bulk editing, import repair, Pack Health repair, or Lore Assistant.
+
+Accepted chat-specific story lore still outranks Lorepack entries at runtime. Pending Lorepack changes should not affect runtime injection until accepted.
 
 ## Migration From Wandlight
 
 The migration should be behavior-preserving first.
 
-Milestone 1 should not change how current Harry Potter lore suggestions work. It should only route them through the new Lorepack structure.
+Milestone 1 should not change how current Harry Potter lore suggestions behave at runtime. It should route them through the new Lorepack structure.
+
+This does not mean reference Lorepacks should preserve legacy entry schema. The bundled Harry Potter pack should be the example pack for Saga v3: Story Position-native, timeline-registry-driven, and free of legacy entry-local date gates.
 
 Migration tasks:
 
@@ -1041,6 +1347,7 @@ Do not include the full Lorepack Creator in MVP. Design for it, then build it af
 ### Milestone 3: Story Position
 
 - Timeline registry.
+- Timeline Registry Editor foundation.
 - Pack-specific Lorepack Context.
 - Manual Story Position selector.
 - Anchor aliases.
@@ -1051,9 +1358,10 @@ Do not include the full Lorepack Creator in MVP. Design for it, then build it af
 ### Milestone 4: Editor And Pack Health
 
 - Entry workbench.
+- Pending Review Queue.
 - Bulk edit.
 - Tag manager.
-- Timeline editor.
+- Timeline Registry Editor.
 - Expanded Pack Health.
 - Import/export JSON.
 - Import/export zip.
@@ -1069,25 +1377,40 @@ Do not include the full Lorepack Creator in MVP. Design for it, then build it af
 
 ### Milestone 6: Lorepack Creator
 
-- Creator wizard.
+- Simple creator intake: fandom, coverage range, and granularity.
+- Scope negotiation and pack brief approval.
 - Timeline anchor generation.
-- Tag generation.
-- Entry generation.
-- Batch review.
+- Tag/entity registry generation.
+- Entry title generation before full entry generation.
+- High-value lore rubric.
+- Batch entry generation.
+- Pending review queue integration.
 - Pack Health loop.
 - Save as Generated Lorepack.
 - Convert reviewed Generated Lorepack to Custom Lorepack.
+
+### Milestone 7: Lore Assistant
+
+- Assistant panel in Lorepack Editor.
+- Assistant panel in Timeline Registry Editor.
+- Assistant panel in Tag Manager.
+- Natural-language bulk revision.
+- Structured patch output.
+- Pending new/edit/delete proposals.
+- Bundled-pack protection through Custom overrides or duplication.
+- Pack Health repair suggestions.
 
 ## Open Questions
 
 - Should pack stack order be global, per character, per chat, or both global default plus per-chat override?
 - Should Story Position be edited in the Context tab, Lorepack tab, or both?
 - How much of Pack Health should run live versus on demand?
-- Should generated packs be allowed to auto-suggest immediately, or should they require a first review pass?
-- How should Saga represent manga/anime divergence, where arcs exist in multiple adaptation orders?
 - Should pack updates merge at entry level or replace the whole pack when unmodified?
 - What is the minimum useful Story Position schema for MVP?
 - Should tag namespaces be required for Bundled packs?
+- How strict should low-value-lore Pack Health warnings be without discouraging fun user-made packs?
+- What is the minimum assistant patch schema needed before we expose natural-language bulk editing?
+- How large should generation batches be before review becomes tedious?
 
 ## Risks
 
@@ -1107,7 +1430,13 @@ Mitigation: Start with pack library, stack, and read-only detail views. Add edit
 
 Risk: Generated packs hallucinate, overgeneralize, or become wiki dumps.
 
-Mitigation: Generated packs are drafts. Use review, Pack Health, confidence metadata, and source notes.
+Mitigation: Generated packs are drafts. Use staged generation, title-first review, Pending acceptance, Pack Health, confidence metadata, source notes, and the Lore Value Rubric.
+
+### Assistant Overreach
+
+Risk: The Lore Assistant rewrites too much, changes accepted entries without enough review, invents anchors, or flattens characterization into generic summaries.
+
+Mitigation: Assistant output is patch-based, lands in Pending, preserves IDs and namespaced tags by default, uses known timeline anchors, and runs Pack Health before acceptance.
 
 ### Duplicate Custom Packs
 
@@ -1131,7 +1460,7 @@ Mitigation: Build a runtime index, cache loaded manifests, score candidates in s
 
 The initial Lorepack foundation is implemented: `hp-golden-trio` is scaffolded, the Lorepack loader preserves legacy `Lore/manifest.json` fallback, canon suggestions route through the active stack, the Lorepack tab owns library/stack workflows, Story Position v1 exists, Theme Packs exist, and provider settings now live in the runtime Settings tab.
 
-The current production slice is **position-native Lorepack retrieval and HP reference-pack conformance**.
+Recent production completed **position-native Lorepack retrieval and HP reference-pack conformance**.
 
 1. Done: normalize entry-level `position` metadata in the lore entry pipeline.
 2. Done: evaluate entry `position` gates against each loaded Lorepack's `lorepackContexts`.
@@ -1144,4 +1473,5 @@ The current production slice is **position-native Lorepack retrieval and HP refe
 9. Done: add Story Position and retrieval fields to the Custom entry editor so new schema v3 entries can be authored fully instead of only preserving source entry positions.
 10. Done: add timeline anchor search/pickers and bulk Story Position editing to make v3 authoring less manual.
 11. Done: add bulk tag editing and a first Tag Manager surface for Custom Lorepack entries, including tag counts, tag filtering, add/remove/rename operations, and namespaced tag preservation.
-12. Next: wire Tag Manager into `tags.json` registry editing and Pack Health checks for undefined or deprecated tags.
+12. Done: capture the Creator, Timeline Registry Editor, Lore Assistant, Pending/Accepted lifecycle, and high-value lore rubric in preproduction.
+13. Next: wire Tag Manager into `tags.json` registry editing and Pack Health checks for undefined or deprecated tags.
