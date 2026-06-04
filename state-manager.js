@@ -49,7 +49,18 @@ const LOREPACK_STORY_POSITION_SOURCES = Object.freeze([
     'imported',
     'unknown',
 ]);
-const BUNDLED_THEME_PACK_IDS = Object.freeze(['wandlight-default', 'saga-slate']);
+const BUNDLED_THEME_PACK_IDS = Object.freeze([
+    'wandlight-default',
+    'royal-chronicle',
+    'grimoire-crimson',
+    'stellar-cartography',
+    'neon-district',
+    'hero-campus',
+    'sea-map-odyssey',
+    'monster-index',
+    'holo-rail',
+    'midnight-evidence',
+]);
 const THEME_COLOR_KEYS = Object.freeze([
     'background',
     'backgroundAlt',
@@ -632,6 +643,13 @@ function normalizeLorepackRegistry(value, defaults = getDefaultState().lorepackR
             installedAt: Number.isFinite(Number(raw.installedAt)) ? Number(raw.installedAt) : 0,
             updatedAt: Number.isFinite(Number(raw.updatedAt)) ? Number(raw.updatedAt) : 0,
         };
+        const assets = cloneLorepackPlainObject(raw.assets, 50000);
+        if (assets) pack.assets = assets;
+        else if (raw.cover || raw.coverImage) {
+            pack.assets = {
+                cover: raw.cover || raw.coverImage,
+            };
+        }
         const derivedFrom = cloneLorepackPlainObject(raw.derivedFrom, 20000);
         if (derivedFrom) pack.derivedFrom = derivedFrom;
         const manifestData = normalizeEmbeddedLorepackManifest(raw.manifestData);
@@ -700,7 +718,7 @@ function normalizeThemePackRegistry(value, defaults = DEFAULT_SETTINGS.themePack
         const isBundledDefault = defaultPacks[id]?.type === 'bundled' || BUNDLED_THEME_PACK_IDS.includes(id);
         const type = raw.type === 'bundled' && isBundledDefault ? 'bundled' : 'custom';
         const source = raw.source && typeof raw.source === 'object' && !Array.isArray(raw.source) ? raw.source : {};
-        const iconPackId = String(raw.iconPackId || raw.icons?.packId || 'wandlight-default').trim();
+        const iconPackId = String(raw.iconPackId || raw.icons?.packId || DEFAULT_SETTINGS.themeIconPackId || 'saga-gold').trim();
         const pack = {
             id,
             type,

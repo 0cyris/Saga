@@ -248,8 +248,10 @@ const THEMEPACK_PRESETS = Object.freeze([
         id: 'wandlight-default',
         type: 'bundled',
         title: 'SAGA Archive',
-        description: 'Bundled dark archive theme for SAGA: Fandom Loresystem.',
-        iconPackId: 'wandlight-default',
+        description: 'Dark archive shelves, gold trim, parchment highlights, and polished fantasy UI.',
+        author: 'Saga',
+        version: '1.0.0',
+        iconPackId: 'saga-gold',
         colors: {
             background: '#120c12',
             backgroundAlt: '#241018',
@@ -273,38 +275,304 @@ const THEMEPACK_PRESETS = Object.freeze([
             mutedText: '#cfc5ad',
         },
         icons: {},
-        tags: ['theme:dark', 'style:archive', 'quality:bundled'],
+        tags: ['theme:dark', 'style:archive', 'genre:general', 'genre:fantasy', 'quality:bundled'],
     },
     {
-        id: 'saga-slate',
+        id: 'royal-chronicle',
         type: 'bundled',
-        title: 'Saga Slate',
-        description: 'Bundled neutral slate theme for longer runtime sessions.',
-        iconPackId: 'wandlight-default',
+        title: 'Royal Chronicle',
+        description: 'High fantasy court records with royal blue panels, ivory text, wine shadows, and antique gold.',
+        author: 'Saga',
+        version: '1.0.0',
+        iconPackId: 'saga-gold',
         colors: {
-            background: '#111318',
-            backgroundAlt: '#1d242b',
-            gradientStart: '#111318',
-            gradientEnd: '#0a1015',
-            surface: '#20242a',
-            surfaceAlt: '#15191f',
-            border: '#6f8797',
-            borderStrong: '#d1b25f',
-            accent: '#d1b25f',
-            danger: '#65313b',
-            success: '#24523e',
-            warning: '#aa842f',
-            focus: '#f0d27a',
-            button: '#15191f',
-            buttonHover: '#263240',
-            buttonText: '#edf0f2',
-            input: '#101419',
-            inputBorder: '#6f8797',
-            text: '#edf0f2',
-            mutedText: '#bbc5ca',
+            background: '#0b1020',
+            backgroundAlt: '#1d1024',
+            gradientStart: '#0b1020',
+            gradientEnd: '#2a1122',
+            surface: '#18213a',
+            surfaceAlt: '#101522',
+            border: '#b89955',
+            borderStrong: '#f0d58a',
+            accent: '#f0d58a',
+            danger: '#5a1930',
+            success: '#1f5b45',
+            warning: '#c7963e',
+            focus: '#f5e5a6',
+            button: '#141a2e',
+            buttonHover: '#2f2340',
+            buttonText: '#f7efd8',
+            input: '#0f1423',
+            inputBorder: '#b89955',
+            text: '#f7efd8',
+            mutedText: '#d8c99f',
         },
         icons: {},
-        tags: ['theme:dark', 'style:slate', 'quality:bundled'],
+        tags: ['theme:dark', 'style:royal', 'genre:high-fantasy', 'genre:politics', 'quality:bundled'],
+    },
+    {
+        id: 'grimoire-crimson',
+        type: 'bundled',
+        title: 'Grimoire Crimson',
+        description: 'Forbidden texts, occult ink, ember-lit sigils, and dark supernatural atmosphere.',
+        author: 'Saga',
+        version: '1.0.0',
+        iconPackId: 'saga-gold',
+        colors: {
+            background: '#10090d',
+            backgroundAlt: '#241015',
+            gradientStart: '#14080c',
+            gradientEnd: '#09090d',
+            surface: '#221215',
+            surfaceAlt: '#130c10',
+            border: '#9e3e2c',
+            borderStrong: '#e28a48',
+            accent: '#f0b35a',
+            danger: '#4e0c17',
+            success: '#245440',
+            warning: '#d08b31',
+            focus: '#ffd37a',
+            button: '#1a0f12',
+            buttonHover: '#3a1118',
+            buttonText: '#f4eadc',
+            input: '#120b0f',
+            inputBorder: '#9e3e2c',
+            text: '#f4eadc',
+            mutedText: '#d8c2aa',
+        },
+        icons: {},
+        tags: ['theme:dark', 'style:occult', 'genre:dark-fantasy', 'genre:horror', 'quality:bundled'],
+    },
+    {
+        id: 'stellar-cartography',
+        type: 'bundled',
+        title: 'Stellar Cartography',
+        description: 'Clean star maps, tactical blue-white lines, restrained command-console glow, and signal amber.',
+        author: 'Saga',
+        version: '1.0.0',
+        iconPackId: 'saga-gold',
+        colors: {
+            background: '#07111f',
+            backgroundAlt: '#102235',
+            gradientStart: '#06101d',
+            gradientEnd: '#071728',
+            surface: '#11283a',
+            surfaceAlt: '#081727',
+            border: '#4ea3c7',
+            borderStrong: '#91d8ff',
+            accent: '#9bdcff',
+            danger: '#532332',
+            success: '#1d5a55',
+            warning: '#d0a33f',
+            focus: '#d4f2ff',
+            button: '#0b1b2a',
+            buttonHover: '#12334a',
+            buttonText: '#eef7ff',
+            input: '#071522',
+            inputBorder: '#4ea3c7',
+            text: '#eef7ff',
+            mutedText: '#bdd5e3',
+        },
+        icons: {},
+        tags: ['theme:dark', 'style:cartography', 'genre:sci-fi', 'genre:space-opera', 'quality:bundled'],
+    },
+    {
+        id: 'neon-district',
+        type: 'bundled',
+        title: 'Neon District',
+        description: 'Anime cybercity styling with cyan lanes, magenta shadows, electric yellow alerts, and concrete darks.',
+        author: 'Saga',
+        version: '1.0.0',
+        iconPackId: 'saga-gold',
+        colors: {
+            background: '#090912',
+            backgroundAlt: '#171021',
+            gradientStart: '#0a0712',
+            gradientEnd: '#091b23',
+            surface: '#17172b',
+            surfaceAlt: '#10101d',
+            border: '#13d4d9',
+            borderStrong: '#f2d75e',
+            accent: '#44e4ff',
+            danger: '#65133c',
+            success: '#0e6d5b',
+            warning: '#f2d75e',
+            focus: '#ff66d8',
+            button: '#111425',
+            buttonHover: '#28203b',
+            buttonText: '#f7f3ff',
+            input: '#0d1020',
+            inputBorder: '#13d4d9',
+            text: '#f7f3ff',
+            mutedText: '#c9c2df',
+        },
+        icons: {},
+        tags: ['theme:dark', 'style:neon', 'genre:anime', 'genre:cyberpunk', 'quality:bundled'],
+    },
+    {
+        id: 'hero-campus',
+        type: 'bundled',
+        title: 'Hero Campus',
+        description: 'Bright shonen academy energy with varsity accents, training-board structure, and notebook clarity.',
+        author: 'Saga',
+        version: '1.0.0',
+        iconPackId: 'saga-gold',
+        colors: {
+            background: '#0b1425',
+            backgroundAlt: '#17203a',
+            gradientStart: '#0b1425',
+            gradientEnd: '#111c2e',
+            surface: '#17253f',
+            surfaceAlt: '#0f182a',
+            border: '#f2c94c',
+            borderStrong: '#fff1a8',
+            accent: '#ffcf4d',
+            danger: '#7c1f28',
+            success: '#2c6b45',
+            warning: '#ffb84d',
+            focus: '#fff2a3',
+            button: '#13203a',
+            buttonHover: '#203455',
+            buttonText: '#fff8e8',
+            input: '#0f182a',
+            inputBorder: '#f2c94c',
+            text: '#fff8e8',
+            mutedText: '#d9d4c4',
+        },
+        icons: {},
+        tags: ['theme:dark', 'style:academy', 'genre:shonen', 'genre:superhero', 'quality:bundled'],
+    },
+    {
+        id: 'sea-map-odyssey',
+        type: 'bundled',
+        title: 'Sea Map Odyssey',
+        description: 'Adventure-map warmth with deep ocean panels, sunlit gold, coral danger, and dark ink readability.',
+        author: 'Saga',
+        version: '1.0.0',
+        iconPackId: 'saga-gold',
+        colors: {
+            background: '#071925',
+            backgroundAlt: '#0f3140',
+            gradientStart: '#061823',
+            gradientEnd: '#143a45',
+            surface: '#133341',
+            surfaceAlt: '#0c232f',
+            border: '#d8a857',
+            borderStrong: '#f3d48b',
+            accent: '#f3c86a',
+            danger: '#6a2a25',
+            success: '#2f684a',
+            warning: '#dba14a',
+            focus: '#ffe09a',
+            button: '#0d2835',
+            buttonHover: '#164457',
+            buttonText: '#f7efd8',
+            input: '#0a2230',
+            inputBorder: '#d8a857',
+            text: '#f7efd8',
+            mutedText: '#cfd8c3',
+        },
+        icons: {},
+        tags: ['theme:dark', 'style:nautical', 'genre:adventure', 'genre:journey', 'quality:bundled'],
+    },
+    {
+        id: 'monster-index',
+        type: 'bundled',
+        title: 'Monster Index',
+        description: 'Creature encyclopedia and field-guide styling with forest panels, clay warmth, and taxonomy cues.',
+        author: 'Saga',
+        version: '1.0.0',
+        iconPackId: 'saga-gold',
+        colors: {
+            background: '#08170f',
+            backgroundAlt: '#13271b',
+            gradientStart: '#08170f',
+            gradientEnd: '#1e2c20',
+            surface: '#162919',
+            surfaceAlt: '#0e1d13',
+            border: '#8fb06f',
+            borderStrong: '#d5e8a8',
+            accent: '#cde889',
+            danger: '#653021',
+            success: '#36744a',
+            warning: '#caa24a',
+            focus: '#e5f7b2',
+            button: '#112216',
+            buttonHover: '#223b29',
+            buttonText: '#f6f0df',
+            input: '#0d1d12',
+            inputBorder: '#8fb06f',
+            text: '#f6f0df',
+            mutedText: '#d4d2b8',
+        },
+        icons: {},
+        tags: ['theme:dark', 'style:field-guide', 'genre:creatures', 'genre:monster-catalog', 'quality:bundled'],
+    },
+    {
+        id: 'holo-rail',
+        type: 'bundled',
+        title: 'Holo Rail',
+        description: 'Luminous anime space-fantasy panels with champagne gold, aqua rails, and astral violet depth.',
+        author: 'Saga',
+        version: '1.0.0',
+        iconPackId: 'saga-gold',
+        colors: {
+            background: '#0b0a18',
+            backgroundAlt: '#17162f',
+            gradientStart: '#0b0a18',
+            gradientEnd: '#081c25',
+            surface: '#181735',
+            surfaceAlt: '#0f1024',
+            border: '#7ddbd0',
+            borderStrong: '#e5c779',
+            accent: '#f1d18c',
+            danger: '#5f2147',
+            success: '#2c6254',
+            warning: '#dba75c',
+            focus: '#98fff2',
+            button: '#12142b',
+            buttonHover: '#262246',
+            buttonText: '#faf4ff',
+            input: '#0f1024',
+            inputBorder: '#7ddbd0',
+            text: '#faf4ff',
+            mutedText: '#d5cceb',
+        },
+        icons: {},
+        tags: ['theme:dark', 'style:holographic', 'genre:anime', 'genre:space-fantasy', 'quality:bundled'],
+    },
+    {
+        id: 'midnight-evidence',
+        type: 'bundled',
+        title: 'Midnight Evidence',
+        description: 'Investigation-board tension with case-file neutrals, desaturated greens, amber warnings, and rust-red danger.',
+        author: 'Saga',
+        version: '1.0.0',
+        iconPackId: 'saga-gold',
+        colors: {
+            background: '#090d0c',
+            backgroundAlt: '#131a17',
+            gradientStart: '#090d0c',
+            gradientEnd: '#15100c',
+            surface: '#18211d',
+            surfaceAlt: '#101613',
+            border: '#8f6a3a',
+            borderStrong: '#e0b86b',
+            accent: '#e0b86b',
+            danger: '#5b1b19',
+            success: '#315f43',
+            warning: '#c8892d',
+            focus: '#ffd27a',
+            button: '#111715',
+            buttonHover: '#25312b',
+            buttonText: '#f1f1e6',
+            input: '#0f1512',
+            inputBorder: '#8f6a3a',
+            text: '#f1f1e6',
+            mutedText: '#c7d0c2',
+        },
+        icons: {},
+        tags: ['theme:dark', 'style:evidence', 'genre:mystery', 'genre:survival-horror', 'quality:bundled'],
     },
 ]);
 
@@ -414,6 +682,69 @@ const BRAND_LOGO_PATHS = {
     expanded: './Images/branding/saga-banner-512.png',
 };
 
+const ICONSET_SCHEMA_VERSION = 1;
+const ICONSET_TARGET_ALIASES = Object.freeze({
+    'tab.loredecks': 'tab.lorepacks',
+    'tab.lorecards': 'tab.lore',
+    loredecks: 'tab.lorepacks',
+    lorecards: 'tab.lore',
+    lorepacks: 'tab.lorepacks',
+    session: 'tab.session',
+    context: 'tab.context',
+    continuity: 'tab.continuity',
+    lore: 'tab.lore',
+    injection: 'tab.injection',
+    settings: 'tab.settings',
+    collapse: 'control.collapse',
+});
+
+const BUNDLED_ICONSET_PRESETS = Object.freeze([
+    {
+        schemaVersion: ICONSET_SCHEMA_VERSION,
+        id: 'wandlight-default',
+        type: 'bundled',
+        title: 'Wandlight Default',
+        description: 'Legacy Wandlight runtime tab icons retained as a bundled fallback Icon Set.',
+        author: 'Saga',
+        version: '1.0.0',
+        preferredSize: 256,
+        icons: {
+            'tab.session': './Images/runtime-icons/wandlight_tab_session_256.png',
+            'tab.context': './Images/runtime-icons/wandlight_tab_context_256.png',
+            'tab.continuity': './Images/runtime-icons/wandlight_tab_continuity_256.png',
+            'tab.lore': './Images/runtime-icons/wandlight_tab_lore_256.png',
+            'tab.injection': './Images/runtime-icons/wandlight_tab_injection_256.png',
+            'brand.compact': BRAND_LOGO_PATHS.compact,
+            'brand.expanded': BRAND_LOGO_PATHS.expanded,
+        },
+        tags: ['iconset:runtime', 'style:legacy', 'quality:bundled'],
+    },
+    {
+        schemaVersion: ICONSET_SCHEMA_VERSION,
+        id: 'saga-gold',
+        type: 'bundled',
+        title: 'Saga Gold',
+        description: 'Golden Saga runtime shelf icons for Loredecks, Lorecards, session tools, and settings.',
+        author: 'Saga',
+        version: '1.0.0',
+        preferredSize: 256,
+        icons: {
+            'tab.lorepacks': './Images/iconsets/saga-gold/256/loredecks.png',
+            'tab.session': './Images/iconsets/saga-gold/256/session.png',
+            'tab.context': './Images/iconsets/saga-gold/256/context.png',
+            'tab.continuity': './Images/iconsets/saga-gold/256/continuity.png',
+            'tab.lore': './Images/iconsets/saga-gold/256/lorecards.png',
+            'tab.injection': './Images/iconsets/saga-gold/256/injection.png',
+            'tab.settings': './Images/iconsets/saga-gold/256/settings.png',
+            'brand.compact': BRAND_LOGO_PATHS.compact,
+            'brand.expanded': BRAND_LOGO_PATHS.expanded,
+        },
+        tags: ['iconset:runtime', 'style:saga-gold', 'quality:bundled'],
+    },
+]);
+
+const PASSIVE_IMAGE_ASSET_PATTERN = /\.(png|jpe?g|webp)$/i;
+
 function getLocalAssetSrc(assetPath) {
     if (!assetPath) return '';
     try {
@@ -421,6 +752,87 @@ function getLocalAssetSrc(assetPath) {
     } catch (error) {
         return assetPath;
     }
+}
+
+function normalizePassiveAssetPath(value = '') {
+    const path = String(value || '').trim();
+    if (!path) return '';
+    if (/^data:image\/(?:png|jpe?g|webp);base64,/i.test(path)) return path;
+    if (/^https?:\/\//i.test(path)) return path;
+    if (/^(?:javascript|data:text|file|vbscript):/i.test(path)) return '';
+    if (/^[a-z]:/i.test(path) || path.startsWith('/')) return '';
+    if (path.includes('\\') || path.split('/').some(part => part === '..')) return '';
+    if (!PASSIVE_IMAGE_ASSET_PATTERN.test(path)) return '';
+    return path;
+}
+
+function normalizeAssetRef(ref = null) {
+    if (!ref) return null;
+    const raw = typeof ref === 'string'
+        ? { path: ref }
+        : (typeof ref === 'object' && !Array.isArray(ref) ? ref : null);
+    if (!raw) return null;
+    const path = normalizePassiveAssetPath(raw.path || raw.url || raw.dataUrl || raw.src || '');
+    if (!path) return null;
+    const asset = {
+        path,
+        alt: String(raw.alt || '').trim().slice(0, 240),
+        title: String(raw.title || '').trim().slice(0, 160),
+        aspect: String(raw.aspect || '').trim().slice(0, 40),
+    };
+    if (raw.focalPoint && typeof raw.focalPoint === 'object' && !Array.isArray(raw.focalPoint)) {
+        const x = Number(raw.focalPoint.x);
+        const y = Number(raw.focalPoint.y);
+        if (Number.isFinite(x) && Number.isFinite(y)) {
+            asset.focalPoint = {
+                x: Math.max(0, Math.min(1, x)),
+                y: Math.max(0, Math.min(1, y)),
+            };
+        }
+    }
+    return asset;
+}
+
+function getAssetSrc(ref = null) {
+    const asset = normalizeAssetRef(ref);
+    return asset ? getLocalAssetSrc(asset.path) : '';
+}
+
+function normalizeIconTargetKey(iconKey = '') {
+    const raw = String(iconKey || '').trim();
+    if (!raw) return '';
+    const canonical = ICONSET_TARGET_ALIASES[raw] || raw;
+    if (canonical.startsWith('tab.') || canonical.startsWith('brand.') || canonical.startsWith('control.')) return canonical;
+    return ICONSET_TARGET_ALIASES[canonical] || canonical;
+}
+
+function getIconSetPreset(iconPackId = '') {
+    const id = String(iconPackId || '').trim();
+    return BUNDLED_ICONSET_PRESETS.find(pack => pack.id === id) || BUNDLED_ICONSET_PRESETS[0];
+}
+
+function getIconMapValue(icons = {}, iconKey = '') {
+    const canonical = normalizeIconTargetKey(iconKey);
+    if (!canonical || !icons || typeof icons !== 'object') return '';
+    const aliases = new Set([canonical, iconKey, ...Object.entries(ICONSET_TARGET_ALIASES)
+        .filter(([, value]) => value === canonical)
+        .map(([key]) => key)]);
+    for (const key of aliases) {
+        const value = normalizePassiveAssetPath(icons[key]);
+        if (value) return value;
+    }
+    return '';
+}
+
+function resolveThemeIconPath(iconKey, preset = getThemePreset(getSettings().themePackId), settings = getSettings()) {
+    const themeIcons = preset?.icons && typeof preset.icons === 'object' ? preset.icons : {};
+    const explicit = getIconMapValue(themeIcons, iconKey);
+    if (explicit) return explicit;
+    const iconSet = getIconSetPreset(preset?.iconPackId || settings.themeIconPackId || 'saga-gold');
+    const iconSetPath = getIconMapValue(iconSet.icons, iconKey);
+    if (iconSetPath) return iconSetPath;
+    const fallbackSet = getIconSetPreset('wandlight-default');
+    return getIconMapValue(fallbackSet.icons, iconKey);
 }
 
 function getTabIconSrc(tabId, settings = getSettings()) {
@@ -476,9 +888,7 @@ function getThemePreset(id, settings = getSettings()) {
 
 function getThemeIconPath(iconKey, settings = getSettings()) {
     const preset = getThemePreset(settings.themePackId, settings);
-    const icons = preset?.icons && typeof preset.icons === 'object' ? preset.icons : {};
-    const value = icons[iconKey];
-    return typeof value === 'string' ? value.trim() : '';
+    return resolveThemeIconPath(iconKey, preset, settings);
 }
 
 function completeThemeColors(colors = {}) {
@@ -2183,10 +2593,7 @@ function createLorepackLibraryDeckCard(pack, stack = [], canonDb = null, health 
         renderLorepackLibraryOverlay();
     });
 
-    const monogram = document.createElement('div');
-    monogram.className = 'wandlight-lorepack-library-monogram';
-    monogram.textContent = getLorepackMonogram(pack);
-    card.appendChild(monogram);
+    card.appendChild(createLorepackDeckVisual(pack, 'wandlight-lorepack-library-monogram'));
 
     const main = document.createElement('div');
     main.className = 'wandlight-lorepack-library-deck-main';
@@ -2240,10 +2647,7 @@ function createLorepackActiveStackCard(pack, item, index, stackLength, canonDb =
     rank.textContent = String(index + 1);
     card.appendChild(rank);
 
-    const monogram = document.createElement('div');
-    monogram.className = 'wandlight-lorepack-library-monogram';
-    monogram.textContent = getLorepackMonogram(pack);
-    card.appendChild(monogram);
+    card.appendChild(createLorepackDeckVisual(pack, 'wandlight-lorepack-library-monogram'));
 
     const main = document.createElement('div');
     main.className = 'wandlight-lorepack-library-stack-main';
@@ -2310,10 +2714,7 @@ function createLorepackLibraryDetailsPanel(pack = null, stack = [], canonDb = nu
 
     const identity = document.createElement('div');
     identity.className = 'wandlight-lorepack-library-detail-identity';
-    const monogram = document.createElement('div');
-    monogram.className = 'wandlight-lorepack-library-detail-monogram';
-    monogram.textContent = getLorepackMonogram(pack);
-    identity.appendChild(monogram);
+    identity.appendChild(createLorepackDeckVisual(pack, 'wandlight-lorepack-library-detail-monogram'));
     const main = document.createElement('div');
     main.className = 'wandlight-lorepack-library-detail-main';
     const title = document.createElement('div');
@@ -2723,6 +3124,56 @@ function getLorepackMonogram(pack = {}) {
     if (!words.length) return 'LD';
     if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
     return `${words[0][0] || ''}${words[1][0] || ''}`.toUpperCase();
+}
+
+function resolveLorepackAssetPath(pack = {}, assetPath = '') {
+    const path = normalizePassiveAssetPath(assetPath);
+    if (!path) return '';
+    if (/^(?:data:image\/|https?:\/\/|\.\/|Images\/|Lorepacks\/)/i.test(path)) return path;
+    const manifest = String(pack.manifest || pack.manifestData?.manifest || '').replace(/\\/g, '/').trim();
+    const base = manifest.includes('/') ? manifest.replace(/[^/]*$/, '') : '';
+    return base ? normalizePassiveAssetPath(`${base}${path}`) : path;
+}
+
+function getLorepackAssetRef(pack = {}, key = 'cover') {
+    const assets = pack.assets && typeof pack.assets === 'object' && !Array.isArray(pack.assets) ? pack.assets : {};
+    const manifestAssets = pack.manifestData?.assets && typeof pack.manifestData.assets === 'object' && !Array.isArray(pack.manifestData.assets)
+        ? pack.manifestData.assets
+        : {};
+    const raw = assets[key]
+        || manifestAssets[key]
+        || (key === 'cover' ? assets.deckCover || manifestAssets.deckCover || pack.cover || pack.coverImage : null);
+    const asset = normalizeAssetRef(raw);
+    if (!asset) return null;
+    const resolvedPath = resolveLorepackAssetPath(pack, asset.path);
+    return resolvedPath ? { ...asset, path: resolvedPath } : null;
+}
+
+function createLorepackDeckVisual(pack = {}, className = 'wandlight-lorepack-library-monogram') {
+    const visual = document.createElement('div');
+    visual.className = `${className} wandlight-lorepack-library-visual`;
+    const cover = getLorepackAssetRef(pack, 'cover');
+    if (cover) {
+        const img = document.createElement('img');
+        img.src = getAssetSrc(cover);
+        img.alt = cover.alt || `${pack.title || pack.packId || 'Loredeck'} cover`;
+        img.draggable = false;
+        if (cover.focalPoint) {
+            img.style.objectPosition = `${Math.round(cover.focalPoint.x * 100)}% ${Math.round(cover.focalPoint.y * 100)}%`;
+        }
+        img.addEventListener('error', () => {
+            visual.classList.add('wandlight-lorepack-library-visual-fallback');
+            visual.textContent = getLorepackMonogram(pack);
+        }, { once: true });
+        visual.classList.add('wandlight-lorepack-library-visual-cover');
+        visual.appendChild(img);
+        addTooltip(visual, cover.title || cover.alt || `${pack.title || pack.packId} Deck Cover.`);
+        return visual;
+    }
+    visual.classList.add('wandlight-lorepack-library-visual-fallback');
+    visual.textContent = getLorepackMonogram(pack);
+    addTooltip(visual, `${pack.title || pack.packId || 'Loredeck'} monogram fallback. Add assets.cover to show a Deck Cover image.`);
+    return visual;
 }
 
 function addLorepacksToStack(packIds = []) {
@@ -14313,7 +14764,8 @@ function createActiveThemePanel(activePreset, settings, colors) {
     summary.appendChild(createKeyValue('Theme ID', activePreset?.id || 'wandlight-default', 'Stable Theme Pack identifier.'));
     summary.appendChild(createKeyValue('Version', activePreset?.version || 'unset', 'Theme Pack version metadata.'));
     summary.appendChild(createKeyValue('Source', activePreset?.type === 'custom' ? getThemeSourceLabel(activePreset) : 'Bundled', 'Where this Theme Pack came from.'));
-    summary.appendChild(createKeyValue('Icon pack', activePreset?.iconPackId || settings.themeIconPackId || 'wandlight-default', 'Icon pack metadata selected by the active Theme Pack.'));
+    const activeIconSet = getIconSetPreset(activePreset?.iconPackId || settings.themeIconPackId || 'saga-gold');
+    summary.appendChild(createKeyValue('Icon Set', activeIconSet.title || activeIconSet.id, 'Reusable runtime icon set selected by the active Theme Pack.'));
     summary.appendChild(createKeyValue('Color overrides', settings.themeCustomEnabled === true ? 'On' : 'Off', 'Overrides are user changes layered over the selected Theme Pack.'));
     summary.appendChild(createKeyValue('Icon overrides', Object.keys(activePreset?.icons || {}).length ? 'On' : 'Off', 'Theme Pack icon path overrides such as tab.lorepacks or brand.expanded.'));
     main.appendChild(summary);
@@ -14527,6 +14979,7 @@ function createThemeImportTile() {
 function createThemeIconSetPanel(activePreset, settings) {
     const panel = document.createElement('div');
     panel.className = 'wandlight-theme-panel wandlight-theme-icon-panel';
+    const iconSet = getIconSetPreset(activePreset?.iconPackId || settings.themeIconPackId || 'saga-gold');
     const coverage = getThemeIconCoverage(activePreset);
     const header = document.createElement('div');
     header.className = 'wandlight-theme-panel-header';
@@ -14534,12 +14987,12 @@ function createThemeIconSetPanel(activePreset, settings) {
     title.className = 'wandlight-runtime-card-title';
     title.textContent = 'Shelf Icon Set';
     header.appendChild(title);
-    header.appendChild(createStatusPill(`Current: ${activePreset?.iconPackId || settings.themeIconPackId || 'wandlight-default'}`, 'Current Theme Pack icon set metadata.'));
+    header.appendChild(createStatusPill(`Current: ${iconSet.title || iconSet.id}`, 'Current reusable Icon Set metadata selected by the active Theme Pack.'));
     panel.appendChild(header);
 
     const status = document.createElement('div');
     status.className = 'wandlight-theme-icon-status';
-    status.textContent = `${coverage.loaded} / ${coverage.total} icons available | ${coverage.missing} missing | ${coverage.invalid} invalid paths`;
+    status.textContent = `${coverage.loaded} / ${coverage.total} icon paths available | ${coverage.missing} using text fallback | ${coverage.invalid} invalid paths`;
     panel.appendChild(status);
 
     const grid = document.createElement('div');
@@ -14849,8 +15302,9 @@ function getThemeShelfIconItems() {
 }
 
 function getThemeIconPreviewPath(preset = {}, item = {}) {
-    const icons = preset?.icons && typeof preset.icons === 'object' ? preset.icons : {};
-    return String(icons[item.key] || icons[item.legacyKey] || item.defaultPath || '').trim();
+    return resolveThemeIconPath(item.key, preset, getSettings())
+        || resolveThemeIconPath(item.legacyKey, preset, getSettings())
+        || normalizePassiveAssetPath(item.defaultPath || '');
 }
 
 function getThemeIconCoverage(preset = {}) {
@@ -14859,8 +15313,8 @@ function getThemeIconCoverage(preset = {}) {
     let invalid = 0;
     for (const item of items) {
         const path = getThemeIconPreviewPath(preset, item);
-        if (path || item.fallback) loaded += 1;
-        if (path && !/^(https?:\/\/|\.?\.?\/|Images\/|icons\/|data:image\/)/i.test(path)) invalid += 1;
+        if (path) loaded += 1;
+        if (path && !normalizePassiveAssetPath(path)) invalid += 1;
     }
     return {
         total: items.length,
@@ -14934,7 +15388,7 @@ function buildThemePackExportObject(preset, settings = getSettings()) {
         description: preset?.description || 'Custom Theme Pack exported from Saga.',
         author: preset?.author || '',
         version: preset?.version || '1.0.0',
-        iconPackId: preset?.iconPackId || settings.themeIconPackId || 'wandlight-default',
+        iconPackId: preset?.iconPackId || settings.themeIconPackId || 'saga-gold',
         colors,
         icons: preset?.icons || {},
         tags: Array.isArray(preset?.tags) ? preset.tags.filter(tag => tag !== 'quality:bundled') : [],
@@ -15082,7 +15536,7 @@ function applyThemePreset(themeId) {
     const preset = getThemePreset(themeId, current);
     const next = getSettings();
     next.themePackId = preset.id;
-    next.themeIconPackId = preset.iconPackId || 'wandlight-default';
+    next.themeIconPackId = preset.iconPackId || 'saga-gold';
     themePreviewPackId = '';
     writeThemeColorsToSettings(next, preset.colors || {});
     saveSettings(next);
@@ -15096,7 +15550,7 @@ function resetThemeSettings() {
     const preset = THEMEPACK_PRESETS[0];
     const next = getSettings();
     next.themePackId = preset.id;
-    next.themeIconPackId = preset.iconPackId || 'wandlight-default';
+    next.themeIconPackId = preset.iconPackId || 'saga-gold';
     next.themeCustomEnabled = false;
     themePreviewPackId = '';
     writeThemeColorsToSettings(next, preset.colors || {});

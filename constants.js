@@ -123,7 +123,7 @@ export const DEFAULT_SETTINGS = {
     advancedExperienceSettingsBackup: null,
     basicExperienceProfileVersion: BASIC_EXPERIENCE_PROFILE_VERSION,
     themePackId: 'wandlight-default',
-    themeIconPackId: 'wandlight-default',
+    themeIconPackId: 'saga-gold',
     themeCustomEnabled: false,
     themeBackgroundColor: '#120c12',
     themeBackgroundAltColor: '#241018',

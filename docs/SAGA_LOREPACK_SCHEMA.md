@@ -52,6 +52,9 @@ Bundled decks should live under `Lorepacks/`.
 Lorepacks/
   hp-golden-trio/
     lorepack.json
+    assets/
+      cover.png
+      banner.png
     taxonomy.json
     tags.json
     entities.json
@@ -67,6 +70,28 @@ Lorepacks/
 ```
 
 Custom and generated packs may eventually live in a user data location managed by SillyTavern or Saga. The loader should not assume every pack is bundled with the extension.
+
+User-shared bundles should eventually use a zip container so JSON and passive image assets can travel together:
+
+```text
+manifest.json
+loredecks/
+  arlong-park/
+    lorepack.json
+    assets/
+      cover.png
+themes/
+  sea-map-odyssey/
+    theme.json
+iconsets/
+  saga-gold/
+    icons.json
+    256/
+      loredecks.png
+      lorecards.png
+```
+
+Bundle contents remain data-only: JSON and passive images. No scripts, HTML, executables, absolute paths, or `../` traversal paths should be accepted.
 
 ## Core Files
 
@@ -84,6 +109,13 @@ Recommended registries:
 - `taxonomy.json`
 - `gate-types.json`
 - `scoring.json`
+
+Optional passive assets:
+
+- `assets/cover.png` or another image referenced by `assets.cover`.
+- `assets/banner.png` or another image referenced by `assets.banner`.
+
+Deck assets are display-only. They must not contain executable code. Saga should initially allow `.png`, `.jpg`, `.jpeg`, and `.webp`; SVG should stay out of the MVP unless a sanitizer is added.
 
 Existing Wandlight packs can start with `lorepack.json` plus the current entry files and registries.
 
@@ -117,6 +149,7 @@ Existing Wandlight packs can start with `lorepack.json` plus the current entry f
 | `resolver` | string | Relative path to resolver metadata. |
 | `continuity` | object | Continuity, adaptation, or canon-tier metadata for the pack. |
 | `runtimeDefaults` | object | Default retrieval/trigger/injection behavior for imported or keyword-heavy packs. |
+| `assets` | object | Optional display assets such as a Deck Cover or banner. Paths are relative to `lorepack.json` unless they use a bundled Saga path, data image URL, or remote image URL. |
 | `compatibility` | object | Saga schema compatibility range. |
 | `stats` | object | Optional cached entry/category counts. |
 
@@ -178,6 +211,21 @@ Existing Wandlight packs can start with `lorepack.json` plus the current entry f
     "scoring": "scoring.json"
   },
   "resolver": "resolver.json",
+  "assets": {
+    "cover": {
+      "path": "assets/cover.png",
+      "alt": "Deck Cover for Harry Potter: Golden Trio",
+      "aspect": "3:4",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.42
+      }
+    },
+    "banner": {
+      "path": "assets/banner.png",
+      "alt": "Wide banner for Harry Potter: Golden Trio"
+    }
+  },
   "continuity": {
     "continuityId": "hp-books",
     "canonTier": "primary",

@@ -1754,6 +1754,26 @@
     font-size: 1.1em;
 }
 
+.wandlight-lorepack-library-visual {
+    overflow: hidden;
+}
+
+.wandlight-lorepack-library-visual img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+.wandlight-lorepack-library-visual-cover {
+    padding: 0;
+}
+
+.wandlight-lorepack-library-visual-fallback {
+    padding: 0;
+}
+
 .wandlight-lorepack-library-deck-main,
 .wandlight-lorepack-library-stack-main,
 .wandlight-lorepack-library-detail-main {
@@ -3328,6 +3348,30 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
     gap: 8px;
+    max-height: min(460px, 52vh);
+    overflow-y: auto;
+    padding-right: 4px;
+    scrollbar-gutter: stable;
+    align-content: start;
+}
+
+.wandlight-theme-gallery::-webkit-scrollbar {
+    width: 9px;
+}
+
+.wandlight-theme-gallery::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.18);
+    border-radius: 999px;
+}
+
+.wandlight-theme-gallery::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--wandlight-gold, #d7b56d) 46%, transparent);
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 999px;
+}
+
+.wandlight-theme-gallery::-webkit-scrollbar-thumb:hover {
+    background: color-mix(in srgb, var(--wandlight-gold, #d7b56d) 66%, transparent);
 }
 
 .wandlight-theme-pack-card,

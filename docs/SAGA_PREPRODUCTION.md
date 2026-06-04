@@ -109,7 +109,8 @@ Saga's runtime Settings tab has three main areas:
 
 - Provider settings: Utility provider and Reasoning provider configuration, including profile selection, OpenAI-compatible endpoint settings, generation parameters, and test actions.
 - Appearance settings: colors, density, rail/drawer styling, card surfaces, borders, accent colors, status colors, and text contrast.
-- Themepacks: named presets that bundle appearance colors and icon/button theme metadata.
+- Theme Packs: named presets for appearance colors and surfaces.
+- Icon Sets: reusable passive image mappings for shelf tabs, controls, and future button/icon themes.
 
 The extension-menu settings panel remains as a compatibility and recovery surface. The runtime Settings tab is the primary user-facing home for provider controls.
 
@@ -124,7 +125,7 @@ Themepacks should be pure data, like Loredecks. They should not contain executab
   "title": "Saga Archive",
   "type": "bundled",
   "description": "Bundled dark archive theme for SAGA: Fandom Loresystem.",
-  "iconPackId": "wandlight-default",
+  "iconPackId": "saga-gold",
   "colors": {
     "background": "#120c12",
     "backgroundAlt": "#241018",
@@ -147,11 +148,6 @@ Themepacks should be pure data, like Loredecks. They should not contain executab
     "text": "#f1ead8",
     "mutedText": "#cfc5ad"
   },
-  "icons": {
-    "brand.compact": "./Images/branding/saga-s-256.png",
-    "brand.expanded": "./Images/branding/saga-banner-512.png",
-    "tab.lorepacks": "./Images/runtime-icons/saga_tab_lorepacks_256.png"
-  },
   "tags": [
     "theme:dark",
     "style:archive"
@@ -160,6 +156,30 @@ Themepacks should be pure data, like Loredecks. They should not contain executab
 ```
 
 The first implementation stores theme settings in normal extension settings and applies them as CSS variables on the runtime panel. Bundled presets live in code. User-made Theme Packs install into a global `themePackLibrary` registry in extension settings.
+
+### Icon Set Draft
+
+Icon Sets should also be pure data. Theme Packs select an Icon Set with `iconPackId`; they may still carry local `icons` overrides, but reusable icon libraries should live separately.
+
+```json
+{
+  "schemaVersion": 1,
+  "type": "saga_iconset",
+  "id": "saga-gold",
+  "title": "Saga Gold",
+  "description": "Golden Saga runtime shelf icons.",
+  "preferredSize": 256,
+  "icons": {
+    "tab.lorepacks": "./Images/iconsets/saga-gold/256/loredecks.png",
+    "tab.session": "./Images/iconsets/saga-gold/256/session.png",
+    "tab.context": "./Images/iconsets/saga-gold/256/context.png",
+    "tab.continuity": "./Images/iconsets/saga-gold/256/continuity.png",
+    "tab.lore": "./Images/iconsets/saga-gold/256/lorecards.png",
+    "tab.injection": "./Images/iconsets/saga-gold/256/injection.png",
+    "tab.settings": "./Images/iconsets/saga-gold/256/settings.png"
+  }
+}
+```
 
 Reasonable first-wave color tokens:
 
@@ -170,7 +190,9 @@ Reasonable first-wave color tokens:
 - Status and accents: accent, danger, success, warning, focus.
 - Text: primary text and muted/help text.
 
-Theme Pack icon overrides are keyed by UI target, such as `brand.compact`, `brand.expanded`, `tab.lorepacks`, `tab.context`, or `tab.settings`. Values must be passive image paths, data URLs, or fetchable image URLs. They do not grant code execution.
+Icon mappings are keyed by UI target, such as `brand.compact`, `brand.expanded`, `tab.lorepacks`, `tab.context`, or `tab.settings`. Values must be passive image paths, data image URLs, or fetchable image URLs. They do not grant code execution.
+
+Imported Icon Sets should eventually live in their own registry instead of being smuggled through Theme Pack overrides. The current bundled foundation supports `saga-gold` and legacy `wandlight-default`; custom Icon Set storage should come with the zip/folder bundle importer.
 
 Installed Custom Theme Packs should be importable from a single Theme Pack JSON file or a Theme Pack Library JSON file. Custom imports must not overwrite Bundled Theme Pack IDs.
 

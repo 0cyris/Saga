@@ -7,6 +7,8 @@ const fixturePath = path.join(root, 'tests', 'fixtures', 'arlong-park-update.sag
 const panelPath = path.join(root, 'lore-panel.js');
 const stylePath = path.join(root, 'style.css');
 const settingsTemplatePath = path.join(root, 'settings.html');
+const sagaGoldIconPath = path.join(root, 'Images', 'iconsets', 'saga-gold', '256', 'loredecks.png');
+const sagaGoldManifestPath = path.join(root, 'Images', 'iconsets', 'saga-gold', 'icons.json');
 
 function read(file) {
     return fs.readFileSync(file, 'utf8');
@@ -25,6 +27,8 @@ const style = read(stylePath);
 const settingsTemplate = read(settingsTemplatePath);
 
 assert(harness.includes("import { showLorePanel } from '../lore-panel.js';"), 'Harness must import the real runtime panel.');
+assert(fs.existsSync(sagaGoldIconPath), 'Bundled Saga Gold Loredecks icon must exist.');
+assert(JSON.parse(read(sagaGoldManifestPath)).id === 'saga-gold', 'Bundled Saga Gold Icon Set manifest must exist.');
 assert(harness.includes('window.SillyTavern'), 'Harness must stub SillyTavern before importing modules.');
 assert(harness.includes('window.__sagaSmokeReady = true'), 'Harness must expose a smoke-ready marker.');
 assert(harness.includes("activeTab: 'lorepacks'"), 'Harness must open directly to the Loredecks tab.');
@@ -65,9 +69,24 @@ for (const token of [
     'Open Health Center',
     'Health Report',
     'renderSettingsTab',
+    'ICONSET_SCHEMA_VERSION',
+    'BUNDLED_ICONSET_PRESETS',
+    'saga-gold',
+    'Images/iconsets/saga-gold/256/loredecks.png',
+    'createLorepackDeckVisual',
+    'assets.cover',
     'Theme Pack',
     'Live Preview',
     'Installed Theme Packs',
+    'Royal Chronicle',
+    'Grimoire Crimson',
+    'Stellar Cartography',
+    'Neon District',
+    'Hero Campus',
+    'Sea Map Odyssey',
+    'Monster Index',
+    'Holo Rail',
+    'Midnight Evidence',
     'Shelf Icon Set',
     'Color Overrides',
 ]) {
@@ -88,6 +107,8 @@ for (const token of [
     'wandlight-theme-gallery',
     'wandlight-theme-icon-grid',
     'wandlight-theme-preview-surface',
+    'wandlight-lorepack-library-visual-cover',
+    'scrollbar-gutter: stable',
 ]) {
     assert(style.includes(token), `Stylesheet is missing expected smoke selector: ${token}`);
 }
