@@ -1558,7 +1558,7 @@
     --wandlight-text: #f1ead8;
     --wandlight-muted: rgba(241, 234, 216, 0.68);
     font-family: var(--SmartThemeFont, 'Segoe UI', sans-serif);
-    font-size: 12px;
+    font-size: 13px;
     color: var(--wandlight-text);
 }
 
@@ -1581,7 +1581,7 @@
     background: var(--wandlight-button);
     border-color: var(--wandlight-border-soft);
     color: var(--wandlight-button-text);
-    font-size: 0.83em;
+    font-size: 11px;
     line-height: 1.2;
 }
 
@@ -1619,7 +1619,7 @@
     border-radius: 6px;
     background: var(--wandlight-input);
     color: var(--wandlight-text);
-    font-size: 0.82em;
+    font-size: 12px;
 }
 
 .wandlight-lore-workbench-shell input[type="range"],
