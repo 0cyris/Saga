@@ -6556,8 +6556,8 @@
 
 
 /* Runtime brand logo integration ------------------------------------------------
-   Phase 10: compact rail uses the square W mark; expanded rail uses the horizontal
-   Wandlight wordmark. These rules are intentionally appended late for cascade priority. */
+   Compact rail uses the square S mark; expanded rail uses the horizontal Saga
+   banner. These rules are intentionally appended late for cascade priority. */
 .wandlight-runtime-rail-drag {
     align-items: center;
 }
@@ -6573,7 +6573,7 @@
 }
 
 .wandlight-runtime-rail-expanded .wandlight-runtime-rail-mark {
-    min-height: 48px;
+    min-height: 58px;
 }
 
 .wandlight-runtime-rail-logo-img {
@@ -6592,8 +6592,10 @@
 }
 
 .wandlight-runtime-rail-expanded .wandlight-runtime-rail-logo-img {
-    width: min(176px, 100%);
-    height: 44px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 512 / 170;
+    max-width: 100%;
 }
 
 .wandlight-runtime-rail-mark-fallback {
@@ -6605,9 +6607,9 @@
 
 
 
-/* Phase 12: compact W logo box geometry only -----------------------------------
+/* Phase 12: compact logo box geometry only -------------------------------------
    Rebuilt from phase 10 to restore the original runtime icon treatment.
-   The compact rail's logo/drag box is now square without changing the W image
+   The compact rail's logo/drag box is now square without changing the S image
    centering rules. The expanded rail status line is suppressed. */
 .wandlight-runtime-rail-subtitle,
 .wandlight-runtime-rail-subtitle:empty,
