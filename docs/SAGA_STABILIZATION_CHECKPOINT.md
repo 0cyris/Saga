@@ -39,11 +39,13 @@ Passed:
 - Direct legacy fallback smoke: forced missing Loredeck manifest falls back to `Lore/manifest.json` and loads 417 entries.
 - Direct canon DB smoke: canon DB loads 417 entries from `hp-golden-trio`.
 - JSON parse smoke across `Lorepacks`, `Lore`, `Presets`, and `manifest.json`.
+- Local visual smoke harness contract: validates the harness, seeded Custom Loredeck, update fixture, runtime panel strings, and CSS hooks.
+- Local visual smoke server self-check: serves the harness and update fixture without external dependencies.
 
 ## Known Non-Blockers
 
 - `scripts\audit-canon-preview.mjs --json` reports 417 entries and 296 entries missing `ui.preview` metadata. This is existing lore-quality cleanup work, not a Story Position blocker.
-- No browser/SillyTavern visual smoke was run in this checkpoint.
+- No real browser/SillyTavern visual screenshot smoke was run in this checkpoint. The local harness, runbook, and server checks are ready, but the current Codex browser policy blocked local URLs and no local Chrome/Edge/Firefox binary was available from the workspace.
 - The current Saga foundation is still uncommitted in the working tree.
 
 ## Next Production Slice
@@ -75,4 +77,9 @@ Position-aware Loredeck retrieval:
 - Done: add Creator timeline/tag planning from the approved brief and title shape, creating a Generated Loredeck shell and routing generated anchors/windows/tag definitions through Pending Review before full entry generation.
 - Done: generate full schema v3 entry drafts from approved titles plus accepted planning metadata, landing them in the same edit-before-queue and Pending Review pipeline before activation.
 - Done: harden Generated Loredeck validation/export for accepted Creator entries, including virtual generated manifest stats, Deck Health rerun affordances, runtime loading for virtual generated entries, and export readiness checks.
-- Next: build import/install handling for exported Saga Loredeck bundles, including Generated-to-Custom install choices, duplicate-deck warnings, and update-source metadata for creator-shared decks.
+- Done: build JSON import/install handling for exported Saga Loredeck bundles, including Generated-to-Custom installation, collision-safe deck IDs, embedded virtual Custom Lorecard loading, and source/update metadata capture.
+- Done: add a fuller install preview and duplicate-deck review surface, including content-hash comparison, editable deck update/reinstall choices, local-modification warnings, and clearer duplicate-match reasons.
+- Done: add source/update handling for installed Loredecks, including check-for-updates from URL/GitHub metadata, GitHub raw/blob URL normalization, content-hash current-version detection, update/reinstall preview prompts, and local-modification warnings.
+- Done: add a local visual smoke harness and contract test for the Saga runtime shelf, seeded Custom Loredeck, Pending Review content, update-source preview fixture, Creator surface, and runtime CSS hooks.
+- Done: add a no-dependency visual smoke server and runbook so the harness can be opened in a normal browser or repeated inside SillyTavern with a concrete screenshot checklist.
+- Next: run the harness inside a real SillyTavern/local browser session and capture screenshots for the Loredeck shelf, install/update previews, Pending Review, Creator, Settings, and runtime injection paths before expanding install formats beyond JSON.

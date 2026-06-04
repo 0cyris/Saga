@@ -1779,6 +1779,9 @@ function createLorepackImportExportCard(state) {
     actions.appendChild(createButton('Import Library JSON', 'Import a previously exported Loredeck Library metadata JSON file.', () => {
         importLorepackLibraryFromFile();
     }));
+    actions.appendChild(createButton('Install Loredeck JSON', 'Install a Saga Loredeck bundle JSON as an editable Custom Loredeck.', () => {
+        installLorepackBundleFromFile();
+    }, 'wandlight-primary-button'));
     card.appendChild(actions);
 
     const registry = getLorepackLibraryRegistry(state);
@@ -4316,16 +4319,8 @@ function isGeneratedLorepackPack(pack) {
     return String(pack?.type || pack?.manifestData?.type || '').trim() === 'generated';
 }
 
-function canUseGeneratedVirtualLorepackData(pack = {}) {
-    return isGeneratedLorepackPack(pack) && isVirtualLorepackPack(pack) && !String(pack?.manifest || '').trim();
-}
-
-function canValidateLorepackInEditor(pack = {}) {
-    return !!String(pack?.manifest || '').trim() || canUseGeneratedVirtualLorepackData(pack);
-}
-
-function getAcceptedGeneratedLorepackEntries(pack = {}) {
-    if (!isGeneratedLorepackPack(pack)) return [];
+function getAcceptedVirtualLorepackEntries(pack = {}) {
+    if (!isVirtualLorepackPack(pack)) return [];
     const overrides = pack.entryOverrides && typeof pack.entryOverrides === 'object' && !Array.isArray(pack.entryOverrides)
         ? pack.entryOverrides
         : {};
@@ -4342,6 +4337,23 @@ function getAcceptedGeneratedLorepackEntries(pack = {}) {
         entries.push(entry);
     }
     return entries;
+}
+
+function canUseVirtualLorepackData(pack = {}) {
+    return isVirtualLorepackPack(pack) && !String(pack?.manifest || '').trim() && getAcceptedVirtualLorepackEntries(pack).length > 0;
+}
+
+function canUseGeneratedVirtualLorepackData(pack = {}) {
+    return isGeneratedLorepackPack(pack) && canUseVirtualLorepackData(pack);
+}
+
+function canValidateLorepackInEditor(pack = {}) {
+    return !!String(pack?.manifest || '').trim() || canUseVirtualLorepackData(pack);
+}
+
+function getAcceptedGeneratedLorepackEntries(pack = {}) {
+    if (!isGeneratedLorepackPack(pack)) return [];
+    return getAcceptedVirtualLorepackEntries(pack);
 }
 
 function buildLorepackStatsFromEntries(entries = []) {
@@ -4382,11 +4394,11 @@ function refreshGeneratedLorepackDerivedMetadata(record = {}) {
 }
 
 function buildGeneratedLorepackEntryCache(pack = {}, manifest = {}) {
-    const entries = getAcceptedGeneratedLorepackEntries(pack);
+    const entries = getAcceptedVirtualLorepackEntries(pack);
     const schemaVersion = Math.max(3, Number(manifest.entrySchemaVersion || pack.entrySchemaVersion || pack.manifestData?.entrySchemaVersion) || 0);
     const entryFiles = entries.length
         ? [{
-            file: '__saga_generated_entries__',
+            file: isGeneratedLorepackPack(pack) ? '__saga_generated_entries__' : '__saga_embedded_entries__',
             url: null,
             ok: true,
             json: {
@@ -4513,6 +4525,586 @@ function importLorepackLibraryFromFile() {
         }
     }, { once: true });
     input.click();
+}
+
+function hashLorepackBundleJson(value) {
+    let text = '';
+    try {
+        text = JSON.stringify(value || {});
+    } catch (_) {
+        text = String(value || '');
+    }
+    let hash = 2166136261;
+    for (let i = 0; i < text.length; i += 1) {
+        hash ^= text.charCodeAt(i);
+        hash = Math.imul(hash, 16777619);
+    }
+    return (hash >>> 0).toString(36);
+}
+
+function normalizeImportedLorepackEntryOverrideMap(value = {}, entryLists = []) {
+    const out = {};
+    const addEntry = (raw, fallbackId = '') => {
+        if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return;
+        const id = String(raw.id || fallbackId || '').trim();
+        if (!id || out[id]) return;
+        out[id] = {
+            ...(cloneLorepackJson(raw) || raw),
+            id,
+        };
+    };
+
+    if (value && typeof value === 'object' && !Array.isArray(value)) {
+        for (const [key, raw] of Object.entries(value)) addEntry(raw, key);
+    }
+    for (const list of entryLists) {
+        for (const [index, raw] of (Array.isArray(list) ? list : []).entries()) {
+            addEntry(raw, `entry_${index + 1}`);
+        }
+    }
+    return out;
+}
+
+function getLorepackBundleStats(sourcePack = {}, manifest = {}, health = null, entryOverrides = {}) {
+    const healthStats = health?.summary ? buildLorepackStatsFromHealth(health) : null;
+    const manifestStats = manifest?.stats && typeof manifest.stats === 'object' && !Array.isArray(manifest.stats) ? manifest.stats : {};
+    const packStats = sourcePack?.stats && typeof sourcePack.stats === 'object' && !Array.isArray(sourcePack.stats) ? sourcePack.stats : {};
+    const embeddedEntries = Object.values(entryOverrides || {});
+    if (embeddedEntries.length) return buildLorepackStatsFromEntries(embeddedEntries);
+    return {
+        entryCount: Number.isFinite(Number(packStats.entryCount))
+            ? Number(packStats.entryCount)
+            : Number.isFinite(Number(manifestStats.entryCount))
+                ? Number(manifestStats.entryCount)
+                : (healthStats?.entryCount || 0),
+        categoryCounts: packStats.categoryCounts && typeof packStats.categoryCounts === 'object' && !Array.isArray(packStats.categoryCounts)
+            ? { ...packStats.categoryCounts }
+            : manifestStats.categoryCounts && typeof manifestStats.categoryCounts === 'object' && !Array.isArray(manifestStats.categoryCounts)
+                ? { ...manifestStats.categoryCounts }
+                : (healthStats?.categoryCounts || {}),
+    };
+}
+
+function getLorepackBundleSourceObject(sourcePack = {}, manifest = {}) {
+    const source = sourcePack?.source && typeof sourcePack.source === 'object' && !Array.isArray(sourcePack.source) ? sourcePack.source : {};
+    const update = manifest?.update && typeof manifest.update === 'object' && !Array.isArray(manifest.update) ? manifest.update : {};
+    return {
+        source,
+        update,
+    };
+}
+
+function getLorepackUpdateUrl(pack = {}) {
+    const source = pack?.source && typeof pack.source === 'object' && !Array.isArray(pack.source) ? pack.source : {};
+    return String(source.updateUrl || pack.update?.url || source.url || '').trim();
+}
+
+function normalizeLorepackUpdateFetchUrl(value = '') {
+    const raw = String(value || '').trim();
+    if (!raw) return '';
+    try {
+        const baseHref = typeof window !== 'undefined' ? window.location?.href : import.meta.url;
+        const url = new URL(raw, baseHref || import.meta.url);
+        if (/^https?:$/i.test(url.protocol) && url.hostname.toLowerCase() === 'github.com') {
+            const parts = url.pathname.split('/').filter(Boolean);
+            const blobIndex = parts.indexOf('blob');
+            if (parts.length >= 5 && blobIndex === 2) {
+                const [owner, repo] = parts;
+                const branch = parts[3];
+                const filePath = parts.slice(4).join('/');
+                return `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${filePath}`;
+            }
+            const rawIndex = parts.indexOf('raw');
+            if (parts.length >= 5 && rawIndex === 2) {
+                const [owner, repo] = parts;
+                const branch = parts[3];
+                const filePath = parts.slice(4).join('/');
+                return `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${filePath}`;
+            }
+        }
+        return url.href;
+    } catch (_) {
+        return raw;
+    }
+}
+
+async function fetchLorepackUpdateBundle(updateUrl = '') {
+    const url = normalizeLorepackUpdateFetchUrl(updateUrl);
+    if (!url) throw new Error('Loredeck has no update URL.');
+    const response = await fetch(url, { cache: 'no-cache' });
+    if (!response.ok) throw new Error(`Update fetch failed: HTTP ${response.status}`);
+    try {
+        return await response.json();
+    } catch (e) {
+        throw new Error(e?.message || 'Update URL did not return valid JSON.');
+    }
+}
+
+function buildInstalledLorepackRecordFromBundle(parsed = {}, options = {}) {
+    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
+        throw new Error('Loredeck install file must be a JSON object.');
+    }
+    if (parsed.packs && typeof parsed.packs === 'object' && !parsed.pack && !parsed.manifest) {
+        throw new Error('This is a Loredeck Library export. Use Import Library JSON instead.');
+    }
+
+    const now = Date.now();
+    const sourcePack = cloneLorepackJson(parsed.pack || parsed.record || parsed.loredeck || (parsed.packId || parsed.id ? parsed : {})) || {};
+    const manifest = cloneLorepackJson(parsed.manifest || sourcePack.manifestData || parsed.manifestData || {}) || {};
+    const health = parsed.health && typeof parsed.health === 'object' && !Array.isArray(parsed.health) ? parsed.health : null;
+    const originalPackId = normalizeLorepackPackId(sourcePack.packId || sourcePack.id || manifest.id || sanitizeFileStem(options.fileName || 'imported-loredeck'));
+    if (!originalPackId) throw new Error('Loredeck bundle is missing a usable deck ID.');
+
+    const originalType = String(sourcePack.type || manifest.type || 'custom').trim() || 'custom';
+    const targetPackId = normalizeLorepackPackId(options.targetPackId || '');
+    const targetPack = targetPackId ? getLorepackDefinition(targetPackId) : null;
+    if (targetPackId && targetPack?.type === 'bundled') {
+        throw new Error('Bundled Loredecks cannot be replaced by imported JSON.');
+    }
+    const existing = getLorepackDefinition(originalPackId);
+    const packId = targetPackId || (existing ? getUniqueLorepackPackId(`${originalPackId}-custom`) : originalPackId);
+    const title = String(sourcePack.title || manifest.title || packId).trim();
+    const manifestRef = String(sourcePack.manifest || parsed.manifestRef || '').trim();
+    const entryOverrides = normalizeImportedLorepackEntryOverrideMap(
+        parsed.entryOverrides || sourcePack.entryOverrides || {},
+        [
+            parsed.entries,
+            manifest.entries,
+            sourcePack.entries,
+        ]
+    );
+    const disabledEntryIds = Array.isArray(parsed.disabledEntryIds)
+        ? parsed.disabledEntryIds
+        : (Array.isArray(sourcePack.disabledEntryIds) ? sourcePack.disabledEntryIds : []);
+    if (!manifestRef && !Object.keys(entryOverrides).length) {
+        throw new Error('Loredeck bundle has no fetchable manifest path and no embedded Lorecards to install.');
+    }
+
+    const { source, update } = getLorepackBundleSourceObject(sourcePack, manifest);
+    const updateUrl = String(source.updateUrl || update.url || targetPack?.source?.updateUrl || options.updateUrl || '').trim();
+    const tags = parseLorepackTags([
+        ...(Array.isArray(sourcePack.tags) ? sourcePack.tags : []),
+        ...(Array.isArray(manifest.tags) ? manifest.tags : []),
+        'origin:imported',
+        originalType === 'generated' ? 'origin:generated' : '',
+    ].filter(Boolean).join(', '));
+    const stats = getLorepackBundleStats(sourcePack, manifest, health, entryOverrides);
+    const record = {
+        ...sourcePack,
+        packId,
+        type: 'custom',
+        title,
+        description: String(sourcePack.description || manifest.description || '').trim(),
+        fandom: String(sourcePack.fandom || manifest.fandom || '').trim(),
+        era: String(sourcePack.era || manifest.era || '').trim(),
+        author: String(sourcePack.author || manifest.author || '').trim(),
+        version: String(sourcePack.version || manifest.version || '1.0.0').trim(),
+        entrySchemaVersion: Math.max(3, Number(sourcePack.entrySchemaVersion || manifest.entrySchemaVersion) || 0),
+        manifest: manifestRef,
+        source: {
+            ...source,
+            kind: 'imported_json',
+            url: String(source.url || targetPack?.source?.url || '').trim(),
+            updateUrl,
+            installedFrom: String(options.fileName || targetPack?.source?.installedFrom || '').trim(),
+            bundleType: String(parsed.bundleType || 'saga_lorepack_json').trim(),
+            originalPackId,
+            contentHash: hashLorepackBundleJson(parsed),
+            exportedAt: Number.isFinite(Number(parsed.exportedAt)) ? Number(parsed.exportedAt) : 0,
+            importedAt: now,
+        },
+        tags,
+        stats,
+        healthStatus: String(health?.status || sourcePack.healthStatus || manifest.health?.status || '').trim(),
+        derivedFrom: {
+            ...(sourcePack.derivedFrom && typeof sourcePack.derivedFrom === 'object' && !Array.isArray(sourcePack.derivedFrom) ? sourcePack.derivedFrom : {}),
+            kind: 'imported_loredeck',
+            packId: originalPackId,
+            title: String(sourcePack.title || manifest.title || originalPackId).trim(),
+            type: originalType,
+            version: String(sourcePack.version || manifest.version || '').trim(),
+            sourceFile: String(options.fileName || '').trim(),
+            importedAt: now,
+        },
+        entryOverrides,
+        disabledEntryIds,
+        timelineRegistry: normalizeLorepackTimelineRegistry(parsed.timelineRegistry || sourcePack.timelineRegistry || manifest.timelineRegistry),
+        tagRegistry: normalizeLorepackTagRegistry(parsed.tagRegistry || sourcePack.tagRegistry || manifest.tagRegistry),
+        pendingChanges: [],
+        localModified: false,
+        installedAt: targetPack?.installedAt || now,
+        updatedAt: now,
+    };
+
+    const manifestSeed = {
+        ...manifest,
+        id: packId,
+        type: 'custom',
+        files: manifestRef ? manifest.files : [],
+        stats,
+    };
+    record.manifestData = buildEmbeddedCustomManifest(manifestSeed, record);
+
+    const warnings = [];
+    if (targetPackId) warnings.push(`Existing deck ${targetPackId} will be replaced with this imported bundle.`);
+    else if (existing) warnings.push(`Deck ID ${originalPackId} already exists; installed as ${packId}.`);
+    if (targetPack?.localModified) warnings.push(`${targetPackId} is marked locally modified; replacing it will overwrite local metadata and embedded Lorecards.`);
+    if (originalType === 'generated') warnings.push('Generated bundle installed as editable Custom Loredeck.');
+    const pendingCount = Array.isArray(parsed.pendingChanges) ? parsed.pendingChanges.length : (Array.isArray(sourcePack.pendingChanges) ? sourcePack.pendingChanges.length : 0);
+    if (pendingCount) warnings.push(`${pendingCount} pending proposal${pendingCount === 1 ? '' : 's'} were not installed.`);
+    if (!manifestRef) warnings.push('Installed from embedded JSON data without a fetchable source manifest.');
+
+    return {
+        record,
+        warnings,
+        originalPackId,
+        originalType,
+        collision: !!existing,
+    };
+}
+
+function getLorepackInstallDuplicateMatches(install = {}) {
+    const record = install.record || {};
+    const originalPackId = String(install.originalPackId || record.source?.originalPackId || '').trim();
+    const contentHash = String(record.source?.contentHash || '').trim();
+    const titleKey = String(record.title || '').trim().toLowerCase();
+    const versionKey = String(record.version || '').trim().toLowerCase();
+    const fandomKey = String(record.fandom || '').trim().toLowerCase();
+    const matches = [];
+    const seen = new Set();
+
+    for (const pack of getLorepackLibrary(getState())) {
+        if (!pack?.packId || seen.has(pack.packId)) continue;
+        const source = pack.source && typeof pack.source === 'object' && !Array.isArray(pack.source) ? pack.source : {};
+        const derivedFrom = pack.derivedFrom && typeof pack.derivedFrom === 'object' && !Array.isArray(pack.derivedFrom) ? pack.derivedFrom : {};
+        const reasons = [];
+        const exactHash = !!(contentHash && source.contentHash === contentHash);
+        if (exactHash) reasons.push('same content hash');
+        if (originalPackId && pack.packId === originalPackId) reasons.push('same deck ID');
+        if (originalPackId && source.originalPackId === originalPackId) reasons.push('same source deck');
+        if (originalPackId && derivedFrom.packId === originalPackId) reasons.push('same derived source');
+        const sameTitleVersion = titleKey
+            && titleKey === String(pack.title || '').trim().toLowerCase()
+            && (!versionKey || versionKey === String(pack.version || '').trim().toLowerCase())
+            && (!fandomKey || fandomKey === String(pack.fandom || '').trim().toLowerCase());
+        if (!reasons.length && sameTitleVersion) reasons.push('same title/version');
+        if (!reasons.length) continue;
+        seen.add(pack.packId);
+        matches.push({
+            pack,
+            reasons,
+            exactHash,
+            sameId: originalPackId && pack.packId === originalPackId,
+            canReplace: pack.type !== 'bundled',
+            localModified: pack.localModified === true,
+        });
+    }
+
+    return matches.sort((a, b) => {
+        if (a.exactHash !== b.exactHash) return a.exactHash ? -1 : 1;
+        if (a.sameId !== b.sameId) return a.sameId ? -1 : 1;
+        if (a.canReplace !== b.canReplace) return a.canReplace ? -1 : 1;
+        return String(a.pack.title || a.pack.packId).localeCompare(String(b.pack.title || b.pack.packId));
+    });
+}
+
+function analyzeLorepackBundleInstall(parsed = {}, options = {}) {
+    const install = buildInstalledLorepackRecordFromBundle(parsed, options);
+    const matches = getLorepackInstallDuplicateMatches(install);
+    const exactMatches = matches.filter(match => match.exactHash);
+    if (exactMatches.length) {
+        install.warnings.unshift(`${exactMatches.length} installed Loredeck${exactMatches.length === 1 ? '' : 's'} already match this bundle content hash.`);
+    } else if (matches.length) {
+        install.warnings.unshift(`${matches.length} possible duplicate Loredeck${matches.length === 1 ? '' : 's'} found.`);
+    }
+    return {
+        ...install,
+        matches,
+    };
+}
+
+function cacheInstalledLorepackBundle(installed = {}, parsed = {}) {
+    if (installed.manifestData) {
+        lorepackManifestPreviewCache.set(installed.packId, {
+            manifest: installed.manifestData,
+            health: parsed.health || null,
+            error: '',
+            loadedAt: Date.now(),
+        });
+    }
+    if (canUseVirtualLorepackData(installed)) {
+        const entryCache = buildGeneratedLorepackEntryCache(installed, installed.manifestData || {});
+        lorepackEntryPreviewCache.set(installed.packId, {
+            ...entryCache,
+            health: parsed.health || null,
+            error: '',
+            loadedAt: Date.now(),
+        });
+    }
+}
+
+async function commitLorepackBundleInstall(parsed = {}, record = {}, options = {}) {
+    const result = upsertLorepackLibraryPack(record);
+    if (!result.ok) throw new Error(result.error || 'Loredeck install failed.');
+    const installed = result.pack || record;
+    cacheInstalledLorepackBundle(installed, parsed);
+    clearCanonLoreDatabaseCache();
+    clearStoryPositionIndexCache();
+    selectLorepackForDetails(installed.packId, { refresh: false });
+    options.overlay?.remove?.();
+    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    refreshHeader();
+    const message = options.action === 'replace'
+        ? `Updated Custom Loredeck: ${installed.title || installed.packId}.`
+        : `Installed Custom Loredeck: ${installed.title || installed.packId}.`;
+    toast(`${message}${options.warning ? ` ${options.warning}` : ''}`, options.warning ? 'warning' : 'success');
+    return installed;
+}
+
+function createLorepackInstallMatchRow(parsed = {}, install = {}, match = {}, overlay = null, fileName = '') {
+    const row = document.createElement('div');
+    row.className = 'wandlight-lorepack-install-match-row';
+    if (match.exactHash) row.classList.add('wandlight-lorepack-install-match-exact');
+    if (match.localModified) row.classList.add('wandlight-lorepack-install-match-modified');
+
+    const main = document.createElement('div');
+    main.className = 'wandlight-lorepack-install-match-main';
+    const title = document.createElement('div');
+    title.className = 'wandlight-lorepack-install-match-title';
+    title.textContent = match.pack.title || match.pack.packId;
+    main.appendChild(title);
+    const meta = document.createElement('div');
+    meta.className = 'wandlight-lorepack-install-match-meta';
+    meta.textContent = [
+        match.pack.packId,
+        getLorepackTypeLabel(match.pack.packId),
+        match.reasons.join(', '),
+        match.localModified ? 'locally modified' : '',
+    ].filter(Boolean).join(' | ');
+    main.appendChild(meta);
+    row.appendChild(main);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-lorepack-install-match-actions';
+    const replace = createButton(
+        match.exactHash ? 'Reinstall' : 'Update',
+        match.canReplace
+            ? 'Replace this editable Loredeck record with the imported bundle.'
+            : 'Bundled Loredecks cannot be replaced by imported JSON.',
+        async (btn) => {
+            if (!match.canReplace) return;
+            if (match.localModified) {
+                const ok = await confirmAction(
+                    'Replace Locally Modified Loredeck',
+                    `${match.pack.title || match.pack.packId} is marked locally modified. Replace it with the imported bundle anyway?`
+                );
+                if (!ok) return;
+            }
+            await runBusyAction(btn, 'Updating...', async () => {
+                const updateInstall = buildInstalledLorepackRecordFromBundle(parsed, {
+                    fileName,
+                    targetPackId: match.pack.packId,
+                });
+                await commitLorepackBundleInstall(parsed, updateInstall.record, {
+                    overlay,
+                    action: 'replace',
+                    warning: updateInstall.warnings[0] || '',
+                });
+            });
+        },
+        match.localModified ? 'wandlight-danger-button' : ''
+    );
+    replace.disabled = !match.canReplace;
+    actions.appendChild(replace);
+    row.appendChild(actions);
+    return row;
+}
+
+function openLorepackInstallPreviewDialog(parsed = {}, install = {}, options = {}) {
+    document.querySelector('.wandlight-lorepack-install-overlay')?.remove();
+    const updateMode = options.mode === 'update';
+    const targetPack = options.targetPack || (options.targetPackId ? getLorepackDefinition(options.targetPackId) : null);
+
+    const overlay = document.createElement('div');
+    overlay.className = 'wandlight-new-lore-overlay wandlight-lorepack-install-overlay';
+    document.body.appendChild(overlay);
+
+    const shell = document.createElement('div');
+    shell.className = 'wandlight-new-lore-shell wandlight-lorepack-install-shell';
+    overlay.appendChild(shell);
+
+    const header = document.createElement('div');
+    header.className = 'wandlight-lore-workbench-header';
+    const titleWrap = document.createElement('div');
+    titleWrap.className = 'wandlight-lore-workbench-title-wrap';
+    const title = document.createElement('div');
+    title.className = 'wandlight-lore-workbench-title';
+    title.textContent = updateMode ? 'Loredeck Update Preview' : 'Install Loredeck JSON';
+    titleWrap.appendChild(title);
+    const subtitle = document.createElement('div');
+    subtitle.className = 'wandlight-lore-workbench-subtitle';
+    subtitle.textContent = updateMode
+        ? 'Review fetched source data before updating this installed deck.'
+        : 'Review source, duplicate matches, and install choice.';
+    titleWrap.appendChild(subtitle);
+    header.appendChild(titleWrap);
+    header.appendChild(createButton('Close', 'Cancel this Loredeck install.', () => overlay.remove()));
+    shell.appendChild(header);
+
+    const form = document.createElement('div');
+    form.className = 'wandlight-new-lore-form wandlight-lorepack-install-form';
+    shell.appendChild(form);
+
+    const record = install.record || {};
+    const summary = document.createElement('div');
+    summary.className = 'wandlight-lorepack-manifest-preview';
+    const summaryTitle = document.createElement('div');
+    summaryTitle.className = 'wandlight-runtime-card-title';
+    summaryTitle.textContent = record.title || record.packId;
+    summary.appendChild(summaryTitle);
+    const chips = document.createElement('div');
+    chips.className = 'wandlight-lorepack-entry-summary';
+    chips.appendChild(createStatusPill(updateMode ? 'Update source' : 'Custom install', updateMode ? 'Fetched update data can replace this editable Loredeck after review.' : 'Imported bundles install as editable Custom Loredecks.'));
+    chips.appendChild(createStatusPill(`${record.stats?.entryCount || 0} Lorecards`, 'Lorecards included or referenced by this bundle.'));
+    chips.appendChild(createStatusPill(install.originalType || 'unknown source', 'Original bundle deck type.'));
+    if (record.healthStatus) chips.appendChild(createStatusPill(record.healthStatus, 'Deck Health status from the bundle.'));
+    if (install.matches?.length) chips.appendChild(createStatusPill(`${install.matches.length} duplicate match${install.matches.length === 1 ? '' : 'es'}`, 'Installed decks that may overlap with this bundle.'));
+    summary.appendChild(chips);
+
+    const grid = document.createElement('div');
+    grid.className = 'wandlight-lorepack-detail-grid';
+    grid.appendChild(createKeyValue(updateMode ? 'Target ID' : 'Install ID', record.packId, updateMode ? 'Installed Loredeck that will be updated if accepted.' : 'Deck ID that will be used for a new-copy install.'));
+    grid.appendChild(createKeyValue('Original ID', install.originalPackId || 'unset', 'Deck ID recorded in the imported bundle.'));
+    grid.appendChild(createKeyValue('Fandom', record.fandom || 'unset', 'Fandom or setting metadata.'));
+    grid.appendChild(createKeyValue('Version', record.version || 'unset', 'Imported deck version.'));
+    grid.appendChild(createKeyValue('Content Hash', record.source?.contentHash || 'unset', 'Deterministic hash of the imported JSON bundle used for duplicate checks.'));
+    grid.appendChild(createKeyValue('Update URL', record.source?.updateUrl || 'none', 'Creator-published update source if present.'));
+    grid.appendChild(createKeyValue(updateMode ? 'Update Source' : 'File', options.updateUrl || options.fileName || record.source?.installedFrom || 'unknown', updateMode ? 'Fetched update URL.' : 'Selected local JSON file.'));
+    summary.appendChild(grid);
+    form.appendChild(summary);
+
+    if (install.warnings?.length) {
+        const warningList = document.createElement('div');
+        warningList.className = 'wandlight-lorepack-generated-readiness-list';
+        for (const warning of install.warnings) {
+            const item = document.createElement('div');
+            item.className = 'wandlight-lorepack-generated-readiness-item wandlight-lorepack-generated-readiness-warning';
+            item.textContent = warning;
+            warningList.appendChild(item);
+        }
+        form.appendChild(warningList);
+    }
+
+    const matches = document.createElement('div');
+    matches.className = 'wandlight-lorepack-install-matches';
+    const matchesTitle = document.createElement('div');
+    matchesTitle.className = 'wandlight-runtime-card-title';
+    matchesTitle.textContent = 'Duplicate Review';
+    matches.appendChild(matchesTitle);
+    if (!install.matches?.length) {
+        matches.appendChild(createEmptyMessage('No installed Loredecks matched this bundle ID, source ID, title/version, or content hash.'));
+    } else {
+        const list = document.createElement('div');
+        list.className = 'wandlight-lorepack-install-match-list';
+        for (const match of install.matches) {
+            list.appendChild(createLorepackInstallMatchRow(parsed, install, match, overlay, options.fileName || ''));
+        }
+        matches.appendChild(list);
+    }
+    form.appendChild(matches);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    if (updateMode) {
+        actions.appendChild(createButton('Update This Deck', 'Replace this editable Loredeck record with the fetched update bundle.', async (btn) => {
+            if (targetPack?.localModified) {
+                const ok = await confirmAction(
+                    'Update Locally Modified Loredeck',
+                    `${targetPack.title || targetPack.packId} is marked locally modified. Update it from the fetched source anyway?`
+                );
+                if (!ok) return;
+            }
+            await runBusyAction(btn, 'Updating...', async () => {
+                await commitLorepackBundleInstall(parsed, record, {
+                    overlay,
+                    action: 'replace',
+                    warning: install.warnings?.[0] || '',
+                });
+            });
+        }, targetPack?.localModified ? 'wandlight-danger-button' : 'wandlight-primary-button'));
+    }
+    actions.appendChild(createButton(updateMode ? 'Install As New Copy' : 'Install New Copy', 'Install this bundle as a separate Custom Loredeck record.', async (btn) => {
+        await runBusyAction(btn, 'Installing...', async () => {
+            const copyInstall = updateMode
+                ? buildInstalledLorepackRecordFromBundle(parsed, {
+                    fileName: options.fileName || options.updateUrl || '',
+                    updateUrl: options.updateUrl || '',
+                })
+                : install;
+            await commitLorepackBundleInstall(parsed, copyInstall.record, {
+                overlay,
+                action: 'install',
+                warning: copyInstall.warnings?.[0] || '',
+            });
+        });
+    }, updateMode ? '' : 'wandlight-primary-button'));
+    actions.appendChild(createButton('Cancel', 'Cancel this Loredeck install.', () => overlay.remove()));
+    form.appendChild(actions);
+}
+
+async function installLorepackBundleFromFile() {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'application/json,.json,.saga-lorepack.json';
+    input.addEventListener('change', async () => {
+        const file = input.files?.[0];
+        if (!file) return;
+        try {
+            const text = await file.text();
+            const parsed = JSON.parse(text);
+            const install = analyzeLorepackBundleInstall(parsed, { fileName: file.name });
+            openLorepackInstallPreviewDialog(parsed, install, { fileName: file.name });
+        } catch (e) {
+            toast(e?.message || 'Loredeck JSON install failed.', 'error');
+        }
+    }, { once: true });
+    input.click();
+}
+
+async function checkLorepackForUpdates(pack, button = null) {
+    const updateUrl = getLorepackUpdateUrl(pack);
+    if (!updateUrl) {
+        toast('This Loredeck has no update URL.', 'warning');
+        return;
+    }
+    await runBusyAction(button, 'Checking...', async () => {
+        const parsed = await fetchLorepackUpdateBundle(updateUrl);
+        const install = analyzeLorepackBundleInstall(parsed, {
+            fileName: updateUrl,
+            targetPackId: pack.packId,
+            updateUrl,
+        });
+        const incomingHash = String(install.record?.source?.contentHash || '').trim();
+        const currentHash = String(pack?.source?.contentHash || '').trim();
+        if (incomingHash && currentHash && incomingHash === currentHash && pack.localModified !== true) {
+            toast(`${pack.title || pack.packId} already matches the latest published bundle.`, 'info');
+            return;
+        }
+        const originalSourceId = String(pack?.source?.originalPackId || pack?.derivedFrom?.packId || '').trim();
+        if (originalSourceId && install.originalPackId && originalSourceId !== install.originalPackId) {
+            install.warnings.unshift(`Fetched bundle source ID ${install.originalPackId} differs from this deck's recorded source ${originalSourceId}.`);
+        }
+        if (pack.localModified === true) {
+            install.warnings.unshift('This Loredeck is locally modified. Review carefully before updating from source.');
+        }
+        openLorepackInstallPreviewDialog(parsed, install, {
+            mode: 'update',
+            targetPackId: pack.packId,
+            targetPack: pack,
+            updateUrl,
+            fileName: updateUrl,
+        });
+    });
 }
 
 function createLorepackStackRow(item, index, stackLength, canonDb = null) {
@@ -4782,6 +5374,12 @@ function createLorepackDetailCard(state, canonDb = null, health = null) {
         syncButton.disabled = !pack.manifest;
         actions.appendChild(syncButton);
 
+        const updateButton = createButton('Check Updates', 'Fetch this Loredeck source/update URL and review any installable update bundle.', async (btn) => {
+            await checkLorepackForUpdates(pack, btn);
+        });
+        updateButton.disabled = !getLorepackUpdateUrl(pack);
+        actions.appendChild(updateButton);
+
         const repairButton = createButton('Repair Safe Issues', 'Apply safe Deck Health repairs to Custom metadata and existing overrides.', async (btn) => {
             await repairLorepackSafeHealthIssues(pack, btn);
         });
@@ -4985,10 +5583,12 @@ function createLorepackManifestPreview(pack) {
         item.textContent = file;
         fileList.appendChild(item);
     }
-    if (!files.length && isGeneratedLorepackPack(pack)) {
+    if (!files.length && canUseVirtualLorepackData(pack)) {
         const item = document.createElement('div');
         item.className = 'wandlight-lorepack-file-item wandlight-lorepack-file-item-muted';
-        item.textContent = 'Accepted generated Lorecards are stored in this local Loredeck record.';
+        item.textContent = isGeneratedLorepackPack(pack)
+            ? 'Accepted generated Lorecards are stored in this local Loredeck record.'
+            : 'Embedded Lorecards are stored in this installed Custom Loredeck record.';
         fileList.appendChild(item);
     }
     if (files.length > 14) {
@@ -8537,8 +9137,8 @@ async function fetchJsonForLorepackEditor(url) {
 }
 
 async function fetchLorepackEntryFilesForEditor(pack, manifest = null, baseUrl = null) {
-    const displayManifest = manifest || await getDisplayManifestForPack(pack, { requireFetch: !canUseGeneratedVirtualLorepackData(pack) });
-    if (canUseGeneratedVirtualLorepackData(pack) && !baseUrl) {
+    const displayManifest = manifest || await getDisplayManifestForPack(pack, { requireFetch: !canUseVirtualLorepackData(pack) });
+    if (canUseVirtualLorepackData(pack) && !baseUrl) {
         return buildGeneratedLorepackEntryCache(refreshGeneratedLorepackDerivedMetadata(cloneLorepackJson(pack) || { ...pack }), displayManifest);
     }
     const resolvedBaseUrl = baseUrl || resolveManifestUrlForFetch(pack.manifest);
@@ -8603,9 +9203,9 @@ async function loadLorepackTimelineRegistryForEditor(pack, button = null, option
     }
     try {
         const fresh = getFreshLorepackLibraryPack(pack.packId, pack);
-        const manifest = options.manifest || await getDisplayManifestForPack(fresh, { requireFetch: !canUseGeneratedVirtualLorepackData(fresh) });
+        const manifest = options.manifest || await getDisplayManifestForPack(fresh, { requireFetch: !canUseVirtualLorepackData(fresh) });
         const baseUrl = options.baseUrl || resolveManifestUrlForFetch(fresh.manifest);
-        if (!baseUrl && canUseGeneratedVirtualLorepackData(fresh)) {
+        if (!baseUrl && canUseVirtualLorepackData(fresh)) {
             const sourceRegistry = normalizeLorepackTimelineRegistry(fresh.timelineRegistry);
             lorepackTimelineRegistryCache.set(fresh.packId, {
                 sourceRegistry,
@@ -8615,7 +9215,7 @@ async function loadLorepackTimelineRegistryForEditor(pack, button = null, option
             });
             if (options.quiet !== true) {
                 const count = getLorepackTimelineRegistryCount(sourceRegistry);
-                toast(count ? `Loaded ${count} local timeline definition${count === 1 ? '' : 's'}.` : 'This Generated Loredeck does not have local timeline definitions yet.', count ? 'success' : 'info');
+                toast(count ? `Loaded ${count} local timeline definition${count === 1 ? '' : 's'}.` : 'This Loredeck does not have local timeline definitions yet.', count ? 'success' : 'info');
                 refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
             }
             return sourceRegistry;
@@ -8676,9 +9276,9 @@ async function loadLorepackTagRegistryForEditor(pack, button = null, options = {
     }
     try {
         const fresh = getFreshLorepackLibraryPack(pack.packId, pack);
-        const manifest = options.manifest || await getDisplayManifestForPack(fresh, { requireFetch: !canUseGeneratedVirtualLorepackData(fresh) });
+        const manifest = options.manifest || await getDisplayManifestForPack(fresh, { requireFetch: !canUseVirtualLorepackData(fresh) });
         const baseUrl = options.baseUrl || resolveManifestUrlForFetch(fresh.manifest);
-        if (!baseUrl && canUseGeneratedVirtualLorepackData(fresh)) {
+        if (!baseUrl && canUseVirtualLorepackData(fresh)) {
             const sourceRegistry = normalizeLorepackTagRegistry(fresh.tagRegistry);
             lorepackTagRegistryCache.set(fresh.packId, {
                 sourceRegistry,
@@ -8688,7 +9288,7 @@ async function loadLorepackTagRegistryForEditor(pack, button = null, options = {
             });
             if (options.quiet !== true) {
                 const count = getLorepackTagRegistryCount(sourceRegistry);
-                toast(count ? `Loaded ${count} local tag definition${count === 1 ? '' : 's'}.` : 'This Generated Loredeck does not have local tag definitions yet.', count ? 'success' : 'info');
+                toast(count ? `Loaded ${count} local tag definition${count === 1 ? '' : 's'}.` : 'This Loredeck does not have local tag definitions yet.', count ? 'success' : 'info');
                 refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
             }
             return sourceRegistry;
@@ -8770,7 +9370,7 @@ async function loadLorepackManifestPreview(pack, button = null) {
         button.textContent = 'Inspecting...';
     }
     try {
-        const manifest = await getDisplayManifestForPack(pack, { requireFetch: !canUseGeneratedVirtualLorepackData(pack) });
+        const manifest = await getDisplayManifestForPack(pack, { requireFetch: !canUseVirtualLorepackData(pack) });
         lorepackManifestPreviewCache.set(pack.packId, {
             manifest,
             error: '',
@@ -8845,19 +9445,19 @@ async function validateLorepackForEditor(pack, button = null, options = {}) {
     try {
         const fresh = getFreshLorepackLibraryPack(pack.packId, pack);
         if (!canValidateLorepackInEditor(fresh)) throw new Error('Loredeck needs a fetchable manifest path or accepted generated data to validate.');
-        const generatedVirtual = canUseGeneratedVirtualLorepackData(fresh);
-        const workingPack = generatedVirtual
+        const virtualData = canUseVirtualLorepackData(fresh);
+        const workingPack = isGeneratedLorepackPack(fresh)
             ? refreshGeneratedLorepackDerivedMetadata(cloneLorepackJson(fresh) || { ...fresh })
             : fresh;
-        const manifest = await getDisplayManifestForPack(workingPack, { requireFetch: !generatedVirtual });
-        const baseUrl = generatedVirtual ? null : resolveManifestUrlForFetch(workingPack.manifest);
-        if (!generatedVirtual && !baseUrl) throw new Error('Loredeck manifest path or URL is invalid.');
-        const entryCache = generatedVirtual
+        const manifest = await getDisplayManifestForPack(workingPack, { requireFetch: !virtualData });
+        const baseUrl = virtualData ? null : resolveManifestUrlForFetch(workingPack.manifest);
+        if (!virtualData && !baseUrl) throw new Error('Loredeck manifest path or URL is invalid.');
+        const entryCache = virtualData
             ? buildGeneratedLorepackEntryCache(workingPack, manifest)
             : await fetchLorepackEntryFilesForEditor(workingPack, manifest, baseUrl);
         let timeline = null;
         let tagRegistry = null;
-        if (generatedVirtual) {
+        if (virtualData) {
             timeline = getLorepackTimelineRegistryCount(workingPack.timelineRegistry)
                 ? normalizeLorepackTimelineRegistry(workingPack.timelineRegistry)
                 : null;
@@ -8901,7 +9501,7 @@ async function validateLorepackForEditor(pack, button = null, options = {}) {
             entryFiles: entryCache.entryFiles,
             timeline,
             tagRegistry,
-            registryRecord: generatedVirtual ? null : workingPack,
+            registryRecord: virtualData ? null : workingPack,
         });
         cacheLorepackValidation(workingPack.packId, manifest, entryCache, health);
 
@@ -8965,6 +9565,7 @@ async function repairLorepackSafeHealthIssues(pack, button = null) {
             },
             entryOverrides: { ...(fresh.entryOverrides || {}) },
             disabledEntryIds: Array.isArray(fresh.disabledEntryIds) ? [...fresh.disabledEntryIds] : [],
+            localModified: true,
             updatedAt: Date.now(),
         };
 
@@ -9094,6 +9695,7 @@ async function syncLorepackMetadataFromManifest(pack, button = null) {
         record.installedAt = pack.installedAt || Date.now();
         record.entryOverrides = pack.entryOverrides || {};
         record.disabledEntryIds = Array.isArray(pack.disabledEntryIds) ? [...pack.disabledEntryIds] : [];
+        record.localModified = pack.localModified === true;
         const pendingChanges = getLorepackPendingChanges(pack);
         if (pendingChanges.length) record.pendingChanges = pendingChanges;
         if (getLorepackTimelineRegistryCount(pack.timelineRegistry)) record.timelineRegistry = normalizeLorepackTimelineRegistry(pack.timelineRegistry);
@@ -9153,6 +9755,7 @@ async function saveLorepackMetadataFromInputs(pack, fields, button = null) {
             version: fields.versionInput.value.trim(),
             manifest: nextManifest,
             tags: parseLorepackTags(fields.tagsInput.value),
+            localModified: true,
             updatedAt: Date.now(),
         };
         if (isGeneratedLorepackPack(record)) {
@@ -10308,6 +10911,7 @@ function persistLorepackLibraryRecordMutation(pack, mutator, message, options = 
         tagRegistry: normalizeLorepackTagRegistry(fresh.tagRegistry),
         timelineRegistry: normalizeLorepackTimelineRegistry(fresh.timelineRegistry),
         pendingChanges: normalizeLorepackPendingChanges(fresh.pendingChanges),
+        localModified: true,
         updatedAt: Date.now(),
     };
     mutator(next);
@@ -10506,9 +11110,13 @@ function formatCategoryCounts(categoryCounts = {}) {
 function getLorepackSourceSummary(pack) {
     const source = pack?.source && typeof pack.source === 'object' && !Array.isArray(pack.source) ? pack.source : {};
     const kind = source.kind || (pack?.manifest ? (/^https?:\/\//i.test(pack.manifest) ? 'url' : 'path') : 'unknown');
+    const parts = [kind];
+    if (source.installedFrom) parts.push(`file: ${source.installedFrom}`);
+    if (source.originalPackId && source.originalPackId !== pack?.packId) parts.push(`source deck: ${source.originalPackId}`);
     const updateUrl = source.updateUrl || '';
-    if (updateUrl) return `${kind} | update URL registered`;
-    return kind;
+    if (updateUrl) parts.push('update URL registered');
+    if (pack?.localModified) parts.push('locally modified');
+    return parts.filter(Boolean).join(' | ') || 'unknown';
 }
 
 function formatLorepackManifestContinuity(continuity) {
@@ -11863,6 +12471,7 @@ function normalizeLorepackLibraryPack(raw = {}) {
         stats,
         entryCount: Number.isFinite(Number(raw.entryCount)) ? Number(raw.entryCount) : (Number.isFinite(Number(stats.entryCount)) ? Number(stats.entryCount) : 0),
         healthStatus: String(raw.healthStatus || '').trim(),
+        localModified: raw.localModified === true,
         derivedFrom,
         manifestData,
         entryOverrides,

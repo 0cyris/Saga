@@ -1437,8 +1437,7 @@ function isGeneratedRegistryRecord(registryRecord = null) {
     return String(registryRecord?.type || registryRecord?.manifestData?.type || '').trim() === 'generated';
 }
 
-function getAcceptedGeneratedRegistryEntries(registryRecord = null, manifest = {}) {
-    if (!isGeneratedRegistryRecord(registryRecord)) return [];
+function getAcceptedVirtualRegistryEntries(registryRecord = null, manifest = {}) {
     const overrides = normalizeEntryOverrideMap(registryRecord?.entryOverrides);
     const disabledIds = normalizeDisabledEntryIdSet(registryRecord?.disabledEntryIds);
     const schemaVersion = Number(manifest.entrySchemaVersion || registryRecord?.entrySchemaVersion || registryRecord?.manifestData?.entrySchemaVersion) || 3;
@@ -1453,12 +1452,17 @@ function getAcceptedGeneratedRegistryEntries(registryRecord = null, manifest = {
     return entries;
 }
 
-function buildGeneratedEntryFilesFromRegistry(registryRecord = null, manifest = {}) {
-    const entries = getAcceptedGeneratedRegistryEntries(registryRecord, manifest);
+function getAcceptedGeneratedRegistryEntries(registryRecord = null, manifest = {}) {
+    if (!isGeneratedRegistryRecord(registryRecord)) return [];
+    return getAcceptedVirtualRegistryEntries(registryRecord, manifest);
+}
+
+function buildVirtualEntryFilesFromRegistry(registryRecord = null, manifest = {}) {
+    const entries = getAcceptedVirtualRegistryEntries(registryRecord, manifest);
     const schemaVersion = Math.max(3, Number(manifest.entrySchemaVersion || registryRecord?.entrySchemaVersion || registryRecord?.manifestData?.entrySchemaVersion) || 0);
     if (!entries.length) return [];
     return [{
-        file: '__saga_generated_entries__',
+        file: isGeneratedRegistryRecord(registryRecord) ? '__saga_generated_entries__' : '__saga_embedded_entries__',
         url: null,
         ok: true,
         json: {
@@ -1468,6 +1472,10 @@ function buildGeneratedEntryFilesFromRegistry(registryRecord = null, manifest = 
         entries,
         schemaVersion,
     }];
+}
+
+function buildGeneratedEntryFilesFromRegistry(registryRecord = null, manifest = {}) {
+    return buildVirtualEntryFilesFromRegistry(registryRecord, manifest);
 }
 
 function buildOverrideEntry(override, baseEntry, packId, kind) {
@@ -1574,6 +1582,7 @@ function getLorepackManifestUrl(packId, registryRecord = null) {
             return null;
         }
     }
+    if (registryRecord && isPlainObject(registryRecord.manifestData)) return null;
     const id = String(packId || '').trim();
     if (!/^[a-z0-9][a-z0-9._-]*$/i.test(id)) return null;
     return new URL(`./Lorepacks/${id}/lorepack.json`, import.meta.url);
@@ -1647,8 +1656,8 @@ export async function loadLorepackSourceById(packId = DEFAULT_LOREPACK_ID, optio
     const embeddedManifest = buildEmbeddedManifest(registryRecord, packId);
     if (embeddedManifest) {
         if (!manifestUrl) {
-            if (isGeneratedRegistryRecord(registryRecord)) {
-                const entryFiles = buildGeneratedEntryFilesFromRegistry(registryRecord, embeddedManifest);
+            const entryFiles = buildVirtualEntryFilesFromRegistry(registryRecord, embeddedManifest);
+            if (isGeneratedRegistryRecord(registryRecord) || entryFiles.length) {
                 const health = buildLorepackHealthForData({
                     packId: embeddedManifest.id || packId,
                     manifest: embeddedManifest,
@@ -1660,7 +1669,7 @@ export async function loadLorepackSourceById(packId = DEFAULT_LOREPACK_ID, optio
                 return {
                     manifest: embeddedManifest,
                     baseUrl: null,
-                    sourceKind: 'generated_virtual',
+                    sourceKind: isGeneratedRegistryRecord(registryRecord) ? 'generated_virtual' : 'custom_virtual',
                     registryRecord,
                     pack: {
                         ...buildLorepackMeta(embeddedManifest, stackPriority, stackIndex),

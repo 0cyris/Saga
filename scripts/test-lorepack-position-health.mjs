@@ -526,4 +526,73 @@ assert.equal(generatedSource.health.summary.entryCount, 1);
 assert.equal(generatedSource.health.summary.timelineAnchorCount, 2);
 assert.equal(generatedSource.health.summary.tagRegistryTagCount, 1);
 
+const customVirtualSource = await loadLorepackSourceById('arlong-park-imported', {
+  registry: {
+    schemaVersion: 1,
+    packs: {
+      'arlong-park-imported': {
+        packId: 'arlong-park-imported',
+        type: 'custom',
+        title: 'Arlong Park Imported',
+        entrySchemaVersion: 3,
+        manifest: '',
+        manifestData: {
+          schemaVersion: 3,
+          id: 'arlong-park-imported',
+          type: 'custom',
+          title: 'Arlong Park Imported',
+          entrySchemaVersion: 3,
+          files: [],
+          stats: { entryCount: 1, categoryCounts: { character: 1 } },
+        },
+        timelineRegistry: {
+          anchors: [
+            { id: 'arlong_park.start', label: 'Start', sortKey: 100 },
+            { id: 'arlong_park.end', label: 'End', sortKey: 200 },
+          ],
+        },
+        tagRegistry: {
+          tags: {
+            'character:arlong': { label: 'Arlong' },
+          },
+        },
+        entryOverrides: {
+          arlong_custom_import: {
+            schemaVersion: 3,
+            id: 'arlong_custom_import',
+            title: 'Arlong imported as Custom',
+            category: 'character',
+            priority: 72,
+            tags: ['character:arlong'],
+            position: {
+              scope: 'window',
+              validFromAnchor: 'arlong_park.start',
+              validToAnchor: 'arlong_park.end',
+              sortKeyFrom: 100,
+              sortKeyTo: 200,
+              precision: 'anchor_window',
+              windowKind: 'bounded',
+              label: 'Arlong Park Arc',
+            },
+            retrieval: {
+              activation: 'topic_or_entity',
+              frequency: 'normal',
+              positionalBoost: 'medium',
+            },
+            content: {
+              fact: 'Imported Arlong remains coercive and cruel.',
+              injection: 'Arlong should remain coercive and cruel in this imported Custom deck.',
+            },
+          },
+        },
+      },
+    },
+  },
+});
+assert.equal(customVirtualSource.sourceKind, 'custom_virtual');
+assert.equal(customVirtualSource.entryFiles.length, 1);
+assert.equal(customVirtualSource.entryFiles[0].entries.length, 1);
+assert.equal(customVirtualSource.health.status, 'good');
+assert.equal(customVirtualSource.health.summary.entryCount, 1);
+
 console.log('Lorepack position health tests passed.');

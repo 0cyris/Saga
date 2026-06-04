@@ -609,6 +609,12 @@ function normalizeLorepackRegistry(value, defaults = getDefaultState().lorepackR
                 kind: String(source.kind || (type === 'bundled' ? 'bundled' : 'local')).trim(),
                 url: String(source.url || '').trim(),
                 updateUrl: String(source.updateUrl || '').trim(),
+                installedFrom: String(source.installedFrom || '').trim(),
+                bundleType: String(source.bundleType || '').trim(),
+                originalPackId: String(source.originalPackId || '').trim(),
+                contentHash: String(source.contentHash || '').trim(),
+                exportedAt: Number.isFinite(Number(source.exportedAt)) ? Number(source.exportedAt) : 0,
+                importedAt: Number.isFinite(Number(source.importedAt)) ? Number(source.importedAt) : 0,
             },
             tags: Array.isArray(raw.tags) ? raw.tags.map(tag => String(tag || '').trim()).filter(Boolean).slice(0, 64) : [],
             stats: {
@@ -618,6 +624,7 @@ function normalizeLorepackRegistry(value, defaults = getDefaultState().lorepackR
                     : {},
             },
             healthStatus: String(raw.healthStatus || '').trim(),
+            localModified: raw.localModified === true,
             installedAt: Number.isFinite(Number(raw.installedAt)) ? Number(raw.installedAt) : 0,
             updatedAt: Number.isFinite(Number(raw.updatedAt)) ? Number(raw.updatedAt) : 0,
         };
