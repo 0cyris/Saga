@@ -2259,6 +2259,11 @@ function createLorepackHealthReportCard(state, canonDb = null, health = null) {
     grid.appendChild(createLorepackHealthMetric('Added', String(summary.entryAdditionCount || 0), 'Custom entries added through override layers.'));
     grid.appendChild(createLorepackHealthMetric('Disabled', String(summary.suppressedEntryCount || 0), 'Source entries suppressed by Custom packs.'));
     grid.appendChild(createLorepackHealthMetric('Stack Duplicates', String(report.duplicateEntryIdCount || 0), 'Duplicate entry IDs resolved by stack priority.'));
+    grid.appendChild(createLorepackHealthMetric('Position Gates', String(summary.positionGateCount || 0), 'Entries with Story Position gates.'));
+    grid.appendChild(createLorepackHealthMetric('Timeline', `${summary.timelineAnchorCount || 0}/${summary.timelineWindowCount || 0}`, 'Loaded Story Position anchors/windows.'));
+    grid.appendChild(createLorepackHealthMetric('Anchor Issues', String(summary.brokenAnchorReferenceCount || 0), 'Broken Story Position anchor references.'));
+    grid.appendChild(createLorepackHealthMetric('Window Issues', String(summary.invalidPositionWindowCount || 0), 'Invalid Story Position windows.'));
+    grid.appendChild(createLorepackHealthMetric('Unmatchable', String(summary.unmatchablePositionGateCount || 0), 'Position-gated entries that cannot match known Story Position anchors.'));
     card.appendChild(grid);
 
     if (report.packs.length) {
@@ -2361,6 +2366,11 @@ function createLorepackHealthIssueList(titleText, issues = [], severity = 'sugge
         if (issue.packId) meta.appendChild(createStatusPill(issue.packId, 'Affected pack ID.'));
         if (Array.isArray(issue.entryIds) && issue.entryIds.length) meta.appendChild(createStatusPill(`${issue.entryIds.length} entr${issue.entryIds.length === 1 ? 'y' : 'ies'}`, 'Affected entry IDs.'));
         if (issue.file) meta.appendChild(createStatusPill(issue.file, 'Affected file.'));
+        if (issue.anchorId) meta.appendChild(createStatusPill(`anchor: ${issue.anchorId}`, 'Affected Story Position anchor.'));
+        if (Array.isArray(issue.anchorIds) && issue.anchorIds.length) meta.appendChild(createStatusPill(`${issue.anchorIds.length} anchor${issue.anchorIds.length === 1 ? '' : 's'}`, 'Affected Story Position anchors.'));
+        if (issue.timelineWindowId) meta.appendChild(createStatusPill(`window: ${issue.timelineWindowId}`, 'Affected Story Position timeline window.'));
+        if (issue.positionField) meta.appendChild(createStatusPill(issue.positionField, 'Affected Story Position field.'));
+        if (Array.isArray(issue.positionFields) && issue.positionFields.length) meta.appendChild(createStatusPill(issue.positionFields.join(', '), 'Affected Story Position fields.'));
         if (issue.winningPackId) meta.appendChild(createStatusPill(`winner: ${issue.winningPackId}`, 'Winning pack after stack duplicate resolution.'));
         item.appendChild(meta);
         list.appendChild(item);

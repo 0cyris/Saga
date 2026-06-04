@@ -6,6 +6,8 @@
  * preprocessing, prompt injection, or UI state.
  */
 
+import { normalizeLoreEntry } from './lore-matrix.js';
+
 export const DEFAULT_LOREPACK_ID = 'hp-golden-trio';
 export const DEFAULT_LOREPACK_MANIFEST_URL = new URL('./Lorepacks/hp-golden-trio/lorepack.json', import.meta.url);
 export const LOREPACK_INDEX_URL = new URL('./Lorepacks/index.json', import.meta.url);
@@ -58,6 +60,12 @@ function createHealth(packId = '') {
             entryAdditionCount: 0,
             disabledEntryIdCount: 0,
             suppressedEntryCount: 0,
+            timelineAnchorCount: 0,
+            timelineWindowCount: 0,
+            positionGateCount: 0,
+            brokenAnchorReferenceCount: 0,
+            invalidPositionWindowCount: 0,
+            unmatchablePositionGateCount: 0,
             categoryCounts: {},
             errorCount: 0,
             warningCount: 0,
@@ -94,6 +102,346 @@ function entryListFromJson(json) {
     if (Array.isArray(json?.entries)) return json.entries;
     if (Array.isArray(json)) return json;
     return [];
+}
+
+function cleanHealthString(value, maxLength = 240) {
+    return String(value || '').trim().slice(0, maxLength);
+}
+
+function cleanHealthNumber(value) {
+    const number = Number(value);
+    return Number.isFinite(number) ? number : null;
+}
+
+function getTimelineRegistryRef(manifest = {}) {
+    if (!isPlainObject(manifest)) return '';
+    const registries = isPlainObject(manifest.registries) ? manifest.registries : {};
+    const refs = [
+        registries.timeline,
+        registries.storyPosition,
+        manifest.timeline,
+        isPlainObject(manifest.storyPosition) ? manifest.storyPosition.timeline : '',
+        manifest.positionIndex,
+    ];
+    for (const ref of refs) {
+        const cleaned = cleanHealthString(ref, 400);
+        if (cleaned) return cleaned;
+    }
+    return '';
+}
+
+function normalizeTimelineHealthAnchor(raw = {}, packId = '', index = 0) {
+    if (!isPlainObject(raw)) return null;
+    const id = cleanHealthString(raw.id || `${packId || 'pack'}.anchor_${index + 1}`, 180);
+    if (!id) return null;
+    return {
+        id,
+        label: cleanHealthString(raw.label || raw.title || id, 240),
+        sortKey: cleanHealthNumber(raw.sortKey) ?? index + 1,
+        arc: cleanHealthString(raw.arc, 180),
+        phase: cleanHealthString(raw.phase, 180),
+        season: cleanHealthString(raw.season, 80),
+        episode: cleanHealthString(raw.episode, 80),
+        chapter: cleanHealthString(raw.chapter, 80),
+        issue: cleanHealthString(raw.issue, 80),
+        quest: cleanHealthString(raw.quest, 180),
+        gameStage: cleanHealthString(raw.gameStage, 180),
+    };
+}
+
+function normalizeTimelineHealthWindow(raw = {}, packId = '', index = 0) {
+    if (!isPlainObject(raw)) return null;
+    const id = cleanHealthString(raw.id || `${packId || 'pack'}.window_${index + 1}`, 180);
+    if (!id) return null;
+    return {
+        id,
+        label: cleanHealthString(raw.label || raw.title || id, 240),
+        anchorFrom: cleanHealthString(raw.anchorFrom || raw.from || raw.validFromAnchor, 180),
+        anchorTo: cleanHealthString(raw.anchorTo || raw.to || raw.validToAnchor, 180),
+        sortKeyFrom: cleanHealthNumber(raw.sortKeyFrom),
+        sortKeyTo: cleanHealthNumber(raw.sortKeyTo),
+    };
+}
+
+function normalizeTimelineRegistryForHealth(raw = {}, packId = '') {
+    const input = isPlainObject(raw) ? raw : {};
+    const anchors = Array.isArray(input.anchors)
+        ? input.anchors.map((anchor, index) => normalizeTimelineHealthAnchor(anchor, packId, index)).filter(Boolean)
+        : [];
+    const windows = [
+        ...(Array.isArray(input.windows) ? input.windows : []),
+        ...(Array.isArray(input.arcs) ? input.arcs : []),
+        ...(Array.isArray(input.phases) ? input.phases : []),
+    ].map((window, index) => normalizeTimelineHealthWindow(window, packId, index)).filter(Boolean);
+    return { anchors, windows };
+}
+
+function createTimelineHealthIndex(timeline = {}) {
+    const anchorById = new Map();
+    const duplicateAnchorIds = new Set();
+    for (const anchor of timeline.anchors || []) {
+        if (!anchor?.id) continue;
+        if (anchorById.has(anchor.id)) duplicateAnchorIds.add(anchor.id);
+        else anchorById.set(anchor.id, anchor);
+    }
+    return {
+        ...timeline,
+        anchorById,
+        duplicateAnchorIds,
+    };
+}
+
+function getAnchorSortKey(timeline = {}, anchorId = '') {
+    const anchor = timeline.anchorById?.get(cleanHealthString(anchorId, 180));
+    const number = cleanHealthNumber(anchor?.sortKey);
+    return number === null ? null : number;
+}
+
+function addPositionHealthIssue(health, severity, code, message, extra = {}) {
+    if (code === 'broken_anchor_reference') health.summary.brokenAnchorReferenceCount += 1;
+    if (code === 'invalid_position_window') health.summary.invalidPositionWindowCount += 1;
+    if (code === 'unmatchable_position_gate') health.summary.unmatchablePositionGateCount += 1;
+    addHealthIssue(health, severity, code, message, extra);
+}
+
+function analyzeTimelineWindowHealth(health, timeline = {}) {
+    for (const anchorId of timeline.duplicateAnchorIds || []) {
+        addPositionHealthIssue(health, 'warning', 'duplicate_timeline_anchor_id', `Timeline defines duplicate anchor id: ${anchorId}.`, {
+            anchorId,
+            timelineRef: timeline.timelineRef,
+        });
+    }
+
+    for (const window of timeline.windows || []) {
+        const missingAnchors = [
+            window.anchorFrom && !timeline.anchorById.has(window.anchorFrom) ? window.anchorFrom : '',
+            window.anchorTo && !timeline.anchorById.has(window.anchorTo) ? window.anchorTo : '',
+        ].filter(Boolean);
+        if (missingAnchors.length) {
+            addPositionHealthIssue(health, 'warning', 'broken_anchor_reference', `Timeline window ${window.id} references unknown anchor${missingAnchors.length === 1 ? '' : 's'}: ${missingAnchors.join(', ')}.`, {
+                anchorIds: missingAnchors,
+                positionField: 'timelineWindow',
+                timelineWindowId: window.id,
+                timelineRef: timeline.timelineRef,
+            });
+        }
+
+        const fromSort = window.sortKeyFrom ?? getAnchorSortKey(timeline, window.anchorFrom);
+        const toSort = window.sortKeyTo ?? getAnchorSortKey(timeline, window.anchorTo);
+        if (fromSort !== null && toSort !== null && fromSort > toSort) {
+            addPositionHealthIssue(health, 'warning', 'invalid_position_window', `Timeline window ${window.id} starts after it ends.`, {
+                timelineWindowId: window.id,
+                anchorFrom: window.anchorFrom,
+                anchorTo: window.anchorTo,
+                sortKeyFrom: fromSort,
+                sortKeyTo: toSort,
+                timelineRef: timeline.timelineRef,
+            });
+        }
+    }
+}
+
+async function loadTimelineRegistryForHealth(manifest = {}, baseUrl = null, health) {
+    const packId = cleanHealthString(manifest.id || health?.packId, 160);
+    const timelineRef = getTimelineRegistryRef(manifest);
+    const empty = {
+        packId,
+        timelineRef,
+        hasTimelineRef: !!timelineRef,
+        anchors: [],
+        windows: [],
+        anchorById: new Map(),
+        duplicateAnchorIds: new Set(),
+    };
+    if (!timelineRef || !baseUrl) return empty;
+
+    let timelineUrl = null;
+    try {
+        timelineUrl = new URL(timelineRef, baseUrl);
+    } catch (_) {
+        addHealthIssue(health, 'warning', 'story_position_timeline_invalid_ref', `Timeline registry path is invalid: ${timelineRef}.`, {
+            timelineRef,
+        });
+        return empty;
+    }
+
+    const result = await fetchJsonDetailed(timelineUrl);
+    if (!result.ok) {
+        addHealthIssue(health, 'warning', 'story_position_timeline_load_failed', `Timeline registry failed to load: ${timelineRef}.`, {
+            timelineRef,
+            status: result.status,
+            detail: result.error || result.statusText || '',
+        });
+        return empty;
+    }
+
+    const timeline = createTimelineHealthIndex({
+        ...normalizeTimelineRegistryForHealth(result.json, packId),
+        packId,
+        timelineRef,
+        hasTimelineRef: true,
+    });
+    health.summary.timelineAnchorCount = timeline.anchors.length;
+    health.summary.timelineWindowCount = timeline.windows.length;
+    if (!timeline.anchors.length && !timeline.windows.length) {
+        addHealthIssue(health, 'suggestion', 'story_position_timeline_empty', `Timeline registry ${timelineRef} has no anchors or windows.`, {
+            timelineRef,
+        });
+    }
+    analyzeTimelineWindowHealth(health, timeline);
+    return timeline;
+}
+
+function hasFinitePositionNumber(value) {
+    return value !== null && value !== undefined && value !== '' && Number.isFinite(Number(value));
+}
+
+function hasPositionGate(position = {}, coordinates = []) {
+    const fields = [
+        'anchorId',
+        'validFromAnchor',
+        'validToAnchor',
+        'arc',
+        'arcId',
+        'phase',
+        'phaseId',
+        'season',
+        'episode',
+        'chapter',
+        'issue',
+        'quest',
+        'gameStage',
+        'stardateFrom',
+        'stardateTo',
+    ];
+    if (fields.some(field => cleanHealthString(position[field]))) return true;
+    if (hasFinitePositionNumber(position.sortKeyFrom) || hasFinitePositionNumber(position.sortKeyTo)) return true;
+    return Array.isArray(coordinates) && coordinates.some(item => isPlainObject(item)
+        && [item.axis, item.id, item.from, item.to].some(value => cleanHealthString(value)));
+}
+
+function getEntryAnchorReferences(position = {}) {
+    return [
+        ['anchorId', cleanHealthString(position.anchorId, 180)],
+        ['validFromAnchor', cleanHealthString(position.validFromAnchor, 180)],
+        ['validToAnchor', cleanHealthString(position.validToAnchor, 180)],
+    ].filter(([, anchorId]) => anchorId);
+}
+
+function hasOnlyAnchorOrWindowPositionGate(position = {}, coordinates = []) {
+    const nonAnchorFields = [
+        'arc',
+        'arcId',
+        'phase',
+        'phaseId',
+        'season',
+        'episode',
+        'chapter',
+        'issue',
+        'quest',
+        'gameStage',
+        'stardateFrom',
+        'stardateTo',
+    ];
+    return getEntryAnchorReferences(position).length > 0
+        && !nonAnchorFields.some(field => cleanHealthString(position[field]))
+        && (!Array.isArray(coordinates) || coordinates.length === 0);
+}
+
+function analyzeEntryPositionWindowHealth(health, entry, file, timeline = {}) {
+    const position = entry.position || {};
+    const entryId = cleanHealthString(entry.id, 180);
+    const invalidReasons = [];
+
+    const explicitFromSort = hasFinitePositionNumber(position.sortKeyFrom) ? Number(position.sortKeyFrom) : null;
+    const explicitToSort = hasFinitePositionNumber(position.sortKeyTo) ? Number(position.sortKeyTo) : null;
+    const anchorFromSort = getAnchorSortKey(timeline, position.validFromAnchor);
+    const anchorToSort = getAnchorSortKey(timeline, position.validToAnchor);
+    const fromSort = explicitFromSort ?? anchorFromSort;
+    const toSort = explicitToSort ?? anchorToSort;
+
+    if (explicitFromSort !== null && explicitToSort !== null && explicitFromSort > explicitToSort) {
+        invalidReasons.push(`sortKeyFrom ${explicitFromSort} is after sortKeyTo ${explicitToSort}`);
+    } else if (fromSort !== null && toSort !== null && fromSort > toSort) {
+        invalidReasons.push(`from anchor/sort ${fromSort} is after to anchor/sort ${toSort}`);
+    }
+
+    if (!invalidReasons.length) return [];
+
+    addPositionHealthIssue(health, 'warning', 'invalid_position_window', `Entry ${entryId || entry.title} has an invalid Story Position window: ${invalidReasons.join('; ')}.`, {
+        entryIds: entryId ? [entryId] : [],
+        file,
+        anchorFrom: position.validFromAnchor || '',
+        anchorTo: position.validToAnchor || '',
+        sortKeyFrom: fromSort,
+        sortKeyTo: toSort,
+    });
+    return invalidReasons;
+}
+
+function analyzeEntryAnchorReferenceHealth(health, entry, file, timeline = {}) {
+    const entryId = cleanHealthString(entry.id, 180);
+    const missing = [];
+    for (const [field, anchorId] of getEntryAnchorReferences(entry.position || {})) {
+        if (timeline.anchorById?.has(anchorId)) continue;
+        missing.push({ field, anchorId });
+    }
+    if (!missing.length) return [];
+
+    const anchorIds = missing.map(item => item.anchorId);
+    addPositionHealthIssue(health, 'warning', 'broken_anchor_reference', `Entry ${entryId || entry.title} references unknown Story Position anchor${anchorIds.length === 1 ? '' : 's'}: ${anchorIds.join(', ')}.`, {
+        entryIds: entryId ? [entryId] : [],
+        file,
+        anchorIds,
+        positionFields: missing.map(item => item.field),
+    });
+    return missing.map(item => `unknown ${item.field} ${item.anchorId}`);
+}
+
+function analyzeEntryPositionHealth(health, entryFiles = [], timeline = {}) {
+    let positionGateCount = 0;
+    let anchorReferenceGateCount = 0;
+    const noTimelineEntryIds = [];
+
+    for (const fileRecord of entryFiles) {
+        for (const rawEntry of fileRecord.entries || []) {
+            const entry = normalizeLoreEntry(rawEntry);
+            const position = entry.position || {};
+            const coordinates = Array.isArray(entry.coordinates) ? entry.coordinates : [];
+            if (!hasPositionGate(position, coordinates)) continue;
+
+            positionGateCount += 1;
+            const entryId = cleanHealthString(entry.id, 180);
+            const anchorRefs = getEntryAnchorReferences(position);
+            if (anchorRefs.length) anchorReferenceGateCount += 1;
+            if (anchorRefs.length && !timeline.hasTimelineRef) {
+                if (entryId) noTimelineEntryIds.push(entryId);
+                continue;
+            }
+
+            const impossibleReasons = [];
+            if (timeline.hasTimelineRef) {
+                impossibleReasons.push(...analyzeEntryAnchorReferenceHealth(health, entry, fileRecord.file, timeline));
+            }
+            impossibleReasons.push(...analyzeEntryPositionWindowHealth(health, entry, fileRecord.file, timeline));
+
+            if (impossibleReasons.length && hasOnlyAnchorOrWindowPositionGate(position, coordinates)) {
+                addPositionHealthIssue(health, 'warning', 'unmatchable_position_gate', `Entry ${entryId || entry.title} has a Story Position gate that cannot match known anchors: ${impossibleReasons.join('; ')}.`, {
+                    entryIds: entryId ? [entryId] : [],
+                    file: fileRecord.file,
+                    reasons: impossibleReasons,
+                });
+            }
+        }
+    }
+
+    health.summary.positionGateCount = positionGateCount;
+    if (anchorReferenceGateCount && !timeline.hasTimelineRef) {
+        addHealthIssue(health, 'suggestion', 'position_gates_without_timeline', `${anchorReferenceGateCount} entr${anchorReferenceGateCount === 1 ? 'y uses' : 'ies use'} anchor-based Story Position gates, but this Lorepack has no timeline registry.`, {
+            entryIds: noTimelineEntryIds.slice(0, 50),
+            affectedEntryCount: anchorReferenceGateCount,
+        });
+    }
 }
 
 function analyzeEntries(health, entryFiles = []) {
@@ -368,6 +716,8 @@ async function loadEntryFiles(manifest = {}, baseUrl, health, registryRecord = n
     }
 
     const finalEntryFiles = applyRegistryEntryOverrides(entryFiles, registryRecord, manifest, health);
+    const timeline = await loadTimelineRegistryForHealth(manifest, baseUrl, health);
+    analyzeEntryPositionHealth(health, finalEntryFiles, timeline);
     analyzeEntries(health, finalEntryFiles);
     return finalEntryFiles;
 }
@@ -563,6 +913,12 @@ export function combineLorepackHealth(sources = []) {
         health.summary.entryAdditionCount = (Number(health.summary.entryAdditionCount) || 0) + (Number(summary.entryAdditionCount) || 0);
         health.summary.disabledEntryIdCount = (Number(health.summary.disabledEntryIdCount) || 0) + (Number(summary.disabledEntryIdCount) || 0);
         health.summary.suppressedEntryCount = (Number(health.summary.suppressedEntryCount) || 0) + (Number(summary.suppressedEntryCount) || 0);
+        health.summary.timelineAnchorCount = (Number(health.summary.timelineAnchorCount) || 0) + (Number(summary.timelineAnchorCount) || 0);
+        health.summary.timelineWindowCount = (Number(health.summary.timelineWindowCount) || 0) + (Number(summary.timelineWindowCount) || 0);
+        health.summary.positionGateCount = (Number(health.summary.positionGateCount) || 0) + (Number(summary.positionGateCount) || 0);
+        health.summary.brokenAnchorReferenceCount = (Number(health.summary.brokenAnchorReferenceCount) || 0) + (Number(summary.brokenAnchorReferenceCount) || 0);
+        health.summary.invalidPositionWindowCount = (Number(health.summary.invalidPositionWindowCount) || 0) + (Number(summary.invalidPositionWindowCount) || 0);
+        health.summary.unmatchablePositionGateCount = (Number(health.summary.unmatchablePositionGateCount) || 0) + (Number(summary.unmatchablePositionGateCount) || 0);
         for (const [category, count] of Object.entries(summary.categoryCounts || {})) {
             health.summary.categoryCounts[category] = (health.summary.categoryCounts[category] || 0) + (Number(count) || 0);
         }
@@ -579,3 +935,12 @@ export function combineLorepackHealth(sources = []) {
 
     return finalizeHealth(health);
 }
+
+export const __lorepackLoaderTestHooks = {
+    createHealth,
+    finalizeHealth,
+    normalizeTimelineRegistryForHealth,
+    createTimelineHealthIndex,
+    analyzeTimelineWindowHealth,
+    analyzeEntryPositionHealth,
+};

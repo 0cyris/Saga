@@ -1574,7 +1574,13 @@ Only technical load failures should be errors.
     "suggestionCount": 31,
     "undefinedTagCount": 1,
     "duplicateEntryIdCount": 0,
-    "longEntryCount": 4
+    "longEntryCount": 4,
+    "timelineAnchorCount": 120,
+    "timelineWindowCount": 18,
+    "positionGateCount": 250,
+    "brokenAnchorReferenceCount": 0,
+    "invalidPositionWindowCount": 0,
+    "unmatchablePositionGateCount": 0
   }
 }
 ```
@@ -1601,6 +1607,10 @@ Warnings:
 - `broken_anchor_reference`
 - `invalid_date`
 - `invalid_position_window`
+- `unmatchable_position_gate`
+- `story_position_timeline_invalid_ref`
+- `story_position_timeline_load_failed`
+- `duplicate_timeline_anchor_id`
 - `invalid_trigger_expression`
 - `unknown_template_variable`
 - `missing_injection`
@@ -1616,9 +1626,19 @@ Suggestions:
 - `missing_scope`
 - `missing_triggers`
 - `missing_resolver_aliases`
+- `position_gates_without_timeline`
+- `story_position_timeline_empty`
 - `broad_entry`
 - `category_imbalance`
 - `low_specificity`
+
+Current Story Position health behavior:
+
+- `broken_anchor_reference` warns when an entry or timeline window references an anchor not defined in the pack timeline registry.
+- `invalid_position_window` warns when anchor sort order or explicit sort keys make a position window start after it ends.
+- `unmatchable_position_gate` warns when an anchor/window-only entry gate cannot match known timeline anchors.
+- `position_gates_without_timeline` is a suggestion, not a warning, because Custom Lorepacks may be useful before they have a timeline registry.
+- Missing or empty timeline registries never block pack loading.
 
 ## Import And Export Bundle
 

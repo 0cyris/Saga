@@ -52,4 +52,5 @@ Position-aware Lorepack retrieval:
 - Done: evaluate entry position gates against loaded Lorepack Story Positions.
 - Done: preserve existing HP date-gated behavior while routing position eligibility into canon suggestions and relevance scoring.
 - Done: add source chips and position/gating chips to suggested and pending lore cards.
-- Next: expand Pack Health checks for invalid position references, broken anchor windows, and entries that can never match a known Story Position.
+- Done: expand Pack Health checks for invalid position references, broken anchor windows, and entries that can never match a known Story Position.
+- Next: add broader compatibility tests for HP legacy date behavior and non-date anchor-window examples.
