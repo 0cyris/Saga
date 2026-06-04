@@ -699,6 +699,8 @@ Supported date precision values:
 
 It should be optional in MVP but should become the preferred cross-fandom timeline layer.
 
+Implementation status: entries now normalize and preserve `position` metadata. Eligibility and scoring against active Lorepack Story Position are the next production step.
+
 ### Position Fields
 
 | Field | Type | Meaning |
@@ -706,10 +708,16 @@ It should be optional in MVP but should become the preferred cross-fandom timeli
 | `anchorId` | string | Entry applies at one anchor. |
 | `validFromAnchor` | string | Entry starts at or after this anchor. |
 | `validToAnchor` | string | Entry applies until this anchor. |
+| `arc` | string | Named story arc or normalized arc label. |
 | `arcId` | string | Entry applies during this arc. |
+| `phase` | string | Named phase or era label. |
 | `phaseId` | string | Entry applies during this phase. |
 | `season` | number/string | TV-style season. |
 | `episode` | number/string | TV-style episode. |
+| `chapter` | number/string | Book, manga, webnovel, or comic chapter. |
+| `issue` | number/string | Comic issue or run position. |
+| `quest` | string | Game quest, mission, route, or scenario marker. |
+| `gameStage` | string | Broader game progression stage. |
 | `stardateFrom` | string/number | Star Trek-style lower bound. |
 | `stardateTo` | string/number | Star Trek-style upper bound. |
 | `sortKeyFrom` | number | Normalized lower sort bound. |
@@ -724,11 +732,14 @@ It should be optional in MVP but should become the preferred cross-fandom timeli
   "position": {
     "validFromAnchor": "mcu.age_of_ultron",
     "validToAnchor": "mcu.civil_war",
+    "phase": "Phase 3",
     "precision": "anchor_window",
     "label": "After Age of Ultron, before Civil War"
   }
 }
 ```
+
+Accepted aliases during normalization include `anchorFrom` for `validFromAnchor`, `anchorTo` for `validToAnchor`, and `positionType` or `type` for `precision`.
 
 ### Position Compatibility
 

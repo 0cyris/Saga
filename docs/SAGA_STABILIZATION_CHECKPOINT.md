@@ -4,7 +4,7 @@
 
 ## Purpose
 
-This checkpoint records the current production baseline before starting Story Position v1.
+This checkpoint records the current production baseline before starting position-aware Lorepack retrieval.
 
 ## Current Foundation
 
@@ -12,7 +12,9 @@ This checkpoint records the current production baseline before starting Story Po
 - Lorepack loader reads bundled packs and preserves legacy `Lore/manifest.json` fallback.
 - Canon lore loading routes through the active Lorepack stack.
 - Lorepack tab supports library/stack handling, detail views, Pack Health, Custom duplication, and entry overrides.
+- Story Position v1 exists with per-loaded-Lorepack context state, timeline index loading, manual editing, local resolver, and explicit model fallback.
 - Runtime Settings tab exists at the end of the shelf UI.
+- Provider settings have moved from the extension dropdown into the runtime Settings tab.
 - Theme Pack foundation exists for bundled and installed Custom Theme Packs, JSON import/export, color tokens, icon overrides, and advisory accessibility checks.
 
 ## Validation Run
@@ -42,9 +44,9 @@ Passed:
 
 ## Next Production Slice
 
-Story Position v1:
+Position-aware Lorepack retrieval:
 
-- Add per-loaded-Lorepack Story Position state.
-- Define the first pack-owned timeline/position metadata shape.
-- Add runtime UI for manual Story Position editing.
-- Prepare local alias matching before adding model fallback.
+- Normalize entry-level `position` metadata.
+- Evaluate entry position gates against loaded Lorepack Story Positions.
+- Preserve existing HP date-gated behavior while adding cross-fandom anchor/arc/phase support.
+- Route position eligibility into canon suggestions, relevance, source chips, and Pack Health.

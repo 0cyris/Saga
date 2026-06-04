@@ -49,7 +49,7 @@ const VALID_TIME_TRAVEL_MODES = new Set([
 const KNOWN_TOP_LEVEL_FIELDS = new Set([
     'schemaVersion', 'id', 'title', 'name', 'kind', 'gateType', 'category', 'canonStatus', 'canon', 'relevance', 'lorePurpose', 'specificityScore', 'injectableByDefault', 'truthStatus',
     'revealPolicy', 'tags', 'priority', 'status', 'protected', 'locked', 'userEditable', 'userEdited',
-    'date', 'canonTiming', 'activation', 'expiration', 'lifecycle', 'scope', 'visibility', 'content', 'effects', 'source', 'sourceInfo', 'ui', 'extensions',
+    'date', 'canonTiming', 'position', 'coordinates', 'activation', 'expiration', 'lifecycle', 'scope', 'visibility', 'content', 'effects', 'source', 'sourceInfo', 'ui', 'extensions',
     // legacy aliases
     'fact', 'description', 'detail', 'text', 'summary', 'notes', 'validFrom', 'validTo', 'branchId',
     'whoKnowsTruth', 'whoSuspects', 'whoBelievesPublicVersion', 'publicVersion', 'activeWhen',
@@ -102,6 +102,25 @@ function asFirstString(...values) {
         if (text) return text;
     }
     return '';
+}
+
+function asLooseString(value) {
+    if (typeof value === 'string' || typeof value === 'number') return String(value).trim();
+    return '';
+}
+
+function asFirstLooseString(...values) {
+    for (const value of values) {
+        if (value && typeof value === 'object' && !Array.isArray(value)) continue;
+        const text = asLooseString(value);
+        if (text) return text;
+    }
+    return '';
+}
+
+function asOptionalNumber(value) {
+    const number = Number(value);
+    return Number.isFinite(number) ? number : null;
 }
 
 function asPlainObject(value) {
@@ -242,6 +261,62 @@ function normalizeCanonTiming(input) {
         label: asFirstString(raw.label, date.label, input.dateLabel),
         notes: asFirstString(raw.notes, input.canonTimingNotes),
     };
+}
+
+export function normalizeLorePosition(input = {}) {
+    const raw = asPlainObject(input.position);
+    const sortKeyFrom = asOptionalNumber(raw.sortKeyFrom ?? raw.fromSortKey ?? raw.sortKeyStart);
+    const sortKeyTo = asOptionalNumber(raw.sortKeyTo ?? raw.toSortKey ?? raw.sortKeyEnd);
+    return {
+        anchorId: asFirstLooseString(raw.anchorId, raw.anchor, raw.id, input.anchorId),
+        validFromAnchor: asFirstLooseString(raw.validFromAnchor, raw.anchorFrom, raw.fromAnchor, raw.from, input.validFromAnchor),
+        validToAnchor: asFirstLooseString(raw.validToAnchor, raw.anchorTo, raw.toAnchor, raw.to, input.validToAnchor),
+        arc: asFirstLooseString(raw.arc, raw.arcId, input.arc),
+        arcId: asFirstLooseString(raw.arcId, raw.arc, input.arcId),
+        phase: asFirstLooseString(raw.phase, raw.phaseId, input.phase),
+        phaseId: asFirstLooseString(raw.phaseId, raw.phase, input.phaseId),
+        season: asFirstLooseString(raw.season, input.season),
+        episode: asFirstLooseString(raw.episode, input.episode),
+        chapter: asFirstLooseString(raw.chapter, input.chapter),
+        issue: asFirstLooseString(raw.issue, input.issue),
+        quest: asFirstLooseString(raw.quest, input.quest),
+        gameStage: asFirstLooseString(raw.gameStage, raw.stage, input.gameStage),
+        stardateFrom: asFirstLooseString(raw.stardateFrom, raw.stardateStart, input.stardateFrom),
+        stardateTo: asFirstLooseString(raw.stardateTo, raw.stardateEnd, input.stardateTo),
+        sortKeyFrom,
+        sortKeyTo,
+        precision: asFirstLooseString(raw.precision, raw.positionType, raw.type, input.positionPrecision),
+        label: asFirstLooseString(raw.label, raw.title, input.positionLabel),
+        approximate: asBoolean(raw.approximate, false),
+    };
+}
+
+function normalizeLoreCoordinates(input = {}) {
+    const rawCoordinates = Array.isArray(input.coordinates)
+        ? input.coordinates
+        : Array.isArray(input.position?.coordinates)
+            ? input.position.coordinates
+            : [];
+    return rawCoordinates
+        .map(raw => {
+            const item = asPlainObject(raw);
+            const axis = asFirstLooseString(item.axis, item.type);
+            const id = asFirstLooseString(item.id, item.value, item.label);
+            if (!axis && !id) return null;
+            return {
+                axis,
+                id,
+                label: asFirstLooseString(item.label, item.title, id),
+                from: asFirstLooseString(item.from, item.validFrom, item.start),
+                to: asFirstLooseString(item.to, item.validTo, item.end),
+                sortKeyFrom: asOptionalNumber(item.sortKeyFrom ?? item.fromSortKey ?? item.sortKey),
+                sortKeyTo: asOptionalNumber(item.sortKeyTo ?? item.toSortKey),
+                confidence: Math.max(0, Math.min(1, asNumber(item.confidence, 1))),
+                required: item.required === undefined ? true : asBoolean(item.required, true),
+            };
+        })
+        .filter(Boolean)
+        .slice(0, 24);
 }
 
 function normalizeActivation(input) {
@@ -435,6 +510,8 @@ export function normalizeLoreEntry(input = {}) {
     const category = normalizeLoreCategory(asFirstString(input.category) || 'other');
     const date = normalizeDateBlock(input);
     const canonTiming = normalizeCanonTiming(input);
+    const position = normalizeLorePosition(input);
+    const coordinates = normalizeLoreCoordinates(input);
     const activation = normalizeActivation(input);
     const expiration = normalizeExpiration(input);
     const lifecycle = normalizeLifecycle(input);
@@ -494,6 +571,8 @@ export function normalizeLoreEntry(input = {}) {
 
         date,
         canonTiming,
+        position,
+        coordinates,
         activation,
         expiration,
         lifecycle,

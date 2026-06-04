@@ -1127,9 +1127,13 @@ Mitigation: Build a runtime index, cache loaded manifests, score candidates in s
 
 ## Immediate Next Steps
 
-1. Finalize this pre-production document.
-2. Draft concrete JSON schemas for `lorepack.json`, `timeline.json`, `tags.json`, and stack state.
-3. Add a `Lorepacks/hp-golden-trio/` directory and move/copy current HP lore data into it.
-4. Add a Lorepack loader that can read the new manifest while preserving the old `Lore/manifest.json` fallback.
-5. Add a placeholder Lorepack rail tab above existing runtime tabs.
-6. Route current canon suggestions through the active Lorepack.
+The initial Lorepack foundation is implemented: `hp-golden-trio` is scaffolded, the Lorepack loader preserves legacy `Lore/manifest.json` fallback, canon suggestions route through the active stack, the Lorepack tab owns library/stack workflows, Story Position v1 exists, Theme Packs exist, and provider settings now live in the runtime Settings tab.
+
+The next production slice is **position-aware Lorepack retrieval**. Build it in small, behavior-preserving steps:
+
+1. Normalize entry-level `position` metadata in the lore entry pipeline while preserving legacy `date` and `canonTiming` behavior.
+2. Evaluate entry `position` gates against each loaded Lorepack's `lorepackContexts` without blocking legacy HP date-gated entries.
+3. Route position eligibility into canon suggestion candidate selection and relevance scoring.
+4. Add visible source and position/gating chips on suggested and pending lore cards.
+5. Expand Pack Health for broken anchor references, invalid position windows, and entries that can never match a known Story Position.
+6. Add focused tests for position normalization, HP legacy date compatibility, and a non-date anchor-window example.
