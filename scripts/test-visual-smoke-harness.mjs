@@ -53,6 +53,9 @@ for (const token of [
     'Install As New Copy',
     'Pending Review',
     'Loredeck Creator',
+    'Deck Health Center',
+    'Open Health Center',
+    'Health Report',
     'renderSettingsTab',
 ]) {
     assert(panel.includes(token), `Runtime panel is missing expected smoke token: ${token}`);
@@ -63,6 +66,8 @@ for (const token of [
     'wandlight-runtime-rail',
     'wandlight-runtime-drawer',
     'wandlight-lorepack-detail-card',
+    'wandlight-lorepack-health-center-shell',
+    'wandlight-lorepack-health-severity-card',
 ]) {
     assert(style.includes(token), `Stylesheet is missing expected smoke selector: ${token}`);
 }

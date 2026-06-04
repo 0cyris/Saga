@@ -85,7 +85,9 @@ Position-aware Loredeck retrieval:
 - Done: add a no-dependency visual smoke server and runbook so the harness can be opened in a normal browser or repeated inside SillyTavern with a concrete screenshot checklist.
 - Done: complete the first real SillyTavern smoke pass and capture focused Loredecks UX feedback.
 - Done: apply the first low-risk Loredecks feedback fixes: collapsible Loredeck sections with reset defaults, stricter tag ID normalization, HP reference-deck tag cleanup, Lorecard-aligned metadata chips and titles, fullscreen Creator launcher, Saga-styled granularity labels/blurbs, stack arrow controls, individual-deck install focus, and Saga banner/minimized branding assets.
-- Next: run a targeted visual smoke pass in SillyTavern against these fixes, including collapsed-section defaults, Reset Window behavior, Loredeck chip/title styling, HP Deck Health malformed namespace warnings, Creator wizard launch, granularity copy, stack arrows, and runtime header branding.
+- Done: start the Deck Health redesign with a fullscreen Deck Health Center for readiness, severity cards, grouped priority issues, health categories, deck inventory, files, coverage, and advanced diagnostics.
+- Next: run a targeted visual smoke pass in SillyTavern against these fixes, including collapsed-section defaults, Reset Window behavior, Loredeck chip/title styling, HP Deck Health malformed namespace warnings, Creator wizard launch, granularity copy, stack arrows, runtime header branding, and the new Health Center.
+- Next: expand Deck Health remediation with deterministic Custom-deck fixes, bundled duplicate-to-edit flow, ignore/resolve states, and assistant repair handoff from grouped issues.
 - Next: design individual Loredeck bulk export/import from selected Loredecks, producing one JSON file per deck and avoiding whole-library import/export.
 - Next: audit Loredecks actions that still trigger full panel refreshes or scroll snap-to-top behavior.
-- Next: run UX/UI studies before major implementation for Deck Health, the fullscreen Loredeck Library + Stack Loader workbench, and the Story Position editor.
+- Next: run UX/UI studies before major implementation for the fullscreen Loredeck Library + Stack Loader workbench and the Story Position editor.

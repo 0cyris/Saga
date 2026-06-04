@@ -713,6 +713,9 @@ let loreWorkbenchMode = 'accepted';
 let loreWorkbenchSelectedId = '';
 let loreWorkbenchPendingQuery = '';
 let loreWorkbenchFocusSelector = '';
+let lorepackHealthCenterOpen = false;
+let lorepackHealthCenterPackId = '';
+let lorepackHealthCenterTab = 'overview';
 let loreTimelineOpen = false;
 let loreTimelineSelectedId = '';
 let loreTimelineViewport = null;
@@ -1713,10 +1716,10 @@ function renderLorepacksTab(container, state) {
     container.appendChild(createCollapsibleSection(
         'lorepacks.health',
         'Deck Health',
-        'Advisory validation report. Full redesign is queued for UX study.',
+        'Advisory readiness, issue triage, and Health Center launch.',
         false,
         () => createLorepackHealthReportCard(state, canonDb, health),
-        { className: 'wandlight-lorepack-collapsible', tooltip: 'Deck Health is advisory and will get a dedicated UI/UX study before major redesign.' }
+        { className: 'wandlight-lorepack-collapsible', tooltip: 'Deck Health is advisory. Open the Health Center for grouped issues, categories, files, coverage, and advanced diagnostics.' }
     ));
 
     container.appendChild(createCollapsibleSection(
@@ -4038,14 +4041,17 @@ function createLorepackHealthReportCard(state, canonDb = null, health = null) {
 
     const help = document.createElement('div');
     help.className = 'wandlight-runtime-help';
-    help.textContent = 'Deck Health is advisory. It helps creators find likely issues; it does not decide whether a pack is allowed to run.';
+    help.textContent = 'Deck Health is advisory triage: readiness first, priority issues second, raw diagnostics last.';
     card.appendChild(help);
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
+    actions.appendChild(createButton('Open Health Center', 'Open the fullscreen Deck Health Center for grouped issues, category health, files, and advanced diagnostics.', () => {
+        openLorepackHealthCenter();
+    }, 'wandlight-primary-button'));
     actions.appendChild(createButton('Refresh Health', 'Reload active Loredecks and recompute Deck Health.', async (btn) => {
         await refreshLorepackHealthReport(btn);
-    }, 'wandlight-primary-button'));
+    }));
     const exportButton = createButton('Export Health JSON', 'Download the current Deck Health report as JSON.', () => {
         exportLorepackHealthReport(state, canonDb, health);
     });
@@ -4059,56 +4065,1112 @@ function createLorepackHealthReportCard(state, canonDb = null, health = null) {
     }
 
     const report = buildLorepackHealthReport(state, canonDb, health);
-    const summary = report.summary || {};
+    const context = getLorepackHealthCenterContext('');
+    card.appendChild(createLorepackHealthSummaryHero(context, { compact: true }));
+    card.appendChild(createLorepackHealthSeverityGrid(context, { compact: true }));
 
-    const grid = document.createElement('div');
-    grid.className = 'wandlight-lorepack-health-grid';
-    grid.appendChild(createLorepackHealthMetric('Status', report.status, 'Overall active stack health status.'));
-    grid.appendChild(createLorepackHealthMetric('Entries', String(summary.entryCount || 0), 'Loaded entry count after Custom overrides and stack dedupe.'));
-    grid.appendChild(createLorepackHealthMetric('Files', `${summary.loadedFileCount || 0}/${summary.fileCount || 0}`, 'Loaded files over declared files.'));
-    grid.appendChild(createLorepackHealthMetric('Errors', String(summary.errorCount || 0), 'Technical failures that should be fixed.'));
-    grid.appendChild(createLorepackHealthMetric('Warnings', String(summary.warningCount || 0), 'Likely issues that may affect results.'));
-    grid.appendChild(createLorepackHealthMetric('Suggestions', String(summary.suggestionCount || 0), 'Improvement hints for creators.'));
-    grid.appendChild(createLorepackHealthMetric('Overrides', String(summary.entryOverrideCount || 0), 'Custom entry overrides applied in loaded packs.'));
-    grid.appendChild(createLorepackHealthMetric('Added', String(summary.entryAdditionCount || 0), 'Custom entries added through override layers.'));
-    grid.appendChild(createLorepackHealthMetric('Disabled', String(summary.suppressedEntryCount || 0), 'Source entries suppressed by Custom packs.'));
-    grid.appendChild(createLorepackHealthMetric('Stack Duplicates', String(report.duplicateEntryIdCount || 0), 'Duplicate entry IDs resolved by stack priority.'));
-    grid.appendChild(createLorepackHealthMetric('Position Gates', String(summary.positionGateCount || 0), 'Entries with Story Position gates.'));
-    grid.appendChild(createLorepackHealthMetric('Timeline', `${summary.timelineAnchorCount || 0}/${summary.timelineWindowCount || 0}`, 'Loaded Story Position anchors/windows.'));
-    grid.appendChild(createLorepackHealthMetric('Schema v3', String(summary.schemaV3EntryCount || 0), 'Loaded entries checked against Saga schema v3 rules.'));
-    grid.appendChild(createLorepackHealthMetric('v3 Issues', String(summary.schemaV3IssueCount || 0), 'Schema v3 Deck Health issues across loaded entries.'));
-    grid.appendChild(createLorepackHealthMetric('Stats Drift', String(summary.manifestStatsMismatchCount || 0), 'Manifest stats mismatches found during validation.'));
-    grid.appendChild(createLorepackHealthMetric('Tag Issues', String((summary.undefinedTagCount || 0) + (summary.deprecatedTagUsageCount || 0) + (summary.duplicateTagAliasCount || 0) + (summary.malformedTagCount || 0)), 'Undefined, deprecated, duplicate-alias, or malformed tag issues.'));
-    grid.appendChild(createLorepackHealthMetric('Anchor Issues', String(summary.brokenAnchorReferenceCount || 0), 'Broken Story Position anchor references.'));
-    grid.appendChild(createLorepackHealthMetric('Window Issues', String(summary.invalidPositionWindowCount || 0), 'Invalid Story Position windows.'));
-    grid.appendChild(createLorepackHealthMetric('Unmatchable', String(summary.unmatchablePositionGateCount || 0), 'Position-gated entries that cannot match known Story Position anchors.'));
-    card.appendChild(grid);
-
-    if (report.packs.length) {
-        const packs = document.createElement('div');
-        packs.className = 'wandlight-lorepack-health-pack-list';
-        for (const pack of report.packs) {
-            packs.appendChild(createLorepackHealthPackRow(pack));
+    const groups = groupLorepackHealthIssues(report);
+    if (groups.length) {
+        const top = document.createElement('div');
+        top.className = 'wandlight-lorepack-health-compact-issues';
+        const label = document.createElement('div');
+        label.className = 'wandlight-runtime-card-title';
+        label.textContent = 'Priority Issues';
+        top.appendChild(label);
+        for (const group of groups.slice(0, 2)) {
+            top.appendChild(createLorepackHealthIssueGroupCard(group, context, { compact: true }));
         }
-        card.appendChild(packs);
-    }
-
-    if (report.insights.length) {
-        card.appendChild(createLorepackHealthIssueList('Stack Insights', report.insights, 'warning'));
-    }
-    card.appendChild(createLorepackHealthIssueList('Errors', report.errors, 'error'));
-    card.appendChild(createLorepackHealthIssueList('Warnings', report.warnings, 'warning'));
-    card.appendChild(createLorepackHealthIssueList('Suggestions', report.suggestions, 'suggestion'));
-
-    const categories = formatCategoryCounts(summary.categoryCounts || {});
-    if (categories) {
-        const categoryRow = document.createElement('div');
-        categoryRow.className = 'wandlight-runtime-help';
-        categoryRow.textContent = `Top categories: ${categories}`;
-        card.appendChild(categoryRow);
+        card.appendChild(top);
+    } else {
+        card.appendChild(createEmptyMessage('No Deck Health issues found.'));
     }
 
     return card;
+}
+
+function openLorepackHealthCenter(packId = '') {
+    lorepackHealthCenterOpen = true;
+    lorepackHealthCenterPackId = String(packId || '').trim();
+    lorepackHealthCenterTab = 'overview';
+    renderLorepackHealthCenterOverlay();
+}
+
+function closeLorepackHealthCenter() {
+    lorepackHealthCenterOpen = false;
+    document.querySelector('.wandlight-lorepack-health-center-overlay')?.remove();
+}
+
+function renderLorepackHealthCenterOverlay() {
+    document.querySelector('.wandlight-lorepack-health-center-overlay')?.remove();
+    if (!lorepackHealthCenterOpen) return;
+    const context = getLorepackHealthCenterContext(lorepackHealthCenterPackId);
+
+    const overlay = document.createElement('div');
+    overlay.className = 'wandlight-lore-workbench-overlay wandlight-lorepack-health-center-overlay';
+    document.body.appendChild(overlay);
+
+    const shell = document.createElement('div');
+    shell.className = 'wandlight-lore-workbench-shell wandlight-lorepack-health-center-shell';
+    overlay.appendChild(shell);
+
+    const header = document.createElement('div');
+    header.className = 'wandlight-lore-workbench-header wandlight-lorepack-health-center-header';
+    const titleWrap = document.createElement('div');
+    titleWrap.className = 'wandlight-lore-workbench-title-wrap';
+    const title = document.createElement('div');
+    title.className = 'wandlight-lore-workbench-title';
+    title.textContent = 'Deck Health Center';
+    titleWrap.appendChild(title);
+    const subtitle = document.createElement('div');
+    subtitle.className = 'wandlight-lore-workbench-subtitle';
+    subtitle.textContent = context.subtitle;
+    titleWrap.appendChild(subtitle);
+    header.appendChild(titleWrap);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions wandlight-lorepack-health-center-actions';
+    actions.appendChild(createButton('Refresh Scan', context.pack ? 'Validate this Loredeck and refresh its Deck Health report.' : 'Reload active Loredecks and recompute stack Deck Health.', async (btn) => {
+        await refreshLorepackHealthCenterScan(context, btn);
+    }, 'wandlight-primary-button'));
+    const exportButton = createButton('Export Report', 'Download this Deck Health report as JSON.', () => exportLorepackHealthCenterReport(context));
+    exportButton.disabled = !context.health;
+    actions.appendChild(exportButton);
+    actions.appendChild(createButton('Close', 'Close the Deck Health Center.', closeLorepackHealthCenter));
+    header.appendChild(actions);
+    shell.appendChild(header);
+
+    const body = document.createElement('div');
+    body.className = 'wandlight-lorepack-health-center-body';
+    body.appendChild(createLorepackHealthCenterTabs());
+    const content = document.createElement('div');
+    content.className = `wandlight-lorepack-health-center-content wandlight-lorepack-health-center-content-${lorepackHealthCenterTab}`;
+    if (lorepackHealthCenterTab === 'issues') content.appendChild(createLorepackHealthIssuesView(context));
+    else if (lorepackHealthCenterTab === 'coverage') content.appendChild(createLorepackHealthCoverageView(context));
+    else if (lorepackHealthCenterTab === 'files') content.appendChild(createLorepackHealthFilesView(context));
+    else if (lorepackHealthCenterTab === 'advanced') content.appendChild(createLorepackHealthAdvancedView(context));
+    else content.appendChild(createLorepackHealthOverviewView(context));
+    body.appendChild(content);
+    shell.appendChild(body);
+}
+
+function createLorepackHealthCenterTabs() {
+    const tabs = document.createElement('div');
+    tabs.className = 'wandlight-lore-workbench-mode-tabs wandlight-lorepack-health-tabs';
+    const options = [
+        ['overview', 'Overview', 'Readiness, priority issues, categories, and inventory.'],
+        ['issues', 'Issues', 'Grouped issue triage with affected data and repair guidance.'],
+        ['coverage', 'Coverage', 'Narrative and schema coverage signals.'],
+        ['files', 'Files', 'File-level diagnostics for imported and bundled decks.'],
+        ['advanced', 'Advanced', 'Raw metrics and JSON-oriented diagnostics.'],
+    ];
+    for (const [id, label, tooltip] of options) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = `wandlight-lore-workbench-mode-tab${lorepackHealthCenterTab === id ? ' wandlight-lore-workbench-mode-tab-active' : ''}`;
+        btn.textContent = label;
+        addTooltip(btn, tooltip);
+        btn.addEventListener('click', () => {
+            lorepackHealthCenterTab = id;
+            renderLorepackHealthCenterOverlay();
+        });
+        tabs.appendChild(btn);
+    }
+    return tabs;
+}
+
+function getLorepackHealthCenterContext(packId = '') {
+    const state = getState();
+    const canonDb = getCanonLoreDatabaseSync();
+    const library = getLorepackLibrary(state);
+    const pack = String(packId || '').trim()
+        ? (library.find(item => item.packId === String(packId || '').trim()) || null)
+        : null;
+    const cached = pack ? getCachedLorepackHealthRecord(pack.packId) : {};
+    const health = pack ? (cached.health || null) : (canonDb?.health || null);
+    const report = buildLorepackHealthReport(state, pack ? null : canonDb, health);
+    if (pack) {
+        report.packs = [buildLorepackHealthPackSummary(pack, cached, health)];
+        report.enabledPackIds = [pack.packId];
+        report.databaseId = pack.packId;
+        report.summary = {
+            ...(report.summary || {}),
+            entryCount: Number(report.summary?.entryCount) || Number(cached.entryCount) || Number(pack.stats?.entryCount) || Number(pack.entryCount) || 0,
+            fileCount: Number(report.summary?.fileCount) || Number(cached.fileCount) || countLorepackManifestFiles(cached.manifest || pack.manifestData) || 0,
+            loadedFileCount: Number(report.summary?.loadedFileCount) || Number(cached.loadedFileCount) || 0,
+        };
+    }
+    const status = getLorepackHealthStatusDescriptor(report, health);
+    const title = pack?.title || (report.packs?.[0]?.title || 'Active Loredeck Stack');
+    const subtitle = pack
+        ? `${getLorepackTypeLabel(pack.packId)} Loredeck health report for ${title}.`
+        : 'Active stack health report across loaded Loredecks.';
+    return {
+        state,
+        canonDb,
+        pack,
+        cached,
+        health,
+        report,
+        status,
+        title,
+        subtitle,
+        generatedAt: cached.loadedAt || report.generatedAt || Date.now(),
+    };
+}
+
+function getCachedLorepackHealthRecord(packId = '') {
+    const id = String(packId || '').trim();
+    const entryCache = lorepackEntryPreviewCache.get(id) || {};
+    const manifestCache = lorepackManifestPreviewCache.get(id) || {};
+    const manifest = entryCache.manifest || manifestCache.manifest || null;
+    const entryFiles = Array.isArray(entryCache.entryFiles) ? entryCache.entryFiles : [];
+    return {
+        health: entryCache.health || manifestCache.health || null,
+        manifest,
+        entryCache,
+        entryFiles,
+        loadedAt: Number(entryCache.loadedAt) || Number(manifestCache.loadedAt) || 0,
+        entryCount: entryFiles.reduce((sum, file) => sum + (Array.isArray(file.entries) ? file.entries.length : 0), 0),
+        fileCount: entryFiles.length || countLorepackManifestFiles(manifest),
+        loadedFileCount: entryFiles.filter(file => file?.ok !== false).length,
+    };
+}
+
+function countLorepackManifestFiles(manifest = null) {
+    return Array.isArray(manifest?.files) ? manifest.files.length : 0;
+}
+
+function buildLorepackHealthPackSummary(pack = {}, cached = {}, health = null) {
+    const overrideCount = pack.entryOverrides && typeof pack.entryOverrides === 'object' && !Array.isArray(pack.entryOverrides)
+        ? Object.keys(pack.entryOverrides).length
+        : 0;
+    return {
+        packId: pack.packId,
+        title: pack.title || pack.packId,
+        type: pack.type || 'custom',
+        typeLabel: getLorepackTypeLabel(pack.packId),
+        description: pack.description || '',
+        manifest: pack.manifest || '',
+        derivedFrom: pack.derivedFrom?.packId || '',
+        entryCount: Number(health?.summary?.entryCount) || Number(cached.entryCount) || Number(pack.stats?.entryCount) || Number(pack.entryCount) || 0,
+        healthStatus: health?.status || pack.healthStatus || 'unknown',
+        overrideCount,
+        disabledCount: Array.isArray(pack.disabledEntryIds) ? pack.disabledEntryIds.length : 0,
+    };
+}
+
+function getLorepackHealthStatusDescriptor(report = {}, health = null) {
+    const summary = report.summary || {};
+    const errors = Number(summary.errorCount) || (Array.isArray(report.errors) ? report.errors.length : 0);
+    const warnings = Number(summary.warningCount) || (Array.isArray(report.warnings) ? report.warnings.length : 0);
+    const suggestions = Number(summary.suggestionCount) || (Array.isArray(report.suggestions) ? report.suggestions.length : 0);
+    const raw = String(health?.status || report.status || 'unknown').trim();
+    if (!health) {
+        return {
+            key: 'unknown',
+            label: 'Not scanned',
+            tone: 'unknown',
+            summary: 'Run a scan to check this deck for schema, tag, timeline, and file issues.',
+            detail: 'No current Deck Health report is available for this target.',
+        };
+    }
+    if (errors > 0 || raw === 'error') {
+        return {
+            key: 'blocked',
+            label: 'Blocked',
+            tone: 'error',
+            summary: 'This deck has errors that should be fixed before relying on it.',
+            detail: 'Start with errors, then rerun Deck Health before sharing or stacking this deck.',
+        };
+    }
+    if (warnings > 0 || raw === 'needs_review') {
+        return {
+            key: 'warnings',
+            label: 'Usable with warnings',
+            tone: 'warning',
+            summary: 'This deck can run, but metadata cleanup is recommended.',
+            detail: 'Address the priority issues below to improve reliability and future-proof the lore.',
+        };
+    }
+    if (raw === 'partial') {
+        return {
+            key: 'partial',
+            label: 'Incomplete',
+            tone: 'warning',
+            summary: 'This deck loaded partially and should be reviewed.',
+            detail: 'Check file and schema diagnostics to find what did not load cleanly.',
+        };
+    }
+    if (suggestions > 0) {
+        return {
+            key: 'healthy_suggestions',
+            label: 'Healthy with suggestions',
+            tone: 'suggestion',
+            summary: 'This deck can run cleanly; optional improvements are available.',
+            detail: 'Suggestions are not blockers. Use them when polishing a deck for sharing.',
+        };
+    }
+    return {
+        key: 'healthy',
+        label: 'Healthy',
+        tone: 'ok',
+        summary: 'This deck passed the current Deck Health checks.',
+        detail: 'No blocking or review-worthy issues were found in the latest scan.',
+    };
+}
+
+function createLorepackHealthOverviewView(context) {
+    const wrap = document.createElement('div');
+    wrap.className = 'wandlight-lorepack-health-overview';
+    wrap.appendChild(createLorepackHealthSummaryHero(context));
+    wrap.appendChild(createLorepackHealthSeverityGrid(context));
+
+    const main = document.createElement('div');
+    main.className = 'wandlight-lorepack-health-overview-main';
+    const issues = document.createElement('div');
+    issues.className = 'wandlight-lorepack-health-panel';
+    const issueTitle = document.createElement('div');
+    issueTitle.className = 'wandlight-runtime-card-title';
+    issueTitle.textContent = 'Priority Issues';
+    issues.appendChild(issueTitle);
+    const groups = groupLorepackHealthIssues(context.report);
+    if (!groups.length) {
+        issues.appendChild(createEmptyMessage('No priority issues found.'));
+    } else {
+        for (const group of groups.slice(0, 4)) {
+            issues.appendChild(createLorepackHealthIssueGroupCard(group, context));
+        }
+    }
+    main.appendChild(issues);
+
+    const categories = document.createElement('div');
+    categories.className = 'wandlight-lorepack-health-panel';
+    const categoryTitle = document.createElement('div');
+    categoryTitle.className = 'wandlight-runtime-card-title';
+    categoryTitle.textContent = 'Health Categories';
+    categories.appendChild(categoryTitle);
+    categories.appendChild(createLorepackHealthCategoryList(context));
+    main.appendChild(categories);
+    wrap.appendChild(main);
+
+    wrap.appendChild(createLorepackHealthInventoryBar(context));
+    if (groups[0]) wrap.appendChild(createLorepackHealthIssueDetailPanel(groups[0], context));
+    return wrap;
+}
+
+function createLorepackHealthIssuesView(context) {
+    const wrap = document.createElement('div');
+    wrap.className = 'wandlight-lorepack-health-issues-view';
+    const groups = groupLorepackHealthIssues(context.report);
+    const header = document.createElement('div');
+    header.className = 'wandlight-lorepack-health-view-header';
+    header.appendChild(createStatusPill(`${groups.length} grouped issue${groups.length === 1 ? '' : 's'}`, 'Issues are grouped by severity, code, and affected file when possible.'));
+    header.appendChild(createStatusPill(`${getLorepackHealthAllIssues(context.report).length} raw finding${getLorepackHealthAllIssues(context.report).length === 1 ? '' : 's'}`, 'Raw Deck Health findings before grouping.'));
+    wrap.appendChild(header);
+    if (!groups.length) {
+        wrap.appendChild(createEmptyMessage('No issues found in this Deck Health report.'));
+        return wrap;
+    }
+    const table = document.createElement('div');
+    table.className = 'wandlight-lorepack-health-issue-table';
+    table.appendChild(createLorepackHealthIssueTableHeader());
+    for (const group of groups) {
+        table.appendChild(createLorepackHealthIssueTableRow(group, context));
+    }
+    wrap.appendChild(table);
+    return wrap;
+}
+
+function createLorepackHealthCoverageView(context) {
+    const wrap = document.createElement('div');
+    wrap.className = 'wandlight-lorepack-health-coverage-view';
+    const summary = context.report.summary || {};
+    const panel = document.createElement('div');
+    panel.className = 'wandlight-lorepack-health-panel';
+    const title = document.createElement('div');
+    title.className = 'wandlight-runtime-card-title';
+    title.textContent = 'Narrative Coverage Signals';
+    panel.appendChild(title);
+    const help = document.createElement('div');
+    help.className = 'wandlight-runtime-help';
+    help.textContent = 'Coverage is advisory. These signals help identify whether a deck has enough Story Position, category, and retrieval structure to support long-form play.';
+    panel.appendChild(help);
+    const grid = document.createElement('div');
+    grid.className = 'wandlight-lorepack-health-coverage-grid';
+    const categoryCounts = summary.categoryCounts && typeof summary.categoryCounts === 'object' && !Array.isArray(summary.categoryCounts)
+        ? summary.categoryCounts
+        : {};
+    const categories = Object.entries(categoryCounts).sort((a, b) => b[1] - a[1]);
+    if (categories.length) {
+        for (const [category, count] of categories) {
+            grid.appendChild(createLorepackHealthMetric(humanizeScopeKey(category), String(count), `Loaded ${category} Lorecards.`));
+        }
+    } else {
+        grid.appendChild(createLorepackHealthMetric('Categories', 'unset', 'No category counts are available yet.'));
+    }
+    grid.appendChild(createLorepackHealthMetric('Position Gates', String(summary.positionGateCount || 0), 'Lorecards with Story Position gates.'));
+    grid.appendChild(createLorepackHealthMetric('Schema v3', String(summary.schemaV3EntryCount || 0), 'Lorecards checked against Saga schema v3.'));
+    grid.appendChild(createLorepackHealthMetric('Timeline', `${summary.timelineAnchorCount || 0}/${summary.timelineWindowCount || 0}`, 'Timeline anchors/windows available to Story Position.'));
+    panel.appendChild(grid);
+    wrap.appendChild(panel);
+    wrap.appendChild(createLorepackHealthCategoryList(context, { asPanel: true }));
+    return wrap;
+}
+
+function createLorepackHealthFilesView(context) {
+    const wrap = document.createElement('div');
+    wrap.className = 'wandlight-lorepack-health-files-view';
+    const files = getLorepackHealthFileRows(context);
+    if (!files.length) {
+        wrap.appendChild(createEmptyMessage('No file-level diagnostics are available yet. Run Refresh Scan or validate the selected Loredeck.'));
+        return wrap;
+    }
+    const table = document.createElement('div');
+    table.className = 'wandlight-lorepack-health-file-table';
+    const header = document.createElement('div');
+    header.className = 'wandlight-lorepack-health-file-row wandlight-lorepack-health-file-row-header';
+    for (const text of ['File', 'Entries', 'Errors', 'Warnings', 'Status']) {
+        const cell = document.createElement('div');
+        cell.textContent = text;
+        header.appendChild(cell);
+    }
+    table.appendChild(header);
+    for (const file of files) {
+        const row = document.createElement('div');
+        row.className = `wandlight-lorepack-health-file-row wandlight-lorepack-health-file-row-${file.statusTone}`;
+        for (const text of [file.file || '(unknown)', String(file.entries || 0), String(file.errors || 0), String(file.warnings || 0), file.status]) {
+            const cell = document.createElement('div');
+            cell.textContent = text;
+            row.appendChild(cell);
+        }
+        table.appendChild(row);
+    }
+    wrap.appendChild(table);
+    return wrap;
+}
+
+function createLorepackHealthAdvancedView(context) {
+    const wrap = document.createElement('div');
+    wrap.className = 'wandlight-lorepack-health-advanced-view';
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    actions.appendChild(createButton('Copy Diagnostics', 'Copy the current Deck Health report JSON to clipboard.', async () => {
+        await copyTextToClipboard(JSON.stringify(context.report, null, 2), 'Deck Health diagnostics copied.');
+    }));
+    actions.appendChild(createButton('Export Report', 'Download this Deck Health report as JSON.', () => exportLorepackHealthCenterReport(context), 'wandlight-primary-button'));
+    wrap.appendChild(actions);
+
+    const summary = context.report.summary || {};
+    const grid = document.createElement('div');
+    grid.className = 'wandlight-lorepack-health-grid';
+    const metrics = [
+        ['Status', context.report.status || 'unknown', 'Raw Deck Health status.'],
+        ['Entries', String(summary.entryCount || 0), 'Loaded entry count after Custom overrides and stack dedupe.'],
+        ['Files', `${summary.loadedFileCount || 0}/${summary.fileCount || 0}`, 'Loaded files over declared files.'],
+        ['Overrides', String(summary.entryOverrideCount || 0), 'Custom entry overrides applied in loaded packs.'],
+        ['Added', String(summary.entryAdditionCount || 0), 'Custom entries added through override layers.'],
+        ['Disabled', String(summary.suppressedEntryCount || 0), 'Source entries suppressed by Custom packs.'],
+        ['Stack Duplicates', String(context.report.duplicateEntryIdCount || 0), 'Duplicate entry IDs resolved by stack priority.'],
+        ['Position Gates', String(summary.positionGateCount || 0), 'Entries with Story Position gates.'],
+        ['Timeline', `${summary.timelineAnchorCount || 0}/${summary.timelineWindowCount || 0}`, 'Loaded Story Position anchors/windows.'],
+        ['Schema v3', String(summary.schemaV3EntryCount || 0), 'Loaded entries checked against Saga schema v3 rules.'],
+        ['v3 Issues', String(summary.schemaV3IssueCount || 0), 'Schema v3 Deck Health issues across loaded entries.'],
+        ['Stats Drift', String(summary.manifestStatsMismatchCount || 0), 'Manifest stats mismatches found during validation.'],
+        ['Tag Issues', String((summary.undefinedTagCount || 0) + (summary.deprecatedTagUsageCount || 0) + (summary.duplicateTagAliasCount || 0) + (summary.malformedTagCount || 0)), 'Undefined, deprecated, duplicate-alias, or malformed tag issues.'],
+        ['Anchor Issues', String(summary.brokenAnchorReferenceCount || 0), 'Broken Story Position anchor references.'],
+        ['Window Issues', String(summary.invalidPositionWindowCount || 0), 'Invalid Story Position windows.'],
+        ['Unmatchable', String(summary.unmatchablePositionGateCount || 0), 'Position-gated entries that cannot match known Story Position anchors.'],
+    ];
+    for (const [label, value, tooltip] of metrics) grid.appendChild(createLorepackHealthMetric(label, value, tooltip));
+    wrap.appendChild(grid);
+
+    if (context.report.packs?.length) {
+        const packs = document.createElement('div');
+        packs.className = 'wandlight-lorepack-health-pack-list';
+        for (const pack of context.report.packs) packs.appendChild(createLorepackHealthPackRow(pack));
+        wrap.appendChild(packs);
+    }
+    if (context.report.insights?.length) wrap.appendChild(createLorepackHealthIssueList('Stack Insights', context.report.insights, 'warning'));
+    wrap.appendChild(createLorepackHealthIssueList('Errors', context.report.errors, 'error'));
+    wrap.appendChild(createLorepackHealthIssueList('Warnings', context.report.warnings, 'warning'));
+    wrap.appendChild(createLorepackHealthIssueList('Suggestions', context.report.suggestions, 'suggestion'));
+    return wrap;
+}
+
+function createLorepackHealthSummaryHero(context, options = {}) {
+    const hero = document.createElement('div');
+    hero.className = `wandlight-lorepack-health-hero wandlight-lorepack-health-hero-${context.status.tone}${options.compact ? ' wandlight-lorepack-health-hero-compact' : ''}`;
+    const emblem = document.createElement('div');
+    emblem.className = 'wandlight-lorepack-health-emblem';
+    emblem.textContent = context.status.tone === 'error' ? '!' : (context.status.tone === 'ok' ? 'OK' : '!');
+    hero.appendChild(emblem);
+    const main = document.createElement('div');
+    main.className = 'wandlight-lorepack-health-hero-main';
+    const deck = document.createElement('div');
+    deck.className = 'wandlight-lorepack-health-deck-title';
+    deck.textContent = context.title;
+    main.appendChild(deck);
+    const meta = document.createElement('div');
+    meta.className = 'wandlight-lorepack-row-meta';
+    const pack = context.pack || context.report.packs?.[0] || null;
+    if (pack) meta.appendChild(createStatusPill(pack.typeLabel || getLorepackTypeLabel(pack.packId), 'Loredeck type.'));
+    meta.appendChild(createStatusPill(`${context.report.summary?.entryCount || 0} Lorecards`, 'Lorecards checked in this report.'));
+    meta.appendChild(createStatusPill(`Last scan: ${context.health ? formatRelativeHealthTime(context.generatedAt) : 'not scanned'}`, 'Last Deck Health scan time.'));
+    main.appendChild(meta);
+    const status = document.createElement('div');
+    status.className = 'wandlight-lorepack-health-status-label';
+    status.textContent = context.status.label;
+    main.appendChild(status);
+    const summary = document.createElement('div');
+    summary.className = 'wandlight-lorepack-health-status-summary';
+    summary.textContent = context.status.summary;
+    main.appendChild(summary);
+    if (!options.compact) {
+        const detail = document.createElement('div');
+        detail.className = 'wandlight-lorepack-health-status-detail';
+        detail.textContent = context.status.detail;
+        main.appendChild(detail);
+    }
+    hero.appendChild(main);
+    return hero;
+}
+
+function createLorepackHealthSeverityGrid(context, options = {}) {
+    const summary = context.report.summary || {};
+    const grid = document.createElement('div');
+    grid.className = `wandlight-lorepack-health-severity-grid${options.compact ? ' wandlight-lorepack-health-severity-grid-compact' : ''}`;
+    grid.appendChild(createLorepackHealthSeverityCard('Errors', String(summary.errorCount || 0), (summary.errorCount || 0) ? 'Fix first' : 'None found', 'error'));
+    grid.appendChild(createLorepackHealthSeverityCard('Warnings', String(summary.warningCount || 0), (summary.warningCount || 0) ? 'Needs review' : 'Clear', 'warning'));
+    grid.appendChild(createLorepackHealthSeverityCard('Suggestions', String(summary.suggestionCount || 0), (summary.suggestionCount || 0) ? 'Optional' : 'None', 'suggestion'));
+    grid.appendChild(createLorepackHealthSeverityCard('Checked', String(summary.entryCount || 0), 'Lorecards', 'checked'));
+    return grid;
+}
+
+function createLorepackHealthSeverityCard(label, value, detail, tone = 'checked') {
+    const card = document.createElement('div');
+    card.className = `wandlight-lorepack-health-severity-card wandlight-lorepack-health-severity-card-${tone}`;
+    const labelEl = document.createElement('span');
+    labelEl.textContent = label;
+    card.appendChild(labelEl);
+    const valueEl = document.createElement('strong');
+    valueEl.textContent = value;
+    card.appendChild(valueEl);
+    const detailEl = document.createElement('small');
+    detailEl.textContent = detail;
+    card.appendChild(detailEl);
+    return card;
+}
+
+function createLorepackHealthCategoryList(context, options = {}) {
+    const categories = getLorepackHealthCategories(context.report);
+    const list = document.createElement('div');
+    list.className = `${options.asPanel ? 'wandlight-lorepack-health-panel ' : ''}wandlight-lorepack-health-category-list`.trim();
+    for (const category of categories) {
+        const row = document.createElement('div');
+        row.className = `wandlight-lorepack-health-category-row wandlight-lorepack-health-category-row-${category.tone}`;
+        const name = document.createElement('span');
+        name.textContent = category.label;
+        row.appendChild(name);
+        const status = document.createElement('span');
+        status.textContent = category.status;
+        row.appendChild(status);
+        addTooltip(row, category.tooltip);
+        list.appendChild(row);
+    }
+    return list;
+}
+
+function getLorepackHealthCategories(report = {}) {
+    const summary = report.summary || {};
+    const issues = getLorepackHealthAllIssues(report);
+    const hasCode = pattern => issues.some(issue => pattern.test(String(issue.code || '')));
+    const make = (label, failed, review, tooltip) => ({
+        label,
+        status: failed ? 'Blocked' : (review ? 'Needs Review' : 'Passed'),
+        tone: failed ? 'error' : (review ? 'warning' : 'ok'),
+        tooltip,
+    });
+    return [
+        make('Structure', hasCode(/missing_default_lorepack|missing_lorepack_manifest|invalid_pack_id|missing_virtual_lorepack_base_manifest/), hasCode(/duplicate_manifest_file|manifest_.*mismatch/), 'Manifest structure and library/source metadata.'),
+        make('JSON Validity', hasCode(/missing_entry_file|load_failed/), false, 'Whether declared JSON resources loaded successfully.'),
+        make('Schema', Number(summary.schemaV3IssueCount) > 0 && (report.errors || []).some(issue => String(issue.code || '').startsWith('schema_v3')), Number(summary.schemaV3IssueCount) > 0, 'Saga schema v3 entry shape and required fields.'),
+        make('Tags', false, (Number(summary.undefinedTagCount) || 0) + (Number(summary.deprecatedTagUsageCount) || 0) + (Number(summary.duplicateTagAliasCount) || 0) + (Number(summary.malformedTagCount) || 0) > 0 || hasCode(/tag/), 'Tag registry, tag IDs, deprecated tags, aliases, and orphaned tags.'),
+        make('Timeline', false, (Number(summary.invalidPositionWindowCount) || 0) > 0 || hasCode(/timeline|position_window/), 'Timeline anchors, windows, sort keys, and registry availability.'),
+        make('Anchors', false, (Number(summary.brokenAnchorReferenceCount) || 0) > 0 || hasCode(/anchor/), 'Story Position anchor references from entries and windows.'),
+        make('Coverage', false, (Number(summary.suggestionCount) || 0) > 0, 'Advisory completeness signals such as optional metadata and broad coverage.'),
+    ];
+}
+
+function createLorepackHealthInventoryBar(context) {
+    const summary = context.report.summary || {};
+    const bar = document.createElement('div');
+    bar.className = 'wandlight-lorepack-health-inventory';
+    const title = document.createElement('div');
+    title.className = 'wandlight-lorepack-health-inventory-title';
+    title.textContent = 'Deck Inventory';
+    bar.appendChild(title);
+    const items = [
+        ['Entries', String(summary.entryCount || 0)],
+        ['Files', `${summary.loadedFileCount || 0}/${summary.fileCount || 0}`],
+        ['Schema', summary.schemaV3EntryCount ? 'v3' : (context.pack?.entrySchemaVersion ? `v${context.pack.entrySchemaVersion}` : 'unknown')],
+        ['Position Gates', String(summary.positionGateCount || 0)],
+        ['Timeline', `${summary.timelineAnchorCount || 0}/${summary.timelineWindowCount || 0}`],
+        ['Disabled', String(summary.suppressedEntryCount || context.pack?.disabledEntryIds?.length || 0)],
+        ['Overrides', String(summary.entryOverrideCount || (context.pack?.entryOverrides ? Object.keys(context.pack.entryOverrides).length : 0))],
+    ];
+    for (const [label, value] of items) {
+        const item = document.createElement('div');
+        item.className = 'wandlight-lorepack-health-inventory-item';
+        const k = document.createElement('span');
+        k.textContent = label;
+        item.appendChild(k);
+        const v = document.createElement('strong');
+        v.textContent = value;
+        item.appendChild(v);
+        bar.appendChild(item);
+    }
+    return bar;
+}
+
+function createLorepackHealthIssueGroupCard(group, context, options = {}) {
+    const card = document.createElement('details');
+    card.className = `wandlight-lorepack-health-group-card wandlight-lorepack-health-group-${group.severity}${options.compact ? ' wandlight-lorepack-health-group-card-compact' : ''}`;
+    card.open = false;
+    const summary = document.createElement('summary');
+    const main = document.createElement('div');
+    main.className = 'wandlight-lorepack-health-group-main';
+    const title = document.createElement('div');
+    title.className = 'wandlight-lorepack-health-group-title';
+    title.textContent = group.title;
+    main.appendChild(title);
+    const meta = document.createElement('div');
+    meta.className = 'wandlight-lorepack-row-meta';
+    meta.appendChild(createStatusPill(humanizeScopeKey(group.severity), 'Issue severity.'));
+    meta.appendChild(createStatusPill(group.affectedLabel, 'Affected scope.'));
+    if (group.files.length) meta.appendChild(createStatusPill(`${group.files.length} file${group.files.length === 1 ? '' : 's'}`, group.files.join(', ')));
+    if (group.autoFixLabel) meta.appendChild(createStatusPill(group.autoFixLabel, group.autoFixTooltip));
+    main.appendChild(meta);
+    const message = document.createElement('div');
+    message.className = 'wandlight-lorepack-health-group-message';
+    message.textContent = group.summary;
+    main.appendChild(message);
+    summary.appendChild(main);
+    card.appendChild(summary);
+    if (!options.compact) {
+        card.appendChild(createLorepackHealthIssueDetailPanel(group, context, { embedded: true }));
+    }
+    return card;
+}
+
+function createLorepackHealthIssueDetailPanel(group, context, options = {}) {
+    const panel = document.createElement('div');
+    panel.className = `wandlight-lorepack-health-detail-panel${options.embedded ? ' wandlight-lorepack-health-detail-panel-embedded' : ''}`;
+    const title = document.createElement('div');
+    title.className = 'wandlight-runtime-card-title';
+    title.textContent = options.embedded ? 'Details' : `Issue: ${group.title}`;
+    panel.appendChild(title);
+    const why = document.createElement('div');
+    why.className = 'wandlight-lorepack-health-detail-block';
+    const whyTitle = document.createElement('strong');
+    whyTitle.textContent = 'Why this matters';
+    why.appendChild(whyTitle);
+    const whyText = document.createElement('p');
+    whyText.textContent = group.why;
+    why.appendChild(whyText);
+    panel.appendChild(why);
+    const fix = document.createElement('div');
+    fix.className = 'wandlight-lorepack-health-detail-block';
+    const fixTitle = document.createElement('strong');
+    fixTitle.textContent = 'Recommended fix';
+    fix.appendChild(fixTitle);
+    const fixText = document.createElement('p');
+    fixText.textContent = group.fix;
+    fix.appendChild(fixText);
+    panel.appendChild(fix);
+
+    const affected = createLorepackHealthAffectedList(group);
+    if (affected) panel.appendChild(affected);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    actions.appendChild(createButton('Copy Details', 'Copy this grouped issue summary to clipboard.', async () => {
+        await copyTextToClipboard(formatLorepackHealthGroupForCopy(group), 'Deck Health issue copied.');
+    }));
+    if (group.files.length) {
+        actions.appendChild(createButton('Copy File Path', 'Copy the first affected source file path.', async () => {
+            await copyTextToClipboard(group.files[0], 'Affected file path copied.');
+        }));
+    }
+    if (context.pack && context.pack.type !== 'bundled') {
+        const repairButton = createButton('Repair Safe Issues', 'Apply deterministic safe repairs available to this editable Loredeck record.', async (btn) => {
+            await repairLorepackSafeHealthIssues(context.pack, btn);
+            renderLorepackHealthCenterOverlay();
+        });
+        repairButton.disabled = !canValidateLorepackInEditor(context.pack);
+        actions.appendChild(repairButton);
+    }
+    panel.appendChild(actions);
+    return panel;
+}
+
+function createLorepackHealthAffectedList(group) {
+    const rows = getLorepackHealthAffectedRows(group).slice(0, 12);
+    if (!rows.length) return null;
+    const wrap = document.createElement('div');
+    wrap.className = 'wandlight-lorepack-health-affected-list';
+    const title = document.createElement('div');
+    title.className = 'wandlight-runtime-card-title';
+    title.textContent = 'Affected Items';
+    wrap.appendChild(title);
+    for (const row of rows) {
+        const item = document.createElement('div');
+        item.className = 'wandlight-lorepack-health-affected-row';
+        for (const text of row) {
+            const cell = document.createElement('span');
+            cell.textContent = text;
+            item.appendChild(cell);
+        }
+        wrap.appendChild(item);
+    }
+    const total = getLorepackHealthAffectedCount(group);
+    if (total > rows.length) {
+        const more = document.createElement('div');
+        more.className = 'wandlight-runtime-help';
+        more.textContent = `Showing first ${rows.length} of ${total}. Export the report for the full set.`;
+        wrap.appendChild(more);
+    }
+    return wrap;
+}
+
+function createLorepackHealthIssueTableHeader() {
+    const row = document.createElement('div');
+    row.className = 'wandlight-lorepack-health-issue-table-row wandlight-lorepack-health-issue-table-header';
+    for (const text of ['Severity', 'Issue', 'Affected', 'File', 'Action']) {
+        const cell = document.createElement('div');
+        cell.textContent = text;
+        row.appendChild(cell);
+    }
+    return row;
+}
+
+function createLorepackHealthIssueTableRow(group, context) {
+    const row = document.createElement('details');
+    row.className = `wandlight-lorepack-health-issue-table-row wandlight-lorepack-health-issue-table-row-${group.severity}`;
+    const summary = document.createElement('summary');
+    for (const text of [humanizeScopeKey(group.severity), group.title, group.affectedLabel, group.files[0] || 'Multiple / none', group.fixShort]) {
+        const cell = document.createElement('div');
+        cell.textContent = text;
+        summary.appendChild(cell);
+    }
+    row.appendChild(summary);
+    row.appendChild(createLorepackHealthIssueDetailPanel(group, context, { embedded: true }));
+    return row;
+}
+
+function getLorepackHealthAllIssues(report = {}) {
+    const rows = [];
+    const add = (items, severity) => {
+        for (const raw of Array.isArray(items) ? items : []) {
+            if (!raw || typeof raw !== 'object' || Array.isArray(raw)) continue;
+            rows.push({ ...raw, severity: raw.severity || severity });
+        }
+    };
+    add(report.errors, 'error');
+    add(report.warnings, 'warning');
+    add(report.suggestions, 'suggestion');
+    add(report.insights, 'suggestion');
+    return rows;
+}
+
+function groupLorepackHealthIssues(report = {}) {
+    const map = new Map();
+    for (const issue of getLorepackHealthAllIssues(report)) {
+        const severity = normalizeLorepackHealthSeverity(issue.severity);
+        const code = String(issue.code || severity || 'issue').trim() || 'issue';
+        const files = collectLorepackHealthIssueFiles(issue);
+        const primaryFile = files[0] || '';
+        const key = `${severity}|${code}|${primaryFile}`;
+        if (!map.has(key)) {
+            map.set(key, {
+                severity,
+                code,
+                files: new Set(),
+                tagIds: new Set(),
+                entryIds: new Set(),
+                timelineIds: new Set(),
+                reasons: new Set(),
+                issues: [],
+            });
+        }
+        const group = map.get(key);
+        group.issues.push(issue);
+        for (const file of files) group.files.add(file);
+        for (const tag of collectLorepackHealthIssueTags(issue)) group.tagIds.add(tag);
+        for (const id of normalizeLorepackPendingIdList(issue.entryIds || issue.affectedEntryIds || [])) group.entryIds.add(id);
+        for (const id of collectLorepackHealthIssueTimelineIds(issue)) group.timelineIds.add(id);
+        for (const reason of Array.isArray(issue.reasons) ? issue.reasons : []) {
+            const text = String(reason || '').trim();
+            if (text) group.reasons.add(text);
+        }
+    }
+    return [...map.values()]
+        .map(finalizeLorepackHealthIssueGroup)
+        .sort((a, b) => getLorepackHealthSeverityWeight(a.severity) - getLorepackHealthSeverityWeight(b.severity)
+            || b.rawCount - a.rawCount
+            || a.title.localeCompare(b.title));
+}
+
+function finalizeLorepackHealthIssueGroup(group) {
+    const files = [...group.files];
+    const tagIds = [...group.tagIds];
+    const entryIds = [...group.entryIds];
+    const timelineIds = [...group.timelineIds];
+    const title = getLorepackHealthIssueTitle(group.code);
+    const advice = getLorepackHealthIssueAdvice(group.code, group.severity);
+    const affectedCount = tagIds.length || entryIds.length || timelineIds.length || group.issues.length;
+    const affectedKind = tagIds.length ? 'tag' : (entryIds.length ? 'Lorecard' : (timelineIds.length ? 'timeline item' : 'finding'));
+    const affectedLabel = `${affectedCount} affected ${affectedKind}${affectedCount === 1 ? '' : 's'}`;
+    return {
+        ...group,
+        files,
+        tagIds,
+        entryIds,
+        timelineIds,
+        reasons: [...group.reasons],
+        title,
+        affectedLabel,
+        rawCount: group.issues.length,
+        summary: advice.summary || group.issues[0]?.message || title,
+        why: advice.why,
+        fix: advice.fix,
+        fixShort: advice.fixShort,
+        autoFixLabel: advice.autoFixLabel,
+        autoFixTooltip: advice.autoFixTooltip,
+    };
+}
+
+function normalizeLorepackHealthSeverity(severity = '') {
+    const key = String(severity || '').trim().toLowerCase();
+    if (key === 'error') return 'error';
+    if (key === 'warning') return 'warning';
+    return 'suggestion';
+}
+
+function getLorepackHealthSeverityWeight(severity = '') {
+    return severity === 'error' ? 0 : (severity === 'warning' ? 1 : 2);
+}
+
+function getLorepackHealthIssueTitle(code = '') {
+    const key = String(code || '').trim();
+    const titles = {
+        malformed_tag_namespace: 'Tag IDs contain spaces or unsupported characters',
+        undefined_tag: 'Tags are missing from the registry',
+        deprecated_tag_used: 'Deprecated tags are still used',
+        duplicate_tag_alias: 'Tag aliases point to multiple definitions',
+        orphaned_tag_definition: 'Unused tag definitions',
+        tag_registry_missing: 'Tag registry is missing',
+        tag_registry_load_failed: 'Tag registry failed to load',
+        tag_parent_missing: 'Tag parent is missing',
+        deprecated_tag_replacement_missing: 'Deprecated tag replacement is missing',
+        unnamespaced_bundled_tag: 'Bundled tags should be namespaced',
+        missing_entry_file: 'Entry file failed to load',
+        duplicate_entry_id: 'Duplicate Lorecard IDs',
+        missing_entry_id: 'Lorecards are missing IDs',
+        duplicate_manifest_file: 'Manifest lists duplicate files',
+        manifest_entry_count_mismatch: 'Manifest entry count is stale',
+        manifest_category_counts_mismatch: 'Manifest category counts are stale',
+        schema_v3_legacy_timing_fields: 'Legacy timing fields remain in schema v3 entries',
+        schema_v3_missing_position: 'Lorecards are missing Story Position',
+        schema_v3_invalid_position_scope: 'Story Position scope is invalid',
+        schema_v3_missing_position_sort_keys: 'Story Position sort keys are missing',
+        schema_v3_missing_position_precision: 'Story Position precision is missing',
+        schema_v3_missing_position_label: 'Story Position label is missing',
+        schema_v3_missing_retrieval: 'Retrieval metadata is missing',
+        schema_v3_incomplete_retrieval: 'Retrieval metadata is incomplete',
+        schema_v3_missing_content: 'Lorecard content is incomplete',
+        schema_v3_wide_lore_retrieval: 'Wide lore retrieval should be conservative',
+        broken_anchor_reference: 'Story Position anchors are missing',
+        invalid_position_window: 'Story Position window is invalid',
+        unmatchable_position_gate: 'Story Position gate cannot match',
+        position_gates_without_timeline: 'Position gates need a timeline registry',
+        story_position_timeline_empty: 'Timeline registry is empty',
+        story_position_timeline_load_failed: 'Timeline registry failed to load',
+        story_position_timeline_invalid_ref: 'Timeline registry path is invalid',
+        timeline_anchor_sortkey_mismatch: 'Timeline anchor sort key mismatch',
+        timeline_window_sortkey_mismatch: 'Timeline window sort key mismatch',
+        custom_entry_overrides_applied: 'Custom overrides are active',
+        likely_duplicate_pack: 'Likely duplicate deck loaded',
+        shared_manifest_with_overrides: 'Loaded decks share a manifest',
+        loaded_pack_missing_library_record: 'Loaded deck is missing from the Library',
+        loaded_pack_not_available: 'Loaded deck did not produce a source',
+        custom_duplicate_has_no_entry_changes: 'Custom duplicate has no Lorecard changes',
+        empty_lorepack_stack: 'No Loredecks are loaded',
+    };
+    return titles[key] || humanizeScopeKey(key || 'Deck Health issue');
+}
+
+function getLorepackHealthIssueAdvice(code = '', severity = 'suggestion') {
+    const key = String(code || '').trim();
+    const generic = {
+        summary: severity === 'error' ? 'This issue can prevent reliable deck loading.' : 'This issue may reduce reliability, search, or future editing quality.',
+        why: 'Deck Health checks help keep Loredecks predictable when they are loaded, stacked, edited, exported, or shared.',
+        fix: 'Review the affected records, correct the underlying metadata, then rerun Deck Health.',
+        fixShort: 'Review',
+    };
+    const advice = {
+        malformed_tag_namespace: {
+            summary: 'Some tags appear to use display labels as machine IDs.',
+            why: 'Tag IDs with spaces, punctuation, or unsupported characters can break filtering, matching, namespace routing, and future bulk operations.',
+            fix: 'Use stable machine-safe IDs while preserving readable labels in the tag registry, such as "Year 1" as label and "year-1" as ID.',
+            fixShort: 'Normalize IDs',
+            autoFixLabel: 'Deterministic fix',
+            autoFixTooltip: 'Machine-safe IDs can be generated deterministically, but bundled or remote source files still need a protected edit path.',
+        },
+        undefined_tag: {
+            summary: 'Used tags are not defined in the active tag registry.',
+            why: 'Undefined tags still display, but they cannot carry labels, descriptions, colors, hierarchy, aliases, or deprecation metadata.',
+            fix: 'Define these tags in tags.json or remove them from entries that do not need them.',
+            fixShort: 'Define tags',
+        },
+        tag_registry_missing: {
+            summary: 'Lorecards use tags, but this deck has no tag registry.',
+            why: 'A registry separates machine IDs from readable labels and makes tags safer for filtering, editing, and creator guidance.',
+            fix: 'Create a tags.json registry or embed a Custom tag registry before sharing the deck.',
+            fixShort: 'Create registry',
+        },
+        schema_v3_missing_position: {
+            summary: 'Schema v3 Lorecards should define Story Position eligibility.',
+            why: 'Story Position prevents future canon leakage and lets Saga activate lore at the right point in the story.',
+            fix: 'Add position.scope, sort keys, precision, label, and anchor/window references where appropriate.',
+            fixShort: 'Add position',
+        },
+        schema_v3_missing_retrieval: {
+            summary: 'Lorecards are missing retrieval metadata.',
+            why: 'Retrieval metadata tells Saga when a card is useful and prevents broad entries from over-injecting.',
+            fix: 'Add retrieval activation, frequency, positional boost, and cue metadata.',
+            fixShort: 'Add retrieval',
+        },
+        schema_v3_wide_lore_retrieval: {
+            summary: 'Wide lore should use conservative retrieval settings.',
+            why: 'High-value global lore is useful, but it can drown scenes if it activates too often.',
+            fix: 'Use topic-or-entity activation, low frequency, and low positional boost for wide/global entries.',
+            fixShort: 'Tune retrieval',
+        },
+        missing_entry_file: {
+            summary: 'A declared entry file did not load.',
+            why: 'Missing files reduce deck coverage and may make manifest stats inaccurate.',
+            fix: 'Check the manifest path, URL, filename, and browser accessibility for the affected file.',
+            fixShort: 'Fix path',
+        },
+        duplicate_entry_id: {
+            summary: 'Multiple Lorecards share the same ID.',
+            why: 'Duplicate IDs make overrides and stack priority ambiguous.',
+            fix: 'Give each Lorecard a unique stable ID, then rerun validation.',
+            fixShort: 'Rename IDs',
+        },
+        broken_anchor_reference: {
+            summary: 'Entries or windows reference timeline anchors that do not exist.',
+            why: 'Broken anchors can make Story Position gates fail or behave unpredictably.',
+            fix: 'Add the missing anchors to timeline.json or update entries to reference existing anchors.',
+            fixShort: 'Fix anchors',
+        },
+        invalid_position_window: {
+            summary: 'A Story Position window starts after it ends or has invalid boundaries.',
+            why: 'Invalid windows can make entries never eligible or eligible at the wrong time.',
+            fix: 'Check anchor order, sort keys, and window start/end references.',
+            fixShort: 'Fix window',
+        },
+        manifest_entry_count_mismatch: {
+            summary: 'Manifest stats do not match the loaded deck.',
+            why: 'Stale stats make library cards and sharing metadata misleading.',
+            fix: 'Refresh manifest stats from Deck Health before exporting or sharing.',
+            fixShort: 'Refresh stats',
+        },
+    };
+    return { ...generic, ...(advice[key] || {}) };
+}
+
+function collectLorepackHealthIssueTags(issue = {}) {
+    const tags = [];
+    const push = value => {
+        const text = String(value || '').trim();
+        if (text && !tags.includes(text)) tags.push(text);
+    };
+    for (const tag of Array.isArray(issue.tagIds) ? issue.tagIds : []) push(tag);
+    if (issue.tag) push(issue.tag);
+    for (const tag of Array.isArray(issue.tags) ? issue.tags : []) {
+        if (typeof tag === 'string') push(tag);
+        else push(tag?.tag || tag?.id || '');
+    }
+    return tags;
+}
+
+function collectLorepackHealthIssueFiles(issue = {}) {
+    const files = [];
+    const push = value => {
+        const text = String(value || '').trim();
+        if (text && !files.includes(text)) files.push(text);
+    };
+    push(issue.file);
+    for (const tag of Array.isArray(issue.tags) ? issue.tags : []) {
+        if (tag && typeof tag === 'object') {
+            for (const file of Array.isArray(tag.files) ? tag.files : []) push(file);
+        }
+    }
+    return files;
+}
+
+function collectLorepackHealthIssueTimelineIds(issue = {}) {
+    return normalizeLorepackPendingTimelineIdList([
+        issue.anchorId || '',
+        issue.timelineWindowId || '',
+        ...(Array.isArray(issue.anchorIds) ? issue.anchorIds : []),
+        ...(Array.isArray(issue.timelineIds) ? issue.timelineIds : []),
+    ]);
+}
+
+function getLorepackHealthAffectedCount(group = {}) {
+    return group.tagIds?.length || group.entryIds?.length || group.timelineIds?.length || group.rawCount || 0;
+}
+
+function getLorepackHealthAffectedRows(group = {}) {
+    const rows = [];
+    if (group.tagIds?.length) {
+        for (const tag of group.tagIds) rows.push([tag, suggestLorepackMachineId(tag), group.files[0] || '']);
+        return rows;
+    }
+    if (group.entryIds?.length) {
+        for (const id of group.entryIds) rows.push([id, group.code, group.files[0] || '']);
+        return rows;
+    }
+    if (group.timelineIds?.length) {
+        for (const id of group.timelineIds) rows.push([id, group.code, group.files[0] || '']);
+        return rows;
+    }
+    for (const issue of group.issues || []) rows.push([issue.code || group.code, issue.message || '', issue.file || '']);
+    return rows;
+}
+
+function suggestLorepackMachineId(value = '') {
+    return normalizeLorepackTagId(value) || String(value || '').trim().toLowerCase().replace(/[^a-z0-9:._-]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+}
+
+function formatLorepackHealthGroupForCopy(group = {}) {
+    const lines = [
+        `${group.title}`,
+        `Severity: ${humanizeScopeKey(group.severity || 'suggestion')}`,
+        `Affected: ${group.affectedLabel || ''}`,
+        group.files?.length ? `Files: ${group.files.join(', ')}` : '',
+        '',
+        `Why this matters: ${group.why || ''}`,
+        `Recommended fix: ${group.fix || ''}`,
+    ].filter(line => line !== '');
+    const rows = getLorepackHealthAffectedRows(group).slice(0, 20);
+    if (rows.length) {
+        lines.push('', 'Affected items:');
+        for (const row of rows) lines.push(`- ${row.filter(Boolean).join(' | ')}`);
+    }
+    return lines.join('\n');
+}
+
+function getLorepackHealthFileRows(context = {}) {
+    const rows = new Map();
+    const addFile = (file, data = {}) => {
+        const key = String(file || '').trim();
+        if (!key) return;
+        const current = rows.get(key) || { file: key, entries: 0, errors: 0, warnings: 0, suggestions: 0 };
+        current.entries = Math.max(current.entries || 0, Number(data.entries) || 0);
+        current.errors += Number(data.errors) || 0;
+        current.warnings += Number(data.warnings) || 0;
+        current.suggestions += Number(data.suggestions) || 0;
+        rows.set(key, current);
+    };
+    for (const fileRecord of context.cached?.entryFiles || []) {
+        addFile(fileRecord.file, {
+            entries: Array.isArray(fileRecord.entries) ? fileRecord.entries.length : 0,
+            errors: fileRecord.ok === false ? 1 : 0,
+        });
+    }
+    for (const issue of getLorepackHealthAllIssues(context.report)) {
+        const files = collectLorepackHealthIssueFiles(issue);
+        for (const file of files) {
+            addFile(file, {
+                errors: normalizeLorepackHealthSeverity(issue.severity) === 'error' ? 1 : 0,
+                warnings: normalizeLorepackHealthSeverity(issue.severity) === 'warning' ? 1 : 0,
+                suggestions: normalizeLorepackHealthSeverity(issue.severity) === 'suggestion' ? 1 : 0,
+            });
+        }
+    }
+    return [...rows.values()]
+        .map(row => ({
+            ...row,
+            statusTone: row.errors ? 'error' : (row.warnings ? 'warning' : 'ok'),
+            status: row.errors ? 'Blocked' : (row.warnings ? 'Review' : 'Healthy'),
+        }))
+        .sort((a, b) => b.errors - a.errors || b.warnings - a.warnings || a.file.localeCompare(b.file));
+}
+
+function formatRelativeHealthTime(timestamp = 0) {
+    const value = Number(timestamp) || 0;
+    if (!value) return 'unknown';
+    const delta = Date.now() - value;
+    if (delta < 60000) return 'just now';
+    const minutes = Math.floor(delta / 60000);
+    if (minutes < 60) return `${minutes}m ago`;
+    const hours = Math.floor(minutes / 60);
+    if (hours < 24) return `${hours}h ago`;
+    return new Date(value).toLocaleString();
+}
+
+async function copyTextToClipboard(text = '', successMessage = 'Copied.') {
+    try {
+        await navigator.clipboard?.writeText(String(text || ''));
+        toast(successMessage, 'info');
+    } catch (_) {
+        toast('Clipboard copy unavailable in this browser context.', 'warning');
+    }
+}
+
+async function refreshLorepackHealthCenterScan(context = getLorepackHealthCenterContext(), button = null) {
+    const originalText = button?.textContent;
+    if (button) {
+        button.disabled = true;
+        button.textContent = 'Scanning...';
+    }
+    try {
+        if (context.pack) {
+            const result = await validateLorepackForEditor(context.pack, null, { quiet: true, updateLibrary: true });
+            if (!result.health) throw new Error(result.error || 'Deck Health scan failed.');
+            toast(`Deck Health: ${getLorepackHealthStatusDescriptor({ summary: result.health.summary || {}, status: result.health.status }, result.health).label}.`, result.health.errors?.length ? 'error' : (result.health.warnings?.length ? 'warning' : 'success'));
+            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+            refreshHeader();
+        } else {
+            clearCanonLoreDatabaseCache();
+            clearStoryPositionIndexCache();
+            await loadCanonLoreDatabase();
+            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+            refreshHeader();
+            toast('Deck Health refreshed.', 'success');
+        }
+    } catch (e) {
+        toast(e?.message || 'Deck Health scan failed.', 'error');
+    } finally {
+        if (button) {
+            button.disabled = false;
+            button.textContent = originalText || 'Refresh Scan';
+        }
+        renderLorepackHealthCenterOverlay();
+    }
+}
+
+function exportLorepackHealthCenterReport(context = getLorepackHealthCenterContext()) {
+    if (!context.health) {
+        toast('Deck Health has not loaded yet.', 'warning');
+        return;
+    }
+    const fileStem = sanitizeFileStem(context.pack?.packId || context.report.databaseId || 'saga-deck-health');
+    downloadJson(context.report, `${fileStem}.health.json`);
+    toast('Deck Health report exported.', 'info');
 }
 
 function createLorepackHealthMetric(label, value, tooltip) {
@@ -5467,6 +6529,10 @@ function createLorepackDetailCard(state, canonDb = null, health = null) {
     });
     validateButton.disabled = !editorCanValidate;
     actions.appendChild(validateButton);
+    const healthButton = createButton('Health Report', 'Open the fullscreen Deck Health Center for this Loredeck.', () => {
+        openLorepackHealthCenter(pack.packId);
+    });
+    actions.appendChild(healthButton);
     actions.appendChild(createButton('Duplicate as Custom', 'Create a Custom Loredeck copy with its own pack ID and metadata.', () => {
         openDuplicateLorepackDialog(pack);
     }));
