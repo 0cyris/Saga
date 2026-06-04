@@ -1,6 +1,7 @@
 Reference/
 implementation_plan.md
 *.zip
+readme.wandlight
 
 # Local documentation render harness and temporary browser fixtures.
 .wandlight-doc-renderer/
