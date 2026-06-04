@@ -7,6 +7,7 @@ const {
   normalizeTimelineRegistryForHealth,
   createTimelineHealthIndex,
   analyzeTimelineWindowHealth,
+  analyzeEntries,
   analyzeEntryPositionHealth,
 } = __lorepackLoaderTestHooks;
 
@@ -91,5 +92,23 @@ assert.equal(noTimelineHealth.warnings.length, 0);
 assert.equal(noTimelineHealth.suggestions.length, 1);
 assert.equal(noTimelineHealth.suggestions[0].code, 'position_gates_without_timeline');
 assert.equal(noTimelineHealth.status, 'good');
+
+const schemaHealth = createHealth('schema-pack');
+analyzeEntries(schemaHealth, [{
+  file: 'v3.json',
+  entries: [{
+    schemaVersion: 3,
+    id: 'bad_v3_entry',
+    title: 'Bad V3 Entry',
+    category: 'event',
+    date: { validFrom: '1991-09-01' },
+    position: { scope: 'window', sortKeyFrom: 1, sortKeyTo: 2 },
+    content: { fact: 'Bad.', injection: 'Bad.' },
+  }],
+}]);
+finalizeHealth(schemaHealth);
+assert.equal(schemaHealth.errors.length, 1);
+assert.equal(schemaHealth.errors[0].code, 'schema_v3_legacy_timing_fields');
+assert.equal(schemaHealth.status, 'has_errors');
 
 console.log('Lorepack position health tests passed.');

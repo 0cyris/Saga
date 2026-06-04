@@ -17,7 +17,7 @@ This checkpoint records the current production baseline before starting position
 - Provider settings have moved from the extension dropdown into the runtime Settings tab.
 - Theme Pack foundation exists for bundled and installed Custom Theme Packs, JSON import/export, color tokens, icon overrides, and advisory accessibility checks.
 - Entry-level `position` metadata normalizes through the lore pipeline.
-- Story Position gate evaluation exists as a reusable pure helper, with unresolved gates kept eligible by default until retrieval is intentionally wired.
+- Story Position gate evaluation exists as a reusable pure helper, and canon retrieval now requires position-native eligibility.
 
 ## Validation Run
 
@@ -50,7 +50,7 @@ Position-aware Lorepack retrieval:
 
 - Done: normalize entry-level `position` metadata.
 - Done: evaluate entry position gates against loaded Lorepack Story Positions.
-- Done: preserve existing HP date-gated behavior while routing position eligibility into canon suggestions and relevance scoring.
+- Done: remove HP entry-local date gates and route canon suggestions through position-native eligibility.
 - Done: add source chips and position/gating chips to suggested and pending lore cards.
 - Done: expand Pack Health checks for invalid position references, broken anchor windows, and entries that can never match a known Story Position.
-- Next: migrate the bundled Harry Potter Lorepack toward position-native entries. Dates remain timeline coordinates and resolver input, while bundled entries should match by Story Position ranges/anchors instead of entry-local date gates.
+- Next: use the HP v3 conformance test as the baseline for Pack Health and creator/export validation.

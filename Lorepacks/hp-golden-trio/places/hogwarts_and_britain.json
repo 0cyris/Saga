@@ -1,46 +1,47 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "entries": [
     {
+      "schemaVersion": 3,
       "id": "canon_hogwarts_school_setting",
       "title": "Hogwarts School setting",
+      "kind": "place_fact",
+      "gateType": "place_fact",
+      "category": "location",
+      "relevance": "low",
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
       "tags": [
         "Hogwarts",
         "school",
         "castle",
         "students"
       ],
-      "category": "location",
-      "fact": "Hogwarts is the central British wizarding school setting during the canon school years, with students sorted into houses and governed by school rules, staff, and magical protections.",
-      "canonStatus": "canon",
-      "truthStatus": "true",
-      "validFrom": "1991-09-01",
-      "validTo": "1998-08-31",
-      "branchId": "main",
-      "whoKnowsTruth": [],
-      "publicVersion": "Hogwarts is Britain's major wizarding school.",
-      "revealPolicy": "public",
-      "activeWhen": {
-        "erasAny": [],
-        "locationsAny": [
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.dh.year_7",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 10469,
+        "precision": "date_window",
+        "windowKind": "series",
+        "label": "1991-09-01 to 1998-08-31",
+        "approximate": false
+      },
+      "scope": {
+        "locations": [
           "Hogwarts",
           "castle",
           "Great Hall",
           "common room"
-        ],
-        "charactersPresentAny": [],
-        "tagsAny": [
-          "Hogwarts"
-        ]
-      },
-      "priority": 75,
-      "status": "active",
-      "source": "canon-lore-db:places/hogwarts_and_britain.json",
-      "locked": true,
-      "content": {},
-      "scope": {
-        "locations": [
-          "Hogwarts"
         ],
         "factions": [
           "Hogwarts staff",
@@ -54,7 +55,8 @@
           "castle",
           "students",
           "rules",
-          "magical protections"
+          "magical protections",
+          "Hogwarts"
         ],
         "schoolYears": [
           "Year 1",
@@ -75,55 +77,71 @@
           "Deathly Hallows"
         ]
       },
-      "date": {
-        "validFrom": "1991-09-01",
-        "validTo": "1998-08-31",
-        "precision": "date",
-        "schoolYear": null
+      "visibility": {
+        "revealPolicy": "public"
       },
-      "kind": "place_fact",
-      "gateType": "place_fact",
-      "protected": false,
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "low"
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "positionalBoost": "low",
+        "triggers": {
+          "locationsAny": [
+            "Hogwarts",
+            "castle",
+            "Great Hall",
+            "common room"
+          ],
+          "topicsAny": [
+            "school",
+            "castle",
+            "students",
+            "rules",
+            "magical protections",
+            "Hogwarts"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Hogwarts is the central British wizarding school setting during the canon school years, with students sorted into houses and governed by school rules, staff, and magical protections.",
+        "injection": "Hogwarts is the central British wizarding school setting during the canon school years, with students sorted into houses and governed by school rules, staff, and magical protections.",
+        "publicVersion": "Hogwarts is Britain's major wizarding school."
+      }
     },
     {
+      "schemaVersion": 3,
       "id": "canon_hogsmeade_student_village",
       "title": "Hogsmeade village",
+      "kind": "place_fact",
+      "gateType": "place_fact",
+      "category": "location",
+      "relevance": "low",
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
       "tags": [
         "Hogsmeade",
         "village",
         "students",
         "Hogwarts"
       ],
-      "category": "location",
-      "fact": "Hogsmeade is the wizarding village near Hogwarts that students may visit under school rules when permitted.",
-      "canonStatus": "canon",
-      "truthStatus": "true",
-      "validFrom": "1991-09-01",
-      "validTo": "1998-08-31",
-      "branchId": "main",
-      "whoKnowsTruth": [],
-      "publicVersion": "Hogsmeade is a nearby wizarding village associated with student visits.",
-      "revealPolicy": "public",
-      "activeWhen": {
-        "erasAny": [],
-        "locationsAny": [
-          "Hogsmeade",
-          "Three Broomsticks",
-          "Honeydukes"
-        ],
-        "charactersPresentAny": [],
-        "tagsAny": [
-          "Hogsmeade"
-        ]
-      },
       "priority": 50,
       "status": "active",
-      "source": "canon-lore-db:places/hogwarts_and_britain.json",
+      "protected": false,
       "locked": true,
-      "content": {},
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.dh.year_7",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 10469,
+        "precision": "date_window",
+        "windowKind": "series",
+        "label": "1991-09-01 to 1998-08-31",
+        "approximate": false
+      },
       "scope": {
         "locations": [
           "Hogsmeade",
@@ -133,7 +151,8 @@
         "topics": [
           "village",
           "student visits",
-          "school rules"
+          "school rules",
+          "Hogsmeade"
         ],
         "schoolYears": [
           "Year 3",
@@ -150,71 +169,83 @@
           "Deathly Hallows"
         ]
       },
-      "date": {
-        "validFrom": "1991-09-01",
-        "validTo": "1998-08-31",
-        "precision": "date",
-        "schoolYear": null
+      "visibility": {
+        "revealPolicy": "public"
       },
-      "kind": "place_fact",
-      "gateType": "place_fact",
-      "protected": false,
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "low"
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "positionalBoost": "low",
+        "triggers": {
+          "locationsAny": [
+            "Hogsmeade",
+            "Three Broomsticks",
+            "Honeydukes"
+          ],
+          "topicsAny": [
+            "village",
+            "student visits",
+            "school rules",
+            "Hogsmeade",
+            "students",
+            "Hogwarts"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Hogsmeade is the wizarding village near Hogwarts that students may visit under school rules when permitted.",
+        "injection": "Hogsmeade is the wizarding village near Hogwarts that students may visit under school rules when permitted.",
+        "publicVersion": "Hogsmeade is a nearby wizarding village associated with student visits."
+      }
     },
     {
+      "schemaVersion": 3,
       "id": "canon_ministry_of_magic_public_authority",
       "title": "Ministry of Magic authority",
+      "kind": "place_fact",
+      "gateType": "place_fact",
+      "category": "location",
+      "relevance": "low",
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
       "tags": [
         "Ministry",
         "government",
         "law",
         "Britain"
       ],
-      "category": "location",
-      "fact": "The Ministry of Magic is the main British wizarding government authority and strongly affects public policy, law enforcement, and school politics during the later canon years.",
-      "canonStatus": "canon",
-      "truthStatus": "true",
-      "validFrom": "1991-09-01",
-      "validTo": "1998-08-31",
-      "branchId": "main",
-      "whoKnowsTruth": [],
-      "publicVersion": "The Ministry governs British wizarding public life.",
-      "revealPolicy": "public",
-      "activeWhen": {
-        "erasAny": [
-          "Year 5",
-          "Year 6",
-          "Year 7"
-        ],
-        "locationsAny": [
-          "Ministry",
-          "London"
-        ],
-        "charactersPresentAny": [
-          "Fudge",
-          "Scrimgeour",
-          "Umbridge"
-        ],
-        "tagsAny": [
-          "Ministry"
-        ]
-      },
       "priority": 50,
       "status": "active",
-      "source": "canon-lore-db:places/hogwarts_and_britain.json",
+      "protected": false,
       "locked": true,
-      "content": {},
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.dh.year_7",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 10469,
+        "precision": "date_window",
+        "windowKind": "series",
+        "label": "1991-09-01 to 1998-08-31",
+        "approximate": false
+      },
       "scope": {
         "characters": [
           "Cornelius Fudge",
           "Rufus Scrimgeour",
-          "Dolores Umbridge"
+          "Dolores Umbridge",
+          "Fudge",
+          "Scrimgeour",
+          "Umbridge"
         ],
         "locations": [
           "Ministry of Magic",
-          "London"
+          "London",
+          "Ministry"
         ],
         "factions": [
           "Ministry of Magic"
@@ -223,7 +254,8 @@
           "government",
           "law enforcement",
           "public policy",
-          "school politics"
+          "school politics",
+          "Ministry"
         ],
         "schoolYears": [
           "Year 5",
@@ -234,20 +266,55 @@
           "Order of the Phoenix",
           "Half-Blood Prince",
           "Deathly Hallows"
+        ],
+        "eras": [
+          "Year 5",
+          "Year 6",
+          "Year 7"
         ]
       },
-      "date": {
-        "validFrom": "1991-09-01",
-        "validTo": "1998-08-31",
-        "precision": "date",
-        "schoolYear": null
+      "visibility": {
+        "revealPolicy": "public"
       },
-      "kind": "place_fact",
-      "gateType": "place_fact",
-      "protected": false,
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "low"
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "positionalBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Cornelius Fudge",
+            "Rufus Scrimgeour",
+            "Dolores Umbridge",
+            "Fudge",
+            "Scrimgeour",
+            "Umbridge"
+          ],
+          "locationsAny": [
+            "Ministry of Magic",
+            "London",
+            "Ministry"
+          ],
+          "topicsAny": [
+            "government",
+            "law enforcement",
+            "public policy",
+            "school politics",
+            "Ministry",
+            "law",
+            "Britain"
+          ],
+          "erasAny": [
+            "Year 5",
+            "Year 6",
+            "Year 7"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Ministry of Magic is the main British wizarding government authority and strongly affects public policy, law enforcement, and school politics during the later canon years.",
+        "injection": "The Ministry of Magic is the main British wizarding government authority and strongly affects public policy, law enforcement, and school politics during the later canon years.",
+        "publicVersion": "The Ministry governs British wizarding public life."
+      }
     }
   ]
 }

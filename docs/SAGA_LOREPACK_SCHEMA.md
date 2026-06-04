@@ -28,7 +28,7 @@ Saga Lorepacks should be:
 - Searchable and filterable.
 - Pack-stack aware.
 - Story-position aware.
-- Compatible with existing Wandlight lore entry data.
+- Story Position-native instead of dependent on legacy entry-local date gates.
 - Strict enough to load safely.
 - Flexible enough for fandoms without exact dates.
 
@@ -332,16 +332,16 @@ Entry files keep the existing Wandlight wrapper style.
 
 ```json
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "entries": []
 }
 ```
 
-For Saga, entry file `schemaVersion` may remain `2` initially to preserve Wandlight compatibility. New Saga-only fields should be additive.
+Saga reference packs should use entry file `schemaVersion: 3`. Schema v3 entries use `position` for Story Position eligibility and should not store legacy entry-local `date`, `validFrom`, `validTo`, or `canonTiming` gates.
 
 ## Lore Entry Schema
 
-Saga entries should remain compatible with current Wandlight lore entries.
+Saga v3 entries are Story Position-native. Dates may still exist in `timeline.json` as resolver coordinates, but entry eligibility belongs in `position`.
 
 ### Required Fields
 
@@ -370,9 +370,9 @@ Saga entries should remain compatible with current Wandlight lore entries.
 | `tags` | string[] | Search/scoring tags. |
 | `triggers` | object | Keyword, constant, probability, and recursive activation hints. |
 | `scope` | object | Characters, locations, topics, objects, spells, factions, etc. |
-| `date` | object | Calendar-style eligibility. |
 | `position` | object | Saga Story Position eligibility. |
 | `coordinates` | object[] | Multi-axis Story Position coordinates. |
+| `retrieval` | object | Activation and frequency hints after Story Position eligibility passes. |
 | `continuity` | object | Entry-level continuity, adaptation, route, or canon-tier metadata. |
 | `ability` | object | Generic ability-system metadata for spells, quirks, jutsu, Force abilities, cyberware, etc. |
 | `template` | object | Placeholder/template variable metadata for imported lorebook entries. |
@@ -592,7 +592,7 @@ Saga should treat triggers as one input to relevance and suggestion, not as a re
 
 ```json
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "id": "mcu_wanda_public_after_sokovia",
   "title": "Wanda Known After Sokovia",
   "kind": "knowledge_gate",
@@ -605,15 +605,15 @@ Saga should treat triggers as one input to relevance and suggestion, not as a re
   "truthStatus": "true",
   "revealPolicy": "private",
   "priority": 75,
-  "date": {
-    "validFrom": "2015",
-    "validTo": "2016",
-    "precision": "year"
-  },
   "position": {
+    "scope": "window",
     "validFromAnchor": "mcu.age_of_ultron",
     "validToAnchor": "mcu.civil_war",
-    "precision": "anchor_window"
+    "sortKeyFrom": 2200,
+    "sortKeyTo": 2600,
+    "precision": "anchor_window",
+    "windowKind": "bounded",
+    "label": "After Age of Ultron, before Civil War"
   },
   "scope": {
     "characters": [
@@ -638,6 +638,20 @@ Saga should treat triggers as one input to relevance and suggestion, not as a re
     "knowledge:public",
     "mcu:phase-2"
   ],
+  "retrieval": {
+    "activation": "topic_or_entity",
+    "frequency": "normal",
+    "positionalBoost": "medium",
+    "triggers": {
+      "charactersAny": [
+        "Wanda Maximoff"
+      ],
+      "topicsAny": [
+        "Avengers",
+        "Sokovia incident"
+      ]
+    }
+  },
   "content": {
     "fact": "After Sokovia, Wanda Maximoff is publicly associated with the Avengers and the Sokovia incident.",
     "injection": "After Sokovia, treat Wanda Maximoff as publicly associated with the Avengers and the Sokovia incident unless this story established otherwise.",
@@ -660,44 +674,30 @@ Saga should treat triggers as one input to relevance and suggestion, not as a re
 }
 ```
 
-## Date Block
+## Timeline Calendar Coordinates
 
-The existing `date` block remains supported.
+Calendar dates belong in `timeline.json`, not in entry-local gates.
 
 ```json
 {
-  "date": {
-    "validFrom": "1995-09-01",
-    "validTo": "1996-06-30",
-    "precision": "school_year",
-    "schoolYear": 5,
-    "book": "Order of the Phoenix",
-    "era": "Golden Trio",
-    "label": "Year 5",
-    "approximate": false
-  }
+  "id": "hp.ootp.year_5",
+  "label": "Year 5: Order of the Phoenix",
+  "positionType": "calendar",
+  "sortKey": 9374,
+  "dateRange": {
+    "from": "1995-09-01",
+    "to": "1996-08-31"
+  },
+  "book": "Order of the Phoenix",
+  "schoolYear": "5"
 }
 ```
 
-Supported date precision values:
-
-```json
-[
-  "date",
-  "month",
-  "year",
-  "school_year",
-  "era",
-  "approximate",
-  "unknown"
-]
-```
+This lets users pick a date while keeping the entry schema Story Position-native.
 
 ## Position Block
 
-`position` is the new Saga Story Position eligibility block.
-
-It should be optional in MVP but should become the preferred cross-fandom timeline layer.
+`position` is the Saga Story Position eligibility block. Reference Lorepacks should define it on every entry.
 
 Implementation status: entries normalize and preserve `position` metadata, Saga evaluates position gates against active Lorepack Story Position, retrieval/scoring now uses those gates, and suggested/pending lore cards display source plus position/gating chips.
 
@@ -705,6 +705,7 @@ Implementation status: entries normalize and preserve `position` metadata, Saga 
 
 | Field | Type | Meaning |
 | --- | --- | --- |
+| `scope` | string | `anchor`, `window`, or `global`; validity breadth, not injection frequency. |
 | `anchorId` | string | Entry applies at one anchor. |
 | `validFromAnchor` | string | Entry starts at or after this anchor. |
 | `validToAnchor` | string | Entry applies until this anchor. |
@@ -723,6 +724,7 @@ Implementation status: entries normalize and preserve `position` metadata, Saga 
 | `sortKeyFrom` | number | Normalized lower sort bound. |
 | `sortKeyTo` | number | Normalized upper sort bound. |
 | `precision` | string | `anchor`, `anchor_window`, `arc`, `phase`, etc. |
+| `windowKind` | string | Optional breadth hint such as `event`, `bounded`, `school_year`, `wide`, `series`, or `era`. |
 | `label` | string | Human-readable display label. |
 
 ### Position Example
@@ -730,10 +732,14 @@ Implementation status: entries normalize and preserve `position` metadata, Saga 
 ```json
 {
   "position": {
+    "scope": "window",
     "validFromAnchor": "mcu.age_of_ultron",
     "validToAnchor": "mcu.civil_war",
     "phase": "Phase 3",
+    "sortKeyFrom": 2200,
+    "sortKeyTo": 2600,
     "precision": "anchor_window",
+    "windowKind": "bounded",
     "label": "After Age of Ultron, before Civil War"
   }
 }
@@ -741,15 +747,31 @@ Implementation status: entries normalize and preserve `position` metadata, Saga 
 
 Accepted aliases during normalization include `anchorFrom` for `validFromAnchor`, `anchorTo` for `validToAnchor`, and `positionType` or `type` for `precision`.
 
-### Position Compatibility
+### Position-Native Rule
 
-When both `date` and `position` exist:
+Schema v3 entries should use `position` as the eligibility gate.
 
-- `date` handles exact or approximate calendar filtering.
-- `position` handles pack-local timeline filtering.
-- An entry should generally be eligible if it matches the active Story Position and does not contradict a hard date bound.
+Calendar dates should live in `timeline.json` as resolver coordinates. A user can pick a date, Saga resolves that date to Lorepack Story Position, and entries match by position ranges, anchors, or coordinates.
 
-For bundled Saga Lorepacks, `position` should become the primary entry gate. Calendar dates should live mainly in `timeline.json` as resolver coordinates, so a user can pick a date and Saga resolves it to the active Story Position. Date fallback remains for older imported packs and migration safety.
+Wide positions mean "valid here," not "inject often." Wide entries should pair `position.windowKind: "wide"` or `"series"` with conservative `retrieval` metadata.
+
+```json
+{
+  "position": {
+    "scope": "window",
+    "sortKeyFrom": 7913,
+    "sortKeyTo": 10469,
+    "precision": "date_window",
+    "windowKind": "wide",
+    "label": "Golden Trio Hogwarts Years"
+  },
+  "retrieval": {
+    "activation": "topic_or_entity",
+    "frequency": "low",
+    "positionalBoost": "low"
+  }
+}
+```
 
 ## Coordinates Block
 
@@ -1378,11 +1400,11 @@ Saga additions:
 
 Current retrieval behavior:
 
-- Entries with no `position` block keep legacy date-window behavior.
-- Entries with a matching `position` block can qualify even when no parseable date exists.
+- Entries with no `position` block are not valid schema v3 canon candidates.
+- Entries with a matching `position` block qualify through the active Lorepack Story Position.
 - A mismatched `position` block blocks the entry.
-- An unresolved `position` block falls back to legacy date matching and receives `positionUnresolvedPenalty` when it still qualifies by date.
-- Bundled Saga packs should migrate toward position-native entries; date-only entry gates are compatibility support, not the desired long-term shape.
+- An unresolved `position` block is not eligible for canon suggestions.
+- Wide positions remain eligible but receive conservative positional boost and should require topic/entity retrieval.
 
 These values are a draft. Pack stack order should influence tie-breaks and candidate ranking without making top packs blindly suppress useful lower-pack entries.
 
@@ -1870,7 +1892,7 @@ The first implementation should support:
 - optional `resolver.json`
 - additive entry fields for `triggers`, `continuity`, `coordinates`, `ability`, and `template`
 - single active Lorepack
-- legacy `Lore/manifest.json` fallback
+- bundled `hp-golden-trio` schema v3 conformance
 - basic Pack Health
 
 It does not need to fully support:
@@ -1884,7 +1906,7 @@ It does not need to fully support:
 
 ## Open Questions
 
-- Should `position` live beside `date`, or should it eventually replace `date` with `date` as one coordinate type?
+- Should calendar coordinates remain only in `timeline.json`, or should any entry-level factual date metadata be allowed outside eligibility gates?
 - Should `spell` remain a universal category, or become a pack-defined category alias for `ability`?
 - Should Custom Lorepacks be allowed to define new categories before Saga UI supports them?
 - Should unresolved dependency packs reduce scoring, or only show Pack Health warnings?

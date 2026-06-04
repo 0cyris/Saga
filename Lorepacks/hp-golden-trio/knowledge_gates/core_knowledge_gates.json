@@ -1,85 +1,36 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "entries": [
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "knowledge_gate_prophecy_before_department",
       "title": "Prophecy before Department of Mysteries",
       "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
       "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 100,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "hidden",
       "revealPolicy": "do_not_reveal",
       "priority": 90,
+      "status": "active",
       "protected": true,
       "locked": true,
-      "date": {
-        "validFrom": "1991-09-01",
-        "validTo": "1996-06-18",
-        "precision": "date",
-        "schoolYear": null,
-        "book": ""
-      },
-      "scope": {
-        "characters": [
-          "Harry Potter"
-        ],
-        "topics": [
-          "full prophecy",
-          "knowledge gate"
-        ],
-        "books": [],
-        "schoolYears": []
-      },
-      "visibility": {
-        "notKnownByBefore": {
-          "Harry Potter": "1996-06-18"
-        }
-      },
-      "content": {
-        "fact": "Harry does not know the full prophecy contents.",
-        "injection": "Harry Potter should not know or casually discuss full prophecy unless this story established it.",
-        "constraints": [
-          "Block premature knowledge of full prophecy."
-        ],
-        "antiLore": [
-          "Do not have Harry Potter explain full prophecy ."
-        ],
-        "notes": ""
-      },
-      "effects": {
-        "addsTags": [
-          "full prophecy",
-          "knowledge-gate",
-          "future-guard"
-        ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "stateHints": {},
-        "injectionRules": {
-          "includeOnlyWhenRelevant": true
-        }
-      },
-      "source": {
-        "work": "Harry Potter",
-        "book": "",
-        "chapter": "",
-        "confidence": 0.85,
-        "notes": "Curated date constraint seed entry."
-      },
-      "ui": {},
-      "extensions": {
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Automatic concise title cleanup for implementation-language wording."
-        }
-      },
-      "canonTiming": {
-        "canonExpectedFrom": "1991-09-01",
-        "canonExpectedUntil": "1996-06-18",
-        "precision": "date",
-        "schoolYear": null,
-        "book": ""
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.ootp.department_mysteries",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 9665,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "1991-09-01 to 1996-06-18",
+        "approximate": false
       },
       "activation": {
         "requiresMissingEvents": [
@@ -92,32 +43,101 @@
         ],
         "autoMuteOnExpire": true
       },
-      "gateType": "knowledge_gate",
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "normal",
-      "lorePurpose": "knowledge_gate",
-      "injectableByDefault": true,
-      "specificityScore": 100
+      "scope": {
+        "characters": [
+          "Harry Potter"
+        ],
+        "topics": [
+          "full prophecy",
+          "knowledge gate"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal",
+        "notKnownByBeforePosition": {
+          "Harry Potter": {
+            "sortKey": 9665,
+            "label": "1996-06-18",
+            "precision": "date_anchor"
+          }
+        }
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "positionalBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter"
+          ],
+          "topicsAny": [
+            "full prophecy",
+            "knowledge gate"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Harry does not know the full prophecy contents.",
+        "injection": "Harry Potter should not know or casually discuss full prophecy unless this story established it.",
+        "constraints": [
+          "Block premature knowledge of full prophecy."
+        ],
+        "antiLore": [
+          "Do not have Harry Potter explain full prophecy ."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "full prophecy",
+          "knowledge-gate",
+          "future-guard"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "confidence": 0.85,
+        "notes": "Curated Story Position constraint seed entry."
+      },
+      "extensions": {
+        "consolidationPass": {
+          "appliedIn": "Wandlight duplicate/title consolidation pass",
+          "notes": "Automatic concise title cleanup for implementation-language wording."
+        }
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "knowledge_gate_snape_prince_before_year6",
       "title": "Half-Blood Prince identity gate",
       "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
       "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 100,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "hidden",
       "revealPolicy": "do_not_reveal",
       "priority": 90,
+      "status": "active",
       "protected": true,
       "locked": true,
-      "date": {
-        "validFrom": "1991-09-01",
-        "validTo": "1997-06-30",
-        "precision": "date",
-        "schoolYear": null,
-        "book": ""
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.hbp.astronomy_tower",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 10042,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "1991-09-01 to 1997-06-30",
+        "approximate": false
       },
       "scope": {
         "characters": [
@@ -128,15 +148,42 @@
         "topics": [
           "Half-Blood Prince identity",
           "knowledge gate"
-        ],
-        "books": [],
-        "schoolYears": []
+        ]
       },
       "visibility": {
-        "notKnownByBefore": {
-          "Harry Potter": "1997-06-30",
-          "Hermione Granger": "1997-06-30",
-          "Ron Weasley": "1997-06-30"
+        "revealPolicy": "do_not_reveal",
+        "notKnownByBeforePosition": {
+          "Harry Potter": {
+            "sortKey": 10042,
+            "label": "1997-06-30",
+            "precision": "date_anchor"
+          },
+          "Hermione Granger": {
+            "sortKey": 10042,
+            "label": "1997-06-30",
+            "precision": "date_anchor"
+          },
+          "Ron Weasley": {
+            "sortKey": 10042,
+            "label": "1997-06-30",
+            "precision": "date_anchor"
+          }
+        }
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "positionalBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Hermione Granger",
+            "Ron Weasley"
+          ],
+          "topicsAny": [
+            "Half-Blood Prince identity",
+            "knowledge gate"
+          ]
         }
       },
       "content": {
@@ -149,8 +196,7 @@
           "Do not have Harry Potter explain Half-Blood Prince identity .",
           "Do not have Hermione Granger explain Half-Blood Prince identity .",
           "Do not have Ron Weasley explain Half-Blood Prince identity ."
-        ],
-        "notes": ""
+        ]
       },
       "effects": {
         "addsTags": [
@@ -158,55 +204,46 @@
           "knowledge-gate",
           "future-guard"
         ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "stateHints": {},
         "injectionRules": {
           "includeOnlyWhenRelevant": true
         }
       },
-      "source": {
+      "sourceInfo": {
         "work": "Harry Potter",
-        "book": "",
-        "chapter": "",
         "confidence": 0.85,
-        "notes": "Curated date constraint seed entry."
-      },
-      "ui": {},
-      "extensions": {},
-      "canonTiming": {
-        "canonExpectedFrom": "1991-09-01",
-        "canonExpectedUntil": "1997-06-30",
-        "precision": "date",
-        "schoolYear": null,
-        "book": ""
-      },
-      "gateType": "knowledge_gate",
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "normal",
-      "lorePurpose": "knowledge_gate",
-      "injectableByDefault": true,
-      "specificityScore": 100
+        "notes": "Curated Story Position constraint seed entry."
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "knowledge_gate_voldemort_return_before_graveyard",
       "title": "Pre-Graveyard Voldemort Return",
       "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
       "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 100,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "hidden",
       "revealPolicy": "do_not_reveal",
       "priority": 100,
+      "status": "active",
       "protected": true,
       "locked": true,
-      "date": {
-        "validFrom": "1991-09-01",
-        "validTo": "1995-06-23",
-        "precision": "date",
-        "schoolYear": null,
-        "book": ""
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.gof.triwizard_tournament",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 9304,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "1991-09-01 to 1995-06-23",
+        "approximate": false
       },
       "scope": {
         "characters": [
@@ -217,15 +254,42 @@
         "topics": [
           "Voldemort return",
           "knowledge gate"
-        ],
-        "books": [],
-        "schoolYears": []
+        ]
       },
       "visibility": {
-        "notKnownByBefore": {
-          "Harry Potter": "1995-06-24",
-          "Hermione Granger": "1995-06-24",
-          "Ron Weasley": "1995-06-24"
+        "revealPolicy": "do_not_reveal",
+        "notKnownByBeforePosition": {
+          "Harry Potter": {
+            "sortKey": 9305,
+            "label": "1995-06-24",
+            "precision": "date_anchor"
+          },
+          "Hermione Granger": {
+            "sortKey": 9305,
+            "label": "1995-06-24",
+            "precision": "date_anchor"
+          },
+          "Ron Weasley": {
+            "sortKey": 9305,
+            "label": "1995-06-24",
+            "precision": "date_anchor"
+          }
+        }
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "positionalBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Hermione Granger",
+            "Ron Weasley"
+          ],
+          "topicsAny": [
+            "Voldemort return",
+            "knowledge gate"
+          ]
         }
       },
       "content": {
@@ -238,8 +302,7 @@
           "Do not have Harry Potter explain Voldemort return .",
           "Do not have Hermione Granger explain Voldemort return .",
           "Do not have Ron Weasley explain Voldemort return ."
-        ],
-        "notes": ""
+        ]
       },
       "effects": {
         "addsTags": [
@@ -247,41 +310,21 @@
           "knowledge-gate",
           "future-guard"
         ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "stateHints": {},
         "injectionRules": {
           "includeOnlyWhenRelevant": true
         }
       },
-      "source": {
+      "sourceInfo": {
         "work": "Harry Potter",
-        "book": "",
-        "chapter": "",
         "confidence": 0.85,
-        "notes": "Curated date constraint seed entry."
+        "notes": "Curated Story Position constraint seed entry."
       },
-      "ui": {},
       "extensions": {
         "consolidationPass": {
           "appliedIn": "Wandlight duplicate/title consolidation pass",
           "notes": "Title/content cleanup for concise pre-graveyard knowledge boundary."
         }
-      },
-      "canonTiming": {
-        "canonExpectedFrom": "1991-09-01",
-        "canonExpectedUntil": "1995-06-23",
-        "precision": "date",
-        "schoolYear": null,
-        "book": ""
-      },
-      "gateType": "knowledge_gate",
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "normal",
-      "lorePurpose": "knowledge_gate",
-      "injectableByDefault": true,
-      "specificityScore": 100
+      }
     }
   ]
 }

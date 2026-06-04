@@ -1,24 +1,36 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "entries": [
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "behavior_ron_year_6",
       "title": "Ron Weasley behavior - Year 6",
       "kind": "behavior_gate",
+      "gateType": "behavior_gate",
       "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 75,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "priority": 75,
+      "status": "active",
       "protected": false,
       "locked": true,
-      "date": {
-        "validFrom": "1996-09-01",
-        "validTo": "1997-06-30",
-        "precision": "date",
-        "schoolYear": 6,
-        "book": "Half-Blood Prince"
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.hbp.year_6",
+        "validToAnchor": "hp.hbp.astronomy_tower",
+        "sortKeyFrom": 9740,
+        "sortKeyTo": 10042,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Half-Blood Prince: Year 6",
+        "approximate": false
       },
       "scope": {
         "characters": [
@@ -29,9 +41,8 @@
           "year 6",
           "friendship"
         ],
-        "spells": [],
         "schoolYears": [
-          6
+          "6"
         ],
         "books": [
           "Half-Blood Prince"
@@ -40,15 +51,30 @@
           "term_start"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "position_or_topic",
+        "frequency": "normal",
+        "positionalBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Ron Weasley"
+          ],
+          "topicsAny": [
+            "behavior",
+            "year 6",
+            "friendship"
+          ]
+        }
+      },
       "content": {
         "fact": "Ron in Year 6 mixes loyalty, insecurity, humor, and sensitivity around relationships and status.",
         "injection": "Ron in Year 6 should be loyal and funny but vulnerable to insecurity, jealousy, and embarrassment around romance/status.",
         "constraints": [
           "Keep behavior age- and year-appropriate."
-        ],
-        "antiLore": [],
-        "notes": ""
+        ]
       },
       "effects": {
         "addsTags": [
@@ -56,55 +82,47 @@
           "behavior",
           "year-6"
         ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "stateHints": {},
         "injectionRules": {
           "includeOnlyWhenRelevant": true
         }
       },
-      "source": {
+      "sourceInfo": {
         "work": "Harry Potter",
         "book": "Half-Blood Prince",
-        "chapter": "",
         "confidence": 0.82,
-        "notes": "Expanded curated date constraint entry."
-      },
-      "ui": {},
-      "extensions": {},
-      "canonTiming": {
-        "canonExpectedFrom": "1996-09-01",
-        "canonExpectedUntil": "1997-06-30",
-        "precision": "date",
-        "schoolYear": 6,
-        "book": "Half-Blood Prince"
-      },
-      "gateType": "behavior_gate",
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "low",
-      "lorePurpose": "behavior_constraint",
-      "injectableByDefault": true,
-      "specificityScore": 75
+        "notes": "Expanded curated Story Position constraint entry."
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "behavior_snape_year_6",
       "title": "Severus Snape behavior - Year 6",
       "kind": "behavior_gate",
+      "gateType": "behavior_gate",
       "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "hidden",
       "revealPolicy": "private",
       "priority": 75,
+      "status": "active",
       "protected": false,
       "locked": true,
-      "date": {
-        "validFrom": "1996-09-01",
-        "validTo": "1997-06-30",
-        "precision": "date",
-        "schoolYear": 6,
-        "book": "Half-Blood Prince"
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.hbp.year_6",
+        "validToAnchor": "hp.hbp.astronomy_tower",
+        "sortKeyFrom": 9740,
+        "sortKeyTo": 10042,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Half-Blood Prince: Year 6",
+        "approximate": false
       },
       "scope": {
         "characters": [
@@ -115,9 +133,8 @@
           "DADA professor",
           "secrecy"
         ],
-        "spells": [],
         "schoolYears": [
-          6
+          "6"
         ],
         "books": [
           "Half-Blood Prince"
@@ -126,15 +143,30 @@
           "term_start"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "position_or_topic",
+        "frequency": "normal",
+        "positionalBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Severus Snape"
+          ],
+          "topicsAny": [
+            "behavior",
+            "DADA professor",
+            "secrecy"
+          ]
+        }
+      },
       "content": {
         "fact": "Snape in Year 6 is Defense professor, controlled, cutting, secretive, and operating under hidden obligations.",
         "injection": "Snape in Year 6 should remain controlled, sharp, and opaque; do not reveal his full motives before late canon.",
         "constraints": [
           "Protect hidden loyalty/motivation reveals."
-        ],
-        "antiLore": [],
-        "notes": ""
+        ]
       },
       "effects": {
         "addsTags": [
@@ -142,36 +174,16 @@
           "behavior",
           "year-6"
         ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "stateHints": {},
         "injectionRules": {
           "includeOnlyWhenRelevant": true
         }
       },
-      "source": {
+      "sourceInfo": {
         "work": "Harry Potter",
         "book": "Half-Blood Prince",
-        "chapter": "",
         "confidence": 0.82,
-        "notes": "Expanded curated date constraint entry."
-      },
-      "ui": {},
-      "extensions": {},
-      "canonTiming": {
-        "canonExpectedFrom": "1996-09-01",
-        "canonExpectedUntil": "1997-06-30",
-        "precision": "date",
-        "schoolYear": 6,
-        "book": "Half-Blood Prince"
-      },
-      "gateType": "behavior_gate",
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "low",
-      "lorePurpose": "behavior_constraint",
-      "injectableByDefault": true,
-      "specificityScore": 95
+        "notes": "Expanded curated Story Position constraint entry."
+      }
     }
   ]
 }

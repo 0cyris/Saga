@@ -165,9 +165,12 @@ export function computeSpecificityScore(entry = {}) {
     let score = purpose ? 25 : -30;
     const scope = entry.scope || {};
     const date = entry.date || {};
+    const position = entry.position || {};
     const content = entry.content || {};
     const fact = String(content.fact || entry.fact || content.injection || '');
     if (date.validFrom && date.validTo) score += 15;
+    if (position.anchorId || position.validFromAnchor || position.validToAnchor || Number.isFinite(Number(position.sortKeyFrom)) || Number.isFinite(Number(position.sortKeyTo))) score += 15;
+    if (position.scope === 'global' || position.windowKind === 'wide' || position.windowKind === 'series') score -= 5;
     if (['characters', 'locations', 'objects', 'spells', 'factions'].some(k => arr(scope[k]).length)) score += 15;
     if (arr(scope.topics).length) score += 5;
     if (arr(content.constraints).length || arr(content.antiLore).length) score += 15;

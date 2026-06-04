@@ -429,15 +429,15 @@ async function getCanonPositionIndex(options = {}) {
 function evaluateCanonEntryEligibility(entry, state, context, sceneIso, options = {}) {
     const positionGate = evaluateEntryPositionGate(entry, state, {
         index: options.positionIndex || null,
-        unresolvedEligible: true,
+        unresolvedEligible: false,
     });
     const dateMatches = dateInRange(sceneIso, entry);
     const dateWindow = hasDateWindow(entry);
 
     if (positionGate.status === POSITION_GATE_STATUSES.NO_GATE) {
         return {
-            eligible: dateMatches,
-            matchedBy: dateMatches ? 'date' : 'none',
+            eligible: false,
+            matchedBy: 'missing_position',
             dateMatches,
             dateWindow,
             positionGate,
@@ -456,18 +456,8 @@ function evaluateCanonEntryEligibility(entry, state, context, sceneIso, options 
 
     if (positionGate.status === POSITION_GATE_STATUSES.UNRESOLVED) {
         return {
-            eligible: dateMatches,
-            matchedBy: dateMatches ? 'date_unresolved_position' : 'unresolved_position',
-            dateMatches,
-            dateWindow,
-            positionGate,
-        };
-    }
-
-    if (dateWindow && sceneIso && !dateMatches) {
-        return {
             eligible: false,
-            matchedBy: 'date_contradicts_position',
+            matchedBy: 'unresolved_position',
             dateMatches,
             dateWindow,
             positionGate,
@@ -476,7 +466,7 @@ function evaluateCanonEntryEligibility(entry, state, context, sceneIso, options 
 
     return {
         eligible: true,
-        matchedBy: dateMatches ? 'date_position' : 'position',
+        matchedBy: 'position',
         dateMatches,
         dateWindow,
         positionGate,
@@ -485,7 +475,19 @@ function evaluateCanonEntryEligibility(entry, state, context, sceneIso, options 
 
 function getPositionGateScore(positionGate = {}, scoring = DEFAULT_SCORING) {
     const weights = scoring.weights || DEFAULT_SCORING.weights;
-    if (positionGate.status === POSITION_GATE_STATUSES.MATCH) return Number(weights.positionMatch) || 30;
+    if (positionGate.status === POSITION_GATE_STATUSES.MATCH) {
+        const position = positionGate.entry?.position || {};
+        const base = Number(weights.positionMatch) || 30;
+        const scope = String(position.scope || '').toLowerCase();
+        const windowKind = String(position.windowKind || '').toLowerCase();
+        const from = Number(position.sortKeyFrom);
+        const to = Number(position.sortKeyTo);
+        const span = Number.isFinite(from) && Number.isFinite(to) ? Math.max(1, to - from + 1) : null;
+        if (scope === 'global' || windowKind === 'series' || windowKind === 'wide' || (span !== null && span > 365)) return Math.max(4, Math.round(base * 0.25));
+        if (span !== null && span <= 14) return Math.round(base * 1.2);
+        if (span !== null && span <= 60) return base;
+        return Math.round(base * 0.65);
+    }
     if (positionGate.status === POSITION_GATE_STATUSES.UNRESOLVED) return Number(weights.positionUnresolvedPenalty) || -8;
     return 0;
 }
@@ -537,13 +539,6 @@ function scoreCanonEntry(entry, state, context, sceneIso, scoring = DEFAULT_SCOR
     const lorePurpose = normalizeLorePurpose(entry.lorePurpose || entry.purpose, entry);
     const specificPurpose = isSpecificLorePurpose(lorePurpose);
     if (!specificPurpose || entry.injectableByDefault === false) return -1000;
-    if (dateInRange(sceneIso, entry)) {
-        const from = parseCanonDbDate(entry.date?.validFrom || entry.validFrom);
-        const to = parseCanonDbDate(entry.date?.validTo || entry.validTo);
-        const span = from && to ? Math.max(0, (Date.parse(to) - Date.parse(from)) / 86400000) : 9999;
-        const base = Number(weights.dateMatch) || 30;
-        score += span <= 14 ? base : span <= 60 ? Math.round(base * 0.75) : span <= 365 ? Math.round(base * 0.45) : 4;
-    }
     if (options.positionGate) {
         score += getPositionGateScore(options.positionGate, scoring);
     }
@@ -718,11 +713,11 @@ function compactCanonLoreEntryForPending(entry) {
         protected: !!normalized.protected,
         userEditable: normalized.userEditable !== false,
         branchId: normalized.branchId || 'main',
-        date: normalized.date || {},
         position: normalized.position || {},
         coordinates: Array.isArray(normalized.coordinates) ? normalized.coordinates.slice(0, 24) : [],
         scope: normalized.scope || {},
         visibility: normalized.visibility || {},
+        retrieval: normalized.retrieval || {},
         content: {
             fact: normalized.content?.fact || normalized.fact || '',
             injection: normalized.content?.injection || '',
@@ -789,25 +784,8 @@ function compactPendingCanonEntryForStorage(entry) {
         protected: !!normalized.protected,
         userEditable: normalized.userEditable !== false,
         branchId: normalized.branchId || 'main',
-        date: {
-            validFrom: trim(normalized.date?.validFrom || normalized.validFrom, 32),
-            validTo: trim(normalized.date?.validTo || normalized.validTo, 32),
-            precision: trim(normalized.date?.precision, 32),
-            schoolYear: normalized.date?.schoolYear ?? null,
-            book: trim(normalized.date?.book, 80),
-            label: trim(normalized.date?.label, 120),
-        },
-        canonTiming: {
-            canonExpectedFrom: trim(normalized.canonTiming?.canonExpectedFrom, 32),
-            canonExpectedUntil: trim(normalized.canonTiming?.canonExpectedUntil, 32),
-            hardValidFrom: trim(normalized.canonTiming?.hardValidFrom, 32),
-            hardValidTo: trim(normalized.canonTiming?.hardValidTo, 32),
-            precision: trim(normalized.canonTiming?.precision, 32),
-            schoolYear: normalized.canonTiming?.schoolYear ?? null,
-            book: trim(normalized.canonTiming?.book, 80),
-            label: trim(normalized.canonTiming?.label, 120),
-        },
         position: {
+            scope: trim(normalized.position?.scope, 60),
             anchorId: trim(normalized.position?.anchorId, 180),
             validFromAnchor: trim(normalized.position?.validFromAnchor, 180),
             validToAnchor: trim(normalized.position?.validToAnchor, 180),
@@ -826,6 +804,7 @@ function compactPendingCanonEntryForStorage(entry) {
             sortKeyFrom: Number.isFinite(Number(normalized.position?.sortKeyFrom)) ? Number(normalized.position.sortKeyFrom) : null,
             sortKeyTo: Number.isFinite(Number(normalized.position?.sortKeyTo)) ? Number(normalized.position.sortKeyTo) : null,
             precision: trim(normalized.position?.precision, 80),
+            windowKind: trim(normalized.position?.windowKind, 80),
             label: trim(normalized.position?.label, 180),
             approximate: normalized.position?.approximate === true,
         },
@@ -877,7 +856,23 @@ function compactPendingCanonEntryForStorage(entry) {
             secretUntil: trim(normalized.visibility?.secretUntil, 32),
             knownBy: compactStringMap(normalized.visibility?.knownBy, 12, 80),
             notKnownByBefore: compactStringMap(normalized.visibility?.notKnownByBefore, 12, 80),
+            knownByAtPosition: normalized.visibility?.knownByAtPosition || {},
+            notKnownByBeforePosition: normalized.visibility?.notKnownByBeforePosition || {},
+            neverKnownBy: sliceStrings(normalized.visibility?.neverKnownBy, 12, 80),
+            publicFromPosition: normalized.visibility?.publicFromPosition || {},
+            secretUntilPosition: normalized.visibility?.secretUntilPosition || {},
             suspectedBy: compactStringMap(normalized.visibility?.suspectedBy, 8, 80),
+        },
+        retrieval: {
+            activation: trim(normalized.retrieval?.activation, 40),
+            frequency: trim(normalized.retrieval?.frequency, 40),
+            positionalBoost: trim(normalized.retrieval?.positionalBoost, 40),
+            triggers: {
+                charactersAny: sliceStrings(normalized.retrieval?.triggers?.charactersAny, 12, 80),
+                locationsAny: sliceStrings(normalized.retrieval?.triggers?.locationsAny, 10, 80),
+                topicsAny: sliceStrings(normalized.retrieval?.triggers?.topicsAny, 20, 80),
+                erasAny: sliceStrings(normalized.retrieval?.triggers?.erasAny, 8, 80),
+            },
         },
         content: {
             fact: trim(normalized.content?.fact || normalized.fact, 900),

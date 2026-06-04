@@ -49,7 +49,7 @@ const VALID_TIME_TRAVEL_MODES = new Set([
 const KNOWN_TOP_LEVEL_FIELDS = new Set([
     'schemaVersion', 'id', 'title', 'name', 'kind', 'gateType', 'category', 'canonStatus', 'canon', 'relevance', 'lorePurpose', 'specificityScore', 'injectableByDefault', 'truthStatus',
     'revealPolicy', 'tags', 'priority', 'status', 'protected', 'locked', 'userEditable', 'userEdited',
-    'date', 'canonTiming', 'position', 'coordinates', 'activation', 'expiration', 'lifecycle', 'scope', 'visibility', 'content', 'effects', 'source', 'sourceInfo', 'ui', 'extensions',
+    'date', 'canonTiming', 'position', 'coordinates', 'activation', 'expiration', 'lifecycle', 'scope', 'visibility', 'retrieval', 'content', 'effects', 'source', 'sourceInfo', 'ui', 'extensions',
     // legacy aliases
     'fact', 'description', 'detail', 'text', 'summary', 'notes', 'validFrom', 'validTo', 'branchId',
     'whoKnowsTruth', 'whoSuspects', 'whoBelievesPublicVersion', 'publicVersion', 'activeWhen',
@@ -211,6 +211,19 @@ function stringMapKeys(value) {
     return Object.keys(normalizeStringMap(value));
 }
 
+function normalizePlainObjectMap(value) {
+    const input = asPlainObject(value);
+    const out = {};
+    for (const [key, raw] of Object.entries(input)) {
+        const cleanKey = asString(key);
+        if (!cleanKey) continue;
+        if (raw && typeof raw === 'object' && !Array.isArray(raw)) out[cleanKey] = { ...raw };
+        else if (Array.isArray(raw)) out[cleanKey] = [...raw];
+        else out[cleanKey] = raw;
+    }
+    return out;
+}
+
 function preserveUnknownFields(input) {
     const unknown = {};
     for (const [key, value] of Object.entries(asPlainObject(input))) {
@@ -268,6 +281,7 @@ export function normalizeLorePosition(input = {}) {
     const sortKeyFrom = asOptionalNumber(raw.sortKeyFrom ?? raw.fromSortKey ?? raw.sortKeyStart);
     const sortKeyTo = asOptionalNumber(raw.sortKeyTo ?? raw.toSortKey ?? raw.sortKeyEnd);
     return {
+        scope: asFirstLooseString(raw.scope),
         anchorId: asFirstLooseString(raw.anchorId, raw.anchor, raw.id),
         validFromAnchor: asFirstLooseString(raw.validFromAnchor, raw.anchorFrom, raw.fromAnchor, raw.from, input.validFromAnchor),
         validToAnchor: asFirstLooseString(raw.validToAnchor, raw.anchorTo, raw.toAnchor, raw.to, input.validToAnchor),
@@ -286,6 +300,7 @@ export function normalizeLorePosition(input = {}) {
         sortKeyFrom,
         sortKeyTo,
         precision: asFirstLooseString(raw.precision, raw.positionType, raw.type, input.positionPrecision),
+        windowKind: asFirstLooseString(raw.windowKind, raw.kind),
         label: asFirstLooseString(raw.label, raw.title, input.positionLabel),
         approximate: asBoolean(raw.approximate, false),
     };
@@ -390,8 +405,29 @@ function normalizeVisibility(input) {
         secretUntil: asString(raw.secretUntil),
         knownBy: normalizeStringMap(raw.knownBy ?? input.knownBy ?? input.whoKnowsTruth),
         notKnownByBefore: normalizeStringMap(raw.notKnownByBefore ?? input.notKnownByBefore),
+        knownByAtPosition: normalizePlainObjectMap(raw.knownByAtPosition),
+        notKnownByBeforePosition: normalizePlainObjectMap(raw.notKnownByBeforePosition),
+        neverKnownBy: uniqueLimitedStringArray(raw.neverKnownBy, 32),
+        publicFromPosition: asPlainObject(raw.publicFromPosition),
+        secretUntilPosition: asPlainObject(raw.secretUntilPosition),
         suspectedBy: normalizeStringMap(raw.suspectedBy ?? input.suspectedBy ?? input.whoSuspects),
         believedBy: normalizeStringMap(raw.believedBy ?? input.whoBelievesPublicVersion),
+    };
+}
+
+function normalizeRetrieval(input) {
+    const raw = asPlainObject(input.retrieval);
+    const triggers = asPlainObject(raw.triggers);
+    return {
+        activation: asFirstString(raw.activation),
+        frequency: asFirstString(raw.frequency),
+        positionalBoost: asFirstString(raw.positionalBoost),
+        triggers: {
+            charactersAny: uniqueLimitedStringArray(triggers.charactersAny, 32),
+            locationsAny: uniqueLimitedStringArray(triggers.locationsAny, 24),
+            topicsAny: uniqueLimitedStringArray(triggers.topicsAny, 48),
+            erasAny: uniqueLimitedStringArray(triggers.erasAny, 24),
+        },
     };
 }
 
@@ -517,6 +553,7 @@ export function normalizeLoreEntry(input = {}) {
     const lifecycle = normalizeLifecycle(input);
     const scope = normalizeScope(input);
     const visibility = normalizeVisibility(input);
+    const retrieval = normalizeRetrieval(input);
     const content = normalizeContentBlock(input, legacyContentString || title);
     const effects = normalizeEffectsBlock(input);
     const sourceInfo = normalizeSourceBlock(input);
@@ -578,6 +615,7 @@ export function normalizeLoreEntry(input = {}) {
         lifecycle,
         scope,
         visibility,
+        retrieval,
         content,
         effects,
         sourceInfo,

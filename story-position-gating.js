@@ -31,6 +31,7 @@ function hasFiniteNumber(value) {
 function hasAnyPositionGate(position = {}, coordinates = []) {
     const p = isPlainObject(position) ? position : {};
     const stringFields = [
+        'scope',
         'anchorId',
         'validFromAnchor',
         'validToAnchor',

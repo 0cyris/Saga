@@ -1,28 +1,40 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "entries": [
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "chronology_school_year_1",
       "title": "Year 1 Timeline",
       "kind": "event_anchor",
+      "gateType": "event_anchor",
       "category": "timeline",
+      "relevance": "low",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 45,
+      "injectableByDefault": false,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "priority": 10,
+      "status": "active",
       "protected": false,
       "locked": true,
-      "date": {
-        "validFrom": "1991-09-01",
-        "validTo": "1992-08-31",
-        "precision": "date",
-        "schoolYear": 1,
-        "book": "Philosopher's Stone"
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.ps.year_1",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 8278,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Philosopher's Stone: Year 1",
+        "approximate": false
       },
       "scope": {
         "schoolYears": [
-          1
+          "1"
         ],
         "books": [
           "Philosopher's Stone"
@@ -35,13 +47,23 @@
           "term_start"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "positionalBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "school year",
+            "canon date"
+          ]
+        }
+      },
       "content": {
         "fact": "Year 1 timeline metadata for Harry’s cohort.",
-        "injection": "Year 1 timeline metadata for Harry’s cohort.",
-        "constraints": [],
-        "antiLore": [],
-        "notes": ""
+        "injection": "Year 1 timeline metadata for Harry’s cohort."
       },
       "effects": {
         "addsTags": [
@@ -49,64 +71,57 @@
           "Philosopher's Stone",
           "school-year"
         ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "stateHints": {},
         "injectionRules": {
           "includeOnlyWhenRelevant": true
         }
       },
-      "source": {
+      "sourceInfo": {
         "work": "Harry Potter",
         "book": "Philosopher's Stone",
-        "chapter": "",
         "confidence": 0.85,
-        "notes": "Curated date constraint seed entry."
+        "notes": "Curated Story Position constraint seed entry."
       },
-      "ui": {},
       "extensions": {
         "consolidationPass": {
           "appliedIn": "Wandlight duplicate/title consolidation pass",
           "notes": "Converted school-year window to concise non-default timeline metadata."
         }
-      },
-      "canonTiming": {
-        "hardValidFrom": "1991-09-01",
-        "hardValidTo": "1992-08-31",
-        "precision": "date",
-        "schoolYear": 1,
-        "book": "Philosopher's Stone"
-      },
-      "gateType": "event_anchor",
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "low",
-      "lorePurpose": "temporal_gate",
-      "injectableByDefault": false,
-      "specificityScore": 45
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "chronology_school_year_2",
       "title": "Year 2 Timeline",
       "kind": "event_anchor",
+      "gateType": "event_anchor",
       "category": "timeline",
+      "relevance": "low",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 65,
+      "injectableByDefault": false,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "priority": 10,
+      "status": "active",
       "protected": false,
       "locked": true,
-      "date": {
-        "validFrom": "1992-09-01",
-        "validTo": "1993-08-31",
-        "precision": "date",
-        "schoolYear": 2,
-        "book": "Chamber of Secrets"
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.cos.year_2",
+        "validToAnchor": "hp.cos.year_2",
+        "sortKeyFrom": 8279,
+        "sortKeyTo": 8643,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Chamber of Secrets: Year 2",
+        "approximate": false
       },
       "scope": {
         "schoolYears": [
-          2
+          "2"
         ],
         "books": [
           "Chamber of Secrets"
@@ -119,13 +134,23 @@
           "term_start"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "positionalBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "school year",
+            "canon date"
+          ]
+        }
+      },
       "content": {
         "fact": "Year 2 timeline metadata for Harry’s cohort.",
-        "injection": "Year 2 timeline metadata for Harry’s cohort.",
-        "constraints": [],
-        "antiLore": [],
-        "notes": ""
+        "injection": "Year 2 timeline metadata for Harry’s cohort."
       },
       "effects": {
         "addsTags": [
@@ -133,25 +158,20 @@
           "Chamber of Secrets",
           "school-year"
         ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "stateHints": {},
         "injectionRules": {
           "includeOnlyWhenRelevant": true
         }
       },
-      "source": {
+      "sourceInfo": {
         "work": "Harry Potter",
         "book": "Chamber of Secrets",
-        "chapter": "",
         "confidence": 0.85,
-        "notes": "Curated date constraint seed entry."
+        "notes": "Curated Story Position constraint seed entry."
       },
-      "ui": {},
       "extensions": {
         "deathStateGatePass": {
           "method": "removed positive requiresEvents from canon database entry",
-          "notes": "Canon database proposals are date-gated references; they should not become Future solely because a story milestone flag is absent.",
+          "notes": "Canon database proposals are Story Position-gated references; they should not become Future solely because a story milestone flag is absent.",
           "appliedIn": "Wandlight relevance-tier regression repair pass",
           "requiresEventsRemoved": [
             "chamber_of_secrets_resolved"
@@ -161,45 +181,42 @@
           "appliedIn": "Wandlight duplicate/title consolidation pass",
           "notes": "Converted school-year window to concise non-default timeline metadata."
         }
-      },
-      "canonTiming": {
-        "hardValidFrom": "1992-09-01",
-        "hardValidTo": "1993-08-31",
-        "precision": "date",
-        "schoolYear": 2,
-        "book": "Chamber of Secrets"
-      },
-      "activation": {},
-      "gateType": "event_anchor",
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "low",
-      "lorePurpose": "temporal_gate",
-      "injectableByDefault": false,
-      "specificityScore": 65
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "chronology_school_year_3",
       "title": "Year 3 Timeline",
       "kind": "event_anchor",
+      "gateType": "event_anchor",
       "category": "timeline",
+      "relevance": "low",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 45,
+      "injectableByDefault": false,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "priority": 10,
+      "status": "active",
       "protected": false,
       "locked": true,
-      "date": {
-        "validFrom": "1993-09-01",
-        "validTo": "1994-08-31",
-        "precision": "date",
-        "schoolYear": 3,
-        "book": "Prisoner of Azkaban"
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.poa.year_3",
+        "validToAnchor": "hp.poa.year_3",
+        "sortKeyFrom": 8644,
+        "sortKeyTo": 9008,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Prisoner of Azkaban: Year 3",
+        "approximate": false
       },
       "scope": {
         "schoolYears": [
-          3
+          "3"
         ],
         "books": [
           "Prisoner of Azkaban"
@@ -212,13 +229,23 @@
           "term_start"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "positionalBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "school year",
+            "canon date"
+          ]
+        }
+      },
       "content": {
         "fact": "Year 3 timeline metadata for Harry’s cohort.",
-        "injection": "Year 3 timeline metadata for Harry’s cohort.",
-        "constraints": [],
-        "antiLore": [],
-        "notes": ""
+        "injection": "Year 3 timeline metadata for Harry’s cohort."
       },
       "effects": {
         "addsTags": [
@@ -226,64 +253,57 @@
           "Prisoner of Azkaban",
           "school-year"
         ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "stateHints": {},
         "injectionRules": {
           "includeOnlyWhenRelevant": true
         }
       },
-      "source": {
+      "sourceInfo": {
         "work": "Harry Potter",
         "book": "Prisoner of Azkaban",
-        "chapter": "",
         "confidence": 0.85,
-        "notes": "Curated date constraint seed entry."
+        "notes": "Curated Story Position constraint seed entry."
       },
-      "ui": {},
       "extensions": {
         "consolidationPass": {
           "appliedIn": "Wandlight duplicate/title consolidation pass",
           "notes": "Converted school-year window to concise non-default timeline metadata."
         }
-      },
-      "canonTiming": {
-        "hardValidFrom": "1993-09-01",
-        "hardValidTo": "1994-08-31",
-        "precision": "date",
-        "schoolYear": 3,
-        "book": "Prisoner of Azkaban"
-      },
-      "gateType": "event_anchor",
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "low",
-      "lorePurpose": "temporal_gate",
-      "injectableByDefault": false,
-      "specificityScore": 45
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "chronology_school_year_4",
       "title": "Year 4 Timeline",
       "kind": "event_anchor",
+      "gateType": "event_anchor",
       "category": "timeline",
+      "relevance": "low",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 45,
+      "injectableByDefault": false,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "priority": 10,
+      "status": "active",
       "protected": false,
       "locked": true,
-      "date": {
-        "validFrom": "1994-09-01",
-        "validTo": "1995-08-31",
-        "precision": "date",
-        "schoolYear": 4,
-        "book": "Goblet of Fire"
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.gof.year_4",
+        "validToAnchor": "hp.gof.year_4",
+        "sortKeyFrom": 9009,
+        "sortKeyTo": 9373,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Goblet of Fire: Year 4",
+        "approximate": false
       },
       "scope": {
         "schoolYears": [
-          4
+          "4"
         ],
         "books": [
           "Goblet of Fire"
@@ -296,13 +316,23 @@
           "term_start"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "positionalBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "school year",
+            "canon date"
+          ]
+        }
+      },
       "content": {
         "fact": "Year 4 timeline metadata for Harry’s cohort.",
-        "injection": "Year 4 timeline metadata for Harry’s cohort.",
-        "constraints": [],
-        "antiLore": [],
-        "notes": ""
+        "injection": "Year 4 timeline metadata for Harry’s cohort."
       },
       "effects": {
         "addsTags": [
@@ -310,64 +340,57 @@
           "Goblet of Fire",
           "school-year"
         ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "stateHints": {},
         "injectionRules": {
           "includeOnlyWhenRelevant": true
         }
       },
-      "source": {
+      "sourceInfo": {
         "work": "Harry Potter",
         "book": "Goblet of Fire",
-        "chapter": "",
         "confidence": 0.85,
-        "notes": "Curated date constraint seed entry."
+        "notes": "Curated Story Position constraint seed entry."
       },
-      "ui": {},
       "extensions": {
         "consolidationPass": {
           "appliedIn": "Wandlight duplicate/title consolidation pass",
           "notes": "Converted school-year window to concise non-default timeline metadata."
         }
-      },
-      "canonTiming": {
-        "hardValidFrom": "1994-09-01",
-        "hardValidTo": "1995-08-31",
-        "precision": "date",
-        "schoolYear": 4,
-        "book": "Goblet of Fire"
-      },
-      "gateType": "event_anchor",
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "low",
-      "lorePurpose": "temporal_gate",
-      "injectableByDefault": false,
-      "specificityScore": 45
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "chronology_school_year_5",
       "title": "Year 5 Timeline",
       "kind": "event_anchor",
+      "gateType": "event_anchor",
       "category": "timeline",
+      "relevance": "low",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 45,
+      "injectableByDefault": false,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "priority": 10,
+      "status": "active",
       "protected": false,
       "locked": true,
-      "date": {
-        "validFrom": "1995-09-01",
-        "validTo": "1996-08-31",
-        "precision": "date",
-        "schoolYear": 5,
-        "book": "Order of the Phoenix"
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ootp.year_5",
+        "validToAnchor": "hp.ootp.year_5",
+        "sortKeyFrom": 9374,
+        "sortKeyTo": 9739,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Order of the Phoenix: Year 5",
+        "approximate": false
       },
       "scope": {
         "schoolYears": [
-          5
+          "5"
         ],
         "books": [
           "Order of the Phoenix"
@@ -380,13 +403,23 @@
           "term_start"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "positionalBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "school year",
+            "canon date"
+          ]
+        }
+      },
       "content": {
         "fact": "Year 5 timeline metadata for Harry’s cohort.",
-        "injection": "Year 5 timeline metadata for Harry’s cohort.",
-        "constraints": [],
-        "antiLore": [],
-        "notes": ""
+        "injection": "Year 5 timeline metadata for Harry’s cohort."
       },
       "effects": {
         "addsTags": [
@@ -394,64 +427,57 @@
           "Order of the Phoenix",
           "school-year"
         ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "stateHints": {},
         "injectionRules": {
           "includeOnlyWhenRelevant": true
         }
       },
-      "source": {
+      "sourceInfo": {
         "work": "Harry Potter",
         "book": "Order of the Phoenix",
-        "chapter": "",
         "confidence": 0.85,
-        "notes": "Curated date constraint seed entry."
+        "notes": "Curated Story Position constraint seed entry."
       },
-      "ui": {},
       "extensions": {
         "consolidationPass": {
           "appliedIn": "Wandlight duplicate/title consolidation pass",
           "notes": "Converted school-year window to concise non-default timeline metadata."
         }
-      },
-      "canonTiming": {
-        "hardValidFrom": "1995-09-01",
-        "hardValidTo": "1996-08-31",
-        "precision": "date",
-        "schoolYear": 5,
-        "book": "Order of the Phoenix"
-      },
-      "gateType": "event_anchor",
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "low",
-      "lorePurpose": "temporal_gate",
-      "injectableByDefault": false,
-      "specificityScore": 45
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "chronology_school_year_6",
       "title": "Year 6 Timeline",
       "kind": "event_anchor",
+      "gateType": "event_anchor",
       "category": "timeline",
+      "relevance": "low",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 45,
+      "injectableByDefault": false,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "priority": 10,
+      "status": "active",
       "protected": false,
       "locked": true,
-      "date": {
-        "validFrom": "1996-09-01",
-        "validTo": "1997-08-31",
-        "precision": "date",
-        "schoolYear": 6,
-        "book": "Half-Blood Prince"
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.hbp.year_6",
+        "validToAnchor": "hp.hbp.year_6",
+        "sortKeyFrom": 9740,
+        "sortKeyTo": 10104,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Half-Blood Prince: Year 6",
+        "approximate": false
       },
       "scope": {
         "schoolYears": [
-          6
+          "6"
         ],
         "books": [
           "Half-Blood Prince"
@@ -464,13 +490,23 @@
           "term_start"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "positionalBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "school year",
+            "canon date"
+          ]
+        }
+      },
       "content": {
         "fact": "Year 6 timeline metadata for Harry’s cohort.",
-        "injection": "Year 6 timeline metadata for Harry’s cohort.",
-        "constraints": [],
-        "antiLore": [],
-        "notes": ""
+        "injection": "Year 6 timeline metadata for Harry’s cohort."
       },
       "effects": {
         "addsTags": [
@@ -478,64 +514,57 @@
           "Half-Blood Prince",
           "school-year"
         ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "stateHints": {},
         "injectionRules": {
           "includeOnlyWhenRelevant": true
         }
       },
-      "source": {
+      "sourceInfo": {
         "work": "Harry Potter",
         "book": "Half-Blood Prince",
-        "chapter": "",
         "confidence": 0.85,
-        "notes": "Curated date constraint seed entry."
+        "notes": "Curated Story Position constraint seed entry."
       },
-      "ui": {},
       "extensions": {
         "consolidationPass": {
           "appliedIn": "Wandlight duplicate/title consolidation pass",
           "notes": "Converted school-year window to concise non-default timeline metadata."
         }
-      },
-      "canonTiming": {
-        "hardValidFrom": "1996-09-01",
-        "hardValidTo": "1997-08-31",
-        "precision": "date",
-        "schoolYear": 6,
-        "book": "Half-Blood Prince"
-      },
-      "gateType": "event_anchor",
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "low",
-      "lorePurpose": "temporal_gate",
-      "injectableByDefault": false,
-      "specificityScore": 45
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "chronology_school_year_7",
       "title": "Year 7 Timeline",
       "kind": "event_anchor",
+      "gateType": "event_anchor",
       "category": "timeline",
+      "relevance": "low",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 45,
+      "injectableByDefault": false,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "priority": 10,
+      "status": "active",
       "protected": false,
       "locked": true,
-      "date": {
-        "validFrom": "1997-09-01",
-        "validTo": "1998-08-31",
-        "precision": "date",
-        "schoolYear": 7,
-        "book": "Deathly Hallows"
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.dh.year_7",
+        "validToAnchor": "hp.dh.year_7",
+        "sortKeyFrom": 10105,
+        "sortKeyTo": 10469,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Deathly Hallows: Year 7",
+        "approximate": false
       },
       "scope": {
         "schoolYears": [
-          7
+          "7"
         ],
         "books": [
           "Deathly Hallows"
@@ -548,13 +577,23 @@
           "road_trip"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "positionalBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "school year",
+            "canon date"
+          ]
+        }
+      },
       "content": {
         "fact": "Year 7 timeline metadata for Harry’s cohort.",
-        "injection": "Year 7 timeline metadata for Harry’s cohort.",
-        "constraints": [],
-        "antiLore": [],
-        "notes": ""
+        "injection": "Year 7 timeline metadata for Harry’s cohort."
       },
       "effects": {
         "addsTags": [
@@ -562,25 +601,20 @@
           "Deathly Hallows",
           "school-year"
         ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "stateHints": {},
         "injectionRules": {
           "includeOnlyWhenRelevant": true
         }
       },
-      "source": {
+      "sourceInfo": {
         "work": "Harry Potter",
         "book": "Deathly Hallows",
-        "chapter": "",
         "confidence": 0.85,
-        "notes": "Curated date constraint seed entry."
+        "notes": "Curated Story Position constraint seed entry."
       },
-      "ui": {},
       "extensions": {
         "deathStateGatePass": {
           "method": "removed positive requiresEvents from canon database entry",
-          "notes": "Canon database proposals are date-gated references; they should not become Future solely because a story milestone flag is absent.",
+          "notes": "Canon database proposals are Story Position-gated references; they should not become Future solely because a story milestone flag is absent.",
           "appliedIn": "Wandlight relevance-tier regression repair pass",
           "requiresEventsRemoved": [
             "deathly_hallows_revealed_to_trio"
@@ -590,22 +624,7 @@
           "appliedIn": "Wandlight duplicate/title consolidation pass",
           "notes": "Converted school-year window to concise non-default timeline metadata."
         }
-      },
-      "canonTiming": {
-        "hardValidFrom": "1997-09-01",
-        "hardValidTo": "1998-08-31",
-        "precision": "date",
-        "schoolYear": 7,
-        "book": "Deathly Hallows"
-      },
-      "activation": {},
-      "gateType": "event_anchor",
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "low",
-      "lorePurpose": "temporal_gate",
-      "injectableByDefault": false,
-      "specificityScore": 45
+      }
     }
   ]
 }

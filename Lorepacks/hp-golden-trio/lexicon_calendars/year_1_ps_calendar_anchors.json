@@ -1,28 +1,37 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "generatedAt": "2026-05-31",
   "sourceBasis": "Harry Potter Lexicon day-by-day calendar and annual timeline pages; paraphrased factual anchors only.",
   "entries": [
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "lexcal_y1_zoo_cupboard_punishment",
       "title": "Zoo incident and cupboard punishment",
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
+      "relevance": "low",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
       "priority": 25,
+      "status": "active",
       "protected": true,
       "locked": true,
       "userEditable": true,
-      "date": {
-        "validFrom": "1991-06-22",
-        "validTo": "1991-07-23",
-        "precision": "date",
-        "schoolYear": 1,
-        "book": "Philosopher's Stone"
+      "position": {
+        "scope": "window",
+        "validToAnchor": "hp.ps.stone_aftermath",
+        "sortKeyFrom": 7842,
+        "sortKeyTo": 7873,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Philosopher's Stone: Year 1",
+        "approximate": false
       },
       "scope": {
         "characters": [
@@ -35,7 +44,6 @@
           "Privet Drive",
           "London zoo"
         ],
-        "factions": [],
         "topics": [
           "Dursleys",
           "pre-Hogwarts",
@@ -45,10 +53,8 @@
           "summer",
           "Lexicon calendar"
         ],
-        "objects": [],
-        "spells": [],
         "schoolYears": [
-          1
+          "1"
         ],
         "books": [
           "Philosopher's Stone"
@@ -57,13 +63,38 @@
           "summer"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "position_or_topic",
+        "frequency": "normal",
+        "positionalBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Dudley Dursley",
+            "Vernon Dursley",
+            "Petunia Dursley"
+          ],
+          "locationsAny": [
+            "Privet Drive",
+            "London zoo"
+          ],
+          "topicsAny": [
+            "Dursleys",
+            "pre-Hogwarts",
+            "punishment",
+            "Philosopher's Stone",
+            "Year 1",
+            "summer",
+            "Lexicon calendar"
+          ]
+        }
+      },
       "content": {
         "fact": "After Dudley’s zoo birthday incident, Harry is punished at Privet Drive and kept in his cupboard before the Hogwarts letters begin.",
         "injection": "After Dudley’s zoo birthday incident, Harry is punished at Privet Drive and kept in his cupboard before the Hogwarts letters begin.",
-        "constraints": [],
-        "antiLore": [],
-        "publicVersion": "",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
       },
       "effects": {
@@ -73,10 +104,7 @@
           "summer",
           "event_anchor",
           "event"
-        ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "injectionRules": {}
+        ]
       },
       "sourceInfo": {
         "id": "hp-lexicon-day-by-day-calendar",
@@ -87,12 +115,6 @@
         "timelineUrl": "https://www.hp-lexicon.org/timeline/master-timeline/the-modern-era/the-second-rise-of-voldemort/harry-potters-first-year/",
         "notes": "Date/sequence anchor paraphrased for roleplay continuity constraints."
       },
-      "source": "hp-lexicon-day-by-day:ps:1991-06-22:zoo_cupboard_punishment",
-      "canon": "canon",
-      "relevance": "low",
-      "canonTiming": {
-        "hardValidTo": "1991-07-23"
-      },
       "extensions": {
         "temporalTightening": {
           "method": "lexicon calendar phase/window anchor: capped by next calendar anchor or 45 days",
@@ -100,31 +122,37 @@
           "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1992-08-31"
         }
-      },
-      "lorePurpose": "event_anchor",
-      "injectableByDefault": true,
-      "specificityScore": 80
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "lexcal_y1_letter_bedroom_move",
       "title": "First Hogwarts letter moves Harry upstairs",
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
+      "relevance": "low",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
       "priority": 50,
+      "status": "active",
       "protected": true,
       "locked": true,
       "userEditable": true,
-      "date": {
-        "validFrom": "1991-07-24",
-        "validTo": "1991-07-30",
-        "precision": "date",
-        "schoolYear": 1,
-        "book": "Philosopher's Stone"
+      "position": {
+        "scope": "window",
+        "validToAnchor": "hp.ps.stone_aftermath",
+        "sortKeyFrom": 7874,
+        "sortKeyTo": 7880,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Philosopher's Stone: Year 1",
+        "approximate": false
       },
       "scope": {
         "characters": [
@@ -135,7 +163,6 @@
         "locations": [
           "Privet Drive"
         ],
-        "factions": [],
         "topics": [
           "Hogwarts letters",
           "bedroom",
@@ -144,10 +171,8 @@
           "summer",
           "Lexicon calendar"
         ],
-        "objects": [],
-        "spells": [],
         "schoolYears": [
-          1
+          "1"
         ],
         "books": [
           "Philosopher's Stone"
@@ -156,13 +181,35 @@
           "summer"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "position_or_topic",
+        "frequency": "high",
+        "positionalBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Vernon Dursley",
+            "Petunia Dursley"
+          ],
+          "locationsAny": [
+            "Privet Drive"
+          ],
+          "topicsAny": [
+            "Hogwarts letters",
+            "bedroom",
+            "Philosopher's Stone",
+            "Year 1",
+            "summer",
+            "Lexicon calendar"
+          ]
+        }
+      },
       "content": {
         "fact": "The first Hogwarts letter forces the Dursleys to move Harry from the cupboard to Dudley’s second bedroom, even before they allow him to read any letter.",
         "injection": "The first Hogwarts letter forces the Dursleys to move Harry from the cupboard to Dudley’s second bedroom, even before they allow him to read any letter.",
-        "constraints": [],
-        "antiLore": [],
-        "publicVersion": "",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
       },
       "effects": {
@@ -172,10 +219,7 @@
           "summer",
           "event_anchor",
           "event"
-        ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "injectionRules": {}
+        ]
       },
       "sourceInfo": {
         "id": "hp-lexicon-day-by-day-calendar",
@@ -186,12 +230,6 @@
         "timelineUrl": "https://www.hp-lexicon.org/timeline/master-timeline/the-modern-era/the-second-rise-of-voldemort/harry-potters-first-year/",
         "notes": "Date/sequence anchor paraphrased for roleplay continuity constraints."
       },
-      "source": "hp-lexicon-day-by-day:ps:1991-07-24:letter_bedroom_move",
-      "canon": "canon",
-      "relevance": "low",
-      "canonTiming": {
-        "hardValidTo": "1991-07-30"
-      },
       "extensions": {
         "temporalTightening": {
           "method": "lexicon calendar point anchor: validFrom plus 7 days, capped by nearby next anchor",
@@ -199,31 +237,37 @@
           "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1992-08-31"
         }
-      },
-      "lorePurpose": "event_anchor",
-      "injectableByDefault": true,
-      "specificityScore": 80
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "lexcal_y1_hut_birthday_revelation",
       "title": "Hagrid Reveals Harry",
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 60,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
       "priority": 90,
+      "status": "active",
       "protected": true,
       "locked": true,
       "userEditable": true,
-      "date": {
-        "validFrom": "1991-07-31",
-        "validTo": "1991-08-07",
-        "precision": "date",
-        "schoolYear": 1,
-        "book": "Philosopher's Stone"
+      "position": {
+        "scope": "window",
+        "validToAnchor": "hp.ps.stone_aftermath",
+        "sortKeyFrom": 7881,
+        "sortKeyTo": 7888,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Philosopher's Stone: Year 1",
+        "approximate": false
       },
       "scope": {
         "characters": [
@@ -234,7 +278,6 @@
         "locations": [
           "hut-on-the-rock"
         ],
-        "factions": [],
         "topics": [
           "birthday",
           "wizard identity",
@@ -243,10 +286,8 @@
           "summer",
           "Lexicon calendar"
         ],
-        "objects": [],
-        "spells": [],
         "schoolYears": [
-          1
+          "1"
         ],
         "books": [
           "Philosopher's Stone"
@@ -255,13 +296,35 @@
           "summer"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "position_or_topic",
+        "frequency": "high",
+        "positionalBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Rubeus Hagrid",
+            "Vernon Dursley"
+          ],
+          "locationsAny": [
+            "hut-on-the-rock"
+          ],
+          "topicsAny": [
+            "birthday",
+            "wizard identity",
+            "Philosopher's Stone",
+            "Year 1",
+            "summer",
+            "Lexicon calendar"
+          ]
+        }
+      },
       "content": {
         "fact": "On Harry’s eleventh birthday, Hagrid arrives at the sea hut, tells Harry he is a wizard, and initiates his entrance into the wizarding world.",
         "injection": "On Harry’s eleventh birthday, Hagrid arrives at the sea hut, tells Harry he is a wizard, and initiates his entrance into the wizarding world.",
-        "constraints": [],
-        "antiLore": [],
-        "publicVersion": "",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
       },
       "effects": {
@@ -271,10 +334,7 @@
           "summer",
           "event_anchor",
           "event"
-        ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "injectionRules": {}
+        ]
       },
       "sourceInfo": {
         "id": "hp-lexicon-day-by-day-calendar",
@@ -284,12 +344,6 @@
         "url": "https://www.hp-lexicon.org/calendars-harry-potter-novels/day-day-calendar-philosophers-stone/",
         "timelineUrl": "https://www.hp-lexicon.org/timeline/master-timeline/the-modern-era/the-second-rise-of-voldemort/harry-potters-first-year/",
         "notes": "Date/sequence anchor paraphrased for roleplay continuity constraints."
-      },
-      "source": "hp-lexicon-day-by-day:ps:1991-07-31:hut_birthday_revelation",
-      "canon": "canon",
-      "relevance": "normal",
-      "canonTiming": {
-        "hardValidTo": "1991-08-07"
       },
       "extensions": {
         "temporalTightening": {
@@ -301,31 +355,37 @@
         "titleConsolidationPass": {
           "appliedIn": "Wandlight title polish pass"
         }
-      },
-      "lorePurpose": "event_anchor",
-      "injectableByDefault": true,
-      "specificityScore": 60
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "lexcal_y1_ollivander_wand_link",
       "title": "Harry receives holly phoenix-feather wand",
       "kind": "artifact_state",
       "gateType": "artifact_state",
       "category": "item",
+      "relevance": "low",
+      "lorePurpose": "item_state",
+      "specificityScore": 60,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
       "priority": 75,
+      "status": "active",
       "protected": true,
       "locked": true,
       "userEditable": true,
-      "date": {
-        "validFrom": "1991-07-31",
-        "validTo": "1991-08-07",
-        "precision": "date",
-        "schoolYear": 1,
-        "book": "Philosopher's Stone"
+      "position": {
+        "scope": "window",
+        "validToAnchor": "hp.ps.stone_aftermath",
+        "sortKeyFrom": 7881,
+        "sortKeyTo": 7888,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Philosopher's Stone: Year 1",
+        "approximate": false
       },
       "scope": {
         "characters": [
@@ -337,7 +397,6 @@
           "Diagon Alley",
           "Ollivanders"
         ],
-        "factions": [],
         "topics": [
           "wand",
           "Voldemort connection",
@@ -349,9 +408,8 @@
         "objects": [
           "Harry Potter wand"
         ],
-        "spells": [],
         "schoolYears": [
-          1
+          "1"
         ],
         "books": [
           "Philosopher's Stone"
@@ -360,13 +418,37 @@
           "summer"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "position_or_topic",
+        "frequency": "high",
+        "positionalBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Garrick Ollivander",
+            "Rubeus Hagrid"
+          ],
+          "locationsAny": [
+            "Diagon Alley",
+            "Ollivanders"
+          ],
+          "topicsAny": [
+            "wand",
+            "Voldemort connection",
+            "Philosopher's Stone",
+            "Year 1",
+            "summer",
+            "Lexicon calendar",
+            "Harry Potter wand"
+          ]
+        }
+      },
       "content": {
         "fact": "During Harry’s first Diagon Alley trip, Ollivander matches him with a holly and phoenix-feather wand whose core is paired with Voldemort’s wand.",
         "injection": "During Harry’s first Diagon Alley trip, Ollivander matches him with a holly and phoenix-feather wand whose core is paired with Voldemort’s wand.",
-        "constraints": [],
-        "antiLore": [],
-        "publicVersion": "",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
       },
       "effects": {
@@ -376,10 +458,7 @@
           "summer",
           "artifact_state",
           "artifact"
-        ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "injectionRules": {}
+        ]
       },
       "sourceInfo": {
         "id": "hp-lexicon-day-by-day-calendar",
@@ -390,12 +469,6 @@
         "timelineUrl": "https://www.hp-lexicon.org/timeline/master-timeline/the-modern-era/the-second-rise-of-voldemort/harry-potters-first-year/",
         "notes": "Date/sequence anchor paraphrased for roleplay continuity constraints."
       },
-      "source": "hp-lexicon-day-by-day:ps:1991-07-31:ollivander_wand_link",
-      "canon": "canon",
-      "relevance": "low",
-      "canonTiming": {
-        "hardValidTo": "1991-08-07"
-      },
       "extensions": {
         "temporalTightening": {
           "method": "lexicon calendar point anchor: validFrom plus 7 days, capped by nearby next anchor",
@@ -403,31 +476,37 @@
           "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1992-08-31"
         }
-      },
-      "lorePurpose": "item_state",
-      "injectableByDefault": true,
-      "specificityScore": 60
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "lexcal_y1_stone_moved_from_gringotts",
       "title": "Hagrid removes Philosopher’s Stone from Gringotts",
       "kind": "artifact_state",
       "gateType": "artifact_state",
       "category": "item",
+      "relevance": "low",
+      "lorePurpose": "item_state",
+      "specificityScore": 60,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
       "priority": 90,
+      "status": "active",
       "protected": true,
       "locked": true,
       "userEditable": true,
-      "date": {
-        "validFrom": "1991-07-31",
-        "validTo": "1991-08-07",
-        "precision": "date",
-        "schoolYear": 1,
-        "book": "Philosopher's Stone"
+      "position": {
+        "scope": "window",
+        "validToAnchor": "hp.ps.stone_aftermath",
+        "sortKeyFrom": 7881,
+        "sortKeyTo": 7888,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Philosopher's Stone: Year 1",
+        "approximate": false
       },
       "scope": {
         "characters": [
@@ -440,7 +519,6 @@
           "Diagon Alley",
           "Hogwarts"
         ],
-        "factions": [],
         "topics": [
           "Philosopher’s Stone",
           "vault",
@@ -452,9 +530,8 @@
         "objects": [
           "Philosopher's Stone"
         ],
-        "spells": [],
         "schoolYears": [
-          1
+          "1"
         ],
         "books": [
           "Philosopher's Stone"
@@ -463,13 +540,37 @@
           "summer"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "position_or_topic",
+        "frequency": "high",
+        "positionalBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Rubeus Hagrid",
+            "Harry Potter",
+            "Quirinus Quirrell"
+          ],
+          "locationsAny": [
+            "Gringotts",
+            "Diagon Alley",
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "Philosopher’s Stone",
+            "vault",
+            "Philosopher's Stone",
+            "Year 1",
+            "summer",
+            "Lexicon calendar"
+          ]
+        }
+      },
       "content": {
         "fact": "Hagrid retrieves the Philosopher’s Stone from Gringotts on the same day an attempted theft of its vault fails, moving the Stone toward Hogwarts protection.",
         "injection": "Hagrid retrieves the Philosopher’s Stone from Gringotts on the same day an attempted theft of its vault fails, moving the Stone toward Hogwarts protection.",
-        "constraints": [],
-        "antiLore": [],
-        "publicVersion": "",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
       },
       "effects": {
@@ -479,10 +580,7 @@
           "summer",
           "artifact_state",
           "artifact"
-        ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "injectionRules": {}
+        ]
       },
       "sourceInfo": {
         "id": "hp-lexicon-day-by-day-calendar",
@@ -493,12 +591,6 @@
         "timelineUrl": "https://www.hp-lexicon.org/timeline/master-timeline/the-modern-era/the-second-rise-of-voldemort/harry-potters-first-year/",
         "notes": "Date/sequence anchor paraphrased for roleplay continuity constraints."
       },
-      "source": "hp-lexicon-day-by-day:ps:1991-07-31:stone_moved_from_gringotts",
-      "canon": "canon",
-      "relevance": "low",
-      "canonTiming": {
-        "hardValidTo": "1991-08-07"
-      },
       "extensions": {
         "temporalTightening": {
           "method": "lexicon calendar point anchor: validFrom plus 7 days, capped by nearby next anchor",
@@ -506,31 +598,38 @@
           "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1992-08-31"
         }
-      },
-      "lorePurpose": "item_state",
-      "injectableByDefault": true,
-      "specificityScore": 60
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "lexcal_y1_platform_weasley_intro",
       "title": "Platform Nine and Three-Quarters",
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
+      "relevance": "low",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 60,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
       "priority": 50,
+      "status": "active",
       "protected": true,
       "locked": true,
       "userEditable": true,
-      "date": {
-        "validFrom": "1991-09-01",
-        "validTo": "1991-09-05",
-        "precision": "date",
-        "schoolYear": 1,
-        "book": "Philosopher's Stone"
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.ps.stone_aftermath",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 7917,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Philosopher's Stone: Year 1",
+        "approximate": false
       },
       "scope": {
         "characters": [
@@ -542,7 +641,6 @@
           "King's Cross Station",
           "Platform Nine and Three-Quarters"
         ],
-        "factions": [],
         "topics": [
           "Hogwarts Express",
           "Weasley family",
@@ -551,10 +649,8 @@
           "term_start",
           "Lexicon calendar"
         ],
-        "objects": [],
-        "spells": [],
         "schoolYears": [
-          1
+          "1"
         ],
         "books": [
           "Philosopher's Stone"
@@ -563,13 +659,36 @@
           "term_start"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "position_or_topic",
+        "frequency": "high",
+        "positionalBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Molly Weasley",
+            "Ron Weasley"
+          ],
+          "locationsAny": [
+            "King's Cross Station",
+            "Platform Nine and Three-Quarters"
+          ],
+          "topicsAny": [
+            "Hogwarts Express",
+            "Weasley family",
+            "Philosopher's Stone",
+            "Year 1",
+            "term_start",
+            "Lexicon calendar"
+          ]
+        }
+      },
       "content": {
         "fact": "On Harry’s first Hogwarts departure, Molly Weasley helps him find Platform Nine and Three-Quarters, leading to his first sustained contact with the Weasley family.",
         "injection": "On Harry’s first Hogwarts departure, Molly Weasley helps him find Platform Nine and Three-Quarters, leading to his first sustained contact with the Weasley family.",
-        "constraints": [],
-        "antiLore": [],
-        "publicVersion": "",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
       },
       "effects": {
@@ -579,10 +698,7 @@
           "term_start",
           "event_anchor",
           "event"
-        ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "injectionRules": {}
+        ]
       },
       "sourceInfo": {
         "id": "hp-lexicon-day-by-day-calendar",
@@ -592,12 +708,6 @@
         "url": "https://www.hp-lexicon.org/calendars-harry-potter-novels/day-day-calendar-philosophers-stone/",
         "timelineUrl": "https://www.hp-lexicon.org/timeline/master-timeline/the-modern-era/the-second-rise-of-voldemort/harry-potters-first-year/",
         "notes": "Date/sequence anchor paraphrased for roleplay continuity constraints."
-      },
-      "source": "hp-lexicon-day-by-day:ps:1991-09-01:platform_weasley_intro",
-      "canon": "canon",
-      "relevance": "low",
-      "canonTiming": {
-        "hardValidTo": "1991-09-05"
       },
       "extensions": {
         "temporalTightening": {
@@ -609,31 +719,38 @@
         "titleConsolidationPass": {
           "appliedIn": "Wandlight title polish pass"
         }
-      },
-      "lorePurpose": "event_anchor",
-      "injectableByDefault": true,
-      "specificityScore": 60
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "lexcal_y1_hogwarts_arrival_sorting",
       "title": "First-year arrival and Sorting anchors",
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 60,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
       "priority": 75,
+      "status": "active",
       "protected": true,
       "locked": true,
       "userEditable": true,
-      "date": {
-        "validFrom": "1991-09-01",
-        "validTo": "1991-09-05",
-        "precision": "date",
-        "schoolYear": 1,
-        "book": "Philosopher's Stone"
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.ps.stone_aftermath",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 7917,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Philosopher's Stone: Year 1",
+        "approximate": false
       },
       "scope": {
         "characters": [
@@ -647,7 +764,6 @@
           "Great Hall",
           "Black Lake"
         ],
-        "factions": [],
         "topics": [
           "Sorting",
           "houses",
@@ -656,10 +772,8 @@
           "term_start",
           "Lexicon calendar"
         ],
-        "objects": [],
-        "spells": [],
         "schoolYears": [
-          1
+          "1"
         ],
         "books": [
           "Philosopher's Stone"
@@ -668,13 +782,38 @@
           "term_start"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "position_or_topic",
+        "frequency": "high",
+        "positionalBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger",
+            "Draco Malfoy"
+          ],
+          "locationsAny": [
+            "Hogwarts",
+            "Great Hall",
+            "Black Lake"
+          ],
+          "topicsAny": [
+            "Sorting",
+            "houses",
+            "Philosopher's Stone",
+            "Year 1",
+            "term_start",
+            "Lexicon calendar"
+          ]
+        }
+      },
       "content": {
         "fact": "Harry arrives at Hogwarts by boat with other first-years and is sorted into Gryffindor during the opening feast.",
         "injection": "Harry arrives at Hogwarts by boat with other first-years and is sorted into Gryffindor during the opening feast.",
-        "constraints": [],
-        "antiLore": [],
-        "publicVersion": "",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
       },
       "effects": {
@@ -684,10 +823,7 @@
           "term_start",
           "event_anchor",
           "event"
-        ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "injectionRules": {}
+        ]
       },
       "sourceInfo": {
         "id": "hp-lexicon-day-by-day-calendar",
@@ -698,12 +834,6 @@
         "timelineUrl": "https://www.hp-lexicon.org/timeline/master-timeline/the-modern-era/the-second-rise-of-voldemort/harry-potters-first-year/",
         "notes": "Date/sequence anchor paraphrased for roleplay continuity constraints."
       },
-      "source": "hp-lexicon-day-by-day:ps:1991-09-01:hogwarts_arrival_sorting",
-      "canon": "canon",
-      "relevance": "normal",
-      "canonTiming": {
-        "hardValidTo": "1991-09-05"
-      },
       "extensions": {
         "temporalTightening": {
           "method": "lexicon calendar phase/window anchor: capped by next calendar anchor or 45 days",
@@ -711,31 +841,38 @@
           "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1992-08-31"
         }
-      },
-      "lorePurpose": "event_anchor",
-      "injectableByDefault": true,
-      "specificityScore": 60
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "lexcal_y1_snape_first_potions",
       "title": "Snape First Potions Class",
       "kind": "behavior_gate",
       "gateType": "behavior_gate",
       "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
       "priority": 50,
+      "status": "active",
       "protected": true,
       "locked": true,
       "userEditable": true,
-      "date": {
-        "validFrom": "1991-09-06",
-        "validTo": "1991-09-11",
-        "precision": "date",
-        "schoolYear": 1,
-        "book": "Philosopher's Stone"
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.ps.stone_aftermath",
+        "sortKeyFrom": 7918,
+        "sortKeyTo": 7923,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Philosopher's Stone: Year 1",
+        "approximate": false
       },
       "scope": {
         "characters": [
@@ -746,7 +883,6 @@
           "Hogwarts",
           "Potions classroom"
         ],
-        "factions": [],
         "topics": [
           "Potions",
           "Snape",
@@ -755,10 +891,8 @@
           "term_start",
           "Lexicon calendar"
         ],
-        "objects": [],
-        "spells": [],
         "schoolYears": [
-          1
+          "1"
         ],
         "books": [
           "Philosopher's Stone"
@@ -767,13 +901,35 @@
           "term_start"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "position_or_topic",
+        "frequency": "high",
+        "positionalBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Severus Snape"
+          ],
+          "locationsAny": [
+            "Hogwarts",
+            "Potions classroom"
+          ],
+          "topicsAny": [
+            "Potions",
+            "Snape",
+            "Philosopher's Stone",
+            "Year 1",
+            "term_start",
+            "Lexicon calendar"
+          ]
+        }
+      },
       "content": {
         "fact": "In Harry’s first Potions lesson, Snape publicly singles him out and begins an antagonistic classroom dynamic that persists through the year.",
         "injection": "In Harry’s first Potions lesson, Snape publicly singles him out and begins an antagonistic classroom dynamic that persists through the year.",
-        "constraints": [],
-        "antiLore": [],
-        "publicVersion": "",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
       },
       "effects": {
@@ -783,10 +939,7 @@
           "term_start",
           "behavior_gate",
           "behavior"
-        ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "injectionRules": {}
+        ]
       },
       "sourceInfo": {
         "id": "hp-lexicon-day-by-day-calendar",
@@ -796,12 +949,6 @@
         "url": "https://www.hp-lexicon.org/calendars-harry-potter-novels/day-day-calendar-philosophers-stone/",
         "timelineUrl": "https://www.hp-lexicon.org/timeline/master-timeline/the-modern-era/the-second-rise-of-voldemort/harry-potters-first-year/",
         "notes": "Date/sequence anchor paraphrased for roleplay continuity constraints."
-      },
-      "source": "hp-lexicon-day-by-day:ps:1991-09-06:snape_first_potions",
-      "canon": "canon",
-      "relevance": "low",
-      "canonTiming": {
-        "hardValidTo": "1991-09-11"
       },
       "extensions": {
         "temporalTightening": {
@@ -813,31 +960,38 @@
         "titleConsolidationPass": {
           "appliedIn": "Wandlight title polish pass"
         }
-      },
-      "lorePurpose": "behavior_constraint",
-      "injectableByDefault": true,
-      "specificityScore": 80
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "lexcal_y1_flying_lesson_seeker",
       "title": "Flying lesson makes Harry Gryffindor Seeker",
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
+      "relevance": "low",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
       "priority": 75,
+      "status": "active",
       "protected": true,
       "locked": true,
       "userEditable": true,
-      "date": {
-        "validFrom": "1991-09-12",
-        "validTo": "1991-09-19",
-        "precision": "date",
-        "schoolYear": 1,
-        "book": "Philosopher's Stone"
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.ps.stone_aftermath",
+        "sortKeyFrom": 7924,
+        "sortKeyTo": 7931,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Philosopher's Stone: Year 1",
+        "approximate": false
       },
       "scope": {
         "characters": [
@@ -849,7 +1003,6 @@
         "locations": [
           "Hogwarts grounds"
         ],
-        "factions": [],
         "topics": [
           "flying lesson",
           "Quidditch",
@@ -861,9 +1014,8 @@
         "objects": [
           "Nimbus 2000"
         ],
-        "spells": [],
         "schoolYears": [
-          1
+          "1"
         ],
         "books": [
           "Philosopher's Stone"
@@ -872,13 +1024,37 @@
           "term_start"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "position_or_topic",
+        "frequency": "high",
+        "positionalBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Draco Malfoy",
+            "Neville Longbottom",
+            "Minerva McGonagall"
+          ],
+          "locationsAny": [
+            "Hogwarts grounds"
+          ],
+          "topicsAny": [
+            "flying lesson",
+            "Quidditch",
+            "Philosopher's Stone",
+            "Year 1",
+            "term_start",
+            "Lexicon calendar",
+            "Nimbus 2000"
+          ]
+        }
+      },
       "content": {
         "fact": "After Neville is injured during flying lessons and Harry confronts Draco in the air, McGonagall recruits Harry as Gryffindor Seeker.",
         "injection": "After Neville is injured during flying lessons and Harry confronts Draco in the air, McGonagall recruits Harry as Gryffindor Seeker.",
-        "constraints": [],
-        "antiLore": [],
-        "publicVersion": "",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
       },
       "effects": {
@@ -888,10 +1064,7 @@
           "term_start",
           "event_anchor",
           "event"
-        ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "injectionRules": {}
+        ]
       },
       "sourceInfo": {
         "id": "hp-lexicon-day-by-day-calendar",
@@ -902,12 +1075,6 @@
         "timelineUrl": "https://www.hp-lexicon.org/timeline/master-timeline/the-modern-era/the-second-rise-of-voldemort/harry-potters-first-year/",
         "notes": "Date/sequence anchor paraphrased for roleplay continuity constraints."
       },
-      "source": "hp-lexicon-day-by-day:ps:1991-09-12:flying_lesson_seeker",
-      "canon": "canon",
-      "relevance": "low",
-      "canonTiming": {
-        "hardValidTo": "1991-09-19"
-      },
       "extensions": {
         "temporalTightening": {
           "method": "lexicon calendar phase/window anchor: capped by next calendar anchor or 45 days",
@@ -915,31 +1082,38 @@
           "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1992-08-31"
         }
-      },
-      "lorePurpose": "event_anchor",
-      "injectableByDefault": true,
-      "specificityScore": 80
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "lexcal_y1_fluffy_discovery",
       "title": "Midnight duel trap reveals Fluffy",
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 60,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
       "priority": 75,
+      "status": "active",
       "protected": true,
       "locked": true,
       "userEditable": true,
-      "date": {
-        "validFrom": "1991-09-12",
-        "validTo": "1991-09-19",
-        "precision": "date",
-        "schoolYear": 1,
-        "book": "Philosopher's Stone"
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.ps.stone_aftermath",
+        "sortKeyFrom": 7924,
+        "sortKeyTo": 7931,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Philosopher's Stone: Year 1",
+        "approximate": false
       },
       "scope": {
         "characters": [
@@ -953,7 +1127,6 @@
           "Hogwarts",
           "third-floor corridor"
         ],
-        "factions": [],
         "topics": [
           "Fluffy",
           "forbidden corridor",
@@ -962,10 +1135,8 @@
           "term_start",
           "Lexicon calendar"
         ],
-        "objects": [],
-        "spells": [],
         "schoolYears": [
-          1
+          "1"
         ],
         "books": [
           "Philosopher's Stone"
@@ -974,13 +1145,38 @@
           "term_start"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "position_or_topic",
+        "frequency": "high",
+        "positionalBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger",
+            "Neville Longbottom",
+            "Draco Malfoy"
+          ],
+          "locationsAny": [
+            "Hogwarts",
+            "third-floor corridor"
+          ],
+          "topicsAny": [
+            "Fluffy",
+            "forbidden corridor",
+            "Philosopher's Stone",
+            "Year 1",
+            "term_start",
+            "Lexicon calendar"
+          ]
+        }
+      },
       "content": {
         "fact": "The attempted midnight duel leads Harry, Ron, Hermione, and Neville to discover the three-headed dog guarding the forbidden third-floor corridor.",
         "injection": "The attempted midnight duel leads Harry, Ron, Hermione, and Neville to discover the three-headed dog guarding the forbidden third-floor corridor.",
-        "constraints": [],
-        "antiLore": [],
-        "publicVersion": "",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
       },
       "effects": {
@@ -990,10 +1186,7 @@
           "term_start",
           "event_anchor",
           "event"
-        ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "injectionRules": {}
+        ]
       },
       "sourceInfo": {
         "id": "hp-lexicon-day-by-day-calendar",
@@ -1004,12 +1197,6 @@
         "timelineUrl": "https://www.hp-lexicon.org/timeline/master-timeline/the-modern-era/the-second-rise-of-voldemort/harry-potters-first-year/",
         "notes": "Date/sequence anchor paraphrased for roleplay continuity constraints."
       },
-      "source": "hp-lexicon-day-by-day:ps:1991-09-12:fluffy_discovery",
-      "canon": "canon",
-      "relevance": "normal",
-      "canonTiming": {
-        "hardValidTo": "1991-09-19"
-      },
       "extensions": {
         "temporalTightening": {
           "method": "lexicon calendar point anchor: validFrom plus 7 days, capped by nearby next anchor",
@@ -1017,31 +1204,38 @@
           "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1992-08-31"
         }
-      },
-      "lorePurpose": "event_anchor",
-      "injectableByDefault": true,
-      "specificityScore": 60
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "lexcal_y1_nimbus_first_practice",
       "title": "Nimbus and First Quidditch Practice",
       "kind": "artifact_state",
       "gateType": "artifact_state",
       "category": "item",
+      "relevance": "low",
+      "lorePurpose": "item_state",
+      "specificityScore": 60,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
       "priority": 50,
+      "status": "active",
       "protected": true,
       "locked": true,
       "userEditable": true,
-      "date": {
-        "validFrom": "1991-09-20",
-        "validTo": "1991-10-30",
-        "precision": "date",
-        "schoolYear": 1,
-        "book": "Philosopher's Stone"
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.ps.stone_aftermath",
+        "sortKeyFrom": 7932,
+        "sortKeyTo": 7972,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Philosopher's Stone: Year 1",
+        "approximate": false
       },
       "scope": {
         "characters": [
@@ -1053,7 +1247,6 @@
           "Gryffindor common room",
           "Quidditch pitch"
         ],
-        "factions": [],
         "topics": [
           "Quidditch",
           "Nimbus 2000",
@@ -1065,9 +1258,8 @@
         "objects": [
           "Nimbus 2000"
         ],
-        "spells": [],
         "schoolYears": [
-          1
+          "1"
         ],
         "books": [
           "Philosopher's Stone"
@@ -1076,13 +1268,36 @@
           "term_start"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "position_or_topic",
+        "frequency": "normal",
+        "positionalBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Oliver Wood"
+          ],
+          "locationsAny": [
+            "Hogwarts",
+            "Gryffindor common room",
+            "Quidditch pitch"
+          ],
+          "topicsAny": [
+            "Quidditch",
+            "Nimbus 2000",
+            "Philosopher's Stone",
+            "Year 1",
+            "term_start",
+            "Lexicon calendar"
+          ]
+        }
+      },
       "content": {
         "fact": "Harry receives his Nimbus 2000 and begins Gryffindor Quidditch training as a first-year Seeker.",
         "injection": "Harry receives his Nimbus 2000 and begins Gryffindor Quidditch training as a first-year Seeker.",
-        "constraints": [],
-        "antiLore": [],
-        "publicVersion": "",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
       },
       "effects": {
@@ -1092,10 +1307,7 @@
           "term_start",
           "artifact_state",
           "artifact"
-        ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "injectionRules": {}
+        ]
       },
       "sourceInfo": {
         "id": "hp-lexicon-day-by-day-calendar",
@@ -1105,12 +1317,6 @@
         "url": "https://www.hp-lexicon.org/calendars-harry-potter-novels/day-day-calendar-philosophers-stone/",
         "timelineUrl": "https://www.hp-lexicon.org/timeline/master-timeline/the-modern-era/the-second-rise-of-voldemort/harry-potters-first-year/",
         "notes": "Date/sequence anchor paraphrased for roleplay continuity constraints."
-      },
-      "source": "hp-lexicon-day-by-day:ps:1991-09-20:nimbus_first_practice",
-      "canon": "canon",
-      "relevance": "low",
-      "canonTiming": {
-        "hardValidTo": "1991-10-30"
       },
       "extensions": {
         "temporalTightening": {
@@ -1122,31 +1328,38 @@
         "titleConsolidationPass": {
           "appliedIn": "Wandlight title polish pass"
         }
-      },
-      "lorePurpose": "item_state",
-      "injectableByDefault": true,
-      "specificityScore": 60
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "lexcal_y1_halloween_troll_trio",
       "title": "Halloween troll incident forms the trio",
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
       "priority": 90,
+      "status": "active",
       "protected": true,
       "locked": true,
       "userEditable": true,
-      "date": {
-        "validFrom": "1991-10-31",
-        "validTo": "1991-11-08",
-        "precision": "date",
-        "schoolYear": 1,
-        "book": "Philosopher's Stone"
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.ps.stone_aftermath",
+        "sortKeyFrom": 7973,
+        "sortKeyTo": 7981,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Philosopher's Stone: Year 1",
+        "approximate": false
       },
       "scope": {
         "characters": [
@@ -1158,7 +1371,6 @@
           "Hogwarts",
           "girls bathroom"
         ],
-        "factions": [],
         "topics": [
           "troll",
           "friendship",
@@ -1167,10 +1379,8 @@
           "autumn",
           "Lexicon calendar"
         ],
-        "objects": [],
-        "spells": [],
         "schoolYears": [
-          1
+          "1"
         ],
         "books": [
           "Philosopher's Stone"
@@ -1179,13 +1389,36 @@
           "autumn"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "position_or_topic",
+        "frequency": "high",
+        "positionalBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger"
+          ],
+          "locationsAny": [
+            "Hogwarts",
+            "girls bathroom"
+          ],
+          "topicsAny": [
+            "troll",
+            "friendship",
+            "Philosopher's Stone",
+            "Year 1",
+            "autumn",
+            "Lexicon calendar"
+          ]
+        }
+      },
       "content": {
         "fact": "After the mountain troll enters Hogwarts, Harry and Ron rescue Hermione; the aftermath establishes the core trio friendship.",
         "injection": "After the mountain troll enters Hogwarts, Harry and Ron rescue Hermione; the aftermath establishes the core trio friendship.",
-        "constraints": [],
-        "antiLore": [],
-        "publicVersion": "",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
       },
       "effects": {
@@ -1195,10 +1428,7 @@
           "autumn",
           "event_anchor",
           "event"
-        ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "injectionRules": {}
+        ]
       },
       "sourceInfo": {
         "id": "hp-lexicon-day-by-day-calendar",
@@ -1209,12 +1439,6 @@
         "timelineUrl": "https://www.hp-lexicon.org/timeline/master-timeline/the-modern-era/the-second-rise-of-voldemort/harry-potters-first-year/",
         "notes": "Date/sequence anchor paraphrased for roleplay continuity constraints."
       },
-      "source": "hp-lexicon-day-by-day:ps:1991-10-31:halloween_troll_trio",
-      "canon": "canon",
-      "relevance": "normal",
-      "canonTiming": {
-        "hardValidTo": "1991-11-08"
-      },
       "extensions": {
         "temporalTightening": {
           "method": "lexicon calendar point anchor: validFrom plus 7 days, capped by nearby next anchor",
@@ -1222,31 +1446,38 @@
           "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1992-08-31"
         }
-      },
-      "lorePurpose": "event_anchor",
-      "injectableByDefault": true,
-      "specificityScore": 80
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "lexcal_y1_first_quidditch_snape_counterjinx",
       "title": "First Gryffindor-Slytherin match and counter-jinx",
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 60,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
       "priority": 75,
+      "status": "active",
       "protected": true,
       "locked": true,
       "userEditable": true,
-      "date": {
-        "validFrom": "1991-11-09",
-        "validTo": "1991-11-16",
-        "precision": "date",
-        "schoolYear": 1,
-        "book": "Philosopher's Stone"
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.ps.stone_aftermath",
+        "sortKeyFrom": 7982,
+        "sortKeyTo": 7989,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Philosopher's Stone: Year 1",
+        "approximate": false
       },
       "scope": {
         "characters": [
@@ -1258,7 +1489,6 @@
           "Hogwarts",
           "Quidditch pitch"
         ],
-        "factions": [],
         "topics": [
           "Quidditch",
           "broom jinx",
@@ -1267,10 +1497,8 @@
           "autumn",
           "Lexicon calendar"
         ],
-        "objects": [],
-        "spells": [],
         "schoolYears": [
-          1
+          "1"
         ],
         "books": [
           "Philosopher's Stone"
@@ -1279,13 +1507,36 @@
           "autumn"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "position_or_topic",
+        "frequency": "high",
+        "positionalBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Severus Snape",
+            "Quirinus Quirrell"
+          ],
+          "locationsAny": [
+            "Hogwarts",
+            "Quidditch pitch"
+          ],
+          "topicsAny": [
+            "Quidditch",
+            "broom jinx",
+            "Philosopher's Stone",
+            "Year 1",
+            "autumn",
+            "Lexicon calendar"
+          ]
+        }
+      },
       "content": {
         "fact": "During Harry’s first Quidditch match, Quirrell tries to jinx his broom while Snape quietly counters the jinx; Gryffindor wins when Harry catches the Snitch.",
         "injection": "During Harry’s first Quidditch match, Quirrell tries to jinx his broom while Snape quietly counters the jinx; Gryffindor wins when Harry catches the Snitch.",
-        "constraints": [],
-        "antiLore": [],
-        "publicVersion": "",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
       },
       "effects": {
@@ -1295,10 +1546,7 @@
           "autumn",
           "event_anchor",
           "event"
-        ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "injectionRules": {}
+        ]
       },
       "sourceInfo": {
         "id": "hp-lexicon-day-by-day-calendar",
@@ -1309,12 +1557,6 @@
         "timelineUrl": "https://www.hp-lexicon.org/timeline/master-timeline/the-modern-era/the-second-rise-of-voldemort/harry-potters-first-year/",
         "notes": "Date/sequence anchor paraphrased for roleplay continuity constraints."
       },
-      "source": "hp-lexicon-day-by-day:ps:1991-11-09:first_quidditch_snape_counterjinx",
-      "canon": "canon",
-      "relevance": "normal",
-      "canonTiming": {
-        "hardValidTo": "1991-11-16"
-      },
       "extensions": {
         "temporalTightening": {
           "method": "lexicon calendar point anchor: validFrom plus 7 days, capped by nearby next anchor",
@@ -1322,31 +1564,38 @@
           "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1992-08-31"
         }
-      },
-      "lorePurpose": "event_anchor",
-      "injectableByDefault": true,
-      "specificityScore": 60
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "lexcal_y1_christmas_cloak_mirror",
       "title": "Cloak and Mirror of Erised",
       "kind": "artifact_state",
       "gateType": "artifact_state",
       "category": "item",
+      "relevance": "low",
+      "lorePurpose": "item_state",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
       "priority": 75,
+      "status": "active",
       "protected": true,
       "locked": true,
       "userEditable": true,
-      "date": {
-        "validFrom": "1991-12-25",
-        "validTo": "1992-01-01",
-        "precision": "date",
-        "schoolYear": 1,
-        "book": "Philosopher's Stone"
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.ps.stone_aftermath",
+        "sortKeyFrom": 8028,
+        "sortKeyTo": 8035,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Philosopher's Stone: Year 1",
+        "approximate": false
       },
       "scope": {
         "characters": [
@@ -1357,7 +1606,6 @@
         "locations": [
           "Hogwarts"
         ],
-        "factions": [],
         "topics": [
           "Invisibility Cloak",
           "Mirror of Erised",
@@ -1371,9 +1619,8 @@
           "Invisibility Cloak",
           "Mirror of Erised"
         ],
-        "spells": [],
         "schoolYears": [
-          1
+          "1"
         ],
         "books": [
           "Philosopher's Stone"
@@ -1382,13 +1629,36 @@
           "winter"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "position_or_topic",
+        "frequency": "high",
+        "positionalBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Albus Dumbledore"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "Invisibility Cloak",
+            "Mirror of Erised",
+            "Christmas",
+            "Philosopher's Stone",
+            "Year 1",
+            "winter",
+            "Lexicon calendar"
+          ]
+        }
+      },
       "content": {
         "fact": "Harry receives the Invisibility Cloak at Christmas and soon discovers the Mirror of Erised, creating a winter secret centered on his family longing.",
         "injection": "Harry receives the Invisibility Cloak at Christmas and soon discovers the Mirror of Erised, creating a winter secret centered on his family longing.",
-        "constraints": [],
-        "antiLore": [],
-        "publicVersion": "",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
       },
       "effects": {
@@ -1398,10 +1668,7 @@
           "winter",
           "artifact_state",
           "artifact"
-        ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "injectionRules": {}
+        ]
       },
       "sourceInfo": {
         "id": "hp-lexicon-day-by-day-calendar",
@@ -1411,12 +1678,6 @@
         "url": "https://www.hp-lexicon.org/calendars-harry-potter-novels/day-day-calendar-philosophers-stone/",
         "timelineUrl": "https://www.hp-lexicon.org/timeline/master-timeline/the-modern-era/the-second-rise-of-voldemort/harry-potters-first-year/",
         "notes": "Date/sequence anchor paraphrased for roleplay continuity constraints."
-      },
-      "source": "hp-lexicon-day-by-day:ps:1991-12-25:christmas_cloak_mirror",
-      "canon": "canon",
-      "relevance": "low",
-      "canonTiming": {
-        "hardValidTo": "1992-01-01"
       },
       "extensions": {
         "temporalTightening": {
@@ -1429,31 +1690,38 @@
           "appliedIn": "Wandlight duplicate/title consolidation pass",
           "notes": "Concise title cleanup; broad duplicate removed."
         }
-      },
-      "lorePurpose": "item_state",
-      "injectableByDefault": true,
-      "specificityScore": 80
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "lexcal_y1_norbert_removal_points",
       "title": "Norbert removal and Gryffindor points loss",
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
+      "relevance": "low",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
       "priority": 75,
+      "status": "active",
       "protected": true,
       "locked": true,
       "userEditable": true,
-      "date": {
-        "validFrom": "1992-05-09",
-        "validTo": "1992-05-16",
-        "precision": "date",
-        "schoolYear": 1,
-        "book": "Philosopher's Stone"
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.ps.stone_aftermath",
+        "sortKeyFrom": 8164,
+        "sortKeyTo": 8171,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Philosopher's Stone: Year 1",
+        "approximate": false
       },
       "scope": {
         "characters": [
@@ -1466,7 +1734,6 @@
           "Hogwarts",
           "Astronomy Tower"
         ],
-        "factions": [],
         "topics": [
           "Norbert",
           "points loss",
@@ -1475,10 +1742,8 @@
           "climax",
           "Lexicon calendar"
         ],
-        "objects": [],
-        "spells": [],
         "schoolYears": [
-          1
+          "1"
         ],
         "books": [
           "Philosopher's Stone"
@@ -1487,13 +1752,37 @@
           "climax"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "position_or_topic",
+        "frequency": "high",
+        "positionalBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Hermione Granger",
+            "Neville Longbottom",
+            "Rubeus Hagrid"
+          ],
+          "locationsAny": [
+            "Hogwarts",
+            "Astronomy Tower"
+          ],
+          "topicsAny": [
+            "Norbert",
+            "points loss",
+            "Philosopher's Stone",
+            "Year 1",
+            "climax",
+            "Lexicon calendar"
+          ]
+        }
+      },
       "content": {
         "fact": "After Norbert is removed by Charlie’s friends, Harry, Hermione, and Neville are caught out of bed and lose a large number of points, isolating them socially.",
         "injection": "After Norbert is removed by Charlie’s friends, Harry, Hermione, and Neville are caught out of bed and lose a large number of points, isolating them socially.",
-        "constraints": [],
-        "antiLore": [],
-        "publicVersion": "",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
       },
       "effects": {
@@ -1503,10 +1792,7 @@
           "climax",
           "event_anchor",
           "event"
-        ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "injectionRules": {}
+        ]
       },
       "sourceInfo": {
         "id": "hp-lexicon-day-by-day-calendar",
@@ -1517,12 +1803,6 @@
         "timelineUrl": "https://www.hp-lexicon.org/timeline/master-timeline/the-modern-era/the-second-rise-of-voldemort/harry-potters-first-year/",
         "notes": "Date/sequence anchor paraphrased for roleplay continuity constraints."
       },
-      "source": "hp-lexicon-day-by-day:ps:1992-05-09:norbert_removal_points",
-      "canon": "canon",
-      "relevance": "low",
-      "canonTiming": {
-        "hardValidTo": "1992-05-16"
-      },
       "extensions": {
         "temporalTightening": {
           "method": "lexicon calendar point anchor: validFrom plus 7 days, capped by nearby next anchor",
@@ -1530,31 +1810,38 @@
           "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1992-08-31"
         }
-      },
-      "lorePurpose": "event_anchor",
-      "injectableByDefault": true,
-      "specificityScore": 80
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "lexcal_y1_forest_detention_unicorn",
       "title": "Forbidden Forest detention reveals unicorn-blood clue",
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 60,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
       "priority": 75,
+      "status": "active",
       "protected": true,
       "locked": true,
       "userEditable": true,
-      "date": {
-        "validFrom": "1992-05-26",
-        "validTo": "1992-06-03",
-        "precision": "date",
-        "schoolYear": 1,
-        "book": "Philosopher's Stone"
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.ps.stone_aftermath",
+        "sortKeyFrom": 8181,
+        "sortKeyTo": 8189,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Philosopher's Stone: Year 1",
+        "approximate": false
       },
       "scope": {
         "characters": [
@@ -1567,7 +1854,6 @@
         "locations": [
           "Forbidden Forest"
         ],
-        "factions": [],
         "topics": [
           "unicorn blood",
           "Voldemort",
@@ -1576,10 +1862,8 @@
           "climax",
           "Lexicon calendar"
         ],
-        "objects": [],
-        "spells": [],
         "schoolYears": [
-          1
+          "1"
         ],
         "books": [
           "Philosopher's Stone"
@@ -1588,13 +1872,37 @@
           "climax"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "position_or_topic",
+        "frequency": "high",
+        "positionalBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Rubeus Hagrid",
+            "Draco Malfoy",
+            "Firenze",
+            "Lord Voldemort"
+          ],
+          "locationsAny": [
+            "Forbidden Forest"
+          ],
+          "topicsAny": [
+            "unicorn blood",
+            "Voldemort",
+            "Philosopher's Stone",
+            "Year 1",
+            "climax",
+            "Lexicon calendar"
+          ]
+        }
+      },
       "content": {
         "fact": "Harry’s Forbidden Forest detention exposes him to the unicorn-blood mystery and a direct threat connected to Voldemort’s survival.",
         "injection": "Harry’s Forbidden Forest detention exposes him to the unicorn-blood mystery and a direct threat connected to Voldemort’s survival.",
-        "constraints": [],
-        "antiLore": [],
-        "publicVersion": "",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
       },
       "effects": {
@@ -1604,10 +1912,7 @@
           "climax",
           "event_anchor",
           "event"
-        ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "injectionRules": {}
+        ]
       },
       "sourceInfo": {
         "id": "hp-lexicon-day-by-day-calendar",
@@ -1618,12 +1923,6 @@
         "timelineUrl": "https://www.hp-lexicon.org/timeline/master-timeline/the-modern-era/the-second-rise-of-voldemort/harry-potters-first-year/",
         "notes": "Date/sequence anchor paraphrased for roleplay continuity constraints."
       },
-      "source": "hp-lexicon-day-by-day:ps:1992-05-26:forest_detention_unicorn",
-      "canon": "canon",
-      "relevance": "normal",
-      "canonTiming": {
-        "hardValidTo": "1992-06-03"
-      },
       "extensions": {
         "temporalTightening": {
           "method": "lexicon calendar point anchor: validFrom plus 7 days, capped by nearby next anchor",
@@ -1631,31 +1930,38 @@
           "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1992-08-31"
         }
-      },
-      "lorePurpose": "event_anchor",
-      "injectableByDefault": true,
-      "specificityScore": 60
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "lexcal_y1_stone_chambers_hospital",
       "title": "Stone chamber confrontation and hospital aftermath",
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
       "priority": 90,
+      "status": "active",
       "protected": true,
       "locked": true,
       "userEditable": true,
-      "date": {
-        "validFrom": "1992-06-04",
-        "validTo": "1992-06-11",
-        "precision": "date",
-        "schoolYear": 1,
-        "book": "Philosopher's Stone"
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.stone_aftermath",
+        "validToAnchor": "hp.ps.stone_aftermath",
+        "sortKeyFrom": 8190,
+        "sortKeyTo": 8197,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Philosopher's Stone: Year 1",
+        "approximate": false
       },
       "scope": {
         "characters": [
@@ -1670,7 +1976,6 @@
           "Hogwarts",
           "hospital wing"
         ],
-        "factions": [],
         "topics": [
           "Philosopher’s Stone",
           "trapdoor",
@@ -1682,9 +1987,8 @@
         "objects": [
           "Philosopher's Stone"
         ],
-        "spells": [],
         "schoolYears": [
-          1
+          "1"
         ],
         "books": [
           "Philosopher's Stone"
@@ -1693,13 +1997,39 @@
           "summer"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "position_or_topic",
+        "frequency": "high",
+        "positionalBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger",
+            "Quirinus Quirrell",
+            "Lord Voldemort",
+            "Albus Dumbledore"
+          ],
+          "locationsAny": [
+            "Hogwarts",
+            "hospital wing"
+          ],
+          "topicsAny": [
+            "Philosopher’s Stone",
+            "trapdoor",
+            "Philosopher's Stone",
+            "Year 1",
+            "summer",
+            "Lexicon calendar"
+          ]
+        }
+      },
       "content": {
         "fact": "After exams, Harry, Ron, and Hermione enter the trapdoor route; Harry confronts Quirrell and Voldemort, then spends several days unconscious in the hospital wing.",
         "injection": "After exams, Harry, Ron, and Hermione enter the trapdoor route; Harry confronts Quirrell and Voldemort, then spends several days unconscious in the hospital wing.",
-        "constraints": [],
-        "antiLore": [],
-        "publicVersion": "",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
       },
       "effects": {
@@ -1709,10 +2039,7 @@
           "summer",
           "event_anchor",
           "event"
-        ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "injectionRules": {}
+        ]
       },
       "sourceInfo": {
         "id": "hp-lexicon-day-by-day-calendar",
@@ -1723,12 +2050,6 @@
         "timelineUrl": "https://www.hp-lexicon.org/timeline/master-timeline/the-modern-era/the-second-rise-of-voldemort/harry-potters-first-year/",
         "notes": "Date/sequence anchor paraphrased for roleplay continuity constraints."
       },
-      "source": "hp-lexicon-day-by-day:ps:1992-06-04:stone_chambers_hospital",
-      "canon": "canon",
-      "relevance": "normal",
-      "canonTiming": {
-        "hardValidTo": "1992-06-11"
-      },
       "extensions": {
         "temporalTightening": {
           "method": "lexicon calendar point anchor: validFrom plus 7 days, capped by nearby next anchor",
@@ -1736,10 +2057,7 @@
           "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1992-08-31"
         }
-      },
-      "lorePurpose": "event_anchor",
-      "injectableByDefault": true,
-      "specificityScore": 80
+      }
     }
   ]
 }

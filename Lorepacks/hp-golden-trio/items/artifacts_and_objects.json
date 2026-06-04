@@ -1,63 +1,53 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "entries": [
     {
+      "schemaVersion": 3,
       "id": "canon_marauders_map_known_item",
       "title": "Marauder's Map",
+      "kind": "artifact_state",
+      "gateType": "artifact_state",
+      "category": "item",
+      "relevance": "low",
+      "lorePurpose": "item_state",
+      "specificityScore": 60,
+      "injectableByDefault": false,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
       "tags": [
         "map",
         "Hogwarts",
         "secret",
         "artifact"
       ],
-      "category": "item",
-      "fact": "The Marauder's Map is a magical map of Hogwarts that can reveal people moving through the castle, but its possession and use are not public knowledge.",
-      "canonStatus": "canon",
-      "truthStatus": "hidden",
-      "validFrom": "1993-12-01",
-      "validTo": "1998-08-31",
-      "branchId": "main",
-      "whoKnowsTruth": [
-        "Harry Potter",
-        "Fred Weasley",
-        "George Weasley",
-        "Remus Lupin"
-      ],
-      "publicVersion": "There is no ordinary public explanation for such a map.",
-      "revealPolicy": "private",
-      "activeWhen": {
-        "erasAny": [
-          "Year 3",
-          "Year 4",
-          "Year 5",
-          "Year 6",
-          "Year 7"
-        ],
-        "locationsAny": [
-          "Hogwarts"
-        ],
-        "charactersPresentAny": [
-          "Harry",
-          "Fred",
-          "George",
-          "Lupin"
-        ],
-        "tagsAny": [
-          "map",
-          "secret"
-        ]
-      },
       "priority": 10,
       "status": "active",
-      "source": "canon-lore-db:items/artifacts_and_objects.json",
+      "protected": false,
       "locked": true,
-      "content": {},
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.poa.year_3",
+        "validToAnchor": "hp.dh.year_7",
+        "sortKeyFrom": 8735,
+        "sortKeyTo": 10469,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "1993-12-01 to 1998-08-31",
+        "approximate": false
+      },
       "scope": {
         "characters": [
           "Harry Potter",
           "Fred Weasley",
           "George Weasley",
-          "Remus Lupin"
+          "Remus Lupin",
+          "Harry",
+          "Fred",
+          "George",
+          "Lupin"
         ],
         "locations": [
           "Hogwarts"
@@ -68,7 +58,9 @@
         "topics": [
           "secret map",
           "stealth",
-          "Hogwarts layout"
+          "Hogwarts layout",
+          "map",
+          "secret"
         ],
         "schoolYears": [
           "Year 3",
@@ -83,72 +75,106 @@
           "Order of the Phoenix",
           "Half-Blood Prince",
           "Deathly Hallows"
+        ],
+        "eras": [
+          "Year 3",
+          "Year 4",
+          "Year 5",
+          "Year 6",
+          "Year 7"
         ]
       },
-      "date": {
-        "validFrom": "1993-12-01",
-        "validTo": "1998-08-31",
-        "precision": "date",
-        "schoolYear": null
+      "visibility": {
+        "revealPolicy": "private"
       },
-      "kind": "artifact_state",
-      "gateType": "artifact_state",
-      "protected": false,
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "low",
-      "lorePurpose": "item_state",
-      "injectableByDefault": false,
-      "specificityScore": 60
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "positionalBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Fred Weasley",
+            "George Weasley",
+            "Remus Lupin",
+            "Harry",
+            "Fred",
+            "George",
+            "Lupin"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "secret map",
+            "stealth",
+            "Hogwarts layout",
+            "map",
+            "secret",
+            "Marauder's Map",
+            "Hogwarts",
+            "artifact"
+          ],
+          "erasAny": [
+            "Year 3",
+            "Year 4",
+            "Year 5",
+            "Year 6",
+            "Year 7"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Marauder's Map is a magical map of Hogwarts that can reveal people moving through the castle, but its possession and use are not public knowledge.",
+        "injection": "The Marauder's Map is a magical map of Hogwarts that can reveal people moving through the castle, but its possession and use are not public knowledge.",
+        "publicVersion": "There is no ordinary public explanation for such a map."
+      }
     },
     {
+      "schemaVersion": 3,
       "id": "canon_invisibility_cloak_known_item",
       "title": "Harry's invisibility cloak",
+      "kind": "artifact_state",
+      "gateType": "artifact_state",
+      "category": "item",
+      "relevance": "low",
+      "lorePurpose": "item_state",
+      "specificityScore": 60,
+      "injectableByDefault": false,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
       "tags": [
         "cloak",
         "Harry",
         "artifact",
         "stealth"
       ],
-      "category": "item",
-      "fact": "Harry possesses an invisibility cloak during the Hogwarts years; its use is private and tactically important when stealth matters.",
-      "canonStatus": "canon",
-      "truthStatus": "hidden",
-      "validFrom": "1991-12-25",
-      "validTo": "1998-08-31",
-      "branchId": "main",
-      "whoKnowsTruth": [
-        "Harry Potter",
-        "Ron Weasley",
-        "Hermione Granger"
-      ],
-      "publicVersion": "Most people do not know Harry has access to an invisibility cloak.",
-      "revealPolicy": "private",
-      "activeWhen": {
-        "erasAny": [],
-        "locationsAny": [
-          "Hogwarts"
-        ],
-        "charactersPresentAny": [
-          "Harry",
-          "Ron",
-          "Hermione"
-        ],
-        "tagsAny": [
-          "cloak",
-          "stealth"
-        ]
-      },
       "priority": 10,
       "status": "active",
-      "source": "canon-lore-db:items/artifacts_and_objects.json",
+      "protected": false,
       "locked": true,
-      "content": {},
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.dh.year_7",
+        "sortKeyFrom": 8028,
+        "sortKeyTo": 10469,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "1991-12-25 to 1998-08-31",
+        "approximate": false
+      },
       "scope": {
         "characters": [
           "Harry Potter",
           "Ron Weasley",
-          "Hermione Granger"
+          "Hermione Granger",
+          "Harry",
+          "Ron",
+          "Hermione"
         ],
         "locations": [
           "Hogwarts"
@@ -159,7 +185,8 @@
         "topics": [
           "stealth",
           "private artifact",
-          "hidden movement"
+          "hidden movement",
+          "cloak"
         ],
         "schoolYears": [
           "Year 1",
@@ -180,66 +207,144 @@
           "Deathly Hallows"
         ]
       },
-      "date": {
-        "validFrom": "1991-12-25",
-        "validTo": "1998-08-31",
-        "precision": "date",
-        "schoolYear": null
+      "visibility": {
+        "revealPolicy": "private"
       },
-      "kind": "artifact_state",
-      "gateType": "artifact_state",
-      "protected": false,
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "low",
-      "lorePurpose": "item_state",
-      "injectableByDefault": false,
-      "specificityScore": 60
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "positionalBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger",
+            "Harry",
+            "Ron",
+            "Hermione"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "stealth",
+            "private artifact",
+            "hidden movement",
+            "cloak",
+            "Invisibility Cloak",
+            "Harry",
+            "artifact"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Harry possesses an invisibility cloak during the Hogwarts years; its use is private and tactically important when stealth matters.",
+        "injection": "Harry possesses an invisibility cloak during the Hogwarts years; its use is private and tactically important when stealth matters.",
+        "publicVersion": "Most people do not know Harry has access to an invisibility cloak."
+      }
     },
     {
+      "schemaVersion": 3,
       "id": "canon_horcrux_concept_secret",
       "title": "Horcrux knowledge is restricted",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 100,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
       "tags": [
         "Horcrux",
         "Voldemort",
         "secret",
         "dark magic"
       ],
-      "category": "knowledge",
-      "fact": "The concept of Horcruxes is obscure and dangerous dark magic; detailed knowledge is highly restricted and not common public knowledge.",
-      "canonStatus": "canon",
-      "truthStatus": "hidden",
-      "validFrom": "1996-09-01",
-      "validTo": "1998-08-31",
-      "branchId": "main",
-      "whoKnowsTruth": [
-        "Albus Dumbledore",
-        "Harry Potter"
-      ],
-      "publicVersion": "Most witches and wizards do not discuss or understand Horcruxes.",
-      "revealPolicy": "do_not_reveal",
-      "activeWhen": {
-        "erasAny": [
-          "Year 6",
-          "Half-Blood Prince",
-          "Year 7"
-        ],
-        "locationsAny": [],
-        "charactersPresentAny": [
+      "priority": 90,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.hbp.year_6",
+        "validToAnchor": "hp.dh.year_7",
+        "sortKeyFrom": 9740,
+        "sortKeyTo": 10469,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "1996-09-01 to 1998-08-31",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Lord Voldemort",
+          "Albus Dumbledore",
+          "Harry Potter",
           "Harry",
           "Dumbledore",
           "Voldemort"
         ],
-        "tagsAny": [
+        "objects": [
+          "Horcruxes"
+        ],
+        "topics": [
+          "dark magic",
+          "secret knowledge",
+          "restricted knowledge",
           "Horcrux",
           "secret"
+        ],
+        "schoolYears": [
+          "Year 6",
+          "Year 7"
+        ],
+        "books": [
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ],
+        "eras": [
+          "Year 6",
+          "Half-Blood Prince",
+          "Year 7"
         ]
       },
-      "priority": 90,
-      "status": "active",
-      "source": "canon-lore-db:items/artifacts_and_objects.json",
-      "locked": true,
-      "activation": {},
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "positionalBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Lord Voldemort",
+            "Albus Dumbledore",
+            "Harry Potter",
+            "Harry",
+            "Dumbledore",
+            "Voldemort"
+          ],
+          "topicsAny": [
+            "dark magic",
+            "secret knowledge",
+            "restricted knowledge",
+            "Horcrux",
+            "secret",
+            "Horcruxes",
+            "Voldemort"
+          ],
+          "erasAny": [
+            "Year 6",
+            "Half-Blood Prince",
+            "Year 7"
+          ]
+        }
+      },
       "content": {
         "fact": "Horcrux knowledge is obscure, dangerous, and highly restricted; most characters should not name or explain Horcruxes without an established discovery path.",
         "injection": "Do not let characters casually name or explain Horcruxes unless our story has established how they learned that restricted knowledge.",
@@ -249,56 +354,19 @@
         ],
         "antiLore": [
           "Do not treat Horcruxes as common wizarding vocabulary."
-        ]
+        ],
+        "publicVersion": "Most witches and wizards do not discuss or understand Horcruxes."
       },
-      "scope": {
-        "characters": [
-          "Lord Voldemort",
-          "Albus Dumbledore",
-          "Harry Potter"
-        ],
-        "objects": [
-          "Horcruxes"
-        ],
-        "topics": [
-          "dark magic",
-          "secret knowledge",
-          "restricted knowledge"
-        ],
-        "schoolYears": [
-          "Year 6",
-          "Year 7"
-        ],
-        "books": [
-          "Half-Blood Prince",
-          "Deathly Hallows"
-        ]
-      },
-      "date": {
-        "validFrom": "1996-09-01",
-        "validTo": "1998-08-31",
-        "precision": "date",
-        "schoolYear": null
-      },
-      "kind": "knowledge_gate",
-      "gateType": "knowledge_gate",
-      "protected": false,
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "normal",
       "extensions": {
         "deathStateGatePass": {
           "method": "removed positive requiresEvents from canon database entry",
-          "notes": "Canon database proposals are date-gated references; they should not become Future solely because a story milestone flag is absent.",
+          "notes": "Canon database proposals are Story Position-gated references; they should not become Future solely because a story milestone flag is absent.",
           "appliedIn": "Wandlight relevance-tier regression repair pass",
           "requiresEventsRemoved": [
             "horcruxes_revealed_to_trio"
           ]
         }
-      },
-      "lorePurpose": "knowledge_gate",
-      "injectableByDefault": true,
-      "specificityScore": 100
+      }
     }
   ]
 }

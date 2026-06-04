@@ -1290,6 +1290,22 @@ function compactStringMapForStorage(value, limit = 16, textLimit = 120) {
     return out;
 }
 
+function compactPlainObjectMapForStorage(value, limit = 16, textLimit = 120) {
+    const input = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+    const out = {};
+    for (const [key, raw] of Object.entries(input).slice(0, limit)) {
+        const cleanKey = truncateText(key, textLimit).trim();
+        if (!cleanKey || !raw || typeof raw !== 'object' || Array.isArray(raw)) continue;
+        out[cleanKey] = {
+            scope: truncateText(raw.scope, 60),
+            sortKey: Number.isFinite(Number(raw.sortKey)) ? Number(raw.sortKey) : null,
+            precision: truncateText(raw.precision, 80),
+            label: truncateText(raw.label, 180),
+        };
+    }
+    return out;
+}
+
 
 function compactSagaLorepackExtension(sagaLorepack = {}) {
     if (!sagaLorepack || typeof sagaLorepack !== 'object' || Array.isArray(sagaLorepack)) return null;
@@ -1329,6 +1345,7 @@ function hasCompactPositionValue(position = {}) {
 function compactLorePositionForStorage(position = {}) {
     if (!position || typeof position !== 'object' || Array.isArray(position)) return null;
     const compact = {
+        scope: truncateText(position.scope, 60),
         anchorId: truncateText(position.anchorId, 180),
         validFromAnchor: truncateText(position.validFromAnchor, 180),
         validToAnchor: truncateText(position.validToAnchor, 180),
@@ -1347,6 +1364,7 @@ function compactLorePositionForStorage(position = {}) {
         sortKeyFrom: Number.isFinite(Number(position.sortKeyFrom)) ? Number(position.sortKeyFrom) : null,
         sortKeyTo: Number.isFinite(Number(position.sortKeyTo)) ? Number(position.sortKeyTo) : null,
         precision: truncateText(position.precision, 80),
+        windowKind: truncateText(position.windowKind, 80),
         label: truncateText(position.label, 180),
         approximate: position.approximate === true,
     };
@@ -1517,7 +1535,23 @@ function compactLoreEntryForStorage(entry) {
             secretUntil: truncateText(normalized.visibility?.secretUntil, 32),
             knownBy: compactStringMapForStorage(normalized.visibility?.knownBy, 16, 120),
             notKnownByBefore: compactStringMapForStorage(normalized.visibility?.notKnownByBefore, 16, 120),
+            knownByAtPosition: compactPlainObjectMapForStorage(normalized.visibility?.knownByAtPosition, 16, 120),
+            notKnownByBeforePosition: compactPlainObjectMapForStorage(normalized.visibility?.notKnownByBeforePosition, 16, 120),
+            neverKnownBy: compactStringArray(normalized.visibility?.neverKnownBy, 16, 120),
+            publicFromPosition: normalized.visibility?.publicFromPosition || {},
+            secretUntilPosition: normalized.visibility?.secretUntilPosition || {},
             suspectedBy: compactStringMapForStorage(normalized.visibility?.suspectedBy, 12, 120),
+        },
+        retrieval: {
+            activation: truncateText(normalized.retrieval?.activation, 40),
+            frequency: truncateText(normalized.retrieval?.frequency, 40),
+            positionalBoost: truncateText(normalized.retrieval?.positionalBoost, 40),
+            triggers: {
+                charactersAny: compactStringArray(normalized.retrieval?.triggers?.charactersAny, 12, 100),
+                locationsAny: compactStringArray(normalized.retrieval?.triggers?.locationsAny, 10, 100),
+                topicsAny: compactStringArray(normalized.retrieval?.triggers?.topicsAny, 20, 100),
+                erasAny: compactStringArray(normalized.retrieval?.triggers?.erasAny, 8, 100),
+            },
         },
         content: {
             fact: truncateText(normalized.content?.fact || normalized.fact, 1200),

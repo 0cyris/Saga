@@ -13395,6 +13395,7 @@ function formatEntryPositionSummary(entry = {}) {
     if (!hasEntryPositionMetadata(entry)) return '';
     const position = isPlainObjectValue(entry.position) ? entry.position : {};
     const parts = [];
+    if (position.scope) parts.push(`Scope: ${position.scope}`);
     if (position.label) parts.push(position.label);
     if (position.anchorId) parts.push(`Anchor: ${position.anchorId}`);
     if (position.validFromAnchor || position.validToAnchor) parts.push(`Window: ${position.validFromAnchor || 'start'} -> ${position.validToAnchor || 'open'}`);
@@ -13406,6 +13407,7 @@ function formatEntryPositionSummary(entry = {}) {
     if (position.quest) parts.push(`Quest: ${position.quest}`);
     if (position.gameStage) parts.push(`Game: ${position.gameStage}`);
     if (position.stardateFrom || position.stardateTo) parts.push(`Stardate: ${position.stardateFrom || 'start'} -> ${position.stardateTo || 'open'}`);
+    if (position.windowKind) parts.push(`Kind: ${position.windowKind}`);
     if ((Number.isFinite(Number(position.sortKeyFrom)) || Number.isFinite(Number(position.sortKeyTo))) && !parts.some(part => part.startsWith('Window:'))) {
         parts.push(`Sort: ${position.sortKeyFrom ?? 'start'} -> ${position.sortKeyTo ?? 'open'}`);
     }

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "timelineMode": "hybrid",
   "defaultPositionType": "calendar",
-  "sortKeyScale": "hp-golden-trio-book-school-year",
+  "sortKeyScale": "date-derived-day",
   "summary": "Story Position anchors for the seven-book Harry Potter Golden Trio era.",
   "axes": [
     {
@@ -31,7 +31,7 @@
       "id": "hp.ps.year_1",
       "label": "Year 1: Philosopher's Stone",
       "positionType": "calendar",
-      "sortKey": 1000,
+      "sortKey": 7913,
       "dateRange": {
         "from": "1991-09-01",
         "to": "1992-08-31"
@@ -56,7 +56,7 @@
       "id": "hp.ps.stone_aftermath",
       "label": "Stone Incident Aftermath",
       "positionType": "anchor",
-      "sortKey": 1900,
+      "sortKey": 8190,
       "dateRange": {
         "from": "1992-06-04",
         "to": "1992-06-14"
@@ -80,7 +80,7 @@
       "id": "hp.cos.year_2",
       "label": "Year 2: Chamber of Secrets",
       "positionType": "calendar",
-      "sortKey": 2000,
+      "sortKey": 8279,
       "dateRange": {
         "from": "1992-09-01",
         "to": "1993-08-31"
@@ -104,7 +104,7 @@
       "id": "hp.cos.chamber_resolved",
       "label": "Chamber Resolution",
       "positionType": "anchor",
-      "sortKey": 2900,
+      "sortKey": 8549,
       "dateRange": {
         "from": "1993-05-29",
         "to": "1993-06-08"
@@ -129,7 +129,7 @@
       "id": "hp.poa.year_3",
       "label": "Year 3: Prisoner of Azkaban",
       "positionType": "calendar",
-      "sortKey": 3000,
+      "sortKey": 8644,
       "dateRange": {
         "from": "1993-09-01",
         "to": "1994-08-31"
@@ -153,7 +153,7 @@
       "id": "hp.poa.sirius_fugitive",
       "label": "Sirius Public Fugitive Period",
       "positionType": "arc",
-      "sortKey": 3050,
+      "sortKey": 8613,
       "dateRange": {
         "from": "1993-08-01",
         "to": "1994-06-30"
@@ -176,7 +176,7 @@
       "id": "hp.poa.sirius_truth_to_trio",
       "label": "Sirius Truth Revealed to Trio",
       "positionType": "anchor",
-      "sortKey": 3900,
+      "sortKey": 8922,
       "dateRange": {
         "from": "1994-06-06",
         "to": "1994-06-16"
@@ -201,7 +201,7 @@
       "id": "hp.gof.year_4",
       "label": "Year 4: Goblet of Fire",
       "positionType": "calendar",
-      "sortKey": 4000,
+      "sortKey": 9009,
       "dateRange": {
         "from": "1994-09-01",
         "to": "1995-08-31"
@@ -226,7 +226,7 @@
       "id": "hp.gof.triwizard_tournament",
       "label": "Triwizard Tournament Year",
       "positionType": "arc",
-      "sortKey": 4100,
+      "sortKey": 9009,
       "dateRange": {
         "from": "1994-09-01",
         "to": "1995-06-24"
@@ -250,7 +250,7 @@
       "id": "hp.ootp.year_5",
       "label": "Year 5: Order of the Phoenix",
       "positionType": "calendar",
-      "sortKey": 5000,
+      "sortKey": 9374,
       "dateRange": {
         "from": "1995-09-01",
         "to": "1996-08-31"
@@ -275,7 +275,7 @@
       "id": "hp.ootp.department_mysteries",
       "label": "Department of Mysteries Aftermath",
       "positionType": "anchor",
-      "sortKey": 5900,
+      "sortKey": 9665,
       "dateRange": {
         "from": "1996-06-18",
         "to": "1996-06-28"
@@ -301,7 +301,7 @@
       "id": "hp.hbp.year_6",
       "label": "Year 6: Half-Blood Prince",
       "positionType": "calendar",
-      "sortKey": 6000,
+      "sortKey": 9740,
       "dateRange": {
         "from": "1996-09-01",
         "to": "1997-08-31"
@@ -326,7 +326,7 @@
       "id": "hp.hbp.dumbledore_lessons",
       "label": "Dumbledore's Private Lessons",
       "positionType": "anchor",
-      "sortKey": 6100,
+      "sortKey": 9740,
       "dateRange": {
         "from": "1996-09-01",
         "to": "1996-09-11"
@@ -350,7 +350,7 @@
       "id": "hp.hbp.astronomy_tower",
       "label": "Astronomy Tower Aftermath",
       "positionType": "anchor",
-      "sortKey": 6900,
+      "sortKey": 10042,
       "dateRange": {
         "from": "1997-06-30",
         "to": "1997-07-10"
@@ -375,7 +375,7 @@
       "id": "hp.dh.year_7",
       "label": "Year 7: Deathly Hallows",
       "positionType": "calendar",
-      "sortKey": 7000,
+      "sortKey": 10105,
       "dateRange": {
         "from": "1997-09-01",
         "to": "1998-08-31"
@@ -401,7 +401,7 @@
       "id": "hp.dh.ministry_falls",
       "label": "Ministry Falls",
       "positionType": "anchor",
-      "sortKey": 7050,
+      "sortKey": 10074,
       "dateRange": {
         "from": "1997-08-01",
         "to": "1997-08-11"
@@ -424,7 +424,7 @@
       "id": "hp.dh.battle_hogwarts",
       "label": "Battle of Hogwarts Aftermath",
       "positionType": "anchor",
-      "sortKey": 7900,
+      "sortKey": 10348,
       "dateRange": {
         "from": "1998-05-02",
         "to": "1998-05-12"
@@ -459,7 +459,8 @@
       ],
       "tags": [
         "phase:pre-canon"
-      ]
+      ],
+      "sortKeyTo": 8278
     },
     {
       "id": "hp.window.trio_at_hogwarts",
@@ -474,7 +475,9 @@
       ],
       "tags": [
         "phase:canon-era"
-      ]
+      ],
+      "sortKeyFrom": 7913,
+      "sortKeyTo": 10469
     },
     {
       "id": "hp.window.post_war",
@@ -488,7 +491,8 @@
       ],
       "tags": [
         "phase:post-war"
-      ]
+      ],
+      "sortKeyFrom": 10348
     }
   ]
 }

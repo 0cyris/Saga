@@ -527,17 +527,19 @@ Entries can be gated by dates, anchors, windows, arcs, or relative positions.
 }
 ```
 
-Existing date fields should remain supported for compatibility:
+Saga v3 entries should not use entry-local date gates. Calendar dates belong in `timeline.json`, and entries should reference the resolved Story Position:
 
 ```json
 {
-  "date": {
-    "validFrom": "1995-09-01",
-    "validTo": "1996-06-30",
-    "precision": "school_year"
-  },
   "position": {
-    "anchorId": "hp.ootp.year_5"
+    "scope": "window",
+    "validFromAnchor": "hp.ootp.year_5",
+    "validToAnchor": "hp.ootp.year_5",
+    "sortKeyFrom": 9374,
+    "sortKeyTo": 9739,
+    "precision": "school_year_window",
+    "windowKind": "school_year",
+    "label": "Year 5: Order of the Phoenix"
   }
 }
 ```
@@ -1129,11 +1131,12 @@ Mitigation: Build a runtime index, cache loaded manifests, score candidates in s
 
 The initial Lorepack foundation is implemented: `hp-golden-trio` is scaffolded, the Lorepack loader preserves legacy `Lore/manifest.json` fallback, canon suggestions route through the active stack, the Lorepack tab owns library/stack workflows, Story Position v1 exists, Theme Packs exist, and provider settings now live in the runtime Settings tab.
 
-The current production slice is **position-aware Lorepack retrieval**. Build it in small, behavior-preserving steps:
+The current production slice is **position-native Lorepack retrieval and HP reference-pack conformance**.
 
-1. Done: normalize entry-level `position` metadata in the lore entry pipeline while preserving legacy `date` and `canonTiming` behavior.
-2. Done: evaluate entry `position` gates against each loaded Lorepack's `lorepackContexts`, while keeping date fallback for older/imported packs.
+1. Done: normalize entry-level `position` metadata in the lore entry pipeline.
+2. Done: evaluate entry `position` gates against each loaded Lorepack's `lorepackContexts`.
 3. Done: route position eligibility into canon suggestion candidate selection and relevance scoring.
 4. Done: add visible source and position/gating chips on suggested and pending lore cards.
 5. Done: expand Pack Health for broken anchor references, invalid position windows, and entries that can never match a known Story Position.
-6. Next: migrate the bundled Harry Potter Lorepack toward position-native entries. Dates remain HP timeline coordinates and user-facing resolver input, but bundled entries should match by Story Position ranges/anchors instead of relying on entry-local date gates.
+6. Done: migrate the bundled Harry Potter Lorepack to schema v3 Story Position-native entries with no legacy entry date gates.
+7. Next: use the HP v3 conformance test as the reference for Pack Health rules and creator/export validation.

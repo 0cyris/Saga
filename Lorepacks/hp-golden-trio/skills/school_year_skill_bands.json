@@ -1,39 +1,63 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "entries": [
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "skill_band_year_1",
       "title": "Hogwarts Year 1 skill band",
       "kind": "skill_band",
+      "gateType": "skill_band",
       "category": "character",
+      "relevance": "low",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "priority": 75,
+      "status": "active",
       "protected": false,
       "locked": true,
-      "date": {
-        "validFrom": "1991-09-01",
-        "validTo": "1992-08-31",
-        "precision": "date",
-        "schoolYear": 1,
-        "book": ""
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.ps.year_1",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 8278,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 1",
+        "approximate": false
       },
       "scope": {
         "schoolYears": [
-          1
+          "1"
         ],
         "topics": [
           "school skill",
           "magic ability"
         ],
-        "books": [],
         "phases": [
           "term_start"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "positionalBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "school skill",
+            "magic ability"
+          ]
+        }
+      },
       "content": {
         "fact": "First-years are beginners and should not perform advanced defensive, nonverbal, or adult-level magic without story-established exceptional training.",
         "injection": "Do not let first-years solve problems with advanced defensive, nonverbal, or adult-level magic unless our story has established exceptional training.",
@@ -42,78 +66,80 @@
         ],
         "antiLore": [
           "Do not make first-years broadly competent duelists or advanced spellcasters by default."
-        ],
-        "notes": ""
+        ]
       },
       "effects": {
         "addsTags": [
           "year-1",
           "skill-band"
         ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "stateHints": {},
         "injectionRules": {
           "includeOnlyWhenRelevant": true
         }
       },
-      "source": {
+      "sourceInfo": {
         "work": "Harry Potter",
-        "book": "",
-        "chapter": "",
         "confidence": 0.85,
-        "notes": "Curated date constraint seed entry."
-      },
-      "ui": {},
-      "extensions": {},
-      "canonTiming": {
-        "hardValidFrom": "1991-09-01",
-        "hardValidTo": "1992-08-31",
-        "precision": "date",
-        "schoolYear": 1,
-        "book": ""
-      },
-      "gateType": "skill_band",
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "low",
-      "lorePurpose": "ability_gate",
-      "injectableByDefault": true,
-      "specificityScore": 95
+        "notes": "Curated Story Position constraint seed entry."
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "skill_band_year_2",
       "title": "Hogwarts Year 2 skill band",
       "kind": "skill_band",
+      "gateType": "skill_band",
       "category": "character",
+      "relevance": "low",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "priority": 75,
+      "status": "active",
       "protected": false,
       "locked": true,
-      "date": {
-        "validFrom": "1992-09-01",
-        "validTo": "1993-08-31",
-        "precision": "date",
-        "schoolYear": 2,
-        "book": ""
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.cos.year_2",
+        "validToAnchor": "hp.cos.year_2",
+        "sortKeyFrom": 8279,
+        "sortKeyTo": 8643,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 2",
+        "approximate": false
       },
       "scope": {
         "schoolYears": [
-          2
+          "2"
         ],
         "topics": [
           "school skill",
           "magic ability"
         ],
-        "books": [],
         "phases": [
           "term_start"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "positionalBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "school skill",
+            "magic ability"
+          ]
+        }
+      },
       "content": {
         "fact": "Second-years have basic spell competence but should not handle advanced defensive, nonverbal, or adult-level magic routinely.",
         "injection": "Do not let second-years handle advanced defensive, nonverbal, or adult-level magic routinely unless our story has established unusual training.",
@@ -122,78 +148,80 @@
         ],
         "antiLore": [
           "Do not make advanced defensive magic routine for second-years."
-        ],
-        "notes": ""
+        ]
       },
       "effects": {
         "addsTags": [
           "year-2",
           "skill-band"
         ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "stateHints": {},
         "injectionRules": {
           "includeOnlyWhenRelevant": true
         }
       },
-      "source": {
+      "sourceInfo": {
         "work": "Harry Potter",
-        "book": "",
-        "chapter": "",
         "confidence": 0.85,
-        "notes": "Curated date constraint seed entry."
-      },
-      "ui": {},
-      "extensions": {},
-      "canonTiming": {
-        "hardValidFrom": "1992-09-01",
-        "hardValidTo": "1993-08-31",
-        "precision": "date",
-        "schoolYear": 2,
-        "book": ""
-      },
-      "gateType": "skill_band",
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "low",
-      "lorePurpose": "ability_gate",
-      "injectableByDefault": true,
-      "specificityScore": 95
+        "notes": "Curated Story Position constraint seed entry."
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "skill_band_year_3",
       "title": "Hogwarts Year 3 skill band",
       "kind": "skill_band",
+      "gateType": "skill_band",
       "category": "character",
+      "relevance": "low",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "priority": 75,
+      "status": "active",
       "protected": false,
       "locked": true,
-      "date": {
-        "validFrom": "1993-09-01",
-        "validTo": "1994-08-31",
-        "precision": "date",
-        "schoolYear": 3,
-        "book": ""
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.poa.year_3",
+        "validToAnchor": "hp.poa.year_3",
+        "sortKeyFrom": 8644,
+        "sortKeyTo": 9008,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 3",
+        "approximate": false
       },
       "scope": {
         "schoolYears": [
-          3
+          "3"
         ],
         "topics": [
           "school skill",
           "magic ability"
         ],
-        "books": [],
         "phases": [
           "term_start"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "positionalBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "school skill",
+            "magic ability"
+          ]
+        }
+      },
       "content": {
         "fact": "Third-years are still early students; advanced defensive magic remains unusual, and Harry's Patronus work should not generalize to ordinary classmates.",
         "injection": "Do not generalize Harry's unusual Year 3 Patronus training to ordinary third-years; advanced defensive magic still needs specific training.",
@@ -202,78 +230,80 @@
         ],
         "antiLore": [
           "Do not make ordinary third-years casually capable of Patronus-level defensive magic."
-        ],
-        "notes": ""
+        ]
       },
       "effects": {
         "addsTags": [
           "year-3",
           "skill-band"
         ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "stateHints": {},
         "injectionRules": {
           "includeOnlyWhenRelevant": true
         }
       },
-      "source": {
+      "sourceInfo": {
         "work": "Harry Potter",
-        "book": "",
-        "chapter": "",
         "confidence": 0.85,
-        "notes": "Curated date constraint seed entry."
-      },
-      "ui": {},
-      "extensions": {},
-      "canonTiming": {
-        "hardValidFrom": "1993-09-01",
-        "hardValidTo": "1994-08-31",
-        "precision": "date",
-        "schoolYear": 3,
-        "book": ""
-      },
-      "gateType": "skill_band",
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "low",
-      "lorePurpose": "ability_gate",
-      "injectableByDefault": true,
-      "specificityScore": 95
+        "notes": "Curated Story Position constraint seed entry."
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "skill_band_year_4",
       "title": "Hogwarts Year 4 skill band",
       "kind": "skill_band",
+      "gateType": "skill_band",
       "category": "character",
+      "relevance": "low",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "priority": 75,
+      "status": "active",
       "protected": false,
       "locked": true,
-      "date": {
-        "validFrom": "1994-09-01",
-        "validTo": "1995-08-31",
-        "precision": "date",
-        "schoolYear": 4,
-        "book": ""
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.gof.year_4",
+        "validToAnchor": "hp.gof.year_4",
+        "sortKeyFrom": 9009,
+        "sortKeyTo": 9373,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 4",
+        "approximate": false
       },
       "scope": {
         "schoolYears": [
-          4
+          "4"
         ],
         "topics": [
           "school skill",
           "magic ability"
         ],
-        "books": [],
         "phases": [
           "term_start"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "positionalBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "school skill",
+            "magic ability"
+          ]
+        }
+      },
       "content": {
         "fact": "Fourth-years are intermediate students; exposure to serious curses should not make them casual users of adult-level magic.",
         "injection": "Do not let fourth-years casually perform adult-level magic just because they have heard about serious curses.",
@@ -282,78 +312,80 @@
         ],
         "antiLore": [
           "Do not make Unforgivable or advanced combat magic routine student spellwork."
-        ],
-        "notes": ""
+        ]
       },
       "effects": {
         "addsTags": [
           "year-4",
           "skill-band"
         ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "stateHints": {},
         "injectionRules": {
           "includeOnlyWhenRelevant": true
         }
       },
-      "source": {
+      "sourceInfo": {
         "work": "Harry Potter",
-        "book": "",
-        "chapter": "",
         "confidence": 0.85,
-        "notes": "Curated date constraint seed entry."
-      },
-      "ui": {},
-      "extensions": {},
-      "canonTiming": {
-        "hardValidFrom": "1994-09-01",
-        "hardValidTo": "1995-08-31",
-        "precision": "date",
-        "schoolYear": 4,
-        "book": ""
-      },
-      "gateType": "skill_band",
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "low",
-      "lorePurpose": "ability_gate",
-      "injectableByDefault": true,
-      "specificityScore": 95
+        "notes": "Curated Story Position constraint seed entry."
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "skill_band_year_5",
       "title": "Hogwarts Year 5 skill band",
       "kind": "skill_band",
+      "gateType": "skill_band",
       "category": "character",
+      "relevance": "low",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "priority": 75,
+      "status": "active",
       "protected": false,
       "locked": true,
-      "date": {
-        "validFrom": "1995-09-01",
-        "validTo": "1996-08-31",
-        "precision": "date",
-        "schoolYear": 5,
-        "book": ""
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ootp.year_5",
+        "validToAnchor": "hp.ootp.year_5",
+        "sortKeyFrom": 9374,
+        "sortKeyTo": 9739,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 5",
+        "approximate": false
       },
       "scope": {
         "schoolYears": [
-          5
+          "5"
         ],
         "topics": [
           "school skill",
           "magic ability"
         ],
-        "books": [],
         "phases": [
           "term_start"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "positionalBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "school skill",
+            "magic ability"
+          ]
+        }
+      },
       "content": {
         "fact": "Fifth-year defensive improvement should be tied to OWL work, DA participation, or other story-established training, not assumed for every student.",
         "injection": "Do not give all fifth-years DA-level defensive competence by default; tie improved skills to OWL work, DA participation, or established training.",
@@ -362,78 +394,80 @@
         ],
         "antiLore": [
           "Do not treat DA training as universal school-wide competence."
-        ],
-        "notes": ""
+        ]
       },
       "effects": {
         "addsTags": [
           "year-5",
           "skill-band"
         ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "stateHints": {},
         "injectionRules": {
           "includeOnlyWhenRelevant": true
         }
       },
-      "source": {
+      "sourceInfo": {
         "work": "Harry Potter",
-        "book": "",
-        "chapter": "",
         "confidence": 0.85,
-        "notes": "Curated date constraint seed entry."
-      },
-      "ui": {},
-      "extensions": {},
-      "canonTiming": {
-        "hardValidFrom": "1995-09-01",
-        "hardValidTo": "1996-08-31",
-        "precision": "date",
-        "schoolYear": 5,
-        "book": ""
-      },
-      "gateType": "skill_band",
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "low",
-      "lorePurpose": "ability_gate",
-      "injectableByDefault": true,
-      "specificityScore": 95
+        "notes": "Curated Story Position constraint seed entry."
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "skill_band_year_6",
       "title": "Hogwarts Year 6 skill band",
       "kind": "skill_band",
+      "gateType": "skill_band",
       "category": "character",
+      "relevance": "low",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "priority": 75,
+      "status": "active",
       "protected": false,
       "locked": true,
-      "date": {
-        "validFrom": "1996-09-01",
-        "validTo": "1997-08-31",
-        "precision": "date",
-        "schoolYear": 6,
-        "book": ""
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.hbp.year_6",
+        "validToAnchor": "hp.hbp.year_6",
+        "sortKeyFrom": 9740,
+        "sortKeyTo": 10104,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 6",
+        "approximate": false
       },
       "scope": {
         "schoolYears": [
-          6
+          "6"
         ],
         "topics": [
           "school skill",
           "magic ability"
         ],
-        "books": [],
         "phases": [
           "term_start"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "positionalBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "school skill",
+            "magic ability"
+          ]
+        }
+      },
       "content": {
         "fact": "Sixth-years may begin NEWT-level and nonverbal magic training, but nonverbal or advanced magic should not be effortless or universal.",
         "injection": "Do not make sixth-year nonverbal or advanced magic effortless or universal; keep it tied to training, aptitude, and subject specialization.",
@@ -442,78 +476,80 @@
         ],
         "antiLore": [
           "Do not make every sixth-year casually competent at nonverbal casting."
-        ],
-        "notes": ""
+        ]
       },
       "effects": {
         "addsTags": [
           "year-6",
           "skill-band"
         ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "stateHints": {},
         "injectionRules": {
           "includeOnlyWhenRelevant": true
         }
       },
-      "source": {
+      "sourceInfo": {
         "work": "Harry Potter",
-        "book": "",
-        "chapter": "",
         "confidence": 0.85,
-        "notes": "Curated date constraint seed entry."
-      },
-      "ui": {},
-      "extensions": {},
-      "canonTiming": {
-        "hardValidFrom": "1996-09-01",
-        "hardValidTo": "1997-08-31",
-        "precision": "date",
-        "schoolYear": 6,
-        "book": ""
-      },
-      "gateType": "skill_band",
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "low",
-      "lorePurpose": "ability_gate",
-      "injectableByDefault": true,
-      "specificityScore": 95
+        "notes": "Curated Story Position constraint seed entry."
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "skill_band_year_7",
       "title": "Hogwarts Year 7 skill band",
       "kind": "skill_band",
+      "gateType": "skill_band",
       "category": "character",
+      "relevance": "low",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "priority": 75,
+      "status": "active",
       "protected": false,
       "locked": true,
-      "date": {
-        "validFrom": "1997-09-01",
-        "validTo": "1998-08-31",
-        "precision": "date",
-        "schoolYear": 7,
-        "book": ""
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.dh.year_7",
+        "validToAnchor": "hp.dh.year_7",
+        "sortKeyFrom": 10105,
+        "sortKeyTo": 10469,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 7",
+        "approximate": false
       },
       "scope": {
         "schoolYears": [
-          7
+          "7"
         ],
         "topics": [
           "school skill",
           "magic ability"
         ],
-        "books": [],
         "phases": [
           "road_trip"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "positionalBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "school skill",
+            "magic ability"
+          ]
+        }
+      },
       "content": {
         "fact": "Seventh-year-age students can have advanced training, but canon Year 7 is not a normal Hogwarts school year for the trio.",
         "injection": "Do not treat canon Year 7 as ordinary school life for Harry, Ron, and Hermione; do not give students war or Horcrux-context skills unless our story established that path.",
@@ -522,54 +558,32 @@
         ],
         "antiLore": [
           "Do not assume normal Hogwarts classes for the trio in canon Year 7."
-        ],
-        "notes": ""
+        ]
       },
       "effects": {
         "addsTags": [
           "year-7",
           "skill-band"
         ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "stateHints": {},
         "injectionRules": {
           "includeOnlyWhenRelevant": true
         }
       },
-      "source": {
+      "sourceInfo": {
         "work": "Harry Potter",
-        "book": "",
-        "chapter": "",
         "confidence": 0.85,
-        "notes": "Curated date constraint seed entry."
+        "notes": "Curated Story Position constraint seed entry."
       },
-      "ui": {},
       "extensions": {
         "deathStateGatePass": {
           "method": "removed positive requiresEvents from canon database entry",
-          "notes": "Canon database proposals are date-gated references; they should not become Future solely because a story milestone flag is absent.",
+          "notes": "Canon database proposals are Story Position-gated references; they should not become Future solely because a story milestone flag is absent.",
           "appliedIn": "Wandlight relevance-tier regression repair pass",
           "requiresEventsRemoved": [
             "horcruxes_revealed_to_trio"
           ]
         }
-      },
-      "canonTiming": {
-        "hardValidFrom": "1997-09-01",
-        "hardValidTo": "1998-08-31",
-        "precision": "date",
-        "schoolYear": 7,
-        "book": ""
-      },
-      "activation": {},
-      "gateType": "skill_band",
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "low",
-      "lorePurpose": "ability_gate",
-      "injectableByDefault": true,
-      "specificityScore": 95
+      }
     }
   ]
 }

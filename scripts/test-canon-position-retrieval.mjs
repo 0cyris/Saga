@@ -43,6 +43,7 @@ const state = {
     'mcu-infinity-saga': {
       packId: 'mcu-infinity-saga',
       anchorId: 'mcu.civil_war',
+      positionSortKey: 2400,
       phase: 'Phase 3',
       branchId: 'main',
     },
@@ -87,30 +88,31 @@ const baseEntry = {
   },
 };
 
-const legacyDateOnly = {
+const dateOnly = {
   ...baseEntry,
-  id: 'legacy_date_only',
+  id: 'date_only',
   position: undefined,
   date: {
     validFrom: '2016-01-01',
     validTo: '2016-12-31',
   },
 };
-const dateEligible = buildCanonCandidateItem(legacyDateOnly, state, context, '2016-05-01', scoring, { positionIndex: index });
-assert.equal(dateEligible.eligibility.matchedBy, 'date');
-assert.equal(dateEligible.score > 0, true);
+const dateEligible = buildCanonCandidateItem(dateOnly, state, context, '2016-05-01', scoring, { positionIndex: index });
+assert.equal(dateEligible, null);
 
-const dateMissing = buildCanonCandidateItem(legacyDateOnly, state, context, '', scoring, { positionIndex: index });
+const dateMissing = buildCanonCandidateItem(dateOnly, state, context, '', scoring, { positionIndex: index });
 assert.equal(dateMissing, null);
 
 const positionOnly = {
   ...baseEntry,
   id: 'position_only',
-  date: undefined,
   position: {
+    scope: 'window',
     validFromAnchor: 'mcu.age_of_ultron',
     validToAnchor: 'mcu.civil_war',
     phase: 'Phase 3',
+    sortKeyFrom: 2200,
+    sortKeyTo: 2500,
   },
 };
 const positionEligible = buildCanonCandidateItem(positionOnly, state, context, '', scoring, { positionIndex: index });
@@ -122,6 +124,7 @@ const positionMismatch = {
   ...baseEntry,
   id: 'position_mismatch',
   position: {
+    scope: 'window',
     validFromAnchor: 'mcu.infinity_war',
   },
 };
@@ -137,6 +140,7 @@ const unresolvedPositionOnly = {
     },
   },
   position: {
+    scope: 'anchor',
     anchorId: 'custom.first_arc',
   },
 };
@@ -150,17 +154,39 @@ const unresolvedWithDate = buildCanonCandidateItem({
     validTo: '2016-12-31',
   },
 }, state, context, '2016-05-01', scoring, { positionIndex: index });
-assert.equal(unresolvedWithDate.eligibility.matchedBy, 'date_unresolved_position');
-assert.equal(unresolvedWithDate.score > 0, true);
+assert.equal(unresolvedWithDate, null);
 
-const dateContradictsPosition = evaluateCanonEntryEligibility({
+const dateDoesNotContradictPosition = evaluateCanonEntryEligibility({
   ...positionOnly,
   date: {
     validFrom: '2018-01-01',
     validTo: '2018-12-31',
   },
 }, state, context, '2016-05-01', { positionIndex: index });
-assert.equal(dateContradictsPosition.eligible, false);
-assert.equal(dateContradictsPosition.matchedBy, 'date_contradicts_position');
+assert.equal(dateDoesNotContradictPosition.eligible, true);
+assert.equal(dateDoesNotContradictPosition.matchedBy, 'position');
+
+const widePosition = {
+  ...baseEntry,
+  id: 'wide_position',
+  position: {
+    scope: 'window',
+    sortKeyFrom: 1000,
+    sortKeyTo: 5000,
+    windowKind: 'wide',
+  },
+};
+const wideEligible = buildCanonCandidateItem(widePosition, {
+  ...state,
+  lorepackContexts: {
+    'mcu-infinity-saga': {
+      packId: 'mcu-infinity-saga',
+      positionSortKey: 2400,
+      branchId: 'main',
+    },
+  },
+}, context, '', scoring, { positionIndex: index });
+assert.equal(wideEligible.eligibility.matchedBy, 'position');
+assert.equal(wideEligible.score < positionEligible.score, true);
 
 console.log('Canon position retrieval tests passed.');

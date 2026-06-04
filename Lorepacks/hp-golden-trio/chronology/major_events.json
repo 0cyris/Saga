@@ -1,24 +1,36 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "entries": [
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "event_quirrell_stone_aftermath",
       "title": "Quirrell and Stone incident resolved",
       "kind": "event_anchor",
+      "gateType": "event_anchor",
       "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 65,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "priority": 75,
+      "status": "active",
       "protected": false,
       "locked": true,
-      "date": {
-        "validFrom": "1992-06-04",
-        "validTo": "1992-06-14",
-        "precision": "date",
-        "schoolYear": 1,
-        "book": "Philosopher's Stone"
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.stone_aftermath",
+        "validToAnchor": "hp.ps.stone_aftermath",
+        "sortKeyFrom": 8190,
+        "sortKeyTo": 8200,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Philosopher's Stone: Year 1",
+        "approximate": false
       },
       "scope": {
         "topics": [
@@ -26,7 +38,7 @@
           "canon state"
         ],
         "schoolYears": [
-          1
+          "1"
         ],
         "books": [
           "Philosopher's Stone"
@@ -35,34 +47,39 @@
           "climax"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "position_or_topic",
+        "frequency": "high",
+        "positionalBoost": "high",
+        "triggers": {
+          "topicsAny": [
+            "timeline",
+            "canon state"
+          ]
+        }
+      },
       "content": {
         "fact": "The Philosopher's Stone plot is resolved and Quirrell is dead.",
-        "injection": "The Philosopher's Stone plot is resolved and Quirrell is dead.",
-        "constraints": [],
-        "antiLore": [],
-        "notes": ""
+        "injection": "The Philosopher's Stone plot is resolved and Quirrell is dead."
       },
       "effects": {
         "addsTags": [
           "timeline",
           "year-1"
         ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "stateHints": {},
         "injectionRules": {
           "includeOnlyWhenRelevant": true
         }
       },
-      "source": {
+      "sourceInfo": {
         "work": "Harry Potter",
         "book": "Philosopher's Stone",
-        "chapter": "",
         "confidence": 0.85,
-        "notes": "Curated date constraint seed entry."
+        "notes": "Curated Story Position constraint seed entry."
       },
-      "ui": {},
       "extensions": {
         "temporalTightening": {
           "method": "curated chronology point event: validFrom plus 10 days",
@@ -70,40 +87,38 @@
           "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1998-08-31"
         }
-      },
-      "canonTiming": {
-        "hardValidFrom": "1992-06-04",
-        "hardValidTo": "1992-06-14",
-        "precision": "date",
-        "schoolYear": 1,
-        "book": "Philosopher's Stone"
-      },
-      "gateType": "event_anchor",
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "normal",
-      "lorePurpose": "event_anchor",
-      "injectableByDefault": true,
-      "specificityScore": 65
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "event_chamber_resolved",
       "title": "Chamber Resolution",
       "kind": "event_anchor",
+      "gateType": "event_anchor",
       "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 65,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "priority": 90,
+      "status": "active",
       "protected": false,
       "locked": true,
-      "date": {
-        "validFrom": "1993-05-29",
-        "validTo": "1993-06-08",
-        "precision": "date",
-        "schoolYear": 2,
-        "book": "Chamber of Secrets"
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.cos.chamber_resolved",
+        "validToAnchor": "hp.cos.chamber_resolved",
+        "sortKeyFrom": 8549,
+        "sortKeyTo": 8559,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Chamber of Secrets: Year 2",
+        "approximate": false
       },
       "scope": {
         "topics": [
@@ -111,7 +126,7 @@
           "canon state"
         ],
         "schoolYears": [
-          2
+          "2"
         ],
         "books": [
           "Chamber of Secrets"
@@ -120,36 +135,42 @@
           "climax"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "position_or_topic",
+        "frequency": "high",
+        "positionalBoost": "high",
+        "triggers": {
+          "topicsAny": [
+            "timeline",
+            "canon state"
+          ]
+        }
+      },
       "content": {
         "fact": "After the Chamber resolution, the basilisk is defeated, the diary is destroyed, Ginny is rescued, and Dobby can be freed through Lucius’s mistake.",
         "injection": "After the Chamber resolution, the basilisk is defeated, the diary is destroyed, Ginny is rescued, and Dobby can be freed through Lucius’s mistake.",
         "constraints": [
           "Do not keep the Year 2 Chamber crisis unresolved after this event unless our story has established a different outcome."
-        ],
-        "antiLore": [],
-        "notes": ""
+        ]
       },
       "effects": {
         "addsTags": [
           "timeline",
           "year-2"
         ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "stateHints": {},
         "injectionRules": {
           "includeOnlyWhenRelevant": true
         }
       },
-      "source": {
+      "sourceInfo": {
         "work": "Harry Potter",
         "book": "Chamber of Secrets",
-        "chapter": "",
         "confidence": 0.85,
-        "notes": "Curated date constraint seed entry."
+        "notes": "Curated Story Position constraint seed entry."
       },
-      "ui": {},
       "extensions": {
         "temporalTightening": {
           "method": "curated chronology point event: validFrom plus 10 days",
@@ -159,7 +180,7 @@
         },
         "deathStateGatePass": {
           "method": "removed positive requiresEvents from canon database entry",
-          "notes": "Canon database proposals are date-gated references; they should not become Future solely because a story milestone flag is absent.",
+          "notes": "Canon database proposals are Story Position-gated references; they should not become Future solely because a story milestone flag is absent.",
           "appliedIn": "Wandlight relevance-tier regression repair pass",
           "requiresEventsRemoved": [
             "chamber_of_secrets_resolved"
@@ -169,41 +190,38 @@
           "appliedIn": "Wandlight duplicate/title consolidation pass",
           "notes": "Merged Chamber resolution duplicates."
         }
-      },
-      "canonTiming": {
-        "hardValidFrom": "1993-05-29",
-        "hardValidTo": "1993-06-08",
-        "precision": "date",
-        "schoolYear": 2,
-        "book": "Chamber of Secrets"
-      },
-      "activation": {},
-      "gateType": "event_anchor",
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "normal",
-      "lorePurpose": "status_change",
-      "injectableByDefault": true,
-      "specificityScore": 65
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "event_sirius_public_fugitive",
       "title": "Sirius Public Fugitive Status",
       "kind": "public_belief",
+      "gateType": "public_belief",
       "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "priority": 75,
+      "status": "active",
       "protected": false,
       "locked": true,
-      "date": {
-        "validFrom": "1993-08-01",
-        "validTo": "1994-06-30",
-        "precision": "date",
-        "schoolYear": 3,
-        "book": "Prisoner of Azkaban"
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.poa.sirius_fugitive",
+        "validToAnchor": "hp.poa.sirius_fugitive",
+        "sortKeyFrom": 8613,
+        "sortKeyTo": 8946,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Prisoner of Azkaban: Year 3",
+        "approximate": false
       },
       "scope": {
         "topics": [
@@ -213,7 +231,7 @@
           "Prisoner of Azkaban"
         ],
         "schoolYears": [
-          3
+          "3"
         ],
         "books": [
           "Prisoner of Azkaban"
@@ -222,7 +240,22 @@
           "summer"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "position_or_topic",
+        "frequency": "normal",
+        "positionalBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Sirius Black",
+            "public belief",
+            "fugitive",
+            "Prisoner of Azkaban"
+          ]
+        }
+      },
       "content": {
         "fact": "During Year 3 before Sirius's innocence becomes known to Harry's circle, the public believes Sirius Black is a dangerous fugitive.",
         "injection": "During Year 3, most people should treat Sirius Black as a dangerous fugitive; do not make his innocence public knowledge before our story reveals it.",
@@ -231,68 +264,60 @@
         ],
         "antiLore": [
           "Do not have ordinary students or the wider public speak as if Sirius is exonerated before the relevant reveal."
-        ],
-        "notes": ""
+        ]
       },
       "effects": {
         "addsTags": [
           "timeline",
           "year-3"
         ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "stateHints": {},
         "injectionRules": {
           "includeOnlyWhenRelevant": true
         }
       },
-      "source": {
+      "sourceInfo": {
         "work": "Harry Potter",
         "book": "Prisoner of Azkaban",
-        "chapter": "",
         "confidence": 0.85,
-        "notes": "Curated date constraint seed entry."
+        "notes": "Curated Story Position constraint seed entry."
       },
-      "ui": {},
       "extensions": {
         "consolidationPass": {
           "appliedIn": "Wandlight duplicate/title consolidation pass",
           "notes": "Concise title cleanup; public status kept distinct from private truth."
         }
-      },
-      "canonTiming": {
-        "hardValidFrom": "1993-08-01",
-        "hardValidTo": "1994-06-30",
-        "precision": "date",
-        "schoolYear": 3,
-        "book": "Prisoner of Azkaban"
-      },
-      "gateType": "public_belief",
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "normal",
-      "lorePurpose": "knowledge_gate",
-      "injectableByDefault": true,
-      "specificityScore": 95
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "event_sirius_truth_to_trio",
       "title": "Sirius Truth Revealed to Trio",
       "kind": "event_anchor",
+      "gateType": "event_anchor",
       "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 45,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "priority": 75,
+      "status": "active",
       "protected": false,
       "locked": true,
-      "date": {
-        "validFrom": "1994-06-06",
-        "validTo": "1994-06-16",
-        "precision": "date",
-        "schoolYear": 3,
-        "book": "Prisoner of Azkaban"
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.poa.sirius_truth_to_trio",
+        "validToAnchor": "hp.poa.sirius_truth_to_trio",
+        "sortKeyFrom": 8922,
+        "sortKeyTo": 8932,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Prisoner of Azkaban: Year 3",
+        "approximate": false
       },
       "scope": {
         "topics": [
@@ -300,7 +325,7 @@
           "canon state"
         ],
         "schoolYears": [
-          3
+          "3"
         ],
         "books": [
           "Prisoner of Azkaban"
@@ -309,34 +334,39 @@
           "climax"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "position_or_topic",
+        "frequency": "high",
+        "positionalBoost": "high",
+        "triggers": {
+          "topicsAny": [
+            "timeline",
+            "canon state"
+          ]
+        }
+      },
       "content": {
         "fact": "Harry, Ron, and Hermione know Sirius was not the traitor, but this is not public knowledge.",
-        "injection": "Harry, Ron, and Hermione know Sirius was not the traitor, but this is not public knowledge.",
-        "constraints": [],
-        "antiLore": [],
-        "notes": ""
+        "injection": "Harry, Ron, and Hermione know Sirius was not the traitor, but this is not public knowledge."
       },
       "effects": {
         "addsTags": [
           "timeline",
           "year-3"
         ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "stateHints": {},
         "injectionRules": {
           "includeOnlyWhenRelevant": true
         }
       },
-      "source": {
+      "sourceInfo": {
         "work": "Harry Potter",
         "book": "Prisoner of Azkaban",
-        "chapter": "",
         "confidence": 0.85,
-        "notes": "Curated date constraint seed entry."
+        "notes": "Curated Story Position constraint seed entry."
       },
-      "ui": {},
       "extensions": {
         "temporalTightening": {
           "method": "curated chronology point event: validFrom plus 10 days",
@@ -346,7 +376,7 @@
         },
         "deathStateGatePass": {
           "method": "removed positive requiresEvents from canon database entry",
-          "notes": "Canon database proposals are date-gated references; they should not become Future solely because a story milestone flag is absent.",
+          "notes": "Canon database proposals are Story Position-gated references; they should not become Future solely because a story milestone flag is absent.",
           "appliedIn": "Wandlight relevance-tier regression repair pass",
           "requiresEventsRemoved": [
             "sirius_truth_revealed"
@@ -356,41 +386,38 @@
           "appliedIn": "Wandlight duplicate/title consolidation pass",
           "notes": "Concise title cleanup; private truth kept distinct from public status."
         }
-      },
-      "canonTiming": {
-        "hardValidFrom": "1994-06-06",
-        "hardValidTo": "1994-06-16",
-        "precision": "date",
-        "schoolYear": 3,
-        "book": "Prisoner of Azkaban"
-      },
-      "activation": {},
-      "gateType": "event_anchor",
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "normal",
-      "lorePurpose": "event_anchor",
-      "injectableByDefault": true,
-      "specificityScore": 45
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "event_triwizard_tournament",
       "title": "Triwizard Tournament year",
       "kind": "future_guard",
+      "gateType": "future_guard",
       "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 100,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "priority": 75,
+      "status": "active",
       "protected": false,
       "locked": true,
-      "date": {
-        "validFrom": "1994-09-01",
-        "validTo": "1995-06-24",
-        "precision": "date",
-        "schoolYear": 4,
-        "book": "Goblet of Fire"
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.gof.year_4",
+        "validToAnchor": "hp.gof.triwizard_tournament",
+        "sortKeyFrom": 9009,
+        "sortKeyTo": 9305,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Goblet of Fire: Year 4",
+        "approximate": false
       },
       "scope": {
         "topics": [
@@ -400,7 +427,7 @@
           "Goblet of Fire"
         ],
         "schoolYears": [
-          4
+          "4"
         ],
         "books": [
           "Goblet of Fire"
@@ -409,9 +436,24 @@
           "term_start"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "position_or_topic",
+        "frequency": "normal",
+        "positionalBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Triwizard Tournament",
+            "champions",
+            "tasks",
+            "Goblet of Fire"
+          ]
+        }
+      },
       "content": {
-        "fact": "During Year 4, the Triwizard Tournament affects Hogwarts, but champion selection and task outcomes should stay date-gated.",
+        "fact": "During Year 4, the Triwizard Tournament affects Hogwarts, but champion selection and task outcomes should stay Story Position-gated.",
         "injection": "During Year 4, do not treat Harry as a Triwizard champion before the Goblet selects him, and do not leak later task, Portkey, graveyard, or Voldemort-return outcomes before the story reaches them.",
         "constraints": [
           "Before champion selection, Harry is not publicly a Triwizard champion.",
@@ -419,63 +461,54 @@
         ],
         "antiLore": [
           "Do not make September Year 4 scenes assume Harry is already a champion."
-        ],
-        "notes": ""
+        ]
       },
       "effects": {
         "addsTags": [
           "timeline",
           "year-4"
         ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "stateHints": {},
         "injectionRules": {
           "includeOnlyWhenRelevant": true
         }
       },
-      "source": {
+      "sourceInfo": {
         "work": "Harry Potter",
         "book": "Goblet of Fire",
-        "chapter": "",
         "confidence": 0.85,
-        "notes": "Curated date constraint seed entry."
-      },
-      "ui": {},
-      "extensions": {},
-      "canonTiming": {
-        "hardValidFrom": "1994-09-01",
-        "hardValidTo": "1995-06-24",
-        "precision": "date",
-        "schoolYear": 4,
-        "book": "Goblet of Fire"
-      },
-      "gateType": "future_guard",
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "normal",
-      "lorePurpose": "temporal_gate",
-      "injectableByDefault": true,
-      "specificityScore": 100
+        "notes": "Curated Story Position constraint seed entry."
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "event_sirius_death_after",
       "title": "Sirius Death Aftermath",
       "kind": "event_anchor",
+      "gateType": "event_anchor",
       "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 55,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "priority": 75,
+      "status": "active",
       "protected": false,
       "locked": true,
-      "date": {
-        "validFrom": "1996-06-18",
-        "validTo": "1996-06-28",
-        "precision": "date",
-        "schoolYear": 5,
-        "book": "Order of the Phoenix"
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ootp.department_mysteries",
+        "validToAnchor": "hp.ootp.department_mysteries",
+        "sortKeyFrom": 9665,
+        "sortKeyTo": 9675,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Order of the Phoenix: Year 5",
+        "approximate": false
       },
       "scope": {
         "topics": [
@@ -483,7 +516,7 @@
           "canon state"
         ],
         "schoolYears": [
-          5
+          "5"
         ],
         "books": [
           "Order of the Phoenix"
@@ -492,34 +525,39 @@
           "climax"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "position_or_topic",
+        "frequency": "high",
+        "positionalBoost": "high",
+        "triggers": {
+          "topicsAny": [
+            "timeline",
+            "canon state"
+          ]
+        }
+      },
       "content": {
         "fact": "Sirius Black is dead after the Department of Mysteries battle, and Harry is grieving.",
-        "injection": "After the Department of Mysteries battle, Sirius Black is dead and Harry is grieving unless our story has established a different outcome.",
-        "constraints": [],
-        "antiLore": [],
-        "notes": ""
+        "injection": "After the Department of Mysteries battle, Sirius Black is dead and Harry is grieving unless our story has established a different outcome."
       },
       "effects": {
         "addsTags": [
           "timeline",
           "year-5"
         ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "stateHints": {},
         "injectionRules": {
           "includeOnlyWhenRelevant": true
         }
       },
-      "source": {
+      "sourceInfo": {
         "work": "Harry Potter",
         "book": "Order of the Phoenix",
-        "chapter": "",
         "confidence": 0.85,
-        "notes": "Curated date constraint seed entry."
+        "notes": "Curated Story Position constraint seed entry."
       },
-      "ui": {},
       "extensions": {
         "temporalTightening": {
           "method": "curated chronology point event: validFrom plus 10 days",
@@ -530,40 +568,38 @@
         "titleConsolidationPass": {
           "appliedIn": "Wandlight title polish pass"
         }
-      },
-      "canonTiming": {
-        "hardValidFrom": "1996-06-18",
-        "hardValidTo": "1996-06-28",
-        "precision": "date",
-        "schoolYear": 5,
-        "book": "Order of the Phoenix"
-      },
-      "gateType": "event_anchor",
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "normal",
-      "lorePurpose": "event_anchor",
-      "injectableByDefault": true,
-      "specificityScore": 55
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "event_voldemort_public_acknowledged",
       "title": "Voldemort return publicly acknowledged",
       "kind": "event_anchor",
+      "gateType": "event_anchor",
       "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 55,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "priority": 75,
+      "status": "active",
       "protected": false,
       "locked": true,
-      "date": {
-        "validFrom": "1996-06-18",
-        "validTo": "1996-06-28",
-        "precision": "date",
-        "schoolYear": 5,
-        "book": "Order of the Phoenix"
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ootp.department_mysteries",
+        "validToAnchor": "hp.ootp.department_mysteries",
+        "sortKeyFrom": 9665,
+        "sortKeyTo": 9675,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Order of the Phoenix: Year 5",
+        "approximate": false
       },
       "scope": {
         "topics": [
@@ -571,7 +607,7 @@
           "canon state"
         ],
         "schoolYears": [
-          5
+          "5"
         ],
         "books": [
           "Order of the Phoenix"
@@ -580,34 +616,39 @@
           "climax"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "position_or_topic",
+        "frequency": "high",
+        "positionalBoost": "high",
+        "triggers": {
+          "topicsAny": [
+            "timeline",
+            "canon state"
+          ]
+        }
+      },
       "content": {
         "fact": "Voldemort’s return is publicly acknowledged.",
-        "injection": "Voldemort’s return is publicly acknowledged.",
-        "constraints": [],
-        "antiLore": [],
-        "notes": ""
+        "injection": "Voldemort’s return is publicly acknowledged."
       },
       "effects": {
         "addsTags": [
           "timeline",
           "year-5"
         ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "stateHints": {},
         "injectionRules": {
           "includeOnlyWhenRelevant": true
         }
       },
-      "source": {
+      "sourceInfo": {
         "work": "Harry Potter",
         "book": "Order of the Phoenix",
-        "chapter": "",
         "confidence": 0.85,
-        "notes": "Curated date constraint seed entry."
+        "notes": "Curated Story Position constraint seed entry."
       },
-      "ui": {},
       "extensions": {
         "temporalTightening": {
           "method": "curated chronology point event: validFrom plus 10 days",
@@ -617,47 +658,44 @@
         },
         "deathStateGatePass": {
           "method": "removed positive requiresEvents from canon database entry",
-          "notes": "Canon database proposals are date-gated references; they should not become Future solely because a story milestone flag is absent.",
+          "notes": "Canon database proposals are Story Position-gated references; they should not become Future solely because a story milestone flag is absent.",
           "appliedIn": "Wandlight relevance-tier regression repair pass",
           "requiresEventsRemoved": [
             "voldemort_return_publicly_acknowledged"
           ]
         }
-      },
-      "canonTiming": {
-        "hardValidFrom": "1996-06-18",
-        "hardValidTo": "1996-06-28",
-        "precision": "date",
-        "schoolYear": 5,
-        "book": "Order of the Phoenix"
-      },
-      "activation": {},
-      "gateType": "event_anchor",
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "normal",
-      "lorePurpose": "event_anchor",
-      "injectableByDefault": true,
-      "specificityScore": 55
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "event_dumbledore_private_lessons",
       "title": "Dumbledore teaches Harry about Voldemort past",
       "kind": "event_anchor",
+      "gateType": "event_anchor",
       "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 45,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "priority": 75,
+      "status": "active",
       "protected": false,
       "locked": true,
-      "date": {
-        "validFrom": "1996-09-01",
-        "validTo": "1996-09-11",
-        "precision": "date",
-        "schoolYear": 6,
-        "book": "Half-Blood Prince"
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.hbp.year_6",
+        "validToAnchor": "hp.hbp.dumbledore_lessons",
+        "sortKeyFrom": 9740,
+        "sortKeyTo": 9750,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Half-Blood Prince: Year 6",
+        "approximate": false
       },
       "scope": {
         "topics": [
@@ -665,7 +703,7 @@
           "canon state"
         ],
         "schoolYears": [
-          6
+          "6"
         ],
         "books": [
           "Half-Blood Prince"
@@ -674,34 +712,39 @@
           "term_start"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "position_or_topic",
+        "frequency": "high",
+        "positionalBoost": "high",
+        "triggers": {
+          "topicsAny": [
+            "timeline",
+            "canon state"
+          ]
+        }
+      },
       "content": {
         "fact": "Dumbledore privately teaches Harry about Voldemort’s past and the Horcrux problem.",
-        "injection": "Dumbledore privately teaches Harry about Voldemort’s past and the Horcrux problem.",
-        "constraints": [],
-        "antiLore": [],
-        "notes": ""
+        "injection": "Dumbledore privately teaches Harry about Voldemort’s past and the Horcrux problem."
       },
       "effects": {
         "addsTags": [
           "timeline",
           "year-6"
         ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "stateHints": {},
         "injectionRules": {
           "includeOnlyWhenRelevant": true
         }
       },
-      "source": {
+      "sourceInfo": {
         "work": "Harry Potter",
         "book": "Half-Blood Prince",
-        "chapter": "",
         "confidence": 0.85,
-        "notes": "Curated date constraint seed entry."
+        "notes": "Curated Story Position constraint seed entry."
       },
-      "ui": {},
       "extensions": {
         "temporalTightening": {
           "method": "curated chronology point event: validFrom plus 10 days",
@@ -711,47 +754,44 @@
         },
         "deathStateGatePass": {
           "method": "removed positive requiresEvents from canon database entry",
-          "notes": "Canon database proposals are date-gated references; they should not become Future solely because a story milestone flag is absent.",
+          "notes": "Canon database proposals are Story Position-gated references; they should not become Future solely because a story milestone flag is absent.",
           "appliedIn": "Wandlight relevance-tier regression repair pass",
           "requiresEventsRemoved": [
             "horcruxes_revealed_to_trio"
           ]
         }
-      },
-      "canonTiming": {
-        "hardValidFrom": "1996-09-01",
-        "hardValidTo": "1996-09-11",
-        "precision": "date",
-        "schoolYear": 6,
-        "book": "Half-Blood Prince"
-      },
-      "activation": {},
-      "gateType": "event_anchor",
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "normal",
-      "lorePurpose": "knowledge_gate",
-      "injectableByDefault": true,
-      "specificityScore": 45
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "event_dumbledore_death_after",
       "title": "Dumbledore dead after Astronomy Tower",
       "kind": "event_anchor",
+      "gateType": "event_anchor",
       "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 55,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "priority": 75,
+      "status": "active",
       "protected": false,
       "locked": true,
-      "date": {
-        "validFrom": "1997-06-30",
-        "validTo": "1997-07-10",
-        "precision": "date",
-        "schoolYear": 6,
-        "book": "Half-Blood Prince"
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.hbp.astronomy_tower",
+        "validToAnchor": "hp.hbp.astronomy_tower",
+        "sortKeyFrom": 10042,
+        "sortKeyTo": 10052,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Half-Blood Prince: Year 6",
+        "approximate": false
       },
       "scope": {
         "topics": [
@@ -759,7 +799,7 @@
           "canon state"
         ],
         "schoolYears": [
-          6
+          "6"
         ],
         "books": [
           "Half-Blood Prince"
@@ -768,34 +808,39 @@
           "climax"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "position_or_topic",
+        "frequency": "high",
+        "positionalBoost": "high",
+        "triggers": {
+          "topicsAny": [
+            "timeline",
+            "canon state"
+          ]
+        }
+      },
       "content": {
         "fact": "Dumbledore is dead and Hogwarts leadership changes.",
-        "injection": "Dumbledore is dead and Hogwarts leadership changes.",
-        "constraints": [],
-        "antiLore": [],
-        "notes": ""
+        "injection": "Dumbledore is dead and Hogwarts leadership changes."
       },
       "effects": {
         "addsTags": [
           "timeline",
           "year-6"
         ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "stateHints": {},
         "injectionRules": {
           "includeOnlyWhenRelevant": true
         }
       },
-      "source": {
+      "sourceInfo": {
         "work": "Harry Potter",
         "book": "Half-Blood Prince",
-        "chapter": "",
         "confidence": 0.85,
-        "notes": "Curated date constraint seed entry."
+        "notes": "Curated Story Position constraint seed entry."
       },
-      "ui": {},
       "extensions": {
         "temporalTightening": {
           "method": "curated chronology point event: validFrom plus 10 days",
@@ -805,47 +850,44 @@
         },
         "deathStateGatePass": {
           "method": "removed positive requiresEvents from canon database entry",
-          "notes": "Canon database proposals are date-gated references; they should not become Future solely because a story milestone flag is absent.",
+          "notes": "Canon database proposals are Story Position-gated references; they should not become Future solely because a story milestone flag is absent.",
           "appliedIn": "Wandlight relevance-tier regression repair pass",
           "requiresEventsRemoved": [
             "dumbledore_death_occurs"
           ]
         }
-      },
-      "canonTiming": {
-        "hardValidFrom": "1997-06-30",
-        "hardValidTo": "1997-07-10",
-        "precision": "date",
-        "schoolYear": 6,
-        "book": "Half-Blood Prince"
-      },
-      "activation": {},
-      "gateType": "event_anchor",
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "normal",
-      "lorePurpose": "event_anchor",
-      "injectableByDefault": true,
-      "specificityScore": 55
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "event_ministry_falls",
       "title": "Ministry falls under Voldemort control",
       "kind": "event_anchor",
+      "gateType": "event_anchor",
       "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 35,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "priority": 75,
+      "status": "active",
       "protected": false,
       "locked": true,
-      "date": {
-        "validFrom": "1997-08-01",
-        "validTo": "1997-08-11",
-        "precision": "date",
-        "schoolYear": 7,
-        "book": "Deathly Hallows"
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.dh.ministry_falls",
+        "validToAnchor": "hp.dh.ministry_falls",
+        "sortKeyFrom": 10074,
+        "sortKeyTo": 10084,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Deathly Hallows: Year 7",
+        "approximate": false
       },
       "scope": {
         "topics": [
@@ -853,7 +895,7 @@
           "canon state"
         ],
         "schoolYears": [
-          7
+          "7"
         ],
         "books": [
           "Deathly Hallows"
@@ -862,34 +904,39 @@
           "summer"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "position_or_topic",
+        "frequency": "high",
+        "positionalBoost": "high",
+        "triggers": {
+          "topicsAny": [
+            "timeline",
+            "canon state"
+          ]
+        }
+      },
       "content": {
         "fact": "The Ministry is under Voldemort-aligned control.",
-        "injection": "The Ministry is under Voldemort-aligned control.",
-        "constraints": [],
-        "antiLore": [],
-        "notes": ""
+        "injection": "The Ministry is under Voldemort-aligned control."
       },
       "effects": {
         "addsTags": [
           "timeline",
           "year-7"
         ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "stateHints": {},
         "injectionRules": {
           "includeOnlyWhenRelevant": true
         }
       },
-      "source": {
+      "sourceInfo": {
         "work": "Harry Potter",
         "book": "Deathly Hallows",
-        "chapter": "",
         "confidence": 0.85,
-        "notes": "Curated date constraint seed entry."
+        "notes": "Curated Story Position constraint seed entry."
       },
-      "ui": {},
       "extensions": {
         "temporalTightening": {
           "method": "curated chronology point event: validFrom plus 10 days",
@@ -899,47 +946,44 @@
         },
         "deathStateGatePass": {
           "method": "removed positive requiresEvents from canon database entry",
-          "notes": "Canon database proposals are date-gated references; they should not become Future solely because a story milestone flag is absent.",
+          "notes": "Canon database proposals are Story Position-gated references; they should not become Future solely because a story milestone flag is absent.",
           "appliedIn": "Wandlight relevance-tier regression repair pass",
           "requiresEventsRemoved": [
             "ministry_falls"
           ]
         }
-      },
-      "canonTiming": {
-        "hardValidFrom": "1997-08-01",
-        "hardValidTo": "1997-08-11",
-        "precision": "date",
-        "schoolYear": 7,
-        "book": "Deathly Hallows"
-      },
-      "activation": {},
-      "gateType": "event_anchor",
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "normal",
-      "lorePurpose": "event_anchor",
-      "injectableByDefault": true,
-      "specificityScore": 35
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "event_battle_hogwarts_after",
       "title": "Battle of Hogwarts aftermath",
       "kind": "event_anchor",
+      "gateType": "event_anchor",
       "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 35,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "priority": 75,
+      "status": "active",
       "protected": false,
       "locked": true,
-      "date": {
-        "validFrom": "1998-05-02",
-        "validTo": "1998-05-12",
-        "precision": "date",
-        "schoolYear": 7,
-        "book": "Deathly Hallows"
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.dh.battle_hogwarts",
+        "validToAnchor": "hp.dh.battle_hogwarts",
+        "sortKeyFrom": 10348,
+        "sortKeyTo": 10358,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Deathly Hallows: Year 7",
+        "approximate": false
       },
       "scope": {
         "topics": [
@@ -947,7 +991,7 @@
           "canon state"
         ],
         "schoolYears": [
-          7
+          "7"
         ],
         "books": [
           "Deathly Hallows"
@@ -956,34 +1000,39 @@
           "battle"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "position_or_topic",
+        "frequency": "high",
+        "positionalBoost": "high",
+        "triggers": {
+          "topicsAny": [
+            "timeline",
+            "canon state"
+          ]
+        }
+      },
       "content": {
         "fact": "Voldemort is defeated and many war losses are known.",
-        "injection": "Voldemort is defeated and many war losses are known.",
-        "constraints": [],
-        "antiLore": [],
-        "notes": ""
+        "injection": "Voldemort is defeated and many war losses are known."
       },
       "effects": {
         "addsTags": [
           "timeline",
           "year-7"
         ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "stateHints": {},
         "injectionRules": {
           "includeOnlyWhenRelevant": true
         }
       },
-      "source": {
+      "sourceInfo": {
         "work": "Harry Potter",
         "book": "Deathly Hallows",
-        "chapter": "",
         "confidence": 0.85,
-        "notes": "Curated date constraint seed entry."
+        "notes": "Curated Story Position constraint seed entry."
       },
-      "ui": {},
       "extensions": {
         "temporalTightening": {
           "method": "curated chronology point event: validFrom plus 10 days",
@@ -991,21 +1040,7 @@
           "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1998-08-31"
         }
-      },
-      "canonTiming": {
-        "hardValidFrom": "1998-05-02",
-        "hardValidTo": "1998-05-12",
-        "precision": "date",
-        "schoolYear": 7,
-        "book": "Deathly Hallows"
-      },
-      "gateType": "event_anchor",
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "normal",
-      "lorePurpose": "event_anchor",
-      "injectableByDefault": true,
-      "specificityScore": 35
+      }
     }
   ]
 }

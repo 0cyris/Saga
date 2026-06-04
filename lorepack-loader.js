@@ -450,6 +450,7 @@ function analyzeEntries(health, entryFiles = []) {
     let missingEntryIds = 0;
     let entryCount = 0;
     const categoryCounts = {};
+    const legacyTimingFields = ['date', 'canonTiming', 'validFrom', 'validTo', 'activeWhen', 'whoKnowsTruth', 'whoSuspects', 'whoBelievesPublicVersion', 'publicVersion', 'fact'];
 
     for (const fileRecord of entryFiles) {
         for (const entry of fileRecord.entries || []) {
@@ -471,6 +472,17 @@ function analyzeEntries(health, entryFiles = []) {
 
             const category = String(entry?.category || 'other').trim() || 'other';
             categoryCounts[category] = (categoryCounts[category] || 0) + 1;
+
+            if (Number(entry?.schemaVersion) >= 3) {
+                const presentLegacyFields = legacyTimingFields.filter(field => Object.prototype.hasOwnProperty.call(entry || {}, field));
+                if (presentLegacyFields.length) {
+                    addHealthIssue(health, 'error', 'schema_v3_legacy_timing_fields', `Schema v3 entry ${id || entry?.title || '(missing id)'} still has legacy timing fields: ${presentLegacyFields.join(', ')}.`, {
+                        entryIds: id ? [id] : [],
+                        file: fileRecord.file,
+                        fields: presentLegacyFields,
+                    });
+                }
+            }
         }
     }
 
@@ -942,5 +954,6 @@ export const __lorepackLoaderTestHooks = {
     normalizeTimelineRegistryForHealth,
     createTimelineHealthIndex,
     analyzeTimelineWindowHealth,
+    analyzeEntries,
     analyzeEntryPositionHealth,
 };

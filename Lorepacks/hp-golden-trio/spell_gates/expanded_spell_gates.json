@@ -1,24 +1,36 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "entries": [
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "spell_gate_riddikulus",
       "title": "Riddikulus Boggart lesson gate",
       "kind": "spell_gate",
+      "gateType": "spell_gate",
       "category": "spell",
+      "relevance": "low",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "hidden",
       "revealPolicy": "private",
       "priority": 50,
+      "status": "active",
       "protected": false,
       "locked": true,
-      "date": {
-        "validFrom": "1991-09-01",
-        "validTo": "1993-10-31",
-        "precision": "date",
-        "schoolYear": 3,
-        "book": "Prisoner of Azkaban"
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.poa.sirius_truth_to_trio",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 8704,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Prisoner of Azkaban: Year 3",
+        "approximate": false
       },
       "scope": {
         "characters": [
@@ -34,7 +46,7 @@
           "Riddikulus"
         ],
         "schoolYears": [
-          3
+          "3"
         ],
         "books": [
           "Prisoner of Azkaban"
@@ -43,7 +55,26 @@
           "term_start"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "positionalBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Hermione Granger",
+            "Ron Weasley"
+          ],
+          "topicsAny": [
+            "boggarts",
+            "defense",
+            "Riddikulus"
+          ]
+        }
+      },
       "content": {
         "fact": "Before Lupin's Year 3 Boggart lesson or a story-established equivalent, Riddikulus should not be routine student knowledge.",
         "injection": "Do not let first- or second-year students casually know or use Riddikulus unless our story has established early Boggart instruction.",
@@ -52,8 +83,7 @@
         ],
         "antiLore": [
           "Do not spotlight Riddikulus in later years unless Boggarts or DADA lessons are actually relevant."
-        ],
-        "notes": ""
+        ]
       },
       "effects": {
         "addsTags": [
@@ -61,19 +91,15 @@
           "defense",
           "year-3"
         ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "stateHints": {},
         "injectionRules": {
           "includeOnlyWhenRelevant": true
         }
       },
-      "source": {
+      "sourceInfo": {
         "work": "Harry Potter",
         "book": "Prisoner of Azkaban",
-        "chapter": "",
         "confidence": 0.82,
-        "notes": "Expanded curated date constraint entry."
+        "notes": "Expanded curated Story Position constraint entry."
       },
       "ui": {
         "preview": {
@@ -83,44 +109,40 @@
           "suggestByDefault": true,
           "activeUse": "blocks_early_spell_knowledge"
         }
-      },
-      "extensions": {},
-      "canonTiming": {
-        "canonExpectedFrom": "1993-09-01",
-        "canonExpectedUntil": "1998-08-31",
-        "precision": "date",
-        "schoolYear": 3,
-        "book": "Prisoner of Azkaban"
-      },
-      "gateType": "spell_gate",
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "low",
-      "lorePurpose": "ability_gate",
-      "injectableByDefault": true,
-      "specificityScore": 95
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "spell_gate_stupefy",
       "title": "Stunning Spell practical gate",
       "kind": "spell_gate",
+      "gateType": "spell_gate",
       "category": "spell",
+      "relevance": "low",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "hidden",
       "revealPolicy": "private",
       "priority": 75,
+      "status": "active",
       "protected": false,
       "locked": true,
-      "date": {
-        "validFrom": "1991-09-01",
-        "validTo": "1994-09-01",
-        "precision": "date",
-        "schoolYear": 4,
-        "book": "Goblet of Fire"
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.gof.triwizard_tournament",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 9009,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Goblet of Fire: Year 4",
+        "approximate": false
       },
       "scope": {
-        "characters": [],
         "topics": [
           "defense",
           "dueling",
@@ -130,7 +152,7 @@
           "Stupefy"
         ],
         "schoolYears": [
-          4
+          "4"
         ],
         "books": [
           "Goblet of Fire"
@@ -139,7 +161,22 @@
           "term_start"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "positionalBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "defense",
+            "dueling",
+            "combat",
+            "Stupefy"
+          ]
+        }
+      },
       "content": {
         "fact": "Before practical defensive training, Stupefy should not be casual early-year magic.",
         "injection": "Do not make Stupefy routine for younger students without practical defensive training or a story-established reason.",
@@ -148,8 +185,7 @@
         ],
         "antiLore": [
           "Do not give ordinary first- or second-years reliable Stunning Spell use by default."
-        ],
-        "notes": ""
+        ]
       },
       "effects": {
         "addsTags": [
@@ -157,19 +193,15 @@
           "combat",
           "year-4"
         ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "stateHints": {},
         "injectionRules": {
           "includeOnlyWhenRelevant": true
         }
       },
-      "source": {
+      "sourceInfo": {
         "work": "Harry Potter",
         "book": "Goblet of Fire",
-        "chapter": "",
         "confidence": 0.82,
-        "notes": "Expanded curated date constraint entry."
+        "notes": "Expanded curated Story Position constraint entry."
       },
       "ui": {
         "preview": {
@@ -179,44 +211,40 @@
           "suggestByDefault": true,
           "activeUse": "blocks_early_spell_knowledge"
         }
-      },
-      "extensions": {},
-      "canonTiming": {
-        "canonExpectedFrom": "1994-09-01",
-        "canonExpectedUntil": "1998-08-31",
-        "precision": "date",
-        "schoolYear": 4,
-        "book": "Goblet of Fire"
-      },
-      "gateType": "spell_gate",
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "low",
-      "lorePurpose": "ability_gate",
-      "injectableByDefault": true,
-      "specificityScore": 95
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "spell_gate_protego",
       "title": "Shield Charm learning gate",
       "kind": "spell_gate",
+      "gateType": "spell_gate",
       "category": "spell",
+      "relevance": "low",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "hidden",
       "revealPolicy": "private",
       "priority": 75,
+      "status": "active",
       "protected": false,
       "locked": true,
-      "date": {
-        "validFrom": "1991-09-01",
-        "validTo": "1995-10-31",
-        "precision": "date",
-        "schoolYear": 5,
-        "book": "Order of the Phoenix"
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.ootp.department_mysteries",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 9434,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Order of the Phoenix: Year 5",
+        "approximate": false
       },
       "scope": {
-        "characters": [],
         "topics": [
           "defense",
           "shield charm",
@@ -226,7 +254,7 @@
           "Protego"
         ],
         "schoolYears": [
-          5
+          "5"
         ],
         "books": [
           "Order of the Phoenix"
@@ -235,7 +263,22 @@
           "term_start"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "positionalBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "defense",
+            "shield charm",
+            "DA",
+            "Protego"
+          ]
+        }
+      },
       "content": {
         "fact": "Before OWL/DA-level defensive training, students should not casually master Protego.",
         "injection": "Do not let younger students casually master Protego before OWL/DA-level training unless our story has established early shield practice.",
@@ -244,8 +287,7 @@
         ],
         "antiLore": [
           "Do not treat shield magic as routine early-year spellwork."
-        ],
-        "notes": ""
+        ]
       },
       "effects": {
         "addsTags": [
@@ -253,19 +295,15 @@
           "defense",
           "year-5"
         ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "stateHints": {},
         "injectionRules": {
           "includeOnlyWhenRelevant": true
         }
       },
-      "source": {
+      "sourceInfo": {
         "work": "Harry Potter",
         "book": "Order of the Phoenix",
-        "chapter": "",
         "confidence": 0.82,
-        "notes": "Expanded curated date constraint entry."
+        "notes": "Expanded curated Story Position constraint entry."
       },
       "ui": {
         "preview": {
@@ -275,41 +313,38 @@
           "suggestByDefault": true,
           "activeUse": "blocks_early_spell_knowledge"
         }
-      },
-      "extensions": {},
-      "canonTiming": {
-        "canonExpectedFrom": "1995-09-01",
-        "canonExpectedUntil": "1998-08-31",
-        "precision": "date",
-        "schoolYear": 5,
-        "book": "Order of the Phoenix"
-      },
-      "gateType": "spell_gate",
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "low",
-      "lorePurpose": "ability_gate",
-      "injectableByDefault": true,
-      "specificityScore": 95
+      }
     },
     {
-      "schemaVersion": 2,
+      "schemaVersion": 3,
       "id": "spell_gate_apparition_lessons",
       "title": "Apparition lesson age gate",
       "kind": "spell_gate",
+      "gateType": "spell_gate",
       "category": "spell",
+      "relevance": "low",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 75,
+      "injectableByDefault": true,
+      "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "hidden",
       "revealPolicy": "private",
       "priority": 75,
+      "status": "active",
       "protected": false,
       "locked": true,
-      "date": {
-        "validFrom": "1996-09-01",
-        "validTo": "1998-08-31",
-        "precision": "date",
-        "schoolYear": 6,
-        "book": "Half-Blood Prince"
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.hbp.year_6",
+        "validToAnchor": "hp.dh.year_7",
+        "sortKeyFrom": 9740,
+        "sortKeyTo": 10469,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Half-Blood Prince: Year 6",
+        "approximate": false
       },
       "scope": {
         "characters": [
@@ -323,7 +358,7 @@
           "Apparition"
         ],
         "schoolYears": [
-          6
+          "6"
         ],
         "books": [
           "Half-Blood Prince"
@@ -332,15 +367,29 @@
           "term_start"
         ]
       },
-      "visibility": {},
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "positionalBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "sixth-year students"
+          ],
+          "topicsAny": [
+            "apparition",
+            "age"
+          ]
+        }
+      },
       "content": {
         "fact": "Apparition lessons are for eligible older students around Year 6; legal Apparition requires coming of age.",
         "injection": "Students should not casually Apparate before eligibility and training; Apparition is tightly age- and license-gated.",
         "constraints": [
           "Block underage casual Apparition unless our story explicitly changes the rule."
-        ],
-        "antiLore": [],
-        "notes": ""
+        ]
       },
       "effects": {
         "addsTags": [
@@ -348,36 +397,16 @@
           "apparition",
           "age-gate"
         ],
-        "blocksTermsBeforeDate": [],
-        "protectsEntries": [],
-        "stateHints": {},
         "injectionRules": {
           "includeOnlyWhenRelevant": true
         }
       },
-      "source": {
+      "sourceInfo": {
         "work": "Harry Potter",
         "book": "Half-Blood Prince",
-        "chapter": "",
         "confidence": 0.82,
-        "notes": "Expanded curated date constraint entry."
-      },
-      "ui": {},
-      "extensions": {},
-      "canonTiming": {
-        "canonExpectedFrom": "1996-09-01",
-        "canonExpectedUntil": "1998-08-31",
-        "precision": "date",
-        "schoolYear": 6,
-        "book": "Half-Blood Prince"
-      },
-      "gateType": "spell_gate",
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "low",
-      "lorePurpose": "ability_gate",
-      "injectableByDefault": true,
-      "specificityScore": 75
+        "notes": "Expanded curated Story Position constraint entry."
+      }
     }
   ]
 }

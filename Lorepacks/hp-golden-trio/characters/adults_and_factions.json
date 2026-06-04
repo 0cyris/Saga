@@ -1,98 +1,42 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "entries": [
     {
+      "schemaVersion": 3,
       "id": "canon_dumbledore_headmaster",
       "title": "Dumbledore Before Tower",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "status_change",
+      "specificityScore": 60,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
       "tags": [
         "Dumbledore",
         "Hogwarts",
         "headmaster",
         "Order"
       ],
-      "category": "character",
-      "fact": "Albus Dumbledore is Headmaster of Hogwarts for most of the 1991-1997 canon period and is a central authority figure opposing Voldemort.",
-      "canonStatus": "canon",
-      "truthStatus": "true",
-      "validFrom": "1991-09-01",
-      "validTo": "1997-06-30",
-      "branchId": "main",
-      "whoKnowsTruth": [],
-      "publicVersion": "Dumbledore is Hogwarts Headmaster.",
-      "revealPolicy": "public",
-      "activeWhen": {
-        "erasAny": [],
-        "locationsAny": [
-          "Hogwarts",
-          "Headmaster"
-        ],
-        "charactersPresentAny": [
-          "Dumbledore",
-          "Albus Dumbledore"
-        ],
-        "tagsAny": [
-          "Dumbledore"
-        ]
-      },
       "priority": 90,
       "status": "active",
-      "source": "canon-lore-db:characters/adults_and_factions.json",
-      "locked": true,
-      "content": {
-        "fact": "Before the Astronomy Tower event, Dumbledore is alive and remains Hogwarts Headmaster.",
-        "injection": "Before the Astronomy Tower event, Dumbledore is alive and remains a decisive authority at Hogwarts; do not treat him as dead, memorialized, or absent unless our story has established a different outcome.",
-        "constraints": [
-          "After the Tower event, use Dumbledore death-state lore instead."
-        ]
-      },
-      "scope": {
-        "characters": [
-          "Albus Dumbledore"
-        ],
-        "locations": [
-          "Hogwarts",
-          "Headmaster's office"
-        ],
-        "factions": [
-          "Hogwarts staff",
-          "Order of the Phoenix"
-        ],
-        "topics": [
-          "headmaster",
-          "authority figure",
-          "Voldemort resistance"
-        ],
-        "schoolYears": [
-          "Year 1",
-          "Year 2",
-          "Year 3",
-          "Year 4",
-          "Year 5",
-          "Year 6"
-        ],
-        "books": [
-          "Philosopher's Stone",
-          "Chamber of Secrets",
-          "Prisoner of Azkaban",
-          "Goblet of Fire",
-          "Order of the Phoenix",
-          "Half-Blood Prince"
-        ]
-      },
-      "date": {
-        "validFrom": "1991-09-01",
-        "validTo": "1997-06-30",
-        "precision": "date",
-        "schoolYear": null
-      },
-      "kind": "character_state",
-      "gateType": "character_state",
       "protected": false,
+      "locked": true,
       "userEditable": true,
-      "canon": "canon",
-      "relevance": "low",
-      "canonTiming": {
-        "hardValidTo": "1997-06-30"
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.hbp.astronomy_tower",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 10042,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "1991-09-01 to 1997-06-30",
+        "approximate": false
       },
       "activation": {
         "requiresMissingEvents": [
@@ -105,81 +49,25 @@
         ],
         "autoMuteOnExpire": false
       },
-      "extensions": {
-        "deathStateGatePass": {
-          "method": "living/office state expires at death",
-          "notes": "Dumbledore Headmaster state is bounded by his death.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass"
-        },
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Merged Dumbledore alive/headmaster gates."
-        }
-      },
-      "lorePurpose": "status_change",
-      "injectableByDefault": true,
-      "specificityScore": 60
-    },
-    {
-      "id": "canon_snape_potions_defense_role",
-      "title": "Severus Snape: professor role by era",
-      "tags": [
-        "Snape",
-        "Hogwarts",
-        "Potions",
-        "Defense"
-      ],
-      "category": "character",
-      "fact": "Severus Snape is a Hogwarts professor; he teaches Potions before the 1996-1997 school year and Defense Against the Dark Arts during Year 6.",
-      "canonStatus": "canon",
-      "truthStatus": "true",
-      "validFrom": "1991-09-01",
-      "validTo": "1997-08-31",
-      "branchId": "main",
-      "whoKnowsTruth": [],
-      "publicVersion": "Snape is a Hogwarts professor with a severe reputation.",
-      "revealPolicy": "public",
-      "activeWhen": {
-        "erasAny": [
-          "Year 6",
-          "Half-Blood Prince",
-          "HBP"
-        ],
-        "locationsAny": [
-          "Hogwarts",
-          "dungeon",
-          "classroom"
-        ],
-        "charactersPresentAny": [
-          "Snape",
-          "Severus Snape"
-        ],
-        "tagsAny": [
-          "Snape"
-        ]
-      },
-      "priority": 75,
-      "status": "active",
-      "source": "canon-lore-db:characters/adults_and_factions.json",
-      "locked": true,
-      "content": {},
       "scope": {
         "characters": [
-          "Severus Snape"
+          "Albus Dumbledore",
+          "Dumbledore"
         ],
         "locations": [
           "Hogwarts",
-          "Potions classroom",
-          "Defense classroom"
+          "Headmaster's office",
+          "Headmaster"
         ],
         "factions": [
-          "Hogwarts staff"
+          "Hogwarts staff",
+          "Order of the Phoenix"
         ],
         "topics": [
-          "professor",
-          "Potions",
-          "Defense Against the Dark Arts",
-          "school staff"
+          "headmaster",
+          "authority figure",
+          "Voldemort resistance",
+          "Dumbledore"
         ],
         "schoolYears": [
           "Year 1",
@@ -198,21 +86,174 @@
           "Half-Blood Prince"
         ]
       },
-      "date": {
-        "validFrom": "1991-09-01",
-        "validTo": "1997-08-31",
-        "precision": "date",
-        "schoolYear": null
+      "visibility": {
+        "revealPolicy": "public"
       },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "positionalBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Albus Dumbledore",
+            "Dumbledore"
+          ],
+          "locationsAny": [
+            "Hogwarts",
+            "Headmaster's office",
+            "Headmaster"
+          ],
+          "topicsAny": [
+            "headmaster",
+            "authority figure",
+            "Voldemort resistance",
+            "Dumbledore",
+            "Hogwarts",
+            "Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before the Astronomy Tower event, Dumbledore is alive and remains Hogwarts Headmaster.",
+        "injection": "Before the Astronomy Tower event, Dumbledore is alive and remains a decisive authority at Hogwarts; do not treat him as dead, memorialized, or absent unless our story has established a different outcome.",
+        "constraints": [
+          "After the Tower event, use Dumbledore death-state lore instead."
+        ],
+        "publicVersion": "Dumbledore is Hogwarts Headmaster."
+      },
+      "extensions": {
+        "deathStateGatePass": {
+          "method": "living/office state expires at death",
+          "notes": "Dumbledore Headmaster state is bounded by his death.",
+          "appliedIn": "Wandlight relevance-tier regression repair pass"
+        },
+        "consolidationPass": {
+          "appliedIn": "Wandlight duplicate/title consolidation pass",
+          "notes": "Merged Dumbledore alive/headmaster gates."
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "canon_snape_potions_defense_role",
+      "title": "Severus Snape: professor role by era",
       "kind": "character_state",
       "gateType": "character_state",
-      "protected": false,
-      "userEditable": true,
-      "canon": "canon",
+      "category": "character",
       "relevance": "low",
       "lorePurpose": "status_change",
+      "specificityScore": 80,
       "injectableByDefault": true,
-      "specificityScore": 80
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "Snape",
+        "Hogwarts",
+        "Potions",
+        "Defense"
+      ],
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.hbp.year_6",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 10104,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "1991-09-01 to 1997-08-31",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Severus Snape",
+          "Snape"
+        ],
+        "locations": [
+          "Hogwarts",
+          "Potions classroom",
+          "Defense classroom",
+          "dungeon",
+          "classroom"
+        ],
+        "factions": [
+          "Hogwarts staff"
+        ],
+        "topics": [
+          "professor",
+          "Potions",
+          "Defense Against the Dark Arts",
+          "school staff",
+          "Snape"
+        ],
+        "schoolYears": [
+          "Year 1",
+          "Year 2",
+          "Year 3",
+          "Year 4",
+          "Year 5",
+          "Year 6"
+        ],
+        "books": [
+          "Philosopher's Stone",
+          "Chamber of Secrets",
+          "Prisoner of Azkaban",
+          "Goblet of Fire",
+          "Order of the Phoenix",
+          "Half-Blood Prince"
+        ],
+        "eras": [
+          "Year 6",
+          "Half-Blood Prince",
+          "HBP"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "positionalBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Severus Snape",
+            "Snape"
+          ],
+          "locationsAny": [
+            "Hogwarts",
+            "Potions classroom",
+            "Defense classroom",
+            "dungeon",
+            "classroom"
+          ],
+          "topicsAny": [
+            "professor",
+            "Potions",
+            "Defense Against the Dark Arts",
+            "school staff",
+            "Snape",
+            "Hogwarts",
+            "Defense"
+          ],
+          "erasAny": [
+            "Year 6",
+            "Half-Blood Prince",
+            "HBP"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Severus Snape is a Hogwarts professor; he teaches Potions before the 1996-1997 school year and Defense Against the Dark Arts during Year 6.",
+        "injection": "Severus Snape is a Hogwarts professor; he teaches Potions before the 1996-1997 school year and Defense Against the Dark Arts during Year 6.",
+        "publicVersion": "Snape is a Hogwarts professor with a severe reputation."
+      }
     }
   ]
 }

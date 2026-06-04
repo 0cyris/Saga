@@ -1,51 +1,50 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "entries": [
     {
+      "schemaVersion": 3,
       "id": "canon_harry_potter_student_status",
       "title": "Harry Potter: Hogwarts student",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
       "tags": [
         "Harry",
         "Gryffindor",
         "student",
         "protagonist"
       ],
-      "category": "character",
-      "fact": "Harry Potter is a Gryffindor student at Hogwarts during the 1991-1998 canon school years, with unusual public attention because of his history with Voldemort.",
-      "canonStatus": "canon",
-      "truthStatus": "true",
-      "validFrom": "1991-09-01",
-      "validTo": "1998-08-31",
-      "branchId": "main",
-      "whoKnowsTruth": [],
-      "publicVersion": "Harry Potter is a famous Hogwarts student.",
-      "revealPolicy": "public",
-      "activeWhen": {
-        "erasAny": [],
-        "locationsAny": [
-          "Hogwarts",
-          "Gryffindor"
-        ],
-        "charactersPresentAny": [
-          "Harry",
-          "Harry Potter"
-        ],
-        "tagsAny": [
-          "Harry"
-        ]
-      },
       "priority": 90,
       "status": "active",
-      "source": "canon-lore-db:characters/core_students.json",
+      "protected": false,
       "locked": true,
-      "content": {},
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.dh.year_7",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 10469,
+        "precision": "date_window",
+        "windowKind": "series",
+        "label": "1991-09-01 to 1998-08-31",
+        "approximate": false
+      },
       "scope": {
         "characters": [
-          "Harry Potter"
+          "Harry Potter",
+          "Harry"
         ],
         "locations": [
           "Hogwarts",
-          "Gryffindor Tower"
+          "Gryffindor Tower",
+          "Gryffindor"
         ],
         "factions": [
           "Gryffindor"
@@ -54,7 +53,8 @@
           "student",
           "protagonist",
           "Voldemort history",
-          "public attention"
+          "public attention",
+          "Harry"
         ],
         "schoolYears": [
           "Year 1",
@@ -75,66 +75,84 @@
           "Deathly Hallows"
         ]
       },
-      "date": {
-        "validFrom": "1991-09-01",
-        "validTo": "1998-08-31",
-        "precision": "date",
-        "schoolYear": null
+      "visibility": {
+        "revealPolicy": "public"
       },
-      "kind": "character_state",
-      "gateType": "character_state",
-      "protected": false,
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "low"
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "positionalBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Harry"
+          ],
+          "locationsAny": [
+            "Hogwarts",
+            "Gryffindor Tower",
+            "Gryffindor"
+          ],
+          "topicsAny": [
+            "student",
+            "protagonist",
+            "Voldemort history",
+            "public attention",
+            "Harry",
+            "Gryffindor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Harry Potter is a Gryffindor student at Hogwarts during the 1991-1998 canon school years, with unusual public attention because of his history with Voldemort.",
+        "injection": "Harry Potter is a Gryffindor student at Hogwarts during the 1991-1998 canon school years, with unusual public attention because of his history with Voldemort.",
+        "publicVersion": "Harry Potter is a famous Hogwarts student."
+      }
     },
     {
+      "schemaVersion": 3,
       "id": "canon_hermione_granger_student_status",
       "title": "Hermione Granger: Gryffindor student",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
       "tags": [
         "Hermione",
         "Gryffindor",
         "student",
         "knowledge"
       ],
-      "category": "character",
-      "fact": "Hermione Granger is a highly studious Gryffindor student in Harry's year and is closely associated with Harry and Ron.",
-      "canonStatus": "canon",
-      "truthStatus": "true",
-      "validFrom": "1991-09-01",
-      "validTo": "1998-08-31",
-      "branchId": "main",
-      "whoKnowsTruth": [],
-      "publicVersion": "Hermione is known as an academically exceptional Gryffindor student.",
-      "revealPolicy": "public",
-      "activeWhen": {
-        "erasAny": [],
-        "locationsAny": [
-          "Hogwarts",
-          "library",
-          "Gryffindor"
-        ],
-        "charactersPresentAny": [
-          "Hermione",
-          "Hermione Granger"
-        ],
-        "tagsAny": [
-          "Hermione"
-        ]
-      },
       "priority": 75,
       "status": "active",
-      "source": "canon-lore-db:characters/core_students.json",
+      "protected": false,
       "locked": true,
-      "content": {},
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.dh.year_7",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 10469,
+        "precision": "date_window",
+        "windowKind": "series",
+        "label": "1991-09-01 to 1998-08-31",
+        "approximate": false
+      },
       "scope": {
         "characters": [
-          "Hermione Granger"
+          "Hermione Granger",
+          "Hermione"
         ],
         "locations": [
           "Hogwarts",
           "Gryffindor Tower",
-          "Library"
+          "Library",
+          "Gryffindor"
         ],
         "factions": [
           "Gryffindor"
@@ -143,7 +161,8 @@
           "student",
           "academics",
           "knowledge",
-          "Harry and Ron friend group"
+          "Harry and Ron friend group",
+          "Hermione"
         ],
         "schoolYears": [
           "Year 1",
@@ -164,65 +183,84 @@
           "Deathly Hallows"
         ]
       },
-      "date": {
-        "validFrom": "1991-09-01",
-        "validTo": "1998-08-31",
-        "precision": "date",
-        "schoolYear": null
+      "visibility": {
+        "revealPolicy": "public"
       },
-      "kind": "character_state",
-      "gateType": "character_state",
-      "protected": false,
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "low"
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "positionalBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Hermione Granger",
+            "Hermione"
+          ],
+          "locationsAny": [
+            "Hogwarts",
+            "Gryffindor Tower",
+            "Library",
+            "Gryffindor"
+          ],
+          "topicsAny": [
+            "student",
+            "academics",
+            "knowledge",
+            "Harry and Ron friend group",
+            "Hermione",
+            "Gryffindor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Hermione Granger is a highly studious Gryffindor student in Harry's year and is closely associated with Harry and Ron.",
+        "injection": "Hermione Granger is a highly studious Gryffindor student in Harry's year and is closely associated with Harry and Ron.",
+        "publicVersion": "Hermione is known as an academically exceptional Gryffindor student."
+      }
     },
     {
+      "schemaVersion": 3,
       "id": "canon_ron_weasley_student_status",
       "title": "Ron Weasley: Gryffindor student",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
       "tags": [
         "Ron",
         "Weasley",
         "Gryffindor",
         "student"
       ],
-      "category": "character",
-      "fact": "Ron Weasley is a Gryffindor student in Harry's year and part of Harry's closest friend group.",
-      "canonStatus": "canon",
-      "truthStatus": "true",
-      "validFrom": "1991-09-01",
-      "validTo": "1998-08-31",
-      "branchId": "main",
-      "whoKnowsTruth": [],
-      "publicVersion": "Ron is a Gryffindor student from the Weasley family.",
-      "revealPolicy": "public",
-      "activeWhen": {
-        "erasAny": [],
-        "locationsAny": [
-          "Hogwarts",
-          "Gryffindor"
-        ],
-        "charactersPresentAny": [
-          "Ron",
-          "Ron Weasley"
-        ],
-        "tagsAny": [
-          "Ron",
-          "Weasley"
-        ]
-      },
       "priority": 75,
       "status": "active",
-      "source": "canon-lore-db:characters/core_students.json",
+      "protected": false,
       "locked": true,
-      "content": {},
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.dh.year_7",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 10469,
+        "precision": "date_window",
+        "windowKind": "series",
+        "label": "1991-09-01 to 1998-08-31",
+        "approximate": false
+      },
       "scope": {
         "characters": [
-          "Ron Weasley"
+          "Ron Weasley",
+          "Ron"
         ],
         "locations": [
           "Hogwarts",
-          "Gryffindor Tower"
+          "Gryffindor Tower",
+          "Gryffindor"
         ],
         "factions": [
           "Gryffindor",
@@ -231,7 +269,9 @@
         "topics": [
           "student",
           "friend group",
-          "Weasley family"
+          "Weasley family",
+          "Ron",
+          "Weasley"
         ],
         "schoolYears": [
           "Year 1",
@@ -252,66 +292,83 @@
           "Deathly Hallows"
         ]
       },
-      "date": {
-        "validFrom": "1991-09-01",
-        "validTo": "1998-08-31",
-        "precision": "date",
-        "schoolYear": null
+      "visibility": {
+        "revealPolicy": "public"
       },
-      "kind": "character_state",
-      "gateType": "character_state",
-      "protected": false,
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "low"
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "positionalBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Ron Weasley",
+            "Ron"
+          ],
+          "locationsAny": [
+            "Hogwarts",
+            "Gryffindor Tower",
+            "Gryffindor"
+          ],
+          "topicsAny": [
+            "student",
+            "friend group",
+            "Weasley family",
+            "Ron",
+            "Weasley",
+            "Gryffindor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Ron Weasley is a Gryffindor student in Harry's year and part of Harry's closest friend group.",
+        "injection": "Ron Weasley is a Gryffindor student in Harry's year and part of Harry's closest friend group.",
+        "publicVersion": "Ron is a Gryffindor student from the Weasley family."
+      }
     },
     {
+      "schemaVersion": 3,
       "id": "canon_draco_malfoy_student_status",
       "title": "Draco Malfoy: Slytherin student",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
       "tags": [
         "Draco",
         "Malfoy",
         "Slytherin",
         "rival"
       ],
-      "category": "character",
-      "fact": "Draco Malfoy is a Slytherin student in Harry's year and a frequent rival or antagonist in school interactions.",
-      "canonStatus": "canon",
-      "truthStatus": "true",
-      "validFrom": "1991-09-01",
-      "validTo": "1998-08-31",
-      "branchId": "main",
-      "whoKnowsTruth": [],
-      "publicVersion": "Draco is a Slytherin student from the Malfoy family.",
-      "revealPolicy": "public",
-      "activeWhen": {
-        "erasAny": [],
-        "locationsAny": [
-          "Hogwarts",
-          "Slytherin"
-        ],
-        "charactersPresentAny": [
-          "Draco",
-          "Draco Malfoy"
-        ],
-        "tagsAny": [
-          "Draco",
-          "Malfoy",
-          "Slytherin"
-        ]
-      },
       "priority": 75,
       "status": "active",
-      "source": "canon-lore-db:characters/core_students.json",
+      "protected": false,
       "locked": true,
-      "content": {},
+      "userEditable": true,
+      "position": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.dh.year_7",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 10469,
+        "precision": "date_window",
+        "windowKind": "series",
+        "label": "1991-09-01 to 1998-08-31",
+        "approximate": false
+      },
       "scope": {
         "characters": [
-          "Draco Malfoy"
+          "Draco Malfoy",
+          "Draco"
         ],
         "locations": [
           "Hogwarts",
-          "Slytherin common room"
+          "Slytherin common room",
+          "Slytherin"
         ],
         "factions": [
           "Slytherin",
@@ -320,7 +377,10 @@
         "topics": [
           "student",
           "rival",
-          "school antagonist"
+          "school antagonist",
+          "Draco",
+          "Malfoy",
+          "Slytherin"
         ],
         "schoolYears": [
           "Year 1",
@@ -341,18 +401,38 @@
           "Deathly Hallows"
         ]
       },
-      "date": {
-        "validFrom": "1991-09-01",
-        "validTo": "1998-08-31",
-        "precision": "date",
-        "schoolYear": null
+      "visibility": {
+        "revealPolicy": "public"
       },
-      "kind": "character_state",
-      "gateType": "character_state",
-      "protected": false,
-      "userEditable": true,
-      "canon": "canon",
-      "relevance": "low"
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "positionalBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Draco Malfoy",
+            "Draco"
+          ],
+          "locationsAny": [
+            "Hogwarts",
+            "Slytherin common room",
+            "Slytherin"
+          ],
+          "topicsAny": [
+            "student",
+            "rival",
+            "school antagonist",
+            "Draco",
+            "Malfoy",
+            "Slytherin"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Draco Malfoy is a Slytherin student in Harry's year and a frequent rival or antagonist in school interactions.",
+        "injection": "Draco Malfoy is a Slytherin student in Harry's year and a frequent rival or antagonist in school interactions.",
+        "publicVersion": "Draco is a Slytherin student from the Malfoy family."
+      }
     }
   ]
 }
