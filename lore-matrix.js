@@ -268,7 +268,7 @@ export function normalizeLorePosition(input = {}) {
     const sortKeyFrom = asOptionalNumber(raw.sortKeyFrom ?? raw.fromSortKey ?? raw.sortKeyStart);
     const sortKeyTo = asOptionalNumber(raw.sortKeyTo ?? raw.toSortKey ?? raw.sortKeyEnd);
     return {
-        anchorId: asFirstLooseString(raw.anchorId, raw.anchor, raw.id, input.anchorId),
+        anchorId: asFirstLooseString(raw.anchorId, raw.anchor, raw.id),
         validFromAnchor: asFirstLooseString(raw.validFromAnchor, raw.anchorFrom, raw.fromAnchor, raw.from, input.validFromAnchor),
         validToAnchor: asFirstLooseString(raw.validToAnchor, raw.anchorTo, raw.toAnchor, raw.to, input.validToAnchor),
         arc: asFirstLooseString(raw.arc, raw.arcId, input.arc),

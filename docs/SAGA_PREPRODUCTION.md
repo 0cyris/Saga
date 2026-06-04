@@ -1129,11 +1129,11 @@ Mitigation: Build a runtime index, cache loaded manifests, score candidates in s
 
 The initial Lorepack foundation is implemented: `hp-golden-trio` is scaffolded, the Lorepack loader preserves legacy `Lore/manifest.json` fallback, canon suggestions route through the active stack, the Lorepack tab owns library/stack workflows, Story Position v1 exists, Theme Packs exist, and provider settings now live in the runtime Settings tab.
 
-The next production slice is **position-aware Lorepack retrieval**. Build it in small, behavior-preserving steps:
+The current production slice is **position-aware Lorepack retrieval**. Build it in small, behavior-preserving steps:
 
-1. Normalize entry-level `position` metadata in the lore entry pipeline while preserving legacy `date` and `canonTiming` behavior.
-2. Evaluate entry `position` gates against each loaded Lorepack's `lorepackContexts` without blocking legacy HP date-gated entries.
-3. Route position eligibility into canon suggestion candidate selection and relevance scoring.
-4. Add visible source and position/gating chips on suggested and pending lore cards.
-5. Expand Pack Health for broken anchor references, invalid position windows, and entries that can never match a known Story Position.
-6. Add focused tests for position normalization, HP legacy date compatibility, and a non-date anchor-window example.
+1. Done: normalize entry-level `position` metadata in the lore entry pipeline while preserving legacy `date` and `canonTiming` behavior.
+2. Done: evaluate entry `position` gates against each loaded Lorepack's `lorepackContexts` without blocking legacy HP date-gated entries.
+3. Done: route position eligibility into canon suggestion candidate selection and relevance scoring.
+4. Done: add visible source and position/gating chips on suggested and pending lore cards.
+5. Next: expand Pack Health for broken anchor references, invalid position windows, and entries that can never match a known Story Position.
+6. Add focused tests for HP legacy date compatibility and a non-date anchor-window example beyond the current smoke coverage.

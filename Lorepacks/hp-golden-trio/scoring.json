@@ -2,6 +2,8 @@
   "schemaVersion": 2,
   "weights": {
     "dateMatch": 30,
+    "positionMatch": 30,
+    "positionUnresolvedPenalty": -8,
     "characterMatch": 25,
     "locationMatch": 12,
     "topicMatch": 18,

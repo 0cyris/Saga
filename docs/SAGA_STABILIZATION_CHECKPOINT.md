@@ -16,6 +16,8 @@ This checkpoint records the current production baseline before starting position
 - Runtime Settings tab exists at the end of the shelf UI.
 - Provider settings have moved from the extension dropdown into the runtime Settings tab.
 - Theme Pack foundation exists for bundled and installed Custom Theme Packs, JSON import/export, color tokens, icon overrides, and advisory accessibility checks.
+- Entry-level `position` metadata normalizes through the lore pipeline.
+- Story Position gate evaluation exists as a reusable pure helper, with unresolved gates kept eligible by default until retrieval is intentionally wired.
 
 ## Validation Run
 
@@ -46,7 +48,8 @@ Passed:
 
 Position-aware Lorepack retrieval:
 
-- Normalize entry-level `position` metadata.
-- Evaluate entry position gates against loaded Lorepack Story Positions.
-- Preserve existing HP date-gated behavior while adding cross-fandom anchor/arc/phase support.
-- Route position eligibility into canon suggestions, relevance, source chips, and Pack Health.
+- Done: normalize entry-level `position` metadata.
+- Done: evaluate entry position gates against loaded Lorepack Story Positions.
+- Done: preserve existing HP date-gated behavior while routing position eligibility into canon suggestions and relevance scoring.
+- Done: add source chips and position/gating chips to suggested and pending lore cards.
+- Next: expand Pack Health checks for invalid position references, broken anchor windows, and entries that can never match a known Story Position.

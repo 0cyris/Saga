@@ -3136,6 +3136,44 @@
 .wandlight-lore-badge-only-if-user-reveals { color: #d8b8f0; background: rgba(100, 65, 150, 0.22); }
 .wandlight-lore-badge-muted { color: #a8a8a8; background: rgba(80, 80, 80, 0.2); }
 .wandlight-lore-badge-pinned { color: #f0d080; background: rgba(170, 120, 35, 0.25); }
+.wandlight-lore-badge-saga-meta {
+    display: inline-block;
+    max-width: 190px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: bottom;
+}
+.wandlight-lore-badge-source {
+    color: #9dd5c6;
+    background: rgba(42, 112, 96, 0.24);
+    border-color: rgba(119, 196, 174, 0.28);
+}
+.wandlight-lore-badge-source-detail {
+    color: #c8d8e0;
+    background: rgba(70, 100, 120, 0.22);
+    border-color: rgba(150, 180, 195, 0.22);
+}
+.wandlight-lore-badge-position,
+.wandlight-lore-badge-position-match {
+    color: #bdd7ff;
+    background: rgba(62, 95, 155, 0.24);
+    border-color: rgba(135, 165, 220, 0.26);
+}
+.wandlight-lore-badge-date-gate {
+    color: #d8cfaa;
+    background: rgba(132, 116, 62, 0.24);
+    border-color: rgba(198, 178, 108, 0.24);
+}
+.wandlight-lore-badge-position-unresolved {
+    color: #f0c98f;
+    background: rgba(154, 102, 44, 0.24);
+    border-color: rgba(220, 162, 86, 0.28);
+}
+.wandlight-lore-badge-position-blocked {
+    color: #efa6a6;
+    background: rgba(148, 56, 56, 0.24);
+    border-color: rgba(218, 112, 112, 0.3);
+}
 
 /* ── Metadata dropdown chips ─────────────────────────────────────────────── */
 .wandlight-lore-meta-select-wrap {

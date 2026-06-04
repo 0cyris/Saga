@@ -699,7 +699,7 @@ Supported date precision values:
 
 It should be optional in MVP but should become the preferred cross-fandom timeline layer.
 
-Implementation status: entries now normalize and preserve `position` metadata. Eligibility and scoring against active Lorepack Story Position are the next production step.
+Implementation status: entries normalize and preserve `position` metadata, Saga evaluates position gates against active Lorepack Story Position, retrieval/scoring now uses those gates, and suggested/pending lore cards display source plus position/gating chips.
 
 ### Position Fields
 
@@ -1337,6 +1337,8 @@ Existing fields:
   "schemaVersion": 2,
   "weights": {
     "dateMatch": 30,
+    "positionMatch": 30,
+    "positionUnresolvedPenalty": -8,
     "characterMatch": 25,
     "locationMatch": 12,
     "topicMatch": 18,
@@ -1358,6 +1360,7 @@ Saga additions:
   "schemaVersion": 3,
   "weights": {
     "positionMatch": 30,
+    "positionUnresolvedPenalty": -8,
     "anchorProximity": 16,
     "tagMatch": 18,
     "packStack": 10,
@@ -1372,6 +1375,13 @@ Saga additions:
   }
 }
 ```
+
+Current retrieval behavior:
+
+- Entries with no `position` block keep legacy date-window behavior.
+- Entries with a matching `position` block can qualify even when no parseable date exists.
+- A mismatched `position` block blocks the entry.
+- An unresolved `position` block falls back to legacy date matching and receives `positionUnresolvedPenalty` when it still qualifies by date.
 
 These values are a draft. Pack stack order should influence tie-breaks and candidate ranking without making top packs blindly suppress useful lower-pack entries.
 

@@ -18,6 +18,8 @@ import { normalizeLoreMatrix, buildLoreGenerationKey } from './lore-matrix.js';
 import { preprocessPendingLoreEntries } from './pending-lore-preprocessor.js';
 import { normalizeLorePurpose, computeSpecificityScore, isSpecificLorePurpose } from './lore-relevance.js';
 import { combineLorepackHealth, fetchJson, loadLorepackStackSources } from './lorepack-loader.js';
+import { evaluateEntryPositionGate, POSITION_GATE_STATUSES } from './story-position-gating.js';
+import { getStoryPositionIndexSync, loadStoryPositionIndex } from './story-position-index.js';
 
 let _dbCache = null;
 let _dbLoadPromise = null;
@@ -88,6 +90,8 @@ export const DEFAULT_SCORING = Object.freeze({
     schemaVersion: 2,
     weights: {
         dateMatch: 30,
+        positionMatch: 30,
+        positionUnresolvedPenalty: -8,
         characterMatch: 25,
         locationMatch: 12,
         topicMatch: 18,
@@ -407,6 +411,97 @@ function dateInRange(sceneIso, entry) {
     return sceneIso >= from && sceneIso <= to;
 }
 
+function hasDateWindow(entry = {}) {
+    const date = entry?.date || {};
+    return Boolean(date.validFrom || date.validTo || entry.validFrom || entry.validTo);
+}
+
+async function getCanonPositionIndex(options = {}) {
+    if (options.positionIndex !== undefined) return options.positionIndex;
+    try {
+        return await loadStoryPositionIndex({ force: options.forcePositionIndex === true });
+    } catch (e) {
+        console.warn(`${LOG_PREFIX} Story Position index unavailable for canon scoring:`, e);
+        return getStoryPositionIndexSync();
+    }
+}
+
+function evaluateCanonEntryEligibility(entry, state, context, sceneIso, options = {}) {
+    const positionGate = evaluateEntryPositionGate(entry, state, {
+        index: options.positionIndex || null,
+        unresolvedEligible: true,
+    });
+    const dateMatches = dateInRange(sceneIso, entry);
+    const dateWindow = hasDateWindow(entry);
+
+    if (positionGate.status === POSITION_GATE_STATUSES.NO_GATE) {
+        return {
+            eligible: dateMatches,
+            matchedBy: dateMatches ? 'date' : 'none',
+            dateMatches,
+            dateWindow,
+            positionGate,
+        };
+    }
+
+    if (positionGate.status === POSITION_GATE_STATUSES.MISMATCH) {
+        return {
+            eligible: false,
+            matchedBy: 'position_mismatch',
+            dateMatches,
+            dateWindow,
+            positionGate,
+        };
+    }
+
+    if (positionGate.status === POSITION_GATE_STATUSES.UNRESOLVED) {
+        return {
+            eligible: dateMatches,
+            matchedBy: dateMatches ? 'date_unresolved_position' : 'unresolved_position',
+            dateMatches,
+            dateWindow,
+            positionGate,
+        };
+    }
+
+    if (dateWindow && sceneIso && !dateMatches) {
+        return {
+            eligible: false,
+            matchedBy: 'date_contradicts_position',
+            dateMatches,
+            dateWindow,
+            positionGate,
+        };
+    }
+
+    return {
+        eligible: true,
+        matchedBy: dateMatches ? 'date_position' : 'position',
+        dateMatches,
+        dateWindow,
+        positionGate,
+    };
+}
+
+function getPositionGateScore(positionGate = {}, scoring = DEFAULT_SCORING) {
+    const weights = scoring.weights || DEFAULT_SCORING.weights;
+    if (positionGate.status === POSITION_GATE_STATUSES.MATCH) return Number(weights.positionMatch) || 30;
+    if (positionGate.status === POSITION_GATE_STATUSES.UNRESOLVED) return Number(weights.positionUnresolvedPenalty) || -8;
+    return 0;
+}
+
+function compactPositionGateMeta(eligibility = {}) {
+    const gate = eligibility.positionGate || {};
+    return {
+        status: gate.status || POSITION_GATE_STATUSES.NO_GATE,
+        hasGate: gate.hasGate === true,
+        eligible: eligibility.eligible === true,
+        matchedBy: eligibility.matchedBy || '',
+        reason: gate.reason || '',
+        packId: gate.packId || eligibility.packId || '',
+    };
+}
+
 function lowerTokens(values) {
     return (Array.isArray(values) ? values : [values])
         .flatMap(value => String(value || '').toLowerCase().split(/[^a-z0-9]+/i))
@@ -434,7 +529,7 @@ function flattenScope(scope = {}) {
     return values;
 }
 
-function scoreCanonEntry(entry, state, context, sceneIso, scoring = DEFAULT_SCORING) {
+function scoreCanonEntry(entry, state, context, sceneIso, scoring = DEFAULT_SCORING, options = {}) {
     let score = 0;
     const weights = scoring.weights || DEFAULT_SCORING.weights;
     const kindBoosts = scoring.kindBoosts || DEFAULT_SCORING.kindBoosts;
@@ -448,6 +543,9 @@ function scoreCanonEntry(entry, state, context, sceneIso, scoring = DEFAULT_SCOR
         const span = from && to ? Math.max(0, (Date.parse(to) - Date.parse(from)) / 86400000) : 9999;
         const base = Number(weights.dateMatch) || 30;
         score += span <= 14 ? base : span <= 60 ? Math.round(base * 0.75) : span <= 365 ? Math.round(base * 0.45) : 4;
+    }
+    if (options.positionGate) {
+        score += getPositionGateScore(options.positionGate, scoring);
     }
 
     const present = state?.scene?.presentCharacters || [];
@@ -481,6 +579,19 @@ function scoreCanonEntry(entry, state, context, sceneIso, scoring = DEFAULT_SCOR
     if (Number.isFinite(stackIndex) && stackIndex < 9999) score += Math.max(0, 12 - (stackIndex * 2));
 
     return score;
+}
+
+function buildCanonCandidateItem(entry, state, context, sceneIso, scoring = DEFAULT_SCORING, options = {}) {
+    const eligibility = evaluateCanonEntryEligibility(entry, state, context, sceneIso, options);
+    if (!eligibility.eligible) return null;
+    const score = scoreCanonEntry(entry, state, context, sceneIso, scoring, {
+        positionGate: eligibility.positionGate,
+    });
+    return {
+        entry,
+        score,
+        eligibility,
+    };
 }
 
 function canonPriorityBand(priority = 50) {
@@ -1198,7 +1309,7 @@ function buildCanonPreviewPacks(entries = [], { schoolYear = null, sceneIso = ''
         packs.push({
             id: 'all_active',
             label: 'All Active Constraints',
-            description: 'Every active non-reference canon constraint matching the current date window.',
+            description: 'Every active non-reference canon constraint matching the current date or Story Position.',
             entryIds: dedupeIds(activeEntries.map(entry => entry.id)),
             totalCount: activeEntries.length,
             newCount: activeEntries.filter(addable).length,
@@ -1222,26 +1333,27 @@ export async function queryCanonLoreDatabase(context = null, options = {}) {
     const sceneDate = effectiveContext.sceneDate || state?.canon?.inUniverseDate || '';
     const sceneIso = parseCanonDbDate(sceneDate);
 
-    if (!sceneIso) {
-        return { status: 'no_date', entries: [], matchedCount: 0, sceneIso: '' };
-    }
-
     const db = await loadCanonLoreDatabase();
+    const positionIndex = await getCanonPositionIndex(options);
     const max = Math.max(1, Math.min(200, Number(options.maxEntries ?? settings.canonLoreMaxEntries) || 10));
     const candidates = db.entries
         .filter(entry => isSpecificLorePurpose(normalizeLorePurpose(entry.lorePurpose || entry.purpose, entry)))
         .filter(entry => entry.injectableByDefault !== false)
         .filter(entry => shouldSuggestCanonEntryByDefault(entry))
-        .filter(entry => dateInRange(sceneIso, entry))
-        .map(entry => ({ entry, score: scoreCanonEntry(entry, state, effectiveContext, sceneIso, db.scoring) }))
+        .map(entry => buildCanonCandidateItem(entry, state, effectiveContext, sceneIso, db.scoring, { positionIndex }))
+        .filter(Boolean)
         .filter(item => item.score > 0);
     const selectedCandidates = selectPriorityAwareCanonCandidates(candidates, max);
 
     return {
-        status: candidates.length ? 'matched' : 'empty',
+        status: candidates.length ? 'matched' : sceneIso ? 'empty' : 'no_date',
         entries: selectedCandidates.map(item => compactPendingCanonEntryForStorage({
             ...item.entry,
             source: item.entry.source || CANON_DB_SOURCE,
+            extensions: {
+                ...(item.entry.extensions || {}),
+                sagaPositionGate: compactPositionGateMeta(item.eligibility),
+            },
         })),
         matchedCount: candidates.length,
         sceneIso,
@@ -1261,17 +1373,14 @@ export async function previewCanonLoreForContext(context = null, options = {}) {
     const sceneDate = effectiveContext.sceneDate || currentState?.canon?.inUniverseDate || '';
     const sceneIso = parseCanonDbDate(sceneDate);
 
-    if (!sceneIso) {
-        return { status: 'no_date', entries: [], packs: [], matchedCount: 0, sceneIso: '' };
-    }
-
     const db = await loadCanonLoreDatabase();
+    const positionIndex = await getCanonPositionIndex(options);
     const maxCandidates = Math.max(10, Math.min(500, Number(options.maxCandidates ?? 300) || 300));
     const candidateItems = db.entries
         .filter(entry => isSpecificLorePurpose(normalizeLorePurpose(entry.lorePurpose || entry.purpose, entry)))
         .filter(entry => entry.injectableByDefault !== false)
-        .filter(entry => dateInRange(sceneIso, entry))
-        .map(entry => ({ entry, score: scoreCanonEntry(entry, currentState, effectiveContext, sceneIso, db.scoring) }))
+        .map(entry => buildCanonCandidateItem(entry, currentState, effectiveContext, sceneIso, db.scoring, { positionIndex }))
+        .filter(Boolean)
         .filter(item => item.score > 0)
         .sort(sortCanonCandidates)
         .slice(0, maxCandidates);
@@ -1282,12 +1391,19 @@ export async function previewCanonLoreForContext(context = null, options = {}) {
         const compact = compactPendingCanonEntryForStorage({
             ...item.entry,
             source: item.entry.source || CANON_DB_SOURCE,
+            extensions: {
+                ...(item.entry.extensions || {}),
+                sagaPositionGate: compactPositionGateMeta(item.eligibility),
+            },
         });
         const duplicateMeta = getCanonPreviewDuplicateMeta(compact, keySets);
         compact.extensions = {
             ...(compact.extensions || {}),
             canonPreview: {
                 score: item.score,
+                matchedBy: item.eligibility?.matchedBy || '',
+                positionGateStatus: item.eligibility?.positionGate?.status || '',
+                positionGateReason: item.eligibility?.positionGate?.reason || '',
                 ...previewConfig,
                 duplicateStatus: duplicateMeta.duplicateStatus,
                 duplicateReason: duplicateMeta.duplicateReason,
@@ -1317,7 +1433,7 @@ export async function previewCanonLoreForContext(context = null, options = {}) {
     const newCount = entries.filter(entry => entry.extensions?.canonPreview?.duplicateStatus === 'new').length;
 
     return {
-        status: entries.length ? 'preview' : 'empty',
+        status: entries.length ? 'preview' : sceneIso ? 'empty' : 'no_date',
         source: CANON_DB_SOURCE,
         entries,
         packs,
@@ -1472,7 +1588,7 @@ export async function proposeCanonLoreForContext(context = null, options = {}) {
         contextKey: buildLoreGenerationKey(state),
         source: CANON_DB_SOURCE,
         status: 'pending',
-        summary: `Local canon database proposed ${entries.length} entries for ${query.sceneIso}.`,
+        summary: `Local canon database proposed ${entries.length} entries for ${query.sceneIso || 'active Story Position'}.`,
         rawEntryCount: query.entries.length,
         validEntryCount: entries.length,
         createdAt: Date.now(),
@@ -1486,3 +1602,11 @@ export async function proposeCanonLoreForContext(context = null, options = {}) {
     progress?.(`Canon database proposed ${entries.length} pending lore entries.`, 100);
     return { ...query, status: 'proposed', entries, proposedCount: entries.length, dropped: filtered.dropped };
 }
+
+export const __canonLoreDbTestHooks = {
+    dateInRange,
+    evaluateCanonEntryEligibility,
+    scoreCanonEntry,
+    buildCanonCandidateItem,
+    compactPositionGateMeta,
+};

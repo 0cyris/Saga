@@ -1197,6 +1197,7 @@ function prePruneLoreEntryForNormalization(entry) {
     pruned.tags = prePruneStringArray(entry.tags, 10, 40);
     const generation = entry.extensions?.wandlightGeneration;
     const sagaLorepack = entry.extensions?.sagaLorepack;
+    const sagaPositionGate = entry.extensions?.sagaPositionGate;
     const relevanceMigration = entry.extensions?.relevanceMigration;
     const autoRelevance = entry.extensions?.autoRelevance;
     const pendingReview = entry.extensions?.wandlightPendingReview;
@@ -1228,13 +1229,12 @@ function prePruneLoreEntryForNormalization(entry) {
         };
     }
     if (sagaLorepack && typeof sagaLorepack === 'object') {
-        extensions.sagaLorepack = {
-            packId: truncateText(sagaLorepack.packId, 120),
-            packType: truncateText(sagaLorepack.packType, 40),
-            packTitle: truncateText(sagaLorepack.packTitle, 160),
-            file: truncateText(sagaLorepack.file, 240),
-            stackPriority: Number.isFinite(Number(sagaLorepack.stackPriority)) ? Number(sagaLorepack.stackPriority) : 0,
-        };
+        const compact = compactSagaLorepackExtension(sagaLorepack);
+        if (compact) extensions.sagaLorepack = compact;
+    }
+    if (sagaPositionGate && typeof sagaPositionGate === 'object') {
+        const compact = compactSagaPositionGateExtension(sagaPositionGate);
+        if (compact) extensions.sagaPositionGate = compact;
     }
     if (relevanceMigration && typeof relevanceMigration === 'object') extensions.relevanceMigration = {
         migratedAt: Number.isFinite(Number(relevanceMigration.migratedAt)) ? Number(relevanceMigration.migratedAt) : 0,
@@ -1287,6 +1287,89 @@ function compactStringMapForStorage(value, limit = 16, textLimit = 120) {
 }
 
 
+function compactSagaLorepackExtension(sagaLorepack = {}) {
+    if (!sagaLorepack || typeof sagaLorepack !== 'object' || Array.isArray(sagaLorepack)) return null;
+    const compact = {
+        packId: truncateText(sagaLorepack.packId, 120),
+        packType: truncateText(sagaLorepack.packType, 40),
+        packTitle: truncateText(sagaLorepack.packTitle, 160),
+        file: truncateText(sagaLorepack.file, 240),
+        stackPriority: Number.isFinite(Number(sagaLorepack.stackPriority)) ? Number(sagaLorepack.stackPriority) : 0,
+        stackIndex: Number.isFinite(Number(sagaLorepack.stackIndex)) ? Number(sagaLorepack.stackIndex) : 0,
+    };
+    return Object.values(compact).some(value => value !== '' && value !== 0) ? compact : null;
+}
+
+function compactSagaPositionGateExtension(gate = {}) {
+    if (!gate || typeof gate !== 'object' || Array.isArray(gate)) return null;
+    const compact = {
+        status: truncateText(gate.status, 40),
+        hasGate: gate.hasGate === true,
+        eligible: gate.eligible === true,
+        matchedBy: truncateText(gate.matchedBy, 60),
+        reason: truncateText(gate.reason, 240),
+        packId: truncateText(gate.packId, 120),
+    };
+    return Object.values(compact).some(value => value !== '' && value !== false) ? compact : null;
+}
+
+function hasCompactPositionValue(position = {}) {
+    if (!position || typeof position !== 'object' || Array.isArray(position)) return false;
+    return Object.entries(position).some(([key, value]) => {
+        if (key === 'approximate') return value === true;
+        if (value === null || value === undefined || value === '') return false;
+        return Number.isFinite(Number(value)) || String(value || '').trim() !== '';
+    });
+}
+
+function compactLorePositionForStorage(position = {}) {
+    if (!position || typeof position !== 'object' || Array.isArray(position)) return null;
+    const compact = {
+        anchorId: truncateText(position.anchorId, 180),
+        validFromAnchor: truncateText(position.validFromAnchor, 180),
+        validToAnchor: truncateText(position.validToAnchor, 180),
+        arc: truncateText(position.arc, 180),
+        arcId: truncateText(position.arcId, 180),
+        phase: truncateText(position.phase, 180),
+        phaseId: truncateText(position.phaseId, 180),
+        season: truncateText(position.season, 80),
+        episode: truncateText(position.episode, 80),
+        chapter: truncateText(position.chapter, 80),
+        issue: truncateText(position.issue, 80),
+        quest: truncateText(position.quest, 180),
+        gameStage: truncateText(position.gameStage, 180),
+        stardateFrom: truncateText(position.stardateFrom, 80),
+        stardateTo: truncateText(position.stardateTo, 80),
+        sortKeyFrom: Number.isFinite(Number(position.sortKeyFrom)) ? Number(position.sortKeyFrom) : null,
+        sortKeyTo: Number.isFinite(Number(position.sortKeyTo)) ? Number(position.sortKeyTo) : null,
+        precision: truncateText(position.precision, 80),
+        label: truncateText(position.label, 180),
+        approximate: position.approximate === true,
+    };
+    return hasCompactPositionValue(compact) ? compact : null;
+}
+
+function compactLoreCoordinatesForStorage(coordinates = []) {
+    return (Array.isArray(coordinates) ? coordinates : [])
+        .map(coordinate => {
+            if (!coordinate || typeof coordinate !== 'object' || Array.isArray(coordinate)) return null;
+            const compact = {
+                axis: truncateText(coordinate.axis, 120),
+                id: truncateText(coordinate.id, 160),
+                label: truncateText(coordinate.label, 180),
+                from: truncateText(coordinate.from, 180),
+                to: truncateText(coordinate.to, 180),
+                sortKeyFrom: Number.isFinite(Number(coordinate.sortKeyFrom)) ? Number(coordinate.sortKeyFrom) : null,
+                sortKeyTo: Number.isFinite(Number(coordinate.sortKeyTo)) ? Number(coordinate.sortKeyTo) : null,
+                confidence: Number.isFinite(Number(coordinate.confidence)) ? Math.max(0, Math.min(1, Number(coordinate.confidence))) : 1,
+                required: coordinate.required !== false,
+            };
+            return hasCompactPositionValue(compact) ? compact : null;
+        })
+        .filter(Boolean)
+        .slice(0, 24);
+}
+
 function compactLoreExtensionsForStorage(normalized) {
     const out = {};
     const generation = normalized?.extensions?.wandlightGeneration;
@@ -1316,6 +1399,12 @@ function compactLoreExtensionsForStorage(normalized) {
             targetTotal: Number.isFinite(Number(generation.targetTotal)) ? Number(generation.targetTotal) : 0,
         };
     }
+    const sagaLorepack = normalized?.extensions?.sagaLorepack;
+    const compactLorepack = compactSagaLorepackExtension(sagaLorepack);
+    if (compactLorepack) out.sagaLorepack = compactLorepack;
+    const sagaPositionGate = normalized?.extensions?.sagaPositionGate;
+    const compactPositionGate = compactSagaPositionGateExtension(sagaPositionGate);
+    if (compactPositionGate) out.sagaPositionGate = compactPositionGate;
     const relevanceMigration = normalized?.extensions?.relevanceMigration;
     if (relevanceMigration && typeof relevanceMigration === 'object') out.relevanceMigration = {
         migratedAt: Number.isFinite(Number(relevanceMigration.migratedAt)) ? Number(relevanceMigration.migratedAt) : 0,
@@ -1337,6 +1426,8 @@ function compactLoreExtensionsForStorage(normalized) {
 
 function compactLoreEntryForStorage(entry) {
     const normalized = normalizeLoreEntry(prePruneLoreEntryForNormalization(entry || {}));
+    const position = compactLorePositionForStorage(normalized.position);
+    const coordinates = compactLoreCoordinatesForStorage(normalized.coordinates);
     return {
         schemaVersion: normalized.schemaVersion || 2,
         id: truncateText(normalized.id, 140),
@@ -1379,6 +1470,8 @@ function compactLoreEntryForStorage(entry) {
             book: truncateText(normalized.canonTiming?.book, 100),
             label: truncateText(normalized.canonTiming?.label, 140),
         },
+        ...(position ? { position } : {}),
+        ...(coordinates.length ? { coordinates } : {}),
         activation: {
             requiresEvents: compactStringArray(normalized.activation?.requiresEvents, 10, 100),
             requiresMissingEvents: compactStringArray(normalized.activation?.requiresMissingEvents, 10, 100),

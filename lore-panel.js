@@ -6769,6 +6769,7 @@ function createCanonPreviewEntryRow(entry, selectedIds, isStale = false) {
     const meta = document.createElement('div');
     meta.className = 'wandlight-lore-entry-meta wandlight-canon-preview-row-meta';
     const previewMeta = entry?.extensions?.canonPreview || {};
+    appendEntrySourceAndPositionBadges(meta, entry);
     if (entry?.category) meta.appendChild(createBadge(entry.category, 'Canon entry category.'));
     if (entry?.lorePurpose) meta.appendChild(createBadge(LORE_PURPOSE_LABELS[entry.lorePurpose] || entry.lorePurpose, 'Why this canon entry would be useful.'));
     if (previewMeta.suggestionRole) meta.appendChild(createBadge(previewMeta.suggestionRole.replace(/_/g, ' '), 'Canon preview role used for pack sorting.'));
@@ -10519,6 +10520,7 @@ function createPendingLoreReviewCard(entry, index, selected = false) {
     meta.appendChild(createRegistryBadge('category', entry.category || 'other', `Category: ${entry.category || 'other'}. Pending cards use the same compact metadata style as accepted cards.`));
     meta.appendChild(createLorePurposeBadge(entry));
     meta.appendChild(createRegistryBadge('canonStatus', entry.canon || entry.canonStatus || 'canon', `Canon/Story: ${entry.canon || entry.canonStatus || 'canon'}.`));
+    appendEntrySourceAndPositionBadges(meta, entry);
     meta.appendChild(createBadge(`P${Number(entry.priority || 50)}`, 'Priority used for sorting, injection preference, and canon-lore suggestion limits.'));
     const generation = entry.extensions?.wandlightGeneration || {};
     const reviewMeta = entry.extensions?.wandlightPendingReview || {};
@@ -13219,6 +13221,217 @@ function createSpellMetadataBadges(entry) {
     }
 
     return row;
+}
+
+function cleanLoreChipText(value, maxLength = 160) {
+    return truncateText(String(value ?? '').trim(), maxLength);
+}
+
+function getEntrySagaLorepackMeta(entry = {}) {
+    const raw = isPlainObjectValue(entry.extensions?.sagaLorepack) ? entry.extensions.sagaLorepack : {};
+    const sourceInfo = isPlainObjectValue(entry.sourceInfo) ? entry.sourceInfo : {};
+    const packId = cleanLoreChipText(raw.packId || entry.packId || entry.lorepackId || sourceInfo.packId, 120);
+    const fallbackTitle = packId ? getLorepackDisplayName(packId) : '';
+    return {
+        packId,
+        packType: cleanLoreChipText(raw.packType, 40),
+        packTitle: cleanLoreChipText(raw.packTitle || fallbackTitle, 180),
+        file: cleanLoreChipText(raw.file || entry.sagaLorepackSourceFile, 240),
+        stackPriority: Number.isFinite(Number(raw.stackPriority)) ? Number(raw.stackPriority) : null,
+        stackIndex: Number.isFinite(Number(raw.stackIndex)) ? Number(raw.stackIndex) : null,
+    };
+}
+
+function getReadableEntrySource(entry = {}) {
+    const lorepack = getEntrySagaLorepackMeta(entry);
+    const sourceInfo = isPlainObjectValue(entry.sourceInfo) ? entry.sourceInfo : {};
+    const source = cleanLoreChipText(entry.source, 180);
+    const generation = isPlainObjectValue(entry.extensions?.wandlightGeneration) ? entry.extensions.wandlightGeneration : {};
+    const work = cleanLoreChipText(sourceInfo.work, 120);
+    const book = cleanLoreChipText(sourceInfo.book, 120);
+    const chapter = cleanLoreChipText(sourceInfo.chapter, 120);
+
+    if (lorepack.packTitle || lorepack.packId) {
+        const title = lorepack.packTitle || lorepack.packId;
+        return {
+            label: `Pack: ${truncateText(title, 34)}`,
+            tooltip: [
+                `Lorepack: ${title}`,
+                lorepack.packId ? `Pack ID: ${lorepack.packId}` : '',
+                lorepack.packType ? `Type: ${humanizeScopeKey(lorepack.packType)}` : '',
+                lorepack.file ? `File: ${lorepack.file}` : '',
+                lorepack.stackPriority !== null ? `Stack priority: ${lorepack.stackPriority}` : '',
+            ].filter(Boolean).join(' | '),
+            detailLabel: [book, chapter].filter(Boolean).join(' / ') || (work && work !== title ? work : ''),
+            detailTooltip: [work, book, chapter].filter(Boolean).join(' | '),
+        };
+    }
+
+    if (work || book || chapter) {
+        const label = work || book || chapter;
+        return {
+            label: `Source: ${truncateText(label, 32)}`,
+            tooltip: [work, book, chapter].filter(Boolean).join(' | '),
+            detailLabel: work && (book || chapter) ? [book, chapter].filter(Boolean).join(' / ') : '',
+            detailTooltip: [work, book, chapter].filter(Boolean).join(' | '),
+        };
+    }
+
+    if (source.includes('canon-lore-db')) {
+        return {
+            label: 'Source: Canon DB',
+            tooltip: 'Suggested from Saga canon Lorepack retrieval.',
+            detailLabel: '',
+            detailTooltip: '',
+        };
+    }
+
+    if (generation.mode || generation.batchId || generation.chunkId) {
+        return {
+            label: 'Source: Story Scan',
+            tooltip: generation.batchId ? `Generated by story-lore scan batch ${generation.batchId}.` : 'Generated by story-lore scan.',
+            detailLabel: '',
+            detailTooltip: '',
+        };
+    }
+
+    if (source && !['wandlight', 'model-generated', 'unknown'].includes(source.toLowerCase())) {
+        return {
+            label: `Source: ${truncateText(source, 32)}`,
+            tooltip: source,
+            detailLabel: '',
+            detailTooltip: '',
+        };
+    }
+
+    return null;
+}
+
+function createSagaMetadataBadge(label, tooltip, classes = []) {
+    const badge = createBadge(label, tooltip);
+    badge.classList.add('wandlight-lore-badge-saga-meta');
+    for (const className of classes) {
+        if (className) badge.classList.add(className);
+    }
+    return badge;
+}
+
+function createEntrySourceBadges(entry = {}) {
+    const fragment = document.createDocumentFragment();
+    const source = getReadableEntrySource(entry);
+    if (!source?.label) return fragment;
+
+    fragment.appendChild(createSagaMetadataBadge(source.label, source.tooltip || 'Lore source metadata.', ['wandlight-lore-badge-source']));
+    if (source.detailLabel) {
+        fragment.appendChild(createSagaMetadataBadge(`Ref: ${truncateText(source.detailLabel, 32)}`, source.detailTooltip || source.tooltip, ['wandlight-lore-badge-source-detail']));
+    }
+    return fragment;
+}
+
+function getEntryPositionGateMeta(entry = {}) {
+    const gate = isPlainObjectValue(entry.extensions?.sagaPositionGate) ? entry.extensions.sagaPositionGate : {};
+    const preview = isPlainObjectValue(entry.extensions?.canonPreview) ? entry.extensions.canonPreview : {};
+    const pack = getEntrySagaLorepackMeta(entry);
+    const status = cleanLoreChipText(gate.status || preview.positionGateStatus, 40);
+    const matchedBy = cleanLoreChipText(gate.matchedBy || preview.matchedBy, 60);
+    const reason = cleanLoreChipText(gate.reason || preview.positionGateReason, 240);
+    return {
+        status,
+        hasGate: gate.hasGate === true || (!!status && status !== 'no_gate'),
+        eligible: gate.eligible === undefined ? null : gate.eligible === true,
+        matchedBy,
+        reason,
+        packId: cleanLoreChipText(gate.packId || pack.packId, 120),
+    };
+}
+
+function getPositionGateChipLabel(gate = {}) {
+    const matchedBy = String(gate.matchedBy || '').trim();
+    if (matchedBy === 'date_position') return 'Gate: date + position';
+    if (matchedBy === 'position') return 'Gate: position';
+    if (matchedBy === 'date_unresolved_position') return 'Gate: date fallback';
+    if (matchedBy === 'date') return 'Gate: date';
+    if (matchedBy === 'unresolved_position') return 'Gate: unresolved';
+    if (matchedBy === 'position_mismatch' || gate.status === 'mismatch') return 'Gate: blocked';
+    if (matchedBy === 'date_contradicts_position') return 'Gate: date conflict';
+    if (gate.status === 'match') return 'Gate: position';
+    if (gate.status === 'unresolved') return 'Gate: unresolved';
+    if (gate.status === 'no_gate') return '';
+    return matchedBy ? `Gate: ${matchedBy.replace(/_/g, ' ')}` : '';
+}
+
+function getPositionGateClass(gate = {}) {
+    const matchedBy = String(gate.matchedBy || '');
+    if (gate.status === 'mismatch' || matchedBy.includes('mismatch') || matchedBy.includes('conflict')) return 'wandlight-lore-badge-position-blocked';
+    if (gate.status === 'unresolved' || matchedBy.includes('unresolved')) return 'wandlight-lore-badge-position-unresolved';
+    if (gate.status === 'match' || matchedBy.includes('position')) return 'wandlight-lore-badge-position-match';
+    if (matchedBy === 'date') return 'wandlight-lore-badge-date-gate';
+    return 'wandlight-lore-badge-position';
+}
+
+function hasEntryPositionMetadata(entry = {}) {
+    const position = isPlainObjectValue(entry.position) ? entry.position : {};
+    const positionHasValue = Object.entries(position).some(([key, value]) => {
+        if (key === 'approximate') return value === true;
+        if (value === null || value === undefined || value === '') return false;
+        return Number.isFinite(Number(value)) || String(value || '').trim() !== '';
+    });
+    const coordinates = Array.isArray(entry.coordinates) ? entry.coordinates : [];
+    return positionHasValue || coordinates.some(item => isPlainObjectValue(item)
+        && [item.axis, item.id, item.label, item.from, item.to].some(value => String(value || '').trim()));
+}
+
+function formatEntryPositionSummary(entry = {}) {
+    if (!hasEntryPositionMetadata(entry)) return '';
+    const position = isPlainObjectValue(entry.position) ? entry.position : {};
+    const parts = [];
+    if (position.label) parts.push(position.label);
+    if (position.anchorId) parts.push(`Anchor: ${position.anchorId}`);
+    if (position.validFromAnchor || position.validToAnchor) parts.push(`Window: ${position.validFromAnchor || 'start'} -> ${position.validToAnchor || 'open'}`);
+    if (position.arc) parts.push(`Arc: ${position.arc}`);
+    if (position.phase) parts.push(`Phase: ${position.phase}`);
+    if (position.season || position.episode) parts.push(`S${position.season || '?'} E${position.episode || '?'}`);
+    if (position.chapter) parts.push(`Chapter: ${position.chapter}`);
+    if (position.issue) parts.push(`Issue: ${position.issue}`);
+    if (position.quest) parts.push(`Quest: ${position.quest}`);
+    if (position.gameStage) parts.push(`Game: ${position.gameStage}`);
+    if (position.stardateFrom || position.stardateTo) parts.push(`Stardate: ${position.stardateFrom || 'start'} -> ${position.stardateTo || 'open'}`);
+    if ((Number.isFinite(Number(position.sortKeyFrom)) || Number.isFinite(Number(position.sortKeyTo))) && !parts.some(part => part.startsWith('Window:'))) {
+        parts.push(`Sort: ${position.sortKeyFrom ?? 'start'} -> ${position.sortKeyTo ?? 'open'}`);
+    }
+    const coordinates = (Array.isArray(entry.coordinates) ? entry.coordinates : [])
+        .filter(isPlainObjectValue)
+        .map(coordinate => coordinate.label || [coordinate.axis, coordinate.id || coordinate.from || coordinate.to].filter(Boolean).join(': '))
+        .filter(Boolean)
+        .slice(0, 2);
+    if (coordinates.length) parts.push(`Axis: ${coordinates.join(', ')}`);
+    return parts.join(' | ');
+}
+
+function createEntryPositionBadges(entry = {}) {
+    const fragment = document.createDocumentFragment();
+    const gate = getEntryPositionGateMeta(entry);
+    const gateLabel = getPositionGateChipLabel(gate);
+    if (gateLabel) {
+        const tooltip = [
+            `Story Position retrieval: ${gate.matchedBy || gate.status || 'unknown'}`,
+            gate.packId ? `Pack ID: ${gate.packId}` : '',
+            gate.reason,
+        ].filter(Boolean).join(' | ');
+        fragment.appendChild(createSagaMetadataBadge(gateLabel, tooltip, ['wandlight-lore-badge-position', getPositionGateClass(gate)]));
+    }
+
+    const summary = formatEntryPositionSummary(entry);
+    if (summary) {
+        fragment.appendChild(createSagaMetadataBadge(`Pos: ${truncateText(summary, 36)}`, summary, ['wandlight-lore-badge-position']));
+    }
+    return fragment;
+}
+
+function appendEntrySourceAndPositionBadges(meta, entry = {}) {
+    if (!meta) return;
+    meta.appendChild(createEntrySourceBadges(entry));
+    meta.appendChild(createEntryPositionBadges(entry));
 }
 
 function scoreSearchEntry(entry, query) {
