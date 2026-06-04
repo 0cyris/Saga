@@ -648,6 +648,49 @@
     white-space: nowrap;
 }
 
+.wandlight-status-pill-risk-low {
+    border-color: rgba(94, 178, 126, 0.42);
+    background: rgba(94, 178, 126, 0.12);
+}
+
+.wandlight-status-pill-risk-medium,
+.wandlight-status-pill-health-impact,
+.wandlight-status-pill-health-stale {
+    border-color: rgba(226, 177, 98, 0.48);
+    background: rgba(226, 177, 98, 0.13);
+}
+
+.wandlight-status-pill-risk-high {
+    border-color: rgba(219, 105, 105, 0.52);
+    background: rgba(219, 105, 105, 0.13);
+}
+
+.wandlight-status-pill-risk-unknown {
+    border-color: rgba(159, 174, 194, 0.4);
+    background: rgba(159, 174, 194, 0.1);
+}
+
+.wandlight-status-pill-quality-high {
+    border-color: rgba(94, 178, 126, 0.42);
+    background: rgba(94, 178, 126, 0.11);
+}
+
+.wandlight-status-pill-quality-medium,
+.wandlight-status-pill-quality-flag {
+    border-color: rgba(226, 177, 98, 0.48);
+    background: rgba(226, 177, 98, 0.13);
+}
+
+.wandlight-status-pill-quality-low {
+    border-color: rgba(219, 105, 105, 0.52);
+    background: rgba(219, 105, 105, 0.13);
+}
+
+.wandlight-status-pill-quality-not_applicable {
+    border-color: rgba(159, 174, 194, 0.4);
+    background: rgba(159, 174, 194, 0.1);
+}
+
 .wandlight-lore-panel-body {
     flex: 1;
     min-height: 0;
@@ -1138,6 +1181,37 @@
     opacity: 0.72;
 }
 
+.wandlight-lorepack-assistant-draft-batch {
+    gap: 7px;
+}
+
+.wandlight-lorepack-assistant-draft-row {
+    border-left-color: rgba(126, 166, 219, 0.76);
+}
+
+.wandlight-lorepack-assistant-draft-title {
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    min-width: 0;
+    cursor: pointer;
+}
+
+.wandlight-lorepack-assistant-draft-title input {
+    margin: 2px 0 0;
+    accent-color: var(--wandlight-gold, #d7b56d);
+    flex: 0 0 auto;
+}
+
+.wandlight-lorepack-assistant-revise-form {
+    padding: 0;
+    overflow: visible;
+}
+
+.wandlight-lorepack-assistant-draft-json {
+    min-height: 360px;
+}
+
 .wandlight-lorepack-entry-override-shell {
     width: min(820px, calc(100vw - 36px));
 }
@@ -1262,6 +1336,33 @@
     line-height: 1.35;
     opacity: 0.84;
     overflow-wrap: anywhere;
+}
+
+.wandlight-lorepack-health-repair-planner {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    border-top: 1px solid rgba(180, 160, 140, 0.14);
+    padding-top: 8px;
+}
+
+.wandlight-lorepack-health-repair-list {
+    max-height: 320px;
+    overflow-y: auto;
+    padding-right: 2px;
+}
+
+.wandlight-lorepack-health-repair-issue {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 7px;
+    align-items: start;
+    cursor: pointer;
+}
+
+.wandlight-lorepack-health-repair-issue input {
+    margin: 2px 0 0;
+    accent-color: var(--wandlight-gold, #d7b56d);
 }
 
 .wandlight-settings-provider-card,

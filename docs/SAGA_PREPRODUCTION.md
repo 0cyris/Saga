@@ -1058,6 +1058,21 @@ The output of scope negotiation should be a short pack brief:
 
 The user approves or revises the brief before generation proceeds.
 
+### Creator Readiness Gate
+
+Before Saga begins full Lorepack Creator development, the review layer must be strong enough to safely inspect model-generated batches.
+
+The Creator will eventually generate timelines, tag registries, title lists, and entry batches. That means a weak Pending Review surface would make generated packs feel opaque and risky. The next production work should harden review before broad generation:
+
+- Field-level diffs for entries, tags, timeline anchors, and timeline windows.
+- Clear proposal provenance, especially `lore_assistant`, `manual`, `bulk_edit`, `safe_repair`, and later `creator`.
+- Assistant proposal reason, confidence, and risk display.
+- Pack Health rerun or stale-health warning after accepting generated or assistant patches.
+- Acceptance warnings for changes that affect Story Position gates, disable entries, create undefined tags, or alter timeline anchors/windows.
+- Batch review affordances so generated title and entry batches can be accepted, rejected, or revised in chunks.
+
+This is the bridge from Lore Assistant MVP to Lorepack Creator. The Creator should reuse the same Pending Review and diff machinery instead of inventing a separate approval workflow.
+
 ### Creator Flow
 
 1. User requests a Lorepack.
@@ -1280,15 +1295,16 @@ Implemented MVP behavior:
 - Converts supported proposals into the same `pendingChanges` record-patch shape used by manual tools.
 - Marks proposal source as `lore_assistant`.
 - Shows clarifying questions when the assistant asks instead of proposing patches.
+- Pending Review now renders field-level diffs for entry, tag, and timeline record patches.
+- Requests Lore Value Rubric metadata for assistant proposals and surfaces scene utility, behavioral impact, Story Position fit, wiki-summary risk, rubric notes, and local quality flags in Pending Review.
+- Drafts now land in an Assistant Draft Batch first, where users can select proposals, queue selected/all into Pending Review, drop selected proposals, edit draft JSON, or ask the assistant to revise selected proposals before queueing.
+- Pack Health validation issues can now be selected from the editor validation preview and sent to the Lore Assistant as repair-planning context; returned repairs land in the Assistant Draft Batch before Pending Review.
 - Leaves runtime behavior unchanged until the user accepts queued Pending Review items.
 
 Not included yet:
 
 - Multi-turn assistant chat memory.
-- Accept-selected within one assistant batch beyond the existing pending row workflow.
-- Model-driven Pack Health repair plans.
 - Full Lorepack Creator staged generation.
-- Assistant edit-before-queue diff UI.
 - Automatic Pack Health rerun after accepting assistant proposals.
 
 ## Lorepack Editor
@@ -1542,4 +1558,9 @@ Recent production completed **position-native Lorepack retrieval and HP referenc
 15. Done: build the Pending Review Queue foundation for Lorepack edits, including pending record patches, accept/reject actions, and routing current manual/bulk entry and tag edits through review before activation.
 16. Done: build the Timeline Registry Editor MVP with source timeline loading, Custom overlay anchor/window editing, Pending Review routing, and runtime/Pack Health merge support.
 17. Done: begin the Lore Assistant proposal pipeline with an editable Lorepack panel, structured JSON proposal parsing, and Pending Review queue integration for entry, tag, and timeline patches.
-18. Next: add assistant proposal preview/diff controls and Pack Health rerun hooks so users can inspect assistant patches more deeply before acceptance.
+18. Done: add field-level Pending Review diffs for entry, tag, and timeline record patches so assistant/manual proposals are inspectable before acceptance.
+19. Done: add assistant proposal provenance/risk display polish and Pack Health rerun hooks so accepted entry/tag/timeline patches mark Pack Health stale until validation reruns.
+20. Done: add Lore Assistant quality-rubric guardrails and proposal review affordances so AI revisions steer toward high-value Saga lore instead of generic wiki summaries.
+21. Done: add assistant batch review controls for edit-before-queue, queue selected/all, drop selected, edit draft JSON, and revise selected proposals before they enter Pending Review.
+22. Done: wire Pack Health issue repair planning into the Lore Assistant so users can turn selected health warnings into reviewable repair proposals.
+23. Next: begin the Lorepack Creator intake scaffold with staged scope briefing, granularity selection, and title-pass generation that reuses Assistant Draft Batch review.

@@ -12,6 +12,19 @@ const ASSISTANT_SUPPORTED_ACTIONS = Object.freeze(new Set([
     'upsert_timeline_window',
 ]));
 
+const ASSISTANT_RUBRIC_LEVELS = Object.freeze(new Set(['high', 'medium', 'low', 'not_applicable']));
+
+const ASSISTANT_RUBRIC_KEYS = Object.freeze([
+    'sceneUtility',
+    'activationClarity',
+    'behavioralImpact',
+    'relationshipImpact',
+    'conflictStakes',
+    'nonRedundancy',
+    'injectionQuality',
+    'storyPositionFit',
+]);
+
 function isPlainObject(value) {
     return value && typeof value === 'object' && !Array.isArray(value);
 }
@@ -36,6 +49,46 @@ function cleanStringArray(value = [], limit = 24, maxLength = 240) {
         if (output.length >= limit) break;
     }
     return output;
+}
+
+function cleanStringList(value = [], limit = 24, maxLength = 240) {
+    if (Array.isArray(value)) return cleanStringArray(value, limit, maxLength);
+    const item = cleanString(value, maxLength);
+    return item ? [item] : [];
+}
+
+function cleanRubricLevel(value) {
+    const raw = cleanString(value, 40)
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '_')
+        .replace(/^_+|_+$/g, '');
+    if (!raw) return '';
+    if (raw === 'n_a' || raw === 'na' || raw === 'none') return 'not_applicable';
+    if (raw === 'med' || raw === 'moderate') return 'medium';
+    if (raw === 'minor' || raw === 'minimal') return 'low';
+    if (raw === 'strong') return 'high';
+    return ASSISTANT_RUBRIC_LEVELS.has(raw) ? raw : '';
+}
+
+function normalizeAssistantRubric(raw = {}) {
+    const source = isPlainObject(raw.rubric)
+        ? raw.rubric
+        : (isPlainObject(raw.qualityRubric)
+            ? raw.qualityRubric
+            : (isPlainObject(raw.quality) ? raw.quality : {}));
+    if (!isPlainObject(source)) return null;
+    const rubric = {};
+    for (const key of ASSISTANT_RUBRIC_KEYS) {
+        const level = cleanRubricLevel(source[key]);
+        if (level) rubric[key] = level;
+    }
+    const wikiRisk = cleanRubricLevel(source.wikiSummaryRisk || source.wikiRisk || raw.wikiSummaryRisk);
+    if (wikiRisk) rubric.wikiSummaryRisk = wikiRisk;
+    const notes = cleanStringList(source.notes || source.rationale || raw.qualityNotes, 6, 220);
+    if (notes.length) rubric.notes = notes;
+    const warnings = cleanStringList(source.warnings || raw.qualityWarnings, 6, 220);
+    if (warnings.length) rubric.warnings = warnings;
+    return Object.keys(rubric).length ? rubric : null;
 }
 
 function stripJsonFences(text = '') {
@@ -156,6 +209,7 @@ function normalizeAssistantProposal(raw = {}, index = 0) {
         tagDefinition,
         timelineAnchor,
         timelineWindow,
+        rubric: normalizeAssistantRubric(raw),
         disable: raw.disable === true,
         restore: raw.restore === true,
         before: isPlainObject(raw.before) ? raw.before : null,
@@ -190,6 +244,10 @@ Return JSON only. Do not include markdown.
 
 Core rule: propose changes for Pending Review. Do not claim changes are already applied.
 
+When selectedDraftProposals are supplied, revise only those draft proposals and return replacement proposals for them. Do not rewrite unrelated entries unless the user explicitly asks.
+
+When selectedHealthIssues are supplied, draft repair proposals for those Pack Health issues only. Use supported proposal actions; if an issue needs manifest/stat repair or another unsupported edit, report it in warnings or ask a clarifying question.
+
 Prioritize high-value scene context over wiki summaries:
 - Good lore changes what characters know, hide, want, fear, expect, avoid, reveal, misunderstand, or react to.
 - Avoid generic biography and encyclopedia summaries.
@@ -199,6 +257,18 @@ Prioritize high-value scene context over wiki summaries:
 - Use known timeline anchors where possible; do not invent anchor IDs unless the user asks to draft new anchors.
 - Avoid future canon leakage outside the supplied Story Position windows.
 - Ask clarifying questions when the user's creative direction is subjective or underspecified.
+
+Use the Lore Value Rubric for every proposal:
+- sceneUtility: improves dialogue, action, tension, characterization, or setting behavior.
+- activationClarity: has a clear Story Position, window, trigger, or retrieval purpose.
+- behavioralImpact: changes what characters do, say, know, believe, hide, avoid, or expect.
+- relationshipImpact: affects trust, suspicion, allegiance, intimacy, rivalry, family pressure, or social standing.
+- conflictStakes: adds danger, obligation, taboo, mystery, leverage, consequence, or pressure.
+- nonRedundancy: is distinct from nearby entries and not generic canon recap.
+- injectionQuality: is concise, direct, and useful in a prompt.
+- storyPositionFit: avoids future leakage and fits the intended activation window.
+
+Rubric levels must be "high", "medium", "low", or "not_applicable". If wikiSummaryRisk is medium or high, prefer revising the proposal or asking a clarifying question instead of sending weak lore.
 
 Supported proposal actions:
 - upsert_entry with {entry}
@@ -220,7 +290,19 @@ Output shape:
       "entry": {},
       "reason": "why this is useful scene lore",
       "confidence": 0.75,
-      "risk": "low"
+      "risk": "low",
+      "rubric": {
+        "sceneUtility": "high",
+        "activationClarity": "medium",
+        "behavioralImpact": "high",
+        "relationshipImpact": "medium",
+        "conflictStakes": "medium",
+        "nonRedundancy": "high",
+        "injectionQuality": "high",
+        "storyPositionFit": "medium",
+        "wikiSummaryRisk": "low",
+        "notes": ["Adds playable pressure instead of biography."]
+      }
     }
   ]
 }
@@ -230,14 +312,36 @@ If clarification is needed before proposing changes, return an empty proposals a
 
 export function buildLorepackAssistantUserPrompt(context = {}) {
     return JSON.stringify({
-        task: 'Draft reviewable Lorepack proposals from the user instruction.',
+        task: cleanString(context.task || 'Draft reviewable Lorepack proposals from the user instruction.', 500),
         instruction: cleanString(context.instruction, 4000),
         mode: cleanString(context.mode || 'mixed', 80),
         targetScope: cleanString(context.targetScope || 'current_filter', 80),
+        loreValueRubric: {
+            target: 'High-value scene context, not wiki completeness.',
+            prefer: [
+                'playable pressure, secrets, beliefs, fears, obligations, reactions, limits, and relationship consequences',
+                'concise injection text that changes the next scene',
+                'clear Story Position fit and retrieval purpose',
+            ],
+            avoid: [
+                'generic biography',
+                'broad encyclopedia summary',
+                'future canon leakage outside supplied Story Position windows',
+                'long injection text that repeats the fact field',
+            ],
+            rubricKeys: ASSISTANT_RUBRIC_KEYS,
+            levels: [...ASSISTANT_RUBRIC_LEVELS],
+        },
         pack: context.pack || {},
         storyPosition: context.storyPosition || {},
         allowedTimelineAnchorIds: cleanStringArray(context.allowedTimelineAnchorIds, 160, 180),
         knownTags: cleanStringArray(context.knownTags, 160, 140),
+        selectedDraftProposals: Array.isArray(context.selectedDraftProposals)
+            ? context.selectedDraftProposals.slice(0, 40)
+            : [],
+        selectedHealthIssues: Array.isArray(context.selectedHealthIssues)
+            ? context.selectedHealthIssues.slice(0, 40)
+            : [],
         targetEntries: Array.isArray(context.targetEntries) ? context.targetEntries.slice(0, 60) : [],
     }, null, 2);
 }

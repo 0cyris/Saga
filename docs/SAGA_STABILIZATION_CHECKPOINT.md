@@ -63,4 +63,9 @@ Position-aware Lorepack retrieval:
 - Done: build the Pending Review Queue foundation for Lorepack edits, including pending record patches, accept/reject actions, and routing current manual/bulk entry and tag edits through review before activation.
 - Done: build the Timeline Registry Editor MVP with source `timeline.json` loading, Custom overlay anchor/window editing, Pending Review routing, and runtime/Pack Health merge support.
 - Done: begin the Lore Assistant proposal pipeline with an editable Lorepack panel, structured JSON proposal parsing, and Pending Review queue integration for entry, tag, and timeline patches.
-- Next: add assistant proposal preview/diff controls and Pack Health rerun hooks.
+- Done: add field-level Pending Review diffs for entry, tag, and timeline record patches.
+- Done: add assistant proposal provenance/risk display polish and Pack Health rerun hooks.
+- Done: add Lore Assistant quality-rubric guardrails and proposal review affordances before deeper Lorepack Creator work.
+- Done: add assistant batch review controls for edit-before-queue, queue selected/all, drop selected, edit draft JSON, and revise selected proposals before they enter Pending Review.
+- Done: wire Pack Health issue repair planning into the Lore Assistant so users can turn selected health warnings into reviewable repair proposals.
+- Next: begin the Lorepack Creator intake scaffold with staged scope briefing, granularity selection, and title-pass generation that reuses Assistant Draft Batch review.

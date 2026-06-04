@@ -324,12 +324,14 @@ const lorepackEntryPreviewCache = new Map();
 const lorepackTagRegistryCache = new Map();
 const lorepackTimelineRegistryCache = new Map();
 const lorepackAssistantDraftCache = new Map();
+const lorepackHealthRepairSelectionCache = new Map();
 let lorepackEntryOverrideQuery = '';
 let lorepackTagManagerQuery = '';
 let lorepackTimelineRegistryQuery = '';
 let lorepackAssistantInstruction = '';
 let lorepackAssistantMode = 'revise_entries';
 let lorepackAssistantTargetScope = 'current_filter';
+let lorepackAssistantRevisionInstruction = '';
 
 const CATEGORY_LABELS = {
     all: 'All',
@@ -3259,6 +3261,8 @@ function createLorepackManifestPreview(pack) {
         validation.appendChild(createKeyValue('Schema v3', `${healthSummary.schemaV3EntryCount || 0} entries / ${healthSummary.schemaV3IssueCount || 0} issues`, 'Schema v3 conformance count from latest validation.'));
         validation.appendChild(createKeyValue('Stats Drift', String(healthSummary.manifestStatsMismatchCount || 0), 'Manifest stats mismatches from latest validation.'));
         preview.appendChild(validation);
+        const repairPanel = createLorepackHealthRepairPlanner(pack, cached.health);
+        if (repairPanel) preview.appendChild(repairPanel);
     }
 
     const fileList = document.createElement('div');
@@ -3284,6 +3288,194 @@ function createLorepackManifestPreview(pack) {
         preview.appendChild(loaded);
     }
     return preview;
+}
+
+function getLorepackHealthIssueGroups(health = null) {
+    const groups = [
+        ['error', 'Errors', Array.isArray(health?.errors) ? health.errors : []],
+        ['warning', 'Warnings', Array.isArray(health?.warnings) ? health.warnings : []],
+        ['suggestion', 'Suggestions', Array.isArray(health?.suggestions) ? health.suggestions : []],
+    ];
+    return groups.map(([severity, title, issues]) => ({
+        severity,
+        title,
+        issues: issues.map((issue, index) => normalizeLorepackHealthIssueForRepair(issue, severity, index)),
+    }));
+}
+
+function normalizeLorepackHealthIssueForRepair(issue = {}, severity = 'suggestion', index = 0) {
+    const normalized = issue && typeof issue === 'object' && !Array.isArray(issue) ? issue : {};
+    const code = String(normalized.code || severity || 'issue').trim().slice(0, 120);
+    const message = String(normalized.message || '').trim().slice(0, 1000);
+    const entryIds = normalizeLorepackPendingIdList(normalized.entryIds || normalized.affectedEntryIds || []);
+    const tagIds = normalizeLorepackTagTextList(
+        [
+            ...(Array.isArray(normalized.tagIds) ? normalized.tagIds : []),
+            ...(Array.isArray(normalized.tags) ? normalized.tags.map(tag => typeof tag === 'string' ? tag : tag?.tag).filter(Boolean) : []),
+            normalized.tag || '',
+        ],
+        80,
+        true
+    );
+    const timelineIds = normalizeLorepackPendingTimelineIdList([
+        normalized.anchorId || '',
+        normalized.timelineWindowId || '',
+        ...(Array.isArray(normalized.anchorIds) ? normalized.anchorIds : []),
+        ...(Array.isArray(normalized.timelineIds) ? normalized.timelineIds : []),
+    ]);
+    const idBase = [
+        severity,
+        code,
+        message,
+        normalized.packId || '',
+        normalized.file || '',
+        entryIds.join(','),
+        tagIds.join(','),
+        timelineIds.join(','),
+        index,
+    ].join('|');
+    return {
+        ...cloneLorepackJson(normalized),
+        issueId: `health_${hashLorepackHealthRepairIssueId(idBase)}`,
+        severity,
+        code,
+        message,
+        entryIds,
+        tagIds,
+        timelineIds,
+    };
+}
+
+function hashLorepackHealthRepairIssueId(value = '') {
+    let hash = 2166136261;
+    const text = String(value || '');
+    for (let i = 0; i < text.length; i += 1) {
+        hash ^= text.charCodeAt(i);
+        hash = Math.imul(hash, 16777619);
+    }
+    return (hash >>> 0).toString(36);
+}
+
+function getLorepackHealthRepairSelection(packId = '', health = null) {
+    const selected = new Set(lorepackHealthRepairSelectionCache.get(String(packId || '').trim()) || []);
+    const validIds = new Set(getLorepackHealthIssueGroups(health).flatMap(group => group.issues.map(issue => issue.issueId)));
+    return new Set([...selected].filter(id => validIds.has(id)));
+}
+
+function setLorepackHealthRepairSelection(packId = '', issueId = '', selected = false) {
+    const id = String(packId || '').trim();
+    const issueKey = String(issueId || '').trim();
+    if (!id || !issueKey) return;
+    const current = new Set(lorepackHealthRepairSelectionCache.get(id) || []);
+    if (selected) current.add(issueKey);
+    else current.delete(issueKey);
+    lorepackHealthRepairSelectionCache.set(id, [...current]);
+}
+
+function setLorepackHealthRepairSelectionBulk(pack, health = null, mode = 'all') {
+    const id = String(pack?.packId || '').trim();
+    if (!id) return;
+    const allIds = getLorepackHealthIssueGroups(health).flatMap(group => group.issues.map(issue => issue.issueId));
+    lorepackHealthRepairSelectionCache.set(id, mode === 'all' ? allIds : []);
+    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+}
+
+function createLorepackHealthRepairPlanner(pack, health = null) {
+    const groups = getLorepackHealthIssueGroups(health);
+    const allIssues = groups.flatMap(group => group.issues);
+    if (!allIssues.length) return null;
+    const editable = pack?.type !== 'bundled';
+    const selectedIds = getLorepackHealthRepairSelection(pack.packId, health);
+    const selectedCount = allIssues.filter(issue => selectedIds.has(issue.issueId)).length;
+    const wrap = document.createElement('div');
+    wrap.className = 'wandlight-lorepack-health-repair-planner';
+
+    const title = document.createElement('div');
+    title.className = 'wandlight-runtime-card-title';
+    title.textContent = 'Assistant Repair Planning';
+    wrap.appendChild(title);
+
+    const summary = document.createElement('div');
+    summary.className = 'wandlight-lorepack-entry-summary';
+    summary.appendChild(createStatusPill(`${allIssues.length} issue${allIssues.length === 1 ? '' : 's'}`, 'Pack Health issues from the latest validation run.'));
+    summary.appendChild(createStatusPill(`${selectedCount} selected`, 'Selected issues will be sent to the Lore Assistant for repair planning.'));
+    if (!editable) summary.appendChild(createStatusPill('Read-only', 'Bundled Lorepacks must be duplicated as Custom before assistant repair planning can create proposals.'));
+    wrap.appendChild(summary);
+
+    const help = document.createElement('div');
+    help.className = 'wandlight-runtime-help';
+    help.textContent = editable
+        ? 'Select Pack Health issues and draft repair proposals. Repairs enter the Assistant Draft Batch first, then Pending Review if you queue them.'
+        : 'Bundled Lorepacks are read-only. Duplicate as Custom before drafting repair proposals.';
+    wrap.appendChild(help);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    const draftButton = createButton('Draft Repairs', 'Ask the Lore Assistant to convert selected Pack Health issues into reviewable draft proposals.', async (btn) => {
+        await handleLorepackAssistantHealthRepairDraft(pack, health, btn);
+    }, 'wandlight-primary-button');
+    draftButton.disabled = !editable || !selectedCount;
+    actions.appendChild(draftButton);
+    actions.appendChild(createButton('Select All', 'Select every Pack Health issue in this validation report.', () => {
+        setLorepackHealthRepairSelectionBulk(pack, health, 'all');
+    }));
+    actions.appendChild(createButton('Clear Selection', 'Clear selected Pack Health issues.', () => {
+        setLorepackHealthRepairSelectionBulk(pack, health, 'none');
+    }));
+    wrap.appendChild(actions);
+
+    const list = document.createElement('div');
+    list.className = 'wandlight-lorepack-health-issue-list wandlight-lorepack-health-repair-list';
+    for (const group of groups) {
+        for (const issue of group.issues.slice(0, 8)) {
+            list.appendChild(createLorepackHealthRepairIssueRow(pack, issue, selectedIds.has(issue.issueId), editable));
+        }
+    }
+    if (allIssues.length > 24) {
+        const more = document.createElement('div');
+        more.className = 'wandlight-runtime-help';
+        more.textContent = `Showing first 24 of ${allIssues.length} issues. Export Health JSON for the full report.`;
+        list.appendChild(more);
+    }
+    wrap.appendChild(list);
+    return wrap;
+}
+
+function createLorepackHealthRepairIssueRow(pack, issue = {}, selected = false, editable = true) {
+    const label = document.createElement('label');
+    label.className = `wandlight-lorepack-health-issue wandlight-lorepack-health-issue-${issue.severity || 'suggestion'} wandlight-lorepack-health-repair-issue`;
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.checked = selected;
+    checkbox.disabled = !editable;
+    addTooltip(checkbox, selected ? 'Remove this Pack Health issue from the assistant repair plan.' : 'Include this Pack Health issue in the assistant repair plan.');
+    checkbox.addEventListener('click', event => event.stopPropagation());
+    checkbox.addEventListener('change', () => {
+        setLorepackHealthRepairSelection(pack.packId, issue.issueId, checkbox.checked);
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    });
+    label.appendChild(checkbox);
+
+    const main = document.createElement('div');
+    main.className = 'wandlight-lorepack-row-main';
+    const code = document.createElement('div');
+    code.className = 'wandlight-lorepack-health-issue-code';
+    code.textContent = issue.code || issue.severity || 'issue';
+    main.appendChild(code);
+    const message = document.createElement('div');
+    message.className = 'wandlight-lorepack-health-issue-message';
+    message.textContent = issue.message || 'No message.';
+    main.appendChild(message);
+    const meta = document.createElement('div');
+    meta.className = 'wandlight-lorepack-row-meta';
+    meta.appendChild(createStatusPill(issue.severity || 'suggestion', 'Pack Health issue severity.'));
+    if (issue.entryIds?.length) meta.appendChild(createStatusPill(`${issue.entryIds.length} entr${issue.entryIds.length === 1 ? 'y' : 'ies'}`, issue.entryIds.slice(0, 10).join(', ')));
+    if (issue.tagIds?.length) meta.appendChild(createStatusPill(`${issue.tagIds.length} tag${issue.tagIds.length === 1 ? '' : 's'}`, issue.tagIds.slice(0, 10).join(', ')));
+    if (issue.timelineIds?.length) meta.appendChild(createStatusPill(`${issue.timelineIds.length} timeline`, issue.timelineIds.slice(0, 10).join(', ')));
+    if (issue.file) meta.appendChild(createStatusPill(issue.file, 'Affected file.'));
+    main.appendChild(meta);
+    label.appendChild(main);
+    return label;
 }
 
 function createLorepackEntryOverrideCard(pack) {
@@ -3411,14 +3603,19 @@ function createLorepackPendingReviewCard(pack) {
     const affectedEntries = new Set(pending.flatMap(change => change.affectedEntryIds || []));
     const affectedTags = new Set(pending.flatMap(change => change.affectedTagIds || []));
     const affectedTimeline = new Set(pending.flatMap(change => change.affectedTimelineIds || []));
+    const healthImpactCount = pending.filter(change => doesLorepackPendingChangeAffectPackHealth(change)).length;
     if (affectedEntries.size) summary.appendChild(createStatusPill(`${affectedEntries.size} entr${affectedEntries.size === 1 ? 'y' : 'ies'}`, 'Entries affected by pending proposals.'));
     if (affectedTags.size) summary.appendChild(createStatusPill(`${affectedTags.size} tag${affectedTags.size === 1 ? '' : 's'}`, 'Tags affected by pending proposals.'));
     if (affectedTimeline.size) summary.appendChild(createStatusPill(`${affectedTimeline.size} timeline`, 'Timeline anchors/windows affected by pending proposals.'));
+    if (healthImpactCount) summary.appendChild(createStatusPill(`${healthImpactCount} health impact`, 'Pending proposals that will mark Pack Health stale when accepted because they change entries, tags, or timeline data.'));
+    if (isLorepackHealthStatusStale(pack)) summary.appendChild(createLorepackPendingHealthStalePill());
     wrap.appendChild(summary);
 
     const help = document.createElement('div');
     help.className = 'wandlight-runtime-help';
-    help.textContent = 'Pending changes do not affect runtime injection until accepted. This is the review path for manual edits, bulk edits, and later Lore Assistant patches.';
+    help.textContent = isLorepackHealthStatusStale(pack)
+        ? 'Accepted changes have made the saved Pack Health status stale. Rerun validation before exporting, sharing, or treating this Lorepack as clean.'
+        : 'Pending changes do not affect runtime injection until accepted. This is the review path for manual edits, bulk edits, and Lore Assistant patches.';
     wrap.appendChild(help);
 
     const actions = document.createElement('div');
@@ -3433,6 +3630,11 @@ function createLorepackPendingReviewCard(pack) {
     }, 'wandlight-danger-button');
     rejectAll.disabled = !pending.length;
     actions.appendChild(rejectAll);
+    const validateButton = createButton('Validate Pack', 'Run Pack Health on the currently accepted Lorepack data. Pending proposals are not included until accepted.', async (btn) => {
+        await validateLorepackForEditor(pack, btn);
+    });
+    validateButton.disabled = !pack.manifest;
+    actions.appendChild(validateButton);
     wrap.appendChild(actions);
 
     if (!pending.length) {
@@ -3474,14 +3676,24 @@ function createLorepackPendingChangeRow(pack, change = {}) {
 
     const meta = document.createElement('div');
     meta.className = 'wandlight-lorepack-row-meta';
-    meta.appendChild(createStatusPill(change.action || 'record_patch', 'Pending change action.'));
-    meta.appendChild(createStatusPill(change.targetKind || 'lorepack', 'Pending change target kind.'));
-    if (change.source) meta.appendChild(createStatusPill(change.source, 'Proposal source.'));
+    meta.appendChild(createStatusPill(`Action: ${formatLorepackPendingActionLabel(change.action)}`, `Pending change action: ${change.action || 'record_patch'}.`));
+    meta.appendChild(createStatusPill(`Target: ${formatLorepackPendingTargetKindLabel(change.targetKind)}`, `Pending change target kind: ${change.targetKind || 'lorepack'}.`));
+    if (change.source) meta.appendChild(createStatusPill(`Source: ${formatLorepackPendingSourceLabel(change.source)}`, getLorepackPendingSourceTooltip(change.source)));
+    const confidence = getLorepackPendingConfidence(change);
+    if (confidence !== null) meta.appendChild(createStatusPill(`Confidence ${Math.round(confidence * 100)}%`, 'Model or tool confidence for this pending proposal. Review remains required before acceptance.'));
+    const risk = getLorepackPendingRisk(change);
+    if (risk) meta.appendChild(createLorepackPendingRiskPill(risk));
+    appendLorepackPendingQualityPills(meta, change);
+    if (doesLorepackPendingChangeAffectPackHealth(change)) meta.appendChild(createLorepackPendingHealthImpactPill());
     if (change.affectedEntryIds?.length) meta.appendChild(createStatusPill(`${change.affectedEntryIds.length} entr${change.affectedEntryIds.length === 1 ? 'y' : 'ies'}`, change.affectedEntryIds.slice(0, 10).join(', ')));
     if (change.affectedTagIds?.length) meta.appendChild(createStatusPill(`${change.affectedTagIds.length} tag${change.affectedTagIds.length === 1 ? '' : 's'}`, change.affectedTagIds.slice(0, 10).join(', ')));
     if (change.affectedTimelineIds?.length) meta.appendChild(createStatusPill(`${change.affectedTimelineIds.length} timeline`, change.affectedTimelineIds.slice(0, 10).join(', ')));
     if (change.createdAt) meta.appendChild(createStatusPill(new Date(change.createdAt).toLocaleString(), 'Created at.'));
     main.appendChild(meta);
+    const diffs = createLorepackPendingDiffList(pack, change);
+    if (diffs) main.appendChild(diffs);
+    const quality = createLorepackPendingQualityList(change);
+    if (quality) main.appendChild(quality);
     row.appendChild(main);
 
     const actions = document.createElement('div');
@@ -3494,6 +3706,462 @@ function createLorepackPendingChangeRow(pack, change = {}) {
     }, 'wandlight-danger-button'));
     row.appendChild(actions);
     return row;
+}
+
+function formatLorepackPendingActionLabel(action = '') {
+    const key = String(action || 'record_patch').trim();
+    const known = {
+        record_patch: 'Record Patch',
+        upsert_entry: 'Upsert Entry',
+        assistant_upsert_entry: 'Assistant Upsert Entry',
+        assistant_disable_entry: 'Assistant Disable Entry',
+        assistant_restore_entry: 'Assistant Restore Entry',
+        assistant_upsert_tag_definition: 'Assistant Upsert Tag',
+        assistant_upsert_timeline_anchor: 'Assistant Upsert Anchor',
+        assistant_upsert_timeline_window: 'Assistant Upsert Window',
+        remove_entry_override: 'Remove Override',
+        disable_entry: 'Disable Entry',
+        restore_entry: 'Restore Entry',
+        bulk_position_update: 'Bulk Position Update',
+        upsert_tag_definition: 'Upsert Tag',
+        rename_tag: 'Rename Tag',
+        merge_tag: 'Merge Tag',
+        remove_tag_definition: 'Remove Tag',
+        upsert_timeline_anchor: 'Upsert Anchor',
+        upsert_timeline_window: 'Upsert Window',
+        disable_timeline_anchor: 'Disable Anchor',
+        disable_timeline_window: 'Disable Window',
+        restore_timeline_anchor: 'Restore Anchor',
+        restore_timeline_window: 'Restore Window',
+    };
+    return known[key] || humanizeScopeKey(key);
+}
+
+function formatLorepackPendingTargetKindLabel(targetKind = '') {
+    const key = String(targetKind || 'lorepack').trim();
+    const known = {
+        lorepack: 'Lorepack',
+        entry: 'Entry',
+        entries: 'Entries',
+        tag: 'Tag',
+        tags: 'Tags',
+        timeline_anchor: 'Timeline Anchor',
+        timeline_window: 'Timeline Window',
+        timeline: 'Timeline',
+    };
+    return known[key] || humanizeScopeKey(key);
+}
+
+function formatLorepackPendingSourceLabel(source = '') {
+    const key = String(source || 'manual').trim();
+    const known = {
+        manual: 'Manual',
+        bulk_edit: 'Bulk Edit',
+        lore_assistant: 'Lore Assistant',
+        safe_repair: 'Safe Repair',
+        import: 'Import',
+    };
+    return known[key] || humanizeScopeKey(key);
+}
+
+function getLorepackPendingSourceTooltip(source = '') {
+    const key = String(source || 'manual').trim();
+    if (key === 'lore_assistant') return 'Created by Saga Lore Assistant. Treat as a proposal until reviewed and accepted.';
+    if (key === 'bulk_edit') return 'Created by a bulk-edit tool. Review the field diffs before acceptance.';
+    if (key === 'safe_repair') return 'Created by an automated Pack Health repair path.';
+    return 'Proposal source.';
+}
+
+function getLorepackPendingPreviewMetadata(change = {}) {
+    return change?.preview && typeof change.preview === 'object' && !Array.isArray(change.preview) ? change.preview : {};
+}
+
+function getLorepackPendingConfidence(change = {}) {
+    const preview = getLorepackPendingPreviewMetadata(change);
+    const raw = preview.confidence ?? change.confidence;
+    if (raw === undefined || raw === null || raw === '') return null;
+    let confidence = Number(raw);
+    if (!Number.isFinite(confidence)) return null;
+    if (confidence > 1 && confidence <= 100) confidence /= 100;
+    return Math.max(0, Math.min(1, confidence));
+}
+
+function getLorepackPendingRisk(change = {}) {
+    const preview = getLorepackPendingPreviewMetadata(change);
+    const raw = String(preview.risk || change.risk || '').trim();
+    if (!raw) return '';
+    const lower = raw.toLowerCase();
+    if (/critical|severe|high/.test(lower)) return 'high';
+    if (/medium|moderate|med/.test(lower)) return 'medium';
+    if (/low|minor|minimal/.test(lower)) return 'low';
+    return raw.slice(0, 60);
+}
+
+function createLorepackPendingRiskPill(risk = '') {
+    const normalized = String(risk || '').trim();
+    const pill = createStatusPill(`Risk: ${humanizeScopeKey(normalized)}`, 'Estimated proposal risk. Higher-risk proposals need closer manual review before acceptance.');
+    const classKey = /high/i.test(normalized)
+        ? 'high'
+        : (/medium|moderate|med/i.test(normalized) ? 'medium' : (/low|minor|minimal/i.test(normalized) ? 'low' : 'unknown'));
+    pill.classList.add(`wandlight-status-pill-risk-${classKey}`);
+    return pill;
+}
+
+function normalizeLorepackPendingRubricLevel(value = '') {
+    const raw = String(value || '')
+        .trim()
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '_')
+        .replace(/^_+|_+$/g, '');
+    if (!raw) return '';
+    if (raw === 'n_a' || raw === 'na' || raw === 'none') return 'not_applicable';
+    if (raw === 'med' || raw === 'moderate') return 'medium';
+    if (raw === 'minor' || raw === 'minimal') return 'low';
+    if (raw === 'strong') return 'high';
+    return ['high', 'medium', 'low', 'not_applicable'].includes(raw) ? raw : '';
+}
+
+function getLorepackPendingRubric(change = {}) {
+    const preview = getLorepackPendingPreviewMetadata(change);
+    const rubric = preview.rubric || preview.qualityRubric || preview.quality;
+    return rubric && typeof rubric === 'object' && !Array.isArray(rubric) ? rubric : {};
+}
+
+function getLorepackPendingQualityWarnings(change = {}) {
+    const preview = getLorepackPendingPreviewMetadata(change);
+    const warnings = Array.isArray(preview.qualityWarnings)
+        ? preview.qualityWarnings
+        : (Array.isArray(preview.rubric?.warnings) ? preview.rubric.warnings : []);
+    return warnings.map(item => String(item || '').trim()).filter(Boolean).slice(0, 8);
+}
+
+function getLorepackPendingRubricNotes(change = {}) {
+    const rubric = getLorepackPendingRubric(change);
+    return Array.isArray(rubric.notes)
+        ? rubric.notes.map(item => String(item || '').trim()).filter(Boolean).slice(0, 6)
+        : [];
+}
+
+function createLorepackPendingQualityPill(label, level, tooltip) {
+    const normalized = normalizeLorepackPendingRubricLevel(level);
+    if (!normalized) return null;
+    const pill = createStatusPill(`${label}: ${humanizeScopeKey(normalized)}`, tooltip);
+    pill.classList.add(`wandlight-status-pill-quality-${normalized}`);
+    return pill;
+}
+
+function appendLorepackPendingQualityPills(meta, change = {}) {
+    const rubric = getLorepackPendingRubric(change);
+    const sceneUtility = createLorepackPendingQualityPill('Utility', rubric.sceneUtility, 'Lore Value Rubric: whether this proposal improves scene behavior, tension, characterization, or setting response.');
+    if (sceneUtility) meta.appendChild(sceneUtility);
+    const behavioralImpact = createLorepackPendingQualityPill('Behavior', rubric.behavioralImpact, 'Lore Value Rubric: whether this proposal changes what characters do, say, know, hide, avoid, or expect.');
+    if (behavioralImpact) meta.appendChild(behavioralImpact);
+    const storyPositionFit = createLorepackPendingQualityPill('Position Fit', rubric.storyPositionFit, 'Lore Value Rubric: whether this proposal fits the intended Story Position without future leakage.');
+    if (storyPositionFit) meta.appendChild(storyPositionFit);
+    const wikiRisk = createLorepackPendingQualityPill('Wiki Risk', rubric.wikiSummaryRisk || rubric.wikiRisk, 'Risk that this proposal reads like generic wiki summary instead of playable Saga lore.');
+    if (wikiRisk) meta.appendChild(wikiRisk);
+    const warnings = getLorepackPendingQualityWarnings(change);
+    if (warnings.length) {
+        const pill = createStatusPill(`${warnings.length} quality flag${warnings.length === 1 ? '' : 's'}`, warnings.join(' | '));
+        pill.classList.add('wandlight-status-pill-quality-flag');
+        meta.appendChild(pill);
+    }
+}
+
+function createLorepackPendingQualityList(change = {}) {
+    const warnings = getLorepackPendingQualityWarnings(change);
+    const notes = getLorepackPendingRubricNotes(change);
+    if (!warnings.length && !notes.length) return null;
+    const wrap = document.createElement('div');
+    wrap.className = 'wandlight-lorepack-pending-quality-list';
+    for (const warning of warnings) {
+        const item = document.createElement('div');
+        item.className = 'wandlight-runtime-help wandlight-warning-text';
+        item.textContent = `Quality flag: ${warning}`;
+        wrap.appendChild(item);
+    }
+    for (const note of notes) {
+        const item = document.createElement('div');
+        item.className = 'wandlight-runtime-help';
+        item.textContent = `Rubric note: ${note}`;
+        wrap.appendChild(item);
+    }
+    return wrap;
+}
+
+function createLorepackPendingHealthImpactPill() {
+    const pill = createStatusPill('Health impact', 'Accepting this proposal changes entries, tags, or timeline data and will mark Pack Health stale until validation reruns.');
+    pill.classList.add('wandlight-status-pill-health-impact');
+    return pill;
+}
+
+function createLorepackPendingHealthStalePill() {
+    const pill = createStatusPill('Health stale', 'Pack Health was computed before the latest accepted Lorepack edits. Rerun validation.');
+    pill.classList.add('wandlight-status-pill-health-stale');
+    return pill;
+}
+
+function isLorepackHealthStatusStale(pack = {}) {
+    return String(pack?.healthStatus || '').trim().toLowerCase() === 'stale';
+}
+
+function doesLorepackPendingChangeAffectPackHealth(change = {}) {
+    const payload = change?.payload && typeof change.payload === 'object' && !Array.isArray(change.payload) ? change.payload : {};
+    const hasObjectEntries = value => value && typeof value === 'object' && !Array.isArray(value) && Object.keys(value).length > 0;
+    const hasArrayItems = value => Array.isArray(value) && value.length > 0;
+    return hasObjectEntries(payload.entryOverrides)
+        || hasArrayItems(payload.disabledEntryIdsAdd)
+        || hasArrayItems(payload.disabledEntryIdsRemove)
+        || hasObjectEntries(payload.tagDefinitions)
+        || hasObjectEntries(payload.timelineAnchors)
+        || hasObjectEntries(payload.timelineWindows)
+        || hasArrayItems(payload.timelineAnchorIdsDisable)
+        || hasArrayItems(payload.timelineAnchorIdsEnable)
+        || hasArrayItems(payload.timelineWindowIdsDisable)
+        || hasArrayItems(payload.timelineWindowIdsEnable);
+}
+
+function createLorepackPendingDiffList(pack, change = {}) {
+    const diffs = buildLorepackPendingDiffs(pack, change);
+    if (!diffs.length) return null;
+    const wrap = document.createElement('div');
+    wrap.className = 'wandlight-lorepack-pending-diff-list';
+    for (const diff of diffs.slice(0, 10)) {
+        const item = document.createElement('div');
+        item.className = 'wandlight-runtime-help';
+        const before = formatLorepackPendingDiffValue(diff.before);
+        const after = formatLorepackPendingDiffValue(diff.after);
+        item.textContent = `${diff.scope ? `${diff.scope} | ` : ''}${diff.field}: ${before} => ${after}`;
+        wrap.appendChild(item);
+    }
+    if (diffs.length > 10) {
+        const more = document.createElement('div');
+        more.className = 'wandlight-runtime-help';
+        more.textContent = `+${diffs.length - 10} more field change${diffs.length - 10 === 1 ? '' : 's'}.`;
+        wrap.appendChild(more);
+    }
+    return wrap;
+}
+
+function formatLorepackPendingDiffValue(value) {
+    if (value === null || value === undefined || value === '') return '(empty)';
+    if (Array.isArray(value)) return truncateText(value.join(', ') || '(empty)', 180);
+    if (typeof value === 'object') {
+        try {
+            return truncateText(JSON.stringify(value), 180);
+        } catch (_) {
+            return '[object]';
+        }
+    }
+    if (typeof value === 'boolean') return value ? 'true' : 'false';
+    return truncateText(String(value), 180);
+}
+
+function buildLorepackPendingDiffs(pack, change = {}) {
+    const patch = change.payload && typeof change.payload === 'object' && !Array.isArray(change.payload) ? change.payload : {};
+    const diffs = [];
+    collectLorepackPendingEntryDiffs(diffs, pack, patch);
+    collectLorepackPendingEntryDisableDiffs(diffs, pack, patch);
+    collectLorepackPendingTagDiffs(diffs, pack, patch);
+    collectLorepackPendingTimelineDiffs(diffs, pack, patch);
+    if (!diffs.length && (change.preview?.before || change.preview?.after)) {
+        addLorepackPendingDiff(diffs, 'Preview', 'summary', change.preview?.before || '', change.preview?.after || '');
+    }
+    return diffs;
+}
+
+function addLorepackPendingDiff(diffs, scope, field, before, after) {
+    if (isLorepackPendingDiffEqual(before, after)) return;
+    diffs.push({ scope, field, before, after });
+}
+
+function isLorepackPendingDiffEqual(before, after) {
+    return JSON.stringify(normalizeLorepackPendingDiffComparable(before)) === JSON.stringify(normalizeLorepackPendingDiffComparable(after));
+}
+
+function normalizeLorepackPendingDiffComparable(value) {
+    if (value === undefined || value === null) return '';
+    if (Array.isArray(value)) return value.map(item => normalizeLorepackPendingDiffComparable(item));
+    if (typeof value === 'object') {
+        return Object.fromEntries(Object.entries(value)
+            .filter(([, nested]) => nested !== undefined && nested !== null && nested !== '')
+            .sort(([a], [b]) => a.localeCompare(b))
+            .map(([key, nested]) => [key, normalizeLorepackPendingDiffComparable(nested)]));
+    }
+    return value;
+}
+
+function getLorepackPendingCachedSourceEntry(pack, entryId = '') {
+    const id = String(entryId || '').trim();
+    if (!id) return null;
+    const cached = lorepackEntryPreviewCache.get(String(pack?.packId || '').trim());
+    return (cached?.entries || []).find(entry => String(entry?.id || '').trim() === id) || null;
+}
+
+function getLorepackPendingCurrentEntry(pack, entryId = '') {
+    const id = String(entryId || '').trim();
+    if (!id) return null;
+    const overrides = pack?.entryOverrides && typeof pack.entryOverrides === 'object' && !Array.isArray(pack.entryOverrides)
+        ? pack.entryOverrides
+        : {};
+    return overrides[id] || getLorepackPendingCachedSourceEntry(pack, id) || null;
+}
+
+function getLorepackPendingEntryField(entry = {}, field = '') {
+    if (!entry || typeof entry !== 'object') return '';
+    const content = entry.content && typeof entry.content === 'object' && !Array.isArray(entry.content) ? entry.content : {};
+    const position = entry.position && typeof entry.position === 'object' && !Array.isArray(entry.position) ? entry.position : {};
+    const retrieval = entry.retrieval && typeof entry.retrieval === 'object' && !Array.isArray(entry.retrieval) ? entry.retrieval : {};
+    if (field === 'fact') return content.fact || entry.fact || '';
+    if (field === 'injection') return content.injection || entry.injection || '';
+    if (field === 'notes') return content.notes || entry.notes || '';
+    if (field === 'canon') return entry.canon || entry.canonStatus || '';
+    if (field === 'tags') return parseLorepackEntryTags(entry.tags || []);
+    if (field === 'position.validFromAnchor') return position.validFromAnchor || position.anchorFrom || '';
+    if (field === 'position.validToAnchor') return position.validToAnchor || position.anchorTo || '';
+    if (field.startsWith('position.')) return position[field.slice('position.'.length)] ?? '';
+    if (field.startsWith('retrieval.')) return retrieval[field.slice('retrieval.'.length)] ?? '';
+    return entry[field] ?? '';
+}
+
+function collectLorepackPendingEntryDiffs(diffs, pack, patch = {}) {
+    const entryOverrides = patch.entryOverrides && typeof patch.entryOverrides === 'object' && !Array.isArray(patch.entryOverrides)
+        ? patch.entryOverrides
+        : {};
+    const fields = [
+        ['title', 'title'],
+        ['category', 'category'],
+        ['canon', 'canon'],
+        ['relevance', 'relevance'],
+        ['priority', 'priority'],
+        ['tags', 'tags'],
+        ['position.scope', 'position scope'],
+        ['position.anchorId', 'position anchor'],
+        ['position.validFromAnchor', 'position from'],
+        ['position.validToAnchor', 'position to'],
+        ['position.sortKeyFrom', 'sort from'],
+        ['position.sortKeyTo', 'sort to'],
+        ['position.precision', 'position precision'],
+        ['position.windowKind', 'window kind'],
+        ['position.label', 'position label'],
+        ['retrieval.activation', 'retrieval activation'],
+        ['retrieval.frequency', 'retrieval frequency'],
+        ['retrieval.positionalBoost', 'position boost'],
+        ['fact', 'lore text'],
+        ['injection', 'injection'],
+        ['notes', 'notes'],
+    ];
+    for (const [rawId, rawEntry] of Object.entries(entryOverrides)) {
+        const id = String(rawEntry?.id || rawId || '').trim();
+        if (!id) continue;
+        const scope = `Entry ${id}`;
+        const beforeEntry = getLorepackPendingCurrentEntry(pack, id);
+        if (rawEntry === null) {
+            addLorepackPendingDiff(diffs, scope, 'override', beforeEntry ? 'present' : '(none)', 'removed');
+            continue;
+        }
+        if (!beforeEntry) {
+            addLorepackPendingDiff(diffs, scope, 'entry', '(new)', rawEntry.title || id);
+        }
+        for (const [field, label] of fields) {
+            addLorepackPendingDiff(
+                diffs,
+                scope,
+                label,
+                getLorepackPendingEntryField(beforeEntry || {}, field),
+                getLorepackPendingEntryField(rawEntry || {}, field)
+            );
+        }
+    }
+}
+
+function collectLorepackPendingEntryDisableDiffs(diffs, pack, patch = {}) {
+    const disabled = new Set(Array.isArray(pack?.disabledEntryIds) ? pack.disabledEntryIds : []);
+    for (const id of normalizeLorepackPendingIdList(patch.disabledEntryIdsAdd || [])) {
+        addLorepackPendingDiff(diffs, `Entry ${id}`, 'enabled state', disabled.has(id) ? 'disabled' : 'active', 'disabled');
+    }
+    for (const id of normalizeLorepackPendingIdList(patch.disabledEntryIdsRemove || [])) {
+        addLorepackPendingDiff(diffs, `Entry ${id}`, 'enabled state', disabled.has(id) ? 'disabled' : 'active', 'active');
+    }
+}
+
+function getLorepackPendingCurrentTagDefinition(pack, tagId = '') {
+    const id = normalizeLorepackTagId(tagId);
+    if (!id) return null;
+    const custom = getLorepackEmbeddedTagRegistry(pack);
+    const source = getLorepackCachedSourceTagRegistry(pack?.packId);
+    return custom.tags?.[id] || source.tags?.[id] || null;
+}
+
+function collectLorepackPendingTagDiffs(diffs, pack, patch = {}) {
+    const tagDefinitions = patch.tagDefinitions && typeof patch.tagDefinitions === 'object' && !Array.isArray(patch.tagDefinitions)
+        ? patch.tagDefinitions
+        : {};
+    const fields = ['label', 'description', 'color', 'textColor', 'aliases', 'parents', 'sensitive', 'deprecated', 'replacement'];
+    for (const [rawId, rawDef] of Object.entries(tagDefinitions)) {
+        const id = normalizeLorepackTagId(rawDef?.id || rawId);
+        if (!id) continue;
+        const scope = `Tag ${id}`;
+        const beforeDef = getLorepackPendingCurrentTagDefinition(pack, id);
+        const before = beforeDef || {};
+        if (rawDef === null) {
+            addLorepackPendingDiff(diffs, scope, 'definition', beforeDef ? 'present' : '(none)', 'removed');
+            continue;
+        }
+        const after = normalizeLorepackTagDefinition(rawDef, id);
+        for (const field of fields) addLorepackPendingDiff(diffs, scope, field, before[field] ?? '', after[field] ?? '');
+    }
+}
+
+function getLorepackPendingCurrentTimelineItem(pack, kind = 'anchor', itemId = '') {
+    const id = normalizeLorepackTimelineId(itemId);
+    if (!id) return null;
+    const custom = getLorepackEmbeddedTimelineRegistry(pack);
+    const source = getLorepackCachedSourceTimelineRegistry(pack?.packId);
+    const customList = kind === 'window' ? custom.windows : custom.anchors;
+    const sourceList = kind === 'window' ? source.windows : source.anchors;
+    return (customList || []).find(item => item.id === id) || (sourceList || []).find(item => item.id === id) || null;
+}
+
+function collectLorepackPendingTimelineDiffs(diffs, pack, patch = {}) {
+    collectLorepackPendingTimelineDefinitionDiffs(diffs, pack, patch.timelineAnchors, 'anchor');
+    collectLorepackPendingTimelineDefinitionDiffs(diffs, pack, patch.timelineWindows, 'window');
+    collectLorepackPendingTimelineDisabledDiffs(diffs, pack, patch.timelineAnchorIdsDisable, patch.timelineAnchorIdsEnable, 'anchor');
+    collectLorepackPendingTimelineDisabledDiffs(diffs, pack, patch.timelineWindowIdsDisable, patch.timelineWindowIdsEnable, 'window');
+}
+
+function collectLorepackPendingTimelineDefinitionDiffs(diffs, pack, definitions, kind = 'anchor') {
+    if (!definitions || typeof definitions !== 'object' || Array.isArray(definitions)) return;
+    const fields = kind === 'window'
+        ? ['label', 'anchorFrom', 'anchorTo', 'sortKeyFrom', 'sortKeyTo', 'dateRange', 'aliases', 'tags', 'notes']
+        : ['label', 'sortKey', 'dateRange', 'arc', 'phase', 'season', 'episode', 'chapter', 'aliases', 'tags', 'notes'];
+    for (const [rawId, rawDef] of Object.entries(definitions)) {
+        const id = normalizeLorepackTimelineId(rawDef?.id || rawId);
+        if (!id) continue;
+        const scope = `${kind === 'window' ? 'Timeline window' : 'Timeline anchor'} ${id}`;
+        const beforeDef = getLorepackPendingCurrentTimelineItem(pack, kind, id);
+        const before = beforeDef || {};
+        if (rawDef === null) {
+            addLorepackPendingDiff(diffs, scope, 'definition', beforeDef ? 'present' : '(none)', 'removed');
+            continue;
+        }
+        const after = kind === 'window'
+            ? normalizeLorepackTimelineWindow(rawDef, id)
+            : normalizeLorepackTimelineAnchor(rawDef, id);
+        for (const field of fields) addLorepackPendingDiff(diffs, scope, field, before[field] ?? '', after?.[field] ?? '');
+    }
+}
+
+function collectLorepackPendingTimelineDisabledDiffs(diffs, pack, disableIds = [], enableIds = [], kind = 'anchor') {
+    const custom = getLorepackEmbeddedTimelineRegistry(pack);
+    const disabled = new Set(kind === 'window' ? custom.disabledWindowIds : custom.disabledAnchorIds);
+    const scopeType = kind === 'window' ? 'Timeline window' : 'Timeline anchor';
+    for (const id of normalizeLorepackTimelineDisabledIds(disableIds || [])) {
+        addLorepackPendingDiff(diffs, `${scopeType} ${id}`, 'enabled state', disabled.has(id) ? 'disabled' : 'active', 'disabled');
+    }
+    for (const id of normalizeLorepackTimelineDisabledIds(enableIds || [])) {
+        addLorepackPendingDiff(diffs, `${scopeType} ${id}`, 'enabled state', disabled.has(id) ? 'disabled' : 'active', 'active');
+    }
 }
 
 function getLorepackOverrideState(pack = {}) {
@@ -4619,7 +5287,15 @@ function createLorepackAssistantCard(pack, rows = [], filteredRows = []) {
     summary.className = 'wandlight-lorepack-entry-summary';
     summary.appendChild(createStatusPill(`${targetRows.length} target entr${targetRows.length === 1 ? 'y' : 'ies'}`, 'Entries included in the assistant context. Current search can narrow this set.'));
     summary.appendChild(createStatusPill(lorepackAssistantMode.replace(/_/g, ' '), 'Current assistant task mode.'));
+    summary.appendChild(createStatusPill('Value rubric', 'Assistant proposals are asked to score scene utility, behavior impact, Story Position fit, injection quality, and wiki-summary risk.'));
+    if (cached?.draftChanges?.length) {
+        const selectedCount = getLorepackAssistantSelectedDraftIds(cached).size;
+        summary.appendChild(createStatusPill(`${cached.draftChanges.length} drafted`, 'Assistant proposals waiting for batch review before they enter Pending Review.'));
+        summary.appendChild(createStatusPill(`${selectedCount} selected`, 'Draft proposals selected for queue, drop, or revision actions.'));
+    }
     if (cached?.queuedCount) summary.appendChild(createStatusPill(`${cached.queuedCount} queued`, 'Last assistant proposal count queued into Pending Review.'));
+    if (cached?.selectedHealthIssueCount) summary.appendChild(createStatusPill(`${cached.selectedHealthIssueCount} health issue${cached.selectedHealthIssueCount === 1 ? '' : 's'}`, 'Last assistant draft was generated from selected Pack Health issues.'));
+    if (cached?.qualityWarningCount) summary.appendChild(createStatusPill(`${cached.qualityWarningCount} quality flag${cached.qualityWarningCount === 1 ? '' : 's'}`, 'Last assistant draft included local quality guardrail flags.'));
     if (cached?.questions?.length) summary.appendChild(createStatusPill(`${cached.questions.length} question${cached.questions.length === 1 ? '' : 's'}`, 'Last assistant response requested clarification.'));
     wrap.appendChild(summary);
 
@@ -4640,7 +5316,7 @@ function createLorepackAssistantCard(pack, rows = [], filteredRows = []) {
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
-    const draftButton = createButton('Draft Proposals', 'Ask the Reasoning Provider to draft structured Lorepack changes and queue them into Pending Review.', async (btn) => {
+    const draftButton = createButton('Draft Proposals', 'Ask the Reasoning Provider to draft structured Lorepack changes for batch review before they enter Pending Review.', async (btn) => {
         lorepackAssistantInstruction = instructionInput.value.trim();
         lorepackAssistantMode = modeSelect.value;
         lorepackAssistantTargetScope = scopeSelect.value;
@@ -4669,7 +5345,558 @@ function createLorepackAssistantCard(pack, rows = [], filteredRows = []) {
         wrap.appendChild(result);
     }
 
+    const draftBatch = createLorepackAssistantDraftBatchCard(pack, cached, rows, filteredRows);
+    if (draftBatch) wrap.appendChild(draftBatch);
+
     return wrap;
+}
+
+function getLorepackAssistantDraftChanges(cached = {}) {
+    return normalizeLorepackPendingChanges(cached?.draftChanges);
+}
+
+function normalizeLorepackAssistantDraftChangeIds(value = [], limit = 500) {
+    if (!Array.isArray(value)) return [];
+    const out = [];
+    const seen = new Set();
+    for (const raw of value) {
+        const id = String(raw || '').trim();
+        if (!id || seen.has(id)) continue;
+        seen.add(id);
+        out.push(id);
+        if (out.length >= limit) break;
+    }
+    return out;
+}
+
+function getLorepackAssistantSelectedDraftIds(cached = {}) {
+    const changes = getLorepackAssistantDraftChanges(cached);
+    const validIds = new Set(changes.map(change => change.changeId));
+    if (!Object.prototype.hasOwnProperty.call(cached || {}, 'selectedDraftChangeIds')) {
+        return new Set(validIds);
+    }
+    const selected = new Set(normalizeLorepackAssistantDraftChangeIds(cached.selectedDraftChangeIds).filter(id => validIds.has(id)));
+    return selected;
+}
+
+function getLorepackAssistantSelectedDraftChanges(cached = {}) {
+    const selectedIds = getLorepackAssistantSelectedDraftIds(cached);
+    return getLorepackAssistantDraftChanges(cached).filter(change => selectedIds.has(change.changeId));
+}
+
+function updateLorepackAssistantDraftCache(packId = '', mutator = null) {
+    const id = String(packId || '').trim();
+    if (!id || typeof mutator !== 'function') return null;
+    const current = lorepackAssistantDraftCache.get(id) || {};
+    const next = mutator({
+        ...current,
+        draftChanges: getLorepackAssistantDraftChanges(current),
+        selectedDraftChangeIds: normalizeLorepackAssistantDraftChangeIds(current.selectedDraftChangeIds || []),
+    }) || current;
+    const normalized = {
+        ...next,
+        draftChanges: getLorepackAssistantDraftChanges(next),
+        selectedDraftChangeIds: normalizeLorepackAssistantDraftChangeIds(next.selectedDraftChangeIds || []),
+    };
+    if (!normalized.draftChanges.length) {
+        delete normalized.draftChanges;
+        delete normalized.selectedDraftChangeIds;
+    }
+    normalized.qualityWarningCount = countLorepackAssistantQualityWarningsForChanges(normalized.draftChanges || []);
+    lorepackAssistantDraftCache.set(id, normalized);
+    return normalized;
+}
+
+function setLorepackAssistantDraftSelection(pack, changeId = '', selected = false, options = {}) {
+    const id = String(changeId || '').trim();
+    if (!id) return;
+    updateLorepackAssistantDraftCache(pack.packId, cached => {
+        const selectedIds = getLorepackAssistantSelectedDraftIds(cached);
+        if (selected) selectedIds.add(id);
+        else selectedIds.delete(id);
+        return { ...cached, selectedDraftChangeIds: [...selectedIds] };
+    });
+    if (options.refresh) refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+}
+
+function setLorepackAssistantDraftSelectionBulk(pack, mode = 'all') {
+    updateLorepackAssistantDraftCache(pack.packId, cached => {
+        const changes = getLorepackAssistantDraftChanges(cached);
+        return {
+            ...cached,
+            selectedDraftChangeIds: mode === 'all' ? changes.map(change => change.changeId) : [],
+        };
+    });
+    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+}
+
+function createLorepackAssistantDraftBatchCard(pack, cached = null, rows = [], filteredRows = []) {
+    const changes = getLorepackAssistantDraftChanges(cached);
+    if (!changes.length) return null;
+    const selectedIds = getLorepackAssistantSelectedDraftIds(cached);
+    const selectedCount = changes.filter(change => selectedIds.has(change.changeId)).length;
+    const wrap = document.createElement('div');
+    wrap.className = 'wandlight-lorepack-manifest-preview wandlight-lorepack-assistant-draft-batch';
+
+    const title = document.createElement('div');
+    title.className = 'wandlight-runtime-card-title';
+    title.textContent = 'Assistant Draft Batch';
+    wrap.appendChild(title);
+
+    const summary = document.createElement('div');
+    summary.className = 'wandlight-lorepack-entry-summary';
+    summary.appendChild(createStatusPill(`${changes.length} drafted`, 'Assistant proposals waiting for edit-before-queue review.'));
+    summary.appendChild(createStatusPill(`${selectedCount} selected`, 'Selected proposals are affected by queue, drop, and revise actions.'));
+    const qualityWarningCount = countLorepackAssistantQualityWarningsForChanges(changes);
+    if (qualityWarningCount) summary.appendChild(createStatusPill(`${qualityWarningCount} quality flag${qualityWarningCount === 1 ? '' : 's'}`, 'Local guardrail flags across this assistant draft batch.'));
+    wrap.appendChild(summary);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    const queueSelected = createButton('Queue Selected', 'Move selected assistant draft proposals into Pending Review.', () => {
+        queueLorepackAssistantDraftSelection(pack, getLorepackAssistantSelectedDraftIds(lorepackAssistantDraftCache.get(pack.packId) || {}));
+    }, 'wandlight-primary-button');
+    queueSelected.disabled = !selectedCount;
+    actions.appendChild(queueSelected);
+    const queueAll = createButton('Queue All', 'Move every assistant draft proposal into Pending Review.', () => {
+        queueLorepackAssistantDraftSelection(pack, new Set(changes.map(change => change.changeId)));
+    });
+    queueAll.disabled = !changes.length;
+    actions.appendChild(queueAll);
+    const dropSelected = createButton('Drop Selected', 'Remove selected assistant draft proposals without queueing them.', () => {
+        dropLorepackAssistantDraftSelection(pack, getLorepackAssistantSelectedDraftIds(lorepackAssistantDraftCache.get(pack.packId) || {}));
+    }, 'wandlight-danger-button');
+    dropSelected.disabled = !selectedCount;
+    actions.appendChild(dropSelected);
+    actions.appendChild(createButton('Select All', 'Select every assistant draft proposal.', () => {
+        setLorepackAssistantDraftSelectionBulk(pack, 'all');
+    }));
+    actions.appendChild(createButton('Clear Selection', 'Clear the assistant draft selection.', () => {
+        setLorepackAssistantDraftSelectionBulk(pack, 'none');
+    }));
+    wrap.appendChild(actions);
+
+    const reviseForm = document.createElement('div');
+    reviseForm.className = 'wandlight-new-lore-form wandlight-lorepack-assistant-revise-form';
+    const reviseInput = createNewLoreInput(reviseForm, 'Revision', 'Instruction for revising selected draft proposals before queueing them.', lorepackAssistantRevisionInstruction || '', true, 'Tighten selected entries so the injection text creates more pressure and less biography.');
+    const reviseActions = document.createElement('div');
+    reviseActions.className = 'wandlight-primary-actions';
+    const reviseButton = createButton('Revise Selected', 'Ask the Reasoning Provider to revise only the selected assistant draft proposals.', async (btn) => {
+        lorepackAssistantRevisionInstruction = reviseInput.value.trim();
+        await handleLorepackAssistantDraftRevision(pack, rows, filteredRows, {
+            instruction: lorepackAssistantRevisionInstruction,
+        }, btn);
+    });
+    reviseButton.disabled = !selectedCount;
+    reviseActions.appendChild(reviseButton);
+    reviseForm.appendChild(reviseActions);
+    wrap.appendChild(reviseForm);
+
+    const list = document.createElement('div');
+    list.className = 'wandlight-lorepack-entry-list';
+    for (const change of changes.slice(0, 30)) {
+        list.appendChild(createLorepackAssistantDraftRow(pack, change, selectedIds.has(change.changeId)));
+    }
+    if (changes.length > 30) {
+        const more = document.createElement('div');
+        more.className = 'wandlight-runtime-help';
+        more.textContent = `Showing 30 of ${changes.length} draft proposals. Queue or drop some to reduce the list.`;
+        list.appendChild(more);
+    }
+    wrap.appendChild(list);
+    return wrap;
+}
+
+function createLorepackAssistantDraftRow(pack, change = {}, selected = false) {
+    const row = document.createElement('div');
+    row.className = 'wandlight-lorepack-entry-row wandlight-lorepack-assistant-draft-row';
+
+    const main = document.createElement('div');
+    main.className = 'wandlight-lorepack-row-main';
+    const titleLine = document.createElement('label');
+    titleLine.className = 'wandlight-lorepack-assistant-draft-title';
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.checked = selected;
+    addTooltip(checkbox, selected ? 'Remove this draft proposal from the current batch selection.' : 'Add this draft proposal to the current batch selection.');
+    checkbox.addEventListener('click', event => event.stopPropagation());
+    checkbox.addEventListener('change', () => {
+        setLorepackAssistantDraftSelection(pack, change.changeId, checkbox.checked, { refresh: true });
+    });
+    titleLine.appendChild(checkbox);
+    const title = document.createElement('span');
+    title.className = 'wandlight-lorepack-row-title';
+    title.textContent = change.title || change.changeId || 'Assistant Draft Proposal';
+    titleLine.appendChild(title);
+    main.appendChild(titleLine);
+
+    const desc = document.createElement('div');
+    desc.className = 'wandlight-lorepack-row-description';
+    const preview = change.preview || {};
+    desc.textContent = change.description || preview.after || preview.before || 'Assistant draft proposal.';
+    main.appendChild(desc);
+
+    const meta = document.createElement('div');
+    meta.className = 'wandlight-lorepack-row-meta';
+    meta.appendChild(createStatusPill(`Action: ${formatLorepackPendingActionLabel(change.action)}`, `Draft action: ${change.action || 'record_patch'}.`));
+    meta.appendChild(createStatusPill(`Target: ${formatLorepackPendingTargetKindLabel(change.targetKind)}`, `Draft target kind: ${change.targetKind || 'lorepack'}.`));
+    const confidence = getLorepackPendingConfidence(change);
+    if (confidence !== null) meta.appendChild(createStatusPill(`Confidence ${Math.round(confidence * 100)}%`, 'Model confidence for this draft proposal.'));
+    const risk = getLorepackPendingRisk(change);
+    if (risk) meta.appendChild(createLorepackPendingRiskPill(risk));
+    appendLorepackPendingQualityPills(meta, change);
+    if (doesLorepackPendingChangeAffectPackHealth(change)) meta.appendChild(createLorepackPendingHealthImpactPill());
+    if (change.affectedEntryIds?.length) meta.appendChild(createStatusPill(`${change.affectedEntryIds.length} entr${change.affectedEntryIds.length === 1 ? 'y' : 'ies'}`, change.affectedEntryIds.slice(0, 10).join(', ')));
+    if (change.affectedTagIds?.length) meta.appendChild(createStatusPill(`${change.affectedTagIds.length} tag${change.affectedTagIds.length === 1 ? '' : 's'}`, change.affectedTagIds.slice(0, 10).join(', ')));
+    if (change.affectedTimelineIds?.length) meta.appendChild(createStatusPill(`${change.affectedTimelineIds.length} timeline`, change.affectedTimelineIds.slice(0, 10).join(', ')));
+    main.appendChild(meta);
+
+    const diffs = createLorepackPendingDiffList(pack, change);
+    if (diffs) main.appendChild(diffs);
+    const quality = createLorepackPendingQualityList(change);
+    if (quality) main.appendChild(quality);
+    row.appendChild(main);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-lorepack-row-actions';
+    actions.appendChild(createButton('Queue', 'Move this assistant draft proposal into Pending Review.', () => {
+        queueLorepackAssistantDraftSelection(pack, new Set([change.changeId]));
+    }, 'wandlight-primary-button'));
+    actions.appendChild(createButton('Edit JSON', 'Edit this draft proposal record before queueing.', () => {
+        openLorepackAssistantDraftJsonEditor(pack, change);
+    }));
+    actions.appendChild(createButton('Drop', 'Remove this draft proposal without queueing it.', () => {
+        dropLorepackAssistantDraftSelection(pack, new Set([change.changeId]));
+    }, 'wandlight-danger-button'));
+    row.appendChild(actions);
+    return row;
+}
+
+function updateLorepackAssistantDraftAfterRemoval(packId, removedIds = new Set(), queuedCountDelta = 0) {
+    return updateLorepackAssistantDraftCache(packId, cached => {
+        const changes = getLorepackAssistantDraftChanges(cached);
+        const selectedIds = getLorepackAssistantSelectedDraftIds(cached);
+        for (const id of removedIds) selectedIds.delete(id);
+        const remaining = changes.filter(change => !removedIds.has(change.changeId));
+        const remainingIds = new Set(remaining.map(change => change.changeId));
+        return {
+            ...cached,
+            draftChanges: remaining,
+            selectedDraftChangeIds: [...selectedIds].filter(id => remainingIds.has(id)),
+            queuedCount: (Number(cached.queuedCount) || 0) + queuedCountDelta,
+            updatedAt: Date.now(),
+        };
+    });
+}
+
+function queueLorepackAssistantDraftSelection(pack, selectedIds = new Set()) {
+    const cached = lorepackAssistantDraftCache.get(pack.packId) || {};
+    const idSet = selectedIds instanceof Set ? selectedIds : new Set(normalizeLorepackPendingIdList(selectedIds || []));
+    const selected = getLorepackAssistantDraftChanges(cached).filter(change => idSet.has(change.changeId));
+    if (!selected.length) {
+        toast('Select assistant draft proposals to queue.', 'warning');
+        return false;
+    }
+    const fresh = getFreshLorepackLibraryPack(pack.packId, pack);
+    const queued = queueLorepackPendingChanges(fresh, selected, `Queued ${selected.length} assistant draft proposal${selected.length === 1 ? '' : 's'} for Pending Review.`);
+    if (!queued) return false;
+    updateLorepackAssistantDraftAfterRemoval(pack.packId, new Set(selected.map(change => change.changeId)), selected.length);
+    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    return true;
+}
+
+function dropLorepackAssistantDraftSelection(pack, selectedIds = new Set()) {
+    const cached = lorepackAssistantDraftCache.get(pack.packId) || {};
+    const idSet = selectedIds instanceof Set ? selectedIds : new Set(normalizeLorepackPendingIdList(selectedIds || []));
+    const selected = getLorepackAssistantDraftChanges(cached).filter(change => idSet.has(change.changeId));
+    if (!selected.length) {
+        toast('Select assistant draft proposals to drop.', 'warning');
+        return false;
+    }
+    updateLorepackAssistantDraftAfterRemoval(pack.packId, new Set(selected.map(change => change.changeId)), 0);
+    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    toast(`Dropped ${selected.length} assistant draft proposal${selected.length === 1 ? '' : 's'}.`, 'info');
+    return true;
+}
+
+function compactLorepackAssistantDraftChangeForRevision(change = {}) {
+    const payload = cloneLorepackJson(change.payload) || {};
+    return {
+        changeId: change.changeId || '',
+        action: change.action || '',
+        targetKind: change.targetKind || '',
+        title: change.title || '',
+        description: truncateText(change.description || '', 900),
+        affectedEntryIds: change.affectedEntryIds || [],
+        affectedTagIds: change.affectedTagIds || [],
+        affectedTimelineIds: change.affectedTimelineIds || [],
+        preview: cloneLorepackJson(change.preview) || {},
+        payload,
+    };
+}
+
+function collectLorepackHealthRepairSelectedIssues(pack, health = null) {
+    const selectedIds = getLorepackHealthRepairSelection(pack.packId, health);
+    return getLorepackHealthIssueGroups(health)
+        .flatMap(group => group.issues)
+        .filter(issue => selectedIds.has(issue.issueId));
+}
+
+function compactLorepackHealthIssueForAssistant(issue = {}) {
+    const out = {
+        issueId: issue.issueId || '',
+        severity: issue.severity || 'suggestion',
+        code: issue.code || '',
+        message: issue.message || '',
+        packId: issue.packId || '',
+        file: issue.file || '',
+        entryIds: normalizeLorepackPendingIdList(issue.entryIds || []),
+        tagIds: normalizeLorepackTagTextList(issue.tagIds || [], 80, true),
+        timelineIds: normalizeLorepackPendingTimelineIdList(issue.timelineIds || []),
+    };
+    if (issue.expectedEntryCount !== undefined) out.expectedEntryCount = issue.expectedEntryCount;
+    if (issue.actualEntryCount !== undefined) out.actualEntryCount = issue.actualEntryCount;
+    if (issue.positionField) out.positionField = issue.positionField;
+    if (Array.isArray(issue.positionFields) && issue.positionFields.length) out.positionFields = issue.positionFields.slice(0, 20);
+    if (Array.isArray(issue.tags) && issue.tags.length) {
+        out.tags = issue.tags.slice(0, 20).map(tag => ({
+            tag: String(tag?.tag || tag || '').trim(),
+            replacement: String(tag?.replacement || '').trim(),
+            entryIds: normalizeLorepackPendingIdList(tag?.entryIds || []).slice(0, 20),
+        })).filter(tag => tag.tag);
+    }
+    if (issue.expectedCategoryCounts) out.expectedCategoryCounts = cloneLorepackJson(issue.expectedCategoryCounts);
+    if (issue.actualCategoryCounts) out.actualCategoryCounts = cloneLorepackJson(issue.actualCategoryCounts);
+    return out;
+}
+
+function collectLorepackHealthRepairEntryIds(issues = []) {
+    const ids = new Set();
+    for (const issue of issues || []) {
+        for (const id of normalizeLorepackPendingIdList(issue.entryIds || [])) ids.add(id);
+        if (Array.isArray(issue.tags)) {
+            for (const tag of issue.tags) {
+                for (const id of normalizeLorepackPendingIdList(tag?.entryIds || [])) ids.add(id);
+            }
+        }
+    }
+    return ids;
+}
+
+async function handleLorepackAssistantHealthRepairDraft(pack, health = null, button = null) {
+    await runBusyAction(button, 'Drafting...', async () => {
+        if (!ensureLoreProviderReadyForAction('Pack Health repair planning', 'lore')) return;
+        const fresh = getFreshLorepackLibraryPack(pack.packId, pack);
+        if (!fresh || fresh.type === 'bundled') {
+            toast('Bundled Lorepacks cannot be repaired directly. Duplicate as Custom first.', 'warning');
+            return;
+        }
+        const selectedIssues = collectLorepackHealthRepairSelectedIssues(fresh, health);
+        if (!selectedIssues.length) {
+            toast('Select Pack Health issues to plan repairs.', 'warning');
+            return;
+        }
+        const entryCache = lorepackEntryPreviewCache.get(fresh.packId) || {};
+        const rows = getLorepackEditableEntryRows(fresh, entryCache.entries || []);
+        const relatedEntryIds = collectLorepackHealthRepairEntryIds(selectedIssues);
+        const targetRows = relatedEntryIds.size
+            ? rows.filter(row => relatedEntryIds.has(row.id))
+            : rows;
+        const instruction = [
+            'Draft repair proposals for the selected Pack Health issues.',
+            'Use supported proposal actions only. Put every repair into reviewable proposals; do not claim fixes are applied.',
+            'If an issue cannot be repaired with entry, tag, or timeline proposals, explain that in warnings or ask a clarifying question.',
+        ].join(' ');
+        const context = buildLorepackAssistantContext(fresh, rows, targetRows, {
+            instruction,
+            mode: 'pack_health_repair',
+            targetScope: 'all_loaded',
+        });
+        context.task = 'Turn selected Pack Health issues into reviewable assistant draft proposals.';
+        context.targetEntries = targetRows
+            .filter(row => row?.id && !row.disabled)
+            .slice(0, 80)
+            .map(compactLorepackAssistantEntry);
+        context.selectedHealthIssues = selectedIssues.map(compactLorepackHealthIssueForAssistant);
+        const responseText = await sendLoreRequest(
+            buildLorepackAssistantSystemPrompt(),
+            buildLorepackAssistantUserPrompt(context),
+            { providerKind: 'lore', maxTokens: 4096 }
+        );
+        const parsed = parseLorepackAssistantResponse(responseText);
+        const changes = buildLorepackAssistantPendingChanges(fresh, parsed.proposals, rows);
+        const qualityWarningCount = countLorepackAssistantQualityWarningsForChanges(changes);
+        lorepackAssistantDraftCache.set(fresh.packId, {
+            summary: parsed.summary || `Repair plan for ${selectedIssues.length} Pack Health issue${selectedIssues.length === 1 ? '' : 's'}.`,
+            questions: parsed.clarifyingQuestions,
+            warnings: parsed.warnings,
+            proposalCount: parsed.proposals.length,
+            queuedCount: 0,
+            draftChanges: changes,
+            selectedDraftChangeIds: changes.map(change => change.changeId),
+            qualityWarningCount,
+            mode: 'pack_health_repair',
+            targetScope: relatedEntryIds.size ? 'health_issue_entries' : 'all_loaded',
+            selectedHealthIssueCount: selectedIssues.length,
+            createdAt: Date.now(),
+        });
+        if (parsed.clarifyingQuestions.length && !changes.length) {
+            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+            toast(`Lore Assistant needs clarification: ${parsed.clarifyingQuestions[0]}`, 'warning');
+            return;
+        }
+        if (!changes.length) {
+            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+            toast(parsed.warnings[0] || 'Lore Assistant returned no repair proposals.', 'warning');
+            return;
+        }
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        toast(`Lore Assistant drafted ${changes.length} repair proposal${changes.length === 1 ? '' : 's'} for batch review.`, 'success');
+    });
+}
+
+async function handleLorepackAssistantDraftRevision(pack, rows = [], filteredRows = [], options = {}, button = null) {
+    await runBusyAction(button, 'Revising...', async () => {
+        if (!ensureLoreProviderReadyForAction('Lore Assistant', 'lore')) return;
+        const instruction = String(options.instruction || '').trim();
+        if (!instruction) {
+            toast('Enter a revision instruction first.', 'warning');
+            return;
+        }
+        const fresh = getFreshLorepackLibraryPack(pack.packId, pack);
+        if (!fresh || fresh.type === 'bundled') {
+            toast('Bundled Lorepacks cannot be edited directly. Duplicate as Custom first.', 'warning');
+            return;
+        }
+        const cached = lorepackAssistantDraftCache.get(fresh.packId) || {};
+        const selected = getLorepackAssistantSelectedDraftChanges(cached);
+        if (!selected.length) {
+            toast('Select assistant draft proposals to revise.', 'warning');
+            return;
+        }
+        const selectedIds = new Set(selected.map(change => change.changeId));
+        const context = buildLorepackAssistantContext(fresh, rows, filteredRows, {
+            instruction,
+            mode: 'revise_draft_batch',
+            targetScope: cached.targetScope || lorepackAssistantTargetScope,
+        });
+        context.task = 'Revise only the selected assistant draft proposals. Return replacement proposals for the selected drafts, not already-applied changes.';
+        context.selectedDraftProposals = selected.map(compactLorepackAssistantDraftChangeForRevision);
+        const responseText = await sendLoreRequest(
+            buildLorepackAssistantSystemPrompt(),
+            buildLorepackAssistantUserPrompt(context),
+            { providerKind: 'lore', maxTokens: 4096 }
+        );
+        const parsed = parseLorepackAssistantResponse(responseText);
+        const revisedChanges = buildLorepackAssistantPendingChanges(fresh, parsed.proposals, rows);
+        if (parsed.clarifyingQuestions.length && !revisedChanges.length) {
+            updateLorepackAssistantDraftCache(fresh.packId, current => ({
+                ...current,
+                summary: parsed.summary || current.summary || '',
+                questions: parsed.clarifyingQuestions,
+                warnings: parsed.warnings,
+                updatedAt: Date.now(),
+            }));
+            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+            toast(`Lore Assistant needs clarification: ${parsed.clarifyingQuestions[0]}`, 'warning');
+            return;
+        }
+        if (!revisedChanges.length) {
+            updateLorepackAssistantDraftCache(fresh.packId, current => ({
+                ...current,
+                summary: parsed.summary || current.summary || '',
+                questions: parsed.clarifyingQuestions,
+                warnings: parsed.warnings,
+                updatedAt: Date.now(),
+            }));
+            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+            toast(parsed.warnings[0] || 'Lore Assistant returned no revised proposals.', 'warning');
+            return;
+        }
+        updateLorepackAssistantDraftCache(fresh.packId, current => {
+            const existing = getLorepackAssistantDraftChanges(current);
+            const nextChanges = [];
+            let inserted = false;
+            for (const change of existing) {
+                if (selectedIds.has(change.changeId)) {
+                    if (!inserted) {
+                        nextChanges.push(...revisedChanges);
+                        inserted = true;
+                    }
+                    continue;
+                }
+                nextChanges.push(change);
+            }
+            if (!inserted) nextChanges.push(...revisedChanges);
+            return {
+                ...current,
+                summary: parsed.summary || current.summary || '',
+                questions: parsed.clarifyingQuestions,
+                warnings: parsed.warnings,
+                proposalCount: parsed.proposals.length,
+                draftChanges: nextChanges,
+                selectedDraftChangeIds: revisedChanges.map(change => change.changeId),
+                revisedAt: Date.now(),
+                updatedAt: Date.now(),
+            };
+        });
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        toast(`Revised ${selected.length} selected draft proposal${selected.length === 1 ? '' : 's'} into ${revisedChanges.length} proposal${revisedChanges.length === 1 ? '' : 's'}.`, 'success');
+    });
+}
+
+function openLorepackAssistantDraftJsonEditor(pack, change = {}) {
+    const existing = document.querySelector('.wandlight-lorepack-assistant-draft-overlay');
+    existing?.remove();
+    const overlay = document.createElement('div');
+    overlay.className = 'wandlight-new-lore-overlay wandlight-lorepack-assistant-draft-overlay';
+    const shell = document.createElement('div');
+    shell.className = 'wandlight-new-lore-shell wandlight-lorepack-entry-override-shell';
+    overlay.appendChild(shell);
+    const title = document.createElement('div');
+    title.className = 'wandlight-new-lore-title';
+    title.textContent = 'Edit Assistant Draft';
+    shell.appendChild(title);
+    const textarea = document.createElement('textarea');
+    textarea.className = 'wandlight-continuity-json-editor wandlight-lorepack-assistant-draft-json';
+    textarea.spellcheck = false;
+    textarea.value = JSON.stringify(change, null, 2);
+    addTooltip(textarea, 'Editable pending-change JSON. Save validates the draft record before replacing it in the assistant batch.');
+    shell.appendChild(textarea);
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    actions.appendChild(createButton('Save Draft', 'Validate and save this edited assistant draft proposal.', () => {
+        try {
+            const parsed = JSON.parse(textarea.value || '{}');
+            const normalized = normalizeLorepackPendingChanges([parsed])[0];
+            if (!normalized) {
+                toast('Edited draft is not a valid pending-change record.', 'warning');
+                return;
+            }
+            updateLorepackAssistantDraftCache(pack.packId, cached => {
+                const wasSelected = getLorepackAssistantSelectedDraftIds(cached).has(change.changeId);
+                const draftChanges = getLorepackAssistantDraftChanges(cached).map(item => item.changeId === change.changeId ? normalized : item);
+                const selectedIds = getLorepackAssistantSelectedDraftIds({ ...cached, draftChanges });
+                selectedIds.delete(change.changeId);
+                if (wasSelected) selectedIds.add(normalized.changeId);
+                return {
+                    ...cached,
+                    draftChanges,
+                    selectedDraftChangeIds: [...selectedIds],
+                    updatedAt: Date.now(),
+                };
+            });
+            overlay.remove();
+            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+            toast('Assistant draft updated.', 'success');
+        } catch (e) {
+            toast(e?.message || 'Draft JSON is invalid.', 'error');
+        }
+    }, 'wandlight-primary-button'));
+    actions.appendChild(createButton('Cancel', 'Close without saving this assistant draft edit.', () => overlay.remove()));
+    shell.appendChild(actions);
+    document.body.appendChild(overlay);
+    requestAnimationFrame(() => textarea.focus());
 }
 
 async function handleLorepackAssistantDraft(pack, rows = [], filteredRows = [], options = {}, button = null) {
@@ -4693,12 +5920,18 @@ async function handleLorepackAssistantDraft(pack, rows = [], filteredRows = [], 
         );
         const parsed = parseLorepackAssistantResponse(responseText);
         const changes = buildLorepackAssistantPendingChanges(fresh, parsed.proposals, rows);
+        const qualityWarningCount = countLorepackAssistantQualityWarningsForChanges(changes);
         lorepackAssistantDraftCache.set(fresh.packId, {
             summary: parsed.summary,
             questions: parsed.clarifyingQuestions,
             warnings: parsed.warnings,
             proposalCount: parsed.proposals.length,
-            queuedCount: changes.length,
+            queuedCount: 0,
+            draftChanges: changes,
+            selectedDraftChangeIds: changes.map(change => change.changeId),
+            qualityWarningCount,
+            mode: options.mode || lorepackAssistantMode,
+            targetScope: options.targetScope || lorepackAssistantTargetScope,
             createdAt: Date.now(),
         });
         if (parsed.clarifyingQuestions.length && !changes.length) {
@@ -4711,18 +5944,8 @@ async function handleLorepackAssistantDraft(pack, rows = [], filteredRows = [], 
             toast(parsed.warnings[0] || 'Lore Assistant returned no supported proposals.', 'warning');
             return;
         }
-        const queued = queueLorepackPendingChanges(fresh, changes, `Queued ${changes.length} Lore Assistant proposal${changes.length === 1 ? '' : 's'}.`);
-        if (queued) {
-            lorepackAssistantDraftCache.set(fresh.packId, {
-                summary: parsed.summary,
-                questions: parsed.clarifyingQuestions,
-                warnings: parsed.warnings,
-                proposalCount: parsed.proposals.length,
-                queuedCount: changes.length,
-                createdAt: Date.now(),
-            });
-            toast(`Lore Assistant queued ${changes.length} proposal${changes.length === 1 ? '' : 's'} for review.`, 'success');
-        }
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        toast(`Lore Assistant drafted ${changes.length} proposal${changes.length === 1 ? '' : 's'} for batch review.`, 'success');
     });
 }
 
@@ -4745,6 +5968,92 @@ function buildLorepackAssistantPendingChange(pack, proposal = {}, rowById = new 
     if (proposal.action === 'upsert_timeline_anchor') return buildLorepackAssistantTimelineAnchorChange(proposal);
     if (proposal.action === 'upsert_timeline_window') return buildLorepackAssistantTimelineWindowChange(proposal);
     return null;
+}
+
+function countLorepackAssistantQualityWarningsForChanges(changes = []) {
+    return (changes || []).reduce((total, change) => {
+        const preview = change?.preview && typeof change.preview === 'object' && !Array.isArray(change.preview) ? change.preview : {};
+        return total + (Array.isArray(preview.qualityWarnings) ? preview.qualityWarnings.length : 0);
+    }, 0);
+}
+
+function normalizeLorepackAssistantRubricForPreview(rubric = null) {
+    if (!rubric || typeof rubric !== 'object' || Array.isArray(rubric)) return null;
+    const levelFields = [
+        'sceneUtility',
+        'activationClarity',
+        'behavioralImpact',
+        'relationshipImpact',
+        'conflictStakes',
+        'nonRedundancy',
+        'injectionQuality',
+        'storyPositionFit',
+        'wikiSummaryRisk',
+    ];
+    const out = {};
+    for (const field of levelFields) {
+        const level = normalizeLorepackPendingRubricLevel(rubric[field]);
+        if (level) out[field] = level;
+    }
+    const notes = Array.isArray(rubric.notes)
+        ? rubric.notes.map(item => String(item || '').trim()).filter(Boolean).slice(0, 6)
+        : [];
+    if (notes.length) out.notes = notes;
+    const warnings = Array.isArray(rubric.warnings)
+        ? rubric.warnings.map(item => String(item || '').trim()).filter(Boolean).slice(0, 6)
+        : [];
+    if (warnings.length) out.warnings = warnings;
+    return Object.keys(out).length ? out : null;
+}
+
+function collectLorepackAssistantLocalQualityWarnings(proposal = {}, entry = null, pack = null) {
+    if (proposal.action !== 'upsert_entry' || !entry) return [];
+    const warnings = [];
+    const content = entry.content && typeof entry.content === 'object' && !Array.isArray(entry.content) ? entry.content : {};
+    const position = entry.position && typeof entry.position === 'object' && !Array.isArray(entry.position) ? entry.position : {};
+    const title = String(entry.title || proposal.title || '').trim();
+    const fact = String(content.fact || entry.fact || '').trim();
+    const injection = String(content.injection || entry.injection || '').trim();
+    const searchable = `${title} ${fact} ${injection}`;
+    if (/\b(biography|summary|overview|profile|facts?|wiki|encyclopedia)\b/i.test(`${title} ${fact}`)) {
+        warnings.push('Likely wiki-summary framing; verify it creates playable scene pressure or behavior.');
+    }
+    if (injection.length > 700) {
+        warnings.push('Injection is long; consider tightening it for prompt use.');
+    }
+    if (!/\b(knows?|hides?|wants?|fears?|expects?|avoids?|reacts?|refuses?|pressures?|threatens?|trusts?|suspects?|believes?|lies?|reveals?|protects?|risks?|obligation|consequence|danger|leverage|taboo|rivalry|pressure|secret|misunderstands?)\b/i.test(searchable)) {
+        warnings.push('Behavioral impact is unclear; check that this changes how scenes play.');
+    }
+    if (getExpectedLorepackEntrySchemaVersion(pack) >= 3 && !position.scope) {
+        warnings.push('Story Position fit is unclear; schema v3 entries should have a position scope.');
+    }
+    if (!getLorepackEntryTags(entry).length) {
+        warnings.push('No tags detected; review retrieval and tag coverage.');
+    }
+    return [...new Set(warnings)].slice(0, 6);
+}
+
+function buildLorepackAssistantPreviewMeta(proposal = {}, base = {}, entry = null, pack = null) {
+    const preview = {
+        ...base,
+        confidence: proposal.confidence,
+        risk: proposal.risk,
+    };
+    const rubric = normalizeLorepackAssistantRubricForPreview(proposal.rubric);
+    if (rubric) preview.rubric = rubric;
+    const localWarnings = collectLorepackAssistantLocalQualityWarnings(proposal, entry, pack);
+    const rubricWarnings = Array.isArray(rubric?.warnings) ? rubric.warnings : [];
+    const warnings = [...new Set([...rubricWarnings, ...localWarnings].map(item => String(item || '').trim()).filter(Boolean))].slice(0, 8);
+    if (warnings.length) preview.qualityWarnings = warnings;
+    return preview;
+}
+
+function formatLorepackAssistantProposalDescription(proposal = {}, fallback = '') {
+    const reason = String(proposal.reason || '').trim();
+    const rubric = normalizeLorepackAssistantRubricForPreview(proposal.rubric);
+    const notes = Array.isArray(rubric?.notes) ? rubric.notes : [];
+    const parts = [reason || fallback, ...notes.map(note => `Rubric: ${note}`)];
+    return parts.filter(Boolean).join(' ');
 }
 
 function buildLorepackAssistantEntryChange(pack, proposal = {}, rowById = new Map()) {
@@ -4814,18 +6123,16 @@ function buildLorepackAssistantEntryChange(pack, proposal = {}, rowById = new Ma
         action: 'assistant_upsert_entry',
         targetKind: 'entry',
         title: proposal.title || `Lore Assistant entry: ${entry.title || id}`,
-        description: proposal.reason || 'Lore Assistant proposed an entry change.',
+        description: formatLorepackAssistantProposalDescription(proposal, 'Lore Assistant proposed an entry change.'),
         affectedEntryIds: [id],
         payload: {
             entryOverrides: { [id]: entry },
             disabledEntryIdsRemove: [id],
         },
-        preview: {
+        preview: buildLorepackAssistantPreviewMeta(proposal, {
             before: row?.entry?.content?.fact || row?.entry?.fact || '',
             after: entry.content?.fact || entry.fact || entry.title || id,
-            confidence: proposal.confidence,
-            risk: proposal.risk,
-        },
+        }, entry, pack),
     });
 }
 
@@ -4838,12 +6145,12 @@ function buildLorepackAssistantEntryToggleChange(proposal = {}) {
         action: restore ? 'assistant_restore_entry' : 'assistant_disable_entry',
         targetKind: 'entry',
         title: proposal.title || `${restore ? 'Restore' : 'Disable'} entry: ${id}`,
-        description: proposal.reason || `Lore Assistant proposed to ${restore ? 'restore' : 'disable'} this entry.`,
+        description: formatLorepackAssistantProposalDescription(proposal, `Lore Assistant proposed to ${restore ? 'restore' : 'disable'} this entry.`),
         affectedEntryIds: [id],
         payload: restore ? { disabledEntryIdsRemove: [id] } : { disabledEntryIdsAdd: [id] },
-        preview: {
+        preview: buildLorepackAssistantPreviewMeta(proposal, {
             after: restore ? 'Entry will be restored.' : 'Entry will be disabled.',
-        },
+        }),
     });
 }
 
@@ -4860,16 +6167,14 @@ function buildLorepackAssistantTagChange(proposal = {}) {
         action: 'assistant_upsert_tag_definition',
         targetKind: 'tag',
         title: proposal.title || `Lore Assistant tag: ${id}`,
-        description: proposal.reason || 'Lore Assistant proposed a tag definition.',
+        description: formatLorepackAssistantProposalDescription(proposal, 'Lore Assistant proposed a tag definition.'),
         affectedTagIds: [id],
         payload: {
             tagDefinitions: { [id]: def },
         },
-        preview: {
+        preview: buildLorepackAssistantPreviewMeta(proposal, {
             after: def.description || def.label || id,
-            confidence: proposal.confidence,
-            risk: proposal.risk,
-        },
+        }),
     });
 }
 
@@ -4886,17 +6191,15 @@ function buildLorepackAssistantTimelineAnchorChange(proposal = {}) {
         action: 'assistant_upsert_timeline_anchor',
         targetKind: 'timeline_anchor',
         title: proposal.title || `Lore Assistant anchor: ${id}`,
-        description: proposal.reason || 'Lore Assistant proposed a timeline anchor.',
+        description: formatLorepackAssistantProposalDescription(proposal, 'Lore Assistant proposed a timeline anchor.'),
         affectedTimelineIds: [id],
         payload: {
             timelineAnchors: { [id]: anchor },
             timelineAnchorIdsEnable: [id],
         },
-        preview: {
+        preview: buildLorepackAssistantPreviewMeta(proposal, {
             after: anchor.label || id,
-            confidence: proposal.confidence,
-            risk: proposal.risk,
-        },
+        }),
     });
 }
 
@@ -4913,17 +6216,15 @@ function buildLorepackAssistantTimelineWindowChange(proposal = {}) {
         action: 'assistant_upsert_timeline_window',
         targetKind: 'timeline_window',
         title: proposal.title || `Lore Assistant window: ${id}`,
-        description: proposal.reason || 'Lore Assistant proposed a timeline window.',
+        description: formatLorepackAssistantProposalDescription(proposal, 'Lore Assistant proposed a timeline window.'),
         affectedTimelineIds: [id, windowDef.anchorFrom, windowDef.anchorTo].filter(Boolean),
         payload: {
             timelineWindows: { [id]: windowDef },
             timelineWindowIdsEnable: [id],
         },
-        preview: {
+        preview: buildLorepackAssistantPreviewMeta(proposal, {
             after: windowDef.label || `${windowDef.anchorFrom || '?'} -> ${windowDef.anchorTo || '?'}`,
-            confidence: proposal.confidence,
-            risk: proposal.risk,
-        },
+        }),
     });
 }
 
@@ -7286,6 +8587,7 @@ function acceptLorepackPendingChanges(pack, changeIds = []) {
         toast('No pending Lorepack changes selected.', 'warning');
         return false;
     }
+    const affectsHealth = selected.some(change => doesLorepackPendingChangeAffectPackHealth(change));
     return persistLorepackLibraryRecordMutation(pack, next => {
         const current = normalizeLorepackPendingChanges(next.pendingChanges);
         const selectedIds = new Set(selected.map(change => change.changeId));
@@ -7294,7 +8596,10 @@ function acceptLorepackPendingChanges(pack, changeIds = []) {
             applyLorepackRecordPatch(next, change.payload);
         }
         next.pendingChanges = current.filter(change => !selectedIds.has(change.changeId));
-    }, `Accepted ${selected.length} pending Lorepack change${selected.length === 1 ? '' : 's'}.`, {
+        if (affectsHealth) next.healthStatus = 'stale';
+    }, affectsHealth
+        ? `Accepted ${selected.length} pending Lorepack change${selected.length === 1 ? '' : 's'}. Pack Health marked stale.`
+        : `Accepted ${selected.length} pending Lorepack change${selected.length === 1 ? '' : 's'}.`, {
         errorMessage: 'Pending Lorepack change acceptance failed.',
     });
 }
