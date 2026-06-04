@@ -65,6 +65,11 @@ for (const token of [
     'Open Health Center',
     'Health Report',
     'renderSettingsTab',
+    'Theme Pack',
+    'Live Preview',
+    'Installed Theme Packs',
+    'Shelf Icon Set',
+    'Color Overrides',
 ]) {
     assert(panel.includes(token), `Runtime panel is missing expected smoke token: ${token}`);
 }
@@ -79,6 +84,10 @@ for (const token of [
     'wandlight-lorepack-library-stack-card',
     'wandlight-lorepack-health-center-shell',
     'wandlight-lorepack-health-severity-card',
+    'wandlight-theme-top-grid',
+    'wandlight-theme-gallery',
+    'wandlight-theme-icon-grid',
+    'wandlight-theme-preview-surface',
 ]) {
     assert(style.includes(token), `Stylesheet is missing expected smoke selector: ${token}`);
 }

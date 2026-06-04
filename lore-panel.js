@@ -713,6 +713,7 @@ let loreWorkbenchMode = 'accepted';
 let loreWorkbenchSelectedId = '';
 let loreWorkbenchPendingQuery = '';
 let loreWorkbenchFocusSelector = '';
+let themePreviewPackId = '';
 let lorepackHealthCenterOpen = false;
 let lorepackHealthCenterPackId = '';
 let lorepackHealthCenterTab = 'overview';
@@ -14202,98 +14203,774 @@ async function installBundledProviderPreset() {
 function createThemeSettingsCard(settings = getSettings()) {
     const card = document.createElement('div');
     card.className = 'wandlight-runtime-card wandlight-settings-theme-card';
-    const title = document.createElement('h4');
-    title.textContent = 'Themepack';
-    card.appendChild(title);
-
-    const help = document.createElement('div');
-    help.className = 'wandlight-runtime-help';
-    help.textContent = 'Theme Packs are JSON-only appearance presets. They can set colors and icon paths, but they cannot run code.';
-    card.appendChild(help);
-
-    const presetRow = document.createElement('label');
-    presetRow.className = 'wandlight-inline-field wandlight-theme-preset-field';
-    const presetLabel = document.createElement('span');
-    presetLabel.textContent = 'Theme Pack';
-    addTooltip(presetLabel, 'Named color and icon preset for the Saga runtime.');
-    const select = document.createElement('select');
     const themeLibrary = getThemePackLibrary(settings);
     const activePreset = getThemePreset(settings.themePackId, settings);
-    for (const preset of themeLibrary) {
-        const option = document.createElement('option');
-        option.value = preset.id;
-        option.textContent = `${preset.title}${preset.type === 'custom' ? ' (Custom)' : ' (Bundled)'}`;
-        select.appendChild(option);
-    }
-    select.value = activePreset?.id || THEMEPACK_PRESETS[0].id;
-    select.addEventListener('change', () => {
-        applyThemePreset(select.value);
-    });
-    presetRow.appendChild(presetLabel);
-    presetRow.appendChild(select);
-    card.appendChild(presetRow);
+    const colors = getActiveThemeColors(settings);
+    const previewPreset = getThemePreviewPreset(settings);
+    const previewing = !!(themePreviewPackId && previewPreset?.id && previewPreset.id !== activePreset?.id);
+    const previewColors = getThemePreviewColors(previewPreset, settings);
+
+    const header = document.createElement('div');
+    header.className = 'wandlight-theme-header';
+    const titleWrap = document.createElement('div');
+    titleWrap.className = 'wandlight-theme-header-title-wrap';
+    const icon = document.createElement('div');
+    icon.className = 'wandlight-theme-header-icon';
+    icon.textContent = 'T';
+    titleWrap.appendChild(icon);
+    const textWrap = document.createElement('div');
+    const title = document.createElement('h4');
+    title.textContent = 'Theme Pack';
+    textWrap.appendChild(title);
+    const help = document.createElement('div');
+    help.className = 'wandlight-runtime-help';
+    help.textContent = 'JSON-only appearance presets for colors, surfaces, and shelf tab icons. Theme packs cannot run code.';
+    textWrap.appendChild(help);
+    titleWrap.appendChild(textWrap);
+    header.appendChild(titleWrap);
+
+    const topActions = document.createElement('div');
+    topActions.className = 'wandlight-primary-actions wandlight-theme-header-actions';
+    topActions.appendChild(createButton('Import Theme Pack', 'Install a user-made JSON Theme Pack into the local library. Imported packs preview before applying.', () => {
+        importThemePackFromFile();
+    }, 'wandlight-primary-button'));
+    topActions.appendChild(createButton('Export Active Theme', 'Download the active theme as a Custom Theme Pack JSON file.', () => {
+        exportActiveThemePack();
+    }));
+    topActions.appendChild(createButton('Reset Theme', 'Restore the bundled SAGA Archive Theme Pack and clear color overrides.', () => {
+        resetThemeSettings();
+    }));
+    header.appendChild(topActions);
+    card.appendChild(header);
+
+    const topGrid = document.createElement('div');
+    topGrid.className = 'wandlight-theme-top-grid';
+    topGrid.appendChild(createActiveThemePanel(activePreset, settings, colors));
+    topGrid.appendChild(createThemeLivePreviewPanel(previewPreset, previewColors, previewing));
+    card.appendChild(topGrid);
+
+    const middleGrid = document.createElement('div');
+    middleGrid.className = 'wandlight-theme-middle-grid';
+    middleGrid.appendChild(createInstalledThemePackGallery(themeLibrary, activePreset, previewPreset, settings));
+    middleGrid.appendChild(createThemeIconSetPanel(activePreset, settings));
+    card.appendChild(middleGrid);
+
+    const lowerGrid = document.createElement('div');
+    lowerGrid.className = 'wandlight-theme-lower-grid';
+    lowerGrid.appendChild(createThemeColorOverridesPanel(settings, activePreset, colors));
+    lowerGrid.appendChild(createThemeAccessibilityCard(colors, { compact: true }));
+    card.appendChild(lowerGrid);
+
+    card.appendChild(createThemeAdvancedPanel(settings, activePreset, colors));
+    return card;
+}
+
+function getThemePreviewPreset(settings = getSettings()) {
+    const activePreset = getThemePreset(settings.themePackId, settings);
+    if (!themePreviewPackId) return activePreset;
+    const preview = getThemePreset(themePreviewPackId, settings);
+    return preview?.id ? preview : activePreset;
+}
+
+function getThemePreviewColors(preset, settings = getSettings()) {
+    if (!preset) return getActiveThemeColors(settings);
+    if (preset.id === settings.themePackId) return getActiveThemeColors(settings);
+    return completeThemeColors(preset.colors || {});
+}
+
+function createActiveThemePanel(activePreset, settings, colors) {
+    const panel = document.createElement('div');
+    panel.className = 'wandlight-theme-panel wandlight-theme-active-panel';
+
+    const label = document.createElement('div');
+    label.className = 'wandlight-runtime-card-title';
+    label.textContent = 'Active Theme';
+    panel.appendChild(label);
+
+    const body = document.createElement('div');
+    body.className = 'wandlight-theme-active-body';
+    body.appendChild(createThemeEmblem(activePreset, colors, { large: true }));
+
+    const main = document.createElement('div');
+    main.className = 'wandlight-theme-active-main';
+    const title = document.createElement('div');
+    title.className = 'wandlight-theme-active-title';
+    title.textContent = activePreset?.title || 'SAGA Archive';
+    main.appendChild(title);
+    const chips = document.createElement('div');
+    chips.className = 'wandlight-lorepack-row-meta';
+    chips.appendChild(createStatusPill(activePreset?.type === 'custom' ? 'Custom' : 'Bundled', 'Theme Pack source type.'));
+    chips.appendChild(createStatusPill(getThemeStyleLabel(activePreset), 'Theme Pack style tags.'));
+    chips.appendChild(createStatusPill('JSON-only', 'Theme Packs are data-only and cannot run code.'));
+    main.appendChild(chips);
+    const description = document.createElement('div');
+    description.className = 'wandlight-theme-description';
+    description.textContent = activePreset?.description || 'Dark archive interface with gold accents and maroon surfaces.';
+    main.appendChild(description);
 
     const summary = document.createElement('div');
     summary.className = 'wandlight-theme-pack-summary';
-    summary.appendChild(createKeyValue('Type', activePreset?.type === 'custom' ? 'Custom' : 'Bundled', 'Bundled Theme Packs ship with Saga. Custom Theme Packs are installed from JSON.'));
-    summary.appendChild(createKeyValue('Installed custom packs', String(Object.keys(settings.themePackLibrary?.packs || {}).length), 'Custom Theme Packs installed into extension settings.'));
+    summary.appendChild(createKeyValue('Theme ID', activePreset?.id || 'wandlight-default', 'Stable Theme Pack identifier.'));
+    summary.appendChild(createKeyValue('Version', activePreset?.version || 'unset', 'Theme Pack version metadata.'));
+    summary.appendChild(createKeyValue('Source', activePreset?.type === 'custom' ? getThemeSourceLabel(activePreset) : 'Bundled', 'Where this Theme Pack came from.'));
     summary.appendChild(createKeyValue('Icon pack', activePreset?.iconPackId || settings.themeIconPackId || 'wandlight-default', 'Icon pack metadata selected by the active Theme Pack.'));
-    summary.appendChild(createKeyValue('Icon overrides', String(Object.keys(activePreset?.icons || {}).length), 'Theme Pack icon path overrides, such as tab.lorepacks or brand.expanded.'));
-    card.appendChild(summary);
-
-    if (Array.isArray(activePreset?.tags) && activePreset.tags.length) {
-        const tags = document.createElement('div');
-        tags.className = 'wandlight-lorepack-row-meta';
-        for (const tag of activePreset.tags.slice(0, 8)) {
-            tags.appendChild(createStatusPill(tag, 'Theme Pack metadata tag.'));
-        }
-        card.appendChild(tags);
-    }
-
-    card.appendChild(createToggleCard(
-        'Custom Colors',
-        settings.themeCustomEnabled === true,
-        'Override the selected Themepack colors.',
-        (checked) => {
-            const next = getSettings();
-            next.themeCustomEnabled = checked;
-            saveSettings(next);
-            applyRuntimeTheme(panelRoot, next);
-            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-        }
-    ));
-
-    const grid = document.createElement('div');
-    grid.className = 'wandlight-theme-color-grid';
-    const colors = getActiveThemeColors(settings);
-    for (const [label, settingKey, colorKey] of THEME_COLOR_FIELDS) {
-        grid.appendChild(createThemeColorField(label, settingKey, colors[colorKey], settings.themeCustomEnabled === true));
-    }
-    card.appendChild(grid);
-
-    card.appendChild(createThemeAccessibilityCard(colors));
+    summary.appendChild(createKeyValue('Color overrides', settings.themeCustomEnabled === true ? 'On' : 'Off', 'Overrides are user changes layered over the selected Theme Pack.'));
+    summary.appendChild(createKeyValue('Icon overrides', Object.keys(activePreset?.icons || {}).length ? 'On' : 'Off', 'Theme Pack icon path overrides such as tab.lorepacks or brand.expanded.'));
+    main.appendChild(summary);
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
-    actions.appendChild(createButton('Reset Theme', 'Restore the default SAGA Archive Themepack.', () => {
-        resetThemeSettings();
+    actions.appendChild(createButton('Preview Another Theme', 'Preview the next installed Theme Pack without applying it.', () => {
+        previewNextThemePack();
     }));
-    actions.appendChild(createButton('Export Active Theme', 'Download the active theme as a Custom Theme Pack JSON file.', () => {
-        exportActiveThemePack();
-    }));
-    actions.appendChild(createButton('Import Theme Pack JSON', 'Install a user-made Theme Pack from a JSON file.', () => {
-        importThemePackFromFile();
-    }, 'wandlight-primary-button'));
-    actions.appendChild(createButton('Export Theme Library', 'Download installed Custom Theme Pack metadata as JSON.', () => {
-        exportThemePackLibrary();
+    actions.appendChild(createButton('Reset Overrides', 'Disable color overrides and restore this Theme Pack colors.', () => {
+        resetThemeOverrides();
     }));
     if (activePreset?.type === 'custom') {
         actions.appendChild(createButton('Forget Theme Pack', 'Remove this Custom Theme Pack from installed settings.', async () => {
             await forgetThemePack(activePreset.id);
         }, 'wandlight-danger-button'));
     }
-    card.appendChild(actions);
+    main.appendChild(actions);
+
+    body.appendChild(main);
+    panel.appendChild(body);
+    return panel;
+}
+
+function createThemeLivePreviewPanel(previewPreset, colors, previewing = false) {
+    const panel = document.createElement('div');
+    panel.className = 'wandlight-theme-panel wandlight-theme-live-preview-panel';
+    applyThemePreviewVariables(panel, colors);
+
+    const header = document.createElement('div');
+    header.className = 'wandlight-theme-panel-header';
+    const title = document.createElement('div');
+    title.className = 'wandlight-runtime-card-title';
+    title.textContent = 'Live Preview';
+    header.appendChild(title);
+    if (previewing) header.appendChild(createStatusPill(`Previewing: ${previewPreset.title || previewPreset.id}`, 'This Theme Pack is being previewed and has not been applied.'));
+    panel.appendChild(header);
+
+    const preview = document.createElement('div');
+    preview.className = 'wandlight-theme-preview-surface';
+    const rail = document.createElement('div');
+    rail.className = 'wandlight-theme-preview-rail';
+    for (const tabId of Object.keys(TAB_LABELS)) {
+        const item = document.createElement('div');
+        item.className = `wandlight-theme-preview-tab${tabId === 'lorepacks' ? ' wandlight-theme-preview-tab-active' : ''}`;
+        const icon = document.createElement('span');
+        icon.textContent = TAB_ICONS[tabId] || TAB_LABELS[tabId].slice(0, 1);
+        item.appendChild(icon);
+        const label = document.createElement('strong');
+        label.textContent = TAB_LABELS[tabId];
+        item.appendChild(label);
+        rail.appendChild(item);
+    }
+    preview.appendChild(rail);
+
+    const sample = document.createElement('div');
+    sample.className = 'wandlight-theme-preview-card';
+    const sampleTitle = document.createElement('div');
+    sampleTitle.className = 'wandlight-theme-preview-title';
+    sampleTitle.textContent = 'Sample Card';
+    sample.appendChild(sampleTitle);
+    const sampleText = document.createElement('p');
+    sampleText.textContent = 'This is how the interface will look with the selected theme applied.';
+    sample.appendChild(sampleText);
+
+    const controls = document.createElement('div');
+    controls.className = 'wandlight-theme-preview-controls';
+    const primary = document.createElement('button');
+    primary.type = 'button';
+    primary.textContent = 'Primary Button';
+    primary.className = 'wandlight-theme-preview-primary';
+    controls.appendChild(primary);
+    const secondary = document.createElement('button');
+    secondary.type = 'button';
+    secondary.textContent = 'Secondary Button';
+    controls.appendChild(secondary);
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.placeholder = 'Input field';
+    controls.appendChild(input);
+    sample.appendChild(controls);
+
+    const states = document.createElement('div');
+    states.className = 'wandlight-theme-preview-states';
+    for (const [label, className] of [
+        ['Warning', 'warning'],
+        ['Danger', 'danger'],
+        ['Success', 'success'],
+    ]) {
+        const state = document.createElement('span');
+        state.className = `wandlight-theme-preview-state wandlight-theme-preview-state-${className}`;
+        state.textContent = label;
+        states.appendChild(state);
+    }
+    sample.appendChild(states);
+    const muted = document.createElement('div');
+    muted.className = 'wandlight-theme-preview-muted';
+    muted.textContent = 'Muted text example';
+    sample.appendChild(muted);
+    const focus = document.createElement('div');
+    focus.className = 'wandlight-theme-preview-focus';
+    focus.textContent = 'Focus Ring Example';
+    sample.appendChild(focus);
+    preview.appendChild(sample);
+    panel.appendChild(preview);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    const apply = createButton(previewing ? 'Apply Preview' : 'Apply Theme', previewing ? 'Apply the previewed Theme Pack.' : 'The active Theme Pack is already applied.', () => {
+        if (previewing) applyThemePreset(previewPreset.id);
+    }, previewing ? 'wandlight-primary-button' : '');
+    apply.disabled = !previewing;
+    actions.appendChild(apply);
+    const cancel = createButton('Cancel Preview', 'Return the preview panel to the active Theme Pack.', () => {
+        themePreviewPackId = '';
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    });
+    cancel.disabled = !previewing;
+    actions.appendChild(cancel);
+    panel.appendChild(actions);
+    return panel;
+}
+
+function createInstalledThemePackGallery(themeLibrary = [], activePreset, previewPreset, settings) {
+    const panel = document.createElement('div');
+    panel.className = 'wandlight-theme-panel wandlight-theme-gallery-panel';
+    const header = document.createElement('div');
+    header.className = 'wandlight-theme-panel-header';
+    const title = document.createElement('div');
+    title.className = 'wandlight-runtime-card-title';
+    title.textContent = 'Installed Theme Packs';
+    header.appendChild(title);
+    header.appendChild(createStatusPill(`${themeLibrary.length} installed`, 'Bundled and Custom Theme Packs available in this settings profile.'));
+    panel.appendChild(header);
+
+    const gallery = document.createElement('div');
+    gallery.className = 'wandlight-theme-gallery';
+    for (const preset of themeLibrary) {
+        gallery.appendChild(createThemePackGalleryCard(preset, activePreset, previewPreset, settings));
+    }
+    gallery.appendChild(createThemeImportTile());
+    panel.appendChild(gallery);
+    return panel;
+}
+
+function createThemePackGalleryCard(preset, activePreset, previewPreset, settings) {
+    const colors = preset.id === settings.themePackId ? getActiveThemeColors(settings) : completeThemeColors(preset.colors || {});
+    const report = buildThemeAccessibilityReport(colors);
+    const isActive = preset.id === activePreset?.id;
+    const isPreview = themePreviewPackId && preset.id === previewPreset?.id && !isActive;
+    const card = document.createElement('div');
+    card.className = `wandlight-theme-pack-card${isActive ? ' wandlight-theme-pack-card-active' : ''}${isPreview ? ' wandlight-theme-pack-card-preview' : ''}`;
+    card.appendChild(createThemeEmblem(preset, colors));
+    const main = document.createElement('div');
+    main.className = 'wandlight-theme-pack-card-main';
+    const title = document.createElement('div');
+    title.className = 'wandlight-theme-pack-card-title';
+    title.textContent = preset.title || preset.id;
+    main.appendChild(title);
+    const chips = document.createElement('div');
+    chips.className = 'wandlight-lorepack-row-meta';
+    chips.appendChild(createStatusPill(preset.type === 'custom' ? 'Custom' : 'Bundled', 'Theme Pack source type.'));
+    chips.appendChild(createStatusPill(getThemeStyleLabel(preset), 'Theme style metadata.'));
+    main.appendChild(chips);
+    main.appendChild(createThemeSwatchStrip(colors));
+    const status = document.createElement('div');
+    status.className = `wandlight-theme-pack-accessibility ${report.failedCount ? 'wandlight-theme-pack-accessibility-warning' : ''}`;
+    status.textContent = `Accessibility: ${report.status}`;
+    main.appendChild(status);
+    const iconStatus = document.createElement('div');
+    iconStatus.className = 'wandlight-theme-pack-icon-status';
+    iconStatus.textContent = `Icons: ${getThemeIconCoverage(preset).loaded} / ${getThemeIconCoverage(preset).total}`;
+    main.appendChild(iconStatus);
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    actions.appendChild(createButton('Preview', 'Preview this Theme Pack without applying it.', () => {
+        themePreviewPackId = preset.id;
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    }));
+    const apply = createButton(isActive ? 'Active' : 'Apply', isActive ? 'This Theme Pack is active.' : 'Apply this Theme Pack.', () => {
+        applyThemePreset(preset.id);
+    }, isActive ? 'wandlight-primary-button' : '');
+    apply.disabled = isActive;
+    actions.appendChild(apply);
+    main.appendChild(actions);
+    card.appendChild(main);
     return card;
+}
+
+function createThemeImportTile() {
+    const tile = document.createElement('div');
+    tile.className = 'wandlight-theme-import-tile';
+    const icon = document.createElement('div');
+    icon.className = 'wandlight-theme-import-icon';
+    icon.textContent = '+';
+    tile.appendChild(icon);
+    const title = document.createElement('div');
+    title.className = 'wandlight-theme-pack-card-title';
+    title.textContent = 'Import Theme Pack';
+    tile.appendChild(title);
+    const help = document.createElement('div');
+    help.className = 'wandlight-runtime-help';
+    help.textContent = 'Import a JSON Theme Pack to add it to your library.';
+    tile.appendChild(help);
+    tile.appendChild(createButton('Import', 'Choose a Theme Pack JSON file.', () => {
+        importThemePackFromFile();
+    }));
+    return tile;
+}
+
+function createThemeIconSetPanel(activePreset, settings) {
+    const panel = document.createElement('div');
+    panel.className = 'wandlight-theme-panel wandlight-theme-icon-panel';
+    const coverage = getThemeIconCoverage(activePreset);
+    const header = document.createElement('div');
+    header.className = 'wandlight-theme-panel-header';
+    const title = document.createElement('div');
+    title.className = 'wandlight-runtime-card-title';
+    title.textContent = 'Shelf Icon Set';
+    header.appendChild(title);
+    header.appendChild(createStatusPill(`Current: ${activePreset?.iconPackId || settings.themeIconPackId || 'wandlight-default'}`, 'Current Theme Pack icon set metadata.'));
+    panel.appendChild(header);
+
+    const status = document.createElement('div');
+    status.className = 'wandlight-theme-icon-status';
+    status.textContent = `${coverage.loaded} / ${coverage.total} icons available | ${coverage.missing} missing | ${coverage.invalid} invalid paths`;
+    panel.appendChild(status);
+
+    const grid = document.createElement('div');
+    grid.className = 'wandlight-theme-icon-grid';
+    for (const item of getThemeShelfIconItems()) {
+        const tile = document.createElement('div');
+        tile.className = 'wandlight-theme-icon-tile';
+        const icon = document.createElement('div');
+        icon.className = 'wandlight-theme-icon-preview';
+        const path = getThemeIconPreviewPath(activePreset, item);
+        if (path) {
+            const img = document.createElement('img');
+            img.src = getLocalAssetSrc(path);
+            img.alt = item.label;
+            img.addEventListener('error', () => {
+                img.remove();
+                icon.textContent = item.fallback;
+            }, { once: true });
+            icon.appendChild(img);
+        } else {
+            icon.textContent = item.fallback;
+        }
+        tile.appendChild(icon);
+        const label = document.createElement('div');
+        label.textContent = item.label;
+        tile.appendChild(label);
+        addTooltip(tile, path ? `${item.label}: ${path}` : `${item.label}: runtime fallback icon.`);
+        grid.appendChild(tile);
+    }
+    panel.appendChild(grid);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    actions.appendChild(createButton('Import Icon Set', 'Import icon mappings as a Custom Theme Pack that inherits the active colors.', () => {
+        importThemeIconSetFromFile();
+    }));
+    actions.appendChild(createButton('Reset to Theme Icons', 'Reapply the active Theme Pack icon metadata.', () => {
+        applyThemePreset(activePreset.id);
+    }));
+    actions.appendChild(createButton('Reset to Default', 'Switch to the bundled SAGA Archive Theme Pack icon set.', () => {
+        applyThemePreset(THEMEPACK_PRESETS[0].id);
+    }));
+    panel.appendChild(actions);
+
+    const mapping = document.createElement('details');
+    mapping.className = 'wandlight-theme-advanced-details';
+    const summary = document.createElement('summary');
+    summary.textContent = 'Advanced Icon Mapping';
+    mapping.appendChild(summary);
+    const rows = document.createElement('div');
+    rows.className = 'wandlight-theme-icon-mapping';
+    for (const item of getThemeShelfIconItems()) {
+        rows.appendChild(createKeyValue(item.label, getThemeIconPreviewPath(activePreset, item) || 'runtime fallback', 'Icon mapping path used by this Theme Pack preview.'));
+    }
+    mapping.appendChild(rows);
+    panel.appendChild(mapping);
+    return panel;
+}
+
+function createThemeColorOverridesPanel(settings, activePreset, colors) {
+    const panel = document.createElement('div');
+    panel.className = 'wandlight-theme-panel wandlight-theme-overrides-panel';
+    const header = document.createElement('div');
+    header.className = 'wandlight-theme-panel-header';
+    const title = document.createElement('div');
+    title.className = 'wandlight-runtime-card-title';
+    title.textContent = 'Color Overrides';
+    header.appendChild(title);
+    header.appendChild(createStatusPill(`Overrides: ${settings.themeCustomEnabled === true ? 'On' : 'Off'}`, 'Overrides are user color changes layered over the Theme Pack.'));
+    panel.appendChild(header);
+
+    if (settings.themeCustomEnabled !== true) {
+        const empty = document.createElement('div');
+        empty.className = 'wandlight-theme-overrides-empty';
+        const emblem = document.createElement('div');
+        emblem.className = 'wandlight-theme-header-icon';
+        emblem.textContent = 'C';
+        empty.appendChild(emblem);
+        const text = document.createElement('div');
+        const title = document.createElement('strong');
+        title.textContent = 'Using pack defaults.';
+        text.appendChild(title);
+        const help = document.createElement('div');
+        help.className = 'wandlight-runtime-help';
+        help.textContent = 'Enable overrides to customize this theme without editing the original pack.';
+        text.appendChild(help);
+        empty.appendChild(text);
+        panel.appendChild(empty);
+        const actions = document.createElement('div');
+        actions.className = 'wandlight-primary-actions';
+        actions.appendChild(createButton('Enable Color Overrides', 'Enable editable color overrides layered on top of this Theme Pack.', () => {
+            enableThemeOverrides(activePreset);
+        }, 'wandlight-primary-button'));
+        panel.appendChild(actions);
+        return panel;
+    }
+
+    panel.appendChild(createThemeColorGroup('Core Palette', colors, [
+        ['Background', 'themeBackgroundColor', 'background'],
+        ['Surface', 'themeSurfaceColor', 'surface'],
+        ['Border', 'themeBorderColor', 'border'],
+        ['Accent', 'themeAccentColor', 'accent'],
+        ['Text', 'themeTextColor', 'text'],
+        ['Muted Text', 'themeMutedTextColor', 'mutedText'],
+    ]));
+    panel.appendChild(createThemeColorGroup('State Colors', colors, [
+        ['Success', 'themeSuccessColor', 'success'],
+        ['Warning', 'themeWarningColor', 'warning'],
+        ['Danger', 'themeDangerColor', 'danger'],
+        ['Focus Ring', 'themeFocusColor', 'focus'],
+    ]));
+    panel.appendChild(createThemeColorGroup('Controls', colors, [
+        ['Button', 'themeButtonColor', 'button'],
+        ['Button Hover', 'themeButtonHoverColor', 'buttonHover'],
+        ['Input', 'themeInputColor', 'input'],
+        ['Input Border', 'themeInputBorderColor', 'inputBorder'],
+    ]));
+
+    const advanced = document.createElement('details');
+    advanced.className = 'wandlight-theme-advanced-details';
+    const summary = document.createElement('summary');
+    summary.textContent = 'Advanced Tokens';
+    advanced.appendChild(summary);
+    const grid = document.createElement('div');
+    grid.className = 'wandlight-theme-color-grid';
+    for (const [label, settingKey, colorKey] of THEME_COLOR_FIELDS) {
+        grid.appendChild(createThemeColorField(label, settingKey, colors[colorKey], true));
+    }
+    advanced.appendChild(grid);
+    panel.appendChild(advanced);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    actions.appendChild(createButton('Reset Color Overrides', 'Disable overrides and restore this Theme Pack colors.', () => {
+        resetThemeOverrides();
+    }));
+    actions.appendChild(createButton('Export as Custom Theme', 'Export active colors as a Custom Theme Pack JSON file.', () => {
+        exportActiveThemePack();
+    }));
+    panel.appendChild(actions);
+    return panel;
+}
+
+function createThemeColorGroup(titleText, colors, fields = []) {
+    const group = document.createElement('div');
+    group.className = 'wandlight-theme-color-group';
+    const title = document.createElement('div');
+    title.className = 'wandlight-runtime-card-title';
+    title.textContent = titleText;
+    group.appendChild(title);
+    const grid = document.createElement('div');
+    grid.className = 'wandlight-theme-color-grid';
+    for (const [label, settingKey, colorKey] of fields) {
+        grid.appendChild(createThemeColorField(label, settingKey, colors[colorKey], true));
+    }
+    group.appendChild(grid);
+    return group;
+}
+
+function createThemeAdvancedPanel(settings, activePreset, colors) {
+    const panel = document.createElement('details');
+    panel.className = 'wandlight-theme-panel wandlight-theme-advanced-panel';
+    const summary = document.createElement('summary');
+    const title = document.createElement('span');
+    title.className = 'wandlight-runtime-card-title';
+    title.textContent = 'Advanced';
+    summary.appendChild(title);
+    const help = document.createElement('span');
+    help.className = 'wandlight-runtime-help';
+    help.textContent = 'Export raw tokens, inspect theme JSON, and manage diagnostics.';
+    summary.appendChild(help);
+    panel.appendChild(summary);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    actions.appendChild(createButton('Show Raw Color Tokens', 'Open all resolved color tokens for this Theme Pack.', () => {
+        openThemeJsonDialog('Resolved Color Tokens', completeThemeColors(colors));
+    }));
+    actions.appendChild(createButton('Show Theme JSON', 'Open the active Theme Pack JSON record.', () => {
+        openThemeJsonDialog('Theme Pack JSON', buildThemePackExportObject(activePreset, settings));
+    }));
+    actions.appendChild(createButton('Export Theme Library', 'Download installed Custom Theme Pack metadata as JSON.', () => {
+        exportThemePackLibrary();
+    }));
+    panel.appendChild(actions);
+    return panel;
+}
+
+function createThemeEmblem(preset, colors, options = {}) {
+    const emblem = document.createElement('div');
+    emblem.className = `wandlight-theme-emblem${options.large ? ' wandlight-theme-emblem-large' : ''}`;
+    applyThemePreviewVariables(emblem, colors);
+    const initials = String(preset?.title || preset?.id || 'SAGA')
+        .split(/[^A-Za-z0-9]+/)
+        .filter(Boolean)
+        .slice(0, 2)
+        .map(part => part[0])
+        .join('')
+        .toUpperCase() || 'S';
+    emblem.textContent = initials;
+    addTooltip(emblem, `${preset?.title || 'Theme'} visual marker.`);
+    return emblem;
+}
+
+function createThemeSwatchStrip(colors = {}) {
+    const strip = document.createElement('div');
+    strip.className = 'wandlight-theme-swatch-strip';
+    for (const key of ['background', 'surface', 'accent', 'borderStrong', 'button', 'text']) {
+        const swatch = document.createElement('span');
+        swatch.style.background = normalizeHexColor(colors[key], '#000000');
+        addTooltip(swatch, `${humanizeScopeKey(key)}: ${normalizeHexColor(colors[key], '#000000')}`);
+        strip.appendChild(swatch);
+    }
+    return strip;
+}
+
+function applyThemePreviewVariables(el, colors = {}) {
+    if (!el?.style) return el;
+    const complete = completeThemeColors(colors);
+    el.style.setProperty('--theme-preview-bg', complete.background);
+    el.style.setProperty('--theme-preview-bg-alt', complete.backgroundAlt);
+    el.style.setProperty('--theme-preview-surface', complete.surface);
+    el.style.setProperty('--theme-preview-surface-alt', complete.surfaceAlt);
+    el.style.setProperty('--theme-preview-border', complete.border);
+    el.style.setProperty('--theme-preview-border-strong', complete.borderStrong);
+    el.style.setProperty('--theme-preview-accent', complete.accent);
+    el.style.setProperty('--theme-preview-danger', complete.danger);
+    el.style.setProperty('--theme-preview-success', complete.success);
+    el.style.setProperty('--theme-preview-warning', complete.warning);
+    el.style.setProperty('--theme-preview-focus', complete.focus);
+    el.style.setProperty('--theme-preview-button', complete.button);
+    el.style.setProperty('--theme-preview-button-hover', complete.buttonHover);
+    el.style.setProperty('--theme-preview-button-text', complete.buttonText);
+    el.style.setProperty('--theme-preview-input', complete.input);
+    el.style.setProperty('--theme-preview-input-border', complete.inputBorder);
+    el.style.setProperty('--theme-preview-text', complete.text);
+    el.style.setProperty('--theme-preview-muted', complete.mutedText);
+    return el;
+}
+
+function getThemeStyleLabel(preset = {}) {
+    const tags = Array.isArray(preset?.tags) ? preset.tags : [];
+    const styleTag = tags.find(tag => /^style:/i.test(tag));
+    if (styleTag) return humanizeScopeKey(styleTag.replace(/^style:/i, ''));
+    if (tags.some(tag => /^theme:dark/i.test(tag))) return 'Dark';
+    return 'Theme';
+}
+
+function getThemeSourceLabel(preset = {}) {
+    const source = preset?.source && typeof preset.source === 'object' && !Array.isArray(preset.source) ? preset.source : {};
+    if (source.kind) return humanizeScopeKey(source.kind);
+    return preset?.type === 'custom' ? 'Custom' : 'Bundled';
+}
+
+function previewNextThemePack() {
+    const settings = getSettings();
+    const library = getThemePackLibrary(settings);
+    if (!library.length) return;
+    const activeIndex = Math.max(0, library.findIndex(theme => theme.id === settings.themePackId));
+    const next = library[(activeIndex + 1) % library.length] || library[0];
+    themePreviewPackId = next.id;
+    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+}
+
+function enableThemeOverrides(activePreset = getThemePreset(getSettings().themePackId)) {
+    const next = getSettings();
+    next.themeCustomEnabled = true;
+    writeThemeColorsToSettings(next, completeThemeColors(activePreset?.colors || {}));
+    saveSettings(next);
+    applyRuntimeTheme(panelRoot, next);
+    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    toast('Color overrides enabled.', 'info');
+}
+
+function resetThemeOverrides() {
+    const settings = getSettings();
+    const preset = getThemePreset(settings.themePackId, settings);
+    const next = getSettings();
+    next.themeCustomEnabled = false;
+    writeThemeColorsToSettings(next, preset.colors || {});
+    saveSettings(next);
+    applyRuntimeTheme(panelRoot, next);
+    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    refreshHeader();
+    toast('Theme overrides reset.', 'info');
+}
+
+function getThemeShelfIconItems() {
+    return [
+        ...Object.entries(TAB_LABELS).map(([tabId, label]) => ({
+            key: `tab.${tabId}`,
+            legacyKey: tabId,
+            tabId,
+            label,
+            fallback: TAB_ICONS[tabId] || label.slice(0, 1),
+            defaultPath: TAB_ICON_PATHS[tabId] || '',
+        })),
+        {
+            key: 'control.collapse',
+            legacyKey: 'collapse',
+            tabId: '',
+            label: 'Collapse',
+            fallback: '<',
+            defaultPath: '',
+        },
+    ];
+}
+
+function getThemeIconPreviewPath(preset = {}, item = {}) {
+    const icons = preset?.icons && typeof preset.icons === 'object' ? preset.icons : {};
+    return String(icons[item.key] || icons[item.legacyKey] || item.defaultPath || '').trim();
+}
+
+function getThemeIconCoverage(preset = {}) {
+    const items = getThemeShelfIconItems();
+    let loaded = 0;
+    let invalid = 0;
+    for (const item of items) {
+        const path = getThemeIconPreviewPath(preset, item);
+        if (path || item.fallback) loaded += 1;
+        if (path && !/^(https?:\/\/|\.?\.?\/|Images\/|icons\/|data:image\/)/i.test(path)) invalid += 1;
+    }
+    return {
+        total: items.length,
+        loaded,
+        missing: Math.max(0, items.length - loaded),
+        invalid,
+    };
+}
+
+function importThemeIconSetFromFile() {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'application/json,.json';
+    input.addEventListener('change', async () => {
+        const file = input.files?.[0];
+        if (!file) return;
+        try {
+            const parsed = JSON.parse(await file.text());
+            const icons = parsed?.icons && typeof parsed.icons === 'object' && !Array.isArray(parsed.icons)
+                ? parsed.icons
+                : parsed;
+            if (!icons || typeof icons !== 'object' || Array.isArray(icons)) throw new Error('Icon Set import must be a JSON object or a Theme Pack with an icons object.');
+            const active = getThemePreset(getSettings().themePackId, getSettings());
+            const id = normalizeThemeImportId(parsed.id || parsed.themeId || `${active.id}-icon-set`);
+            const result = upsertThemePackLibraryPack({
+                id,
+                type: 'custom',
+                title: parsed.title || `${active.title || 'Theme'} Icon Set`,
+                description: parsed.description || `Icon Set imported from ${file.name}.`,
+                author: parsed.author || '',
+                version: parsed.version || '1.0.0',
+                iconPackId: parsed.iconPackId || 'custom-icons',
+                colors: active.colors || getActiveThemeColors(getSettings()),
+                icons,
+                tags: ['icons:custom', 'theme:icon-set'],
+                source: { kind: 'local', url: file.name },
+            });
+            if (!result.ok) throw new Error(result.error || 'Icon Set import failed.');
+            themePreviewPackId = result.pack.id;
+            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+            toast(`Imported Icon Set as Theme Pack: ${result.pack.title}. Preview before applying.`, 'success');
+        } catch (e) {
+            toast(e?.message || 'Icon Set import failed.', 'error');
+        }
+    }, { once: true });
+    input.click();
+}
+
+function normalizeThemeImportId(value = '') {
+    const base = String(value || 'custom-theme')
+        .trim()
+        .toLowerCase()
+        .replace(/[^a-z0-9._-]+/g, '-')
+        .replace(/^-+|-+$/g, '')
+        .slice(0, 80) || 'custom-theme';
+    const existing = new Set(getThemePackLibrary(getSettings()).map(theme => theme.id));
+    if (!existing.has(base) && !THEMEPACK_PRESETS.some(theme => theme.id === base)) return base;
+    let index = 2;
+    while (existing.has(`${base}-${index}`)) index += 1;
+    return `${base}-${index}`;
+}
+
+function buildThemePackExportObject(preset, settings = getSettings()) {
+    const colors = preset?.id === settings.themePackId ? getActiveThemeColors(settings) : completeThemeColors(preset?.colors || {});
+    const isCustomOverride = preset?.id === settings.themePackId && settings.themeCustomEnabled === true;
+    return {
+        schemaVersion: 1,
+        id: isCustomOverride && preset?.type !== 'custom' ? `${preset.id}-custom` : (preset?.id || 'saga-theme'),
+        type: 'custom',
+        title: isCustomOverride && preset?.type !== 'custom' ? `${preset.title} Custom` : (preset?.title || 'Saga Theme'),
+        description: preset?.description || 'Custom Theme Pack exported from Saga.',
+        author: preset?.author || '',
+        version: preset?.version || '1.0.0',
+        iconPackId: preset?.iconPackId || settings.themeIconPackId || 'wandlight-default',
+        colors,
+        icons: preset?.icons || {},
+        tags: Array.isArray(preset?.tags) ? preset.tags.filter(tag => tag !== 'quality:bundled') : [],
+    };
+}
+
+function openThemeJsonDialog(titleText, data) {
+    const overlay = document.createElement('div');
+    overlay.className = 'wandlight-new-lore-overlay wandlight-theme-json-overlay';
+    document.body.appendChild(overlay);
+
+    const shell = document.createElement('div');
+    shell.className = 'wandlight-new-lore-shell wandlight-theme-json-shell';
+    overlay.appendChild(shell);
+
+    const header = document.createElement('div');
+    header.className = 'wandlight-new-lore-header';
+    const title = document.createElement('h3');
+    title.textContent = titleText || 'Theme JSON';
+    header.appendChild(title);
+    header.appendChild(createButton('Close', 'Close this Theme JSON viewer.', () => overlay.remove()));
+    shell.appendChild(header);
+
+    const text = document.createElement('textarea');
+    text.className = 'wandlight-lore-editor-textarea wandlight-theme-json-textarea';
+    text.readOnly = true;
+    text.value = JSON.stringify(data || {}, null, 2);
+    shell.appendChild(text);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    actions.appendChild(createButton('Copy JSON', 'Copy this JSON to clipboard.', async () => {
+        await navigator.clipboard?.writeText(text.value);
+        toast('Theme JSON copied.', 'info');
+    }));
+    shell.appendChild(actions);
 }
 
 function createThemeColorField(labelText, settingKey, value, enabled) {
@@ -14321,27 +14998,32 @@ function createThemeColorField(labelText, settingKey, value, enabled) {
     return label;
 }
 
-function createThemeAccessibilityCard(colors = {}) {
+function createThemeAccessibilityCard(colors = {}, options = {}) {
     const report = buildThemeAccessibilityReport(colors);
     const shell = document.createElement('div');
-    shell.className = `wandlight-theme-accessibility wandlight-theme-accessibility-${report.failedCount ? 'warning' : 'good'}`;
+    shell.className = `wandlight-theme-accessibility wandlight-theme-accessibility-${report.failedCount ? 'warning' : 'good'}${options.compact ? ' wandlight-theme-accessibility-compact' : ''}`;
 
     const header = document.createElement('div');
     header.className = 'wandlight-theme-accessibility-header';
     const title = document.createElement('strong');
     title.textContent = 'Accessibility';
     header.appendChild(title);
-    header.appendChild(createStatusPill(report.status, 'Theme contrast health is advisory and does not block use.'));
+    header.appendChild(createStatusPill(`Overall: ${report.status}`, 'Theme contrast health is advisory and does not block use.'));
     shell.appendChild(header);
 
     const help = document.createElement('div');
     help.className = 'wandlight-runtime-help';
-    help.textContent = 'Contrast checks use common WCAG ratios: 4.5:1 for normal text and 3:1 for UI affordances.';
+    help.textContent = report.failedCount
+        ? `${report.failedCount} contrast check${report.failedCount === 1 ? ' is' : 's are'} below the recommended threshold.`
+        : 'All required contrast checks pass. Contrast checks use WCAG ratios.';
     shell.appendChild(help);
 
     const list = document.createElement('div');
     list.className = 'wandlight-theme-accessibility-list';
-    for (const check of report.checks) {
+    const visibleChecks = options.compact
+        ? (report.failedCount ? report.checks.filter(check => !check.passes) : [])
+        : report.checks;
+    for (const check of visibleChecks) {
         const row = document.createElement('div');
         row.className = `wandlight-theme-accessibility-row ${check.passes ? 'wandlight-theme-accessibility-pass' : 'wandlight-theme-accessibility-fail'}`;
 
@@ -14363,6 +15045,35 @@ function createThemeAccessibilityCard(colors = {}) {
         list.appendChild(row);
     }
     shell.appendChild(list);
+    if (options.compact && !report.failedCount) {
+        const details = document.createElement('details');
+        details.className = 'wandlight-theme-advanced-details';
+        const summary = document.createElement('summary');
+        summary.textContent = 'View Contrast Details';
+        details.appendChild(summary);
+        const detailList = document.createElement('div');
+        detailList.className = 'wandlight-theme-accessibility-list';
+        for (const check of report.checks) {
+            const row = document.createElement('div');
+            row.className = 'wandlight-theme-accessibility-row wandlight-theme-accessibility-pass';
+            const main = document.createElement('div');
+            main.className = 'wandlight-theme-accessibility-main';
+            const label = document.createElement('span');
+            label.textContent = check.label;
+            main.appendChild(label);
+            const purpose = document.createElement('small');
+            purpose.textContent = check.purpose;
+            main.appendChild(purpose);
+            row.appendChild(main);
+            const score = document.createElement('span');
+            score.className = 'wandlight-theme-accessibility-score';
+            score.textContent = `${formatContrastRatio(check.ratio)} / ${check.target}:1`;
+            row.appendChild(score);
+            detailList.appendChild(row);
+        }
+        details.appendChild(detailList);
+        shell.appendChild(details);
+    }
     return shell;
 }
 
@@ -14372,6 +15083,7 @@ function applyThemePreset(themeId) {
     const next = getSettings();
     next.themePackId = preset.id;
     next.themeIconPackId = preset.iconPackId || 'wandlight-default';
+    themePreviewPackId = '';
     writeThemeColorsToSettings(next, preset.colors || {});
     saveSettings(next);
     applyRuntimeTheme(panelRoot, next);
@@ -14386,6 +15098,7 @@ function resetThemeSettings() {
     next.themePackId = preset.id;
     next.themeIconPackId = preset.iconPackId || 'wandlight-default';
     next.themeCustomEnabled = false;
+    themePreviewPackId = '';
     writeThemeColorsToSettings(next, preset.colors || {});
     saveSettings(next);
     applyRuntimeTheme(panelRoot, next);
@@ -14397,24 +15110,7 @@ function resetThemeSettings() {
 function exportActiveThemePack() {
     const settings = getSettings();
     const preset = getThemePreset(settings.themePackId, settings);
-    const colors = getActiveThemeColors(settings);
-    const isCustomOverride = settings.themeCustomEnabled === true;
-    const exportedId = isCustomOverride && preset.type !== 'custom'
-        ? `${preset.id}-custom`
-        : preset.id;
-    const themePack = {
-        schemaVersion: 1,
-        id: exportedId,
-        type: 'custom',
-        title: isCustomOverride && preset.type !== 'custom' ? `${preset.title} Custom` : preset.title,
-        description: preset.description || 'Custom Theme Pack exported from Saga.',
-        author: preset.author || '',
-        version: preset.version || '1.0.0',
-        iconPackId: preset.iconPackId || settings.themeIconPackId || 'wandlight-default',
-        colors,
-        icons: preset.icons || {},
-        tags: Array.isArray(preset.tags) ? preset.tags.filter(tag => tag !== 'quality:bundled') : [],
-    };
+    const themePack = buildThemePackExportObject(preset, settings);
     downloadJson(themePack, `${sanitizeFileStem(themePack.id || 'saga-theme')}.theme.json`);
     toast('Active Theme Pack exported.', 'info');
 }
@@ -14449,10 +15145,11 @@ function importThemePackFromFile() {
                 return;
             }
 
-            const result = upsertThemePackLibraryPack({ ...parsed, type: 'custom' });
+            const result = upsertThemePackLibraryPack({ ...parsed, id: normalizeThemeImportId(parsed.id || parsed.themeId || parsed.title || 'custom-theme'), type: 'custom' });
             if (!result.ok) throw new Error(result.error || 'Import failed.');
-            applyThemePreset(result.pack.id);
-            toast(`Installed Theme Pack: ${result.pack.title}.`, 'success');
+            themePreviewPackId = result.pack.id;
+            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+            toast(`Installed Theme Pack: ${result.pack.title}. Preview before applying.`, 'success');
         } catch (e) {
             toast(e?.message || 'Theme Pack import failed.', 'error');
         }
