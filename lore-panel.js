@@ -382,7 +382,7 @@ const CATEGORY_LABELS = {
 };
 
 const TAB_LABELS = {
-    lorepacks: 'Lorepacks',
+    lorepacks: 'Loredecks',
     session: 'Session',
     context: 'Context',
     continuity: 'Continuity',
@@ -611,11 +611,11 @@ function buildThemeAccessibilityReport(colors = {}) {
 }
 
 const TAB_TOOLTIPS = {
-    lorepacks: 'Load, order, inspect, and eventually edit Saga Lorepacks.',
+    lorepacks: 'Load, order, inspect, and eventually edit Saga Loredecks.',
     session: 'Runtime overview, preset status, instructions, and destructive cleanup actions.',
     continuity: 'Scan, automatically track, view, and edit lightweight live continuity state: scene/timeline, active characters, key items, and active goals/threads.',
     context: 'Detect, automatically update, view, and edit story context: scene date, canon reference point, branch, and source range.',
-    lore: 'Generate pending lore, review generated entries, and manage accepted lore with search, filters, tags, pinning, and muting.',
+    lore: 'Generate pending lore, review generated Lorecards, and manage accepted lore with search, filters, tags, pinning, and muting.',
     injection: 'Choose what Wandlight sends to the model: continuity state, lore entries, direct/compressed handling, and live split injection previews.',
     settings: 'Configure providers, runtime appearance, and future Saga Themepacks.',
 };
@@ -1670,7 +1670,7 @@ function renderLorepacksTab(container, state) {
     if (!canonDb) {
         loadCanonLoreDatabase()
             .then(() => refreshLorePanel({ preserveScroll: true }))
-            .catch(e => console.warn('[Wandlight] Lorepack health load failed:', e));
+            .catch(e => console.warn('[Wandlight] Loredeck health load failed:', e));
     }
     if (!positionIndex) {
         loadStoryPositionIndex()
@@ -1687,8 +1687,8 @@ function renderLorepacksTab(container, state) {
         .join(', ') || 'Not checked';
 
     container.appendChild(createSectionHeader(
-        'Lorepacks',
-        'Source packs loaded for canon suggestions, relevance, and future Saga pack editing.'
+        'Loredecks',
+        'Source decks loaded for canon suggestions, relevance, and future Saga deck editing.'
     ));
 
     const summary = document.createElement('div');
@@ -1696,11 +1696,11 @@ function renderLorepacksTab(container, state) {
     const title = document.createElement('h4');
     title.textContent = 'Active Stack';
     summary.appendChild(title);
-    summary.appendChild(createKeyValue('Loaded packs', String(enabled.length), 'Enabled Lorepacks in the current chat stack.'));
-    summary.appendChild(createKeyValue('Top priority', enabled[0] ? getLorepackDisplayName(enabled[0].packId) : 'none', 'Highest-priority enabled Lorepack.'));
-    summary.appendChild(createKeyValue('Stack order', enabled.length ? 'Top to bottom priority' : 'empty', 'Lorepack priority is stored by stack order.'));
-    summary.appendChild(createKeyValue('Pack Health', getLorepackHealthText(health), 'Current Pack Health summary for the loaded canon Lorepack.'));
-    summary.appendChild(createKeyValue('Position Index', formatStoryPositionIndexSummary(positionIndex), 'Loaded Story Position anchors from enabled Lorepack timeline registries.'));
+    summary.appendChild(createKeyValue('Loaded decks', String(enabled.length), 'Enabled Loredecks in the current chat stack.'));
+    summary.appendChild(createKeyValue('Top priority', enabled[0] ? getLorepackDisplayName(enabled[0].packId) : 'none', 'Highest-priority enabled Loredeck.'));
+    summary.appendChild(createKeyValue('Stack order', enabled.length ? 'Top to bottom priority' : 'empty', 'Loredeck priority is stored by stack order.'));
+    summary.appendChild(createKeyValue('Deck Health', getLorepackHealthText(health), 'Current Deck Health summary for the loaded canon Loredeck.'));
+    summary.appendChild(createKeyValue('Position Index', formatStoryPositionIndexSummary(positionIndex), 'Loaded Story Position anchors from enabled Loredeck timeline registries.'));
     container.appendChild(summary);
 
     container.appendChild(createLorepackHealthReportCard(state, canonDb, health));
@@ -1711,11 +1711,11 @@ function renderLorepacksTab(container, state) {
     const stackCard = document.createElement('div');
     stackCard.className = 'wandlight-runtime-card';
     const stackTitle = document.createElement('h4');
-    stackTitle.textContent = 'Loaded Lorepacks';
+    stackTitle.textContent = 'Loaded Loredecks';
     stackCard.appendChild(stackTitle);
 
     if (!stack.length) {
-        stackCard.appendChild(createEmptyMessage('No Lorepacks loaded.'));
+        stackCard.appendChild(createEmptyMessage('No Loredecks loaded.'));
     } else {
         const stackList = document.createElement('div');
         stackList.className = 'wandlight-lorepack-stack-list';
@@ -1731,7 +1731,7 @@ function renderLorepacksTab(container, state) {
     const library = document.createElement('div');
     library.className = 'wandlight-runtime-card';
     const libraryTitle = document.createElement('h4');
-    libraryTitle.textContent = 'Lorepack Library';
+    libraryTitle.textContent = 'Loredeck Library';
     library.appendChild(libraryTitle);
     const libraryList = document.createElement('div');
     libraryList.className = 'wandlight-lorepack-library-list';
@@ -1754,7 +1754,7 @@ function createLorepackImportExportCard(state) {
 
     const help = document.createElement('div');
     help.className = 'wandlight-runtime-help';
-    help.textContent = 'Register a fetchable lorepack.json path or URL. Local JSON file import here imports library metadata only; zip/local pack storage comes in a later slice.';
+    help.textContent = 'Register a fetchable lorepack.json path or URL. Local JSON file import here imports library metadata only; zip/local deck storage comes in a later slice.';
     card.appendChild(help);
 
     const row = document.createElement('div');
@@ -1766,23 +1766,23 @@ function createLorepackImportExportCard(state) {
     addTooltip(input, 'Manifest must be fetchable by the browser. Entry file paths are resolved relative to this manifest.');
     row.appendChild(input);
 
-    row.appendChild(createButton('Register', 'Fetch and register this Lorepack manifest as a Custom Lorepack.', async (btn) => {
+    row.appendChild(createButton('Register', 'Fetch and register this Loredeck manifest as a Custom Loredeck.', async (btn) => {
         await registerLorepackManifestFromInput(input.value, { addToStack: false, button: btn });
     }, 'wandlight-primary-button'));
     card.appendChild(row);
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
-    actions.appendChild(createButton('Export Library', 'Download registered Lorepack Library metadata as JSON.', () => {
+    actions.appendChild(createButton('Export Library', 'Download registered Loredeck Library metadata as JSON.', () => {
         exportLorepackLibrary();
     }));
-    actions.appendChild(createButton('Import Library JSON', 'Import a previously exported Lorepack Library metadata JSON file.', () => {
+    actions.appendChild(createButton('Import Library JSON', 'Import a previously exported Loredeck Library metadata JSON file.', () => {
         importLorepackLibraryFromFile();
     }));
     card.appendChild(actions);
 
     const registry = getLorepackLibraryRegistry(state);
-    card.appendChild(createKeyValue('Registered packs', String(Object.keys(registry.packs || {}).length), 'Global library packs plus legacy chat fallback records.'));
+    card.appendChild(createKeyValue('Registered decks', String(Object.keys(registry.packs || {}).length), 'Global library decks plus legacy chat fallback records.'));
     return card;
 }
 
@@ -1792,7 +1792,7 @@ function createLorepackCreatorCard(state = getState()) {
     card.className = 'wandlight-runtime-card wandlight-lorepack-creator-card';
 
     const title = document.createElement('h4');
-    title.textContent = 'Lorepack Creator';
+    title.textContent = 'Loredeck Creator';
     card.appendChild(title);
 
     const cached = getLorepackCreatorBriefCache();
@@ -1831,7 +1831,7 @@ function createLorepackCreatorCard(state = getState()) {
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
-    actions.appendChild(createButton(cached.brief ? 'Redraft Brief' : 'Draft Brief', 'Ask the Reasoning Provider to draft a staged Lorepack brief for approval.', async (btn) => {
+    actions.appendChild(createButton(cached.brief ? 'Redraft Brief' : 'Draft Brief', 'Ask the Reasoning Provider to draft a staged Loredeck brief for approval.', async (btn) => {
         lorepackCreatorFandom = fandomInput.value.trim();
         lorepackCreatorScope = scopeInput.value.trim();
         lorepackCreatorGranularity = granularitySelect.value;
@@ -1888,7 +1888,7 @@ function clearLorepackCreatorBrief() {
     lorepackCreatorRevisionInstruction = '';
     lorepackCreatorTitleRevisionInstruction = '';
     refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-    toast('Lorepack Creator brief cleared.', 'info');
+    toast('Loredeck Creator brief cleared.', 'info');
 }
 
 function formatLorepackCreatorGranularity(value = '') {
@@ -1919,10 +1919,10 @@ function createLorepackCreatorBriefReview(brief = {}, cached = {}) {
     const grid = document.createElement('div');
     grid.className = 'wandlight-lorepack-detail-grid';
     grid.appendChild(createKeyValue('Title', brief.title || 'unset', 'Creator brief title.'));
-    grid.appendChild(createKeyValue('Pack ID', brief.packId || 'unset', 'Suggested generated Lorepack ID.'));
+    grid.appendChild(createKeyValue('Deck ID', brief.packId || 'unset', 'Suggested generated Loredeck ID. Internal schema currently stores this as packId.'));
     grid.appendChild(createKeyValue('Fandom', brief.fandom || 'unset', 'Fandom or universe.'));
-    grid.appendChild(createKeyValue('Scope', brief.scope || 'unset', 'Coverage range for this pack.'));
-    grid.appendChild(createKeyValue('Coverage', brief.coverage || 'unset', 'What the pack should cover.'));
+    grid.appendChild(createKeyValue('Scope', brief.scope || 'unset', 'Coverage range for this deck.'));
+    grid.appendChild(createKeyValue('Coverage', brief.coverage || 'unset', 'What the deck should cover.'));
     grid.appendChild(createKeyValue('Story Position', brief.storyPositionApproach || 'unset', 'How timeline anchors/windows should likely be organized later.'));
     grid.appendChild(createKeyValue('Next Stage', brief.nextStage || 'unset', 'Recommended next Creator stage.'));
     wrap.appendChild(grid);
@@ -1980,7 +1980,7 @@ function appendLorepackCreatorBriefList(container, label, items = []) {
 
 async function handleLorepackCreatorBriefDraft(options = {}, button = null) {
     await runBusyAction(button, 'Drafting...', async () => {
-        if (!ensureLoreProviderReadyForAction('Lorepack Creator', 'lore')) return;
+        if (!ensureLoreProviderReadyForAction('Loredeck Creator', 'lore')) return;
         const fandom = String(options.fandom || '').trim();
         const scope = String(options.scope || '').trim();
         if (!fandom || !scope) {
@@ -2014,14 +2014,14 @@ async function handleLorepackCreatorBriefDraft(options = {}, button = null) {
         });
         refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
         if (parsed.clarifyingQuestions.length && !parsed.brief) {
-            toast(`Lorepack Creator needs clarification: ${parsed.clarifyingQuestions[0]}`, 'warning');
+            toast(`Loredeck Creator needs clarification: ${parsed.clarifyingQuestions[0]}`, 'warning');
             return;
         }
         if (!parsed.brief) {
-            toast(parsed.warnings?.[0] || 'Lorepack Creator returned no brief.', 'warning');
+            toast(parsed.warnings?.[0] || 'Loredeck Creator returned no brief.', 'warning');
             return;
         }
-        toast('Lorepack Creator brief drafted for review.', 'success');
+        toast('Loredeck Creator brief drafted for review.', 'success');
     });
 }
 
@@ -2511,7 +2511,7 @@ function openLorepackCreatorTitleJsonEditor(draft = {}) {
 
 async function handleLorepackCreatorTitleDraft(options = {}, button = null) {
     await runBusyAction(button, options.revisionInstruction ? 'Revising...' : 'Drafting...', async () => {
-        if (!ensureLoreProviderReadyForAction('Lorepack Creator', 'lore')) return;
+        if (!ensureLoreProviderReadyForAction('Loredeck Creator', 'lore')) return;
         const cached = getLorepackCreatorBriefCache();
         const brief = options.brief || cached.brief;
         if (!cached.approved || !brief) {
@@ -2551,7 +2551,7 @@ async function handleLorepackCreatorTitleDraft(options = {}, button = null) {
                 updatedAt: Date.now(),
             }));
             refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-            toast(`Lorepack Creator needs clarification: ${parsed.clarifyingQuestions[0]}`, 'warning');
+            toast(`Loredeck Creator needs clarification: ${parsed.clarifyingQuestions[0]}`, 'warning');
             return;
         }
         if (!parsed.titleDrafts.length) {
@@ -2564,7 +2564,7 @@ async function handleLorepackCreatorTitleDraft(options = {}, button = null) {
                 updatedAt: Date.now(),
             }));
             refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-            toast(parsed.warnings[0] || 'Lorepack Creator returned no title drafts.', 'warning');
+            toast(parsed.warnings[0] || 'Loredeck Creator returned no title drafts.', 'warning');
             return;
         }
         const revisedMode = revisionInstruction && selectedTitleDrafts.length;
@@ -2619,7 +2619,7 @@ async function handleLorepackCreatorTitleDraft(options = {}, button = null) {
             toast(`Revised ${selectedTitleDrafts.length} selected title draft${selectedTitleDrafts.length === 1 ? '' : 's'} into ${parsed.titleDrafts.length} draft${parsed.titleDrafts.length === 1 ? '' : 's'}.`, 'success');
             return;
         }
-        toast(`Lorepack Creator drafted ${parsed.titleDrafts.length} title${parsed.titleDrafts.length === 1 ? '' : 's'} for review.`, 'success');
+        toast(`Loredeck Creator drafted ${parsed.titleDrafts.length} title${parsed.titleDrafts.length === 1 ? '' : 's'} for review.`, 'success');
     });
 }
 
@@ -2640,7 +2640,7 @@ function buildLorepackCreatorGeneratedManifestSeed(packId = '', brief = {}) {
         id: packId,
         type: 'generated',
         title: brief.title || packId,
-        description: brief.coverage || `Generated Lorepack draft for ${brief.scope || brief.fandom || packId}.`,
+        description: brief.coverage || `Generated Loredeck draft for ${brief.scope || brief.fandom || packId}.`,
         fandom: brief.fandom || '',
         era: brief.scope || '',
         author: 'Saga Creator',
@@ -2671,7 +2671,7 @@ function buildLorepackCreatorGeneratedPackRecord(cached = {}, packId = '', exist
         packId: id,
         type: 'generated',
         title: brief.title || existing?.title || id,
-        description: brief.coverage || existing?.description || `Generated Lorepack draft for ${brief.scope || brief.fandom || id}.`,
+        description: brief.coverage || existing?.description || `Generated Loredeck draft for ${brief.scope || brief.fandom || id}.`,
         fandom: brief.fandom || existing?.fandom || '',
         era: brief.scope || existing?.era || '',
         author: existing?.author || 'Saga Creator',
@@ -2710,7 +2710,7 @@ function buildLorepackCreatorGeneratedPackRecord(cached = {}, packId = '', exist
 function ensureLorepackCreatorGeneratedPack(cached = getLorepackCreatorBriefCache()) {
     const brief = cached.brief || {};
     if (!brief) {
-        toast('Approve a Creator brief before creating a Generated Lorepack shell.', 'warning');
+        toast('Approve a Creator brief before creating a Generated Loredeck shell.', 'warning');
         return null;
     }
     let packId = getLorepackCreatorGeneratedPackId(cached);
@@ -2728,7 +2728,7 @@ function ensureLorepackCreatorGeneratedPack(cached = getLorepackCreatorBriefCach
     const record = buildLorepackCreatorGeneratedPackRecord(cached, packId, existing);
     const result = upsertLorepackLibraryPack(record);
     if (!result.ok) {
-        toast(result.error || 'Generated Lorepack shell could not be saved.', 'error');
+        toast(result.error || 'Generated Loredeck shell could not be saved.', 'error');
         return null;
     }
     lorepackManifestPreviewCache.set(packId, {
@@ -2766,14 +2766,14 @@ function markLorepackCreatorPlanningChange(change = {}) {
         assistant_upsert_timeline_window: 'creator_upsert_timeline_window',
     };
     const title = String(change.title || '')
-        .replace(/Lore Assistant/gi, 'Lorepack Creator')
+        .replace(/Lore Assistant/gi, 'Loredeck Creator')
         .trim();
     return {
         ...change,
         source: 'lorepack_creator',
         action: actionMap[change.action] || change.action,
         title: title || change.title,
-        description: change.description || 'Lorepack Creator proposed planning metadata for review.',
+        description: change.description || 'Loredeck Creator proposed planning metadata for review.',
     };
 }
 
@@ -2791,15 +2791,15 @@ function createLorepackCreatorPlanningCard(brief = {}, cached = {}) {
     const summary = document.createElement('div');
     summary.className = 'wandlight-lorepack-entry-summary';
     summary.appendChild(createStatusPill(`${approvedTitles.length} approved title${approvedTitles.length === 1 ? '' : 's'}`, 'Approved title drafts used to infer the timeline/tag planning shape.'));
-    summary.appendChild(createStatusPill(generatedPack ? 'Generated shell ready' : 'No shell yet', 'Generated Lorepack shell status.'));
-    if (generatedPack) summary.appendChild(createStatusPill(generatedPack.packId, 'Generated Lorepack target for Pending Review proposals.'));
+    summary.appendChild(createStatusPill(generatedPack ? 'Generated shell ready' : 'No shell yet', 'Generated Loredeck shell status.'));
+    if (generatedPack) summary.appendChild(createStatusPill(generatedPack.packId, 'Generated Loredeck target for Pending Review proposals.'));
     if (cached.planningQueuedCount) summary.appendChild(createStatusPill(`${cached.planningQueuedCount} queued`, 'Last Creator planning proposal count queued to Pending Review.'));
     if (cached.planningQuestions?.length) summary.appendChild(createStatusPill(`${cached.planningQuestions.length} question${cached.planningQuestions.length === 1 ? '' : 's'}`, 'Creator needs clarification before timeline/tag planning can proceed.'));
     wrap.appendChild(summary);
 
     const help = document.createElement('div');
     help.className = 'wandlight-runtime-help';
-    help.textContent = 'Timeline anchors/windows and tag definitions are queued into the Generated Lorepack Pending Review. They do not become accepted registry data until reviewed.';
+    help.textContent = 'Timeline anchors/windows and tag definitions are queued into the Generated Loredeck Pending Review. They do not become accepted registry data until reviewed.';
     wrap.appendChild(help);
 
     if (cached.planningSummary || cached.planningQuestions?.length || cached.planningWarnings?.length) {
@@ -2815,17 +2815,17 @@ function createLorepackCreatorPlanningCard(brief = {}, cached = {}) {
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
-    const draftButton = createButton('Queue Timeline/Tags', 'Create or reuse the Generated Lorepack shell, then queue Creator timeline/tag proposals into Pending Review.', async (btn) => {
+    const draftButton = createButton('Queue Timeline/Tags', 'Create or reuse the Generated Loredeck shell, then queue Creator timeline/tag proposals into Pending Review.', async (btn) => {
         await handleLorepackCreatorPlanningDraft(btn);
     }, 'wandlight-primary-button');
     draftButton.disabled = !approvedTitles.length;
     actions.appendChild(draftButton);
     if (generatedPack) {
-        actions.appendChild(createButton('Inspect Pack', 'Open the Generated Lorepack detail panel and review pending planning proposals.', () => {
+        actions.appendChild(createButton('Inspect Deck', 'Open the Generated Loredeck detail panel and review pending planning proposals.', () => {
             selectLorepackForDetails(generatedPack.packId);
         }));
         const inStack = getLorepackStack(getState()).some(item => item.packId === generatedPack.packId && item.enabled);
-        const stackButton = createButton(inStack ? 'In Stack' : 'Add to Stack', 'Add the Generated Lorepack to the current stack when you are ready to test it.', () => {
+        const stackButton = createButton(inStack ? 'In Stack' : 'Add to Stack', 'Add the Generated Loredeck to the current stack when you are ready to test it.', () => {
             if (!inStack) addLorepackToStack(generatedPack.packId);
         });
         stackButton.disabled = inStack;
@@ -2841,7 +2841,7 @@ function createLorepackCreatorPlanningCard(brief = {}, cached = {}) {
 
 async function handleLorepackCreatorPlanningDraft(button = null) {
     await runBusyAction(button, 'Planning...', async () => {
-        if (!ensureLoreProviderReadyForAction('Lorepack Creator', 'lore')) return;
+        if (!ensureLoreProviderReadyForAction('Loredeck Creator', 'lore')) return;
         const cached = getLorepackCreatorBriefCache();
         const brief = cached.brief || {};
         if (!cached.approved || !brief) {
@@ -2891,7 +2891,7 @@ async function handleLorepackCreatorPlanningDraft(button = null) {
                 generatedPackId: pack.packId,
             });
             refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-            toast(`Lorepack Creator needs clarification: ${parsed.clarifyingQuestions[0]}`, 'warning');
+            toast(`Loredeck Creator needs clarification: ${parsed.clarifyingQuestions[0]}`, 'warning');
             return;
         }
         if (!changes.length) {
@@ -2903,7 +2903,7 @@ async function handleLorepackCreatorPlanningDraft(button = null) {
                 generatedPackId: pack.packId,
             });
             refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-            toast(warnings[0] || 'Lorepack Creator returned no timeline/tag planning proposals.', 'warning');
+            toast(warnings[0] || 'Loredeck Creator returned no timeline/tag planning proposals.', 'warning');
             return;
         }
         const queued = queueLorepackPendingChanges(pack, changes, `Queued ${changes.length} Creator planning proposal${changes.length === 1 ? '' : 's'} for Pending Review.`);
@@ -3073,7 +3073,7 @@ function compactLorepackCreatorEntryTitleForPrompt(draft = {}) {
 
 function markLorepackCreatorEntryChange(change = {}, pack = {}) {
     const title = String(change.title || '')
-        .replace(/Lore Assistant/gi, 'Lorepack Creator')
+        .replace(/Lore Assistant/gi, 'Loredeck Creator')
         .trim();
     const payload = cloneLorepackJson(change.payload) || {};
     const entryOverrides = isPlainObjectValue(payload.entryOverrides) ? payload.entryOverrides : {};
@@ -3097,7 +3097,7 @@ function markLorepackCreatorEntryChange(change = {}, pack = {}) {
         source: 'lorepack_creator',
         action: change.action === 'assistant_upsert_entry' ? 'creator_upsert_entry' : change.action,
         title: title || change.title,
-        description: change.description || 'Lorepack Creator drafted a schema v3 entry for review.',
+        description: change.description || 'Loredeck Creator drafted a schema v3 Lorecard for review.',
         payload,
     };
 }
@@ -3116,22 +3116,22 @@ function createLorepackCreatorEntryDraftCard(brief = {}, cached = {}) {
 
     const title = document.createElement('div');
     title.className = 'wandlight-runtime-card-title';
-    title.textContent = 'Creator Entry Drafts';
+    title.textContent = 'Creator Lorecard Drafts';
     wrap.appendChild(title);
 
     const summary = document.createElement('div');
     summary.className = 'wandlight-lorepack-entry-summary';
     summary.appendChild(createStatusPill(`${approvedTitles.length} approved title${approvedTitles.length === 1 ? '' : 's'}`, 'Approved title drafts available for schema v3 entry generation.'));
-    summary.appendChild(createStatusPill(`${planning.anchorCount + planning.windowCount} timeline`, 'Accepted timeline anchors/windows on the Generated Lorepack.'));
-    summary.appendChild(createStatusPill(`${planning.tagCount} tags`, 'Accepted tag definitions on the Generated Lorepack.'));
-    if (draftChanges.length) summary.appendChild(createStatusPill(`${draftChanges.length} drafted`, 'Generated entry drafts waiting in the draft batch.'));
+    summary.appendChild(createStatusPill(`${planning.anchorCount + planning.windowCount} timeline`, 'Accepted timeline anchors/windows on the Generated Loredeck.'));
+    summary.appendChild(createStatusPill(`${planning.tagCount} tags`, 'Accepted tag definitions on the Generated Loredeck.'));
+    if (draftChanges.length) summary.appendChild(createStatusPill(`${draftChanges.length} drafted`, 'Generated Lorecard drafts waiting in the draft batch.'));
     if (pendingCount) summary.appendChild(createStatusPill(`${pendingCount} pending`, 'Entry proposals already queued into Pending Review.'));
-    if (entryCount) summary.appendChild(createStatusPill(`${entryCount} accepted`, 'Accepted generated entry overrides in this Generated Lorepack.'));
+    if (entryCount) summary.appendChild(createStatusPill(`${entryCount} accepted`, 'Accepted generated Lorecards in this Generated Loredeck.'));
     wrap.appendChild(summary);
 
     const help = document.createElement('div');
     help.className = 'wandlight-runtime-help';
-    help.textContent = 'Entry drafts use approved titles plus accepted timeline/tag planning. Drafts enter the edit-before-queue batch first, then Pending Review, then acceptance.';
+    help.textContent = 'Lorecard drafts use approved titles plus accepted timeline/tag planning. Drafts enter the edit-before-queue batch first, then Pending Review, then acceptance.';
     wrap.appendChild(help);
 
     if (cached.entryDraftSummary || cached.entryDraftQuestions?.length || cached.entryDraftWarnings?.length) {
@@ -3147,28 +3147,28 @@ function createLorepackCreatorEntryDraftCard(brief = {}, cached = {}) {
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
-    const draftButton = createButton('Draft Entry Batch', 'Generate schema v3 entry drafts for selected approved titles, or the next undrafted approved titles.', async (btn) => {
+    const draftButton = createButton('Draft Lorecards', 'Generate schema v3 Lorecard drafts for selected approved titles, or the next undrafted approved titles.', async (btn) => {
         await handleLorepackCreatorEntryDraft(btn);
     }, 'wandlight-primary-button');
     draftButton.disabled = !generatedPack || !planning.ready || !targetTitles.length;
     actions.appendChild(draftButton);
     if (generatedPack) {
-        actions.appendChild(createButton('Inspect Pack', 'Open the Generated Lorepack detail panel for draft batch and Pending Review controls.', () => {
+        actions.appendChild(createButton('Inspect Deck', 'Open the Generated Loredeck detail panel for draft batch and Pending Review controls.', () => {
             selectLorepackForDetails(generatedPack.packId);
         }));
     }
     wrap.appendChild(actions);
 
     if (!generatedPack) {
-        wrap.appendChild(createEmptyMessage('Queue and accept timeline/tag planning to create the Generated Lorepack shell before drafting entries.'));
+        wrap.appendChild(createEmptyMessage('Queue and accept timeline/tag planning to create the Generated Loredeck shell before drafting Lorecards.'));
         return wrap;
     }
     if (!planning.ready) {
-        wrap.appendChild(createEmptyMessage('Accept timeline/tag planning proposals before drafting full entries.'));
+        wrap.appendChild(createEmptyMessage('Accept timeline/tag planning proposals before drafting full Lorecards.'));
         return wrap;
     }
     if (!targetTitles.length && !draftChanges.length) {
-        wrap.appendChild(createEmptyMessage('No undrafted approved titles remain. Approve more titles or queue/accept existing drafts.'));
+        wrap.appendChild(createEmptyMessage('No undrafted approved titles remain. Approve more titles or queue/accept existing Lorecard drafts.'));
     }
 
     if (draftChanges.length) {
@@ -3181,26 +3181,26 @@ function createLorepackCreatorEntryDraftCard(brief = {}, cached = {}) {
 
 async function handleLorepackCreatorEntryDraft(button = null) {
     await runBusyAction(button, 'Drafting...', async () => {
-        if (!ensureLoreProviderReadyForAction('Lorepack Creator', 'lore')) return;
+        if (!ensureLoreProviderReadyForAction('Loredeck Creator', 'lore')) return;
         const cached = getLorepackCreatorBriefCache();
         const brief = cached.brief || {};
         if (!cached.approved || !brief) {
-            toast('Approve a Creator brief before drafting entries.', 'warning');
+            toast('Approve a Creator brief before drafting Lorecards.', 'warning');
             return;
         }
         const pack = cached.generatedPackId ? getFreshLorepackLibraryPack(cached.generatedPackId, null) : null;
         if (!pack) {
-            toast('Create and accept Creator planning before drafting entries.', 'warning');
+            toast('Create and accept Creator planning before drafting Lorecards.', 'warning');
             return;
         }
         const planning = getLorepackCreatorAcceptedPlanningStatus(pack);
         if (!planning.ready) {
-            toast('Accept timeline/tag planning proposals before drafting entries.', 'warning');
+            toast('Accept timeline/tag planning proposals before drafting Lorecards.', 'warning');
             return;
         }
         const targetTitles = getLorepackCreatorEntryTargetTitles(cached, pack, 8);
         if (!targetTitles.length) {
-            toast('No undrafted approved titles are available for entry generation.', 'info');
+            toast('No undrafted approved titles are available for Lorecard generation.', 'info');
             return;
         }
         const rows = getLorepackEditableEntryRows(pack, []);
@@ -3237,7 +3237,7 @@ async function handleLorepackCreatorEntryDraft(button = null) {
                 generatedPackId: pack.packId,
             });
             refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-            toast(`Lorepack Creator needs clarification: ${parsed.clarifyingQuestions[0]}`, 'warning');
+            toast(`Loredeck Creator needs clarification: ${parsed.clarifyingQuestions[0]}`, 'warning');
             return;
         }
         if (!changes.length) {
@@ -3249,7 +3249,7 @@ async function handleLorepackCreatorEntryDraft(button = null) {
                 generatedPackId: pack.packId,
             });
             refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-            toast(warnings[0] || 'Lorepack Creator returned no valid schema v3 entry drafts.', 'warning');
+            toast(warnings[0] || 'Loredeck Creator returned no valid schema v3 Lorecard drafts.', 'warning');
             return;
         }
         updateLorepackAssistantDraftCache(pack.packId, current => {
@@ -3258,7 +3258,7 @@ async function handleLorepackCreatorEntryDraft(button = null) {
             return {
                 ...current,
                 source: 'lorepack_creator',
-                summary: parsed.summary || `Creator drafted ${changes.length} schema v3 entr${changes.length === 1 ? 'y' : 'ies'}.`,
+                summary: parsed.summary || `Creator drafted ${changes.length} schema v3 Lorecard${changes.length === 1 ? '' : 's'}.`,
                 questions: parsed.clarifyingQuestions,
                 warnings,
                 proposalCount: (Number(current.proposalCount) || 0) + parsed.proposals.length,
@@ -3284,7 +3284,7 @@ async function handleLorepackCreatorEntryDraft(button = null) {
         selectLorepackForDetails(pack.packId, { refresh: false });
         refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
         refreshHeader();
-        toast(`Creator drafted ${changes.length} schema v3 entr${changes.length === 1 ? 'y' : 'ies'} into the draft batch.`, 'success');
+        toast(`Creator drafted ${changes.length} schema v3 Lorecard${changes.length === 1 ? '' : 's'} into the draft batch.`, 'success');
     });
 }
 
@@ -3299,17 +3299,17 @@ function createLorepackStoryPositionCard(state = getState(), positionIndex = get
 
     const help = document.createElement('div');
     help.className = 'wandlight-runtime-help';
-    help.textContent = 'Set where this chat sits inside each loaded Lorepack. Manual edits lock by default so automated resolvers do not overwrite your chosen canon point.';
+    help.textContent = 'Set where this chat sits inside each loaded Loredeck. Manual edits lock by default so automated resolvers do not overwrite your chosen canon point.';
     card.appendChild(help);
 
     if (!stack.length) {
-        card.appendChild(createEmptyMessage('No enabled Lorepacks need Story Position context.'));
+        card.appendChild(createEmptyMessage('No enabled Loredecks need Story Position context.'));
         return card;
     }
 
     const indexMeta = document.createElement('div');
     indexMeta.className = 'wandlight-story-position-index-summary';
-    indexMeta.appendChild(createStatusPill(formatStoryPositionIndexSummary(positionIndex), 'Story Position timeline registry status for the enabled Lorepack stack.'));
+    indexMeta.appendChild(createStatusPill(formatStoryPositionIndexSummary(positionIndex), 'Story Position timeline registry status for the enabled Loredeck stack.'));
     if (positionIndex?.summary?.issueCount) {
         indexMeta.appendChild(createStatusPill(`${positionIndex.summary.issueCount} index issue${positionIndex.summary.issueCount === 1 ? '' : 's'}`, 'Timeline registry load warnings or suggestions.'));
     }
@@ -3317,7 +3317,7 @@ function createLorepackStoryPositionCard(state = getState(), positionIndex = get
 
     const resolveActions = document.createElement('div');
     resolveActions.className = 'wandlight-primary-actions';
-    resolveActions.appendChild(createButton('Resolve From Context', 'Use current Story Context and Lorepack timeline aliases to update unlocked Story Positions.', async (btn) => {
+    resolveActions.appendChild(createButton('Resolve From Context', 'Use current Story Context and Loredeck timeline aliases to update unlocked Story Positions.', async (btn) => {
         await handleResolveStoryPositionsFromContext(btn);
     }, 'wandlight-primary-button'));
     resolveActions.appendChild(createButton('Model Fallback', 'Ask the configured Reasoning Provider to resolve unresolved Story Positions using known timeline anchors only.', async (btn) => {
@@ -3350,14 +3350,14 @@ function createLorepackStoryPositionRow(item, state = getState(), positionIndex 
 
     const chips = document.createElement('div');
     chips.className = 'wandlight-lorepack-row-meta';
-    chips.appendChild(createStatusPill(getStoryPositionTypeLabel(context.positionType), 'Story Position mode for this Lorepack.'));
+    chips.appendChild(createStatusPill(getStoryPositionTypeLabel(context.positionType), 'Story Position mode for this Loredeck.'));
     chips.appendChild(createStatusPill(formatStoryPositionSource(context.source), 'How this Story Position was last set.'));
     chips.appendChild(createStatusPill(context.manualLock ? 'Locked' : 'Unlocked', 'Locked positions should not be overwritten by automatic resolvers.'));
     chips.appendChild(createStatusPill(`${Math.round((Number(context.confidence) || 0) * 100)}%`, 'Resolver confidence. Manual choices default to high confidence.'));
     if (packIndex?.hasIndex) {
-        chips.appendChild(createStatusPill(`${packIndex.anchorCount || 0} anchors`, 'Timeline anchors available from this Lorepack registry.'));
+        chips.appendChild(createStatusPill(`${packIndex.anchorCount || 0} anchors`, 'Timeline anchors available from this Loredeck registry.'));
     } else {
-        chips.appendChild(createStatusPill(positionIndex ? 'No index' : 'Index loading', 'This Lorepack has no loaded timeline registry yet.'));
+        chips.appendChild(createStatusPill(positionIndex ? 'No index' : 'Index loading', 'This Loredeck has no loaded timeline registry yet.'));
     }
     header.appendChild(chips);
     row.appendChild(header);
@@ -3371,7 +3371,7 @@ function createLorepackStoryPositionRow(item, state = getState(), positionIndex 
 
     const grid = document.createElement('div');
     grid.className = 'wandlight-lorepack-story-position-grid';
-    createStoryPositionSelectField(grid, 'Type', packId, 'positionType', context.positionType, STORY_POSITION_TYPE_OPTIONS, 'How this Lorepack represents story progress.');
+    createStoryPositionSelectField(grid, 'Type', packId, 'positionType', context.positionType, STORY_POSITION_TYPE_OPTIONS, 'How this Loredeck represents story progress.');
     createStoryPositionTextField(grid, 'Label', packId, 'label', context.label, 'Human-readable story position label.');
     createStoryPositionTextField(grid, 'Scene Date', packId, 'sceneDate', context.sceneDate, 'Exact or approximate in-universe date when the pack supports dates.');
     createStoryPositionTextField(grid, 'Branch', packId, 'branchId', context.branchId || 'main', 'Use main for canon baseline, or a custom branch for AU/time travel.');
@@ -3407,7 +3407,7 @@ function createLorepackStoryPositionRow(item, state = getState(), positionIndex 
             branchId: legacy.branchId || 'main',
         }, `Seed Story Position from legacy context: ${getLorepackDisplayName(packId)}`);
     }));
-    actions.appendChild(createButton('Reset Position', 'Clear this Lorepack Story Position back to an empty default.', async () => {
+    actions.appendChild(createButton('Reset Position', 'Clear this Loredeck Story Position back to an empty default.', async () => {
         const ok = await confirmAction('Reset Story Position', `Clear Story Position for ${getLorepackDisplayName(packId)}?`);
         if (!ok) return;
         const current = getState();
@@ -3518,7 +3518,7 @@ function createLorepackEntryAnchorPicker(pack, positionFields = {}, options = {}
     input.type = 'search';
     input.className = 'wandlight-lore-editor-input';
     input.placeholder = 'Search timeline anchors';
-    addTooltip(input, 'Search this Lorepack timeline by book, event, arc, alias, date, or tag.');
+    addTooltip(input, 'Search this Loredeck timeline by book, event, arc, alias, date, or tag.');
     input.addEventListener('click', e => e.stopPropagation());
     input.addEventListener('mousedown', e => e.stopPropagation());
     top.appendChild(input);
@@ -3533,11 +3533,11 @@ function createLorepackEntryAnchorPicker(pack, positionFields = {}, options = {}
         const query = input.value.trim();
         const packIndex = getStoryPositionPackSummary(positionIndex, packId);
         if (!positionIndex) {
-            results.appendChild(createEmptyMessage('Position index is loading. Load this Lorepack in the active stack to search anchors.'));
+            results.appendChild(createEmptyMessage('Position index is loading. Load this Loredeck in the active stack to search anchors.'));
             return;
         }
         if (!packIndex?.hasIndex) {
-            results.appendChild(createEmptyMessage('No loaded timeline registry for this Lorepack. Add it to the active stack or inspect a pack with timeline data.'));
+            results.appendChild(createEmptyMessage('No loaded timeline registry for this Loredeck. Add it to the active stack or inspect a pack with timeline data.'));
             return;
         }
         if (!query) {
@@ -3554,7 +3554,7 @@ function createLorepackEntryAnchorPicker(pack, positionFields = {}, options = {}
         }
     };
 
-    top.appendChild(createButton('Find', 'Search timeline anchors in this Lorepack.', renderResults));
+    top.appendChild(createButton('Find', 'Search timeline anchors in this Loredeck.', renderResults));
     input.addEventListener('keydown', event => {
         if (event.key !== 'Enter') return;
         event.preventDefault();
@@ -3614,7 +3614,7 @@ function createStoryPositionAnchorLookup(packId, positionIndex = getStoryPositio
     input.type = 'search';
     input.className = 'wandlight-lore-editor-input';
     input.placeholder = 'Search timeline anchors';
-    addTooltip(input, 'Search this Lorepack timeline by book, event, arc, alias, date, or tag.');
+    addTooltip(input, 'Search this Loredeck timeline by book, event, arc, alias, date, or tag.');
     input.addEventListener('click', e => e.stopPropagation());
     input.addEventListener('mousedown', e => e.stopPropagation());
     top.appendChild(input);
@@ -3631,7 +3631,7 @@ function createStoryPositionAnchorLookup(packId, positionIndex = getStoryPositio
             return;
         }
         if (!packIndex?.hasIndex) {
-            results.appendChild(createEmptyMessage('This Lorepack has no timeline registry loaded.'));
+            results.appendChild(createEmptyMessage('This Loredeck has no timeline registry loaded.'));
             return;
         }
         if (!query) {
@@ -3648,7 +3648,7 @@ function createStoryPositionAnchorLookup(packId, positionIndex = getStoryPositio
         }
     };
 
-    top.appendChild(createButton('Find', 'Search timeline anchors in this Lorepack.', renderResults));
+    top.appendChild(createButton('Find', 'Search timeline anchors in this Loredeck.', renderResults));
     input.addEventListener('keydown', event => {
         if (event.key !== 'Enter') return;
         event.preventDefault();
@@ -3684,7 +3684,7 @@ function createStoryPositionAnchorResult(packId, anchor = {}) {
     main.appendChild(meta);
     row.appendChild(main);
 
-    row.appendChild(createButton('Use', 'Use this anchor as the Story Position for this Lorepack.', () => {
+    row.appendChild(createButton('Use', 'Use this anchor as the Story Position for this Loredeck.', () => {
         applyStoryPositionAnchor(packId, anchor);
     }, 'wandlight-primary-button'));
     return row;
@@ -3728,7 +3728,7 @@ async function handleResolveStoryPositionsFromContext(btn = null) {
         refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
         refreshHeader();
         if (result.appliedCount > 0) {
-            toast(`Story Position resolved for ${result.appliedCount} Lorepack${result.appliedCount === 1 ? '' : 's'}.`, 'success');
+            toast(`Story Position resolved for ${result.appliedCount} Loredeck${result.appliedCount === 1 ? '' : 's'}.`, 'success');
             return;
         }
         if (result.resolvedCount > 0) {
@@ -3736,7 +3736,7 @@ async function handleResolveStoryPositionsFromContext(btn = null) {
             return;
         }
         if (result.skippedCount > 0 && !result.unresolvedCount) {
-            toast('Story Position resolver skipped locked Lorepacks.', 'warning');
+            toast('Story Position resolver skipped locked Loredecks.', 'warning');
             return;
         }
         toast('No local Story Position match found. Try a clearer date, arc, book, event, or anchor alias.', 'warning');
@@ -3764,7 +3764,7 @@ async function handleModelResolveStoryPositions(btn = null) {
         refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
         refreshHeader();
         if (result.appliedCount > 0) {
-            toast(`Model resolved Story Position for ${result.appliedCount} Lorepack${result.appliedCount === 1 ? '' : 's'}.`, 'success');
+            toast(`Model resolved Story Position for ${result.appliedCount} Loredeck${result.appliedCount === 1 ? '' : 's'}.`, 'success');
             return;
         }
         if (result.status === 'resolved_locally') {
@@ -3772,7 +3772,7 @@ async function handleModelResolveStoryPositions(btn = null) {
             return;
         }
         if (!result.targetPackIds?.length) {
-            toast('No unlocked unresolved Lorepacks need model fallback.', 'info');
+            toast('No unlocked unresolved Loredecks need model fallback.', 'info');
             return;
         }
         toast('Model fallback did not find a confident anchor match.', 'warning');
@@ -3915,20 +3915,20 @@ function createLorepackHealthReportCard(state, canonDb = null, health = null) {
     card.className = 'wandlight-runtime-card wandlight-lorepack-health-card';
 
     const title = document.createElement('h4');
-    title.textContent = 'Pack Health';
+    title.textContent = 'Deck Health';
     card.appendChild(title);
 
     const help = document.createElement('div');
     help.className = 'wandlight-runtime-help';
-    help.textContent = 'Pack Health is advisory. It helps creators find likely issues; it does not decide whether a pack is allowed to run.';
+    help.textContent = 'Deck Health is advisory. It helps creators find likely issues; it does not decide whether a pack is allowed to run.';
     card.appendChild(help);
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
-    actions.appendChild(createButton('Refresh Health', 'Reload active Lorepacks and recompute Pack Health.', async (btn) => {
+    actions.appendChild(createButton('Refresh Health', 'Reload active Loredecks and recompute Deck Health.', async (btn) => {
         await refreshLorepackHealthReport(btn);
     }, 'wandlight-primary-button'));
-    const exportButton = createButton('Export Health JSON', 'Download the current Pack Health report as JSON.', () => {
+    const exportButton = createButton('Export Health JSON', 'Download the current Deck Health report as JSON.', () => {
         exportLorepackHealthReport(state, canonDb, health);
     });
     exportButton.disabled = !health;
@@ -3936,7 +3936,7 @@ function createLorepackHealthReportCard(state, canonDb = null, health = null) {
     card.appendChild(actions);
 
     if (!canonDb || !health) {
-        card.appendChild(createEmptyMessage('Pack Health is loading. Use Refresh Health if it does not appear.'));
+        card.appendChild(createEmptyMessage('Deck Health is loading. Use Refresh Health if it does not appear.'));
         return card;
     }
 
@@ -3958,7 +3958,7 @@ function createLorepackHealthReportCard(state, canonDb = null, health = null) {
     grid.appendChild(createLorepackHealthMetric('Position Gates', String(summary.positionGateCount || 0), 'Entries with Story Position gates.'));
     grid.appendChild(createLorepackHealthMetric('Timeline', `${summary.timelineAnchorCount || 0}/${summary.timelineWindowCount || 0}`, 'Loaded Story Position anchors/windows.'));
     grid.appendChild(createLorepackHealthMetric('Schema v3', String(summary.schemaV3EntryCount || 0), 'Loaded entries checked against Saga schema v3 rules.'));
-    grid.appendChild(createLorepackHealthMetric('v3 Issues', String(summary.schemaV3IssueCount || 0), 'Schema v3 Pack Health issues across loaded entries.'));
+    grid.appendChild(createLorepackHealthMetric('v3 Issues', String(summary.schemaV3IssueCount || 0), 'Schema v3 Deck Health issues across loaded entries.'));
     grid.appendChild(createLorepackHealthMetric('Stats Drift', String(summary.manifestStatsMismatchCount || 0), 'Manifest stats mismatches found during validation.'));
     grid.appendChild(createLorepackHealthMetric('Tag Issues', String((summary.undefinedTagCount || 0) + (summary.deprecatedTagUsageCount || 0) + (summary.duplicateTagAliasCount || 0) + (summary.malformedTagCount || 0)), 'Undefined, deprecated, duplicate-alias, or malformed tag issues.'));
     grid.appendChild(createLorepackHealthMetric('Anchor Issues', String(summary.brokenAnchorReferenceCount || 0), 'Broken Story Position anchor references.'));
@@ -4023,7 +4023,7 @@ function createLorepackHealthPackRow(pack) {
 
     const meta = document.createElement('div');
     meta.className = 'wandlight-lorepack-row-meta';
-    meta.appendChild(createStatusPill(pack.typeLabel || pack.type || 'Custom', 'Lorepack type.'));
+    meta.appendChild(createStatusPill(pack.typeLabel || pack.type || 'Custom', 'Loredeck type.'));
     meta.appendChild(createStatusPill(`${pack.entryCount || 0} entries`, 'Loaded entries from this pack.'));
     meta.appendChild(createStatusPill(pack.healthStatus || 'unknown', 'Per-pack health status.'));
     if (pack.overrideCount) meta.appendChild(createStatusPill(`${pack.overrideCount} overrides`, 'Saved entry overrides in the library record.'));
@@ -4145,7 +4145,7 @@ function getLorepackStackHealthInsights(state, loadedPacks = []) {
                 severity: 'warning',
                 code: 'loaded_pack_missing_library_record',
                 packId: item.packId,
-                message: `Loaded pack ${item.packId} is not present in the Lorepack Library.`,
+                message: `Loaded deck ${item.packId} is not present in the Loredeck Library.`,
             });
             continue;
         }
@@ -4154,7 +4154,7 @@ function getLorepackStackHealthInsights(state, loadedPacks = []) {
                 severity: 'warning',
                 code: 'loaded_pack_not_available',
                 packId: item.packId,
-                message: `Loaded pack ${item.packId} did not produce a usable Lorepack source.`,
+                message: `Loaded deck ${item.packId} did not produce a usable Loredeck source.`,
             });
         }
     }
@@ -4218,9 +4218,9 @@ async function refreshLorepackHealthReport(button = null) {
         await loadCanonLoreDatabase();
         refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
         refreshHeader();
-        toast('Pack Health refreshed.', 'success');
+        toast('Deck Health refreshed.', 'success');
     } catch (e) {
-        toast(e?.message || 'Pack Health refresh failed.', 'error');
+        toast(e?.message || 'Deck Health refresh failed.', 'error');
     } finally {
         if (button) {
             button.disabled = false;
@@ -4231,11 +4231,11 @@ async function refreshLorepackHealthReport(button = null) {
 
 function exportLorepackHealthReport(state, canonDb = null, health = null) {
     if (!health) {
-        toast('Pack Health has not loaded yet.', 'warning');
+        toast('Deck Health has not loaded yet.', 'warning');
         return;
     }
     downloadJson(buildLorepackHealthReport(state, canonDb, health), 'saga-pack-health.json');
-    toast('Pack Health report exported.', 'info');
+    toast('Deck Health report exported.', 'info');
 }
 
 function resolveManifestUrlForFetch(manifestRef) {
@@ -4262,11 +4262,11 @@ async function fetchLorepackManifest(manifestRef) {
 
 function buildLorepackRecordFromManifest(manifest, manifestRef) {
     if (!manifest || typeof manifest !== 'object' || Array.isArray(manifest)) {
-        throw new Error('Lorepack manifest must be a JSON object.');
+        throw new Error('Loredeck manifest must be a JSON object.');
     }
     const packId = String(manifest.id || '').trim();
-    if (!packId) throw new Error('Lorepack manifest is missing required id.');
-    if (!Array.isArray(manifest.files)) throw new Error('Lorepack manifest is missing required files array.');
+    if (!packId) throw new Error('Loredeck manifest is missing required id.');
+    if (!Array.isArray(manifest.files)) throw new Error('Loredeck manifest is missing required files array.');
     const sourceUrl = String(manifest.source?.url || manifestRef || '').trim();
     const isRemote = /^https?:\/\//i.test(String(manifestRef || ''));
     const manifestType = ['generated', 'custom'].includes(manifest.type) ? manifest.type : 'custom';
@@ -4439,7 +4439,7 @@ async function getDisplayManifestForPack(pack, options = {}) {
         if (pack.manifest) {
             baseManifest = await fetchLorepackManifest(pack.manifest);
         } else if (options.requireFetch !== false) {
-            throw new Error('Virtual Custom Lorepack is missing its base manifest path.');
+            throw new Error('Virtual Custom Loredeck is missing its base manifest path.');
         }
         return buildEmbeddedCustomManifest(
             {
@@ -4465,15 +4465,15 @@ async function registerLorepackManifestFromInput(manifestRef, options = {}) {
         const manifest = await fetchLorepackManifest(ref);
         const record = buildLorepackRecordFromManifest(manifest, ref);
         const result = upsertLorepackLibraryPack(record);
-        if (!result.ok) throw new Error(result.error || 'Lorepack registration failed.');
+        if (!result.ok) throw new Error(result.error || 'Loredeck registration failed.');
         clearCanonLoreDatabaseCache();
         clearStoryPositionIndexCache();
         refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
         refreshHeader();
-        toast(`${record.title} registered as a ${record.type} Lorepack.`, 'success');
+        toast(`${record.title} registered as a ${record.type} Loredeck.`, 'success');
         return result.pack;
     } catch (e) {
-        toast(e?.message || 'Lorepack registration failed.', 'error');
+        toast(e?.message || 'Loredeck registration failed.', 'error');
         return null;
     } finally {
         if (button) {
@@ -4487,7 +4487,7 @@ function exportLorepackLibrary() {
     const settings = getSettings();
     const library = settings.lorepackLibrary || getLorepackLibraryRegistry(getState());
     downloadJson(library, 'saga-lorepack-library.json');
-    toast('Lorepack Library exported.', 'info');
+    toast('Loredeck Library exported.', 'info');
 }
 
 function importLorepackLibraryFromFile() {
@@ -4507,9 +4507,9 @@ function importLorepackLibraryFromFile() {
             refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
             refreshHeader();
             const skipped = result.skippedCount ? ` Skipped ${result.skippedCount} bundled-id conflict(s).` : '';
-            toast(`Imported ${result.importedCount || 0} Lorepack record(s).${skipped}`, result.skippedCount ? 'warning' : 'success');
+            toast(`Imported ${result.importedCount || 0} Loredeck record(s).${skipped}`, result.skippedCount ? 'warning' : 'success');
         } catch (e) {
-            toast(e?.message || 'Lorepack Library import failed.', 'error');
+            toast(e?.message || 'Loredeck Library import failed.', 'error');
         }
     }, { once: true });
     input.click();
@@ -4519,7 +4519,7 @@ function createLorepackStackRow(item, index, stackLength, canonDb = null) {
     const row = document.createElement('div');
     row.className = 'wandlight-lorepack-stack-row';
     if (!item.enabled) row.classList.add('wandlight-lorepack-stack-row-disabled');
-    addTooltip(row, `${item.enabled ? 'Enabled' : 'Disabled'} Lorepack: ${item.packId}`);
+    addTooltip(row, `${item.enabled ? 'Enabled' : 'Disabled'} Loredeck: ${item.packId}`);
 
     const main = document.createElement('div');
     main.className = 'wandlight-lorepack-row-main';
@@ -4532,21 +4532,21 @@ function createLorepackStackRow(item, index, stackLength, canonDb = null) {
     const desc = document.createElement('div');
     desc.className = 'wandlight-lorepack-row-description';
     const definition = getLorepackDefinition(item.packId);
-    desc.textContent = definition?.description || `${getLorepackTypeLabel(item.packId)} Lorepack`;
+    desc.textContent = definition?.description || `${getLorepackTypeLabel(item.packId)} Loredeck`;
     main.appendChild(desc);
 
     const meta = document.createElement('div');
     meta.className = 'wandlight-lorepack-row-meta';
-    meta.appendChild(createStatusPill(`#${index + 1}`, 'Stack priority order. Earlier Lorepacks outrank later Lorepacks.'));
-    meta.appendChild(createStatusPill(getLorepackTypeLabel(item.packId), 'Lorepack source type.'));
-    meta.appendChild(createStatusPill(item.enabled ? 'Enabled' : 'Disabled', 'Disabled Lorepacks stay in the stack but do not participate in retrieval.'));
+    meta.appendChild(createStatusPill(`#${index + 1}`, 'Stack priority order. Earlier Loredecks outrank later Loredecks.'));
+    meta.appendChild(createStatusPill(getLorepackTypeLabel(item.packId), 'Loredeck source type.'));
+    meta.appendChild(createStatusPill(item.enabled ? 'Enabled' : 'Disabled', 'Disabled Loredecks stay in the stack but do not participate in retrieval.'));
     meta.appendChild(createStatusPill(`P${item.priority}`, 'Stored numeric stack priority.'));
     const loadedMeta = (canonDb?.lorepacks || []).find(pack => pack.id === item.packId);
     if (loadedMeta) {
-        meta.appendChild(createStatusPill(`${loadedMeta.entryCount || 0} entries`, 'Loaded entries from this Lorepack.'));
+        meta.appendChild(createStatusPill(`${loadedMeta.entryCount || 0} Lorecards`, 'Loaded Lorecards from this Loredeck.'));
     }
     const storyPosition = getLorepackStoryPosition(getState(), item.packId);
-    meta.appendChild(createStatusPill(formatStoryPositionSummary(storyPosition), 'Current Story Position for this loaded Lorepack.'));
+    meta.appendChild(createStatusPill(formatStoryPositionSummary(storyPosition), 'Current Story Position for this loaded Loredeck.'));
     main.appendChild(meta);
 
     row.appendChild(main);
@@ -4554,21 +4554,21 @@ function createLorepackStackRow(item, index, stackLength, canonDb = null) {
     const actions = document.createElement('div');
     actions.className = 'wandlight-lorepack-row-actions';
 
-    const up = createButton('Up', 'Move this Lorepack higher in the loading priority stack.', () => moveLorepackInStack(item.packId, -1));
+    const up = createButton('Up', 'Move this Loredeck higher in the loading priority stack.', () => moveLorepackInStack(item.packId, -1));
     up.disabled = index <= 0;
     actions.appendChild(up);
 
-    const down = createButton('Down', 'Move this Lorepack lower in the loading priority stack.', () => moveLorepackInStack(item.packId, 1));
+    const down = createButton('Down', 'Move this Loredeck lower in the loading priority stack.', () => moveLorepackInStack(item.packId, 1));
     down.disabled = index >= stackLength - 1;
     actions.appendChild(down);
 
     actions.appendChild(createButton(
         item.enabled ? 'Disable' : 'Enable',
-        item.enabled ? 'Keep this Lorepack in the stack but exclude it from retrieval.' : 'Enable this Lorepack for retrieval.',
+        item.enabled ? 'Keep this Loredeck in the stack but exclude it from retrieval.' : 'Enable this Loredeck for retrieval.',
         () => setLorepackEnabled(item.packId, !item.enabled)
     ));
 
-    const remove = createButton('Remove', 'Remove this Lorepack from the current stack.', () => removeLorepackFromStack(item.packId), 'wandlight-danger-button');
+    const remove = createButton('Remove', 'Remove this Loredeck from the current stack.', () => removeLorepackFromStack(item.packId), 'wandlight-danger-button');
     remove.disabled = stackLength <= 1;
     actions.appendChild(remove);
 
@@ -4593,18 +4593,18 @@ function createLorepackLibraryRow(pack, stack, canonDb, health, categoryText, st
     const description = document.createElement('div');
     description.className = 'wandlight-lorepack-row-description';
     const entryCount = pack.packId === 'hp-golden-trio' && canonDb?.entries?.length ? canonDb.entries.length : pack.entryCount;
-    description.textContent = `${pack.description} ${entryCount} entries.`;
+    description.textContent = `${pack.description} ${entryCount} Lorecards.`;
     main.appendChild(description);
 
     const meta = document.createElement('div');
     meta.className = 'wandlight-lorepack-row-meta';
-    meta.appendChild(createStatusPill(getLorepackTypeLabel(pack.packId), 'Lorepack source type.'));
+    meta.appendChild(createStatusPill(getLorepackTypeLabel(pack.packId), 'Loredeck source type.'));
     if (pack.fandom) meta.appendChild(createStatusPill(pack.fandom, 'Fandom or setting.'));
     if (pack.era) meta.appendChild(createStatusPill(pack.era, 'Era, arc, adaptation, or scope.'));
-    meta.appendChild(createStatusPill(getLorepackHealthText(health), 'Basic Pack Health: manifest, files, duplicate IDs, entry count, and category counts.'));
-    meta.appendChild(createStatusPill(categoryText, 'Top loaded entry categories from Pack Health.'));
+    meta.appendChild(createStatusPill(getLorepackHealthText(health), 'Basic Deck Health: manifest, files, duplicate IDs, entry count, and category counts.'));
+    meta.appendChild(createStatusPill(categoryText, 'Top loaded entry categories from Deck Health.'));
     for (const tag of (pack.tags || []).slice(0, 3)) {
-        meta.appendChild(createStatusPill(tag, 'Pack tag.'));
+        meta.appendChild(createStatusPill(tag, 'Deck tag.'));
     }
     main.appendChild(meta);
 
@@ -4614,7 +4614,7 @@ function createLorepackLibraryRow(pack, stack, canonDb, health, categoryText, st
     actions.className = 'wandlight-lorepack-row-actions';
     actions.appendChild(createButton(
         selectedPackId === pack.packId ? 'Inspecting' : 'Inspect',
-        'Open this Lorepack in the detail/editor panel.',
+        'Open this Loredeck in the detail/editor panel.',
         () => selectLorepackForDetails(pack.packId),
         selectedPackId === pack.packId ? 'wandlight-primary-button' : ''
     ));
@@ -4624,8 +4624,8 @@ function createLorepackLibraryRow(pack, stack, canonDb, health, categoryText, st
     const action = createButton(
         label,
         existing
-            ? (existing.enabled ? 'This Lorepack is already active in the stack.' : 'Enable this Lorepack in the current stack.')
-            : 'Add this Lorepack to the current stack.',
+            ? (existing.enabled ? 'This Loredeck is already active in the stack.' : 'Enable this Loredeck in the current stack.')
+            : 'Add this Loredeck to the current stack.',
         () => {
             if (existing && existing.enabled) return;
             if (existing) setLorepackEnabled(pack.packId, true);
@@ -4637,7 +4637,7 @@ function createLorepackLibraryRow(pack, stack, canonDb, health, categoryText, st
     actions.appendChild(action);
 
     if (pack.type !== 'bundled') {
-        const forget = createButton('Forget', 'Remove this Custom/Generated Lorepack from the global library. Remove it from the active stack first if it is loaded.', () => {
+        const forget = createButton('Forget', 'Remove this Custom/Generated Loredeck from the global library. Remove it from the active stack first if it is loaded.', () => {
             forgetLorepackLibraryPack(pack.packId);
         }, 'wandlight-danger-button');
         forget.disabled = !!existing;
@@ -4657,11 +4657,11 @@ function createLorepackDetailCard(state, canonDb = null, health = null) {
     card.className = 'wandlight-runtime-card wandlight-lorepack-detail-card';
 
     const title = document.createElement('h4');
-    title.textContent = 'Lorepack Details';
+    title.textContent = 'Loredeck Details';
     card.appendChild(title);
 
     if (!pack) {
-        card.appendChild(createEmptyMessage('Select or register a Lorepack to inspect it.'));
+        card.appendChild(createEmptyMessage('Select or register a Loredeck to inspect it.'));
         return card;
     }
 
@@ -4681,28 +4681,28 @@ function createLorepackDetailCard(state, canonDb = null, health = null) {
 
     const chips = document.createElement('div');
     chips.className = 'wandlight-lorepack-row-meta';
-    chips.appendChild(createStatusPill(getLorepackTypeLabel(pack.packId), 'Lorepack source type.'));
-    if (virtualDuplicate) chips.appendChild(createStatusPill(pack.type === 'generated' ? 'Generated Draft' : 'Virtual Copy', pack.type === 'generated' ? 'Generated Lorepack draft with embedded manifest metadata and no source entry files yet.' : 'Custom duplicate that uses embedded manifest metadata and resolves files from its source manifest.'));
-    chips.appendChild(createStatusPill(`${entryCount} entries`, 'Entry count from loaded Pack Health or registered metadata.'));
-    chips.appendChild(createStatusPill(pack.healthStatus || getLorepackHealthText(health), 'Pack Health is advisory and does not block use.'));
+    chips.appendChild(createStatusPill(getLorepackTypeLabel(pack.packId), 'Loredeck source type.'));
+    if (virtualDuplicate) chips.appendChild(createStatusPill(pack.type === 'generated' ? 'Generated Draft' : 'Virtual Copy', pack.type === 'generated' ? 'Generated Loredeck draft with embedded manifest metadata and no source entry files yet.' : 'Custom duplicate that uses embedded manifest metadata and resolves files from its source manifest.'));
+    chips.appendChild(createStatusPill(`${entryCount} Lorecards`, 'Lorecard count from loaded Deck Health or registered metadata.'));
+    chips.appendChild(createStatusPill(pack.healthStatus || getLorepackHealthText(health), 'Deck Health is advisory and does not block use.'));
     for (const tag of (pack.tags || []).slice(0, 6)) {
-        chips.appendChild(createStatusPill(tag, 'Lorepack tag.'));
+        chips.appendChild(createStatusPill(tag, 'Loredeck tag.'));
     }
     header.appendChild(chips);
     card.appendChild(header);
 
     const overview = document.createElement('div');
     overview.className = 'wandlight-lorepack-detail-grid';
-    overview.appendChild(createKeyValue('Pack ID', pack.packId, 'Stable Lorepack identifier used by the stack and registry.'));
+    overview.appendChild(createKeyValue('Deck ID', pack.packId, 'Stable Loredeck identifier used by the stack and registry. Internal schema currently stores this as packId.'));
     overview.appendChild(createKeyValue('Fandom', pack.fandom || 'unset', 'Fandom, canon, universe, or setting.'));
     overview.appendChild(createKeyValue('Era', pack.era || 'unset', 'Era, arc, continuity slice, adaptation, or scope.'));
-    overview.appendChild(createKeyValue('Author', pack.author || 'unset', 'Pack author or publisher.'));
-    overview.appendChild(createKeyValue('Version', pack.version || 'unset', 'Pack version from metadata or manifest.'));
-    overview.appendChild(createKeyValue('Categories', categoryText || 'Not checked', 'Entry counts by category when available.'));
+    overview.appendChild(createKeyValue('Author', pack.author || 'unset', 'Deck author or publisher.'));
+    overview.appendChild(createKeyValue('Version', pack.version || 'unset', 'Deck version from metadata or manifest.'));
+    overview.appendChild(createKeyValue('Categories', categoryText || 'Not checked', 'Lorecard counts by category when available.'));
     overview.appendChild(createKeyValue(virtualDuplicate ? 'Base Manifest' : 'Manifest', pack.manifest || 'unset', virtualDuplicate ? 'Source manifest used to resolve entry files for this Custom duplicate.' : 'Fetchable lorepack.json path or URL.'));
-    overview.appendChild(createKeyValue('Source', getLorepackSourceSummary(pack), 'Source and update metadata for this Lorepack record.'));
+    overview.appendChild(createKeyValue('Source', getLorepackSourceSummary(pack), 'Source and update metadata for this Loredeck record.'));
     if (pack.derivedFrom?.packId || pack.derivedFrom?.title) {
-        overview.appendChild(createKeyValue('Derived From', pack.derivedFrom.title || pack.derivedFrom.packId, 'Source pack metadata recorded when this Custom Lorepack was duplicated or generated.'));
+        overview.appendChild(createKeyValue('Derived From', pack.derivedFrom.title || pack.derivedFrom.packId, 'Source pack metadata recorded when this Custom Loredeck was duplicated or generated.'));
     }
     card.appendChild(overview);
 
@@ -4710,7 +4710,7 @@ function createLorepackDetailCard(state, canonDb = null, health = null) {
     edit.className = 'wandlight-lorepack-edit-grid';
     const titleInput = createLorepackEditorField(edit, 'Title', pack.title, {
         disabled: readOnly,
-        tooltip: 'Display title shown in the Lorepack Library and stack.',
+        tooltip: 'Display title shown in the Loredeck Library and stack.',
     });
     const fandomInput = createLorepackEditorField(edit, 'Fandom', pack.fandom, {
         disabled: readOnly,
@@ -4722,11 +4722,11 @@ function createLorepackDetailCard(state, canonDb = null, health = null) {
     });
     const authorInput = createLorepackEditorField(edit, 'Author', pack.author, {
         disabled: readOnly,
-        tooltip: 'Pack creator or publisher.',
+        tooltip: 'Deck creator or publisher.',
     });
     const versionInput = createLorepackEditorField(edit, 'Version', pack.version, {
         disabled: readOnly,
-        tooltip: 'Pack metadata version.',
+        tooltip: 'Deck metadata version.',
     });
     const manifestInput = createLorepackEditorField(edit, virtualDuplicate ? 'Base Manifest' : 'Manifest', pack.manifest, {
         disabled: readOnly || virtualDuplicate,
@@ -4742,28 +4742,28 @@ function createLorepackDetailCard(state, canonDb = null, health = null) {
         disabled: readOnly,
         multiline: true,
         full: true,
-        tooltip: 'Short library description shown on the Lorepack card.',
+        tooltip: 'Short library description shown on the Loredeck card.',
     });
     card.appendChild(edit);
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
-    const refreshButton = createButton('Inspect Manifest', 'Fetch and preview this Lorepack manifest.', async (btn) => {
+    const refreshButton = createButton('Inspect Manifest', 'Fetch and preview this Loredeck manifest.', async (btn) => {
         await loadLorepackManifestPreview(pack, btn);
     }, 'wandlight-primary-button');
     refreshButton.disabled = !editorCanValidate;
     actions.appendChild(refreshButton);
-    const validateButton = createButton('Validate Pack', 'Load this Lorepack data and run Pack Health validation with the same rules used at runtime.', async (btn) => {
+    const validateButton = createButton('Validate Deck', 'Load this Loredeck data and run Deck Health validation with the same rules used at runtime.', async (btn) => {
         await validateLorepackForEditor(pack, btn);
     });
     validateButton.disabled = !editorCanValidate;
     actions.appendChild(validateButton);
-    actions.appendChild(createButton('Duplicate as Custom', 'Create a Custom Lorepack copy with its own pack ID and metadata.', () => {
+    actions.appendChild(createButton('Duplicate as Custom', 'Create a Custom Loredeck copy with its own pack ID and metadata.', () => {
         openDuplicateLorepackDialog(pack);
     }));
 
     if (!readOnly) {
-        actions.appendChild(createButton('Save Metadata', 'Save edited Custom/Generated Lorepack library metadata.', async (btn) => {
+        actions.appendChild(createButton('Save Metadata', 'Save edited Custom/Generated Loredeck library metadata.', async (btn) => {
             await saveLorepackMetadataFromInputs(pack, {
                 titleInput,
                 descriptionInput,
@@ -4782,13 +4782,13 @@ function createLorepackDetailCard(state, canonDb = null, health = null) {
         syncButton.disabled = !pack.manifest;
         actions.appendChild(syncButton);
 
-        const repairButton = createButton('Repair Safe Issues', 'Apply safe Pack Health repairs to Custom metadata and existing overrides.', async (btn) => {
+        const repairButton = createButton('Repair Safe Issues', 'Apply safe Deck Health repairs to Custom metadata and existing overrides.', async (btn) => {
             await repairLorepackSafeHealthIssues(pack, btn);
         });
         repairButton.disabled = !editorCanValidate;
         actions.appendChild(repairButton);
 
-        const exportButton = createButton('Export Validated Draft', 'Validate this Custom/Generated Lorepack record, then export it with Pack Health metadata.', async (btn) => {
+        const exportButton = createButton('Export Validated Draft', 'Validate this Custom/Generated Loredeck record, then export it with Deck Health metadata.', async (btn) => {
             await exportValidatedLorepackDraft(pack, btn);
         });
         exportButton.disabled = !editorCanValidate;
@@ -4796,7 +4796,7 @@ function createLorepackDetailCard(state, canonDb = null, health = null) {
     } else {
         const note = document.createElement('div');
         note.className = 'wandlight-runtime-help';
-        note.textContent = 'Bundled Lorepack metadata is read-only. Use Duplicate as Custom to create an editable copy.';
+        note.textContent = 'Bundled Loredeck metadata is read-only. Use Duplicate as Custom to create an editable copy.';
         actions.appendChild(note);
     }
     card.appendChild(actions);
@@ -4846,11 +4846,11 @@ function getGeneratedLorepackExportReadiness(pack = {}, health = null) {
     const draftChanges = getLorepackAssistantDraftChanges(lorepackAssistantDraftCache.get(pack.packId) || {});
     const blockers = [];
     const warnings = [];
-    if (!acceptedEntries.length) blockers.push('Generated Lorepack needs at least one accepted entry.');
+    if (!acceptedEntries.length) blockers.push('Generated Loredeck needs at least one accepted Lorecard.');
     if (pendingChanges.length) blockers.push('Pending Review must be accepted or rejected before export.');
     if (draftChanges.length) blockers.push('Creator/Assistant Draft Batch must be queued, accepted, or dropped before export.');
-    if (isLorepackHealthStatusStale(pack)) warnings.push('Pack Health is stale; rerun validation before sharing.');
-    if ((health?.errors || []).length) warnings.push('Latest Pack Health has errors.');
+    if (isLorepackHealthStatusStale(pack)) warnings.push('Deck Health is stale; rerun validation before sharing.');
+    if ((health?.errors || []).length) warnings.push('Latest Deck Health has errors.');
     if (!getLorepackTimelineRegistryCount(pack.timelineRegistry)) warnings.push('No local timeline registry is saved yet.');
     if (!getLorepackTagRegistryCount(pack.tagRegistry)) warnings.push('No local tag registry is saved yet.');
     return {
@@ -4877,8 +4877,8 @@ function createGeneratedLorepackExportReadinessCard(pack = {}) {
 
     const summary = document.createElement('div');
     summary.className = 'wandlight-lorepack-entry-summary';
-    summary.appendChild(createStatusPill(readiness.ready ? 'Ready' : 'Not ready', 'Generated Lorepack export readiness from accepted entries, pending review, and draft batch state.'));
-    summary.appendChild(createStatusPill(`${readiness.acceptedEntryCount} accepted`, 'Accepted generated entries that will export and load at runtime.'));
+    summary.appendChild(createStatusPill(readiness.ready ? 'Ready' : 'Not ready', 'Generated Loredeck export readiness from accepted entries, pending review, and draft batch state.'));
+    summary.appendChild(createStatusPill(`${readiness.acceptedEntryCount} accepted`, 'Accepted generated Lorecards that will export and load at runtime.'));
     summary.appendChild(createStatusPill(`${readiness.pendingChangeCount} pending`, 'Pending Review proposals must be resolved before export.'));
     summary.appendChild(createStatusPill(`${readiness.draftChangeCount} drafted`, 'Creator/Assistant draft proposals must be resolved before export.'));
     summary.appendChild(createStatusPill(`${getLorepackTimelineRegistryCount(pack.timelineRegistry)} timeline`, 'Saved local timeline anchors/windows.'));
@@ -4888,8 +4888,8 @@ function createGeneratedLorepackExportReadinessCard(pack = {}) {
     const help = document.createElement('div');
     help.className = 'wandlight-runtime-help';
     help.textContent = readiness.ready
-        ? 'Export will include accepted generated entries, embedded manifest stats, local timeline/tag registries, and the latest Pack Health report.'
-        : 'Resolve blockers before export so the shared Generated Lorepack represents reviewed, accepted data only.';
+        ? 'Export will include accepted generated Lorecards, embedded manifest stats, local timeline/tag registries, and the latest Deck Health report.'
+        : 'Resolve blockers before export so the shared Generated Loredeck represents reviewed, accepted data only.';
     wrap.appendChild(help);
 
     if (readiness.blockers.length || readiness.warnings.length) {
@@ -4933,7 +4933,7 @@ function createLorepackManifestPreview(pack) {
     preview.appendChild(title);
 
     if (!pack.manifest && !cached?.manifest) {
-        preview.appendChild(createEmptyMessage('No manifest path or URL is registered for this Lorepack.'));
+        preview.appendChild(createEmptyMessage('No manifest path or URL is registered for this Loredeck.'));
         return preview;
     }
     if (!cached) {
@@ -4954,8 +4954,8 @@ function createLorepackManifestPreview(pack) {
 
     const summary = document.createElement('div');
     summary.className = 'wandlight-lorepack-detail-grid';
-    summary.appendChild(createKeyValue('Schema', String(manifest.schemaVersion || 'unset'), 'Lorepack manifest schema version.'));
-    summary.appendChild(createKeyValue('Entry Schema', String(manifest.entrySchemaVersion || 'unset'), 'Lore entry schema version used by pack files.'));
+    summary.appendChild(createKeyValue('Schema', String(manifest.schemaVersion || 'unset'), 'Loredeck manifest schema version.'));
+    summary.appendChild(createKeyValue('Lorecard Schema', String(manifest.entrySchemaVersion || 'unset'), 'Lorecard schema version used by deck files.'));
     summary.appendChild(createKeyValue('Content Kind', manifest.contentKind || 'unset', 'Fandom, original, system, or other pack content kind.'));
     summary.appendChild(createKeyValue('Files', String(files.length), 'Entry JSON files referenced by the manifest.'));
     summary.appendChild(createKeyValue('Registries', Object.keys(registries).join(', ') || 'none', 'Taxonomy, gate, scoring, or other registry files declared by the manifest.'));
@@ -4968,9 +4968,9 @@ function createLorepackManifestPreview(pack) {
         const validation = document.createElement('div');
         validation.className = 'wandlight-lorepack-detail-grid';
         const healthSummary = cached.health.summary || {};
-        validation.appendChild(createKeyValue('Validation', cached.health.status || 'unknown', 'Latest Pack Health validation run from the Lorepack editor/export path.'));
+        validation.appendChild(createKeyValue('Validation', cached.health.status || 'unknown', 'Latest Deck Health validation run from the Loredeck editor/export path.'));
         validation.appendChild(createKeyValue('Validation Issues', `${healthSummary.errorCount || 0} errors / ${healthSummary.warningCount || 0} warnings / ${healthSummary.suggestionCount || 0} suggestions`, 'Issue counts from latest validation.'));
-        validation.appendChild(createKeyValue('Schema v3', `${healthSummary.schemaV3EntryCount || 0} entries / ${healthSummary.schemaV3IssueCount || 0} issues`, 'Schema v3 conformance count from latest validation.'));
+        validation.appendChild(createKeyValue('Schema v3', `${healthSummary.schemaV3EntryCount || 0} Lorecards / ${healthSummary.schemaV3IssueCount || 0} issues`, 'Schema v3 conformance count from latest validation.'));
         validation.appendChild(createKeyValue('Stats Drift', String(healthSummary.manifestStatsMismatchCount || 0), 'Manifest stats mismatches from latest validation.'));
         preview.appendChild(validation);
         const repairPanel = createLorepackHealthRepairPlanner(pack, cached.health);
@@ -4988,7 +4988,7 @@ function createLorepackManifestPreview(pack) {
     if (!files.length && isGeneratedLorepackPack(pack)) {
         const item = document.createElement('div');
         item.className = 'wandlight-lorepack-file-item wandlight-lorepack-file-item-muted';
-        item.textContent = 'Accepted generated entries are stored in this local Lorepack record.';
+        item.textContent = 'Accepted generated Lorecards are stored in this local Loredeck record.';
         fileList.appendChild(item);
     }
     if (files.length > 14) {
@@ -5115,29 +5115,29 @@ function createLorepackHealthRepairPlanner(pack, health = null) {
 
     const summary = document.createElement('div');
     summary.className = 'wandlight-lorepack-entry-summary';
-    summary.appendChild(createStatusPill(`${allIssues.length} issue${allIssues.length === 1 ? '' : 's'}`, 'Pack Health issues from the latest validation run.'));
+    summary.appendChild(createStatusPill(`${allIssues.length} issue${allIssues.length === 1 ? '' : 's'}`, 'Deck Health issues from the latest validation run.'));
     summary.appendChild(createStatusPill(`${selectedCount} selected`, 'Selected issues will be sent to the Lore Assistant for repair planning.'));
-    if (!editable) summary.appendChild(createStatusPill('Read-only', 'Bundled Lorepacks must be duplicated as Custom before assistant repair planning can create proposals.'));
+    if (!editable) summary.appendChild(createStatusPill('Read-only', 'Bundled Loredecks must be duplicated as Custom before assistant repair planning can create proposals.'));
     wrap.appendChild(summary);
 
     const help = document.createElement('div');
     help.className = 'wandlight-runtime-help';
     help.textContent = editable
-        ? 'Select Pack Health issues and draft repair proposals. Repairs enter the Assistant Draft Batch first, then Pending Review if you queue them.'
-        : 'Bundled Lorepacks are read-only. Duplicate as Custom before drafting repair proposals.';
+        ? 'Select Deck Health issues and draft repair proposals. Repairs enter the Assistant Draft Batch first, then Pending Review if you queue them.'
+        : 'Bundled Loredecks are read-only. Duplicate as Custom before drafting repair proposals.';
     wrap.appendChild(help);
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
-    const draftButton = createButton('Draft Repairs', 'Ask the Lore Assistant to convert selected Pack Health issues into reviewable draft proposals.', async (btn) => {
+    const draftButton = createButton('Draft Repairs', 'Ask the Lore Assistant to convert selected Deck Health issues into reviewable draft proposals.', async (btn) => {
         await handleLorepackAssistantHealthRepairDraft(pack, health, btn);
     }, 'wandlight-primary-button');
     draftButton.disabled = !editable || !selectedCount;
     actions.appendChild(draftButton);
-    actions.appendChild(createButton('Select All', 'Select every Pack Health issue in this validation report.', () => {
+    actions.appendChild(createButton('Select All', 'Select every Deck Health issue in this validation report.', () => {
         setLorepackHealthRepairSelectionBulk(pack, health, 'all');
     }));
-    actions.appendChild(createButton('Clear Selection', 'Clear selected Pack Health issues.', () => {
+    actions.appendChild(createButton('Clear Selection', 'Clear selected Deck Health issues.', () => {
         setLorepackHealthRepairSelectionBulk(pack, health, 'none');
     }));
     wrap.appendChild(actions);
@@ -5166,7 +5166,7 @@ function createLorepackHealthRepairIssueRow(pack, issue = {}, selected = false, 
     checkbox.type = 'checkbox';
     checkbox.checked = selected;
     checkbox.disabled = !editable;
-    addTooltip(checkbox, selected ? 'Remove this Pack Health issue from the assistant repair plan.' : 'Include this Pack Health issue in the assistant repair plan.');
+    addTooltip(checkbox, selected ? 'Remove this Deck Health issue from the assistant repair plan.' : 'Include this Deck Health issue in the assistant repair plan.');
     checkbox.addEventListener('click', event => event.stopPropagation());
     checkbox.addEventListener('change', () => {
         setLorepackHealthRepairSelection(pack.packId, issue.issueId, checkbox.checked);
@@ -5186,8 +5186,8 @@ function createLorepackHealthRepairIssueRow(pack, issue = {}, selected = false, 
     main.appendChild(message);
     const meta = document.createElement('div');
     meta.className = 'wandlight-lorepack-row-meta';
-    meta.appendChild(createStatusPill(issue.severity || 'suggestion', 'Pack Health issue severity.'));
-    if (issue.entryIds?.length) meta.appendChild(createStatusPill(`${issue.entryIds.length} entr${issue.entryIds.length === 1 ? 'y' : 'ies'}`, issue.entryIds.slice(0, 10).join(', ')));
+    meta.appendChild(createStatusPill(issue.severity || 'suggestion', 'Deck Health issue severity.'));
+    if (issue.entryIds?.length) meta.appendChild(createStatusPill(`${issue.entryIds.length} Lorecard${issue.entryIds.length === 1 ? '' : 's'}`, issue.entryIds.slice(0, 10).join(', ')));
     if (issue.tagIds?.length) meta.appendChild(createStatusPill(`${issue.tagIds.length} tag${issue.tagIds.length === 1 ? '' : 's'}`, issue.tagIds.slice(0, 10).join(', ')));
     if (issue.timelineIds?.length) meta.appendChild(createStatusPill(`${issue.timelineIds.length} timeline`, issue.timelineIds.slice(0, 10).join(', ')));
     if (issue.file) meta.appendChild(createStatusPill(issue.file, 'Affected file.'));
@@ -5204,20 +5204,20 @@ function createLorepackEntryOverrideCard(pack) {
 
     const title = document.createElement('div');
     title.className = 'wandlight-runtime-card-title';
-    title.textContent = 'Entry Overrides';
+    title.textContent = 'Lorecard Overrides';
     card.appendChild(title);
 
     const summary = document.createElement('div');
     summary.className = 'wandlight-lorepack-entry-summary';
-    summary.appendChild(createStatusPill(`${state.overrideCount} override${state.overrideCount === 1 ? '' : 's'}`, 'Saved edited or added entries in this Custom Lorepack.'));
-    summary.appendChild(createStatusPill(`${state.disabledEntryIds.length} disabled`, 'Source entry IDs suppressed by this Custom Lorepack.'));
-    summary.appendChild(createStatusPill(`${state.pendingCount} pending`, 'Lorepack edits queued for review before they affect runtime injection.'));
-    if (cached?.entries?.length) summary.appendChild(createStatusPill(`${cached.entries.length} source entries`, 'Source entries loaded for browsing and editing.'));
+    summary.appendChild(createStatusPill(`${state.overrideCount} override${state.overrideCount === 1 ? '' : 's'}`, 'Saved edited or added Lorecards in this Custom Loredeck.'));
+    summary.appendChild(createStatusPill(`${state.disabledEntryIds.length} disabled`, 'Source Lorecard IDs suppressed by this Custom Loredeck.'));
+    summary.appendChild(createStatusPill(`${state.pendingCount} pending`, 'Loredeck edits queued for review before they affect runtime injection.'));
+    if (cached?.entries?.length) summary.appendChild(createStatusPill(`${cached.entries.length} source Lorecards`, 'Source Lorecards loaded for browsing and editing.'));
     card.appendChild(summary);
 
     const help = document.createElement('div');
     help.className = 'wandlight-runtime-help';
-    help.textContent = 'Accepted overrides are stored in the Custom Lorepack library record. New edits are queued for review first and do not edit bundled files.';
+    help.textContent = 'Accepted overrides are stored in the Custom Loredeck library record. New edits are queued for review first and do not edit bundled files.';
     card.appendChild(help);
 
     const rows = getLorepackEditableEntryRows(pack, cached?.entries || []);
@@ -5226,26 +5226,26 @@ function createLorepackEntryOverrideCard(pack) {
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
-    const loadButton = createButton(cached?.entries?.length ? 'Reload Entries' : 'Load Entries', 'Fetch source entry files for browsing and editing.', async (btn) => {
+    const loadButton = createButton(cached?.entries?.length ? 'Reload Lorecards' : 'Load Lorecards', 'Fetch source Lorecard files for browsing and editing.', async (btn) => {
         await loadLorepackEntriesForEditor(pack, btn);
     }, 'wandlight-primary-button');
     loadButton.disabled = !canValidateLorepackInEditor(pack);
     actions.appendChild(loadButton);
-    actions.appendChild(createButton('New Entry', 'Create a new custom entry in this Lorepack.', () => {
+    actions.appendChild(createButton('New Lorecard', 'Create a new custom Lorecard in this Loredeck.', () => {
         openLorepackEntryOverrideDialog(pack, null);
     }));
-    const bulkTagsButton = createButton('Bulk Tags', 'Add, remove, or rename tags for loaded entries or the current search result.', () => {
+    const bulkTagsButton = createButton('Bulk Tags', 'Add, remove, or rename tags for loaded Lorecards or the current search result.', () => {
         openLorepackBulkTagsDialog(pack, bulkRows);
     });
     bulkTagsButton.disabled = !bulkRows.length;
     actions.appendChild(bulkTagsButton);
-    const bulkButton = createButton('Bulk Position', 'Apply one Story Position and retrieval block to loaded entries or the current search result.', () => {
+    const bulkButton = createButton('Bulk Position', 'Apply one Story Position and retrieval block to loaded Lorecards or the current search result.', () => {
         openLorepackBulkPositionDialog(pack, bulkRows);
     });
     bulkButton.disabled = !bulkRows.length;
     actions.appendChild(bulkButton);
     if (state.overrideCount) {
-        actions.appendChild(createButton('Repair Overrides', 'Apply safe schema v3 repairs to saved override entries.', async (btn) => {
+        actions.appendChild(createButton('Repair Overrides', 'Apply safe schema v3 repairs to saved override Lorecards.', async (btn) => {
             await repairLorepackSafeHealthIssues(pack, btn);
         }));
     }
@@ -5299,7 +5299,7 @@ function createLorepackEntryOverrideCard(pack) {
         }
         card.appendChild(list);
     } else {
-        card.appendChild(createEmptyMessage('Load entries or create a new entry to begin editing this Custom Lorepack.'));
+        card.appendChild(createEmptyMessage('Load Lorecards or create a new Lorecard to begin editing this Custom Loredeck.'));
     }
 
     return card;
@@ -5317,38 +5317,38 @@ function createLorepackPendingReviewCard(pack) {
 
     const summary = document.createElement('div');
     summary.className = 'wandlight-lorepack-entry-summary';
-    summary.appendChild(createStatusPill(`${pending.length} pending`, 'Lorepack edit proposals waiting for acceptance.'));
+    summary.appendChild(createStatusPill(`${pending.length} pending`, 'Loredeck edit proposals waiting for acceptance.'));
     const affectedEntries = new Set(pending.flatMap(change => change.affectedEntryIds || []));
     const affectedTags = new Set(pending.flatMap(change => change.affectedTagIds || []));
     const affectedTimeline = new Set(pending.flatMap(change => change.affectedTimelineIds || []));
     const healthImpactCount = pending.filter(change => doesLorepackPendingChangeAffectPackHealth(change)).length;
-    if (affectedEntries.size) summary.appendChild(createStatusPill(`${affectedEntries.size} entr${affectedEntries.size === 1 ? 'y' : 'ies'}`, 'Entries affected by pending proposals.'));
+    if (affectedEntries.size) summary.appendChild(createStatusPill(`${affectedEntries.size} Lorecard${affectedEntries.size === 1 ? '' : 's'}`, 'Lorecards affected by pending proposals.'));
     if (affectedTags.size) summary.appendChild(createStatusPill(`${affectedTags.size} tag${affectedTags.size === 1 ? '' : 's'}`, 'Tags affected by pending proposals.'));
     if (affectedTimeline.size) summary.appendChild(createStatusPill(`${affectedTimeline.size} timeline`, 'Timeline anchors/windows affected by pending proposals.'));
-    if (healthImpactCount) summary.appendChild(createStatusPill(`${healthImpactCount} health impact`, 'Pending proposals that will mark Pack Health stale when accepted because they change entries, tags, or timeline data.'));
+    if (healthImpactCount) summary.appendChild(createStatusPill(`${healthImpactCount} health impact`, 'Pending proposals that will mark Deck Health stale when accepted because they change entries, tags, or timeline data.'));
     if (isLorepackHealthStatusStale(pack)) summary.appendChild(createLorepackPendingHealthStalePill());
     wrap.appendChild(summary);
 
     const help = document.createElement('div');
     help.className = 'wandlight-runtime-help';
     help.textContent = isLorepackHealthStatusStale(pack)
-        ? 'Accepted changes have made the saved Pack Health status stale. Rerun validation before exporting, sharing, or treating this Lorepack as clean.'
+        ? 'Accepted changes have made the saved Deck Health status stale. Rerun validation before exporting, sharing, or treating this Loredeck as clean.'
         : 'Pending changes do not affect runtime injection until accepted. This is the review path for manual edits, bulk edits, and Lore Assistant patches.';
     wrap.appendChild(help);
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
-    const acceptAll = createButton('Accept All', 'Apply every pending Lorepack change to this Custom Lorepack.', () => {
+    const acceptAll = createButton('Accept All', 'Apply every pending Loredeck change to this Custom Loredeck.', () => {
         acceptLorepackPendingChanges(pack);
     }, 'wandlight-primary-button');
     acceptAll.disabled = !pending.length;
     actions.appendChild(acceptAll);
-    const rejectAll = createButton('Reject All', 'Discard every pending Lorepack change without applying it.', () => {
+    const rejectAll = createButton('Reject All', 'Discard every pending Loredeck change without applying it.', () => {
         rejectLorepackPendingChanges(pack);
     }, 'wandlight-danger-button');
     rejectAll.disabled = !pending.length;
     actions.appendChild(rejectAll);
-    const validateButton = createButton('Validate Pack', 'Run Pack Health on the currently accepted Lorepack data. Pending proposals are not included until accepted.', async (btn) => {
+    const validateButton = createButton('Validate Deck', 'Run Deck Health on the currently accepted Loredeck data. Pending proposals are not included until accepted.', async (btn) => {
         await validateLorepackForEditor(pack, btn);
     });
     validateButton.disabled = !canValidateLorepackInEditor(pack);
@@ -5356,7 +5356,7 @@ function createLorepackPendingReviewCard(pack) {
     wrap.appendChild(actions);
 
     if (!pending.length) {
-        wrap.appendChild(createEmptyMessage('No pending Lorepack edits.'));
+        wrap.appendChild(createEmptyMessage('No pending Loredeck edits.'));
         return wrap;
     }
 
@@ -5383,7 +5383,7 @@ function createLorepackPendingChangeRow(pack, change = {}) {
     main.className = 'wandlight-lorepack-row-main';
     const title = document.createElement('div');
     title.className = 'wandlight-lorepack-row-title';
-    title.textContent = change.title || change.changeId || 'Pending Lorepack Change';
+    title.textContent = change.title || change.changeId || 'Pending Loredeck Change';
     main.appendChild(title);
 
     const desc = document.createElement('div');
@@ -5416,10 +5416,10 @@ function createLorepackPendingChangeRow(pack, change = {}) {
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-lorepack-row-actions';
-    actions.appendChild(createButton('Accept', 'Apply this pending Lorepack change.', () => {
+    actions.appendChild(createButton('Accept', 'Apply this pending Loredeck change.', () => {
         acceptLorepackPendingChanges(pack, [change.changeId]);
     }, 'wandlight-primary-button'));
-    actions.appendChild(createButton('Reject', 'Discard this pending Lorepack change.', () => {
+    actions.appendChild(createButton('Reject', 'Discard this pending Loredeck change.', () => {
         rejectLorepackPendingChanges(pack, [change.changeId]);
     }, 'wandlight-danger-button'));
     row.appendChild(actions);
@@ -5462,7 +5462,7 @@ function formatLorepackPendingActionLabel(action = '') {
 function formatLorepackPendingTargetKindLabel(targetKind = '') {
     const key = String(targetKind || 'lorepack').trim();
     const known = {
-        lorepack: 'Lorepack',
+        lorepack: 'Loredeck',
         entry: 'Entry',
         entries: 'Entries',
         tag: 'Tag',
@@ -5480,7 +5480,7 @@ function formatLorepackPendingSourceLabel(source = '') {
         manual: 'Manual',
         bulk_edit: 'Bulk Edit',
         lore_assistant: 'Lore Assistant',
-        lorepack_creator: 'Lorepack Creator',
+        lorepack_creator: 'Loredeck Creator',
         safe_repair: 'Safe Repair',
         import: 'Import',
     };
@@ -5490,9 +5490,9 @@ function formatLorepackPendingSourceLabel(source = '') {
 function getLorepackPendingSourceTooltip(source = '') {
     const key = String(source || 'manual').trim();
     if (key === 'lore_assistant') return 'Created by Saga Lore Assistant. Treat as a proposal until reviewed and accepted.';
-    if (key === 'lorepack_creator') return 'Created by Saga Lorepack Creator. Treat as a generated planning proposal until reviewed and accepted.';
+    if (key === 'lorepack_creator') return 'Created by Saga Loredeck Creator. Treat as a generated planning proposal until reviewed and accepted.';
     if (key === 'bulk_edit') return 'Created by a bulk-edit tool. Review the field diffs before acceptance.';
-    if (key === 'safe_repair') return 'Created by an automated Pack Health repair path.';
+    if (key === 'safe_repair') return 'Created by an automated Deck Health repair path.';
     return 'Proposal source.';
 }
 
@@ -5614,13 +5614,13 @@ function createLorepackPendingQualityList(change = {}) {
 }
 
 function createLorepackPendingHealthImpactPill() {
-    const pill = createStatusPill('Health impact', 'Accepting this proposal changes entries, tags, or timeline data and will mark Pack Health stale until validation reruns.');
+    const pill = createStatusPill('Health impact', 'Accepting this proposal changes entries, tags, or timeline data and will mark Deck Health stale until validation reruns.');
     pill.classList.add('wandlight-status-pill-health-impact');
     return pill;
 }
 
 function createLorepackPendingHealthStalePill() {
-    const pill = createStatusPill('Health stale', 'Pack Health was computed before the latest accepted Lorepack edits. Rerun validation.');
+    const pill = createStatusPill('Health stale', 'Deck Health was computed before the latest accepted Loredeck edits. Rerun validation.');
     pill.classList.add('wandlight-status-pill-health-stale');
     return pill;
 }
@@ -6269,7 +6269,7 @@ function createLorepackRecordPatchChange(fields = {}) {
         source: fields.source || 'manual',
         action: fields.action || 'record_patch',
         targetKind: fields.targetKind || 'lorepack',
-        title: String(fields.title || 'Pending Lorepack Change').trim(),
+        title: String(fields.title || 'Pending Loredeck Change').trim(),
         description: String(fields.description || '').trim(),
         affectedEntryIds: normalizeLorepackPendingIdList(fields.affectedEntryIds),
         affectedTagIds: normalizeLorepackPendingTagIdList(fields.affectedTagIds),
@@ -6750,31 +6750,31 @@ function createLorepackTimelineRegistryCard(pack, rows = []) {
     summary.appendChild(createStatusPill(`${windows.length} windows`, 'Timeline window definitions visible in this editor.'));
     summary.appendChild(createStatusPill(`${attachedCount} attached`, 'Timeline definitions referenced by loaded entries.'));
     if (undefinedCount) summary.appendChild(createStatusPill(`${undefinedCount} undefined`, 'Loaded entries reference anchors that are not defined in the active timeline registry.'));
-    if (disabledCount) summary.appendChild(createStatusPill(`${disabledCount} disabled`, 'Source timeline definitions suppressed by this Custom Lorepack overlay.'));
+    if (disabledCount) summary.appendChild(createStatusPill(`${disabledCount} disabled`, 'Source timeline definitions suppressed by this Custom Loredeck overlay.'));
     if (sourceCache?.loadedAt && !sourceCache.missing && !sourceCache.error) summary.appendChild(createStatusPill('timeline.json loaded', 'Source timeline registry has been fetched for this editor session.'));
     if (sourceCache?.missing) summary.appendChild(createStatusPill('no source timeline', 'The manifest does not currently declare registries.timeline.'));
-    if (getLorepackTimelineRegistryCount(customRegistry)) summary.appendChild(createStatusPill('custom overlay', 'This Lorepack has saved editable timeline registry metadata.'));
+    if (getLorepackTimelineRegistryCount(customRegistry)) summary.appendChild(createStatusPill('custom overlay', 'This Loredeck has saved editable timeline registry metadata.'));
     wrap.appendChild(summary);
 
     const help = document.createElement('div');
     help.className = 'wandlight-runtime-help';
-    help.textContent = 'Timeline edits queue Custom overlay proposals. Accepted overlays affect Story Position search, Pack Health, and runtime position gating.';
+    help.textContent = 'Timeline edits queue Custom overlay proposals. Accepted overlays affect Story Position search, Deck Health, and runtime position gating.';
     wrap.appendChild(help);
     if (sourceCache?.error) {
-        wrap.appendChild(createKeyValue('Registry Load Error', sourceCache.error, 'Last timeline.json load error for this Lorepack.'));
+        wrap.appendChild(createKeyValue('Registry Load Error', sourceCache.error, 'Last timeline.json load error for this Loredeck.'));
     }
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
-    const loadRegistry = createButton('Load Timeline', 'Fetch source timeline.json for this Lorepack if the manifest declares one.', async (btn) => {
+    const loadRegistry = createButton('Load Timeline', 'Fetch source timeline.json for this Loredeck if the manifest declares one.', async (btn) => {
         await loadLorepackTimelineRegistryForEditor(pack, btn);
     });
     loadRegistry.disabled = !pack.manifest;
     actions.appendChild(loadRegistry);
-    actions.appendChild(createButton('New Anchor', 'Create a new timeline anchor in this Custom Lorepack overlay.', () => {
+    actions.appendChild(createButton('New Anchor', 'Create a new timeline anchor in this Custom Loredeck overlay.', () => {
         openLorepackTimelineAnchorDialog(pack, null);
     }, 'wandlight-primary-button'));
-    actions.appendChild(createButton('New Window', 'Create a new timeline window in this Custom Lorepack overlay.', () => {
+    actions.appendChild(createButton('New Window', 'Create a new timeline window in this Custom Loredeck overlay.', () => {
         openLorepackTimelineWindowDialog(pack, null);
     }));
     const exportButton = createButton('Export Timeline', 'Download the currently merged active timeline registry as timeline.json.', () => {
@@ -7018,14 +7018,14 @@ function createLorepackAssistantCard(pack, rows = [], filteredRows = []) {
         summary.appendChild(createStatusPill(`${selectedCount} selected`, 'Draft proposals selected for queue, drop, or revision actions.'));
     }
     if (cached?.queuedCount) summary.appendChild(createStatusPill(`${cached.queuedCount} queued`, 'Last assistant proposal count queued into Pending Review.'));
-    if (cached?.selectedHealthIssueCount) summary.appendChild(createStatusPill(`${cached.selectedHealthIssueCount} health issue${cached.selectedHealthIssueCount === 1 ? '' : 's'}`, 'Last assistant draft was generated from selected Pack Health issues.'));
+    if (cached?.selectedHealthIssueCount) summary.appendChild(createStatusPill(`${cached.selectedHealthIssueCount} health issue${cached.selectedHealthIssueCount === 1 ? '' : 's'}`, 'Last assistant draft was generated from selected Deck Health issues.'));
     if (cached?.qualityWarningCount) summary.appendChild(createStatusPill(`${cached.qualityWarningCount} quality flag${cached.qualityWarningCount === 1 ? '' : 's'}`, 'Last assistant draft included local quality guardrail flags.'));
     if (cached?.questions?.length) summary.appendChild(createStatusPill(`${cached.questions.length} question${cached.questions.length === 1 ? '' : 's'}`, 'Last assistant response requested clarification.'));
     wrap.appendChild(summary);
 
     const help = document.createElement('div');
     help.className = 'wandlight-runtime-help';
-    help.textContent = 'The assistant drafts reviewable proposals only. Accepted Lorepack data changes after you accept the queued Pending Review items.';
+    help.textContent = 'The assistant drafts reviewable proposals only. Accepted Loredeck data changes after you accept the queued Pending Review items.';
     wrap.appendChild(help);
 
     const form = document.createElement('div');
@@ -7040,7 +7040,7 @@ function createLorepackAssistantCard(pack, rows = [], filteredRows = []) {
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
-    const draftButton = createButton('Draft Proposals', 'Ask the Reasoning Provider to draft structured Lorepack changes for batch review before they enter Pending Review.', async (btn) => {
+    const draftButton = createButton('Draft Proposals', 'Ask the Reasoning Provider to draft structured Loredeck changes for batch review before they enter Pending Review.', async (btn) => {
         lorepackAssistantInstruction = instructionInput.value.trim();
         lorepackAssistantMode = modeSelect.value;
         lorepackAssistantTargetScope = scopeSelect.value;
@@ -7411,15 +7411,15 @@ function collectLorepackHealthRepairEntryIds(issues = []) {
 
 async function handleLorepackAssistantHealthRepairDraft(pack, health = null, button = null) {
     await runBusyAction(button, 'Drafting...', async () => {
-        if (!ensureLoreProviderReadyForAction('Pack Health repair planning', 'lore')) return;
+        if (!ensureLoreProviderReadyForAction('Deck Health repair planning', 'lore')) return;
         const fresh = getFreshLorepackLibraryPack(pack.packId, pack);
         if (!fresh || fresh.type === 'bundled') {
-            toast('Bundled Lorepacks cannot be repaired directly. Duplicate as Custom first.', 'warning');
+            toast('Bundled Loredecks cannot be repaired directly. Duplicate as Custom first.', 'warning');
             return;
         }
         const selectedIssues = collectLorepackHealthRepairSelectedIssues(fresh, health);
         if (!selectedIssues.length) {
-            toast('Select Pack Health issues to plan repairs.', 'warning');
+            toast('Select Deck Health issues to plan repairs.', 'warning');
             return;
         }
         const entryCache = lorepackEntryPreviewCache.get(fresh.packId) || {};
@@ -7429,7 +7429,7 @@ async function handleLorepackAssistantHealthRepairDraft(pack, health = null, but
             ? rows.filter(row => relatedEntryIds.has(row.id))
             : rows;
         const instruction = [
-            'Draft repair proposals for the selected Pack Health issues.',
+            'Draft repair proposals for the selected Deck Health issues.',
             'Use supported proposal actions only. Put every repair into reviewable proposals; do not claim fixes are applied.',
             'If an issue cannot be repaired with entry, tag, or timeline proposals, explain that in warnings or ask a clarifying question.',
         ].join(' ');
@@ -7438,7 +7438,7 @@ async function handleLorepackAssistantHealthRepairDraft(pack, health = null, but
             mode: 'pack_health_repair',
             targetScope: 'all_loaded',
         });
-        context.task = 'Turn selected Pack Health issues into reviewable assistant draft proposals.';
+        context.task = 'Turn selected Deck Health issues into reviewable assistant draft proposals.';
         context.targetEntries = targetRows
             .filter(row => row?.id && !row.disabled)
             .slice(0, 80)
@@ -7453,7 +7453,7 @@ async function handleLorepackAssistantHealthRepairDraft(pack, health = null, but
         const changes = buildLorepackAssistantPendingChanges(fresh, parsed.proposals, rows);
         const qualityWarningCount = countLorepackAssistantQualityWarningsForChanges(changes);
         lorepackAssistantDraftCache.set(fresh.packId, {
-            summary: parsed.summary || `Repair plan for ${selectedIssues.length} Pack Health issue${selectedIssues.length === 1 ? '' : 's'}.`,
+            summary: parsed.summary || `Repair plan for ${selectedIssues.length} Deck Health issue${selectedIssues.length === 1 ? '' : 's'}.`,
             questions: parsed.clarifyingQuestions,
             warnings: parsed.warnings,
             proposalCount: parsed.proposals.length,
@@ -7491,7 +7491,7 @@ async function handleLorepackAssistantDraftRevision(pack, rows = [], filteredRow
         }
         const fresh = getFreshLorepackLibraryPack(pack.packId, pack);
         if (!fresh || fresh.type === 'bundled') {
-            toast('Bundled Lorepacks cannot be edited directly. Duplicate as Custom first.', 'warning');
+            toast('Bundled Loredecks cannot be edited directly. Duplicate as Custom first.', 'warning');
             return;
         }
         const cached = lorepackAssistantDraftCache.get(fresh.packId) || {};
@@ -7635,7 +7635,7 @@ async function handleLorepackAssistantDraft(pack, rows = [], filteredRows = [], 
         }
         const fresh = getFreshLorepackLibraryPack(pack.packId, pack);
         if (!fresh || fresh.type === 'bundled') {
-            toast('Bundled Lorepacks cannot be edited directly. Duplicate as Custom first.', 'warning');
+            toast('Bundled Loredecks cannot be edited directly. Duplicate as Custom first.', 'warning');
             return;
         }
         const context = buildLorepackAssistantContext(fresh, rows, filteredRows, options);
@@ -8047,7 +8047,7 @@ function setLorepackTimelineItemDisabled(pack, kind = 'anchor', id = '', disable
 
 function openLorepackTimelineAnchorDialog(pack, item = null) {
     if (pack.type === 'bundled') {
-        toast('Bundled Lorepack timelines are read-only. Duplicate as Custom first.', 'warning');
+        toast('Bundled Loredeck timelines are read-only. Duplicate as Custom first.', 'warning');
         return;
     }
     const existing = document.querySelector('.wandlight-lorepack-timeline-overlay');
@@ -8086,7 +8086,7 @@ function openLorepackTimelineAnchorDialog(pack, item = null) {
     const idInput = createNewLoreInput(form, 'Anchor ID', 'Stable Story Position anchor ID.', definition.id || '', false, 'one-piece.arlong_park.nami_breaks_down');
     idInput.disabled = isExisting;
     const labelInput = createNewLoreInput(form, 'Label', 'Human-readable anchor label.', definition.label || '', false, 'Nami asks Luffy for help');
-    const sortKeyInput = createNewLoreInput(form, 'Sort Key', 'Numeric order inside this Lorepack timeline.', getLorepackEntryEditorNumberText(definition.sortKey), false, '1200');
+    const sortKeyInput = createNewLoreInput(form, 'Sort Key', 'Numeric order inside this Loredeck timeline.', getLorepackEntryEditorNumberText(definition.sortKey), false, '1200');
     sortKeyInput.inputMode = 'decimal';
 
     const grid = appendLorepackEntryEditorSection(form, 'Coordinates');
@@ -8143,7 +8143,7 @@ function openLorepackTimelineAnchorDialog(pack, item = null) {
 
 function openLorepackTimelineWindowDialog(pack, item = null) {
     if (pack.type === 'bundled') {
-        toast('Bundled Lorepack timelines are read-only. Duplicate as Custom first.', 'warning');
+        toast('Bundled Loredeck timelines are read-only. Duplicate as Custom first.', 'warning');
         return;
     }
     const existing = document.querySelector('.wandlight-lorepack-timeline-overlay');
@@ -8260,13 +8260,13 @@ function createLorepackTagManagerCard(pack, rows = [], filteredRows = []) {
 
     const summary = document.createElement('div');
     summary.className = 'wandlight-lorepack-entry-summary';
-    summary.appendChild(createStatusPill(`${registryCount} defined`, 'Tags defined by source tags.json or this Custom Lorepack registry layer.'));
+    summary.appendChild(createStatusPill(`${registryCount} defined`, 'Tags defined by source tags.json or this Custom Loredeck registry layer.'));
     summary.appendChild(createStatusPill(`${undefinedCount} undefined`, 'Entry tags currently used but not defined by a loaded registry.'));
     summary.appendChild(createStatusPill(`${allItems.length} visible`, 'Total registry and entry-discovered tags in this manager.'));
     summary.appendChild(createStatusPill(`${editableTargetCount} target entr${editableTargetCount === 1 ? 'y' : 'ies'}`, 'Entries affected by bulk tag actions. Current entry search narrows this target set.'));
     if (sourceCache?.loadedAt && !sourceCache.missing && !sourceCache.error) summary.appendChild(createStatusPill('tags.json loaded', 'Source tag registry has been fetched for this editor session.'));
     if (sourceCache?.missing) summary.appendChild(createStatusPill('no source registry', 'The manifest does not currently declare registries.tags.'));
-    if (getLorepackTagRegistryCount(customRegistry)) summary.appendChild(createStatusPill('custom registry', 'This Lorepack has saved editable tag registry metadata.'));
+    if (getLorepackTagRegistryCount(customRegistry)) summary.appendChild(createStatusPill('custom registry', 'This Loredeck has saved editable tag registry metadata.'));
     if (lorepackEntryOverrideQuery) summary.appendChild(createStatusPill('Search scoped', 'Bulk tag actions will target the current entry search result.'));
     wrap.appendChild(summary);
 
@@ -8274,20 +8274,20 @@ function createLorepackTagManagerCard(pack, rows = [], filteredRows = []) {
     help.className = 'wandlight-runtime-help';
     help.textContent = pack.type === 'bundled'
         ? 'Bundled tag registries are read-only here. Duplicate this pack as Custom to define, rename, or deprecate tags.'
-        : 'Registry definitions are saved in this Custom Lorepack record. Entry tag changes still use Custom overrides.';
+        : 'Registry definitions are saved in this Custom Loredeck record. Entry tag changes still use Custom overrides.';
     wrap.appendChild(help);
     if (sourceCache?.error) {
-        wrap.appendChild(createKeyValue('Registry Load Error', sourceCache.error, 'Last tags.json load error for this Lorepack.'));
+        wrap.appendChild(createKeyValue('Registry Load Error', sourceCache.error, 'Last tags.json load error for this Loredeck.'));
     }
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
-    const loadRegistry = createButton('Load Registry', 'Fetch source tags.json for this Lorepack if the manifest declares one.', async (btn) => {
+    const loadRegistry = createButton('Load Registry', 'Fetch source tags.json for this Loredeck if the manifest declares one.', async (btn) => {
         await loadLorepackTagRegistryForEditor(pack, btn);
     });
     loadRegistry.disabled = !pack.manifest;
     actions.appendChild(loadRegistry);
-    const newTag = createButton('New Tag', 'Create a new tag definition in this Custom Lorepack registry.', () => {
+    const newTag = createButton('New Tag', 'Create a new tag definition in this Custom Loredeck registry.', () => {
         openLorepackTagRegistryDialog(pack, null);
     }, 'wandlight-primary-button');
     newTag.disabled = pack.type === 'bundled';
@@ -8494,7 +8494,7 @@ function createLorepackEntryOverrideRow(pack, row) {
 
     const meta = document.createElement('div');
     meta.className = 'wandlight-lorepack-row-meta';
-    meta.appendChild(createStatusPill(row.status, 'Entry override status in this Custom Lorepack.'));
+    meta.appendChild(createStatusPill(row.status, 'Entry override status in this Custom Loredeck.'));
     meta.appendChild(createStatusPill(row.id, 'Lore entry ID.'));
     if (row.entry?.category) meta.appendChild(createStatusPill(row.entry.category, 'Entry category.'));
     if (row.entry?.relevance) meta.appendChild(createStatusPill(row.entry.relevance, 'Entry relevance tier.'));
@@ -8508,7 +8508,7 @@ function createLorepackEntryOverrideRow(pack, row) {
     actions.appendChild(createButton('Edit', 'Edit or create an override for this entry.', () => {
         openLorepackEntryOverrideDialog(pack, row);
     }, row.overrideEntry ? 'wandlight-primary-button' : ''));
-    actions.appendChild(createButton(row.disabled ? 'Restore' : 'Disable', row.disabled ? 'Restore this source/custom entry.' : 'Suppress this entry inside this Custom Lorepack.', () => {
+    actions.appendChild(createButton(row.disabled ? 'Restore' : 'Disable', row.disabled ? 'Restore this source/custom entry.' : 'Suppress this entry inside this Custom Loredeck.', () => {
         setLorepackEntryDisabled(pack, row.id, !row.disabled);
     }));
     if (row.overrideEntry) {
@@ -8542,7 +8542,7 @@ async function fetchLorepackEntryFilesForEditor(pack, manifest = null, baseUrl =
         return buildGeneratedLorepackEntryCache(refreshGeneratedLorepackDerivedMetadata(cloneLorepackJson(pack) || { ...pack }), displayManifest);
     }
     const resolvedBaseUrl = baseUrl || resolveManifestUrlForFetch(pack.manifest);
-    if (!resolvedBaseUrl) throw new Error('Lorepack needs a fetchable base manifest path to load entries.');
+    if (!resolvedBaseUrl) throw new Error('Loredeck needs a fetchable base manifest path to load entries.');
     const entries = [];
     const entryFiles = [];
     for (const file of Array.isArray(displayManifest.files) ? displayManifest.files : []) {
@@ -8570,7 +8570,7 @@ async function fetchLorepackEntryFilesForEditor(pack, manifest = null, baseUrl =
                 schemaVersion: json?.schemaVersion || displayManifest.entrySchemaVersion || 2,
             });
         } catch (e) {
-            console.warn('[Wandlight] Lorepack entry file failed in editor:', filePath, e);
+            console.warn('[Wandlight] Loredeck entry file failed in editor:', filePath, e);
             entryFiles.push({
                 file: filePath,
                 url: null,
@@ -8615,12 +8615,12 @@ async function loadLorepackTimelineRegistryForEditor(pack, button = null, option
             });
             if (options.quiet !== true) {
                 const count = getLorepackTimelineRegistryCount(sourceRegistry);
-                toast(count ? `Loaded ${count} local timeline definition${count === 1 ? '' : 's'}.` : 'This Generated Lorepack does not have local timeline definitions yet.', count ? 'success' : 'info');
+                toast(count ? `Loaded ${count} local timeline definition${count === 1 ? '' : 's'}.` : 'This Generated Loredeck does not have local timeline definitions yet.', count ? 'success' : 'info');
                 refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
             }
             return sourceRegistry;
         }
-        if (!baseUrl) throw new Error('Lorepack needs a fetchable base manifest path to load timeline.json.');
+        if (!baseUrl) throw new Error('Loredeck needs a fetchable base manifest path to load timeline.json.');
         const registryJson = await fetchLorepackTimelineForEditor(manifest, baseUrl);
         const sourceRegistry = normalizeLorepackTimelineRegistry(registryJson);
         lorepackTimelineRegistryCache.set(fresh.packId, {
@@ -8631,7 +8631,7 @@ async function loadLorepackTimelineRegistryForEditor(pack, button = null, option
         });
         if (options.quiet !== true) {
             const count = getLorepackTimelineRegistryCount(sourceRegistry);
-            toast(registryJson ? `Loaded ${count} timeline definition${count === 1 ? '' : 's'} from timeline.json.` : 'This Lorepack does not declare timeline.json yet.', registryJson ? 'success' : 'info');
+            toast(registryJson ? `Loaded ${count} timeline definition${count === 1 ? '' : 's'} from timeline.json.` : 'This Loredeck does not declare timeline.json yet.', registryJson ? 'success' : 'info');
             refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
         }
         return sourceRegistry;
@@ -8688,12 +8688,12 @@ async function loadLorepackTagRegistryForEditor(pack, button = null, options = {
             });
             if (options.quiet !== true) {
                 const count = getLorepackTagRegistryCount(sourceRegistry);
-                toast(count ? `Loaded ${count} local tag definition${count === 1 ? '' : 's'}.` : 'This Generated Lorepack does not have local tag definitions yet.', count ? 'success' : 'info');
+                toast(count ? `Loaded ${count} local tag definition${count === 1 ? '' : 's'}.` : 'This Generated Loredeck does not have local tag definitions yet.', count ? 'success' : 'info');
                 refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
             }
             return sourceRegistry;
         }
-        if (!baseUrl) throw new Error('Lorepack needs a fetchable base manifest path to load tags.json.');
+        if (!baseUrl) throw new Error('Loredeck needs a fetchable base manifest path to load tags.json.');
         const registryJson = await fetchLorepackTagRegistryForEditor(manifest, baseUrl);
         const sourceRegistry = normalizeLorepackTagRegistry(registryJson);
         lorepackTagRegistryCache.set(fresh.packId, {
@@ -8704,7 +8704,7 @@ async function loadLorepackTagRegistryForEditor(pack, button = null, options = {
         });
         if (options.quiet !== true) {
             const count = getLorepackTagRegistryCount(sourceRegistry);
-            toast(registryJson ? `Loaded ${count} tag definition${count === 1 ? '' : 's'} from tags.json.` : 'This Lorepack does not declare tags.json yet.', registryJson ? 'success' : 'info');
+            toast(registryJson ? `Loaded ${count} tag definition${count === 1 ? '' : 's'} from tags.json.` : 'This Loredeck does not declare tags.json yet.', registryJson ? 'success' : 'info');
             refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
         }
         return sourceRegistry;
@@ -8844,14 +8844,14 @@ async function validateLorepackForEditor(pack, button = null, options = {}) {
     }
     try {
         const fresh = getFreshLorepackLibraryPack(pack.packId, pack);
-        if (!canValidateLorepackInEditor(fresh)) throw new Error('Lorepack needs a fetchable manifest path or accepted generated data to validate.');
+        if (!canValidateLorepackInEditor(fresh)) throw new Error('Loredeck needs a fetchable manifest path or accepted generated data to validate.');
         const generatedVirtual = canUseGeneratedVirtualLorepackData(fresh);
         const workingPack = generatedVirtual
             ? refreshGeneratedLorepackDerivedMetadata(cloneLorepackJson(fresh) || { ...fresh })
             : fresh;
         const manifest = await getDisplayManifestForPack(workingPack, { requireFetch: !generatedVirtual });
         const baseUrl = generatedVirtual ? null : resolveManifestUrlForFetch(workingPack.manifest);
-        if (!generatedVirtual && !baseUrl) throw new Error('Lorepack manifest path or URL is invalid.');
+        if (!generatedVirtual && !baseUrl) throw new Error('Loredeck manifest path or URL is invalid.');
         const entryCache = generatedVirtual
             ? buildGeneratedLorepackEntryCache(workingPack, manifest)
             : await fetchLorepackEntryFilesForEditor(workingPack, manifest, baseUrl);
@@ -8886,7 +8886,7 @@ async function validateLorepackForEditor(pack, button = null, options = {}) {
                     loadedAt: Date.now(),
                 });
             } catch (e) {
-                console.warn('[Wandlight] Lorepack timeline failed during editor validation:', e);
+                console.warn('[Wandlight] Loredeck timeline failed during editor validation:', e);
                 lorepackTimelineRegistryCache.set(workingPack.packId, {
                     sourceRegistry: normalizeLorepackTimelineRegistry(null),
                     error: e?.message || 'timeline.json failed to load.',
@@ -8916,23 +8916,23 @@ async function validateLorepackForEditor(pack, button = null, options = {}) {
             if (isGeneratedLorepackPack(record)) refreshGeneratedLorepackDerivedMetadata(record);
             else if (isVirtualLorepackPack(record)) record.manifestData = buildEmbeddedCustomManifest(record.manifestData || manifest, record);
             const result = upsertLorepackLibraryPack(record);
-            if (!result.ok) throw new Error(result.error || 'Pack Health status save failed.');
+            if (!result.ok) throw new Error(result.error || 'Deck Health status save failed.');
         }
 
         if (options.quiet !== true) {
             const summary = health.summary || {};
-            toast(`Pack Health: ${health.status} (${summary.errorCount || 0} errors, ${summary.warningCount || 0} warnings).`, health.errors?.length ? 'error' : (health.warnings?.length ? 'warning' : 'success'));
+            toast(`Deck Health: ${health.status} (${summary.errorCount || 0} errors, ${summary.warningCount || 0} warnings).`, health.errors?.length ? 'error' : (health.warnings?.length ? 'warning' : 'success'));
             refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
             refreshHeader();
         }
         return { health, manifest, entryCache };
     } catch (e) {
-        if (options.quiet !== true) toast(e?.message || 'Lorepack validation failed.', 'error');
-        return { health: null, manifest: null, entryCache: null, error: e?.message || 'Lorepack validation failed.' };
+        if (options.quiet !== true) toast(e?.message || 'Loredeck validation failed.', 'error');
+        return { health: null, manifest: null, entryCache: null, error: e?.message || 'Loredeck validation failed.' };
     } finally {
         if (button) {
             button.disabled = false;
-            button.textContent = originalText || 'Validate Pack';
+            button.textContent = originalText || 'Validate Deck';
         }
     }
 }
@@ -8946,7 +8946,7 @@ async function repairLorepackSafeHealthIssues(pack, button = null) {
     try {
         const fresh = getFreshLorepackLibraryPack(pack.packId, pack);
         if (!fresh || fresh.type === 'bundled') {
-            toast('Bundled Lorepacks cannot be repaired directly. Duplicate as Custom first.', 'warning');
+            toast('Bundled Loredecks cannot be repaired directly. Duplicate as Custom first.', 'warning');
             return false;
         }
         const validation = await validateLorepackForEditor(fresh, null, { quiet: true, updateLibrary: false });
@@ -9016,7 +9016,7 @@ async function exportValidatedLorepackDraft(pack, button = null) {
         const fresh = getFreshLorepackLibraryPack(pack.packId, pack);
         const readiness = getGeneratedLorepackExportReadiness(fresh, validation.health);
         if (!readiness.ready) {
-            throw new Error(`Generated Lorepack is not export-ready: ${readiness.blockers[0] || 'resolve pending generated draft state first.'}`);
+            throw new Error(`Generated Loredeck is not export-ready: ${readiness.blockers[0] || 'resolve pending generated draft state first.'}`);
         }
         const bundle = {
             bundleSchemaVersion: 1,
@@ -9036,9 +9036,9 @@ async function exportValidatedLorepackDraft(pack, button = null) {
             health: validation.health,
         };
         downloadJson(bundle, `${sanitizeFileStem(fresh?.packId || pack.packId || 'saga-lorepack')}.saga-lorepack.json`);
-        toast('Validated Lorepack draft exported.', validation.health.errors?.length ? 'warning' : 'success');
+        toast('Validated Loredeck draft exported.', validation.health.errors?.length ? 'warning' : 'success');
     } catch (e) {
-        toast(e?.message || 'Validated Lorepack export failed.', 'error');
+        toast(e?.message || 'Validated Loredeck export failed.', 'error');
     } finally {
         if (button) {
             button.disabled = false;
@@ -9088,7 +9088,7 @@ async function syncLorepackMetadataFromManifest(pack, button = null) {
         const manifest = await fetchLorepackManifest(pack.manifest);
         const record = buildLorepackRecordFromManifest(manifest, pack.manifest);
         if (record.packId !== pack.packId) {
-            throw new Error(`Manifest id ${record.packId} does not match selected Lorepack id ${pack.packId}. Register it as a separate Lorepack instead.`);
+            throw new Error(`Manifest id ${record.packId} does not match selected Loredeck id ${pack.packId}. Register it as a separate Loredeck instead.`);
         }
         record.type = pack.type === 'generated' ? 'generated' : 'custom';
         record.installedAt = pack.installedAt || Date.now();
@@ -9134,7 +9134,7 @@ async function saveLorepackMetadataFromInputs(pack, fields, button = null) {
             const manifestId = String(manifest?.id || '').trim();
             if (!manifestId) throw new Error('Manifest is missing required id.');
             if (manifestId !== pack.packId) {
-                throw new Error(`Manifest id ${manifestId} does not match selected Lorepack id ${pack.packId}. Register it as a separate Lorepack instead.`);
+                throw new Error(`Manifest id ${manifestId} does not match selected Loredeck id ${pack.packId}. Register it as a separate Loredeck instead.`);
             }
             lorepackManifestPreviewCache.set(pack.packId, {
                 manifest,
@@ -9161,7 +9161,7 @@ async function saveLorepackMetadataFromInputs(pack, fields, button = null) {
             record.manifestData = buildEmbeddedCustomManifest(pack.manifestData, record);
         }
         const result = upsertLorepackLibraryPack(record);
-        if (!result.ok) throw new Error(result.error || 'Lorepack metadata save failed.');
+        if (!result.ok) throw new Error(result.error || 'Loredeck metadata save failed.');
         if (record.manifest !== pack.manifest) {
             lorepackManifestPreviewCache.delete(pack.packId);
             lorepackEntryPreviewCache.delete(pack.packId);
@@ -9173,7 +9173,7 @@ async function saveLorepackMetadataFromInputs(pack, fields, button = null) {
         refreshHeader();
         toast(`${title} metadata saved.`, 'success');
     } catch (e) {
-        toast(e?.message || 'Lorepack metadata save failed.', 'error');
+        toast(e?.message || 'Loredeck metadata save failed.', 'error');
     } finally {
         if (button) {
             button.disabled = false;
@@ -9251,14 +9251,14 @@ function openDuplicateLorepackDialog(sourcePack) {
     titleWrap.className = 'wandlight-lore-workbench-title-wrap';
     const title = document.createElement('div');
     title.className = 'wandlight-lore-workbench-title';
-    title.textContent = 'Duplicate Lorepack';
+    title.textContent = 'Duplicate Loredeck';
     titleWrap.appendChild(title);
     const subtitle = document.createElement('div');
     subtitle.className = 'wandlight-lore-workbench-subtitle';
-    subtitle.textContent = 'Creates a Custom Lorepack copy with its own pack ID and metadata.';
+    subtitle.textContent = 'Creates a Custom Loredeck copy with its own pack ID and metadata.';
     titleWrap.appendChild(subtitle);
     header.appendChild(titleWrap);
-    header.appendChild(createButton('Close', 'Close without duplicating this Lorepack.', () => overlay.remove()));
+    header.appendChild(createButton('Close', 'Close without duplicating this Loredeck.', () => overlay.remove()));
     shell.appendChild(header);
 
     const form = document.createElement('div');
@@ -9267,7 +9267,7 @@ function openDuplicateLorepackDialog(sourcePack) {
 
     const source = document.createElement('div');
     source.className = 'wandlight-lorepack-duplicate-source';
-    source.appendChild(createKeyValue('Source', sourcePack.title || sourcePack.packId, 'Lorepack being duplicated.'));
+    source.appendChild(createKeyValue('Source', sourcePack.title || sourcePack.packId, 'Loredeck being duplicated.'));
     source.appendChild(createKeyValue('Source ID', sourcePack.packId, 'Original pack ID recorded in derivedFrom metadata.'));
     source.appendChild(createKeyValue('Base Manifest', sourcePack.manifest || 'unset', 'Source manifest used for entry-file resolution.'));
     form.appendChild(source);
@@ -9277,9 +9277,9 @@ function openDuplicateLorepackDialog(sourcePack) {
     const suggestedTitle = `${sourcePack.title || sourcePack.packId} Custom`;
     const defaultTags = getDefaultDuplicateLorepackTags(sourcePack);
 
-    const idInput = createNewLoreInput(form, 'Pack ID', 'Stable lowercase ID for the Custom Lorepack.', suggestedId, false, 'my-custom-lorepack');
-    const titleInput = createNewLoreInput(form, 'Title', 'Display title shown in the Lorepack Library and stack.', suggestedTitle, false, 'My Custom Lorepack');
-    const descriptionInput = createNewLoreInput(form, 'Description', 'Short description for the Custom Lorepack.', sourcePack.description || '', true, 'Custom AU/crossover copy for my story.');
+    const idInput = createNewLoreInput(form, 'Deck ID', 'Stable lowercase ID for the Custom Loredeck. Internally this is stored as packId until the schema alias pass.', suggestedId, false, 'my-custom-loredeck');
+    const titleInput = createNewLoreInput(form, 'Title', 'Display title shown in the Loredeck Library and stack.', suggestedTitle, false, 'My Custom Loredeck');
+    const descriptionInput = createNewLoreInput(form, 'Description', 'Short description for the Custom Loredeck.', sourcePack.description || '', true, 'Custom AU/crossover copy for my story.');
     const authorInput = createNewLoreInput(form, 'Author', 'Creator shown in pack metadata.', 'User', false, 'User');
     const versionInput = createNewLoreInput(form, 'Version', 'Starting version for the Custom copy.', '1.0.0', false, '1.0.0');
     const tagsInput = createNewLoreInput(form, 'Tags', 'Comma-separated pack tags.', defaultTags.join(', '), false, 'origin:duplicate, quality:user-managed');
@@ -9290,14 +9290,14 @@ function openDuplicateLorepackDialog(sourcePack) {
     addToStackInput.type = 'checkbox';
     options.appendChild(addToStackInput);
     const optionText = document.createElement('span');
-    optionText.textContent = 'Add copy to current Lorepack stack';
+    optionText.textContent = 'Add copy to current Loredeck stack';
     options.appendChild(optionText);
-    addTooltip(options, 'Adds the new Custom Lorepack to the active stack after creating it. You can still reorder priority later.');
+    addTooltip(options, 'Adds the new Custom Loredeck to the active stack after creating it. You can still reorder priority later.');
     form.appendChild(options);
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
-    actions.appendChild(createButton('Create Custom Lorepack', 'Duplicate this pack into the Custom Lorepack Library.', async (btn) => {
+    actions.appendChild(createButton('Create Custom Loredeck', 'Duplicate this pack into the Custom Loredeck Library.', async (btn) => {
         await duplicateLorepackAsCustom(sourcePack, {
             overlay,
             idInput,
@@ -9309,7 +9309,7 @@ function openDuplicateLorepackDialog(sourcePack) {
             addToStackInput,
         }, btn);
     }, 'wandlight-primary-button'));
-    actions.appendChild(createButton('Cancel', 'Close without duplicating this Lorepack.', () => overlay.remove()));
+    actions.appendChild(createButton('Cancel', 'Close without duplicating this Loredeck.', () => overlay.remove()));
     form.appendChild(actions);
 
     requestAnimationFrame(() => idInput.focus());
@@ -9323,12 +9323,12 @@ async function duplicateLorepackAsCustom(sourcePack, fields, button = null) {
     }
     try {
         const packId = normalizeLorepackPackId(fields.idInput.value);
-        if (!packId) throw new Error('Custom Lorepack needs a valid pack ID.');
-        if (getLorepackDefinition(packId)) throw new Error(`A Lorepack with id ${packId} already exists.`);
+        if (!packId) throw new Error('Custom Loredeck needs a valid pack ID.');
+        if (getLorepackDefinition(packId)) throw new Error(`A Loredeck with id ${packId} already exists.`);
         const title = fields.titleInput.value.trim() || packId;
         const sourceManifest = await getDisplayManifestForPack(sourcePack);
         const baseManifest = sourcePack.manifest || sourcePack.source?.url || '';
-        if (!baseManifest) throw new Error('Source Lorepack does not have a fetchable manifest path.');
+        if (!baseManifest) throw new Error('Source Loredeck does not have a fetchable manifest path.');
         const stats = {
             entryCount: Number.isFinite(Number(sourcePack.entryCount)) ? Math.max(0, Number(sourcePack.entryCount)) : (Number(sourceManifest.stats?.entryCount) || 0),
             categoryCounts: sourceManifest.stats?.categoryCounts && typeof sourceManifest.stats.categoryCounts === 'object' && !Array.isArray(sourceManifest.stats.categoryCounts)
@@ -9376,7 +9376,7 @@ async function duplicateLorepackAsCustom(sourcePack, fields, button = null) {
         }
         record.manifestData = buildEmbeddedCustomManifest(sourceManifest, record);
         const result = upsertLorepackLibraryPack(record);
-        if (!result.ok) throw new Error(result.error || 'Lorepack duplication failed.');
+        if (!result.ok) throw new Error(result.error || 'Loredeck duplication failed.');
         lorepackManifestPreviewCache.set(packId, {
             manifest: record.manifestData,
             error: '',
@@ -9391,13 +9391,13 @@ async function duplicateLorepackAsCustom(sourcePack, fields, button = null) {
             refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
             refreshHeader();
         }
-        toast(`${title} created as a Custom Lorepack.`, 'success');
+        toast(`${title} created as a Custom Loredeck.`, 'success');
     } catch (e) {
-        toast(e?.message || 'Lorepack duplication failed.', 'error');
+        toast(e?.message || 'Loredeck duplication failed.', 'error');
     } finally {
         if (button) {
             button.disabled = false;
-            button.textContent = originalText || 'Create Custom Lorepack';
+            button.textContent = originalText || 'Create Custom Loredeck';
         }
     }
 }
@@ -9515,7 +9515,7 @@ function openLorepackEntryOverrideDialog(pack, row = null) {
     titleWrap.className = 'wandlight-lore-workbench-title-wrap';
     const title = document.createElement('div');
     title.className = 'wandlight-lore-workbench-title';
-    title.textContent = isExisting ? 'Edit Lorepack Entry' : 'New Lorepack Entry';
+    title.textContent = isExisting ? 'Edit Lorecard' : 'New Lorecard';
     titleWrap.appendChild(title);
     const subtitle = document.createElement('div');
     subtitle.className = 'wandlight-lore-workbench-subtitle';
@@ -9529,9 +9529,9 @@ function openLorepackEntryOverrideDialog(pack, row = null) {
     form.className = 'wandlight-new-lore-form wandlight-lorepack-entry-override-form';
     shell.appendChild(form);
 
-    const idInput = createNewLoreInput(form, 'Entry ID', 'Stable entry ID inside this Lorepack.', row?.id || '', false, 'my_custom_entry');
+    const idInput = createNewLoreInput(form, 'Lorecard ID', 'Stable Lorecard ID inside this Loredeck.', row?.id || '', false, 'my_custom_lorecard');
     idInput.disabled = isExisting;
-    const titleInput = createNewLoreInput(form, 'Title', 'Short descriptive title.', sourceEntry.title || '', false, 'Custom lore entry');
+    const titleInput = createNewLoreInput(form, 'Title', 'Short descriptive title.', sourceEntry.title || '', false, 'Custom Lorecard');
     const factInput = createNewLoreInput(form, 'Lore Text', 'The durable fact, rule, constraint, or state to remember.', sourceEntry.fact || sourceEntry.content?.fact || '', true, 'The durable lore fact to remember.');
     const injectionInput = createNewLoreInput(form, 'Injection Override', 'Optional model-facing phrasing; blank uses Lore Text.', sourceEntry.content?.injection || '', true, 'Optional model-facing wording.');
     const notesInput = createNewLoreInput(form, 'Notes', 'Optional private notes for this override.', sourceEntry.notes || sourceEntry.content?.notes || '', true, 'Why this entry was changed or added.');
@@ -9630,7 +9630,7 @@ function openLorepackEntryOverrideDialog(pack, row = null) {
             sourceInfo: {
                 ...(sourceEntry.sourceInfo || {}),
                 work: pack.title || pack.packId,
-                notes: 'Saved as a Custom Lorepack entry override.',
+                notes: 'Saved as a Custom Loredeck entry override.',
                 confidence: Number(sourceEntry.sourceInfo?.confidence || 1),
             },
             content: {
@@ -9667,7 +9667,7 @@ function openLorepackEntryOverrideDialog(pack, row = null) {
         overlay.remove();
     }, 'wandlight-primary-button'));
     if (isExisting) {
-        actions.appendChild(createButton(row?.disabled ? 'Restore Entry' : 'Disable Entry', row?.disabled ? 'Restore this entry in the Custom Lorepack.' : 'Suppress this entry in the Custom Lorepack.', () => {
+        actions.appendChild(createButton(row?.disabled ? 'Restore Entry' : 'Disable Entry', row?.disabled ? 'Restore this entry in the Custom Loredeck.' : 'Suppress this entry in the Custom Loredeck.', () => {
             setLorepackEntryDisabled(pack, row.id, !row.disabled);
             overlay.remove();
         }));
@@ -9682,7 +9682,7 @@ function buildBulkLorepackTagOverrideEntry(pack, row, tags = []) {
     const baseEntry = row.overrideEntry || row.sourceEntry || row.entry || {};
     const entrySchemaVersion = Math.max(Number(baseEntry.schemaVersion) || 0, getExpectedLorepackEntrySchemaVersion(pack));
     const id = String(row.id || baseEntry.id || '').trim();
-    const title = String(baseEntry.title || id || 'Lorepack Entry').trim();
+    const title = String(baseEntry.title || id || 'Lorecard').trim();
     const fact = String(baseEntry.content?.fact || baseEntry.fact || baseEntry.description || baseEntry.detail || title).trim();
     const injection = String(baseEntry.content?.injection || baseEntry.injection || fact).trim();
     const cleanTags = parseLorepackEntryTags(tags);
@@ -9914,7 +9914,7 @@ function removeLorepackTagRegistryDefinition(pack, tagId) {
 
 function openLorepackTagRegistryDialog(pack, item = null) {
     if (pack.type === 'bundled') {
-        toast('Bundled Lorepack tag registries are read-only. Duplicate as Custom first.', 'warning');
+        toast('Bundled Loredeck tag registries are read-only. Duplicate as Custom first.', 'warning');
         return;
     }
     const existing = document.querySelector('.wandlight-lorepack-tag-registry-overlay');
@@ -10006,7 +10006,7 @@ function openLorepackTagRegistryDialog(pack, item = null) {
 
 function openLorepackTagRenameDialog(pack, rows = [], item = {}) {
     if (pack.type === 'bundled') {
-        toast('Bundled Lorepacks cannot be edited directly. Duplicate as Custom first.', 'warning');
+        toast('Bundled Loredecks cannot be edited directly. Duplicate as Custom first.', 'warning');
         return;
     }
     const fromTag = normalizeLorepackTagId(item?.tag || '');
@@ -10127,7 +10127,7 @@ function openLorepackTagRenameDialog(pack, rows = [], item = {}) {
 function buildBulkLorepackPositionOverrideEntry(pack, row, position, retrieval) {
     const baseEntry = row.overrideEntry || row.sourceEntry || row.entry || {};
     const id = String(row.id || baseEntry.id || '').trim();
-    const title = String(baseEntry.title || id || 'Lorepack Entry').trim();
+    const title = String(baseEntry.title || id || 'Lorecard').trim();
     const fact = String(baseEntry.content?.fact || baseEntry.fact || baseEntry.description || baseEntry.detail || title).trim();
     const injection = String(baseEntry.content?.injection || baseEntry.injection || fact).trim();
     let entry = normalizeLoreEntry({
@@ -10170,7 +10170,7 @@ function buildBulkLorepackPositionOverrideEntry(pack, row, position, retrieval) 
 function openLorepackBulkPositionDialog(pack, rows = []) {
     const entrySchemaVersion = getExpectedLorepackEntrySchemaVersion(pack);
     if (entrySchemaVersion < 3) {
-        toast('Bulk Story Position editing is available for schema v3 Lorepacks.', 'warning');
+        toast('Bulk Story Position editing is available for schema v3 Loredecks.', 'warning');
         return;
     }
 
@@ -10298,7 +10298,7 @@ function getFreshLorepackLibraryPack(packId, fallback = null) {
 function persistLorepackLibraryRecordMutation(pack, mutator, message, options = {}) {
     const fresh = getFreshLorepackLibraryPack(pack.packId, pack);
     if (!fresh || fresh.type === 'bundled') {
-        toast('Bundled Lorepacks cannot be edited directly. Duplicate as Custom first.', 'warning');
+        toast('Bundled Loredecks cannot be edited directly. Duplicate as Custom first.', 'warning');
         return false;
     }
     const next = {
@@ -10325,7 +10325,7 @@ function persistLorepackLibraryRecordMutation(pack, mutator, message, options = 
     }
     const result = upsertLorepackLibraryPack(next);
     if (!result.ok) {
-        toast(result.error || options.errorMessage || 'Lorepack save failed.', 'error');
+        toast(result.error || options.errorMessage || 'Loredeck save failed.', 'error');
         return false;
     }
     clearCanonLoreDatabaseCache();
@@ -10338,20 +10338,20 @@ function persistLorepackLibraryRecordMutation(pack, mutator, message, options = 
 
 function persistLorepackEntryLayer(pack, mutator, message) {
     return persistLorepackLibraryRecordMutation(pack, mutator, message, {
-        errorMessage: 'Lorepack entry layer save failed.',
+        errorMessage: 'Loredeck entry layer save failed.',
     });
 }
 
 function persistLorepackTagRegistryLayer(pack, mutator, message) {
     return persistLorepackLibraryRecordMutation(pack, mutator, message, {
-        errorMessage: 'Lorepack tag registry save failed.',
+        errorMessage: 'Loredeck tag registry save failed.',
     });
 }
 
 function queueLorepackPendingChange(pack, change, message = '') {
     const pendingChange = normalizeLorepackPendingChanges([change])[0];
     if (!pendingChange) {
-        toast('Could not queue Lorepack change.', 'error');
+        toast('Could not queue Loredeck change.', 'error');
         return false;
     }
     return persistLorepackLibraryRecordMutation(pack, next => {
@@ -10359,22 +10359,22 @@ function queueLorepackPendingChange(pack, change, message = '') {
         pending.push(pendingChange);
         next.pendingChanges = pending;
     }, message || `Queued pending change: ${pendingChange.title}.`, {
-        errorMessage: 'Lorepack pending change save failed.',
+        errorMessage: 'Loredeck pending change save failed.',
     });
 }
 
 function queueLorepackPendingChanges(pack, changes = [], message = '') {
     const pendingChanges = normalizeLorepackPendingChanges(changes);
     if (!pendingChanges.length) {
-        toast('Could not queue Lorepack changes.', 'error');
+        toast('Could not queue Loredeck changes.', 'error');
         return false;
     }
     return persistLorepackLibraryRecordMutation(pack, next => {
         const pending = normalizeLorepackPendingChanges(next.pendingChanges);
         pending.push(...pendingChanges);
         next.pendingChanges = pending;
-    }, message || `Queued ${pendingChanges.length} pending Lorepack change${pendingChanges.length === 1 ? '' : 's'}.`, {
-        errorMessage: 'Lorepack pending change save failed.',
+    }, message || `Queued ${pendingChanges.length} pending Loredeck change${pendingChanges.length === 1 ? '' : 's'}.`, {
+        errorMessage: 'Loredeck pending change save failed.',
     });
 }
 
@@ -10383,7 +10383,7 @@ function acceptLorepackPendingChanges(pack, changeIds = []) {
     const pending = getLorepackPendingChanges(pack);
     const selected = idSet.size ? pending.filter(change => idSet.has(change.changeId)) : pending;
     if (!selected.length) {
-        toast('No pending Lorepack changes selected.', 'warning');
+        toast('No pending Loredeck changes selected.', 'warning');
         return false;
     }
     const affectsHealth = selected.some(change => doesLorepackPendingChangeAffectPackHealth(change));
@@ -10398,9 +10398,9 @@ function acceptLorepackPendingChanges(pack, changeIds = []) {
         if (isGeneratedLorepackPack(next)) refreshGeneratedLorepackDerivedMetadata(next);
         if (affectsHealth) next.healthStatus = 'stale';
     }, affectsHealth
-        ? `Accepted ${selected.length} pending Lorepack change${selected.length === 1 ? '' : 's'}. Pack Health marked stale.`
-        : `Accepted ${selected.length} pending Lorepack change${selected.length === 1 ? '' : 's'}.`, {
-        errorMessage: 'Pending Lorepack change acceptance failed.',
+        ? `Accepted ${selected.length} pending Loredeck change${selected.length === 1 ? '' : 's'}. Deck Health marked stale.`
+        : `Accepted ${selected.length} pending Loredeck change${selected.length === 1 ? '' : 's'}.`, {
+        errorMessage: 'Pending Loredeck change acceptance failed.',
     });
 }
 
@@ -10409,14 +10409,14 @@ function rejectLorepackPendingChanges(pack, changeIds = []) {
     const pending = getLorepackPendingChanges(pack);
     const selected = idSet.size ? pending.filter(change => idSet.has(change.changeId)) : pending;
     if (!selected.length) {
-        toast('No pending Lorepack changes selected.', 'warning');
+        toast('No pending Loredeck changes selected.', 'warning');
         return false;
     }
     return persistLorepackLibraryRecordMutation(pack, next => {
         const selectedIds = new Set(selected.map(change => change.changeId));
         next.pendingChanges = normalizeLorepackPendingChanges(next.pendingChanges).filter(change => !selectedIds.has(change.changeId));
-    }, `Rejected ${selected.length} pending Lorepack change${selected.length === 1 ? '' : 's'}.`, {
-        errorMessage: 'Pending Lorepack change rejection failed.',
+    }, `Rejected ${selected.length} pending Loredeck change${selected.length === 1 ? '' : 's'}.`, {
+        errorMessage: 'Pending Loredeck change rejection failed.',
     });
 }
 
@@ -10430,7 +10430,7 @@ function saveLorepackEntryOverride(pack, entry) {
         action: 'upsert_entry',
         targetKind: 'entry',
         title: `Save entry: ${entry.title || id}`,
-        description: 'Creates or updates a Custom Lorepack entry override after review.',
+        description: 'Creates or updates a Custom Loredeck entry override after review.',
         affectedEntryIds: [id],
         payload: {
             entryOverrides: { [id]: entry },
@@ -10468,7 +10468,7 @@ function setLorepackEntryDisabled(pack, entryId, disabled) {
         targetKind: 'entry',
         title: `${disabled ? 'Disable' : 'Restore'} entry: ${id}`,
         description: disabled
-            ? 'Suppresses this entry in the Custom Lorepack after review.'
+            ? 'Suppresses this entry in the Custom Loredeck after review.'
             : 'Removes this entry from the Custom disabled list after review.',
         affectedEntryIds: [id],
         payload: disabled
@@ -10533,7 +10533,7 @@ function formatLorepackCompatibility(compatibility) {
 function forgetLorepackLibraryPack(packId) {
     const result = removeLorepackLibraryPack(packId);
     if (!result.ok) {
-        toast(result.error || 'Lorepack could not be removed.', 'warning');
+        toast(result.error || 'Loredeck could not be removed.', 'warning');
         return;
     }
     clearCanonLoreDatabaseCache();
@@ -10544,7 +10544,7 @@ function forgetLorepackLibraryPack(packId) {
     lorepackTagRegistryCache.delete(packId);
     refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
     refreshHeader();
-    toast(`${packId} removed from Lorepack Library.`, 'info');
+    toast(`${packId} removed from Loredeck Library.`, 'info');
 }
 
 function commitLorepackStackMutation(summary, mutator) {
@@ -10585,7 +10585,7 @@ function normalizeLorepackStackPriority(stack = []) {
 
 function addLorepackToStack(packId) {
     const definition = getLorepackDefinition(packId);
-    const changed = commitLorepackStackMutation(`Added Lorepack ${getLorepackDisplayName(packId)}`, stack => {
+    const changed = commitLorepackStackMutation(`Added Loredeck ${getLorepackDisplayName(packId)}`, stack => {
         const existing = stack.find(item => item.packId === packId);
         if (existing) {
             existing.enabled = true;
@@ -10599,11 +10599,11 @@ function addLorepackToStack(packId) {
             addedAt: Date.now(),
         });
     });
-    if (changed) toast(`${definition?.title || packId} added to Lorepack stack.`, 'success');
+    if (changed) toast(`${definition?.title || packId} added to Loredeck stack.`, 'success');
 }
 
 function setLorepackEnabled(packId, enabled) {
-    const changed = commitLorepackStackMutation(`${enabled ? 'Enabled' : 'Disabled'} Lorepack ${getLorepackDisplayName(packId)}`, stack => {
+    const changed = commitLorepackStackMutation(`${enabled ? 'Enabled' : 'Disabled'} Loredeck ${getLorepackDisplayName(packId)}`, stack => {
         const item = stack.find(entry => entry.packId === packId);
         if (item) item.enabled = enabled !== false;
     });
@@ -10612,23 +10612,23 @@ function setLorepackEnabled(packId, enabled) {
 
 function moveLorepackInStack(packId, direction) {
     const step = Number(direction) < 0 ? -1 : 1;
-    const changed = commitLorepackStackMutation(`Reordered Lorepack ${getLorepackDisplayName(packId)}`, stack => {
+    const changed = commitLorepackStackMutation(`Reordered Loredeck ${getLorepackDisplayName(packId)}`, stack => {
         const index = stack.findIndex(item => item.packId === packId);
         const nextIndex = index + step;
         if (index < 0 || nextIndex < 0 || nextIndex >= stack.length) return;
         const [item] = stack.splice(index, 1);
         stack.splice(nextIndex, 0, item);
     });
-    if (changed) toast('Lorepack stack order updated.', 'success');
+    if (changed) toast('Loredeck stack order updated.', 'success');
 }
 
 function removeLorepackFromStack(packId) {
-    const changed = commitLorepackStackMutation(`Removed Lorepack ${getLorepackDisplayName(packId)}`, stack => {
+    const changed = commitLorepackStackMutation(`Removed Loredeck ${getLorepackDisplayName(packId)}`, stack => {
         if (stack.length <= 1) return;
         const index = stack.findIndex(item => item.packId === packId);
         if (index >= 0) stack.splice(index, 1);
     });
-    if (changed) toast(`${getLorepackDisplayName(packId)} removed from Lorepack stack.`, 'success');
+    if (changed) toast(`${getLorepackDisplayName(packId)} removed from Loredeck stack.`, 'success');
 }
 
 function renderSettingsTab(container, state) {
@@ -10642,8 +10642,8 @@ function renderSettingsTab(container, state) {
     identityTitle.textContent = 'SAGA: Fandom Loresystem';
     identity.appendChild(identityTitle);
     identity.appendChild(createKeyValue('Runtime', 'Wandlight compatibility mode', 'Saga is being developed from the existing Wandlight runtime.'));
-    identity.appendChild(createKeyValue('Lorepacks', getLorepackStackMetric(getState()), 'Enabled Lorepacks in the current chat stack.'));
-    identity.appendChild(createKeyValue('Library packs', String(Object.keys(getLorepackLibraryRegistry(getState()).packs || {}).length), 'Lorepacks registered globally in extension settings, plus legacy chat fallback records.'));
+    identity.appendChild(createKeyValue('Loredecks', getLorepackStackMetric(getState()), 'Enabled Loredecks in the current chat stack.'));
+    identity.appendChild(createKeyValue('Library decks', String(Object.keys(getLorepackLibraryRegistry(getState()).packs || {}).length), 'Loredecks registered globally in extension settings, plus legacy chat fallback records.'));
     identity.appendChild(createKeyValue('Theme', getThemePreset(settings.themePackId)?.title || 'Custom', 'Active Themepack preset.'));
     container.appendChild(identity);
 
@@ -16084,7 +16084,7 @@ function shouldRetryCompression(result, directText, level) {
 
 function buildCompressionRetryPrompt(kind, level, context, directText, previousOutput, budget, reason) {
     const parsedKind = parseLoreCompressionKind(kind);
-    const kindLabel = parsedKind.base === 'continuity' ? 'Continuity State' : parsedKind.tier ? `${RELEVANCE_META[parsedKind.tier]?.label || parsedKind.tier} Relevance Lore Entries` : 'Lore Entries';
+    const kindLabel = parsedKind.base === 'continuity' ? 'Continuity State' : parsedKind.tier ? `${RELEVANCE_META[parsedKind.tier]?.label || parsedKind.tier} Relevance Lorecards` : 'Lorecards';
     return `Compress the Wandlight ${kindLabel} injection again. The previous output failed validation: ${reason}
 
 Required visible-output limits:
@@ -16108,7 +16108,7 @@ Output only the corrected compressed injection text. No markdown fences, JSON, r
 function buildCompressionPrompt(kind, level, context, directText, budget = null) {
     const settings = getSettings();
     const parsedKind = parseLoreCompressionKind(kind);
-    const kindLabel = parsedKind.base === 'continuity' ? 'Continuity State' : parsedKind.tier ? `${RELEVANCE_META[parsedKind.tier]?.label || parsedKind.tier} Relevance Lore Entries` : 'Lore Entries';
+    const kindLabel = parsedKind.base === 'continuity' ? 'Continuity State' : parsedKind.tier ? `${RELEVANCE_META[parsedKind.tier]?.label || parsedKind.tier} Relevance Lorecards` : 'Lorecards';
     const computedBudget = budget || estimateTokenBudgetForCompression(directText, level);
     const templateKey = parsedKind.base === 'continuity' ? 'continuityCompressionPromptTemplate' : 'loreCompressionPromptTemplate';
     const fallbackTemplate = parsedKind.base === 'continuity'
@@ -17721,7 +17721,7 @@ function renderLoreTab(container, state) {
     const injectableCount = getSelectedLoreInjectionCount(state, getSettings());
     const acceptedSection = createCollapsibleSection(
         basic ? 'lore.basic.acceptedEntries' : 'lore.acceptedEntries',
-        'Accepted Lore Entries',
+        'Accepted Lorecards',
         `${acceptedCount} accepted · ${injectableCount} injectable`,
         true,
         createAcceptedLoreEntriesSection(state),
@@ -18909,7 +18909,7 @@ function openNewLoreDialog() {
     titleWrap.className = 'wandlight-lore-workbench-title-wrap';
     const title = document.createElement('div');
     title.className = 'wandlight-lore-workbench-title';
-    title.textContent = 'New Lore Entry';
+    title.textContent = 'New Lorecard';
     titleWrap.appendChild(title);
     const subtitle = document.createElement('div');
     subtitle.className = 'wandlight-lore-workbench-subtitle';
@@ -19848,8 +19848,8 @@ function getReadableEntrySource(entry = {}) {
         return {
             label: `Pack: ${truncateText(title, 34)}`,
             tooltip: [
-                `Lorepack: ${title}`,
-                lorepack.packId ? `Pack ID: ${lorepack.packId}` : '',
+                `Loredeck: ${title}`,
+                lorepack.packId ? `Deck ID: ${lorepack.packId}` : '',
                 lorepack.packType ? `Type: ${humanizeScopeKey(lorepack.packType)}` : '',
                 lorepack.file ? `File: ${lorepack.file}` : '',
                 lorepack.stackPriority !== null ? `Stack priority: ${lorepack.stackPriority}` : '',
@@ -19872,7 +19872,7 @@ function getReadableEntrySource(entry = {}) {
     if (source.includes('canon-lore-db')) {
         return {
             label: 'Source: Canon DB',
-            tooltip: 'Suggested from Saga canon Lorepack retrieval.',
+            tooltip: 'Suggested from Saga canon Loredeck retrieval.',
             detailLabel: '',
             detailTooltip: '',
         };
@@ -20009,7 +20009,7 @@ function createEntryPositionBadges(entry = {}) {
     if (gateLabel) {
         const tooltip = [
             `Story Position retrieval: ${gate.matchedBy || gate.status || 'unknown'}`,
-            gate.packId ? `Pack ID: ${gate.packId}` : '',
+            gate.packId ? `Deck ID: ${gate.packId}` : '',
             gate.reason,
         ].filter(Boolean).join(' | ');
         fragment.appendChild(createSagaMetadataBadge(gateLabel, tooltip, ['wandlight-lore-badge-position', getPositionGateClass(gate)]));

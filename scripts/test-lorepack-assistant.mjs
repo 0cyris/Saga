@@ -134,8 +134,8 @@ assert.equal(creatorClarification.brief, null);
 assert.equal(creatorClarification.clarifyingQuestions[0], 'Which One Piece arc should this cover?');
 
 const creatorSystemPrompt = buildLorepackCreatorBriefSystemPrompt();
-assert.ok(creatorSystemPrompt.includes('Do not generate entries'));
-assert.ok(creatorSystemPrompt.includes('Entry count is derived from granularity'));
+assert.ok(creatorSystemPrompt.includes('Do not generate Lorecards'));
+assert.ok(creatorSystemPrompt.includes('Lorecard count is derived from granularity'));
 
 const creatorUserPrompt = buildLorepackCreatorBriefUserPrompt({
   fandom: 'One Piece',
@@ -191,7 +191,7 @@ assert.equal(creatorTitlePass.batch.nextBatchHint, 'Faction and setting constrai
 
 const creatorTitleSystemPrompt = buildLorepackCreatorTitleSystemPrompt();
 assert.ok(creatorTitleSystemPrompt.includes('Generate titles only'));
-assert.ok(creatorTitleSystemPrompt.includes('Do not generate full lore entries'));
+assert.ok(creatorTitleSystemPrompt.includes('Do not generate full Lorecards'));
 assert.ok(creatorTitleSystemPrompt.includes('selectedTitleDrafts'));
 
 const creatorTitleUserPrompt = buildLorepackCreatorTitleUserPrompt({
@@ -209,7 +209,7 @@ assert.equal(creatorTitleUserJson.constraints.entryCountMustBeDerived, true);
 assert.equal(creatorTitleUserJson.selectedTitleDrafts[0].titleId, 'nami-hides-her-bargain');
 
 const creatorPlanningSystemPrompt = buildLorepackCreatorPlanningSystemPrompt();
-assert.ok(creatorPlanningSystemPrompt.includes('Do not generate full lore entries'));
+assert.ok(creatorPlanningSystemPrompt.includes('Do not generate full Lorecards'));
 assert.ok(creatorPlanningSystemPrompt.includes('upsert_timeline_anchor'));
 assert.ok(creatorPlanningSystemPrompt.includes('upsert_tag_definition'));
 

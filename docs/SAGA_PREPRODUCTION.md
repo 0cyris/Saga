@@ -2,6 +2,8 @@
 
 **SAGA: Fandom Loresystem.**
 
+Terminology note: Saga's public language is **Loredeck**, **Lorecard**, and **Deck Health**. Internal code, schema keys, folder names, and migration notes may still use `lorepack`, `packId`, `Lorepacks/`, and `lorepack.json` until the compatibility alias pass is designed and tested.
+
 ## Purpose
 
 Saga is the planned evolution of Wandlight from a Harry Potter-focused SillyTavern lore extension into SAGA: Fandom Loresystem, a general framework for fandom-specific, date-aware, arc-aware, and story-position-aware lore support.
@@ -13,7 +15,7 @@ Wandlight already proves the core product idea:
 - Durable story lore and lightweight continuity should be separate systems.
 - Prompt injection needs relevance tiers, placement controls, and compression.
 
-Saga keeps that foundation and generalizes the fandom-specific layer into Lorepacks.
+Saga keeps that foundation and generalizes the fandom-specific layer into Loredecks.
 
 ## Product Thesis
 
@@ -25,20 +27,20 @@ The extension should help users answer:
 - What facts are not known yet?
 - What future canon should not leak?
 - What has this specific chat changed?
-- Which loaded fandom packs should influence the next prompt?
+- Which loaded fandom decks should influence the next prompt?
 - Which lore is important enough to inject now?
 
-Saga should support single-fandom campaigns, alternate universes, crossovers, custom settings, and user-created packs without forcing every fandom into Harry Potter's calendar-shaped structure.
+Saga should support single-fandom campaigns, alternate universes, crossovers, custom settings, and user-created decks without forcing every fandom into Harry Potter's calendar-shaped structure.
 
 Saga's lore target is high-value scene context, not wiki completeness. A good Saga entry should change how the model writes a scene: what characters know, hide, want, fear, misunderstand, expect, avoid, or react to at the current Story Position.
 
 ## Product Terms
 
-Only three Lorepack types should be exposed in the UI.
+Only three Loredeck types should be exposed in the UI.
 
-### Bundled Lorepack
+### Bundled Loredeck
 
-A Lorepack shipped with Saga. These are tailored and human-vetted for quality.
+A Loredeck shipped with Saga. These are tailored and human-vetted for quality.
 
 Examples:
 
@@ -48,17 +50,17 @@ Examples:
 - MCU: Infinity Saga
 - Star Trek: TNG + DS9 + VOY
 
-### Generated Lorepack
+### Generated Loredeck
 
-A draft Lorepack created by Saga's built-in creator tool. Generated Lorepacks are useful immediately but should be treated as unvetted until reviewed by the user.
+A draft Loredeck created by Saga's built-in creator tool. Generated Loredecks are useful immediately but should be treated as unvetted until reviewed by the user.
 
-### Custom Lorepack
+### Custom Loredeck
 
-Any user-made, user-edited, user-shared, imported, duplicated, AU, crossover, or original Lorepack.
+Any user-made, user-edited, user-shared, imported, duplicated, AU, crossover, or original Loredeck.
 
-Custom Lorepacks can be small or canon-scale. A crossover pack is simply a Custom Lorepack with entries that connect or reinterpret other loaded packs.
+Custom Loredecks can be small or canon-scale. A crossover deck is simply a Custom Loredeck with entries that connect or reinterpret other loaded decks.
 
-Do not expose "bridge pack", "overlay", "installed pack", or "forked pack" as user-facing product terms. Internally, Saga may still track source, derivation, and update metadata.
+Do not expose "bridge deck", "overlay", "installed deck", or "forked deck" as user-facing product terms. Internally, Saga may still track source, derivation, and update metadata.
 
 ## Existing Wandlight Foundation
 
@@ -83,11 +85,11 @@ Saga should not rewrite these systems immediately. The first goal is to extract 
 
 Keep the current Wandlight/Saga shelf design.
 
-Add a dedicated Lorepack rail button above the existing runtime tabs. This button opens the Lorepack tab, which owns all pack loading, editing, importing, exporting, health checks, and creation workflows.
+Add a dedicated Loredeck rail button above the existing runtime tabs. This button opens the Loredeck tab, which owns all deck loading, editing, importing, exporting, health checks, and creation workflows.
 
 Current rail order should evolve toward:
 
-1. Lorepacks
+1. Loredecks
 2. Session
 3. Context
 4. Continuity
@@ -95,9 +97,9 @@ Current rail order should evolve toward:
 6. Injection
 7. Settings
 
-The Lorepack tab is intentionally above the rest because the active Lorepack stack determines what Context, Lore, Relevance, and Injection mean.
+The Loredeck tab is intentionally above the rest because the active Loredeck stack determines what Context, Lore, Relevance, and Injection mean.
 
-The existing Lore tab should continue to handle chat-specific pending and accepted lore. The new Lorepack tab handles source packs.
+The existing Lore tab should continue to handle chat-specific pending and accepted lore. The new Loredeck tab handles source decks.
 
 The Settings tab should sit at the end because it configures Saga itself rather than the active roleplay state. It now absorbs the extension-menu API settings so users can configure providers from the same runtime surface they use during play.
 
@@ -113,7 +115,7 @@ The extension-menu settings panel remains as a compatibility and recovery surfac
 
 ### Themepack Draft
 
-Themepacks should be pure data, like Lorepacks. They should not contain executable code.
+Themepacks should be pure data, like Loredecks. They should not contain executable code.
 
 ```json
 {
@@ -172,11 +174,11 @@ Theme Pack icon overrides are keyed by UI target, such as `brand.compact`, `bran
 
 Installed Custom Theme Packs should be importable from a single Theme Pack JSON file or a Theme Pack Library JSON file. Custom imports must not overwrite Bundled Theme Pack IDs.
 
-Accessibility should be handled like Pack Health: advisory and visible, not gatekeeping. The runtime Settings tab should report contrast checks for primary text, muted text, button text, accent controls, focus rings, and danger surfaces. Targets should follow common WCAG-style ratios: 4.5:1 for normal text and 3:1 for UI affordances.
+Accessibility should be handled like Deck Health: advisory and visible, not gatekeeping. The runtime Settings tab should report contrast checks for primary text, muted text, button text, accent controls, focus rings, and danger surfaces. Targets should follow common WCAG-style ratios: 4.5:1 for normal text and 3:1 for UI affordances.
 
-## Lorepack Stack
+## Loredeck Stack
 
-Saga should support loading multiple Lorepacks at the same time.
+Saga should support loading multiple Loredecks at the same time.
 
 The active stack is ordered from highest priority to lowest priority:
 
@@ -188,13 +190,13 @@ The active stack is ordered from highest priority to lowest priority:
 
 Pack priority should influence retrieval, suggestion, preprocessing, and relevance scoring. It should not blindly delete lower-priority entries.
 
-Accepted story lore created in the current chat always outranks Lorepack entries.
+Accepted story lore created in the current chat always outranks Loredeck entries.
 
 ### Loader UI
 
-The Lorepack tab should include a two-column loader workbench.
+The Loredeck tab should include a two-column loader workbench.
 
-Left column: Lorepack Library
+Left column: Loredeck Library
 
 - Search bar.
 - Filters by type, fandom, era, tags, author, source, health status, installed/bundled/custom/generated.
@@ -202,7 +204,7 @@ Left column: Lorepack Library
 
 Right column: Active Stack
 
-- Loaded Lorepacks in priority order.
+- Loaded Loredecks in priority order.
 - Drag-and-drop reordering.
 - Enable/disable per pack.
 - Pack priority indicators.
@@ -243,14 +245,14 @@ The numeric priority can be internal. The UI should mostly show order.
 
 ### Library Ownership
 
-Saga should keep Lorepack library metadata globally, while each chat keeps only its active stack and per-pack story context.
+Saga should keep Loredeck library metadata globally, while each chat keeps only its active stack and per-deck story context.
 
 Global extension settings own:
 
-- Bundled, Custom, and Generated Lorepack metadata.
+- Bundled, Custom, and Generated Loredeck metadata.
 - Manifest paths or source URLs.
 - Update metadata.
-- Pack tags, author, version, source, and cached stats.
+- Deck tags, author, version, source, and cached stats.
 
 Per-chat state owns:
 
@@ -265,16 +267,16 @@ Older Wandlight/Saga builds temporarily stored `lorepackRegistry` in chat state.
 The first import/export slice should support:
 
 - Registering a fetchable `lorepack.json` path or URL into the global library.
-- Exporting global Lorepack Library metadata as JSON.
-- Importing previously exported Lorepack Library metadata JSON.
+- Exporting global Loredeck Library metadata as JSON.
+- Importing previously exported Loredeck Library metadata JSON.
 
 This does not yet mean Saga can persist arbitrary local folder contents from a browser file picker. Browser-selected local manifests do not grant durable access to sibling entry files. Full local pack support should come through a zip importer or a SillyTavern-managed storage location.
 
-For now, registered Custom Lorepacks are expected to use manifest paths or URLs that remain fetchable by the browser. Entry files resolve relative to the registered manifest.
+For now, registered Custom Loredecks are expected to use manifest paths or URLs that remain fetchable by the browser. Entry files resolve relative to the registered manifest.
 
 ### Custom Duplicate Staging
 
-Until Saga has durable zip/local pack storage, duplicating a pack creates a Custom Lorepack library record with:
+Until Saga has durable zip/local pack storage, duplicating a pack creates a Custom Loredeck library record with:
 
 - A new Custom pack ID and editable metadata.
 - `derivedFrom` metadata pointing at the source pack.
@@ -285,24 +287,24 @@ This makes the duplicate loadable immediately without writing a new folder. If t
 
 The first entry-editing slice stores that layer as library metadata:
 
-- `entryOverrides`: edited or newly added lore entries keyed by entry ID.
+- `entryOverrides`: edited or newly added Lorecards keyed by entry ID.
 - `disabledEntryIds`: source entry IDs suppressed by the Custom pack.
 - `timelineRegistry`: accepted Custom/Generated timeline anchor/window overlays, including disabled source anchor/window IDs.
 - `tagRegistry`: accepted Custom/Generated tag definition overlays.
 - `pendingChanges`: proposed entry, tag, disable, delete, or bulk edits awaiting review.
 
-The loader applies these before Pack Health and canon database normalization, so the active stack sees the Custom pack's edited entry set instead of the untouched source files.
+The loader applies these before Deck Health and canon database normalization, so the active stack sees the Custom pack's edited entry set instead of the untouched source files.
 
 Pending changes are not applied by the loader. They become runtime-active only after the user accepts them in the Pending Review Queue.
 
-## Story Position And Lorepack Context
+## Story Position And Loredeck Context
 
 Wandlight currently centers on a story date. Saga needs a more general primitive: Story Position.
 
 Story Position answers:
 
 ```text
-Where is this chat located inside this Lorepack's canon or story structure?
+Where is this chat located inside this Loredeck's canon or story structure?
 ```
 
 For Harry Potter, that may be a calendar date and school year.
@@ -315,13 +317,13 @@ For Star Trek, that may be a season, episode range, stardate, or Dominion War ph
 
 For Star Wars, that may be BBY/ABY, era, conflict, book series, or before/after a major event.
 
-Coverage determines what a Lorepack contains. Story Position determines what Saga is allowed to inject from that pack at runtime.
+Coverage determines what a Loredeck contains. Story Position determines what Saga is allowed to inject from that pack at runtime.
 
-This distinction matters for large and modular fandom packs. A Lorepack can contain future canon as long as its entries are position-native and properly gated. Saga should prevent future canon leakage through Story Position eligibility, exclusionary lore, retrieval scoring, and manual locks, not through a pack-level spoiler boundary.
+This distinction matters for large and modular fandom packs. A Loredeck can contain future canon as long as its entries are position-native and properly gated. Saga should prevent future canon leakage through Story Position eligibility, exclusionary lore, retrieval scoring, and manual locks, not through a pack-level spoiler boundary.
 
-### Lorepack Context
+### Loredeck Context
 
-Each loaded Lorepack can have its own context slot.
+Each loaded Loredeck can have its own context slot.
 
 ```json
 {
@@ -389,15 +391,15 @@ Manual locks are important. If a user chooses "before Civil War", Saga should no
 The first production implementation is manual-first:
 
 - `lorepackContexts` is normalized during state migration.
-- Every loaded Lorepack receives a Story Position slot.
-- The Lorepacks tab exposes a manual editor for date, label, branch, arc, phase, season, episode, chapter, issue, quest, game stage, anchors, alias, notes, source, confidence, and manual lock.
+- Every loaded Loredeck receives a Story Position slot.
+- The Loredecks tab exposes a manual editor for date, label, branch, arc, phase, season, episode, chapter, issue, quest, game stage, anchors, alias, notes, source, confidence, and manual lock.
 - Manual field edits set `source: "manual"`, `manualLock: true`, and high confidence by default.
-- The editor can seed a pack position from the legacy Story Context fields while Saga transitions from one global date to per-pack positions.
+- The editor can seed a pack position from the legacy Story Context fields while Saga transitions from one global date to per-deck positions.
 - Automated alias/model resolvers should respect `manualLock` in later slices.
 
 ### Timeline Modes
 
-Lorepacks should declare what kind of story position they support.
+Loredecks should declare what kind of story position they support.
 
 Supported modes should include:
 
@@ -463,7 +465,7 @@ Calendar dates should be one timeline coordinate, not the universal foundation.
 
 ### Timeline Registry Editor
 
-The Timeline Registry Editor defines a Lorepack's Story Position coordinate system. It does not primarily edit lore entries. It edits the map that entries attach to.
+The Timeline Registry Editor defines a Loredeck's Story Position coordinate system. It does not primarily edit Lorecards. It edits the map that entries attach to.
 
 The editor should support three primary object types:
 
@@ -489,7 +491,7 @@ Required editor tools:
 - Start/end anchor selection for windows.
 - Bulk edit for aliases, tags, sort-key ranges, labels, and window assignment.
 - Drag/reorder support where a registry uses artificial ordering.
-- Preview of lore entries attached to an anchor or window.
+- Preview of Lorecards attached to an anchor or window.
 - Validation for duplicate IDs, dangling window references, invalid sort ranges, missing labels, malformed dates, and anchors that are referenced by entries but absent from the registry.
 
 Large registries should be expected. Harry Potter alone may eventually have hundreds or thousands of anchors when dates, events, school years, knowledge reveals, and wide windows are all represented. That is acceptable if the editor and runtime use:
@@ -499,7 +501,7 @@ Large registries should be expected. Harry Potter alone may eventually have hund
 - Cached lookup maps.
 - Indexed local search.
 - Lazy UI rendering.
-- Pack Health warnings instead of fragile hard failures for advisory issues.
+- Deck Health warnings instead of fragile hard failures for advisory issues.
 
 The Timeline Registry Editor should use model assistance heavily because building large registries by hand is tedious. The model can draft anchors, windows, aliases, artificial sort keys, missing-event suggestions, and bulk revisions. The model should not silently mutate the registry. It should return structured patches with before/after previews that the user accepts, rejects, or edits.
 
@@ -517,7 +519,7 @@ Implemented MVP behavior:
 - Creates and edits windows with stable IDs, labels, start/end anchors, sort-key bounds, dates, aliases, tags, and notes.
 - Queues anchor/window saves, overlay removal, and source definition enable/disable actions through Pending Review.
 - Accepting timeline proposals updates the library record's `timelineRegistry`.
-- Runtime Story Position indexing and Pack Health merge source `timeline.json` with accepted `timelineRegistry` overlays.
+- Runtime Story Position indexing and Deck Health merge source `timeline.json` with accepted `timelineRegistry` overlays.
 - Export Timeline downloads the active merged timeline registry for review or external pack authoring.
 
 Not included yet:
@@ -532,26 +534,26 @@ Not included yet:
 
 Step 3 adds a runtime Story Position Index:
 
-- `registries.timeline` points at a Lorepack-owned `timeline.json`.
-- `story-position-index.js` loads timeline registries from enabled Lorepacks.
+- `registries.timeline` points at a Loredeck-owned `timeline.json`.
+- `story-position-index.js` loads timeline registries from enabled Loredecks.
 - The aggregate index preserves pack priority, stack order, anchor IDs, aliases, tags, dates, arcs, phases, and media-specific coordinates.
-- The Lorepacks tab shows index status and per-pack anchor counts.
-- The Story Position editor can search a pack's local anchors and apply one into normalized Lorepack Context.
+- The Loredecks tab shows index status and per-deck anchor counts.
+- The Story Position editor can search a pack's local anchors and apply one into normalized Loredeck Context.
 
 The first concrete registry is `Lorepacks/hp-golden-trio/timeline.json`. It includes Golden Trio book/year anchors, major event anchors, and broad windows like pre-Hogwarts, canon Hogwarts years, and post-war.
 
-Design constraint: missing timeline registries are allowed. Saga should treat timeline support as a Pack Health/advisory dimension, not as a hard validity gate, because some Custom Lorepacks may be scenario-first, keyword-first, or still under construction.
+Design constraint: missing timeline registries are allowed. Saga should treat timeline support as a Deck Health/advisory dimension, not as a hard validity gate, because some Custom Loredecks may be scenario-first, keyword-first, or still under construction.
 
 ### Local Resolver v1 Implementation
 
 Step 4 adds a local, non-model resolver:
 
-- `story-position-resolver.js` resolves unlocked loaded Lorepacks from current Story Context.
+- `story-position-resolver.js` resolves unlocked loaded Loredecks from current Story Context.
 - Date matching compares `sceneDate` / `subjectiveDate` against pack-local anchor date ranges.
 - Alias matching searches anchor labels, aliases, tags, books, arcs, phases, and other timeline fields.
 - Manual locks are respected unless a future caller explicitly forces overwrite.
 - Context detection now runs the local Story Position resolver after header/model/local Story Context detection.
-- The Lorepacks tab can manually run `Resolve From Context`.
+- The Loredecks tab can manually run `Resolve From Context`.
 
 This keeps the common path free: a structured reply header or clear context note can update pack-specific Story Position without a model call.
 
@@ -559,8 +561,8 @@ This keeps the common path free: a structured reply header or clear context note
 
 Step 5 adds a controlled model fallback:
 
-- The Lorepacks tab exposes `Model Fallback`.
-- The action first applies confident local matches, then sends only unresolved unlocked Lorepacks to the Reasoning Provider.
+- The Loredecks tab exposes `Model Fallback`.
+- The action first applies confident local matches, then sends only unresolved unlocked Loredecks to the Reasoning Provider.
 - The prompt includes only known timeline anchors from the active Story Position Index.
 - Model output is accepted only when it references a known anchor ID for that pack.
 - Low-confidence and invented-anchor results are rejected as unresolved.
@@ -628,7 +630,7 @@ Resolution should happen in three layers:
 
 1. Manual user selection.
 2. Local alias/header matching.
-3. Model fallback using Lorepack resolver instructions.
+3. Model fallback using Loredeck resolver instructions.
 
 Manual selection should be the preferred and most trusted path. Users should be able to search anchors, choose before/after windows, set approximate eras, and lock the result.
 
@@ -636,7 +638,7 @@ Local alias matching should use:
 
 - Structured headers.
 - User notes.
-- Lorepack anchor aliases.
+- Loredeck anchor aliases.
 - Tags.
 - Known date formats.
 - Known arc/film/book/season labels.
@@ -675,7 +677,7 @@ Tags should be first-class. They should support search, filtering, bulk edit, sc
 
 Tags exist at multiple levels:
 
-- Pack tags.
+- Deck tags.
 - Entry tags.
 - Anchor tags.
 - System tags.
@@ -721,7 +723,7 @@ character:luke-skywalker
 
 ### Tag UX
 
-The Lorepack tab should eventually include a Tag Manager:
+The Loredeck tab should eventually include a Tag Manager:
 
 - Search tags.
 - Filter entries by `ANY`, `ALL`, and `NOT`.
@@ -734,14 +736,14 @@ The Lorepack tab should eventually include a Tag Manager:
 - Show entries affected by a tag.
 - Edit tag labels, colors, descriptions, aliases, and parent tags.
 
-## Pack Health
+## Deck Health
 
-Pack Health should be advisory, not gatekeeping.
+Deck Health should be advisory, not gatekeeping.
 
 Saga should say:
 
 ```text
-Pack Health helps creators find likely issues. It never decides whether a pack is allowed to run.
+Deck Health helps creators find likely issues. It never decides whether a deck is allowed to run.
 ```
 
 Only technical failures should block loading, such as invalid JSON or missing required IDs. Content quality issues should be warnings or suggestions.
@@ -818,12 +820,12 @@ Suggestions:
 
 ### Runtime Health Report Slice
 
-The first runtime Pack Health report should show:
+The first runtime Deck Health report should show:
 
 - Active stack status and summary counts.
 - Loaded entry/file counts.
 - Error, warning, and suggestion lists.
-- Per-pack health rows.
+- Per-Deck Health rows.
 - Custom override/addition/disabled-entry counts.
 - Duplicate entry IDs resolved by stack priority.
 - Likely duplicate Custom pack insights.
@@ -844,21 +846,21 @@ Initial conflict handling should focus on deterministic pack hygiene:
 - Duplicate entry IDs.
 - Identical content fingerprints.
 - Near-identical title plus subject plus position window.
-- Custom pack derived from a Bundled Lorepack loaded alongside the original with mostly identical entries.
+- Custom pack derived from a Bundled Loredeck loaded alongside the original with mostly identical entries.
 - Missing dependencies.
 - Broken tag or anchor references.
 - Explicit `replaces`, `suppresses`, or `derivedFrom` metadata if present.
 
 Actual AU contradictions should usually be handled by:
 
-- Accepted story lore outranking Lorepack lore.
+- Accepted story lore outranking Loredeck lore.
 - Stack order affecting score.
 - Custom packs being placed above Bundled packs.
 - User review in Pending Lore Review.
 
 ## Relevance, Suggest Lore, And Preprocessing
 
-Lorepack priority should influence but not dominate relevance.
+Loredeck priority should influence but not dominate relevance.
 
 Draft scoring shape:
 
@@ -879,24 +881,24 @@ finalScore =
 - brokenReferencePenalty
 ```
 
-Accepted chat-specific story lore should stay outside the Lorepack stack and rank above all loaded packs.
+Accepted chat-specific story lore should stay outside the Loredeck stack and rank above all loaded packs.
 
 Suggested Lore should show which pack each candidate came from. Pack source chips should be visible on preview cards and pending entries.
 
 Preprocessing should consider:
 
-- Active Lorepack Stack order.
-- Lorepack Context / Story Position.
+- Active Loredeck Stack order.
+- Loredeck Context / Story Position.
 - Tags.
 - Entry position gates.
 - Current scene characters, locations, and topics.
 - Canon/AU status.
 - Pack type: Bundled, Custom, Generated.
-- Pack Health warnings.
+- Deck Health warnings.
 
 Generated packs should not be blocked from injection, but their source should be visible and their confidence may start lower until user-reviewed.
 
-## Lorepack Manifest Draft
+## Loredeck Manifest Draft
 
 ```json
 {
@@ -949,7 +951,7 @@ Generated packs should not be blocked from injection, but their source should be
 
 ## Import, Export, And Updates
 
-Saga should support pure-data Lorepacks only. No executable code should be allowed inside packs.
+Saga should support pure-data Loredecks only. No executable code should be allowed inside packs.
 
 Import sources:
 
@@ -965,25 +967,25 @@ Export targets:
 
 Update support:
 
-- Custom Lorepacks imported from GitHub or URL can remember their source.
+- Custom Loredecks imported from GitHub or URL can remember their source.
 - Users can check for updates.
 - Saga can compare version, manifest ID, and content hash.
 - Updates should never overwrite user-edited local changes without explicit confirmation.
-- If a user edits an imported Custom Lorepack, Saga should mark it as locally modified.
+- If a user edits an imported Custom Loredeck, Saga should mark it as locally modified.
 
-This source/update metadata is internal. The UI type remains Custom Lorepack.
+This source/update metadata is internal. The UI type remains Custom Loredeck.
 
-## Lorepack Creator
+## Loredeck Creator
 
-The built-in Lorepack Creator is a major differentiating feature.
+The built-in Loredeck Creator is a major differentiating feature.
 
-It should create Generated Lorepacks from a small, natural-language intake:
+It should create Generated Loredecks from a small, natural-language intake:
 
 - Fandom.
-- Lorepack scope / coverage range.
+- Loredeck scope / coverage range.
 - Granularity.
 
-Optional supporting context can include user notes, existing chat/story history, a pasted outline, or an existing Lorepack used as a starting point. These should help generation without becoming required front-door questions.
+Optional supporting context can include user notes, existing chat/story history, a pasted outline, or an existing Loredeck used as a starting point. These should help generation without becoming required front-door questions.
 
 The creator should not feel like a taxonomy form. It should feel like the user asks for the pack they want, Saga narrows scope when needed, then shows reviewable drafts before spending model calls on full entries.
 
@@ -992,7 +994,7 @@ The creator should not feel like a taxonomy form. It should feel like the user a
 The only front-facing required fields should be:
 
 1. Fandom.
-2. Lorepack Scope / Coverage Range.
+2. Loredeck Scope / Coverage Range.
 3. Granularity.
 
 Do not ask casual users to define adaptation, continuity, canon line, intended use, spoiler boundary, included/excluded characters, or approximate entry count during the core flow.
@@ -1021,7 +1023,7 @@ Granularity presets:
 
 ### Creator Scope Negotiation
 
-Many users will request something too broad, such as `One Piece Lorepack` or `Marvel Lorepack`.
+Many users will request something too broad, such as `One Piece Loredeck` or `Marvel Loredeck`.
 
 Saga should respond by helping narrow the request to a useful coverage range:
 
@@ -1060,22 +1062,22 @@ The user approves or revises the brief before generation proceeds.
 
 ### Creator Readiness Gate
 
-Before Saga begins full Lorepack Creator development, the review layer must be strong enough to safely inspect model-generated batches.
+Before Saga begins full Loredeck Creator development, the review layer must be strong enough to safely inspect model-generated batches.
 
 The Creator will eventually generate timelines, tag registries, title lists, and entry batches. That means a weak Pending Review surface would make generated packs feel opaque and risky. The next production work should harden review before broad generation:
 
 - Field-level diffs for entries, tags, timeline anchors, and timeline windows.
 - Clear proposal provenance, especially `lore_assistant`, `manual`, `bulk_edit`, `safe_repair`, and later `creator`.
 - Assistant proposal reason, confidence, and risk display.
-- Pack Health rerun or stale-health warning after accepting generated or assistant patches.
+- Deck Health rerun or stale-health warning after accepting generated or assistant patches.
 - Acceptance warnings for changes that affect Story Position gates, disable entries, create undefined tags, or alter timeline anchors/windows.
 - Batch review affordances so generated title and entry batches can be accepted, rejected, or revised in chunks.
 
-This is the bridge from Lore Assistant MVP to Lorepack Creator. The Creator should reuse the same Pending Review and diff machinery instead of inventing a separate approval workflow.
+This is the bridge from Lore Assistant MVP to Loredeck Creator. The Creator should reuse the same Pending Review and diff machinery instead of inventing a separate approval workflow.
 
 ### Creator Flow
 
-1. User requests a Lorepack.
+1. User requests a Loredeck.
 2. Saga identifies fandom, coverage range, and granularity.
 3. Saga narrows vague or oversized scope when needed.
 4. Saga produces a pack brief with assumptions and internal derived generation scale.
@@ -1084,12 +1086,12 @@ This is the bridge from Lore Assistant MVP to Lorepack Creator. The Creator shou
 7. User adds, removes, merges, splits, revises, or approves titles.
 8. Saga drafts timeline anchors/windows and tag/entity definitions appropriate to the approved coverage and title shape.
 9. User reviews the timeline/tag planning proposals in Pending Review.
-10. User accepts selected planning metadata into the Generated Lorepack.
+10. User accepts selected planning metadata into the Generated Loredeck.
 11. Saga uses accepted planning metadata plus approved titles as the full-entry generation context.
 12. Saga drafts full schema v3 entries for approved titles into an edit-before-queue draft batch.
 13. User reviews, edits, drops, revises, or queues selected entry drafts into Pending Review.
-14. User accepts selected entry proposals into the Generated Lorepack.
-15. Saga runs Pack Health and export validation on the accepted Generated Lorepack.
+14. User accepts selected entry proposals into the Generated Loredeck.
+15. Saga runs Deck Health and export validation on the accepted Generated Loredeck.
 
 No full card generation should happen until the scope, title list, timeline, and tag/entity registry have been reviewed.
 
@@ -1099,9 +1101,9 @@ The initial title pass is intentionally allowed before timeline and tag generati
 
 The creator should not ask for a spoiler boundary as a required field.
 
-A Lorepack's coverage range determines what Saga generates. Story Position determines what Saga injects.
+A Loredeck's coverage range determines what Saga generates. Story Position determines what Saga injects.
 
-For example, an `Arlong Park Arc` pack can contain late-arc reveals and consequences. Those entries should not inject before their Story Position becomes eligible. This is handled by `position`, timeline anchors/windows, exclusionary lore, retrieval scoring, and current Lorepack Context.
+For example, an `Arlong Park Arc` pack can contain late-arc reveals and consequences. Those entries should not inject before their Story Position becomes eligible. This is handled by `position`, timeline anchors/windows, exclusionary lore, retrieval scoring, and current Loredeck Context.
 
 ### Creator Quality Goals
 
@@ -1149,7 +1151,7 @@ Saga should steer generation and revision toward high-value lore. A strong entry
 - Injection Quality: is concise, direct, and useful when placed into the prompt.
 - Story Position Fit: avoids future leakage and matches the intended activation window.
 
-The creator should use the rubric in title generation, content generation, revision, and Pack Health suggestions.
+The creator should use the rubric in title generation, content generation, revision, and Deck Health suggestions.
 
 Strong title examples:
 
@@ -1163,11 +1165,11 @@ Weak title examples:
 - `Arlong facts`.
 - `Cocoyasi Village summary`.
 
-Pack Health should eventually warn softly when a Generated Lorepack has too many biography-style entries, vague activation, repeated summary content, bloated injections, missing tags, or no behavioral implication.
+Deck Health should eventually warn softly when a Generated Loredeck has too many biography-style entries, vague activation, repeated summary content, bloated injections, missing tags, or no behavioral implication.
 
 ## Lore Assistant
 
-The Lore Assistant is Saga's AI helper for creating, revising, repairing, and expanding Lorepacks. It should be available from the Lorepack Creator, Lorepack Editor, Timeline Registry Editor, Tag Manager, Pack Health report, and Lore Entries workbenches.
+The Lore Assistant is Saga's AI helper for creating, revising, repairing, and expanding Loredecks. It should be available from the Loredeck Creator, Loredeck Editor, Timeline Registry Editor, Tag Manager, Deck Health report, and Lorecards workbenches.
 
 Core rule:
 
@@ -1175,20 +1177,20 @@ Core rule:
 The Lore Assistant proposes changes into Pending. Users promote them into Accepted.
 ```
 
-The assistant is not the source of truth. Saga's schema, Story Position system, Pack Health checks, and user approval remain the authority.
+The assistant is not the source of truth. Saga's schema, Story Position system, Deck Health checks, and user approval remain the authority.
 
 ### Assistant Capabilities
 
 The assistant should support:
 
-- Lorepack generation from fandom, coverage range, and granularity.
+- Loredeck generation from fandom, coverage range, and granularity.
 - Timeline anchor/window drafting.
 - Tag and entity registry drafting.
 - New entry suggestions.
 - Existing entry revision.
 - Bulk lore revision from natural-language instructions.
 - Metadata repair for tags, scope, retrieval, category, and Story Position fields.
-- Pack Health issue repair suggestions.
+- Deck Health issue repair suggestions.
 - Low-value lore cleanup, such as reducing wiki tone or splitting overloaded entries.
 
 Example request:
@@ -1230,18 +1232,18 @@ For new entries:
 1. Assistant proposes missing entries.
 2. They enter as Pending new entries.
 3. User reviews, edits, accepts, or rejects them.
-4. Accepted entries become part of the Lorepack.
+4. Accepted entries become part of the Loredeck.
 
-This workflow should apply to Generated, Custom, and imported Custom Lorepacks. Bundled Lorepacks remain read-only.
+This workflow should apply to Generated, Custom, and imported Custom Loredecks. Bundled Loredecks remain read-only.
 
 ### Bundled Pack Protection
 
-Bundled Lorepacks should never be edited in place.
+Bundled Loredecks should never be edited in place.
 
 If a user wants to revise a Bundled pack through the assistant, Saga should force one of these paths:
 
-- Duplicate it into an editable Custom Lorepack.
-- Create Custom overrides layered above the Bundled Lorepack.
+- Duplicate it into an editable Custom Loredeck.
+- Create Custom overrides layered above the Bundled Loredeck.
 
 Assistant proposals may target Bundled content for review, but accepted results must save into user-owned editable data.
 
@@ -1279,15 +1281,15 @@ The assistant should:
 - Ask clarifying questions for subjective creative changes.
 - Avoid claiming perfect canon certainty.
 - Prefer high-value scene context over wiki summaries.
-- Run Pack Health after major changes.
+- Run Deck Health after major changes.
 
 ### Lore Assistant Proposal Pipeline MVP
 
-The first production slice is implemented as a safe proposal pipeline, not a full autonomous Lorepack generator.
+The first production slice is implemented as a safe proposal pipeline, not a full autonomous Loredeck generator.
 
 Implemented MVP behavior:
 
-- Adds a Lore Assistant panel to editable Custom/Generated Lorepack detail.
+- Adds a Lore Assistant panel to editable Custom/Generated Loredeck detail.
 - Uses the configured Reasoning Provider.
 - Sends the user instruction, selected mode, target scope, pack metadata, current Story Position, known tags, known timeline anchors, and up to 60 target entries.
 - Supports modes for entry revision, missing-entry suggestions, tag drafting, timeline drafting, and mixed proposals.
@@ -1300,22 +1302,22 @@ Implemented MVP behavior:
 - Pending Review now renders field-level diffs for entry, tag, and timeline record patches.
 - Requests Lore Value Rubric metadata for assistant proposals and surfaces scene utility, behavioral impact, Story Position fit, wiki-summary risk, rubric notes, and local quality flags in Pending Review.
 - Drafts now land in an Assistant Draft Batch first, where users can select proposals, queue selected/all into Pending Review, drop selected proposals, edit draft JSON, or ask the assistant to revise selected proposals before queueing.
-- Pack Health validation issues can now be selected from the editor validation preview and sent to the Lore Assistant as repair-planning context; returned repairs land in the Assistant Draft Batch before Pending Review.
-- Lorepack Creator intake now drafts an approval-gated pack brief from fandom, scope, granularity, and notes. The brief records internal derived generation scale, Story Position approach, timeline/tag/title-pass plans, assumptions, exclusions, risks, and next stage before any generated entries exist.
-- Lorepack Creator title-pass and planning now generate reviewable titles first, then queue timeline anchors/windows and tag definitions onto a Generated Lorepack shell through Pending Review before full entry generation exists.
-- Lorepack Creator entry drafting now uses accepted planning metadata plus approved titles to draft schema v3 entry proposals into the same edit-before-queue batch used by the Lore Assistant before they can enter Pending Review.
-- Generated Lorepacks now validate and export from accepted Creator entries without requiring a fetchable manifest path; the virtual generated manifest derives entry stats, local timeline/tag registries feed Pack Health, and export readiness blocks unresolved Pending Review or draft-batch state.
+- Deck Health validation issues can now be selected from the editor validation preview and sent to the Lore Assistant as repair-planning context; returned repairs land in the Assistant Draft Batch before Pending Review.
+- Loredeck Creator intake now drafts an approval-gated pack brief from fandom, scope, granularity, and notes. The brief records internal derived generation scale, Story Position approach, timeline/tag/title-pass plans, assumptions, exclusions, risks, and next stage before any generated entries exist.
+- Loredeck Creator title-pass and planning now generate reviewable titles first, then queue timeline anchors/windows and tag definitions onto a Generated Loredeck shell through Pending Review before full entry generation exists.
+- Loredeck Creator entry drafting now uses accepted planning metadata plus approved titles to draft schema v3 entry proposals into the same edit-before-queue batch used by the Lore Assistant before they can enter Pending Review.
+- Generated Loredecks now validate and export from accepted Creator entries without requiring a fetchable manifest path; the virtual generated manifest derives entry stats, local timeline/tag registries feed Deck Health, and export readiness blocks unresolved Pending Review or draft-batch state.
 - Leaves runtime behavior unchanged until the user accepts queued Pending Review items.
 
 Not included yet:
 
 - Multi-turn assistant chat memory.
-- Import/install/update polish for exported Lorepack bundles.
-- Automatic Pack Health rerun after accepting assistant proposals.
+- Import/install/update polish for exported Loredeck bundles.
+- Automatic Deck Health rerun after accepting assistant proposals.
 
-## Lorepack Editor
+## Loredeck Editor
 
-The Lorepack tab should eventually include a full editor, similar in spirit to the accepted/pending lore workbenches.
+The Loredeck tab should eventually include a full editor, similar in spirit to the accepted/pending lore workbenches.
 
 Required views:
 
@@ -1328,9 +1330,9 @@ Required views:
 - Tag Manager.
 - Timeline Registry Editor.
 - Resolver Alias Editor.
-- Pack Health Report.
+- Deck Health Report.
 - Import / Export / Update.
-- Lorepack Creator.
+- Loredeck Creator.
 - Lore Assistant panel.
 
 ### Entry Workbench
@@ -1371,22 +1373,22 @@ It should support:
 - Pending edits tied to accepted/source entries.
 - Pending delete, deprecation, or disable proposals.
 - Field-level diffs.
-- Pack Health validation before acceptance.
+- Deck Health validation before acceptance.
 - Accept all / accept selected / reject selected.
 - Edit before accepting.
-- Source chips showing whether a proposal came from manual editing, bulk editing, import repair, Pack Health repair, or Lore Assistant.
+- Source chips showing whether a proposal came from manual editing, bulk editing, import repair, Deck Health repair, or Lore Assistant.
 
-Accepted chat-specific story lore still outranks Lorepack entries at runtime. Pending Lorepack changes should not affect runtime injection until accepted.
+Accepted chat-specific story lore still outranks Loredeck entries at runtime. Pending Loredeck changes should not affect runtime injection until accepted.
 
-Implementation status: the first Pending Review Queue stores pending changes on Custom/Generated Lorepack records, accepts or rejects individual/all proposals, and routes manual entry edits, entry disable/restore, bulk tag edits, bulk Story Position edits, tag definition edits, tag definition removal, and tag rename/merge through pending record patches.
+Implementation status: the first Pending Review Queue stores pending changes on Custom/Generated Loredeck records, accepts or rejects individual/all proposals, and routes manual entry edits, entry disable/restore, bulk tag edits, bulk Story Position edits, tag definition edits, tag definition removal, and tag rename/merge through pending record patches.
 
 ## Migration From Wandlight
 
 The migration should be behavior-preserving first.
 
-Milestone 1 should not change how current Harry Potter lore suggestions behave at runtime. It should route them through the new Lorepack structure.
+Milestone 1 should not change how current Harry Potter lore suggestions behave at runtime. It should route them through the new Loredeck structure.
 
-This does not mean reference Lorepacks should preserve legacy entry schema. The bundled Harry Potter pack should be the example pack for Saga v3: Story Position-native, timeline-registry-driven, and free of legacy entry-local date gates.
+This does not mean reference Loredecks should preserve legacy entry schema. The bundled Harry Potter pack should be the example pack for Saga v3: Story Position-native, timeline-registry-driven, and free of legacy entry-local date gates.
 
 Migration tasks:
 
@@ -1397,8 +1399,8 @@ Migration tasks:
 5. Add new Saga slash commands.
 6. Move current `Lore/` data into `Lorepacks/hp-golden-trio/`.
 7. Keep legacy `Lore/manifest.json` fallback temporarily.
-8. Update canon loader to load active Lorepack files.
-9. Add single active Lorepack defaulting to Harry Potter: Golden Trio.
+8. Update canon loader to load active Loredeck files.
+9. Add single active Loredeck defaulting to Harry Potter: Golden Trio.
 10. Add stack state and UI after single-pack loading is stable.
 
 ## MVP
@@ -1406,17 +1408,17 @@ Migration tasks:
 The first shippable Saga milestone should include:
 
 - Product rename to Saga with Wandlight compatibility.
-- Current Harry Potter data converted into a Bundled Lorepack.
-- Lorepack manifest and loader.
-- Single active Lorepack support.
-- Lorepack tab rail button above the existing tabs.
-- Lorepack Library and Active Stack UI skeleton.
+- Current Harry Potter data converted into a Bundled Loredeck.
+- Loredeck manifest and loader.
+- Single active Loredeck support.
+- Loredeck tab rail button above the existing tabs.
+- Loredeck Library and Active Stack UI skeleton.
 - Pack cards with title, description, type, entry count, category counts, and tags.
 - Active stack order stored per chat.
-- Canon suggestions still working through the Lorepack loader.
-- Basic Pack Health for manifest, duplicate IDs, missing files, undefined tags, and entry counts.
+- Canon suggestions still working through the Loredeck loader.
+- Basic Deck Health for manifest, duplicate IDs, missing files, undefined tags, and entry counts.
 
-Do not include the full Lorepack Creator in MVP. Design for it, then build it after the loader, stack, and editor foundations exist.
+Do not include the full Loredeck Creator in MVP. Design for it, then build it after the loader, stack, and editor foundations exist.
 
 ## Later Milestones
 
@@ -1433,21 +1435,21 @@ Do not include the full Lorepack Creator in MVP. Design for it, then build it af
 
 - Timeline registry.
 - Timeline Registry Editor foundation.
-- Pack-specific Lorepack Context.
+- Pack-specific Loredeck Context.
 - Manual Story Position selector.
 - Anchor aliases.
 - Basic local resolver.
 - Model fallback resolver.
 - Position-aware retrieval.
 
-### Milestone 4: Editor And Pack Health
+### Milestone 4: Editor And Deck Health
 
 - Entry workbench.
 - Pending Review Queue.
 - Bulk edit.
 - Tag manager.
 - Timeline Registry Editor.
-- Expanded Pack Health.
+- Expanded Deck Health.
 - Import/export JSON.
 - Import/export zip.
 
@@ -1460,7 +1462,7 @@ Do not include the full Lorepack Creator in MVP. Design for it, then build it af
 - Version/hash comparison.
 - Local modification warnings.
 
-### Milestone 6: Lorepack Creator
+### Milestone 6: Loredeck Creator
 
 - Simple creator intake: fandom, coverage range, and granularity.
 - Scope negotiation and pack brief approval.
@@ -1470,31 +1472,31 @@ Do not include the full Lorepack Creator in MVP. Design for it, then build it af
 - High-value lore rubric.
 - Batch entry generation.
 - Pending review queue integration.
-- Pack Health loop.
-- Save as Generated Lorepack.
-- Validate/export accepted Generated Lorepacks.
-- Convert reviewed Generated Lorepack to Custom Lorepack.
+- Deck Health loop.
+- Save as Generated Loredeck.
+- Validate/export accepted Generated Loredecks.
+- Convert reviewed Generated Loredeck to Custom Loredeck.
 
 ### Milestone 7: Lore Assistant
 
-- Assistant panel in Lorepack Editor.
+- Assistant panel in Loredeck Editor.
 - Assistant panel in Timeline Registry Editor.
 - Assistant panel in Tag Manager.
 - Natural-language bulk revision.
 - Structured patch output.
 - Pending new/edit/delete proposals.
 - Bundled-pack protection through Custom overrides or duplication.
-- Pack Health repair suggestions.
+- Deck Health repair suggestions.
 
 ## Open Questions
 
 - Should pack stack order be global, per character, per chat, or both global default plus per-chat override?
-- Should Story Position be edited in the Context tab, Lorepack tab, or both?
-- How much of Pack Health should run live versus on demand?
+- Should Story Position be edited in the Context tab, Loredeck tab, or both?
+- How much of Deck Health should run live versus on demand?
 - Should pack updates merge at entry level or replace the whole pack when unmodified?
 - What is the minimum useful Story Position schema for MVP?
 - Should tag namespaces be required for Bundled packs?
-- How strict should low-value-lore Pack Health warnings be without discouraging fun user-made packs?
+- How strict should low-value-lore Deck Health warnings be without discouraging fun user-made packs?
 - What is the minimum assistant patch schema needed before we expose natural-language bulk editing?
 - How large should generation batches be before review becomes tedious?
 
@@ -1506,23 +1508,23 @@ Risk: The abstraction becomes too complex and delays the project.
 
 Mitigation: MVP can keep the old date-based HP behavior and introduce Story Position as schema first, UI second.
 
-### Lorepack Editor Scope
+### Loredeck Editor Scope
 
 Risk: The editor becomes a project inside the project.
 
 Mitigation: Start with pack library, stack, and read-only detail views. Add editing after loading works.
 
-### Generated Lorepack Quality
+### Generated Loredeck Quality
 
 Risk: Generated packs hallucinate, overgeneralize, or become wiki dumps.
 
-Mitigation: Generated packs are drafts. Use staged generation, title-first review, Pending acceptance, Pack Health, confidence metadata, source notes, and the Lore Value Rubric.
+Mitigation: Generated packs are drafts. Use staged generation, title-first review, Pending acceptance, Deck Health, confidence metadata, source notes, and the Lore Value Rubric.
 
 ### Assistant Overreach
 
 Risk: The Lore Assistant rewrites too much, changes accepted entries without enough review, invents anchors, or flattens characterization into generic summaries.
 
-Mitigation: Assistant output is patch-based, lands in Pending, preserves IDs and namespaced tags by default, uses known timeline anchors, and runs Pack Health before acceptance.
+Mitigation: Assistant output is patch-based, lands in Pending, preserves IDs and namespaced tags by default, uses known timeline anchors, and runs Deck Health before acceptance.
 
 ### Duplicate Custom Packs
 
@@ -1544,35 +1546,35 @@ Mitigation: Build a runtime index, cache loaded manifests, score candidates in s
 
 ## Immediate Next Steps
 
-The initial Lorepack foundation is implemented: `hp-golden-trio` is scaffolded, the Lorepack loader preserves legacy `Lore/manifest.json` fallback, canon suggestions route through the active stack, the Lorepack tab owns library/stack workflows, Story Position v1 exists, Theme Packs exist, and provider settings now live in the runtime Settings tab.
+The initial Loredeck foundation is implemented: `hp-golden-trio` is scaffolded, the Loredeck loader preserves legacy `Lore/manifest.json` fallback, canon suggestions route through the active stack, the Loredeck tab owns library/stack workflows, Story Position v1 exists, Theme Packs exist, and provider settings now live in the runtime Settings tab.
 
-Recent production completed **position-native Lorepack retrieval and HP reference-pack conformance**.
+Recent production completed **position-native Loredeck retrieval and HP reference-deck conformance**.
 
-1. Done: normalize entry-level `position` metadata in the lore entry pipeline.
-2. Done: evaluate entry `position` gates against each loaded Lorepack's `lorepackContexts`.
+1. Done: normalize entry-level `position` metadata in the Lorecard pipeline.
+2. Done: evaluate entry `position` gates against each loaded Loredeck's `lorepackContexts`.
 3. Done: route position eligibility into canon suggestion candidate selection and relevance scoring.
 4. Done: add visible source and position/gating chips on suggested and pending lore cards.
-5. Done: expand Pack Health for broken anchor references, invalid position windows, and entries that can never match a known Story Position.
-6. Done: migrate the bundled Harry Potter Lorepack to schema v3 Story Position-native entries with no legacy entry date gates.
-7. Done: generalize the HP v3 conformance baseline into reusable Pack Health checks for schema v3 shape, manifest stats, duplicate manifest files, wide-lore retrieval policy, and date-derived timeline sort keys.
-8. Done: wire reusable Pack Health checks into Lorepack editor validation, validated Custom/Generated export, safe metadata/override repair actions, and schema v3-safe override persistence.
+5. Done: expand Deck Health for broken anchor references, invalid position windows, and entries that can never match a known Story Position.
+6. Done: migrate the bundled Harry Potter Loredeck to schema v3 Story Position-native entries with no legacy entry date gates.
+7. Done: generalize the HP v3 conformance baseline into reusable Deck Health checks for schema v3 shape, manifest stats, duplicate manifest files, wide-lore retrieval policy, and date-derived timeline sort keys.
+8. Done: wire reusable Deck Health checks into Loredeck editor validation, validated Custom/Generated export, safe metadata/override repair actions, and schema v3-safe override persistence.
 9. Done: add Story Position and retrieval fields to the Custom entry editor so new schema v3 entries can be authored fully instead of only preserving source entry positions.
 10. Done: add timeline anchor search/pickers and bulk Story Position editing to make v3 authoring less manual.
-11. Done: add bulk tag editing and a first Tag Manager surface for Custom Lorepack entries, including tag counts, tag filtering, add/remove/rename operations, and namespaced tag preservation.
+11. Done: add bulk tag editing and a first Tag Manager surface for Custom Loredeck entries, including tag counts, tag filtering, add/remove/rename operations, and namespaced tag preservation.
 12. Done: capture the Creator, Timeline Registry Editor, Lore Assistant, Pending/Accepted lifecycle, and high-value lore rubric in preproduction.
 13. Done: wire Tag Manager into `tags.json` source loading plus embedded Custom/Generated tag registry editing for define/edit/rename/merge/deprecate workflows.
-14. Done: add Pack Health checks for undefined tags, deprecated tag usage, duplicate aliases, orphaned definitions, malformed namespaces, missing parent/replacement references, and entries using tags missing from `tags.json`.
-15. Done: build the Pending Review Queue foundation for Lorepack edits, including pending record patches, accept/reject actions, and routing current manual/bulk entry and tag edits through review before activation.
-16. Done: build the Timeline Registry Editor MVP with source timeline loading, Custom overlay anchor/window editing, Pending Review routing, and runtime/Pack Health merge support.
-17. Done: begin the Lore Assistant proposal pipeline with an editable Lorepack panel, structured JSON proposal parsing, and Pending Review queue integration for entry, tag, and timeline patches.
+14. Done: add Deck Health checks for undefined tags, deprecated tag usage, duplicate aliases, orphaned definitions, malformed namespaces, missing parent/replacement references, and entries using tags missing from `tags.json`.
+15. Done: build the Pending Review Queue foundation for Loredeck edits, including pending record patches, accept/reject actions, and routing current manual/bulk entry and tag edits through review before activation.
+16. Done: build the Timeline Registry Editor MVP with source timeline loading, Custom overlay anchor/window editing, Pending Review routing, and runtime/Deck Health merge support.
+17. Done: begin the Lore Assistant proposal pipeline with an editable Loredeck panel, structured JSON proposal parsing, and Pending Review queue integration for entry, tag, and timeline patches.
 18. Done: add field-level Pending Review diffs for entry, tag, and timeline record patches so assistant/manual proposals are inspectable before acceptance.
-19. Done: add assistant proposal provenance/risk display polish and Pack Health rerun hooks so accepted entry/tag/timeline patches mark Pack Health stale until validation reruns.
+19. Done: add assistant proposal provenance/risk display polish and Deck Health rerun hooks so accepted entry/tag/timeline patches mark Deck Health stale until validation reruns.
 20. Done: add Lore Assistant quality-rubric guardrails and proposal review affordances so AI revisions steer toward high-value Saga lore instead of generic wiki summaries.
 21. Done: add assistant batch review controls for edit-before-queue, queue selected/all, drop selected, edit draft JSON, and revise selected proposals before they enter Pending Review.
-22. Done: wire Pack Health issue repair planning into the Lore Assistant so users can turn selected health warnings into reviewable repair proposals.
-23. Done: begin the Lorepack Creator intake scaffold with staged scope briefing, granularity selection, generated pack brief review, revision, and approval.
+22. Done: wire Deck Health issue repair planning into the Lore Assistant so users can turn selected health warnings into reviewable repair proposals.
+23. Done: begin the Loredeck Creator intake scaffold with staged scope briefing, granularity selection, generated pack brief review, revision, and approval.
 24. Done: add Creator title-pass generation from an approved brief, with selectable title drafts, approve/drop controls, revise-selected generation, and JSON editing before full entries exist.
-25. Done: add Creator timeline/tag planning from the approved brief and title shape, creating a Generated Lorepack shell and routing generated anchors/windows/tag definitions through Pending Review before full entry generation.
+25. Done: add Creator timeline/tag planning from the approved brief and title shape, creating a Generated Loredeck shell and routing generated anchors/windows/tag definitions through Pending Review before full entry generation.
 26. Done: generate full schema v3 entry drafts from approved titles plus accepted planning metadata, landing them in the same edit-before-queue and Pending Review pipeline before activation.
-27. Done: harden Generated Lorepack validation/export for accepted Creator entries, including virtual generated manifest stats, Pack Health rerun affordances, runtime loading for virtual generated entries, and export readiness checks.
-28. Next: build import/install handling for exported Saga Lorepack bundles, including Generated-to-Custom install choices, duplicate-pack warnings, and update-source metadata for creator-shared packs.
+27. Done: harden Generated Loredeck validation/export for accepted Creator entries, including virtual generated manifest stats, Deck Health rerun affordances, runtime loading for virtual generated entries, and export readiness checks.
+28. Next: build import/install handling for exported Saga Loredeck bundles, including Generated-to-Custom install choices, duplicate-pack warnings, and update-source metadata for creator-shared packs.

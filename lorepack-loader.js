@@ -1,6 +1,6 @@
 /**
  * lorepack-loader.js -- Saga/Wandlight
- * Minimal Lorepack manifest, entry-file loading, and Pack Health helpers.
+ * Minimal Loredeck manifest, entry-file loading, and Deck Health helpers.
  *
  * This module is intentionally data-only: it does not own canon scoring,
  * preprocessing, prompt injection, or UI state.
@@ -808,7 +808,7 @@ function analyzeEntryPositionHealth(health, entryFiles = [], timeline = {}) {
 
     health.summary.positionGateCount = positionGateCount;
     if (anchorReferenceGateCount && !timeline.hasTimelineRef) {
-        addHealthIssue(health, 'suggestion', 'position_gates_without_timeline', `${anchorReferenceGateCount} entr${anchorReferenceGateCount === 1 ? 'y uses' : 'ies use'} anchor-based Story Position gates, but this Lorepack has no timeline registry.`, {
+        addHealthIssue(health, 'suggestion', 'position_gates_without_timeline', `${anchorReferenceGateCount} Lorecard${anchorReferenceGateCount === 1 ? ' uses' : 's use'} anchor-based Story Position gates, but this Loredeck has no timeline registry.`, {
             entryIds: noTimelineEntryIds.slice(0, 50),
             affectedEntryCount: anchorReferenceGateCount,
         });
@@ -1073,7 +1073,7 @@ function analyzeEntryTagHealth(health, entryFiles = [], tagIndex = {}, manifest 
     }
 
     if (entryTagCount && !tagIndex.hasRegistry) {
-        addHealthIssue(health, 'suggestion', 'tag_registry_missing', `${usageByTag.size} entry tag${usageByTag.size === 1 ? ' is' : 's are'} used, but this Lorepack has no tag registry.`, {
+        addHealthIssue(health, 'suggestion', 'tag_registry_missing', `${usageByTag.size} Lorecard tag${usageByTag.size === 1 ? ' is' : 's are'} used, but this Loredeck has no tag registry.`, {
             tagIds: Array.from(usageByTag.keys()).slice(0, 50),
             affectedTagCount: usageByTag.size,
         });
@@ -1149,7 +1149,7 @@ function analyzeManifestStatsHealth(health, manifest = {}) {
     const expectedEntryCount = Number(stats.entryCount);
     if (Number.isFinite(expectedEntryCount) && expectedEntryCount !== health.summary.entryCount) {
         health.summary.manifestStatsMismatchCount += 1;
-        addHealthIssue(health, 'warning', 'manifest_entry_count_mismatch', `Manifest stats.entryCount is ${expectedEntryCount}, but Pack Health counted ${health.summary.entryCount} loaded entries.`, {
+        addHealthIssue(health, 'warning', 'manifest_entry_count_mismatch', `Manifest stats.entryCount is ${expectedEntryCount}, but Deck Health counted ${health.summary.entryCount} loaded Lorecards.`, {
             expectedEntryCount,
             actualEntryCount: health.summary.entryCount,
         });
@@ -1178,7 +1178,7 @@ function analyzeManifestFileListHealth(health, manifest = {}) {
         else seen.add(key);
     }
     if (duplicates.length) {
-        addHealthIssue(health, 'warning', 'duplicate_manifest_file', `Lorepack manifest lists duplicate entry file${duplicates.length === 1 ? '' : 's'}: ${duplicates.join(', ')}.`, {
+        addHealthIssue(health, 'warning', 'duplicate_manifest_file', `Loredeck manifest lists duplicate entry file${duplicates.length === 1 ? '' : 's'}: ${duplicates.join(', ')}.`, {
             files: duplicates,
         });
     }
@@ -1302,7 +1302,7 @@ export function buildLorepackHealthForData(options = {}) {
     analyzeManifestFileListHealth(health, manifest);
     for (const fileRecord of entryFiles) {
         if (fileRecord.ok !== false) continue;
-        addHealthIssue(health, 'error', 'missing_entry_file', `Lorepack entry file failed to load: ${fileRecord.file}.`, {
+        addHealthIssue(health, 'error', 'missing_entry_file', `Loredeck entry file failed to load: ${fileRecord.file}.`, {
             file: fileRecord.file,
             detail: fileRecord.error || '',
         });
@@ -1553,7 +1553,7 @@ function applyRegistryEntryOverrides(entryFiles = [], registryRecord = null, man
         health.summary.suppressedEntryCount = suppressed;
     }
     if (replaced || added || disabledIds.size) {
-        addHealthIssue(health, 'suggestion', 'custom_entry_overrides_applied', `Custom Lorepack applied ${replaced} override(s), ${added} addition(s), and ${suppressed} disabled source entr${suppressed === 1 ? 'y' : 'ies'}.`, {
+        addHealthIssue(health, 'suggestion', 'custom_entry_overrides_applied', `Custom Loredeck applied ${replaced} override(s), ${added} addition(s), and ${suppressed} disabled source Lorecard${suppressed === 1 ? '' : 's'}.`, {
             packId,
             overrideCount: replaced,
             additionCount: added,
@@ -1609,7 +1609,7 @@ async function loadEntryFiles(manifest = {}, baseUrl, health, registryRecord = n
         const result = await fetchJsonDetailed(url);
         if (!result.ok) {
             health.summary.missingFileCount += 1;
-            addHealthIssue(health, 'error', 'missing_entry_file', `Lorepack entry file failed to load: ${file}.`, {
+            addHealthIssue(health, 'error', 'missing_entry_file', `Loredeck entry file failed to load: ${file}.`, {
                 file,
                 status: result.status,
                 detail: result.error || result.statusText || '',
@@ -1671,7 +1671,7 @@ export async function loadLorepackSourceById(packId = DEFAULT_LOREPACK_ID, optio
                 };
             }
             const health = createHealth(embeddedManifest.id || packId);
-            addHealthIssue(health, 'error', 'missing_virtual_lorepack_base_manifest', `Custom Lorepack ${embeddedManifest.id || packId} has embedded manifest metadata but no base manifest path for file resolution.`, {
+            addHealthIssue(health, 'error', 'missing_virtual_lorepack_base_manifest', `Custom Loredeck ${embeddedManifest.id || packId} has embedded manifest metadata but no base manifest path for file resolution.`, {
                 packId: embeddedManifest.id || packId,
             });
             return {
@@ -1701,7 +1701,7 @@ export async function loadLorepackSourceById(packId = DEFAULT_LOREPACK_ID, optio
     }
     if (!manifestUrl) {
         const health = createHealth(packId);
-        addHealthIssue(health, 'error', 'invalid_pack_id', `Lorepack id is not a valid bundled pack id: ${packId}.`, { packId });
+        addHealthIssue(health, 'error', 'invalid_pack_id', `Loredeck id is not a valid bundled deck id: ${packId}.`, { packId });
         return {
             manifest: null,
             baseUrl: null,
@@ -1738,7 +1738,7 @@ export async function loadLorepackSourceById(packId = DEFAULT_LOREPACK_ID, optio
 
     if (String(packId || '') !== DEFAULT_LOREPACK_ID || options.allowLegacyFallback === false) {
         const health = createHealth(packId);
-        addHealthIssue(health, 'error', 'missing_lorepack_manifest', `Lorepack manifest failed to load for ${packId}.`, {
+        addHealthIssue(health, 'error', 'missing_lorepack_manifest', `Loredeck manifest failed to load for ${packId}.`, {
             packId,
             status: lorepackResult.status,
             detail: lorepackResult.error || lorepackResult.statusText || '',
@@ -1762,7 +1762,7 @@ export async function loadLorepackSourceById(packId = DEFAULT_LOREPACK_ID, optio
     }
     if (!legacyResult.ok) {
         const health = createHealth(DEFAULT_LOREPACK_ID);
-        addHealthIssue(health, 'error', 'missing_default_lorepack', 'Default Lorepack and legacy Lore manifest both failed to load.', {
+        addHealthIssue(health, 'error', 'missing_default_lorepack', 'Default Loredeck and legacy Lore manifest both failed to load.', {
             packId: DEFAULT_LOREPACK_ID,
             status: legacyResult.status,
             detail: legacyResult.error || legacyResult.statusText || '',
@@ -1844,7 +1844,7 @@ export async function loadDefaultLorepackSource(options = {}) {
 export function combineLorepackHealth(sources = []) {
     const health = createHealth('lorepack-stack');
     if (!Array.isArray(sources) || !sources.length) {
-        addHealthIssue(health, 'suggestion', 'empty_lorepack_stack', 'No enabled Lorepacks are loaded in the current stack.');
+        addHealthIssue(health, 'suggestion', 'empty_lorepack_stack', 'No enabled Loredecks are loaded in the current stack.');
         return finalizeHealth(health);
     }
 

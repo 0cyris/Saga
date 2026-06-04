@@ -4844,7 +4844,7 @@
     flex: 0 0 auto !important;
 }
 
-/* Live feedback fix: restore a visible, functional scrollbar for Accepted Lore Entries.
+/* Live feedback fix: restore a visible, functional scrollbar for Accepted Lorecards.
    The accepted list is the only vertical scroll owner; controls remain fixed above it. */
 .wandlight-lore-panel .wandlight-runtime-tab-body-lore {
     display: flex !important;
@@ -5726,7 +5726,7 @@
 /* Runtime drawer scroll containment -------------------------------------------------
    Phase 6: each tab gets a reliable outer scroller based on the resized drawer
    height. Long tabs no longer clip at the drawer bottom. Existing internal
-   scroll regions, such as Accepted Lore Entries and Pending Lore Review, remain
+   scroll regions, such as Accepted Lorecards and Pending Lore Review, remain
    bounded nested scroll containers instead of stretching the whole Lore tab. */
 .wandlight-runtime-drawer {
     overflow: hidden !important;

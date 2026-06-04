@@ -1,6 +1,6 @@
 /**
  * lorepack-assistant.js -- Saga/Wandlight
- * Prompt and response helpers for Lorepack Assistant proposal drafting.
+ * Prompt and response helpers for Loredeck Assistant proposal drafting.
  */
 
 const ASSISTANT_SUPPORTED_ACTIONS = Object.freeze(new Set([
@@ -370,17 +370,17 @@ export function parseLorepackCreatorTitleResponse(text = '') {
 }
 
 export function buildLorepackCreatorBriefSystemPrompt() {
-    return `You are Saga's Lorepack Creator intake assistant.
+    return `You are Saga's Loredeck Creator intake assistant.
 
 Return JSON only. Do not include markdown.
 
-Your task is to turn a user's fandom, scope, and granularity into a short pack brief for approval. Do not generate entries, timeline anchors, or tag registries yet.
+Your task is to turn a user's fandom, scope, and granularity into a short deck brief for approval. Do not generate Lorecards, timeline anchors, or tag registries yet.
 
 Creator principles:
 - Narrow vague or oversized requests into a practical story scope.
 - Do not require spoiler boundary, adaptation, continuity, or approximate entry count from the user.
-- Coverage says what the pack may contain; Story Position later decides what can inject.
-- Entry count is derived from granularity, coverage size, and story density.
+- Coverage says what the deck may contain; Story Position later decides what can inject.
+- Lorecard count is derived from granularity, coverage size, and story density.
 - Prefer high-value roleplay/fanfic scene context over wiki completeness.
 - Flag assumptions and risks clearly.
 - If the request is too broad or ambiguous, ask 1-3 clarifying questions and leave brief null.
@@ -418,7 +418,7 @@ Output shape:
 
 export function buildLorepackCreatorBriefUserPrompt(context = {}) {
     return JSON.stringify({
-        task: cleanString(context.task || 'Draft a reviewable Lorepack Creator pack brief only.', 500),
+        task: cleanString(context.task || 'Draft a reviewable Loredeck Creator pack brief only.', 500),
         fandom: cleanString(context.fandom, 200),
         scope: cleanString(context.scope, 1000),
         granularity: cleanString(context.granularity || 'focused', 80),
@@ -432,22 +432,22 @@ export function buildLorepackCreatorBriefUserPrompt(context = {}) {
             noRequiredAdaptationOrContinuityQuestion: true,
             entryCountMustBeDerived: true,
             coverageIsNotInjectionBoundary: true,
-            sagaUseCase: 'long-form fanfic and roleplay Lorepacks',
+            sagaUseCase: 'long-form fanfic and roleplay Loredecks',
         },
     }, null, 2);
 }
 
 export function buildLorepackCreatorTitleSystemPrompt() {
-    return `You are Saga's Lorepack Creator title-pass assistant.
+    return `You are Saga's Loredeck Creator title-pass assistant.
 
 Return JSON only. Do not include markdown.
 
-Your task is to turn an approved Creator brief into reviewable future lore-entry titles. Generate titles only.
+Your task is to turn an approved Creator brief into reviewable future Lorecard titles. Generate titles only.
 
 Hard limits:
-- Do not generate full lore entries, facts, injection text, timeline anchors, timeline windows, or tag registries yet.
-- Do not ask the user for an approximate entry count. Derive title count from the approved brief's granularity, coverage size, story density, and entry range.
-- If a pack is too large for one response, return a coherent first title batch and use batch.nextBatchHint to describe the next batch.
+- Do not generate full Lorecards, facts, injection text, timeline anchors, timeline windows, or tag registries yet.
+- Do not ask the user for an approximate Lorecard count. Derive title count from the approved brief's granularity, coverage size, story density, and entry range.
+- If a deck is too large for one response, return a coherent first title batch and use batch.nextBatchHint to describe the next batch.
 - When selectedTitleDrafts are supplied, revise only those selected title drafts and return replacements for them.
 
 Title quality rules:
@@ -455,7 +455,7 @@ Title quality rules:
 - Each title should imply playable pressure, constraints, relationships, secrets, powers, obligations, setting response, or story-position consequences.
 - Include broad/wide titles only when they are genuinely useful across a large window; mark that in positionHint.
 - Avoid duplicate titles and avoid generic biography titles.
-- Use category, priority, relevance, positionHint, tags, reason, and rubric so the user can review before entry generation.
+- Use category, priority, relevance, positionHint, tags, reason, and rubric so the user can review before Lorecard generation.
 
 Output shape:
 {
@@ -513,26 +513,26 @@ export function buildLorepackCreatorTitleUserPrompt(context = {}) {
             noTagRegistryGenerationYet: true,
             entryCountMustBeDerived: true,
             preserveTitleIdsWhenRevising: true,
-            sagaUseCase: 'long-form fanfic and roleplay Lorepacks',
+            sagaUseCase: 'long-form fanfic and roleplay Loredecks',
         },
     }, null, 2);
 }
 
 export function buildLorepackCreatorPlanningSystemPrompt() {
-    return `You are Saga's Lorepack Creator timeline and tag planning assistant.
+    return `You are Saga's Loredeck Creator timeline and tag planning assistant.
 
 Return JSON only. Do not include markdown.
 
 Your task is to turn an approved Creator brief and approved title drafts into reviewable planning proposals for Pending Review.
 
 Hard limits:
-- Do not generate full lore entries, facts, injection text, entry bodies, or entry overrides yet.
+- Do not generate full Lorecards, facts, injection text, Lorecard bodies, or entry overrides yet.
 - Return only supported planning proposal actions: upsert_timeline_anchor, upsert_timeline_window, and upsert_tag_definition.
 - Do not claim proposals are applied. They are drafts for Pending Review.
 - Preserve stable IDs and namespaced tags.
 - Timeline anchors/windows should be useful for Story Position gating and should prevent future canon leakage.
-- Tags should support retrieval, filtering, Pack Health, and future entry generation. Avoid tag spam and avoid vague unnamespaced tags when a namespace is natural.
-- Use approvedTitleDrafts to infer the minimum useful timeline and tag shape; do not attempt full pack completeness in one pass.
+- Tags should support retrieval, filtering, Deck Health, and future Lorecard generation. Avoid tag spam and avoid vague unnamespaced tags when a namespace is natural.
+- Use approvedTitleDrafts to infer the minimum useful timeline and tag shape; do not attempt full deck completeness in one pass.
 - If the approved title shape is insufficient, ask 1-3 clarifying questions and return an empty proposals array.
 
 Planning guidance:
@@ -605,22 +605,22 @@ export function buildLorepackCreatorPlanningUserPrompt(context = {}) {
             noEntryFactsOrInjectionYet: true,
             pendingReviewOnly: true,
             preserveStableIds: true,
-            sagaUseCase: 'long-form fanfic and roleplay Lorepacks',
+            sagaUseCase: 'long-form fanfic and roleplay Loredecks',
         },
     }, null, 2);
 }
 
 export function buildLorepackCreatorEntrySystemPrompt() {
-    return `You are Saga's Lorepack Creator entry drafting assistant.
+    return `You are Saga's Loredeck Creator Lorecard drafting assistant.
 
 Return JSON only. Do not include markdown.
 
-Your task is to generate reviewable schema v3 lore entry proposals from approved title drafts and accepted planning metadata.
+Your task is to generate reviewable schema v3 Lorecard proposals from approved title drafts and accepted planning metadata.
 
 Hard limits:
 - Return only upsert_entry proposals. Do not return timeline, tag, disable, restore, manifest, or settings proposals.
-- Do not claim entries are applied. They are drafts for edit-before-queue review, then Pending Review, then acceptance.
-- Generate one entry proposal per targetTitleDraft.
+- Do not claim Lorecards are applied. They are drafts for edit-before-queue review, then Pending Review, then acceptance.
+- Generate one Lorecard proposal per targetTitleDraft.
 - Use targetTitleDraft.titleId as entry.id unless it is invalid; preserve stable IDs.
 - Use only acceptedTimelineRegistry anchors/windows and acceptedTagRegistry tags. Do not invent anchor IDs or tag IDs at this stage.
 - Every entry must be schemaVersion 3 with content.fact, content.injection, position, retrieval, tags, category, canon/canonStatus, relevance, and priority.
@@ -732,13 +732,13 @@ export function buildLorepackCreatorEntryUserPrompt(context = {}) {
             useAcceptedTagIdsOnly: true,
             noWikiSummaries: true,
             pendingReviewOnly: true,
-            sagaUseCase: 'long-form fanfic and roleplay Lorepacks',
+            sagaUseCase: 'long-form fanfic and roleplay Loredecks',
         },
     }, null, 2);
 }
 
 export function buildLorepackAssistantSystemPrompt() {
-    return `You are Saga's Lore Assistant for editable fandom Lorepacks.
+    return `You are Saga's Lore Assistant for editable fandom Loredecks.
 
 Return JSON only. Do not include markdown.
 
@@ -746,7 +746,7 @@ Core rule: propose changes for Pending Review. Do not claim changes are already 
 
 When selectedDraftProposals are supplied, revise only those draft proposals and return replacement proposals for them. Do not rewrite unrelated entries unless the user explicitly asks.
 
-When selectedHealthIssues are supplied, draft repair proposals for those Pack Health issues only. Use supported proposal actions; if an issue needs manifest/stat repair or another unsupported edit, report it in warnings or ask a clarifying question.
+When selectedHealthIssues are supplied, draft repair proposals for those Deck Health issues only. Use supported proposal actions; if an issue needs manifest/stat repair or another unsupported edit, report it in warnings or ask a clarifying question.
 
 Prioritize high-value scene context over wiki summaries:
 - Good lore changes what characters know, hide, want, fear, expect, avoid, reveal, misunderstand, or react to.
@@ -812,7 +812,7 @@ If clarification is needed before proposing changes, return an empty proposals a
 
 export function buildLorepackAssistantUserPrompt(context = {}) {
     return JSON.stringify({
-        task: cleanString(context.task || 'Draft reviewable Lorepack proposals from the user instruction.', 500),
+        task: cleanString(context.task || 'Draft reviewable Loredeck proposals from the user instruction.', 500),
         instruction: cleanString(context.instruction, 4000),
         mode: cleanString(context.mode || 'mixed', 80),
         targetScope: cleanString(context.targetScope || 'current_filter', 80),
