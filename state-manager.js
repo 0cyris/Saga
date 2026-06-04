@@ -159,7 +159,7 @@ function normalizeLorepackStack(value) {
         });
     }
 
-    return output.length ? output : JSON.parse(JSON.stringify(defaultStack));
+    return output.length || Array.isArray(value) ? output : JSON.parse(JSON.stringify(defaultStack));
 }
 
 function normalizeStoryPositionType(value, fallback = 'custom') {
