@@ -14,6 +14,10 @@ const {
   repairLorepackEntryForHealth,
   analyzeEntries,
   analyzeEntryPositionHealth,
+  normalizeTagRegistryForHealth,
+  createTagRegistryHealthIndex,
+  analyzeTagRegistryDefinitionHealth,
+  analyzeEntryTagHealth,
 } = __lorepackLoaderTestHooks;
 
 const timeline = createTimelineHealthIndex({
@@ -286,5 +290,155 @@ const draftHealth = buildLorepackHealthForData({
 assert.equal(draftHealth.status, 'good');
 assert.equal(draftHealth.summary.schemaV3EntryCount, 1);
 assert.equal(draftHealth.summary.manifestStatsMismatchCount, 0);
+
+const customTimelineOverlayHealth = buildLorepackHealthForData({
+  packId: 'custom-timeline-pack',
+  manifest: {
+    id: 'custom-timeline-pack',
+    entrySchemaVersion: 3,
+    files: ['entries/custom-timeline.json'],
+    registries: { timeline: 'timeline.json' },
+    stats: {
+      entryCount: 1,
+      categoryCounts: { event: 1 },
+    },
+  },
+  timeline: {
+    anchors: [
+      { id: 'story.source_start', sortKey: 10 },
+    ],
+    windows: [],
+  },
+  registryRecord: {
+    packId: 'custom-timeline-pack',
+    timelineRegistry: {
+      anchors: [
+        { id: 'story.custom_end', label: 'Custom Ending', sortKey: 20 },
+      ],
+      windows: [
+        { id: 'story.custom_window', anchorFrom: 'story.source_start', anchorTo: 'story.custom_end', sortKeyFrom: 10, sortKeyTo: 20 },
+      ],
+    },
+  },
+  entryFiles: [{
+    file: 'entries/custom-timeline.json',
+    schemaVersion: 3,
+    entries: [{
+      schemaVersion: 3,
+      id: 'custom_timeline_entry',
+      title: 'Custom Timeline Entry',
+      category: 'event',
+      position: {
+        scope: 'window',
+        validFromAnchor: 'story.source_start',
+        validToAnchor: 'story.custom_end',
+        sortKeyFrom: 10,
+        sortKeyTo: 20,
+        precision: 'anchor_window',
+        windowKind: 'bounded',
+        label: 'Custom timeline window',
+      },
+      retrieval: {
+        activation: 'topic_or_entity',
+        frequency: 'normal',
+        positionalBoost: 'medium',
+      },
+      content: {
+        fact: 'Custom timeline fact.',
+        injection: 'Custom timeline injection.',
+      },
+    }],
+  }],
+});
+assert.equal(customTimelineOverlayHealth.status, 'good');
+assert.equal(customTimelineOverlayHealth.summary.timelineAnchorCount, 2);
+assert.equal(customTimelineOverlayHealth.summary.timelineWindowCount, 1);
+assert.equal(customTimelineOverlayHealth.summary.brokenAnchorReferenceCount, 0);
+
+const tagHealth = buildLorepackHealthForData({
+  packId: 'tag-pack',
+  manifest: {
+    id: 'tag-pack',
+    type: 'custom',
+    files: ['entries/tags.json'],
+    registries: { tags: 'tags.json' },
+    stats: {
+      entryCount: 2,
+      categoryCounts: { character: 1, event: 1 },
+    },
+  },
+  tagRegistry: {
+    schemaVersion: 1,
+    tags: {
+      'character:nami': {
+        label: 'Nami',
+        aliases: ['navigator', 'cat burglar'],
+      },
+      'deprecated:arlong-crew': {
+        label: 'Old Arlong Crew',
+        deprecated: true,
+        replacement: 'faction:arlong-crew',
+        aliases: ['fishmen'],
+      },
+      'faction:arlong-crew': {
+        label: 'Arlong Crew',
+        aliases: ['fishmen', 'crew'],
+      },
+      'unused:tag': {
+        label: 'Unused Tag',
+      },
+      'badtag:': {
+        label: 'Bad Tag',
+      },
+    },
+  },
+  entryFiles: [{
+    file: 'entries/tags.json',
+    entries: [
+      {
+        id: 'nami_entry',
+        title: 'Nami Entry',
+        category: 'character',
+        tags: ['character:nami', 'missing:tag', 'bad tag'],
+      },
+      {
+        id: 'arlong_entry',
+        title: 'Arlong Entry',
+        category: 'event',
+        tags: ['deprecated:arlong-crew'],
+      },
+    ],
+  }],
+});
+const tagWarningCodes = tagHealth.warnings.map(issue => issue.code);
+const tagSuggestionCodes = tagHealth.suggestions.map(issue => issue.code);
+assert.ok(tagWarningCodes.includes('undefined_tag'));
+assert.ok(tagWarningCodes.includes('deprecated_tag_used'));
+assert.ok(tagWarningCodes.includes('duplicate_tag_alias'));
+assert.ok(tagWarningCodes.includes('malformed_tag_namespace'));
+assert.ok(tagSuggestionCodes.includes('orphaned_tag_definition'));
+assert.equal(tagHealth.summary.tagRegistryTagCount, 5);
+assert.equal(tagHealth.summary.undefinedTagCount, 2);
+assert.equal(tagHealth.summary.deprecatedTagUsageCount, 1);
+assert.equal(tagHealth.summary.duplicateTagAliasCount, 1);
+assert.equal(tagHealth.summary.orphanedTagCount, 2);
+assert.equal(tagHealth.status, 'needs_review');
+
+const missingRegistryHealth = createHealth('missing-tag-registry');
+analyzeEntryTagHealth(missingRegistryHealth, [{
+  file: 'entries.json',
+  entries: [{
+    id: 'tagged_without_registry',
+    title: 'Tagged Without Registry',
+    tags: ['character:nami'],
+  }],
+}], createTagRegistryHealthIndex({
+  packId: 'missing-tag-registry',
+  sourceRegistry: null,
+  customRegistry: null,
+}), { id: 'missing-tag-registry' });
+finalizeHealth(missingRegistryHealth);
+assert.equal(missingRegistryHealth.status, 'good');
+assert.equal(missingRegistryHealth.suggestions[0].code, 'tag_registry_missing');
 
 console.log('Lorepack position health tests passed.');

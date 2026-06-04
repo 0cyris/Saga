@@ -287,8 +287,13 @@ The first entry-editing slice stores that layer as library metadata:
 
 - `entryOverrides`: edited or newly added lore entries keyed by entry ID.
 - `disabledEntryIds`: source entry IDs suppressed by the Custom pack.
+- `timelineRegistry`: accepted Custom/Generated timeline anchor/window overlays, including disabled source anchor/window IDs.
+- `tagRegistry`: accepted Custom/Generated tag definition overlays.
+- `pendingChanges`: proposed entry, tag, disable, delete, or bulk edits awaiting review.
 
 The loader applies these before Pack Health and canon database normalization, so the active stack sees the Custom pack's edited entry set instead of the untouched source files.
+
+Pending changes are not applied by the loader. They become runtime-active only after the user accepts them in the Pending Review Queue.
 
 ## Story Position And Lorepack Context
 
@@ -497,6 +502,31 @@ Large registries should be expected. Harry Potter alone may eventually have hund
 - Pack Health warnings instead of fragile hard failures for advisory issues.
 
 The Timeline Registry Editor should use model assistance heavily because building large registries by hand is tedious. The model can draft anchors, windows, aliases, artificial sort keys, missing-event suggestions, and bulk revisions. The model should not silently mutate the registry. It should return structured patches with before/after previews that the user accepts, rejects, or edits.
+
+### Timeline Registry Editor MVP
+
+The first production slice is implemented as a Custom/Generated overlay editor rather than a direct `timeline.json` file writer.
+
+Implemented MVP behavior:
+
+- Loads source `timeline.json` into the editor cache when available.
+- Shows source plus accepted Custom timeline overlays in one searchable anchor/window list.
+- Displays source/custom/disabled/undefined state chips.
+- Displays loaded-entry attachment counts for anchors and windows.
+- Creates and edits anchors with stable IDs, labels, sort keys, dates, arc/phase/episode/chapter fields, aliases, tags, and notes.
+- Creates and edits windows with stable IDs, labels, start/end anchors, sort-key bounds, dates, aliases, tags, and notes.
+- Queues anchor/window saves, overlay removal, and source definition enable/disable actions through Pending Review.
+- Accepting timeline proposals updates the library record's `timelineRegistry`.
+- Runtime Story Position indexing and Pack Health merge source `timeline.json` with accepted `timelineRegistry` overlays.
+- Export Timeline downloads the active merged timeline registry for review or external pack authoring.
+
+Not included yet:
+
+- Drag/reorder artificial sort-key editing.
+- Timeline bulk edit operations.
+- AI-assisted timeline generation and revision.
+- Visual timeline graphing.
+- Direct durable writes to local pack folders or zip contents.
 
 ### Position Index v1 Implementation
 
@@ -733,6 +763,10 @@ Warnings:
 - Pack appears to be an unedited duplicate of another loaded pack.
 - Missing dependencies.
 - Undefined tags.
+- Deprecated tags used by entries.
+- Duplicate tag aliases.
+- Malformed tag namespaces.
+- Orphaned tag definitions.
 - Broken anchor references.
 - Invalid date or position window.
 - Entries with no injection text.
@@ -1230,6 +1264,33 @@ The assistant should:
 - Prefer high-value scene context over wiki summaries.
 - Run Pack Health after major changes.
 
+### Lore Assistant Proposal Pipeline MVP
+
+The first production slice is implemented as a safe proposal pipeline, not a full autonomous Lorepack generator.
+
+Implemented MVP behavior:
+
+- Adds a Lore Assistant panel to editable Custom/Generated Lorepack detail.
+- Uses the configured Reasoning Provider.
+- Sends the user instruction, selected mode, target scope, pack metadata, current Story Position, known tags, known timeline anchors, and up to 60 target entries.
+- Supports modes for entry revision, missing-entry suggestions, tag drafting, timeline drafting, and mixed proposals.
+- Requires JSON-only structured model output.
+- Parses assistant responses with tolerant JSON/fence/reasoning cleanup.
+- Supports assistant proposals for entry upserts, entry disable/restore, tag definitions, timeline anchors, and timeline windows.
+- Converts supported proposals into the same `pendingChanges` record-patch shape used by manual tools.
+- Marks proposal source as `lore_assistant`.
+- Shows clarifying questions when the assistant asks instead of proposing patches.
+- Leaves runtime behavior unchanged until the user accepts queued Pending Review items.
+
+Not included yet:
+
+- Multi-turn assistant chat memory.
+- Accept-selected within one assistant batch beyond the existing pending row workflow.
+- Model-driven Pack Health repair plans.
+- Full Lorepack Creator staged generation.
+- Assistant edit-before-queue diff UI.
+- Automatic Pack Health rerun after accepting assistant proposals.
+
 ## Lorepack Editor
 
 The Lorepack tab should eventually include a full editor, similar in spirit to the accepted/pending lore workbenches.
@@ -1294,6 +1355,8 @@ It should support:
 - Source chips showing whether a proposal came from manual editing, bulk editing, import repair, Pack Health repair, or Lore Assistant.
 
 Accepted chat-specific story lore still outranks Lorepack entries at runtime. Pending Lorepack changes should not affect runtime injection until accepted.
+
+Implementation status: the first Pending Review Queue stores pending changes on Custom/Generated Lorepack records, accepts or rejects individual/all proposals, and routes manual entry edits, entry disable/restore, bulk tag edits, bulk Story Position edits, tag definition edits, tag definition removal, and tag rename/merge through pending record patches.
 
 ## Migration From Wandlight
 
@@ -1474,4 +1537,9 @@ Recent production completed **position-native Lorepack retrieval and HP referenc
 10. Done: add timeline anchor search/pickers and bulk Story Position editing to make v3 authoring less manual.
 11. Done: add bulk tag editing and a first Tag Manager surface for Custom Lorepack entries, including tag counts, tag filtering, add/remove/rename operations, and namespaced tag preservation.
 12. Done: capture the Creator, Timeline Registry Editor, Lore Assistant, Pending/Accepted lifecycle, and high-value lore rubric in preproduction.
-13. Next: wire Tag Manager into `tags.json` registry editing and Pack Health checks for undefined or deprecated tags.
+13. Done: wire Tag Manager into `tags.json` source loading plus embedded Custom/Generated tag registry editing for define/edit/rename/merge/deprecate workflows.
+14. Done: add Pack Health checks for undefined tags, deprecated tag usage, duplicate aliases, orphaned definitions, malformed namespaces, missing parent/replacement references, and entries using tags missing from `tags.json`.
+15. Done: build the Pending Review Queue foundation for Lorepack edits, including pending record patches, accept/reject actions, and routing current manual/bulk entry and tag edits through review before activation.
+16. Done: build the Timeline Registry Editor MVP with source timeline loading, Custom overlay anchor/window editing, Pending Review routing, and runtime/Pack Health merge support.
+17. Done: begin the Lore Assistant proposal pipeline with an editable Lorepack panel, structured JSON proposal parsing, and Pending Review queue integration for entry, tag, and timeline patches.
+18. Next: add assistant proposal preview/diff controls and Pack Health rerun hooks so users can inspect assistant patches more deeply before acceptance.

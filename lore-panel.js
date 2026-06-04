@@ -61,7 +61,8 @@ import {
 } from './lore-llm-client.js';
 import { storeNamedApiKey, deleteNamedApiKey, getNamedApiKeyStorageInfo } from './secure-keyring.js';
 import { proposeCanonLoreForContext, previewCanonLoreForContext, addCanonLorePreviewEntriesToPending, getLoreTaxonomySync, loadCanonLoreDatabase, getCanonLoreDatabaseSync, clearCanonLoreDatabaseCache } from './canon-lore-db.js';
-import { buildLorepackHealthForData, normalizeLorepackEntryForSchemaV3, repairLorepackEntryForHealth } from './lorepack-loader.js';
+import { buildLorepackHealthForData, mergeLorepackTimelineRegistries, normalizeLorepackEntryForSchemaV3, repairLorepackEntryForHealth } from './lorepack-loader.js';
+import { buildLorepackAssistantSystemPrompt, buildLorepackAssistantUserPrompt, parseLorepackAssistantResponse } from './lorepack-assistant.js';
 import { clearStoryPositionIndexCache, findStoryPositionAnchors, getStoryPositionIndexSync, loadStoryPositionIndex } from './story-position-index.js';
 import { resolveAndApplyStoryPositionsFromContext, resolveStoryPositionsWithModel } from './story-position-resolver.js';
 import { runAutoRelevance, applyAutoRelevanceSuggestions, clearAutoRelevanceSuggestions, rejectAutoRelevanceSuggestions } from './auto-relevance.js';
@@ -320,8 +321,15 @@ let bundledWandlightPresetCache = null;
 let bundledProviderPresetCache = null;
 const lorepackManifestPreviewCache = new Map();
 const lorepackEntryPreviewCache = new Map();
+const lorepackTagRegistryCache = new Map();
+const lorepackTimelineRegistryCache = new Map();
+const lorepackAssistantDraftCache = new Map();
 let lorepackEntryOverrideQuery = '';
 let lorepackTagManagerQuery = '';
+let lorepackTimelineRegistryQuery = '';
+let lorepackAssistantInstruction = '';
+let lorepackAssistantMode = 'revise_entries';
+let lorepackAssistantTargetScope = 'current_filter';
 
 const CATEGORY_LABELS = {
     all: 'All',
@@ -2426,6 +2434,7 @@ function createLorepackHealthReportCard(state, canonDb = null, health = null) {
     grid.appendChild(createLorepackHealthMetric('Schema v3', String(summary.schemaV3EntryCount || 0), 'Loaded entries checked against Saga schema v3 rules.'));
     grid.appendChild(createLorepackHealthMetric('v3 Issues', String(summary.schemaV3IssueCount || 0), 'Schema v3 Pack Health issues across loaded entries.'));
     grid.appendChild(createLorepackHealthMetric('Stats Drift', String(summary.manifestStatsMismatchCount || 0), 'Manifest stats mismatches found during validation.'));
+    grid.appendChild(createLorepackHealthMetric('Tag Issues', String((summary.undefinedTagCount || 0) + (summary.deprecatedTagUsageCount || 0) + (summary.duplicateTagAliasCount || 0) + (summary.malformedTagCount || 0)), 'Undefined, deprecated, duplicate-alias, or malformed tag issues.'));
     grid.appendChild(createLorepackHealthMetric('Anchor Issues', String(summary.brokenAnchorReferenceCount || 0), 'Broken Story Position anchor references.'));
     grid.appendChild(createLorepackHealthMetric('Window Issues', String(summary.invalidPositionWindowCount || 0), 'Invalid Story Position windows.'));
     grid.appendChild(createLorepackHealthMetric('Unmatchable', String(summary.unmatchablePositionGateCount || 0), 'Position-gated entries that cannot match known Story Position anchors.'));
@@ -3292,12 +3301,13 @@ function createLorepackEntryOverrideCard(pack) {
     summary.className = 'wandlight-lorepack-entry-summary';
     summary.appendChild(createStatusPill(`${state.overrideCount} override${state.overrideCount === 1 ? '' : 's'}`, 'Saved edited or added entries in this Custom Lorepack.'));
     summary.appendChild(createStatusPill(`${state.disabledEntryIds.length} disabled`, 'Source entry IDs suppressed by this Custom Lorepack.'));
+    summary.appendChild(createStatusPill(`${state.pendingCount} pending`, 'Lorepack edits queued for review before they affect runtime injection.'));
     if (cached?.entries?.length) summary.appendChild(createStatusPill(`${cached.entries.length} source entries`, 'Source entries loaded for browsing and editing.'));
     card.appendChild(summary);
 
     const help = document.createElement('div');
     help.className = 'wandlight-runtime-help';
-    help.textContent = 'Overrides are stored in the Custom Lorepack library record. They do not edit bundled files.';
+    help.textContent = 'Accepted overrides are stored in the Custom Lorepack library record. New edits are queued for review first and do not edit bundled files.';
     card.appendChild(help);
 
     const rows = getLorepackEditableEntryRows(pack, cached?.entries || []);
@@ -3335,9 +3345,13 @@ function createLorepackEntryOverrideCard(pack) {
         card.appendChild(createKeyValue('Load Error', cached.error, 'Last entry load error.'));
     }
 
-    if (rows.length) {
-        card.appendChild(createLorepackTagManagerCard(pack, rows, filteredRows));
+    if (pack.type !== 'bundled' || state.pendingCount) {
+        card.appendChild(createLorepackPendingReviewCard(pack));
     }
+
+    card.appendChild(createLorepackAssistantCard(pack, rows, filteredRows));
+    card.appendChild(createLorepackTimelineRegistryCard(pack, rows));
+    card.appendChild(createLorepackTagManagerCard(pack, rows, filteredRows));
 
     if (rows.length) {
         const search = document.createElement('input');
@@ -3381,6 +3395,107 @@ function createLorepackEntryOverrideCard(pack) {
     return card;
 }
 
+function createLorepackPendingReviewCard(pack) {
+    const pending = getLorepackPendingChanges(pack);
+    const wrap = document.createElement('div');
+    wrap.className = 'wandlight-lorepack-manifest-preview wandlight-lorepack-pending-review';
+
+    const title = document.createElement('div');
+    title.className = 'wandlight-runtime-card-title';
+    title.textContent = 'Pending Review Queue';
+    wrap.appendChild(title);
+
+    const summary = document.createElement('div');
+    summary.className = 'wandlight-lorepack-entry-summary';
+    summary.appendChild(createStatusPill(`${pending.length} pending`, 'Lorepack edit proposals waiting for acceptance.'));
+    const affectedEntries = new Set(pending.flatMap(change => change.affectedEntryIds || []));
+    const affectedTags = new Set(pending.flatMap(change => change.affectedTagIds || []));
+    const affectedTimeline = new Set(pending.flatMap(change => change.affectedTimelineIds || []));
+    if (affectedEntries.size) summary.appendChild(createStatusPill(`${affectedEntries.size} entr${affectedEntries.size === 1 ? 'y' : 'ies'}`, 'Entries affected by pending proposals.'));
+    if (affectedTags.size) summary.appendChild(createStatusPill(`${affectedTags.size} tag${affectedTags.size === 1 ? '' : 's'}`, 'Tags affected by pending proposals.'));
+    if (affectedTimeline.size) summary.appendChild(createStatusPill(`${affectedTimeline.size} timeline`, 'Timeline anchors/windows affected by pending proposals.'));
+    wrap.appendChild(summary);
+
+    const help = document.createElement('div');
+    help.className = 'wandlight-runtime-help';
+    help.textContent = 'Pending changes do not affect runtime injection until accepted. This is the review path for manual edits, bulk edits, and later Lore Assistant patches.';
+    wrap.appendChild(help);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    const acceptAll = createButton('Accept All', 'Apply every pending Lorepack change to this Custom Lorepack.', () => {
+        acceptLorepackPendingChanges(pack);
+    }, 'wandlight-primary-button');
+    acceptAll.disabled = !pending.length;
+    actions.appendChild(acceptAll);
+    const rejectAll = createButton('Reject All', 'Discard every pending Lorepack change without applying it.', () => {
+        rejectLorepackPendingChanges(pack);
+    }, 'wandlight-danger-button');
+    rejectAll.disabled = !pending.length;
+    actions.appendChild(rejectAll);
+    wrap.appendChild(actions);
+
+    if (!pending.length) {
+        wrap.appendChild(createEmptyMessage('No pending Lorepack edits.'));
+        return wrap;
+    }
+
+    const list = document.createElement('div');
+    list.className = 'wandlight-lorepack-entry-list';
+    for (const change of pending.slice(0, 20)) {
+        list.appendChild(createLorepackPendingChangeRow(pack, change));
+    }
+    if (pending.length > 20) {
+        const more = document.createElement('div');
+        more.className = 'wandlight-runtime-help';
+        more.textContent = `Showing 20 of ${pending.length} pending changes.`;
+        list.appendChild(more);
+    }
+    wrap.appendChild(list);
+    return wrap;
+}
+
+function createLorepackPendingChangeRow(pack, change = {}) {
+    const row = document.createElement('div');
+    row.className = 'wandlight-lorepack-entry-row wandlight-lorepack-pending-row';
+
+    const main = document.createElement('div');
+    main.className = 'wandlight-lorepack-row-main';
+    const title = document.createElement('div');
+    title.className = 'wandlight-lorepack-row-title';
+    title.textContent = change.title || change.changeId || 'Pending Lorepack Change';
+    main.appendChild(title);
+
+    const desc = document.createElement('div');
+    desc.className = 'wandlight-lorepack-row-description';
+    const preview = change.preview || {};
+    desc.textContent = change.description || preview.after || preview.before || 'Pending record patch.';
+    main.appendChild(desc);
+
+    const meta = document.createElement('div');
+    meta.className = 'wandlight-lorepack-row-meta';
+    meta.appendChild(createStatusPill(change.action || 'record_patch', 'Pending change action.'));
+    meta.appendChild(createStatusPill(change.targetKind || 'lorepack', 'Pending change target kind.'));
+    if (change.source) meta.appendChild(createStatusPill(change.source, 'Proposal source.'));
+    if (change.affectedEntryIds?.length) meta.appendChild(createStatusPill(`${change.affectedEntryIds.length} entr${change.affectedEntryIds.length === 1 ? 'y' : 'ies'}`, change.affectedEntryIds.slice(0, 10).join(', ')));
+    if (change.affectedTagIds?.length) meta.appendChild(createStatusPill(`${change.affectedTagIds.length} tag${change.affectedTagIds.length === 1 ? '' : 's'}`, change.affectedTagIds.slice(0, 10).join(', ')));
+    if (change.affectedTimelineIds?.length) meta.appendChild(createStatusPill(`${change.affectedTimelineIds.length} timeline`, change.affectedTimelineIds.slice(0, 10).join(', ')));
+    if (change.createdAt) meta.appendChild(createStatusPill(new Date(change.createdAt).toLocaleString(), 'Created at.'));
+    main.appendChild(meta);
+    row.appendChild(main);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-lorepack-row-actions';
+    actions.appendChild(createButton('Accept', 'Apply this pending Lorepack change.', () => {
+        acceptLorepackPendingChanges(pack, [change.changeId]);
+    }, 'wandlight-primary-button'));
+    actions.appendChild(createButton('Reject', 'Discard this pending Lorepack change.', () => {
+        rejectLorepackPendingChanges(pack, [change.changeId]);
+    }, 'wandlight-danger-button'));
+    row.appendChild(actions);
+    return row;
+}
+
 function getLorepackOverrideState(pack = {}) {
     const overrides = {};
     const rawOverrides = pack.entryOverrides && typeof pack.entryOverrides === 'object' && !Array.isArray(pack.entryOverrides)
@@ -3403,12 +3518,502 @@ function getLorepackOverrideState(pack = {}) {
         seen.add(id);
         disabledEntryIds.push(id);
     }
+    const pendingChanges = getLorepackPendingChanges(pack);
     return {
         overrides,
         disabledEntryIds,
         disabledSet: new Set(disabledEntryIds),
         overrideCount: Object.keys(overrides).length,
+        pendingChanges,
+        pendingCount: pendingChanges.length,
     };
+}
+
+function normalizeLorepackTagId(value) {
+    return parseLorepackEntryTags([value], 1)[0] || '';
+}
+
+function normalizeLorepackTagColor(value) {
+    const text = String(value || '').trim();
+    if (/^#[0-9a-f]{6}$/i.test(text)) return text.toLowerCase();
+    if (/^#[0-9a-f]{3}$/i.test(text)) {
+        return `#${text[1]}${text[1]}${text[2]}${text[2]}${text[3]}${text[3]}`.toLowerCase();
+    }
+    return '';
+}
+
+function humanizeLorepackTagId(tagId) {
+    const text = String(tagId || '').trim();
+    const value = text.includes(':') ? text.split(':').slice(1).join(':') : text;
+    return value
+        .replace(/[._/-]+/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .replace(/\b\w/g, char => char.toUpperCase()) || text;
+}
+
+function normalizeLorepackTagTextList(value, limit = 64, normalizeIds = false) {
+    const rawItems = Array.isArray(value)
+        ? value.flatMap(item => Array.isArray(item) ? item : [item])
+        : String(value || '').split(/[,;\n\r]+/);
+    const output = [];
+    const seen = new Set();
+    for (const raw of rawItems) {
+        const text = normalizeIds
+            ? normalizeLorepackTagId(raw)
+            : String(raw || '').trim().replace(/\s+/g, ' ').slice(0, 120).trim();
+        if (!text) continue;
+        const key = text.toLowerCase();
+        if (seen.has(key)) continue;
+        seen.add(key);
+        output.push(text);
+        if (output.length >= limit) break;
+    }
+    return output;
+}
+
+function normalizeLorepackTagDefinition(raw = {}, tagId = '') {
+    const input = raw && typeof raw === 'object' && !Array.isArray(raw) ? raw : {};
+    const id = normalizeLorepackTagId(input.id || tagId);
+    return {
+        label: String(input.label || '').trim().slice(0, 160),
+        color: normalizeLorepackTagColor(input.color),
+        textColor: normalizeLorepackTagColor(input.textColor),
+        description: String(input.description || '').trim().slice(0, 1000),
+        aliases: normalizeLorepackTagTextList(input.aliases, 64, false),
+        parents: normalizeLorepackTagTextList(input.parents, 64, true),
+        sensitive: input.sensitive === true,
+        deprecated: input.deprecated === true,
+        replacement: normalizeLorepackTagId(input.replacement || ''),
+        ...(id ? { id } : {}),
+    };
+}
+
+function normalizeLorepackTagRegistry(value = null) {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) {
+        return { schemaVersion: 1, tags: {} };
+    }
+    const source = value.tags && typeof value.tags === 'object' && !Array.isArray(value.tags)
+        ? value.tags
+        : value;
+    const tags = {};
+    let count = 0;
+    for (const [rawId, rawDef] of Object.entries(source || {})) {
+        if (!rawDef || typeof rawDef !== 'object' || Array.isArray(rawDef)) continue;
+        const id = normalizeLorepackTagId(rawDef.id || rawId);
+        if (!id) continue;
+        const def = normalizeLorepackTagDefinition(rawDef, id);
+        delete def.id;
+        tags[id] = def;
+        count += 1;
+        if (count >= 2000) break;
+    }
+    return {
+        schemaVersion: 1,
+        tags,
+    };
+}
+
+function getLorepackTagRegistryCount(registry = {}) {
+    return Object.keys(normalizeLorepackTagRegistry(registry).tags || {}).length;
+}
+
+function normalizeLorepackTimelineId(value) {
+    return String(value || '')
+        .trim()
+        .replace(/[\r\n]+/g, ' ')
+        .replace(/[^\p{L}\p{N} _:\-./]+/gu, '')
+        .replace(/\s+/g, '_')
+        .slice(0, 180)
+        .trim();
+}
+
+function normalizeLorepackTimelineTextList(value, limit = 64) {
+    const rawItems = Array.isArray(value)
+        ? value.flatMap(item => Array.isArray(item) ? item : [item])
+        : String(value || '').split(/[,;\n\r]+/);
+    const output = [];
+    const seen = new Set();
+    for (const raw of rawItems) {
+        const text = String(raw || '').trim().replace(/\s+/g, ' ').slice(0, 160).trim();
+        if (!text) continue;
+        const key = text.toLowerCase();
+        if (seen.has(key)) continue;
+        seen.add(key);
+        output.push(text);
+        if (output.length >= limit) break;
+    }
+    return output;
+}
+
+function normalizeLorepackTimelineDateRange(value = {}) {
+    const input = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+    return {
+        from: String(input.from || input.start || input.validFrom || '').trim().slice(0, 80),
+        to: String(input.to || input.end || input.validTo || '').trim().slice(0, 80),
+        precision: String(input.precision || '').trim().slice(0, 40),
+    };
+}
+
+function normalizeLorepackTimelineNumber(value) {
+    const text = String(value ?? '').trim();
+    if (!text) return null;
+    const number = Number(text);
+    return Number.isFinite(number) ? number : null;
+}
+
+function normalizeLorepackTimelineAnchor(raw = {}, fallbackId = '', index = 0) {
+    if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return null;
+    const id = normalizeLorepackTimelineId(raw.id || fallbackId);
+    if (!id) return null;
+    return {
+        id,
+        label: String(raw.label || raw.title || id).trim().slice(0, 240),
+        positionType: String(raw.positionType || raw.type || 'anchor').trim().slice(0, 80),
+        sortKey: normalizeLorepackTimelineNumber(raw.sortKey) ?? index + 1,
+        dateRange: normalizeLorepackTimelineDateRange(raw.dateRange || raw.date || raw.canonTiming),
+        book: String(raw.book || raw.sourceInfo?.title || raw.source?.book || '').trim().slice(0, 160),
+        work: String(raw.work || raw.sourceInfo?.work || raw.source?.work || '').trim().slice(0, 160),
+        schoolYear: String(raw.schoolYear || raw.date?.schoolYear || raw.canonTiming?.schoolYear || '').trim().slice(0, 80),
+        arc: String(raw.arc || '').trim().slice(0, 180),
+        phase: String(raw.phase || '').trim().slice(0, 180),
+        season: String(raw.season || '').trim().slice(0, 80),
+        episode: String(raw.episode || '').trim().slice(0, 80),
+        chapter: String(raw.chapter || '').trim().slice(0, 80),
+        issue: String(raw.issue || '').trim().slice(0, 80),
+        quest: String(raw.quest || '').trim().slice(0, 180),
+        gameStage: String(raw.gameStage || '').trim().slice(0, 180),
+        aliases: normalizeLorepackTimelineTextList(raw.aliases || raw.triggers, 64),
+        tags: normalizeLorepackTimelineTextList(raw.tags, 64),
+        notes: String(raw.notes || raw.description || '').trim().slice(0, 1000),
+    };
+}
+
+function normalizeLorepackTimelineWindow(raw = {}, fallbackId = '', index = 0) {
+    if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return null;
+    const id = normalizeLorepackTimelineId(raw.id || fallbackId);
+    if (!id) return null;
+    return {
+        id,
+        label: String(raw.label || raw.title || id).trim().slice(0, 240),
+        positionType: String(raw.positionType || raw.type || 'anchor_window').trim().slice(0, 80),
+        anchorFrom: normalizeLorepackTimelineId(raw.anchorFrom || raw.from || raw.validFromAnchor),
+        anchorTo: normalizeLorepackTimelineId(raw.anchorTo || raw.to || raw.validToAnchor),
+        sortKeyFrom: normalizeLorepackTimelineNumber(raw.sortKeyFrom),
+        sortKeyTo: normalizeLorepackTimelineNumber(raw.sortKeyTo),
+        dateRange: normalizeLorepackTimelineDateRange(raw.dateRange || raw.date),
+        aliases: normalizeLorepackTimelineTextList(raw.aliases || raw.triggers, 64),
+        tags: normalizeLorepackTimelineTextList(raw.tags, 64),
+        notes: String(raw.notes || raw.description || '').trim().slice(0, 1000),
+    };
+}
+
+function normalizeLorepackTimelineDisabledIds(value = []) {
+    if (!Array.isArray(value)) return [];
+    const output = [];
+    const seen = new Set();
+    for (const raw of value) {
+        const id = normalizeLorepackTimelineId(raw);
+        if (!id || seen.has(id)) continue;
+        seen.add(id);
+        output.push(id);
+        if (output.length >= 2000) break;
+    }
+    return output;
+}
+
+function normalizeLorepackTimelineRegistry(value = null) {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) {
+        return { schemaVersion: 1, timelineMode: 'hybrid', sortKeyScale: 'pack_local', anchors: [], windows: [] };
+    }
+    const input = value;
+    const anchors = [];
+    for (const [index, raw] of (Array.isArray(input.anchors) ? input.anchors : []).entries()) {
+        const anchor = normalizeLorepackTimelineAnchor(raw, '', index);
+        if (anchor) anchors.push(anchor);
+        if (anchors.length >= 5000) break;
+    }
+    const rawWindows = [
+        ...(Array.isArray(input.windows) ? input.windows : []),
+        ...(Array.isArray(input.arcs) ? input.arcs : []),
+        ...(Array.isArray(input.phases) ? input.phases : []),
+    ];
+    const windows = [];
+    for (const [index, raw] of rawWindows.entries()) {
+        const window = normalizeLorepackTimelineWindow(raw, '', index);
+        if (window) windows.push(window);
+        if (windows.length >= 5000) break;
+    }
+    return {
+        schemaVersion: Number.isFinite(Number(input.schemaVersion)) ? Number(input.schemaVersion) : 1,
+        timelineMode: String(input.timelineMode || 'hybrid').trim().slice(0, 80),
+        defaultPositionType: String(input.defaultPositionType || '').trim().slice(0, 80),
+        sortKeyScale: String(input.sortKeyScale || 'pack_local').trim().slice(0, 160),
+        summary: String(input.summary || input.description || '').trim().slice(0, 1000),
+        anchors,
+        windows,
+        disabledAnchorIds: normalizeLorepackTimelineDisabledIds(input.disabledAnchorIds || input.disabledAnchors || []),
+        disabledWindowIds: normalizeLorepackTimelineDisabledIds(input.disabledWindowIds || input.disabledWindows || []),
+    };
+}
+
+function getLorepackTimelineRegistryCount(registry = {}) {
+    const normalized = normalizeLorepackTimelineRegistry(registry);
+    return (normalized.anchors?.length || 0) + (normalized.windows?.length || 0) + (normalized.disabledAnchorIds?.length || 0) + (normalized.disabledWindowIds?.length || 0);
+}
+
+function getLorepackEmbeddedTimelineRegistry(pack = {}) {
+    return normalizeLorepackTimelineRegistry(pack?.timelineRegistry);
+}
+
+function getLorepackCachedSourceTimelineRegistry(packId) {
+    const cached = lorepackTimelineRegistryCache.get(String(packId || '').trim());
+    return normalizeLorepackTimelineRegistry(cached?.sourceRegistry);
+}
+
+function getLorepackEmbeddedTagRegistry(pack = {}) {
+    return normalizeLorepackTagRegistry(pack?.tagRegistry);
+}
+
+function getLorepackCachedSourceTagRegistry(packId) {
+    const cached = lorepackTagRegistryCache.get(String(packId || '').trim());
+    return normalizeLorepackTagRegistry(cached?.sourceRegistry);
+}
+
+function mergeLorepackTagDefinition(sourceDef = {}, customDef = {}) {
+    return normalizeLorepackTagDefinition({
+        ...(sourceDef || {}),
+        ...(customDef || {}),
+    });
+}
+
+function normalizeLorepackPendingIdList(value = [], limit = 500) {
+    if (!Array.isArray(value)) return [];
+    const out = [];
+    const seen = new Set();
+    for (const raw of value) {
+        const id = String(raw || '').trim();
+        if (!id || seen.has(id)) continue;
+        seen.add(id);
+        out.push(id);
+        if (out.length >= limit) break;
+    }
+    return out;
+}
+
+function normalizeLorepackPendingTagIdList(value = [], limit = 500) {
+    if (!Array.isArray(value)) return [];
+    const out = [];
+    const seen = new Set();
+    for (const raw of value) {
+        const id = normalizeLorepackTagId(raw);
+        if (!id || seen.has(id.toLowerCase())) continue;
+        seen.add(id.toLowerCase());
+        out.push(id);
+        if (out.length >= limit) break;
+    }
+    return out;
+}
+
+function normalizeLorepackPendingTimelineIdList(value = [], limit = 500) {
+    if (!Array.isArray(value)) return [];
+    const out = [];
+    const seen = new Set();
+    for (const raw of value) {
+        const id = normalizeLorepackTimelineId(raw);
+        if (!id || seen.has(id)) continue;
+        seen.add(id);
+        out.push(id);
+        if (out.length >= limit) break;
+    }
+    return out;
+}
+
+function normalizeLorepackPendingChanges(value = []) {
+    if (!Array.isArray(value)) return [];
+    const out = [];
+    const seen = new Set();
+    for (const raw of value) {
+        if (!raw || typeof raw !== 'object' || Array.isArray(raw)) continue;
+        const changeId = String(raw.changeId || raw.id || '').trim();
+        if (!changeId || seen.has(changeId)) continue;
+        seen.add(changeId);
+        out.push({
+            schemaVersion: Number.isFinite(Number(raw.schemaVersion)) ? Number(raw.schemaVersion) : 1,
+            changeId,
+            status: 'pending',
+            source: String(raw.source || 'manual').trim().slice(0, 80),
+            action: String(raw.action || 'record_patch').trim().slice(0, 80),
+            targetKind: String(raw.targetKind || 'lorepack').trim().slice(0, 80),
+            title: String(raw.title || changeId).trim().slice(0, 240),
+            description: String(raw.description || '').trim().slice(0, 1000),
+            affectedEntryIds: normalizeLorepackPendingIdList(raw.affectedEntryIds),
+            affectedTagIds: normalizeLorepackPendingTagIdList(raw.affectedTagIds),
+            affectedTimelineIds: normalizeLorepackPendingTimelineIdList(raw.affectedTimelineIds),
+            payload: cloneLorepackJson(raw.payload) || {},
+            preview: cloneLorepackJson(raw.preview) || {},
+            createdAt: Number.isFinite(Number(raw.createdAt)) ? Number(raw.createdAt) : Date.now(),
+            updatedAt: Number.isFinite(Number(raw.updatedAt)) ? Number(raw.updatedAt) : Date.now(),
+        });
+        if (out.length >= 500) break;
+    }
+    return out;
+}
+
+function getLorepackPendingChanges(pack = {}) {
+    return normalizeLorepackPendingChanges(pack?.pendingChanges);
+}
+
+function createLorepackPendingChangeId(action = 'change') {
+    return `lpchg_${String(action || 'change').replace(/[^a-z0-9_-]+/gi, '_').toLowerCase()}_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+}
+
+function createLorepackRecordPatchChange(fields = {}) {
+    const now = Date.now();
+    return {
+        schemaVersion: 1,
+        changeId: fields.changeId || createLorepackPendingChangeId(fields.action || 'record_patch'),
+        status: 'pending',
+        source: fields.source || 'manual',
+        action: fields.action || 'record_patch',
+        targetKind: fields.targetKind || 'lorepack',
+        title: String(fields.title || 'Pending Lorepack Change').trim(),
+        description: String(fields.description || '').trim(),
+        affectedEntryIds: normalizeLorepackPendingIdList(fields.affectedEntryIds),
+        affectedTagIds: normalizeLorepackPendingTagIdList(fields.affectedTagIds),
+        affectedTimelineIds: normalizeLorepackPendingTimelineIdList(fields.affectedTimelineIds),
+        payload: cloneLorepackJson(fields.payload) || {},
+        preview: cloneLorepackJson(fields.preview) || {},
+        createdAt: now,
+        updatedAt: now,
+    };
+}
+
+function ensureLorepackPatchTagRegistry(record) {
+    if (!record.tagRegistry || typeof record.tagRegistry !== 'object' || Array.isArray(record.tagRegistry)) {
+        record.tagRegistry = { schemaVersion: 1, tags: {} };
+    }
+    if (!record.tagRegistry.tags || typeof record.tagRegistry.tags !== 'object' || Array.isArray(record.tagRegistry.tags)) {
+        record.tagRegistry.tags = {};
+    }
+}
+
+function ensureLorepackPatchTimelineRegistry(record) {
+    if (!record.timelineRegistry || typeof record.timelineRegistry !== 'object' || Array.isArray(record.timelineRegistry)) {
+        record.timelineRegistry = { schemaVersion: 1, timelineMode: 'hybrid', sortKeyScale: 'pack_local', anchors: [], windows: [] };
+    }
+    if (!Array.isArray(record.timelineRegistry.anchors)) record.timelineRegistry.anchors = [];
+    if (!Array.isArray(record.timelineRegistry.windows)) record.timelineRegistry.windows = [];
+    if (!Array.isArray(record.timelineRegistry.disabledAnchorIds)) record.timelineRegistry.disabledAnchorIds = [];
+    if (!Array.isArray(record.timelineRegistry.disabledWindowIds)) record.timelineRegistry.disabledWindowIds = [];
+}
+
+function upsertLorepackTimelineItem(list = [], item = null, normalizer = null) {
+    const normalized = typeof normalizer === 'function' ? normalizer(item) : item;
+    const id = String(normalized?.id || '').trim();
+    if (!id) return list;
+    const next = (Array.isArray(list) ? list : []).filter(existing => String(existing?.id || '').trim() !== id);
+    next.push(normalized);
+    return next;
+}
+
+function removeLorepackTimelineItem(list = [], id = '') {
+    const target = normalizeLorepackTimelineId(id);
+    if (!target) return Array.isArray(list) ? list : [];
+    return (Array.isArray(list) ? list : []).filter(item => String(item?.id || '').trim() !== target);
+}
+
+function updateLorepackDisabledTimelineIds(current = [], add = [], remove = []) {
+    const set = new Set(normalizeLorepackTimelineDisabledIds(current));
+    for (const id of normalizeLorepackTimelineDisabledIds(add)) set.add(id);
+    for (const id of normalizeLorepackTimelineDisabledIds(remove)) set.delete(id);
+    return Array.from(set);
+}
+
+function applyLorepackRecordPatch(record, payload = {}) {
+    const patch = payload && typeof payload === 'object' && !Array.isArray(payload) ? payload : {};
+    const entryOverrides = patch.entryOverrides && typeof patch.entryOverrides === 'object' && !Array.isArray(patch.entryOverrides)
+        ? patch.entryOverrides
+        : {};
+    for (const [rawId, rawEntry] of Object.entries(entryOverrides)) {
+        const id = String(rawEntry?.id || rawId || '').trim();
+        if (!id) continue;
+        if (rawEntry === null) {
+            delete record.entryOverrides[id];
+            continue;
+        }
+        record.entryOverrides[id] = rawEntry;
+    }
+
+    const disabledSet = new Set(Array.isArray(record.disabledEntryIds) ? record.disabledEntryIds : []);
+    for (const id of normalizeLorepackPendingIdList(patch.disabledEntryIdsAdd || [])) disabledSet.add(id);
+    for (const id of normalizeLorepackPendingIdList(patch.disabledEntryIdsRemove || [])) disabledSet.delete(id);
+    record.disabledEntryIds = Array.from(disabledSet);
+
+    const tagDefinitions = patch.tagDefinitions && typeof patch.tagDefinitions === 'object' && !Array.isArray(patch.tagDefinitions)
+        ? patch.tagDefinitions
+        : {};
+    if (Object.keys(tagDefinitions).length) ensureLorepackPatchTagRegistry(record);
+    for (const [rawId, rawDef] of Object.entries(tagDefinitions)) {
+        const id = normalizeLorepackTagId(rawDef?.id || rawId);
+        if (!id) continue;
+        if (rawDef === null) {
+            delete record.tagRegistry.tags[id];
+            continue;
+        }
+        const def = normalizeLorepackTagDefinition(rawDef, id);
+        delete def.id;
+        record.tagRegistry.tags[id] = def;
+    }
+
+    const timelineAnchors = patch.timelineAnchors && typeof patch.timelineAnchors === 'object' && !Array.isArray(patch.timelineAnchors)
+        ? patch.timelineAnchors
+        : {};
+    const timelineWindows = patch.timelineWindows && typeof patch.timelineWindows === 'object' && !Array.isArray(patch.timelineWindows)
+        ? patch.timelineWindows
+        : {};
+    const hasTimelinePatch = Object.keys(timelineAnchors).length
+        || Object.keys(timelineWindows).length
+        || normalizeLorepackTimelineDisabledIds(patch.timelineAnchorIdsDisable || []).length
+        || normalizeLorepackTimelineDisabledIds(patch.timelineAnchorIdsEnable || []).length
+        || normalizeLorepackTimelineDisabledIds(patch.timelineWindowIdsDisable || []).length
+        || normalizeLorepackTimelineDisabledIds(patch.timelineWindowIdsEnable || []).length;
+    if (hasTimelinePatch) ensureLorepackPatchTimelineRegistry(record);
+
+    for (const [rawId, rawAnchor] of Object.entries(timelineAnchors)) {
+        const id = normalizeLorepackTimelineId(rawAnchor?.id || rawId);
+        if (!id) continue;
+        if (rawAnchor === null) {
+            record.timelineRegistry.anchors = removeLorepackTimelineItem(record.timelineRegistry.anchors, id);
+            continue;
+        }
+        record.timelineRegistry.anchors = upsertLorepackTimelineItem(record.timelineRegistry.anchors, { ...rawAnchor, id }, normalizeLorepackTimelineAnchor);
+        record.timelineRegistry.disabledAnchorIds = updateLorepackDisabledTimelineIds(record.timelineRegistry.disabledAnchorIds, [], [id]);
+    }
+
+    for (const [rawId, rawWindow] of Object.entries(timelineWindows)) {
+        const id = normalizeLorepackTimelineId(rawWindow?.id || rawId);
+        if (!id) continue;
+        if (rawWindow === null) {
+            record.timelineRegistry.windows = removeLorepackTimelineItem(record.timelineRegistry.windows, id);
+            continue;
+        }
+        record.timelineRegistry.windows = upsertLorepackTimelineItem(record.timelineRegistry.windows, { ...rawWindow, id }, normalizeLorepackTimelineWindow);
+        record.timelineRegistry.disabledWindowIds = updateLorepackDisabledTimelineIds(record.timelineRegistry.disabledWindowIds, [], [id]);
+    }
+
+    if (hasTimelinePatch) {
+        record.timelineRegistry.disabledAnchorIds = updateLorepackDisabledTimelineIds(
+            record.timelineRegistry?.disabledAnchorIds,
+            patch.timelineAnchorIdsDisable || [],
+            patch.timelineAnchorIdsEnable || []
+        );
+        record.timelineRegistry.disabledWindowIds = updateLorepackDisabledTimelineIds(
+            record.timelineRegistry?.disabledWindowIds,
+            patch.timelineWindowIdsDisable || [],
+            patch.timelineWindowIdsEnable || []
+        );
+    }
 }
 
 function parseLorepackEntryTags(value, limit = 64) {
@@ -3494,6 +4099,1121 @@ function buildLorepackTagStats(rows = []) {
     return Array.from(map.values()).sort((a, b) => b.count - a.count || a.tag.localeCompare(b.tag));
 }
 
+function buildLorepackTagManagerItems(pack, rows = []) {
+    const stats = buildLorepackTagStats(rows);
+    const sourceRegistry = getLorepackCachedSourceTagRegistry(pack?.packId);
+    const customRegistry = getLorepackEmbeddedTagRegistry(pack);
+    const map = new Map();
+
+    const ensure = (tag) => {
+        const id = normalizeLorepackTagId(tag);
+        if (!id) return null;
+        const key = id.toLowerCase();
+        if (!map.has(key)) {
+            map.set(key, {
+                tag: id,
+                count: 0,
+                overrideCount: 0,
+                sourceCount: 0,
+                entryIds: [],
+                sourceDefined: false,
+                customDefined: false,
+                sourceDefinition: null,
+                customDefinition: null,
+                definition: normalizeLorepackTagDefinition({}, id),
+            });
+        }
+        return map.get(key);
+    };
+
+    for (const [tag, def] of Object.entries(sourceRegistry.tags || {})) {
+        const item = ensure(tag);
+        if (!item) continue;
+        item.sourceDefined = true;
+        item.sourceDefinition = normalizeLorepackTagDefinition(def, tag);
+    }
+    for (const [tag, def] of Object.entries(customRegistry.tags || {})) {
+        const item = ensure(tag);
+        if (!item) continue;
+        item.customDefined = true;
+        item.customDefinition = normalizeLorepackTagDefinition(def, tag);
+    }
+    for (const stat of stats) {
+        const item = ensure(stat.tag);
+        if (!item) continue;
+        item.count = stat.count || 0;
+        item.overrideCount = stat.overrideCount || 0;
+        item.sourceCount = stat.sourceCount || 0;
+        item.entryIds = stat.entryIds || [];
+    }
+    for (const item of map.values()) {
+        item.definition = mergeLorepackTagDefinition(item.sourceDefinition || {}, item.customDefinition || {});
+        item.registryState = item.customDefined
+            ? (item.sourceDefined ? 'custom override' : 'custom')
+            : (item.sourceDefined ? 'source' : 'undefined');
+    }
+
+    return Array.from(map.values()).sort((a, b) => {
+        const aUndefined = !a.sourceDefined && !a.customDefined ? 0 : 1;
+        const bUndefined = !b.sourceDefined && !b.customDefined ? 0 : 1;
+        return aUndefined - bUndefined
+            || (b.count || 0) - (a.count || 0)
+            || a.tag.localeCompare(b.tag);
+    });
+}
+
+function buildMergedLorepackTagRegistryForExport(pack, rows = []) {
+    const registry = { schemaVersion: 1, tags: {} };
+    for (const item of buildLorepackTagManagerItems(pack, rows)) {
+        if (!item.sourceDefined && !item.customDefined) continue;
+        registry.tags[item.tag] = normalizeLorepackTagDefinition(item.definition || {}, item.tag);
+        delete registry.tags[item.tag].id;
+    }
+    return registry;
+}
+
+function getLorepackEntryAnchorRefs(entry = {}) {
+    const position = entry?.position && typeof entry.position === 'object' && !Array.isArray(entry.position)
+        ? entry.position
+        : {};
+    return normalizeLorepackPendingTimelineIdList([
+        position.anchorId,
+        position.validFromAnchor,
+        position.validToAnchor,
+        position.anchorFrom,
+        position.anchorTo,
+    ], 12);
+}
+
+function buildLorepackTimelineAttachmentStats(rows = []) {
+    const anchorRefs = new Map();
+    const entryPositions = [];
+    for (const row of rows || []) {
+        if (!row?.id || row.disabled) continue;
+        const entry = row.entry || {};
+        const refs = getLorepackEntryAnchorRefs(entry);
+        for (const ref of refs) {
+            if (!anchorRefs.has(ref)) anchorRefs.set(ref, []);
+            const list = anchorRefs.get(ref);
+            if (list.length < 50) list.push(row.id);
+        }
+        const position = entry.position && typeof entry.position === 'object' && !Array.isArray(entry.position)
+            ? entry.position
+            : {};
+        entryPositions.push({
+            id: row.id,
+            from: normalizeLorepackTimelineId(position.validFromAnchor || position.anchorFrom || ''),
+            to: normalizeLorepackTimelineId(position.validToAnchor || position.anchorTo || ''),
+            sortKeyFrom: normalizeLorepackTimelineNumber(position.sortKeyFrom),
+            sortKeyTo: normalizeLorepackTimelineNumber(position.sortKeyTo),
+        });
+    }
+    return { anchorRefs, entryPositions };
+}
+
+function getTimelineWindowEntryRefs(window = {}, stats = {}) {
+    const refs = [];
+    const anchorFrom = normalizeLorepackTimelineId(window.anchorFrom);
+    const anchorTo = normalizeLorepackTimelineId(window.anchorTo);
+    const sortKeyFrom = normalizeLorepackTimelineNumber(window.sortKeyFrom);
+    const sortKeyTo = normalizeLorepackTimelineNumber(window.sortKeyTo);
+    for (const entry of stats.entryPositions || []) {
+        const anchorsMatch = anchorFrom && anchorTo && entry.from === anchorFrom && entry.to === anchorTo;
+        const sortsMatch = sortKeyFrom !== null && sortKeyTo !== null && entry.sortKeyFrom === sortKeyFrom && entry.sortKeyTo === sortKeyTo;
+        if (anchorsMatch || sortsMatch) refs.push(entry.id);
+        if (refs.length >= 50) break;
+    }
+    return refs;
+}
+
+function buildLorepackTimelineRegistryItems(pack, rows = []) {
+    const sourceRegistry = getLorepackCachedSourceTimelineRegistry(pack?.packId);
+    const customRegistry = getLorepackEmbeddedTimelineRegistry(pack);
+    const stats = buildLorepackTimelineAttachmentStats(rows);
+    const map = new Map();
+
+    const ensure = (kind, id) => {
+        const cleanId = normalizeLorepackTimelineId(id);
+        if (!cleanId) return null;
+        const key = `${kind}:${cleanId}`;
+        if (!map.has(key)) {
+            map.set(key, {
+                kind,
+                id: cleanId,
+                sourceDefined: false,
+                customDefined: false,
+                disabled: false,
+                sourceDefinition: null,
+                customDefinition: null,
+                definition: null,
+                entryIds: [],
+            });
+        }
+        return map.get(key);
+    };
+
+    const disabledAnchors = new Set(customRegistry.disabledAnchorIds || []);
+    const disabledWindows = new Set(customRegistry.disabledWindowIds || []);
+    for (const anchor of sourceRegistry.anchors || []) {
+        const item = ensure('anchor', anchor.id);
+        if (!item) continue;
+        item.sourceDefined = true;
+        item.sourceDefinition = normalizeLorepackTimelineAnchor(anchor, anchor.id);
+        item.disabled = disabledAnchors.has(item.id);
+    }
+    for (const anchor of customRegistry.anchors || []) {
+        const item = ensure('anchor', anchor.id);
+        if (!item) continue;
+        item.customDefined = true;
+        item.customDefinition = normalizeLorepackTimelineAnchor(anchor, anchor.id);
+        item.disabled = disabledAnchors.has(item.id);
+    }
+    for (const window of sourceRegistry.windows || []) {
+        const item = ensure('window', window.id);
+        if (!item) continue;
+        item.sourceDefined = true;
+        item.sourceDefinition = normalizeLorepackTimelineWindow(window, window.id);
+        item.disabled = disabledWindows.has(item.id);
+    }
+    for (const window of customRegistry.windows || []) {
+        const item = ensure('window', window.id);
+        if (!item) continue;
+        item.customDefined = true;
+        item.customDefinition = normalizeLorepackTimelineWindow(window, window.id);
+        item.disabled = disabledWindows.has(item.id);
+    }
+
+    for (const item of map.values()) {
+        item.definition = item.customDefinition || item.sourceDefinition || (item.kind === 'anchor'
+            ? normalizeLorepackTimelineAnchor({ id: item.id }, item.id)
+            : normalizeLorepackTimelineWindow({ id: item.id }, item.id));
+        item.registryState = item.disabled
+            ? 'disabled'
+            : item.customDefined
+                ? (item.sourceDefined ? 'custom override' : 'custom')
+                : (item.sourceDefined ? 'source' : 'undefined');
+        item.entryIds = item.kind === 'anchor'
+            ? (stats.anchorRefs.get(item.id) || [])
+            : getTimelineWindowEntryRefs(item.definition, stats);
+    }
+
+    const usedAnchorIds = Array.from(stats.anchorRefs.keys());
+    for (const id of usedAnchorIds) {
+        if (map.has(`anchor:${id}`)) continue;
+        const item = ensure('anchor', id);
+        if (!item) continue;
+        item.definition = normalizeLorepackTimelineAnchor({ id, label: id }, id);
+        item.registryState = 'undefined';
+        item.entryIds = stats.anchorRefs.get(id) || [];
+    }
+
+    return Array.from(map.values()).sort((a, b) => {
+        const kindCompare = a.kind.localeCompare(b.kind);
+        if (kindCompare) return kindCompare;
+        const aSort = normalizeLorepackTimelineNumber(a.definition?.sortKey ?? a.definition?.sortKeyFrom) ?? Number.MAX_SAFE_INTEGER;
+        const bSort = normalizeLorepackTimelineNumber(b.definition?.sortKey ?? b.definition?.sortKeyFrom) ?? Number.MAX_SAFE_INTEGER;
+        return aSort - bSort || a.id.localeCompare(b.id);
+    });
+}
+
+function buildMergedLorepackTimelineRegistryForExport(pack) {
+    const sourceRegistry = getLorepackCachedSourceTimelineRegistry(pack?.packId);
+    const customRegistry = getLorepackEmbeddedTimelineRegistry(pack);
+    const merged = normalizeLorepackTimelineRegistry(mergeLorepackTimelineRegistries(sourceRegistry, customRegistry));
+    const exportRegistry = {
+        schemaVersion: merged.schemaVersion,
+        timelineMode: merged.timelineMode,
+        defaultPositionType: merged.defaultPositionType,
+        sortKeyScale: merged.sortKeyScale,
+        summary: merged.summary,
+        anchors: merged.anchors || [],
+        windows: merged.windows || [],
+    };
+    if (!exportRegistry.defaultPositionType) delete exportRegistry.defaultPositionType;
+    if (!exportRegistry.summary) delete exportRegistry.summary;
+    return exportRegistry;
+}
+
+function createLorepackTimelineRegistryCard(pack, rows = []) {
+    const wrap = document.createElement('div');
+    wrap.className = 'wandlight-lorepack-manifest-preview';
+
+    const title = document.createElement('div');
+    title.className = 'wandlight-runtime-card-title';
+    title.textContent = 'Timeline Registry';
+    wrap.appendChild(title);
+
+    const sourceCache = lorepackTimelineRegistryCache.get(pack.packId);
+    const customRegistry = getLorepackEmbeddedTimelineRegistry(pack);
+    const allItems = buildLorepackTimelineRegistryItems(pack, rows);
+    const anchors = allItems.filter(item => item.kind === 'anchor');
+    const windows = allItems.filter(item => item.kind === 'window');
+    const disabledCount = allItems.filter(item => item.disabled).length;
+    const undefinedCount = allItems.filter(item => item.registryState === 'undefined').length;
+    const attachedCount = allItems.filter(item => item.entryIds.length).length;
+
+    const summary = document.createElement('div');
+    summary.className = 'wandlight-lorepack-entry-summary';
+    summary.appendChild(createStatusPill(`${anchors.length} anchors`, 'Timeline anchor definitions visible in this editor.'));
+    summary.appendChild(createStatusPill(`${windows.length} windows`, 'Timeline window definitions visible in this editor.'));
+    summary.appendChild(createStatusPill(`${attachedCount} attached`, 'Timeline definitions referenced by loaded entries.'));
+    if (undefinedCount) summary.appendChild(createStatusPill(`${undefinedCount} undefined`, 'Loaded entries reference anchors that are not defined in the active timeline registry.'));
+    if (disabledCount) summary.appendChild(createStatusPill(`${disabledCount} disabled`, 'Source timeline definitions suppressed by this Custom Lorepack overlay.'));
+    if (sourceCache?.loadedAt && !sourceCache.missing && !sourceCache.error) summary.appendChild(createStatusPill('timeline.json loaded', 'Source timeline registry has been fetched for this editor session.'));
+    if (sourceCache?.missing) summary.appendChild(createStatusPill('no source timeline', 'The manifest does not currently declare registries.timeline.'));
+    if (getLorepackTimelineRegistryCount(customRegistry)) summary.appendChild(createStatusPill('custom overlay', 'This Lorepack has saved editable timeline registry metadata.'));
+    wrap.appendChild(summary);
+
+    const help = document.createElement('div');
+    help.className = 'wandlight-runtime-help';
+    help.textContent = 'Timeline edits queue Custom overlay proposals. Accepted overlays affect Story Position search, Pack Health, and runtime position gating.';
+    wrap.appendChild(help);
+    if (sourceCache?.error) {
+        wrap.appendChild(createKeyValue('Registry Load Error', sourceCache.error, 'Last timeline.json load error for this Lorepack.'));
+    }
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    const loadRegistry = createButton('Load Timeline', 'Fetch source timeline.json for this Lorepack if the manifest declares one.', async (btn) => {
+        await loadLorepackTimelineRegistryForEditor(pack, btn);
+    });
+    loadRegistry.disabled = !pack.manifest;
+    actions.appendChild(loadRegistry);
+    actions.appendChild(createButton('New Anchor', 'Create a new timeline anchor in this Custom Lorepack overlay.', () => {
+        openLorepackTimelineAnchorDialog(pack, null);
+    }, 'wandlight-primary-button'));
+    actions.appendChild(createButton('New Window', 'Create a new timeline window in this Custom Lorepack overlay.', () => {
+        openLorepackTimelineWindowDialog(pack, null);
+    }));
+    const exportButton = createButton('Export Timeline', 'Download the currently merged active timeline registry as timeline.json.', () => {
+        downloadJson(buildMergedLorepackTimelineRegistryForExport(pack), `${sanitizeFileStem(pack.packId || 'saga-lorepack')}.timeline.json`);
+        toast('Timeline registry exported.', 'info');
+    });
+    exportButton.disabled = !allItems.length;
+    actions.appendChild(exportButton);
+    wrap.appendChild(actions);
+
+    const search = document.createElement('input');
+    search.type = 'search';
+    search.className = 'wandlight-lorepack-entry-search';
+    search.placeholder = 'Search timeline anchors/windows...';
+    search.value = lorepackTimelineRegistryQuery || '';
+    addTooltip(search, 'Search timeline IDs, labels, arcs, aliases, tags, and attachment status.');
+    search.addEventListener('click', e => e.stopPropagation());
+    search.addEventListener('mousedown', e => e.stopPropagation());
+    search.addEventListener('keydown', e => {
+        if (e.key !== 'Enter') return;
+        e.preventDefault();
+        lorepackTimelineRegistryQuery = search.value;
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    });
+    search.addEventListener('change', () => {
+        lorepackTimelineRegistryQuery = search.value;
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    });
+    wrap.appendChild(search);
+
+    const q = String(lorepackTimelineRegistryQuery || '').trim().toLowerCase();
+    const visible = allItems
+        .filter(item => {
+            if (!q) return true;
+            const def = item.definition || {};
+            return [
+                item.kind,
+                item.id,
+                item.registryState,
+                def.label,
+                def.arc,
+                def.phase,
+                def.season,
+                def.episode,
+                def.chapter,
+                def.anchorFrom,
+                def.anchorTo,
+                def.notes,
+                ...(Array.isArray(def.aliases) ? def.aliases : []),
+                ...(Array.isArray(def.tags) ? def.tags : []),
+            ].filter(Boolean).join(' ').toLowerCase().includes(q);
+        })
+        .slice(0, 32);
+
+    if (!visible.length) {
+        wrap.appendChild(createEmptyMessage(allItems.length ? 'No matching timeline definitions.' : 'Load entries, load timeline.json, or create an anchor/window to begin editing the registry.'));
+        return wrap;
+    }
+
+    const list = document.createElement('div');
+    list.className = 'wandlight-lorepack-entry-list';
+    for (const item of visible) {
+        list.appendChild(createLorepackTimelineRegistryRow(pack, item));
+    }
+    if (visible.length < allItems.length) {
+        const more = document.createElement('div');
+        more.className = 'wandlight-runtime-help';
+        more.textContent = `Showing ${visible.length} of ${allItems.length} timeline definitions. Search to narrow the list.`;
+        list.appendChild(more);
+    }
+    wrap.appendChild(list);
+    return wrap;
+}
+
+function formatTimelineDateRange(dateRange = {}) {
+    const range = dateRange && typeof dateRange === 'object' && !Array.isArray(dateRange) ? dateRange : {};
+    const from = String(range.from || '').trim();
+    const to = String(range.to || '').trim();
+    if (from && to && from !== to) return `${from} to ${to}`;
+    return from || to || '';
+}
+
+function createLorepackTimelineRegistryRow(pack, item = {}) {
+    const row = document.createElement('div');
+    row.className = `wandlight-lorepack-entry-row${item.disabled ? ' wandlight-lorepack-entry-row-disabled' : ''}`.trim();
+
+    const main = document.createElement('div');
+    main.className = 'wandlight-lorepack-row-main';
+    const title = document.createElement('div');
+    title.className = 'wandlight-lorepack-row-title';
+    title.textContent = item.definition?.label || item.id;
+    main.appendChild(title);
+    const desc = document.createElement('div');
+    desc.className = 'wandlight-lorepack-row-description';
+    if (item.kind === 'anchor') {
+        const range = formatTimelineDateRange(item.definition?.dateRange);
+        desc.textContent = `${item.id}${range ? ` | ${range}` : ''}${item.definition?.notes ? ` | ${truncateText(item.definition.notes, 120)}` : ''}`;
+    } else {
+        desc.textContent = `${item.id} | ${item.definition?.anchorFrom || '?'} -> ${item.definition?.anchorTo || '?'}`;
+    }
+    main.appendChild(desc);
+    const meta = document.createElement('div');
+    meta.className = 'wandlight-lorepack-row-meta';
+    meta.appendChild(createStatusPill(item.kind, 'Timeline registry item type.'));
+    meta.appendChild(createStatusPill(item.registryState, 'Timeline registry source state.'));
+    if (item.kind === 'anchor') meta.appendChild(createStatusPill(`sort ${item.definition?.sortKey ?? '?'}`, 'Timeline sort key.'));
+    if (item.kind === 'window') meta.appendChild(createStatusPill(`${item.definition?.sortKeyFrom ?? '?'}-${item.definition?.sortKeyTo ?? '?'}`, 'Timeline sort key window.'));
+    if (item.entryIds.length) meta.appendChild(createStatusPill(`${item.entryIds.length} entr${item.entryIds.length === 1 ? 'y' : 'ies'}`, item.entryIds.slice(0, 12).join(', ')));
+    main.appendChild(meta);
+    row.appendChild(main);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-lorepack-row-actions';
+    const filterButton = createButton('Entries', 'Filter the entry list to entries attached to this timeline definition.', () => {
+        lorepackEntryOverrideQuery = item.id || '';
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    });
+    filterButton.disabled = !item.entryIds.length;
+    actions.appendChild(filterButton);
+    actions.appendChild(createButton('Edit', 'Edit this timeline definition as a Custom overlay proposal.', () => {
+        if (item.kind === 'anchor') openLorepackTimelineAnchorDialog(pack, item);
+        else openLorepackTimelineWindowDialog(pack, item);
+    }, item.customDefined ? 'wandlight-primary-button' : ''));
+    actions.appendChild(createButton(item.disabled ? 'Enable' : 'Disable', item.disabled ? 'Restore this source timeline definition.' : 'Suppress this timeline definition in this Custom overlay.', () => {
+        setLorepackTimelineItemDisabled(pack, item.kind, item.id, !item.disabled);
+    }));
+    if (item.customDefined) {
+        actions.appendChild(createButton('Forget Overlay', 'Remove this Custom timeline definition and fall back to source if one exists.', () => {
+            removeLorepackTimelineDefinition(pack, item.kind, item.id);
+        }, 'wandlight-danger-button'));
+    }
+    row.appendChild(actions);
+    return row;
+}
+
+function getLorepackAssistantTargetRows(rows = [], filteredRows = [], targetScope = 'current_filter') {
+    if (targetScope === 'all_loaded') return rows || [];
+    const scoped = lorepackEntryOverrideQuery ? filteredRows : rows;
+    return scoped || [];
+}
+
+function compactLorepackAssistantEntry(row = {}) {
+    const entry = row.entry || {};
+    const position = entry.position && typeof entry.position === 'object' && !Array.isArray(entry.position) ? entry.position : {};
+    const retrieval = entry.retrieval && typeof entry.retrieval === 'object' && !Array.isArray(entry.retrieval) ? entry.retrieval : {};
+    const content = entry.content && typeof entry.content === 'object' && !Array.isArray(entry.content) ? entry.content : {};
+    return {
+        id: row.id || entry.id || '',
+        status: row.status || '',
+        title: entry.title || row.id || '',
+        category: entry.category || '',
+        canon: entry.canon || entry.canonStatus || '',
+        relevance: entry.relevance || '',
+        priority: Number.isFinite(Number(entry.priority)) ? Number(entry.priority) : null,
+        tags: getLorepackEntryTags(entry).slice(0, 24),
+        position: {
+            scope: position.scope || '',
+            anchorId: position.anchorId || '',
+            validFromAnchor: position.validFromAnchor || position.anchorFrom || '',
+            validToAnchor: position.validToAnchor || position.anchorTo || '',
+            sortKeyFrom: Number.isFinite(Number(position.sortKeyFrom)) ? Number(position.sortKeyFrom) : null,
+            sortKeyTo: Number.isFinite(Number(position.sortKeyTo)) ? Number(position.sortKeyTo) : null,
+            precision: position.precision || '',
+            windowKind: position.windowKind || '',
+            label: position.label || '',
+        },
+        retrieval: {
+            activation: retrieval.activation || '',
+            frequency: retrieval.frequency || '',
+            positionalBoost: retrieval.positionalBoost || '',
+        },
+        content: {
+            fact: truncateText(content.fact || entry.fact || '', 900),
+            injection: truncateText(content.injection || entry.injection || '', 900),
+            notes: truncateText(content.notes || entry.notes || '', 500),
+        },
+    };
+}
+
+function buildLorepackAssistantContext(pack, rows = [], filteredRows = [], options = {}) {
+    const targetRows = getLorepackAssistantTargetRows(rows, filteredRows, options.targetScope);
+    const timelineItems = buildLorepackTimelineRegistryItems(pack, rows);
+    const tagItems = buildLorepackTagManagerItems(pack, rows);
+    const storyPosition = getLorepackStoryPosition(getState(), pack.packId);
+    return {
+        instruction: options.instruction || '',
+        mode: options.mode || 'mixed',
+        targetScope: options.targetScope || 'current_filter',
+        pack: {
+            packId: pack.packId || '',
+            title: pack.title || pack.packId || '',
+            type: pack.type || '',
+            fandom: pack.fandom || '',
+            era: pack.era || '',
+            entrySchemaVersion: getExpectedLorepackEntrySchemaVersion(pack),
+        },
+        storyPosition: {
+            label: storyPosition?.label || '',
+            positionType: storyPosition?.positionType || '',
+            sceneDate: storyPosition?.sceneDate || '',
+            anchorId: storyPosition?.anchorId || '',
+            anchorFrom: storyPosition?.anchorFrom || '',
+            anchorTo: storyPosition?.anchorTo || '',
+            arc: storyPosition?.arc || '',
+            phase: storyPosition?.phase || '',
+        },
+        allowedTimelineAnchorIds: timelineItems
+            .filter(item => item.kind === 'anchor' && !item.disabled)
+            .map(item => item.id)
+            .slice(0, 160),
+        knownTags: tagItems
+            .map(item => item.tag)
+            .filter(Boolean)
+            .slice(0, 160),
+        targetEntries: targetRows
+            .filter(row => row?.id && !row.disabled)
+            .slice(0, 60)
+            .map(compactLorepackAssistantEntry),
+    };
+}
+
+function createLorepackAssistantCard(pack, rows = [], filteredRows = []) {
+    const wrap = document.createElement('div');
+    wrap.className = 'wandlight-lorepack-manifest-preview';
+
+    const title = document.createElement('div');
+    title.className = 'wandlight-runtime-card-title';
+    title.textContent = 'Lore Assistant';
+    wrap.appendChild(title);
+
+    const targetRows = getLorepackAssistantTargetRows(rows, filteredRows, lorepackAssistantTargetScope).filter(row => row?.id && !row.disabled);
+    const cached = lorepackAssistantDraftCache.get(pack.packId);
+    const summary = document.createElement('div');
+    summary.className = 'wandlight-lorepack-entry-summary';
+    summary.appendChild(createStatusPill(`${targetRows.length} target entr${targetRows.length === 1 ? 'y' : 'ies'}`, 'Entries included in the assistant context. Current search can narrow this set.'));
+    summary.appendChild(createStatusPill(lorepackAssistantMode.replace(/_/g, ' '), 'Current assistant task mode.'));
+    if (cached?.queuedCount) summary.appendChild(createStatusPill(`${cached.queuedCount} queued`, 'Last assistant proposal count queued into Pending Review.'));
+    if (cached?.questions?.length) summary.appendChild(createStatusPill(`${cached.questions.length} question${cached.questions.length === 1 ? '' : 's'}`, 'Last assistant response requested clarification.'));
+    wrap.appendChild(summary);
+
+    const help = document.createElement('div');
+    help.className = 'wandlight-runtime-help';
+    help.textContent = 'The assistant drafts reviewable proposals only. Accepted Lorepack data changes after you accept the queued Pending Review items.';
+    wrap.appendChild(help);
+
+    const form = document.createElement('div');
+    form.className = 'wandlight-new-lore-form';
+    const instructionInput = createNewLoreInput(form, 'Instruction', 'Describe the revision, missing lore, tag definitions, or timeline anchors/windows you want proposed.', lorepackAssistantInstruction || '', true, 'Revise Arlong and crew entries so their cruelty creates more pressure and danger without turning every line into generic villain biography.');
+    const grid = document.createElement('div');
+    grid.className = 'wandlight-new-lore-meta-grid';
+    form.appendChild(grid);
+    const modeSelect = createNewLoreSelect(grid, 'Mode', ['revise_entries', 'suggest_entries', 'draft_tags', 'draft_timeline', 'mixed'], lorepackAssistantMode, value => humanizeScopeKey(value));
+    const scopeSelect = createNewLoreSelect(grid, 'Target', ['current_filter', 'all_loaded'], lorepackAssistantTargetScope, value => value === 'current_filter' ? 'Current Search' : 'All Loaded');
+    wrap.appendChild(form);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    const draftButton = createButton('Draft Proposals', 'Ask the Reasoning Provider to draft structured Lorepack changes and queue them into Pending Review.', async (btn) => {
+        lorepackAssistantInstruction = instructionInput.value.trim();
+        lorepackAssistantMode = modeSelect.value;
+        lorepackAssistantTargetScope = scopeSelect.value;
+        await handleLorepackAssistantDraft(pack, rows, filteredRows, {
+            instruction: lorepackAssistantInstruction,
+            mode: lorepackAssistantMode,
+            targetScope: lorepackAssistantTargetScope,
+        }, btn);
+    }, 'wandlight-primary-button');
+    actions.appendChild(draftButton);
+    const loadButton = createButton('Load Context', 'Load entries, tags, and timeline registries so the assistant has current context.', async (btn) => {
+        await loadLorepackEntriesForEditor(pack, btn);
+    });
+    loadButton.disabled = !pack.manifest;
+    actions.appendChild(loadButton);
+    wrap.appendChild(actions);
+
+    if (cached?.summary || cached?.questions?.length || cached?.warnings?.length) {
+        const result = document.createElement('div');
+        result.className = 'wandlight-runtime-help';
+        const parts = [];
+        if (cached.summary) parts.push(cached.summary);
+        if (cached.questions?.length) parts.push(`Questions: ${cached.questions.join(' | ')}`);
+        if (cached.warnings?.length) parts.push(`Warnings: ${cached.warnings.join(' | ')}`);
+        result.textContent = parts.join(' ');
+        wrap.appendChild(result);
+    }
+
+    return wrap;
+}
+
+async function handleLorepackAssistantDraft(pack, rows = [], filteredRows = [], options = {}, button = null) {
+    await runBusyAction(button, 'Drafting...', async () => {
+        if (!ensureLoreProviderReadyForAction('Lore Assistant', 'lore')) return;
+        const instruction = String(options.instruction || '').trim();
+        if (!instruction) {
+            toast('Enter an assistant instruction first.', 'warning');
+            return;
+        }
+        const fresh = getFreshLorepackLibraryPack(pack.packId, pack);
+        if (!fresh || fresh.type === 'bundled') {
+            toast('Bundled Lorepacks cannot be edited directly. Duplicate as Custom first.', 'warning');
+            return;
+        }
+        const context = buildLorepackAssistantContext(fresh, rows, filteredRows, options);
+        const responseText = await sendLoreRequest(
+            buildLorepackAssistantSystemPrompt(),
+            buildLorepackAssistantUserPrompt(context),
+            { providerKind: 'lore', maxTokens: 4096 }
+        );
+        const parsed = parseLorepackAssistantResponse(responseText);
+        const changes = buildLorepackAssistantPendingChanges(fresh, parsed.proposals, rows);
+        lorepackAssistantDraftCache.set(fresh.packId, {
+            summary: parsed.summary,
+            questions: parsed.clarifyingQuestions,
+            warnings: parsed.warnings,
+            proposalCount: parsed.proposals.length,
+            queuedCount: changes.length,
+            createdAt: Date.now(),
+        });
+        if (parsed.clarifyingQuestions.length && !changes.length) {
+            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+            toast(`Lore Assistant needs clarification: ${parsed.clarifyingQuestions[0]}`, 'warning');
+            return;
+        }
+        if (!changes.length) {
+            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+            toast(parsed.warnings[0] || 'Lore Assistant returned no supported proposals.', 'warning');
+            return;
+        }
+        const queued = queueLorepackPendingChanges(fresh, changes, `Queued ${changes.length} Lore Assistant proposal${changes.length === 1 ? '' : 's'}.`);
+        if (queued) {
+            lorepackAssistantDraftCache.set(fresh.packId, {
+                summary: parsed.summary,
+                questions: parsed.clarifyingQuestions,
+                warnings: parsed.warnings,
+                proposalCount: parsed.proposals.length,
+                queuedCount: changes.length,
+                createdAt: Date.now(),
+            });
+            toast(`Lore Assistant queued ${changes.length} proposal${changes.length === 1 ? '' : 's'} for review.`, 'success');
+        }
+    });
+}
+
+function buildLorepackAssistantPendingChanges(pack, proposals = [], rows = []) {
+    const changes = [];
+    const rowById = new Map((rows || []).map(row => [String(row?.id || '').trim(), row]).filter(([id]) => id));
+    for (const proposal of proposals || []) {
+        const change = buildLorepackAssistantPendingChange(pack, proposal, rowById);
+        if (change) changes.push(change);
+        if (changes.length >= 40) break;
+    }
+    return changes;
+}
+
+function buildLorepackAssistantPendingChange(pack, proposal = {}, rowById = new Map()) {
+    if (!proposal?.action) return null;
+    if (proposal.action === 'upsert_entry') return buildLorepackAssistantEntryChange(pack, proposal, rowById);
+    if (proposal.action === 'disable_entry' || proposal.action === 'restore_entry') return buildLorepackAssistantEntryToggleChange(proposal);
+    if (proposal.action === 'upsert_tag_definition') return buildLorepackAssistantTagChange(proposal);
+    if (proposal.action === 'upsert_timeline_anchor') return buildLorepackAssistantTimelineAnchorChange(proposal);
+    if (proposal.action === 'upsert_timeline_window') return buildLorepackAssistantTimelineWindowChange(proposal);
+    return null;
+}
+
+function buildLorepackAssistantEntryChange(pack, proposal = {}, rowById = new Map()) {
+    const rawEntry = proposal.entry && typeof proposal.entry === 'object' && !Array.isArray(proposal.entry) ? proposal.entry : null;
+    if (!rawEntry) return null;
+    const id = normalizeLorepackEntryId(rawEntry.id || proposal.entryId);
+    if (!id) return null;
+    const row = rowById.get(id) || null;
+    const baseEntry = row?.entry || {};
+    const entrySchemaVersion = Math.max(Number(rawEntry.schemaVersion) || 0, Number(baseEntry.schemaVersion) || 0, getExpectedLorepackEntrySchemaVersion(pack));
+    const content = rawEntry.content && typeof rawEntry.content === 'object' && !Array.isArray(rawEntry.content) ? rawEntry.content : {};
+    const baseContent = baseEntry.content && typeof baseEntry.content === 'object' && !Array.isArray(baseEntry.content) ? baseEntry.content : {};
+    const fact = String(content.fact || rawEntry.fact || baseContent.fact || baseEntry.fact || rawEntry.title || baseEntry.title || id).trim();
+    const injection = String(content.injection || rawEntry.injection || baseContent.injection || fact).trim();
+    let entry = normalizeLoreEntry({
+        ...baseEntry,
+        ...rawEntry,
+        id,
+        title: String(rawEntry.title || baseEntry.title || id).trim(),
+        category: rawEntry.category || baseEntry.category || 'other',
+        canon: rawEntry.canon || rawEntry.canonStatus || baseEntry.canon || baseEntry.canonStatus || 'au',
+        canonStatus: rawEntry.canonStatus || rawEntry.canon || baseEntry.canonStatus || baseEntry.canon || 'au',
+        relevance: normalizeLoreRelevance(rawEntry.relevance || baseEntry.relevance || 'normal'),
+        priority: Number.isFinite(Number(rawEntry.priority)) ? Number(rawEntry.priority) : (Number(baseEntry.priority) || 50),
+        tags: parseLorepackEntryTags(rawEntry.tags || baseEntry.tags || []),
+        source: rawEntry.source || baseEntry.source || `saga-lorepack:${pack.packId}:assistant`,
+        content: {
+            ...baseContent,
+            ...content,
+            fact,
+            injection,
+            notes: String(content.notes || rawEntry.notes || baseContent.notes || '').trim(),
+        },
+        userEditable: true,
+        userEdited: true,
+        extensions: {
+            ...(baseEntry.extensions || {}),
+            ...(rawEntry.extensions || {}),
+            sagaLorepackOverride: {
+                kind: row?.sourceEntry ? 'override' : 'addition',
+                packId: pack.packId,
+                sourceEntryId: row?.sourceEntry?.id || '',
+                updatedAt: Date.now(),
+                source: 'lore_assistant',
+            },
+        },
+    });
+    entry.id = id;
+    entry.tags = parseLorepackEntryTags(rawEntry.tags || baseEntry.tags || []);
+    if (entrySchemaVersion >= 3) {
+        const position = rawEntry.position || baseEntry.position || {};
+        const retrieval = rawEntry.retrieval || baseEntry.retrieval || {};
+        const errors = validateLorepackV3EditorFields(position, retrieval);
+        if (errors.length) return null;
+        entry = normalizeLorepackEntryForSchemaV3({
+            ...entry,
+            id,
+            schemaVersion: 3,
+            position,
+            retrieval,
+            tags: entry.tags,
+        });
+        entry.tags = parseLorepackEntryTags(rawEntry.tags || baseEntry.tags || []);
+    }
+    return createLorepackRecordPatchChange({
+        source: 'lore_assistant',
+        action: 'assistant_upsert_entry',
+        targetKind: 'entry',
+        title: proposal.title || `Lore Assistant entry: ${entry.title || id}`,
+        description: proposal.reason || 'Lore Assistant proposed an entry change.',
+        affectedEntryIds: [id],
+        payload: {
+            entryOverrides: { [id]: entry },
+            disabledEntryIdsRemove: [id],
+        },
+        preview: {
+            before: row?.entry?.content?.fact || row?.entry?.fact || '',
+            after: entry.content?.fact || entry.fact || entry.title || id,
+            confidence: proposal.confidence,
+            risk: proposal.risk,
+        },
+    });
+}
+
+function buildLorepackAssistantEntryToggleChange(proposal = {}) {
+    const id = String(proposal.entryId || '').trim();
+    if (!id) return null;
+    const restore = proposal.action === 'restore_entry';
+    return createLorepackRecordPatchChange({
+        source: 'lore_assistant',
+        action: restore ? 'assistant_restore_entry' : 'assistant_disable_entry',
+        targetKind: 'entry',
+        title: proposal.title || `${restore ? 'Restore' : 'Disable'} entry: ${id}`,
+        description: proposal.reason || `Lore Assistant proposed to ${restore ? 'restore' : 'disable'} this entry.`,
+        affectedEntryIds: [id],
+        payload: restore ? { disabledEntryIdsRemove: [id] } : { disabledEntryIdsAdd: [id] },
+        preview: {
+            after: restore ? 'Entry will be restored.' : 'Entry will be disabled.',
+        },
+    });
+}
+
+function buildLorepackAssistantTagChange(proposal = {}) {
+    const rawDef = proposal.tagDefinition && typeof proposal.tagDefinition === 'object' && !Array.isArray(proposal.tagDefinition)
+        ? proposal.tagDefinition
+        : {};
+    const id = normalizeLorepackTagId(rawDef.id || proposal.tagId);
+    if (!id) return null;
+    const def = normalizeLorepackTagDefinition(rawDef, id);
+    delete def.id;
+    return createLorepackRecordPatchChange({
+        source: 'lore_assistant',
+        action: 'assistant_upsert_tag_definition',
+        targetKind: 'tag',
+        title: proposal.title || `Lore Assistant tag: ${id}`,
+        description: proposal.reason || 'Lore Assistant proposed a tag definition.',
+        affectedTagIds: [id],
+        payload: {
+            tagDefinitions: { [id]: def },
+        },
+        preview: {
+            after: def.description || def.label || id,
+            confidence: proposal.confidence,
+            risk: proposal.risk,
+        },
+    });
+}
+
+function buildLorepackAssistantTimelineAnchorChange(proposal = {}) {
+    const rawAnchor = proposal.timelineAnchor && typeof proposal.timelineAnchor === 'object' && !Array.isArray(proposal.timelineAnchor)
+        ? proposal.timelineAnchor
+        : {};
+    const id = normalizeLorepackTimelineId(rawAnchor.id || proposal.timelineId);
+    if (!id) return null;
+    const anchor = normalizeLorepackTimelineAnchor({ ...rawAnchor, id }, id);
+    if (!anchor) return null;
+    return createLorepackRecordPatchChange({
+        source: 'lore_assistant',
+        action: 'assistant_upsert_timeline_anchor',
+        targetKind: 'timeline_anchor',
+        title: proposal.title || `Lore Assistant anchor: ${id}`,
+        description: proposal.reason || 'Lore Assistant proposed a timeline anchor.',
+        affectedTimelineIds: [id],
+        payload: {
+            timelineAnchors: { [id]: anchor },
+            timelineAnchorIdsEnable: [id],
+        },
+        preview: {
+            after: anchor.label || id,
+            confidence: proposal.confidence,
+            risk: proposal.risk,
+        },
+    });
+}
+
+function buildLorepackAssistantTimelineWindowChange(proposal = {}) {
+    const rawWindow = proposal.timelineWindow && typeof proposal.timelineWindow === 'object' && !Array.isArray(proposal.timelineWindow)
+        ? proposal.timelineWindow
+        : {};
+    const id = normalizeLorepackTimelineId(rawWindow.id || proposal.timelineId);
+    if (!id) return null;
+    const windowDef = normalizeLorepackTimelineWindow({ ...rawWindow, id }, id);
+    if (!windowDef) return null;
+    return createLorepackRecordPatchChange({
+        source: 'lore_assistant',
+        action: 'assistant_upsert_timeline_window',
+        targetKind: 'timeline_window',
+        title: proposal.title || `Lore Assistant window: ${id}`,
+        description: proposal.reason || 'Lore Assistant proposed a timeline window.',
+        affectedTimelineIds: [id, windowDef.anchorFrom, windowDef.anchorTo].filter(Boolean),
+        payload: {
+            timelineWindows: { [id]: windowDef },
+            timelineWindowIdsEnable: [id],
+        },
+        preview: {
+            after: windowDef.label || `${windowDef.anchorFrom || '?'} -> ${windowDef.anchorTo || '?'}`,
+            confidence: proposal.confidence,
+            risk: proposal.risk,
+        },
+    });
+}
+
+function saveLorepackTimelineAnchorDefinition(pack, anchor, message = '') {
+    const id = normalizeLorepackTimelineId(anchor?.id);
+    if (!id) {
+        toast('Timeline anchor needs a valid ID.', 'warning');
+        return false;
+    }
+    const def = normalizeLorepackTimelineAnchor({ ...anchor, id }, id);
+    return queueLorepackPendingChange(pack, createLorepackRecordPatchChange({
+        action: 'upsert_timeline_anchor',
+        targetKind: 'timeline_anchor',
+        title: `Save timeline anchor: ${id}`,
+        description: 'Creates or updates a Custom timeline anchor overlay after review.',
+        affectedTimelineIds: [id],
+        payload: {
+            timelineAnchors: { [id]: def },
+            timelineAnchorIdsEnable: [id],
+        },
+        preview: {
+            after: def.label || id,
+        },
+    }), message || `Queued timeline anchor for ${id}.`);
+}
+
+function saveLorepackTimelineWindowDefinition(pack, windowDef, message = '') {
+    const id = normalizeLorepackTimelineId(windowDef?.id);
+    if (!id) {
+        toast('Timeline window needs a valid ID.', 'warning');
+        return false;
+    }
+    const def = normalizeLorepackTimelineWindow({ ...windowDef, id }, id);
+    return queueLorepackPendingChange(pack, createLorepackRecordPatchChange({
+        action: 'upsert_timeline_window',
+        targetKind: 'timeline_window',
+        title: `Save timeline window: ${id}`,
+        description: 'Creates or updates a Custom timeline window overlay after review.',
+        affectedTimelineIds: [id, def.anchorFrom, def.anchorTo].filter(Boolean),
+        payload: {
+            timelineWindows: { [id]: def },
+            timelineWindowIdsEnable: [id],
+        },
+        preview: {
+            after: def.label || `${def.anchorFrom || '?'} -> ${def.anchorTo || '?'}`,
+        },
+    }), message || `Queued timeline window for ${id}.`);
+}
+
+function removeLorepackTimelineDefinition(pack, kind = 'anchor', id = '') {
+    const cleanId = normalizeLorepackTimelineId(id);
+    if (!cleanId) return false;
+    const isWindow = kind === 'window';
+    return queueLorepackPendingChange(pack, createLorepackRecordPatchChange({
+        action: isWindow ? 'remove_timeline_window' : 'remove_timeline_anchor',
+        targetKind: isWindow ? 'timeline_window' : 'timeline_anchor',
+        title: `Forget timeline ${isWindow ? 'window' : 'anchor'}: ${cleanId}`,
+        description: 'Removes the Custom timeline overlay after review. Source definitions remain unless disabled.',
+        affectedTimelineIds: [cleanId],
+        payload: isWindow
+            ? { timelineWindows: { [cleanId]: null } }
+            : { timelineAnchors: { [cleanId]: null } },
+        preview: {
+            after: 'Custom timeline overlay will be removed.',
+        },
+    }), `Queued timeline overlay removal for ${cleanId}.`);
+}
+
+function setLorepackTimelineItemDisabled(pack, kind = 'anchor', id = '', disabled = true) {
+    const cleanId = normalizeLorepackTimelineId(id);
+    if (!cleanId) return false;
+    const isWindow = kind === 'window';
+    const payload = isWindow
+        ? {
+            timelineWindowIdsDisable: disabled ? [cleanId] : [],
+            timelineWindowIdsEnable: disabled ? [] : [cleanId],
+        }
+        : {
+            timelineAnchorIdsDisable: disabled ? [cleanId] : [],
+            timelineAnchorIdsEnable: disabled ? [] : [cleanId],
+        };
+    return queueLorepackPendingChange(pack, createLorepackRecordPatchChange({
+        action: disabled ? 'disable_timeline_definition' : 'enable_timeline_definition',
+        targetKind: isWindow ? 'timeline_window' : 'timeline_anchor',
+        title: `${disabled ? 'Disable' : 'Enable'} timeline ${isWindow ? 'window' : 'anchor'}: ${cleanId}`,
+        description: `${disabled ? 'Suppresses' : 'Restores'} this timeline definition after review.`,
+        affectedTimelineIds: [cleanId],
+        payload,
+        preview: {
+            after: disabled ? 'Definition will be disabled in this Custom overlay.' : 'Definition will be restored in this Custom overlay.',
+        },
+    }), `Queued timeline ${disabled ? 'disable' : 'enable'} for ${cleanId}.`);
+}
+
+function openLorepackTimelineAnchorDialog(pack, item = null) {
+    if (pack.type === 'bundled') {
+        toast('Bundled Lorepack timelines are read-only. Duplicate as Custom first.', 'warning');
+        return;
+    }
+    const existing = document.querySelector('.wandlight-lorepack-timeline-overlay');
+    existing?.remove();
+
+    const definition = normalizeLorepackTimelineAnchor(item?.definition || {}, item?.id || '') || {};
+    const isExisting = !!definition?.id;
+    const overlay = document.createElement('div');
+    overlay.className = 'wandlight-new-lore-overlay wandlight-lorepack-timeline-overlay';
+    document.body.appendChild(overlay);
+
+    const shell = document.createElement('div');
+    shell.className = 'wandlight-new-lore-shell wandlight-lorepack-entry-override-shell';
+    overlay.appendChild(shell);
+
+    const header = document.createElement('div');
+    header.className = 'wandlight-lore-workbench-header';
+    const titleWrap = document.createElement('div');
+    titleWrap.className = 'wandlight-lore-workbench-title-wrap';
+    const title = document.createElement('div');
+    title.className = 'wandlight-lore-workbench-title';
+    title.textContent = isExisting ? 'Edit Timeline Anchor' : 'New Timeline Anchor';
+    titleWrap.appendChild(title);
+    const subtitle = document.createElement('div');
+    subtitle.className = 'wandlight-lore-workbench-subtitle';
+    subtitle.textContent = `${pack.title || pack.packId} | Pending timeline proposal`;
+    titleWrap.appendChild(subtitle);
+    header.appendChild(titleWrap);
+    header.appendChild(createButton('Close', 'Close without saving this timeline anchor.', () => overlay.remove()));
+    shell.appendChild(header);
+
+    const form = document.createElement('div');
+    form.className = 'wandlight-new-lore-form wandlight-lorepack-entry-override-form';
+    shell.appendChild(form);
+
+    const idInput = createNewLoreInput(form, 'Anchor ID', 'Stable Story Position anchor ID.', definition.id || '', false, 'one-piece.arlong_park.nami_breaks_down');
+    idInput.disabled = isExisting;
+    const labelInput = createNewLoreInput(form, 'Label', 'Human-readable anchor label.', definition.label || '', false, 'Nami asks Luffy for help');
+    const sortKeyInput = createNewLoreInput(form, 'Sort Key', 'Numeric order inside this Lorepack timeline.', getLorepackEntryEditorNumberText(definition.sortKey), false, '1200');
+    sortKeyInput.inputMode = 'decimal';
+
+    const grid = appendLorepackEntryEditorSection(form, 'Coordinates');
+    const dateFromInput = createNewLoreInput(grid, 'Date From', 'Optional date/year/stardate lower bound.', definition.dateRange?.from || '', false, '1995-09-01');
+    const dateToInput = createNewLoreInput(grid, 'Date To', 'Optional date/year/stardate upper bound.', definition.dateRange?.to || '', false, '1996-06-30');
+    const precisionInput = createNewLoreInput(grid, 'Date Precision', 'Optional precision label.', definition.dateRange?.precision || '', false, 'day');
+    const arcInput = createNewLoreInput(grid, 'Arc', 'Optional arc label.', definition.arc || '', false, 'Arlong Park');
+    const phaseInput = createNewLoreInput(grid, 'Phase', 'Optional phase/saga label.', definition.phase || '', false, 'East Blue Saga');
+    const seasonInput = createNewLoreInput(grid, 'Season', 'Optional season number or label.', definition.season || '', false, '1');
+    const episodeInput = createNewLoreInput(grid, 'Episode', 'Optional episode number or label.', definition.episode || '', false, '37');
+    const chapterInput = createNewLoreInput(grid, 'Chapter', 'Optional chapter/issue number.', definition.chapter || definition.issue || '', false, '81');
+    const aliasesInput = createNewLoreInput(form, 'Aliases', 'Comma-separated local resolver aliases.', (definition.aliases || []).join(', '), false, 'help me, Nami cries, Arlong Park climax');
+    const tagsInput = createNewLoreInput(form, 'Tags', 'Comma-separated timeline tags.', (definition.tags || []).join(', '), false, 'arc:arlong-park, event:turning-point');
+    const notesInput = createNewLoreInput(form, 'Notes', 'Private notes for this timeline anchor.', definition.notes || '', true, 'Why this anchor matters.');
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    actions.appendChild(createButton('Queue Anchor', 'Queue this timeline anchor for Pending Review.', () => {
+        const id = isExisting ? definition.id : normalizeLorepackTimelineId(idInput.value);
+        if (!id || !labelInput.value.trim()) {
+            toast('Timeline anchor needs an ID and label.', 'warning');
+            return;
+        }
+        const sortKey = normalizeLorepackTimelineNumber(sortKeyInput.value);
+        if (sortKey === null) {
+            toast('Timeline anchor needs a numeric sort key.', 'warning');
+            return;
+        }
+        const saved = saveLorepackTimelineAnchorDefinition(pack, {
+            id,
+            label: labelInput.value.trim(),
+            sortKey,
+            dateRange: {
+                from: dateFromInput.value.trim(),
+                to: dateToInput.value.trim(),
+                precision: precisionInput.value.trim(),
+            },
+            arc: arcInput.value.trim(),
+            phase: phaseInput.value.trim(),
+            season: seasonInput.value.trim(),
+            episode: episodeInput.value.trim(),
+            chapter: chapterInput.value.trim(),
+            aliases: normalizeLorepackTimelineTextList(aliasesInput.value, 64),
+            tags: normalizeLorepackTimelineTextList(tagsInput.value, 64),
+            notes: notesInput.value.trim(),
+        }, `Queued timeline anchor ${id}.`);
+        if (saved) overlay.remove();
+    }, 'wandlight-primary-button'));
+    actions.appendChild(createButton('Cancel', 'Close without saving this timeline anchor.', () => overlay.remove()));
+    form.appendChild(actions);
+
+    requestAnimationFrame(() => (isExisting ? labelInput : idInput).focus());
+}
+
+function openLorepackTimelineWindowDialog(pack, item = null) {
+    if (pack.type === 'bundled') {
+        toast('Bundled Lorepack timelines are read-only. Duplicate as Custom first.', 'warning');
+        return;
+    }
+    const existing = document.querySelector('.wandlight-lorepack-timeline-overlay');
+    existing?.remove();
+
+    const definition = normalizeLorepackTimelineWindow(item?.definition || {}, item?.id || '') || {};
+    const isExisting = !!definition?.id;
+    const overlay = document.createElement('div');
+    overlay.className = 'wandlight-new-lore-overlay wandlight-lorepack-timeline-overlay';
+    document.body.appendChild(overlay);
+
+    const shell = document.createElement('div');
+    shell.className = 'wandlight-new-lore-shell wandlight-lorepack-entry-override-shell';
+    overlay.appendChild(shell);
+
+    const header = document.createElement('div');
+    header.className = 'wandlight-lore-workbench-header';
+    const titleWrap = document.createElement('div');
+    titleWrap.className = 'wandlight-lore-workbench-title-wrap';
+    const title = document.createElement('div');
+    title.className = 'wandlight-lore-workbench-title';
+    title.textContent = isExisting ? 'Edit Timeline Window' : 'New Timeline Window';
+    titleWrap.appendChild(title);
+    const subtitle = document.createElement('div');
+    subtitle.className = 'wandlight-lore-workbench-subtitle';
+    subtitle.textContent = `${pack.title || pack.packId} | Pending timeline proposal`;
+    titleWrap.appendChild(subtitle);
+    header.appendChild(titleWrap);
+    header.appendChild(createButton('Close', 'Close without saving this timeline window.', () => overlay.remove()));
+    shell.appendChild(header);
+
+    const form = document.createElement('div');
+    form.className = 'wandlight-new-lore-form wandlight-lorepack-entry-override-form';
+    shell.appendChild(form);
+
+    const idInput = createNewLoreInput(form, 'Window ID', 'Stable Story Position window ID.', definition.id || '', false, 'one-piece.arlong_park.full_arc');
+    idInput.disabled = isExisting;
+    const labelInput = createNewLoreInput(form, 'Label', 'Human-readable timeline window label.', definition.label || '', false, 'Arlong Park Arc');
+
+    const grid = appendLorepackEntryEditorSection(form, 'Bounds');
+    const fromInput = createNewLoreInput(grid, 'From Anchor', 'Starting anchor ID.', definition.anchorFrom || '', false, 'one-piece.arlong_park.arrival');
+    const toInput = createNewLoreInput(grid, 'To Anchor', 'Ending anchor ID.', definition.anchorTo || '', false, 'one-piece.arlong_park.departure');
+    const sortFromInput = createNewLoreInput(grid, 'Sort From', 'Numeric lower bound for this window.', getLorepackEntryEditorNumberText(definition.sortKeyFrom), false, '1100');
+    const sortToInput = createNewLoreInput(grid, 'Sort To', 'Numeric upper bound for this window.', getLorepackEntryEditorNumberText(definition.sortKeyTo), false, '1299');
+    sortFromInput.inputMode = 'decimal';
+    sortToInput.inputMode = 'decimal';
+    const dateFromInput = createNewLoreInput(grid, 'Date From', 'Optional date/year/stardate lower bound.', definition.dateRange?.from || '', false, '1995-09-01');
+    const dateToInput = createNewLoreInput(grid, 'Date To', 'Optional date/year/stardate upper bound.', definition.dateRange?.to || '', false, '1996-06-30');
+    const precisionInput = createNewLoreInput(grid, 'Date Precision', 'Optional precision label.', definition.dateRange?.precision || '', false, 'arc');
+    const aliasesInput = createNewLoreInput(form, 'Aliases', 'Comma-separated local resolver aliases.', (definition.aliases || []).join(', '), false, 'Arlong Park, Nami arc');
+    const tagsInput = createNewLoreInput(form, 'Tags', 'Comma-separated timeline tags.', (definition.tags || []).join(', '), false, 'arc:arlong-park, saga:east-blue');
+    const notesInput = createNewLoreInput(form, 'Notes', 'Private notes for this timeline window.', definition.notes || '', true, 'Window authoring notes.');
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    actions.appendChild(createButton('Queue Window', 'Queue this timeline window for Pending Review.', () => {
+        const id = isExisting ? definition.id : normalizeLorepackTimelineId(idInput.value);
+        if (!id || !labelInput.value.trim()) {
+            toast('Timeline window needs an ID and label.', 'warning');
+            return;
+        }
+        const sortKeyFrom = normalizeLorepackTimelineNumber(sortFromInput.value);
+        const sortKeyTo = normalizeLorepackTimelineNumber(sortToInput.value);
+        if (sortKeyFrom === null || sortKeyTo === null) {
+            toast('Timeline window needs numeric sort bounds.', 'warning');
+            return;
+        }
+        if (sortKeyFrom > sortKeyTo) {
+            toast('Timeline window sort start cannot be after sort end.', 'warning');
+            return;
+        }
+        const anchorFrom = normalizeLorepackTimelineId(fromInput.value);
+        const anchorTo = normalizeLorepackTimelineId(toInput.value);
+        const saved = saveLorepackTimelineWindowDefinition(pack, {
+            id,
+            label: labelInput.value.trim(),
+            anchorFrom,
+            anchorTo,
+            sortKeyFrom,
+            sortKeyTo,
+            dateRange: {
+                from: dateFromInput.value.trim(),
+                to: dateToInput.value.trim(),
+                precision: precisionInput.value.trim(),
+            },
+            aliases: normalizeLorepackTimelineTextList(aliasesInput.value, 64),
+            tags: normalizeLorepackTimelineTextList(tagsInput.value, 64),
+            notes: notesInput.value.trim(),
+        }, `Queued timeline window ${id}.`);
+        if (saved) overlay.remove();
+    }, 'wandlight-primary-button'));
+    actions.appendChild(createButton('Cancel', 'Close without saving this timeline window.', () => overlay.remove()));
+    form.appendChild(actions);
+
+    requestAnimationFrame(() => (isExisting ? labelInput : idInput).focus());
+}
+
 function createLorepackTagManagerCard(pack, rows = [], filteredRows = []) {
     const wrap = document.createElement('div');
     wrap.className = 'wandlight-lorepack-manifest-preview';
@@ -3503,29 +5223,59 @@ function createLorepackTagManagerCard(pack, rows = [], filteredRows = []) {
     title.textContent = 'Tag Manager';
     wrap.appendChild(title);
 
-    const allStats = buildLorepackTagStats(rows);
+    const sourceCache = lorepackTagRegistryCache.get(pack.packId);
+    const customRegistry = getLorepackEmbeddedTagRegistry(pack);
+    const allItems = buildLorepackTagManagerItems(pack, rows);
+    const registryCount = allItems.filter(item => item.sourceDefined || item.customDefined).length;
+    const undefinedCount = allItems.filter(item => item.count && !item.sourceDefined && !item.customDefined).length;
     const targetRows = lorepackEntryOverrideQuery ? filteredRows : rows;
     const editableTargetCount = getLorepackEntryRowsForBulk(targetRows).length;
 
     const summary = document.createElement('div');
     summary.className = 'wandlight-lorepack-entry-summary';
-    summary.appendChild(createStatusPill(`${allStats.length} tag${allStats.length === 1 ? '' : 's'}`, 'Unique tags across loaded source entries and saved overrides.'));
+    summary.appendChild(createStatusPill(`${registryCount} defined`, 'Tags defined by source tags.json or this Custom Lorepack registry layer.'));
+    summary.appendChild(createStatusPill(`${undefinedCount} undefined`, 'Entry tags currently used but not defined by a loaded registry.'));
+    summary.appendChild(createStatusPill(`${allItems.length} visible`, 'Total registry and entry-discovered tags in this manager.'));
     summary.appendChild(createStatusPill(`${editableTargetCount} target entr${editableTargetCount === 1 ? 'y' : 'ies'}`, 'Entries affected by bulk tag actions. Current entry search narrows this target set.'));
+    if (sourceCache?.loadedAt && !sourceCache.missing && !sourceCache.error) summary.appendChild(createStatusPill('tags.json loaded', 'Source tag registry has been fetched for this editor session.'));
+    if (sourceCache?.missing) summary.appendChild(createStatusPill('no source registry', 'The manifest does not currently declare registries.tags.'));
+    if (getLorepackTagRegistryCount(customRegistry)) summary.appendChild(createStatusPill('custom registry', 'This Lorepack has saved editable tag registry metadata.'));
     if (lorepackEntryOverrideQuery) summary.appendChild(createStatusPill('Search scoped', 'Bulk tag actions will target the current entry search result.'));
     wrap.appendChild(summary);
 
     const help = document.createElement('div');
     help.className = 'wandlight-runtime-help';
-    help.textContent = 'Tags are edited through Custom overrides. Use entry search first to narrow bulk tag actions to a subset.';
+    help.textContent = pack.type === 'bundled'
+        ? 'Bundled tag registries are read-only here. Duplicate this pack as Custom to define, rename, or deprecate tags.'
+        : 'Registry definitions are saved in this Custom Lorepack record. Entry tag changes still use Custom overrides.';
     wrap.appendChild(help);
+    if (sourceCache?.error) {
+        wrap.appendChild(createKeyValue('Registry Load Error', sourceCache.error, 'Last tags.json load error for this Lorepack.'));
+    }
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
+    const loadRegistry = createButton('Load Registry', 'Fetch source tags.json for this Lorepack if the manifest declares one.', async (btn) => {
+        await loadLorepackTagRegistryForEditor(pack, btn);
+    });
+    loadRegistry.disabled = !pack.manifest;
+    actions.appendChild(loadRegistry);
+    const newTag = createButton('New Tag', 'Create a new tag definition in this Custom Lorepack registry.', () => {
+        openLorepackTagRegistryDialog(pack, null);
+    }, 'wandlight-primary-button');
+    newTag.disabled = pack.type === 'bundled';
+    actions.appendChild(newTag);
     const bulk = createButton('Bulk Tags', 'Add, remove, or rename tags for the current target entries.', () => {
         openLorepackBulkTagsDialog(pack, targetRows);
-    }, 'wandlight-primary-button');
+    });
     bulk.disabled = !editableTargetCount;
     actions.appendChild(bulk);
+    const exportButton = createButton('Export Registry', 'Download the currently merged tag registry as tags.json.', () => {
+        downloadJson(buildMergedLorepackTagRegistryForExport(pack, rows), `${sanitizeFileStem(pack.packId || 'saga-lorepack')}.tags.json`);
+        toast('Tag registry exported.', 'info');
+    });
+    exportButton.disabled = !registryCount;
+    actions.appendChild(exportButton);
     wrap.appendChild(actions);
 
     const search = document.createElement('input');
@@ -3549,12 +5299,24 @@ function createLorepackTagManagerCard(pack, rows = [], filteredRows = []) {
     wrap.appendChild(search);
 
     const q = String(lorepackTagManagerQuery || '').trim().toLowerCase();
-    const visible = allStats
-        .filter(item => !q || item.tag.toLowerCase().includes(q))
+    const visible = allItems
+        .filter(item => {
+            if (!q) return true;
+            const def = item.definition || {};
+            return [
+                item.tag,
+                def.label,
+                def.description,
+                ...(Array.isArray(def.aliases) ? def.aliases : []),
+                ...(Array.isArray(def.parents) ? def.parents : []),
+                def.replacement,
+                item.registryState,
+            ].filter(Boolean).join(' ').toLowerCase().includes(q);
+        })
         .slice(0, 24);
 
     if (!visible.length) {
-        wrap.appendChild(createEmptyMessage(allStats.length ? 'No matching tags.' : 'No tags found in loaded entries.'));
+        wrap.appendChild(createEmptyMessage(allItems.length ? 'No matching tags.' : 'No tags found. Load entries, load tags.json, or create a new tag definition.'));
         return wrap;
     }
 
@@ -3563,10 +5325,10 @@ function createLorepackTagManagerCard(pack, rows = [], filteredRows = []) {
     for (const item of visible) {
         list.appendChild(createLorepackTagManagerRow(pack, rows, item));
     }
-    if (visible.length < allStats.length) {
+    if (visible.length < allItems.length) {
         const more = document.createElement('div');
         more.className = 'wandlight-runtime-help';
-        more.textContent = `Showing ${visible.length} of ${allStats.length} tags. Search to narrow the list.`;
+        more.textContent = `Showing ${visible.length} of ${allItems.length} tags. Search to narrow the list.`;
         list.appendChild(more);
     }
     wrap.appendChild(list);
@@ -3585,29 +5347,52 @@ function createLorepackTagManagerRow(pack, rows = [], item = {}) {
     main.appendChild(title);
     const desc = document.createElement('div');
     desc.className = 'wandlight-lorepack-row-description';
-    desc.textContent = `${item.count || 0} entr${item.count === 1 ? 'y' : 'ies'} use this tag.`;
+    const def = item.definition || {};
+    const label = def.label || humanizeLorepackTagId(item.tag);
+    const description = def.description || `${item.count || 0} entr${item.count === 1 ? 'y' : 'ies'} use this tag.`;
+    desc.textContent = `${label}${description ? ` | ${description}` : ''}`;
     main.appendChild(desc);
     const meta = document.createElement('div');
     meta.className = 'wandlight-lorepack-row-meta';
     meta.appendChild(createStatusPill(`${item.count || 0} total`, 'Total entries with this tag.'));
     if (item.overrideCount) meta.appendChild(createStatusPill(`${item.overrideCount} override${item.overrideCount === 1 ? '' : 's'}`, 'Saved overrides using this tag.'));
     if (item.sourceCount) meta.appendChild(createStatusPill(`${item.sourceCount} source`, 'Source entries using this tag.'));
+    meta.appendChild(createStatusPill(item.registryState || 'undefined', 'Registry definition source for this tag.'));
+    if (def.deprecated) meta.appendChild(createStatusPill('deprecated', def.replacement ? `Replacement: ${def.replacement}` : 'Tag is marked deprecated.'));
+    if (def.sensitive) meta.appendChild(createStatusPill('sensitive', 'Tag marks sensitive, secret, or spoiler-prone lore.'));
+    if (Array.isArray(def.aliases) && def.aliases.length) meta.appendChild(createStatusPill(`${def.aliases.length} alias${def.aliases.length === 1 ? '' : 'es'}`, 'Search aliases defined for this tag.'));
     main.appendChild(meta);
     row.appendChild(main);
 
     const tagRows = rows.filter(entryRow => getLorepackEntryTags(entryRow.entry || {}).some(tag => tag.toLowerCase() === String(item.tag || '').toLowerCase()));
     const actions = document.createElement('div');
     actions.className = 'wandlight-lorepack-row-actions';
-    actions.appendChild(createButton('Filter', 'Filter entry rows to this tag.', () => {
+    const filterButton = createButton('Filter', 'Filter entry rows to this tag.', () => {
         lorepackEntryOverrideQuery = item.tag || '';
         refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-    }));
-    actions.appendChild(createButton('Rename', 'Rename this tag across entries that currently use it.', () => {
-        openLorepackBulkTagsDialog(pack, tagRows, { mode: 'replace', fromTag: item.tag || '' });
-    }));
-    actions.appendChild(createButton('Remove', 'Remove this tag across entries that currently use it.', () => {
+    });
+    filterButton.disabled = !(item.count || 0);
+    actions.appendChild(filterButton);
+    const editButton = createButton(item.sourceDefined || item.customDefined ? 'Edit Def' : 'Define', 'Edit this tag definition in the Custom registry layer.', () => {
+        openLorepackTagRegistryDialog(pack, item);
+    });
+    editButton.disabled = pack.type === 'bundled';
+    actions.appendChild(editButton);
+    const renameButton = createButton('Rename', 'Rename this tag across entries that currently use it.', () => {
+        openLorepackTagRenameDialog(pack, tagRows, item);
+    });
+    renameButton.disabled = pack.type === 'bundled';
+    actions.appendChild(renameButton);
+    const removeEntriesButton = createButton('Remove Entries', 'Remove this tag across entries that currently use it.', () => {
         openLorepackBulkTagsDialog(pack, tagRows, { mode: 'remove', removeTags: item.tag || '' });
-    }, 'wandlight-danger-button'));
+    }, 'wandlight-danger-button');
+    removeEntriesButton.disabled = pack.type === 'bundled' || !tagRows.length;
+    actions.appendChild(removeEntriesButton);
+    if (item.customDefined) {
+        actions.appendChild(createButton('Forget Def', 'Remove the saved Custom registry definition without changing entry tags.', () => {
+            removeLorepackTagRegistryDefinition(pack, item.tag);
+        }, 'wandlight-danger-button'));
+    }
     row.appendChild(actions);
     return row;
 }
@@ -3780,6 +5565,108 @@ async function fetchLorepackTimelineForEditor(manifest = {}, baseUrl = null) {
     return fetchJsonForLorepackEditor(new URL(ref, baseUrl));
 }
 
+async function loadLorepackTimelineRegistryForEditor(pack, button = null, options = {}) {
+    const originalText = button?.textContent;
+    if (button) {
+        button.disabled = true;
+        button.textContent = 'Loading...';
+    }
+    try {
+        const fresh = getFreshLorepackLibraryPack(pack.packId, pack);
+        const manifest = options.manifest || await getDisplayManifestForPack(fresh);
+        const baseUrl = options.baseUrl || resolveManifestUrlForFetch(fresh.manifest);
+        if (!baseUrl) throw new Error('Lorepack needs a fetchable base manifest path to load timeline.json.');
+        const registryJson = await fetchLorepackTimelineForEditor(manifest, baseUrl);
+        const sourceRegistry = normalizeLorepackTimelineRegistry(registryJson);
+        lorepackTimelineRegistryCache.set(fresh.packId, {
+            sourceRegistry,
+            error: '',
+            missing: !registryJson,
+            loadedAt: Date.now(),
+        });
+        if (options.quiet !== true) {
+            const count = getLorepackTimelineRegistryCount(sourceRegistry);
+            toast(registryJson ? `Loaded ${count} timeline definition${count === 1 ? '' : 's'} from timeline.json.` : 'This Lorepack does not declare timeline.json yet.', registryJson ? 'success' : 'info');
+            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        }
+        return sourceRegistry;
+    } catch (e) {
+        lorepackTimelineRegistryCache.set(String(pack.packId || '').trim(), {
+            sourceRegistry: normalizeLorepackTimelineRegistry(null),
+            error: e?.message || 'timeline.json failed to load.',
+            loadedAt: Date.now(),
+        });
+        if (options.quiet !== true) {
+            toast(e?.message || 'timeline.json failed to load.', 'error');
+            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        }
+        return normalizeLorepackTimelineRegistry(null);
+    } finally {
+        if (button) {
+            button.disabled = false;
+            button.textContent = originalText || 'Load Timeline';
+        }
+    }
+}
+
+async function fetchLorepackTagRegistryForEditor(manifest = {}, baseUrl = null) {
+    if (!baseUrl) return null;
+    const registries = manifest?.registries && typeof manifest.registries === 'object' && !Array.isArray(manifest.registries)
+        ? manifest.registries
+        : {};
+    const ref = String(
+        typeof registries.tags === 'string'
+            ? registries.tags
+            : (typeof manifest.tagRegistry === 'string' ? manifest.tagRegistry : '')
+    ).trim();
+    if (!ref) return null;
+    return fetchJsonForLorepackEditor(new URL(ref, baseUrl));
+}
+
+async function loadLorepackTagRegistryForEditor(pack, button = null, options = {}) {
+    const originalText = button?.textContent;
+    if (button) {
+        button.disabled = true;
+        button.textContent = 'Loading...';
+    }
+    try {
+        const fresh = getFreshLorepackLibraryPack(pack.packId, pack);
+        const manifest = options.manifest || await getDisplayManifestForPack(fresh);
+        const baseUrl = options.baseUrl || resolveManifestUrlForFetch(fresh.manifest);
+        if (!baseUrl) throw new Error('Lorepack needs a fetchable base manifest path to load tags.json.');
+        const registryJson = await fetchLorepackTagRegistryForEditor(manifest, baseUrl);
+        const sourceRegistry = normalizeLorepackTagRegistry(registryJson);
+        lorepackTagRegistryCache.set(fresh.packId, {
+            sourceRegistry,
+            error: '',
+            missing: !registryJson,
+            loadedAt: Date.now(),
+        });
+        if (options.quiet !== true) {
+            const count = getLorepackTagRegistryCount(sourceRegistry);
+            toast(registryJson ? `Loaded ${count} tag definition${count === 1 ? '' : 's'} from tags.json.` : 'This Lorepack does not declare tags.json yet.', registryJson ? 'success' : 'info');
+            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        }
+        return sourceRegistry;
+    } catch (e) {
+        lorepackTagRegistryCache.set(String(pack.packId || '').trim(), {
+            sourceRegistry: { schemaVersion: 1, tags: {} },
+            error: e?.message || 'tags.json failed to load.',
+            loadedAt: Date.now(),
+        });
+        if (options.quiet !== true) {
+            toast(e?.message || 'tags.json failed to load.', 'error');
+            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        }
+        return { schemaVersion: 1, tags: {} };
+    } finally {
+        if (button) {
+            button.disabled = false;
+            button.textContent = originalText || 'Load Registry';
+        }
+    }
+}
+
 async function loadLorepackEntriesForEditor(pack, button = null) {
     const originalText = button?.textContent;
     if (button) {
@@ -3787,7 +5674,9 @@ async function loadLorepackEntriesForEditor(pack, button = null) {
         button.textContent = 'Loading...';
     }
     try {
-        const { entries, entryFiles } = await fetchLorepackEntryFilesForEditor(pack);
+        const { manifest, baseUrl, entries, entryFiles } = await fetchLorepackEntryFilesForEditor(pack);
+        await loadLorepackTimelineRegistryForEditor(pack, null, { manifest, baseUrl, quiet: true });
+        await loadLorepackTagRegistryForEditor(pack, null, { manifest, baseUrl, quiet: true });
         lorepackEntryPreviewCache.set(pack.packId, {
             entries,
             entryFiles,
@@ -3903,14 +5792,27 @@ async function validateLorepackForEditor(pack, button = null, options = {}) {
         let timeline = null;
         try {
             timeline = await fetchLorepackTimelineForEditor(manifest, baseUrl);
+            lorepackTimelineRegistryCache.set(fresh.packId, {
+                sourceRegistry: normalizeLorepackTimelineRegistry(timeline),
+                error: '',
+                missing: !timeline,
+                loadedAt: Date.now(),
+            });
         } catch (e) {
             console.warn('[Wandlight] Lorepack timeline failed during editor validation:', e);
+            lorepackTimelineRegistryCache.set(fresh.packId, {
+                sourceRegistry: normalizeLorepackTimelineRegistry(null),
+                error: e?.message || 'timeline.json failed to load.',
+                loadedAt: Date.now(),
+            });
         }
+        const tagRegistry = await loadLorepackTagRegistryForEditor(fresh, null, { manifest, baseUrl, quiet: true });
         const health = buildLorepackHealthForData({
             packId: fresh.packId,
             manifest,
             entryFiles: entryCache.entryFiles,
             timeline,
+            tagRegistry,
             registryRecord: fresh,
         });
         cacheLorepackValidation(fresh.packId, manifest, entryCache, health);
@@ -4030,6 +5932,9 @@ async function exportValidatedLorepackDraft(pack, button = null) {
             manifest: validation.manifest,
             entryOverrides: fresh?.entryOverrides || {},
             disabledEntryIds: fresh?.disabledEntryIds || [],
+            timelineRegistry: getLorepackTimelineRegistryCount(fresh?.timelineRegistry) ? normalizeLorepackTimelineRegistry(fresh.timelineRegistry) : null,
+            tagRegistry: getLorepackTagRegistryCount(fresh?.tagRegistry) ? normalizeLorepackTagRegistry(fresh.tagRegistry) : null,
+            pendingChanges: getLorepackPendingChanges(fresh),
             health: validation.health,
         };
         downloadJson(bundle, `${sanitizeFileStem(fresh?.packId || pack.packId || 'saga-lorepack')}.saga-lorepack.json`);
@@ -4067,6 +5972,8 @@ async function syncLorepackMetadataFromManifest(pack, button = null) {
                 },
             };
             record.manifestData = buildEmbeddedCustomManifest(baseManifest, record);
+            if (getLorepackTimelineRegistryCount(pack.timelineRegistry)) record.timelineRegistry = normalizeLorepackTimelineRegistry(pack.timelineRegistry);
+            if (getLorepackTagRegistryCount(pack.tagRegistry)) record.tagRegistry = normalizeLorepackTagRegistry(pack.tagRegistry);
             const result = upsertLorepackLibraryPack(record);
             if (!result.ok) throw new Error(result.error || 'Metadata sync failed.');
             lorepackManifestPreviewCache.set(record.packId, {
@@ -4087,6 +5994,12 @@ async function syncLorepackMetadataFromManifest(pack, button = null) {
         }
         record.type = pack.type === 'generated' ? 'generated' : 'custom';
         record.installedAt = pack.installedAt || Date.now();
+        record.entryOverrides = pack.entryOverrides || {};
+        record.disabledEntryIds = Array.isArray(pack.disabledEntryIds) ? [...pack.disabledEntryIds] : [];
+        const pendingChanges = getLorepackPendingChanges(pack);
+        if (pendingChanges.length) record.pendingChanges = pendingChanges;
+        if (getLorepackTimelineRegistryCount(pack.timelineRegistry)) record.timelineRegistry = normalizeLorepackTimelineRegistry(pack.timelineRegistry);
+        if (getLorepackTagRegistryCount(pack.tagRegistry)) record.tagRegistry = normalizeLorepackTagRegistry(pack.tagRegistry);
         const result = upsertLorepackLibraryPack(record);
         if (!result.ok) throw new Error(result.error || 'Metadata sync failed.');
         lorepackManifestPreviewCache.set(record.packId, {
@@ -4149,7 +6062,12 @@ async function saveLorepackMetadataFromInputs(pack, fields, button = null) {
         }
         const result = upsertLorepackLibraryPack(record);
         if (!result.ok) throw new Error(result.error || 'Lorepack metadata save failed.');
-        if (record.manifest !== pack.manifest) lorepackManifestPreviewCache.delete(pack.packId);
+        if (record.manifest !== pack.manifest) {
+            lorepackManifestPreviewCache.delete(pack.packId);
+            lorepackEntryPreviewCache.delete(pack.packId);
+            lorepackTimelineRegistryCache.delete(pack.packId);
+            lorepackTagRegistryCache.delete(pack.packId);
+        }
         clearCanonLoreDatabaseCache();
         refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
         refreshHeader();
@@ -4350,6 +6268,12 @@ async function duplicateLorepackAsCustom(sourcePack, fields, button = null) {
             installedAt: Date.now(),
             updatedAt: Date.now(),
         };
+        if (getLorepackTagRegistryCount(sourcePack.tagRegistry)) {
+            record.tagRegistry = normalizeLorepackTagRegistry(sourcePack.tagRegistry);
+        }
+        if (getLorepackTimelineRegistryCount(sourcePack.timelineRegistry)) {
+            record.timelineRegistry = normalizeLorepackTimelineRegistry(sourcePack.timelineRegistry);
+        }
         record.manifestData = buildEmbeddedCustomManifest(sourceManifest, record);
         const result = upsertLorepackLibraryPack(record);
         if (!result.ok) throw new Error(result.error || 'Lorepack duplication failed.');
@@ -4495,7 +6419,7 @@ function openLorepackEntryOverrideDialog(pack, row = null) {
     titleWrap.appendChild(title);
     const subtitle = document.createElement('div');
     subtitle.className = 'wandlight-lore-workbench-subtitle';
-    subtitle.textContent = `${pack.title || pack.packId} | Custom override storage`;
+    subtitle.textContent = `${pack.title || pack.packId} | Pending override proposal`;
     titleWrap.appendChild(subtitle);
     header.appendChild(titleWrap);
     header.appendChild(createButton('Close', 'Close without saving this entry override.', () => overlay.remove()));
@@ -4568,7 +6492,7 @@ function openLorepackEntryOverrideDialog(pack, row = null) {
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
-    actions.appendChild(createButton('Save Override', 'Save this entry into the Custom Lorepack override layer.', () => {
+    actions.appendChild(createButton('Queue Change', 'Queue this entry override for Pending Review.', () => {
         const id = isExisting ? row.id : normalizeLorepackEntryId(idInput.value);
         const fact = factInput.value.trim();
         if (!id || !titleInput.value.trim() || !fact) {
@@ -4758,7 +6682,7 @@ function openLorepackBulkTagsDialog(pack, rows = [], options = {}) {
 
     const help = document.createElement('div');
     help.className = 'wandlight-runtime-help';
-    help.textContent = 'Bulk tag edits create or update Custom overrides. Source Lorepack files are not edited.';
+    help.textContent = 'Bulk tag edits create pending Custom override proposals. They do not affect runtime injection until accepted.';
     form.appendChild(help);
 
     const grid = appendLorepackEntryEditorSection(form, 'Tag Operation');
@@ -4770,7 +6694,7 @@ function openLorepackBulkTagsDialog(pack, rows = [], options = {}) {
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
-    actions.appendChild(createButton('Apply Tags', 'Apply this tag operation to the target entries.', () => {
+    actions.appendChild(createButton('Queue Tags', 'Queue this tag operation for Pending Review.', () => {
         const mode = modeSelect.value;
         if (mode === 'add' && !parseLorepackEntryTags(addInput.value).length) {
             toast('Enter at least one tag to add.', 'warning');
@@ -4795,13 +6719,33 @@ function openLorepackBulkTagsDialog(pack, rows = [], options = {}) {
             toast('No tag changes were needed for the target entries.', 'info');
             return;
         }
-        const applied = persistLorepackEntryLayer(pack, next => {
-            for (const entry of updates) {
-                if (!entry.id) continue;
-                next.entryOverrides[entry.id] = entry;
-                next.disabledEntryIds = next.disabledEntryIds.filter(entryId => entryId !== entry.id);
-            }
-        }, `Updated tags on ${updates.length} entr${updates.length === 1 ? 'y' : 'ies'}.`);
+        const entryOverrides = {};
+        const entryIds = [];
+        for (const entry of updates) {
+            if (!entry.id) continue;
+            entryOverrides[entry.id] = entry;
+            entryIds.push(entry.id);
+        }
+        const applied = queueLorepackPendingChange(pack, createLorepackRecordPatchChange({
+            action: 'bulk_tag_update',
+            targetKind: 'entries',
+            title: `Bulk tag ${mode}`,
+            description: `Updates tags on ${entryIds.length} entr${entryIds.length === 1 ? 'y' : 'ies'} after review.`,
+            affectedEntryIds: entryIds,
+            affectedTagIds: [
+                ...parseLorepackEntryTags(addInput.value),
+                ...parseLorepackEntryTags(removeInput.value),
+                ...parseLorepackEntryTags([fromInput.value]),
+                ...parseLorepackEntryTags([toInput.value]),
+            ],
+            payload: {
+                entryOverrides,
+                disabledEntryIdsRemove: entryIds,
+            },
+            preview: {
+                after: `Tag changes will apply to ${entryIds.length} entr${entryIds.length === 1 ? 'y' : 'ies'}.`,
+            },
+        }), `Queued bulk tag update for ${entryIds.length} entr${entryIds.length === 1 ? 'y' : 'ies'}.`);
         if (applied) overlay.remove();
     }, 'wandlight-primary-button'));
     actions.appendChild(createButton('Cancel', 'Close without applying bulk tag edits.', () => overlay.remove()));
@@ -4812,6 +6756,272 @@ function openLorepackBulkTagsDialog(pack, rows = [], options = {}) {
         else if (options.mode === 'remove') removeInput.focus();
         else addInput.focus();
     });
+}
+
+function createLorepackCheckbox(container, labelText, tooltip, checked = false) {
+    const label = document.createElement('label');
+    label.className = 'wandlight-inline-toggle';
+    addTooltip(label, tooltip);
+    const input = document.createElement('input');
+    input.type = 'checkbox';
+    input.checked = !!checked;
+    label.appendChild(input);
+    label.appendChild(document.createTextNode(` ${labelText}`));
+    container.appendChild(label);
+    return input;
+}
+
+function saveLorepackTagRegistryDefinition(pack, tagId, definition, message = '') {
+    const id = normalizeLorepackTagId(tagId);
+    if (!id) {
+        toast('Tag definition needs a valid tag ID.', 'warning');
+        return false;
+    }
+    const def = normalizeLorepackTagDefinition(definition, id);
+    delete def.id;
+    return queueLorepackPendingChange(pack, createLorepackRecordPatchChange({
+        action: 'upsert_tag_definition',
+        targetKind: 'tag',
+        title: `Save tag definition: ${id}`,
+        description: 'Creates or updates a Custom tag registry definition after review.',
+        affectedTagIds: [id],
+        payload: {
+            tagDefinitions: { [id]: def },
+        },
+        preview: {
+            after: def.description || def.label || id,
+        },
+    }), message || `Queued pending tag definition for ${id}.`);
+}
+
+function removeLorepackTagRegistryDefinition(pack, tagId) {
+    const id = normalizeLorepackTagId(tagId);
+    if (!id) return false;
+    return queueLorepackPendingChange(pack, createLorepackRecordPatchChange({
+        action: 'remove_tag_definition',
+        targetKind: 'tag',
+        title: `Forget tag definition: ${id}`,
+        description: 'Removes the Custom tag registry definition after review without changing entry tags.',
+        affectedTagIds: [id],
+        payload: {
+            tagDefinitions: { [id]: null },
+        },
+        preview: {
+            after: 'Custom tag definition will be removed.',
+        },
+    }), `Queued pending tag definition removal for ${id}.`);
+}
+
+function openLorepackTagRegistryDialog(pack, item = null) {
+    if (pack.type === 'bundled') {
+        toast('Bundled Lorepack tag registries are read-only. Duplicate as Custom first.', 'warning');
+        return;
+    }
+    const existing = document.querySelector('.wandlight-lorepack-tag-registry-overlay');
+    existing?.remove();
+
+    const overlay = document.createElement('div');
+    overlay.className = 'wandlight-new-lore-overlay wandlight-lorepack-tag-registry-overlay';
+    document.body.appendChild(overlay);
+
+    const shell = document.createElement('div');
+    shell.className = 'wandlight-new-lore-shell wandlight-lorepack-entry-override-shell';
+    overlay.appendChild(shell);
+
+    const tagId = normalizeLorepackTagId(item?.tag || '');
+    const definition = normalizeLorepackTagDefinition(item?.definition || {}, tagId);
+    const isExisting = !!tagId;
+
+    const header = document.createElement('div');
+    header.className = 'wandlight-lore-workbench-header';
+    const titleWrap = document.createElement('div');
+    titleWrap.className = 'wandlight-lore-workbench-title-wrap';
+    const title = document.createElement('div');
+    title.className = 'wandlight-lore-workbench-title';
+    title.textContent = isExisting ? 'Edit Tag Definition' : 'New Tag Definition';
+    titleWrap.appendChild(title);
+    const subtitle = document.createElement('div');
+    subtitle.className = 'wandlight-lore-workbench-subtitle';
+    subtitle.textContent = `${pack.title || pack.packId} | Pending tag registry proposal`;
+    titleWrap.appendChild(subtitle);
+    header.appendChild(titleWrap);
+    header.appendChild(createButton('Close', 'Close without saving this tag definition.', () => overlay.remove()));
+    shell.appendChild(header);
+
+    const form = document.createElement('div');
+    form.className = 'wandlight-new-lore-form wandlight-lorepack-entry-override-form';
+    shell.appendChild(form);
+
+    const idInput = createNewLoreInput(form, 'Tag ID', 'Stable tag ID used by entries and registries.', tagId, false, 'character:nami');
+    idInput.disabled = isExisting;
+    const labelInput = createNewLoreInput(form, 'Label', 'Short display label for this tag.', definition.label || humanizeLorepackTagId(tagId), false, 'Nami');
+    const descriptionInput = createNewLoreInput(form, 'Description', 'What this tag groups or signals.', definition.description || '', true, 'Entries about Nami during Arlong Park.');
+
+    const grid = appendLorepackEntryEditorSection(form, 'Registry Metadata');
+    const colorInput = createNewLoreInput(grid, 'Color', 'Optional chip background color.', definition.color || '', false, '#4c1d95');
+    const textColorInput = createNewLoreInput(grid, 'Text Color', 'Optional chip text color.', definition.textColor || '', false, '#f3e8ff');
+    const aliasesInput = createNewLoreInput(grid, 'Aliases', 'Comma-separated search aliases.', Array.isArray(definition.aliases) ? definition.aliases.join(', ') : '', false, 'Cat Burglar, navigator');
+    const parentsInput = createNewLoreInput(grid, 'Parents', 'Comma-separated parent tag IDs.', Array.isArray(definition.parents) ? definition.parents.join(', ') : '', false, 'character:straw-hats');
+    const replacementInput = createNewLoreInput(grid, 'Replacement', 'Optional replacement tag ID for deprecated tags.', definition.replacement || '', false, 'character:nami');
+    const sensitiveInput = createLorepackCheckbox(grid, 'Sensitive', 'Mark this tag as sensitive, secret, or spoiler-prone.', definition.sensitive === true);
+    const deprecatedInput = createLorepackCheckbox(grid, 'Deprecated', 'Mark this tag as deprecated while keeping it visible for cleanup.', definition.deprecated === true);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    actions.appendChild(createButton('Queue Definition', 'Queue this tag definition for Pending Review.', () => {
+        const id = isExisting ? tagId : normalizeLorepackTagId(idInput.value);
+        if (!id) {
+            toast('Enter a valid tag ID.', 'warning');
+            return;
+        }
+        const replacement = normalizeLorepackTagId(replacementInput.value);
+        if (deprecatedInput.checked && replacement && replacement.toLowerCase() === id.toLowerCase()) {
+            toast('A deprecated tag replacement must be a different tag.', 'warning');
+            return;
+        }
+        const saved = saveLorepackTagRegistryDefinition(pack, id, {
+            label: labelInput.value.trim() || humanizeLorepackTagId(id),
+            description: descriptionInput.value.trim(),
+            color: colorInput.value.trim(),
+            textColor: textColorInput.value.trim(),
+            aliases: normalizeLorepackTagTextList(aliasesInput.value, 64, false),
+            parents: normalizeLorepackTagTextList(parentsInput.value, 64, true),
+            sensitive: sensitiveInput.checked,
+            deprecated: deprecatedInput.checked,
+            replacement,
+        }, `Saved tag definition for ${id}.`);
+        if (saved) overlay.remove();
+    }, 'wandlight-primary-button'));
+    if (isExisting && item?.customDefined) {
+        actions.appendChild(createButton('Forget Definition', 'Remove this Custom registry definition without changing entry tags.', () => {
+            const removed = removeLorepackTagRegistryDefinition(pack, tagId);
+            if (removed) overlay.remove();
+        }, 'wandlight-danger-button'));
+    }
+    actions.appendChild(createButton('Cancel', 'Close without saving this tag definition.', () => overlay.remove()));
+    form.appendChild(actions);
+
+    requestAnimationFrame(() => (isExisting ? labelInput : idInput).focus());
+}
+
+function openLorepackTagRenameDialog(pack, rows = [], item = {}) {
+    if (pack.type === 'bundled') {
+        toast('Bundled Lorepacks cannot be edited directly. Duplicate as Custom first.', 'warning');
+        return;
+    }
+    const fromTag = normalizeLorepackTagId(item?.tag || '');
+    if (!fromTag) {
+        toast('Rename needs a source tag.', 'warning');
+        return;
+    }
+    const existing = document.querySelector('.wandlight-lorepack-tag-rename-overlay');
+    existing?.remove();
+
+    const overlay = document.createElement('div');
+    overlay.className = 'wandlight-new-lore-overlay wandlight-lorepack-tag-rename-overlay';
+    document.body.appendChild(overlay);
+
+    const shell = document.createElement('div');
+    shell.className = 'wandlight-new-lore-shell wandlight-lorepack-entry-override-shell';
+    overlay.appendChild(shell);
+
+    const header = document.createElement('div');
+    header.className = 'wandlight-lore-workbench-header';
+    const titleWrap = document.createElement('div');
+    titleWrap.className = 'wandlight-lore-workbench-title-wrap';
+    const title = document.createElement('div');
+    title.className = 'wandlight-lore-workbench-title';
+    title.textContent = 'Rename / Merge Tag';
+    titleWrap.appendChild(title);
+    const subtitle = document.createElement('div');
+    subtitle.className = 'wandlight-lore-workbench-subtitle';
+    subtitle.textContent = `${pack.title || pack.packId} | ${rows.length} entr${rows.length === 1 ? 'y' : 'ies'} currently use ${fromTag}`;
+    titleWrap.appendChild(subtitle);
+    header.appendChild(titleWrap);
+    header.appendChild(createButton('Close', 'Close without renaming this tag.', () => overlay.remove()));
+    shell.appendChild(header);
+
+    const form = document.createElement('div');
+    form.className = 'wandlight-new-lore-form wandlight-lorepack-entry-override-form';
+    shell.appendChild(form);
+
+    const fromInput = createNewLoreInput(form, 'From Tag', 'Existing tag to rename or merge.', fromTag, false, 'character:old-name');
+    fromInput.disabled = true;
+    const toInput = createNewLoreInput(form, 'To Tag', 'Replacement tag ID. If it already exists, this becomes a merge.', item?.definition?.replacement || '', false, 'character:new-name');
+    const updateEntriesInput = createLorepackCheckbox(form, 'Update entry tags', 'Create Custom overrides that replace this tag on affected entries.', true);
+    const deprecatedInput = createLorepackCheckbox(form, 'Deprecate old tag', 'Keep the old tag definition as deprecated with a replacement pointer.', true);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    actions.appendChild(createButton('Queue Rename', 'Queue this tag rename or merge for Pending Review.', () => {
+        const toTag = normalizeLorepackTagId(toInput.value);
+        if (!toTag) {
+            toast('Enter a replacement tag.', 'warning');
+            return;
+        }
+        if (toTag.toLowerCase() === fromTag.toLowerCase()) {
+            toast('Replacement tag must be different.', 'warning');
+            return;
+        }
+        const updates = updateEntriesInput.checked
+            ? computeLorepackBulkTagUpdates(pack, rows, 'replace', { fromTag, toTag })
+            : [];
+        const sourceDef = normalizeLorepackTagDefinition(item.definition || {}, fromTag);
+        const tagDefinitions = {};
+        const targetDef = normalizeLorepackTagDefinition({
+            ...sourceDef,
+            label: sourceDef.label && sourceDef.label !== humanizeLorepackTagId(fromTag)
+                ? sourceDef.label
+                : humanizeLorepackTagId(toTag),
+            deprecated: false,
+            replacement: '',
+        }, toTag);
+        delete targetDef.id;
+        tagDefinitions[toTag] = targetDef;
+
+        if (deprecatedInput.checked || item.sourceDefined) {
+            const oldDef = normalizeLorepackTagDefinition({
+                ...sourceDef,
+                deprecated: true,
+                replacement: toTag,
+            }, fromTag);
+            delete oldDef.id;
+            tagDefinitions[fromTag] = oldDef;
+        } else {
+            tagDefinitions[fromTag] = null;
+        }
+
+        const entryOverrides = {};
+        const entryIds = [];
+        for (const entry of updates) {
+            if (!entry.id) continue;
+            entryOverrides[entry.id] = entry;
+            entryIds.push(entry.id);
+        }
+
+        const applied = queueLorepackPendingChange(pack, createLorepackRecordPatchChange({
+            action: 'rename_tag',
+            targetKind: 'tags',
+            title: `Rename tag: ${fromTag} -> ${toTag}`,
+            description: `Renames or merges a tag definition${entryIds.length ? ` and updates ${entryIds.length} entr${entryIds.length === 1 ? 'y' : 'ies'}` : ''} after review.`,
+            affectedEntryIds: entryIds,
+            affectedTagIds: [fromTag, toTag],
+            payload: {
+                tagDefinitions,
+                entryOverrides,
+                disabledEntryIdsRemove: entryIds,
+            },
+            preview: {
+                before: fromTag,
+                after: toTag,
+            },
+        }), `Queued tag rename ${fromTag} -> ${toTag}.`);
+        if (applied) overlay.remove();
+    }, 'wandlight-primary-button'));
+    actions.appendChild(createButton('Cancel', 'Close without renaming this tag.', () => overlay.remove()));
+    form.appendChild(actions);
+
+    requestAnimationFrame(() => toInput.focus());
 }
 
 function buildBulkLorepackPositionOverrideEntry(pack, row, position, retrieval) {
@@ -4903,7 +7113,7 @@ function openLorepackBulkPositionDialog(pack, rows = []) {
 
     const help = document.createElement('div');
     help.className = 'wandlight-runtime-help';
-    help.textContent = 'This creates or updates Custom overrides for the chosen entries. Source Lorepack files are not edited.';
+    help.textContent = 'This queues Custom override proposals for the chosen entries. Runtime injection is unchanged until the proposals are accepted.';
     form.appendChild(help);
 
     const positionGrid = appendLorepackEntryEditorSection(form, 'Story Position');
@@ -4943,7 +7153,7 @@ function openLorepackBulkPositionDialog(pack, rows = []) {
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
-    actions.appendChild(createButton('Apply To Entries', 'Create or update Custom overrides with this Story Position and retrieval metadata.', () => {
+    actions.appendChild(createButton('Queue For Review', 'Queue Custom overrides with this Story Position and retrieval metadata.', () => {
         const position = buildLorepackPositionFromEditorFields(positionFields);
         const retrieval = buildLorepackRetrievalFromEditorFields(retrievalFields);
         const v3Errors = validateLorepackV3EditorFields(position, retrieval);
@@ -4951,14 +7161,28 @@ function openLorepackBulkPositionDialog(pack, rows = []) {
             toast(`Schema v3 entries need: ${v3Errors.join(', ')}.`, 'warning');
             return;
         }
-        const applied = persistLorepackEntryLayer(pack, next => {
-            for (const row of editableRows) {
-                const entry = buildBulkLorepackPositionOverrideEntry(pack, row, position, retrieval);
-                if (!entry.id) continue;
-                next.entryOverrides[entry.id] = entry;
-                next.disabledEntryIds = next.disabledEntryIds.filter(entryId => entryId !== entry.id);
-            }
-        }, `Applied Story Position to ${editableRows.length} entr${editableRows.length === 1 ? 'y' : 'ies'}.`);
+        const entryOverrides = {};
+        const entryIds = [];
+        for (const row of editableRows) {
+            const entry = buildBulkLorepackPositionOverrideEntry(pack, row, position, retrieval);
+            if (!entry.id) continue;
+            entryOverrides[entry.id] = entry;
+            entryIds.push(entry.id);
+        }
+        const applied = queueLorepackPendingChange(pack, createLorepackRecordPatchChange({
+            action: 'bulk_position_update',
+            targetKind: 'entries',
+            title: 'Bulk Story Position update',
+            description: `Applies one Story Position/retrieval block to ${entryIds.length} entr${entryIds.length === 1 ? 'y' : 'ies'} after review.`,
+            affectedEntryIds: entryIds,
+            payload: {
+                entryOverrides,
+                disabledEntryIdsRemove: entryIds,
+            },
+            preview: {
+                after: position.label || 'Story Position metadata will be updated.',
+            },
+        }), `Queued Story Position update for ${entryIds.length} entr${entryIds.length === 1 ? 'y' : 'ies'}.`);
         if (applied) overlay.remove();
     }, 'wandlight-primary-button'));
     actions.appendChild(createButton('Cancel', 'Close without applying bulk Story Position edits.', () => overlay.remove()));
@@ -4971,7 +7195,7 @@ function getFreshLorepackLibraryPack(packId, fallback = null) {
     return getLorepackDefinition(packId) || fallback;
 }
 
-function persistLorepackEntryLayer(pack, mutator, message) {
+function persistLorepackLibraryRecordMutation(pack, mutator, message, options = {}) {
     const fresh = getFreshLorepackLibraryPack(pack.packId, pack);
     if (!fresh || fresh.type === 'bundled') {
         toast('Bundled Lorepacks cannot be edited directly. Duplicate as Custom first.', 'warning');
@@ -4981,15 +7205,27 @@ function persistLorepackEntryLayer(pack, mutator, message) {
         ...fresh,
         entryOverrides: { ...(fresh.entryOverrides || {}) },
         disabledEntryIds: Array.isArray(fresh.disabledEntryIds) ? [...fresh.disabledEntryIds] : [],
+        tagRegistry: normalizeLorepackTagRegistry(fresh.tagRegistry),
+        timelineRegistry: normalizeLorepackTimelineRegistry(fresh.timelineRegistry),
+        pendingChanges: normalizeLorepackPendingChanges(fresh.pendingChanges),
         updatedAt: Date.now(),
     };
     mutator(next);
+    const normalizedTagRegistry = normalizeLorepackTagRegistry(next.tagRegistry);
+    if (getLorepackTagRegistryCount(normalizedTagRegistry)) next.tagRegistry = normalizedTagRegistry;
+    else delete next.tagRegistry;
+    const normalizedTimelineRegistry = normalizeLorepackTimelineRegistry(next.timelineRegistry);
+    if (getLorepackTimelineRegistryCount(normalizedTimelineRegistry)) next.timelineRegistry = normalizedTimelineRegistry;
+    else delete next.timelineRegistry;
+    const normalizedPendingChanges = normalizeLorepackPendingChanges(next.pendingChanges);
+    if (normalizedPendingChanges.length) next.pendingChanges = normalizedPendingChanges;
+    else delete next.pendingChanges;
     if (isVirtualLorepackPack(next)) {
         next.manifestData = buildEmbeddedCustomManifest(next.manifestData, next);
     }
     const result = upsertLorepackLibraryPack(next);
     if (!result.ok) {
-        toast(result.error || 'Lorepack entry layer save failed.', 'error');
+        toast(result.error || options.errorMessage || 'Lorepack save failed.', 'error');
         return false;
     }
     clearCanonLoreDatabaseCache();
@@ -5000,35 +7236,143 @@ function persistLorepackEntryLayer(pack, mutator, message) {
     return true;
 }
 
+function persistLorepackEntryLayer(pack, mutator, message) {
+    return persistLorepackLibraryRecordMutation(pack, mutator, message, {
+        errorMessage: 'Lorepack entry layer save failed.',
+    });
+}
+
+function persistLorepackTagRegistryLayer(pack, mutator, message) {
+    return persistLorepackLibraryRecordMutation(pack, mutator, message, {
+        errorMessage: 'Lorepack tag registry save failed.',
+    });
+}
+
+function queueLorepackPendingChange(pack, change, message = '') {
+    const pendingChange = normalizeLorepackPendingChanges([change])[0];
+    if (!pendingChange) {
+        toast('Could not queue Lorepack change.', 'error');
+        return false;
+    }
+    return persistLorepackLibraryRecordMutation(pack, next => {
+        const pending = normalizeLorepackPendingChanges(next.pendingChanges);
+        pending.push(pendingChange);
+        next.pendingChanges = pending;
+    }, message || `Queued pending change: ${pendingChange.title}.`, {
+        errorMessage: 'Lorepack pending change save failed.',
+    });
+}
+
+function queueLorepackPendingChanges(pack, changes = [], message = '') {
+    const pendingChanges = normalizeLorepackPendingChanges(changes);
+    if (!pendingChanges.length) {
+        toast('Could not queue Lorepack changes.', 'error');
+        return false;
+    }
+    return persistLorepackLibraryRecordMutation(pack, next => {
+        const pending = normalizeLorepackPendingChanges(next.pendingChanges);
+        pending.push(...pendingChanges);
+        next.pendingChanges = pending;
+    }, message || `Queued ${pendingChanges.length} pending Lorepack change${pendingChanges.length === 1 ? '' : 's'}.`, {
+        errorMessage: 'Lorepack pending change save failed.',
+    });
+}
+
+function acceptLorepackPendingChanges(pack, changeIds = []) {
+    const idSet = new Set(normalizeLorepackPendingIdList(changeIds));
+    const pending = getLorepackPendingChanges(pack);
+    const selected = idSet.size ? pending.filter(change => idSet.has(change.changeId)) : pending;
+    if (!selected.length) {
+        toast('No pending Lorepack changes selected.', 'warning');
+        return false;
+    }
+    return persistLorepackLibraryRecordMutation(pack, next => {
+        const current = normalizeLorepackPendingChanges(next.pendingChanges);
+        const selectedIds = new Set(selected.map(change => change.changeId));
+        for (const change of current) {
+            if (!selectedIds.has(change.changeId)) continue;
+            applyLorepackRecordPatch(next, change.payload);
+        }
+        next.pendingChanges = current.filter(change => !selectedIds.has(change.changeId));
+    }, `Accepted ${selected.length} pending Lorepack change${selected.length === 1 ? '' : 's'}.`, {
+        errorMessage: 'Pending Lorepack change acceptance failed.',
+    });
+}
+
+function rejectLorepackPendingChanges(pack, changeIds = []) {
+    const idSet = new Set(normalizeLorepackPendingIdList(changeIds));
+    const pending = getLorepackPendingChanges(pack);
+    const selected = idSet.size ? pending.filter(change => idSet.has(change.changeId)) : pending;
+    if (!selected.length) {
+        toast('No pending Lorepack changes selected.', 'warning');
+        return false;
+    }
+    return persistLorepackLibraryRecordMutation(pack, next => {
+        const selectedIds = new Set(selected.map(change => change.changeId));
+        next.pendingChanges = normalizeLorepackPendingChanges(next.pendingChanges).filter(change => !selectedIds.has(change.changeId));
+    }, `Rejected ${selected.length} pending Lorepack change${selected.length === 1 ? '' : 's'}.`, {
+        errorMessage: 'Pending Lorepack change rejection failed.',
+    });
+}
+
 function saveLorepackEntryOverride(pack, entry) {
     const id = String(entry?.id || '').trim();
     if (!id) {
         toast('Entry override needs an ID.', 'warning');
         return false;
     }
-    return persistLorepackEntryLayer(pack, next => {
-        next.entryOverrides[id] = entry;
-        next.disabledEntryIds = next.disabledEntryIds.filter(entryId => entryId !== id);
-    }, `Saved override for ${entry.title || id}.`);
+    return queueLorepackPendingChange(pack, createLorepackRecordPatchChange({
+        action: 'upsert_entry',
+        targetKind: 'entry',
+        title: `Save entry: ${entry.title || id}`,
+        description: 'Creates or updates a Custom Lorepack entry override after review.',
+        affectedEntryIds: [id],
+        payload: {
+            entryOverrides: { [id]: entry },
+            disabledEntryIdsRemove: [id],
+        },
+        preview: {
+            after: entry.content?.fact || entry.fact || entry.title || id,
+        },
+    }), `Queued pending entry change for ${entry.title || id}.`);
 }
 
 function removeLorepackEntryOverride(pack, entryId) {
     const id = String(entryId || '').trim();
     if (!id) return false;
-    return persistLorepackEntryLayer(pack, next => {
-        delete next.entryOverrides[id];
-    }, `Removed override for ${id}.`);
+    return queueLorepackPendingChange(pack, createLorepackRecordPatchChange({
+        action: 'remove_entry_override',
+        targetKind: 'entry',
+        title: `Remove override: ${id}`,
+        description: 'Removes the Custom override after review. Source entry remains unless disabled.',
+        affectedEntryIds: [id],
+        payload: {
+            entryOverrides: { [id]: null },
+        },
+        preview: {
+            after: 'Custom override will be removed.',
+        },
+    }), `Queued pending override removal for ${id}.`);
 }
 
 function setLorepackEntryDisabled(pack, entryId, disabled) {
     const id = String(entryId || '').trim();
     if (!id) return false;
-    return persistLorepackEntryLayer(pack, next => {
-        const set = new Set(next.disabledEntryIds || []);
-        if (disabled) set.add(id);
-        else set.delete(id);
-        next.disabledEntryIds = Array.from(set);
-    }, `${disabled ? 'Disabled' : 'Restored'} ${id}.`);
+    return queueLorepackPendingChange(pack, createLorepackRecordPatchChange({
+        action: disabled ? 'disable_entry' : 'restore_entry',
+        targetKind: 'entry',
+        title: `${disabled ? 'Disable' : 'Restore'} entry: ${id}`,
+        description: disabled
+            ? 'Suppresses this entry in the Custom Lorepack after review.'
+            : 'Removes this entry from the Custom disabled list after review.',
+        affectedEntryIds: [id],
+        payload: disabled
+            ? { disabledEntryIdsAdd: [id] }
+            : { disabledEntryIdsRemove: [id] },
+        preview: {
+            after: disabled ? 'Entry will be disabled.' : 'Entry will be restored.',
+        },
+    }), `Queued pending ${disabled ? 'disable' : 'restore'} for ${id}.`);
 }
 
 function selectLorepackForDetails(packId, options = {}) {
@@ -5089,6 +7433,10 @@ function forgetLorepackLibraryPack(packId) {
     }
     clearCanonLoreDatabaseCache();
     clearStoryPositionIndexCache();
+    lorepackManifestPreviewCache.delete(packId);
+    lorepackEntryPreviewCache.delete(packId);
+    lorepackTimelineRegistryCache.delete(packId);
+    lorepackTagRegistryCache.delete(packId);
     refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
     refreshHeader();
     toast(`${packId} removed from Lorepack Library.`, 'info');
@@ -6391,6 +8739,9 @@ function normalizeLorepackLibraryPack(raw = {}) {
     const manifestData = raw.manifestData && typeof raw.manifestData === 'object' && !Array.isArray(raw.manifestData) ? raw.manifestData : null;
     const entryOverrides = raw.entryOverrides && typeof raw.entryOverrides === 'object' && !Array.isArray(raw.entryOverrides) ? raw.entryOverrides : {};
     const disabledEntryIds = Array.isArray(raw.disabledEntryIds) ? raw.disabledEntryIds.map(id => String(id || '').trim()).filter(Boolean) : [];
+    const timelineRegistry = normalizeLorepackTimelineRegistry(raw.timelineRegistry);
+    const tagRegistry = normalizeLorepackTagRegistry(raw.tagRegistry);
+    const pendingChanges = normalizeLorepackPendingChanges(raw.pendingChanges);
     return {
         packId,
         type: ['bundled', 'custom', 'generated'].includes(raw.type) ? raw.type : 'custom',
@@ -6411,6 +8762,9 @@ function normalizeLorepackLibraryPack(raw = {}) {
         manifestData,
         entryOverrides,
         disabledEntryIds,
+        ...(getLorepackTimelineRegistryCount(timelineRegistry) ? { timelineRegistry } : {}),
+        ...(getLorepackTagRegistryCount(tagRegistry) ? { tagRegistry } : {}),
+        ...(pendingChanges.length ? { pendingChanges } : {}),
         installedAt: Number.isFinite(Number(raw.installedAt)) ? Number(raw.installedAt) : 0,
         updatedAt: Number.isFinite(Number(raw.updatedAt)) ? Number(raw.updatedAt) : 0,
     };

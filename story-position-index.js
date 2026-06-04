@@ -4,7 +4,7 @@
  */
 
 import { getState, getLorepackLibraryRegistry } from './state-manager.js';
-import { fetchJson, loadLorepackStackSources } from './lorepack-loader.js';
+import { fetchJson, loadLorepackStackSources, mergeLorepackTimelineRegistries } from './lorepack-loader.js';
 
 export const DEFAULT_STORY_POSITION_INDEX = Object.freeze({
     schemaVersion: 1,
@@ -254,7 +254,7 @@ async function loadTimelineForSource(source = {}) {
             issues: [createIssue('warning', 'story_position_pack_missing_id', 'A loaded Lorepack source did not expose a pack id.')],
         };
     }
-    if (!timelineRef || !baseUrl) {
+    if ((!timelineRef || !baseUrl) && !source?.registryRecord?.timelineRegistry) {
         return {
             pack: packRecord,
             anchors: [],
@@ -263,29 +263,37 @@ async function loadTimelineForSource(source = {}) {
         };
     }
 
-    let timelineUrl = null;
-    try {
-        timelineUrl = new URL(timelineRef, baseUrl);
-    } catch (_) {
-        const issue = createIssue('warning', 'story_position_timeline_invalid_ref', `Timeline registry path is invalid for ${packTitle}.`, {
-            packId,
-            timelineRef,
-        });
-        packRecord.issueCount = 1;
-        return { pack: packRecord, anchors: [], windows: [], issues: [issue] };
+    let raw = null;
+    const issues = [];
+    if (timelineRef && baseUrl) {
+        let timelineUrl = null;
+        try {
+            timelineUrl = new URL(timelineRef, baseUrl);
+        } catch (_) {
+            issues.push(createIssue('warning', 'story_position_timeline_invalid_ref', `Timeline registry path is invalid for ${packTitle}.`, {
+                packId,
+                timelineRef,
+            }));
+        }
+
+        if (timelineUrl) {
+            raw = await fetchJson(timelineUrl, null);
+            if (!raw) {
+                issues.push(createIssue('warning', 'story_position_timeline_load_failed', `Timeline registry failed to load for ${packTitle}.`, {
+                    packId,
+                    timelineRef,
+                }));
+            }
+        }
     }
 
-    const raw = await fetchJson(timelineUrl, null);
-    if (!raw) {
-        const issue = createIssue('warning', 'story_position_timeline_load_failed', `Timeline registry failed to load for ${packTitle}.`, {
-            packId,
-            timelineRef,
-        });
-        packRecord.issueCount = 1;
-        return { pack: packRecord, anchors: [], windows: [], issues: [issue] };
+    const mergedRegistry = mergeLorepackTimelineRegistries(raw || source?.manifest?.timelineRegistry, source?.registryRecord?.timelineRegistry);
+    if (!mergedRegistry) {
+        packRecord.issueCount = issues.length;
+        return { pack: packRecord, anchors: [], windows: [], issues };
     }
 
-    const normalized = normalizeTimelineRegistry(raw, { packId, packTitle, stackPriority, stackIndex });
+    const normalized = normalizeTimelineRegistry(mergedRegistry, { packId, packTitle, stackPriority, stackIndex });
     packRecord.hasIndex = true;
     packRecord.timelineMode = normalized.timelineMode;
     packRecord.defaultPositionType = normalized.defaultPositionType;
@@ -295,7 +303,6 @@ async function loadTimelineForSource(source = {}) {
     packRecord.windowCount = normalized.windows.length;
     packRecord.summary = normalized.summary;
 
-    const issues = [];
     if (!normalized.anchors.length && !normalized.windows.length) {
         issues.push(createIssue('suggestion', 'story_position_timeline_empty', `Timeline registry for ${packTitle} has no anchors or windows.`, {
             packId,

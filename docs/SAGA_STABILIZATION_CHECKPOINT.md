@@ -58,4 +58,9 @@ Position-aware Lorepack retrieval:
 - Done: add Story Position and retrieval fields to the Custom entry editor so new schema v3 entries can be authored fully instead of only preserving source entry positions.
 - Done: add timeline anchor search/pickers and bulk Story Position editing to make v3 authoring less manual.
 - Done: add bulk tag editing and a first Tag Manager surface for Custom Lorepack entries, including tag counts, tag filtering, add/remove/rename operations, and namespaced tag preservation.
-- Next: wire Tag Manager into `tags.json` registry editing and Pack Health checks for undefined or deprecated tags.
+- Done: wire Tag Manager into `tags.json` source loading plus embedded Custom/Generated tag registry editing for define/edit/rename/merge/deprecate workflows.
+- Done: add Pack Health checks for undefined tags, deprecated tag usage, duplicate aliases, orphaned definitions, malformed namespaces, missing parent/replacement references, and entries using tags missing from `tags.json`.
+- Done: build the Pending Review Queue foundation for Lorepack edits, including pending record patches, accept/reject actions, and routing current manual/bulk entry and tag edits through review before activation.
+- Done: build the Timeline Registry Editor MVP with source `timeline.json` loading, Custom overlay anchor/window editing, Pending Review routing, and runtime/Pack Health merge support.
+- Done: begin the Lore Assistant proposal pipeline with an editable Lorepack panel, structured JSON proposal parsing, and Pending Review queue integration for entry, tag, and timeline patches.
+- Next: add assistant proposal preview/diff controls and Pack Health rerun hooks.

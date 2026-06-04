@@ -38,6 +38,41 @@ const index = await loadStoryPositionIndexForState(baseState, {
 assert.equal(index.summary.anchorCount, 17);
 assert.equal(index.summary.windowCount, 3);
 
+const customIndex = await loadStoryPositionIndexForState({
+  lorepackStack: [
+    { packId: 'custom-story-pack', enabled: true, priority: 100, addedAt: 0 },
+  ],
+}, {
+  registry: {
+    packs: {
+      'custom-story-pack': {
+        packId: 'custom-story-pack',
+        type: 'custom',
+        title: 'Custom Story Pack',
+        manifestData: {
+          id: 'custom-story-pack',
+          type: 'custom',
+          title: 'Custom Story Pack',
+          files: [],
+        },
+        timelineRegistry: {
+          anchors: [
+            { id: 'custom.story.start', label: 'Custom Story Start', sortKey: 1, aliases: ['custom beginning'] },
+            { id: 'custom.story.end', label: 'Custom Story End', sortKey: 2 },
+          ],
+          windows: [
+            { id: 'custom.story.full', label: 'Custom Story Window', anchorFrom: 'custom.story.start', anchorTo: 'custom.story.end', sortKeyFrom: 1, sortKeyTo: 2 },
+          ],
+        },
+      },
+    },
+  },
+  force: true,
+});
+assert.equal(customIndex.summary.anchorCount, 2);
+assert.equal(customIndex.summary.windowCount, 1);
+assert.equal(customIndex.anchors[0].id, 'custom.story.start');
+
 const dateResolution = resolveStoryPositionsFromContext({
   sceneDate: 'Saturday, Jan 25, 1997',
   canonBoundary: 'Half-Blood Prince era, Year 6',

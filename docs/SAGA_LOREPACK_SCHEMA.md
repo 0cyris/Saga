@@ -128,6 +128,9 @@ Existing Wandlight packs can start with `lorepack.json` plus the current entry f
 | `manifestData` | object | Library-only embedded manifest metadata for virtual Custom duplicates before durable local storage exists. |
 | `entryOverrides` | object | Library-only map of edited or added lore entries keyed by entry ID. |
 | `disabledEntryIds` | string[] | Library-only source entry IDs suppressed by this Custom Lorepack. |
+| `timelineRegistry` | object | Library-only Custom/Generated timeline overlay for accepted anchor/window edits before durable pack-folder writes exist. |
+| `tagRegistry` | object | Library-only Custom/Generated tag overlay for accepted tag definition edits before durable pack-folder writes exist. |
+| `pendingChanges` | object[] | Library-only review queue for proposed Lorepack edits that have not been accepted yet. |
 | `generatedBy` | object | Lorepack Creator metadata. |
 | `license` | object | Pack license and usage notes. |
 | `health` | object | Last known Pack Health summary. |
@@ -285,9 +288,9 @@ Before full local zip/folder storage exists, Saga may represent a duplicated pac
 
 The UI still shows this as a Custom Lorepack. The virtual duplicate is loadable because entry files resolve relative to the source manifest, while runtime pack identity comes from `manifestData.id`.
 
-### Custom Entry Overrides
+### Custom Editable Layers
 
-Before Saga can write durable local pack folders, a Custom Lorepack may store entry-level changes in its library record:
+Before Saga can write durable local pack folders, a Custom Lorepack may store accepted edits in its library record:
 
 ```json
 {
@@ -298,11 +301,59 @@ Before Saga can write durable local pack folders, a Custom Lorepack may store en
       "fact": "The custom fact or override text."
     }
   },
-  "disabledEntryIds": ["source_entry_id"]
+  "disabledEntryIds": ["source_entry_id"],
+  "timelineRegistry": {
+    "schemaVersion": 1,
+    "timelineMode": "hybrid",
+    "sortKeyScale": "pack_local",
+    "anchors": [
+      {
+        "id": "custom.arc.start",
+        "label": "Custom arc begins",
+        "sortKey": 100
+      }
+    ],
+    "windows": [
+      {
+        "id": "custom.arc.full",
+        "label": "Custom arc",
+        "anchorFrom": "custom.arc.start",
+        "anchorTo": "custom.arc.end",
+        "sortKeyFrom": 100,
+        "sortKeyTo": 200
+      }
+    ],
+    "disabledAnchorIds": ["source.anchor.to_suppress"],
+    "disabledWindowIds": []
+  },
+  "pendingChanges": [
+    {
+      "schemaVersion": 1,
+      "changeId": "lpchg_upsert_entry_...",
+      "status": "pending",
+      "source": "manual",
+      "action": "upsert_entry",
+      "targetKind": "entry",
+      "title": "Save entry: Edited lore",
+      "affectedEntryIds": ["entry_id"],
+      "payload": {
+        "entryOverrides": {
+          "entry_id": {}
+        },
+        "disabledEntryIdsRemove": ["entry_id"]
+      }
+    }
+  ]
 }
 ```
 
 When loading a pack, Saga applies `entryOverrides` before Pack Health and canon database normalization. An override with the same ID as a source entry replaces that entry for this Custom pack. An override with a new ID becomes an added entry. A disabled entry ID suppresses the matching source entry.
+
+`timelineRegistry` overlays source `timeline.json`: custom anchors/windows with the same ID replace source definitions, new IDs extend the timeline, and `disabledAnchorIds` / `disabledWindowIds` suppress source definitions. Accepted timeline overlays affect Pack Health, Story Position search, resolver behavior, and runtime position gating.
+
+`pendingChanges` are not applied during loading. They are accepted or rejected in the Lorepack editor. Accepting a pending change applies its record patch into `entryOverrides`, `disabledEntryIds`, `timelineRegistry`, and/or `tagRegistry`; rejecting it removes the proposal without changing runtime-active lore.
+
+Pending change `source` should identify the proposer, such as `manual`, `bulk_edit`, `safe_repair`, or `lore_assistant`. Assistant-sourced proposals use the same record-patch payload shape as manual edits and remain inactive until accepted.
 
 ## Dependencies
 
@@ -1599,7 +1650,12 @@ Only technical load failures should be errors.
     "errorCount": 0,
     "warningCount": 8,
     "suggestionCount": 31,
+    "tagRegistryTagCount": 120,
     "undefinedTagCount": 1,
+    "deprecatedTagUsageCount": 0,
+    "duplicateTagAliasCount": 0,
+    "orphanedTagCount": 0,
+    "malformedTagCount": 0,
     "duplicateEntryIdCount": 0,
     "longEntryCount": 4,
     "timelineAnchorCount": 120,
@@ -1641,7 +1697,13 @@ Warnings:
 - `manifest_entry_count_mismatch`
 - `manifest_category_counts_mismatch`
 - `undefined_tag`
-- `deprecated_tag`
+- `deprecated_tag_used`
+- `duplicate_tag_alias`
+- `malformed_tag_namespace`
+- `tag_registry_invalid_ref`
+- `tag_registry_load_failed`
+- `tag_parent_missing`
+- `deprecated_tag_replacement_missing`
 - `unknown_entity_reference`
 - `broken_anchor_reference`
 - `invalid_date`
@@ -1668,6 +1730,9 @@ Suggestions:
 - `missing_scope`
 - `missing_triggers`
 - `missing_resolver_aliases`
+- `tag_registry_missing`
+- `orphaned_tag_definition`
+- `unnamespaced_bundled_tag`
 - `position_gates_without_timeline`
 - `story_position_timeline_empty`
 - `broad_entry`
@@ -1691,7 +1756,17 @@ Current schema v3 health behavior:
 - Manifest `stats.entryCount` and `stats.categoryCounts` are checked against loaded entries as warnings, not load blockers.
 - Editor validation, validated Custom/Generated export, and safe repair actions should call the same Pack Health rules as runtime loading.
 - The Custom entry editor should expose Story Position fields, timeline anchor search/pickers, retrieval metadata, and bulk Story Position edits for schema v3 entries.
-- The first Tag Manager surface should preserve namespaced tags and support bulk add, remove, and rename operations through Custom override layers.
+- The Tag Manager preserves namespaced entry tags, supports bulk add/remove/rename through Custom override layers, loads source `tags.json` when declared, and stores editable Custom/Generated tag definitions in an embedded `tagRegistry` layer.
+
+Current tag health behavior:
+
+- `undefined_tag` warns when entries use tags that are not defined by source `tags.json` or the embedded Custom/Generated `tagRegistry` layer.
+- `deprecated_tag_used` warns when entries still use a tag marked deprecated.
+- `duplicate_tag_alias` warns when the same alias points at multiple tag definitions.
+- `malformed_tag_namespace` warns when tag IDs or tag references have unsupported characters, whitespace, or incomplete namespace syntax such as `tag:`.
+- `tag_parent_missing` and `deprecated_tag_replacement_missing` warn when registry relationships point at unknown tags.
+- `tag_registry_missing` is a suggestion, not a warning, because imported or early Custom packs may use entry tags before defining `tags.json`.
+- `orphaned_tag_definition` is a suggestion for registry definitions not used by entries or registry relationships.
 
 ## Import And Export Bundle
 

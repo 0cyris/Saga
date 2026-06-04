@@ -69,6 +69,12 @@ function createHealth(packId = '') {
             schemaV3EntryCount: 0,
             schemaV3IssueCount: 0,
             manifestStatsMismatchCount: 0,
+            tagRegistryTagCount: 0,
+            undefinedTagCount: 0,
+            deprecatedTagUsageCount: 0,
+            duplicateTagAliasCount: 0,
+            orphanedTagCount: 0,
+            malformedTagCount: 0,
             categoryCounts: {},
             errorCount: 0,
             warningCount: 0,
@@ -111,9 +117,188 @@ function cleanHealthString(value, maxLength = 240) {
     return String(value || '').trim().slice(0, maxLength);
 }
 
+function normalizeHealthIdList(value = [], limit = 1000, maxLength = 180) {
+    if (!Array.isArray(value)) return [];
+    const output = [];
+    const seen = new Set();
+    for (const raw of value) {
+        const id = cleanHealthString(raw, maxLength);
+        if (!id || seen.has(id)) continue;
+        seen.add(id);
+        output.push(id);
+        if (output.length >= limit) break;
+    }
+    return output;
+}
+
 function cleanHealthNumber(value) {
     const number = Number(value);
     return Number.isFinite(number) ? number : null;
+}
+
+function cleanTagIdForHealth(value = '') {
+    return String(value || '')
+        .trim()
+        .replace(/[\r\n]+/g, ' ')
+        .replace(/[^\p{L}\p{N} _:\-./]+/gu, '')
+        .replace(/\s+/g, ' ')
+        .slice(0, 96)
+        .trim();
+}
+
+function cleanTagLabelForHealth(value = '', maxLength = 180) {
+    return String(value || '').trim().replace(/\s+/g, ' ').slice(0, maxLength).trim();
+}
+
+function getTagRegistryRef(manifest = {}) {
+    if (!isPlainObject(manifest)) return '';
+    const registries = isPlainObject(manifest.registries) ? manifest.registries : {};
+    const refs = [
+        typeof registries.tags === 'string' ? registries.tags : '',
+        typeof manifest.tagRegistry === 'string' ? manifest.tagRegistry : '',
+        typeof manifest.tagsRegistry === 'string' ? manifest.tagsRegistry : '',
+    ];
+    for (const ref of refs) {
+        const cleaned = cleanHealthString(ref, 400);
+        if (cleaned) return cleaned;
+    }
+    return '';
+}
+
+function normalizeHealthTagList(value, limit = 64, normalizeIds = false) {
+    const rawItems = Array.isArray(value)
+        ? value.flatMap(item => Array.isArray(item) ? item : [item])
+        : String(value || '').split(/[,;\n\r]+/);
+    const out = [];
+    const seen = new Set();
+    for (const raw of rawItems) {
+        const text = normalizeIds ? cleanTagIdForHealth(raw) : cleanTagLabelForHealth(raw, 160);
+        if (!text) continue;
+        const key = text.toLowerCase();
+        if (seen.has(key)) continue;
+        seen.add(key);
+        out.push(text);
+        if (out.length >= limit) break;
+    }
+    return out;
+}
+
+function normalizeTagRegistryDefinitionForHealth(raw = {}, tagId = '') {
+    const input = isPlainObject(raw) ? raw : {};
+    const id = cleanTagIdForHealth(input.id || tagId);
+    return {
+        id,
+        label: cleanTagLabelForHealth(input.label || '', 180),
+        description: cleanHealthString(input.description || '', 1000),
+        color: cleanHealthString(input.color || '', 32),
+        textColor: cleanHealthString(input.textColor || '', 32),
+        aliases: normalizeHealthTagList(input.aliases, 64, false),
+        parents: normalizeHealthTagList(input.parents, 64, true),
+        sensitive: input.sensitive === true,
+        deprecated: input.deprecated === true,
+        replacement: cleanTagIdForHealth(input.replacement || ''),
+    };
+}
+
+function normalizeTagRegistryForHealth(raw = {}) {
+    if (!isPlainObject(raw)) return { tags: [] };
+    const source = isPlainObject(raw.tags) ? raw.tags : raw;
+    const tags = [];
+    let count = 0;
+    for (const [rawId, rawDef] of Object.entries(source || {})) {
+        if (!isPlainObject(rawDef)) continue;
+        const id = cleanTagIdForHealth(rawDef.id || rawId);
+        if (!id) continue;
+        tags.push(normalizeTagRegistryDefinitionForHealth(rawDef, id));
+        count += 1;
+        if (count >= 2000) break;
+    }
+    return { tags };
+}
+
+function createEmptyTagRegistryHealthIndex(packId = '', tagRegistryRef = '') {
+    return {
+        packId,
+        tagRegistryRef,
+        hasSourceRegistry: false,
+        hasCustomRegistry: false,
+        hasRegistry: false,
+        definitions: [],
+        definitionById: new Map(),
+        sourceDefinitionById: new Map(),
+        customDefinitionById: new Map(),
+    };
+}
+
+function createTagRegistryHealthIndex(options = {}) {
+    const packId = cleanHealthString(options.packId, 160);
+    const tagRegistryRef = cleanHealthString(options.tagRegistryRef, 400);
+    const sourceRegistry = normalizeTagRegistryForHealth(options.sourceRegistry);
+    const customRegistry = normalizeTagRegistryForHealth(options.customRegistry);
+    const sourceDefinitionById = new Map();
+    const customDefinitionById = new Map();
+    const definitionById = new Map();
+
+    for (const def of sourceRegistry.tags || []) {
+        const id = cleanTagIdForHealth(def.id);
+        if (!id || sourceDefinitionById.has(id)) continue;
+        sourceDefinitionById.set(id, { ...def, id });
+        definitionById.set(id, { ...def, id, sourceDefined: true, customDefined: false });
+    }
+    for (const def of customRegistry.tags || []) {
+        const id = cleanTagIdForHealth(def.id);
+        if (!id || customDefinitionById.has(id)) continue;
+        customDefinitionById.set(id, { ...def, id });
+        definitionById.set(id, {
+            ...(definitionById.get(id) || {}),
+            ...def,
+            id,
+            sourceDefined: definitionById.has(id),
+            customDefined: true,
+        });
+    }
+
+    return {
+        packId,
+        tagRegistryRef,
+        hasSourceRegistry: options.hasSourceRegistry === true || sourceDefinitionById.size > 0,
+        hasCustomRegistry: customDefinitionById.size > 0,
+        hasRegistry: options.hasSourceRegistry === true || sourceDefinitionById.size > 0 || customDefinitionById.size > 0,
+        definitions: Array.from(definitionById.values()),
+        definitionById,
+        sourceDefinitionById,
+        customDefinitionById,
+    };
+}
+
+function addTagHealthIssue(health, severity, code, message, extra = {}) {
+    if (code === 'undefined_tag') health.summary.undefinedTagCount += Number(extra.affectedTagCount || 1) || 1;
+    if (code === 'deprecated_tag_used') health.summary.deprecatedTagUsageCount += Number(extra.affectedTagCount || 1) || 1;
+    if (code === 'duplicate_tag_alias') health.summary.duplicateTagAliasCount += Number(extra.affectedAliasCount || 1) || 1;
+    if (code === 'orphaned_tag_definition') health.summary.orphanedTagCount += Number(extra.affectedTagCount || 1) || 1;
+    if (['malformed_tag_namespace', 'malformed_tag_id', 'malformed_tag_reference'].includes(code)) {
+        health.summary.malformedTagCount += Number(extra.affectedTagCount || 1) || 1;
+    }
+    addHealthIssue(health, severity, code, message, extra);
+}
+
+function getTagIdFormatProblems(tagId = '') {
+    const tag = cleanHealthString(tagId, 120);
+    const problems = [];
+    if (!tag) return ['empty tag id'];
+    if (cleanTagIdForHealth(tag) !== tag) problems.push('contains unsupported characters');
+    if (/\s/.test(tag)) problems.push('contains whitespace');
+    if (tag.includes(':')) {
+        const [namespace, ...rest] = tag.split(':');
+        const value = rest.join(':');
+        if (!namespace || !value) problems.push('has an incomplete namespace');
+        if (namespace && !/^[\p{L}\p{N}_.-]+$/u.test(namespace)) problems.push('has an invalid namespace');
+    }
+    return problems;
+}
+
+function isBundledManifest(manifest = {}) {
+    return cleanHealthString(manifest.type, 80) === 'bundled';
 }
 
 function parseIsoDateSortKey(value = '') {
@@ -151,6 +336,60 @@ function getTimelineRegistryRef(manifest = {}) {
         if (cleaned) return cleaned;
     }
     return '';
+}
+
+function getTimelineRegistryWindowList(registry = {}) {
+    if (!isPlainObject(registry)) return [];
+    return [
+        ...(Array.isArray(registry.windows) ? registry.windows : []),
+        ...(Array.isArray(registry.arcs) ? registry.arcs : []),
+        ...(Array.isArray(registry.phases) ? registry.phases : []),
+    ];
+}
+
+function mergeTimelineArrayById(sourceItems = [], customItems = [], disabledIds = []) {
+    const disabled = new Set(normalizeHealthIdList(disabledIds));
+    const map = new Map();
+    for (const raw of Array.isArray(sourceItems) ? sourceItems : []) {
+        if (!isPlainObject(raw)) continue;
+        const id = cleanHealthString(raw.id, 180);
+        if (!id || disabled.has(id)) continue;
+        map.set(id, clonePlainObject(raw) || { ...raw, id });
+    }
+    for (const raw of Array.isArray(customItems) ? customItems : []) {
+        if (!isPlainObject(raw)) continue;
+        const id = cleanHealthString(raw.id, 180);
+        if (!id || disabled.has(id)) continue;
+        map.set(id, clonePlainObject({ ...raw, id }) || { ...raw, id });
+    }
+    return Array.from(map.values());
+}
+
+export function mergeLorepackTimelineRegistries(sourceRegistry = null, customRegistry = null) {
+    const source = isPlainObject(sourceRegistry) ? sourceRegistry : {};
+    const custom = isPlainObject(customRegistry) ? customRegistry : {};
+    const hasSource = Object.keys(source).length > 0;
+    const hasCustom = Object.keys(custom).length > 0;
+    if (!hasSource && !hasCustom) return null;
+
+    const disabledAnchorIds = normalizeHealthIdList(custom.disabledAnchorIds || custom.disabledAnchors || []);
+    const disabledWindowIds = normalizeHealthIdList(custom.disabledWindowIds || custom.disabledWindows || []);
+    const merged = {
+        ...clonePlainObject(source),
+        schemaVersion: cleanHealthNumber(custom.schemaVersion) || cleanHealthNumber(source.schemaVersion) || 1,
+        timelineMode: cleanHealthString(custom.timelineMode || source.timelineMode || 'hybrid', 80),
+        defaultPositionType: cleanHealthString(custom.defaultPositionType || source.defaultPositionType || '', 80),
+        sortKeyScale: cleanHealthString(custom.sortKeyScale || source.sortKeyScale || 'pack_local', 160),
+        summary: cleanHealthString(custom.summary || source.summary || source.description || '', 1000),
+        axes: Array.isArray(custom.axes) && custom.axes.length
+            ? (clonePlainObject(custom.axes) || [])
+            : (Array.isArray(source.axes) ? (clonePlainObject(source.axes) || []) : []),
+        anchors: mergeTimelineArrayById(source.anchors, custom.anchors, disabledAnchorIds),
+        windows: mergeTimelineArrayById(getTimelineRegistryWindowList(source), getTimelineRegistryWindowList(custom), disabledWindowIds),
+    };
+    if (disabledAnchorIds.length) merged.disabledAnchorIds = disabledAnchorIds;
+    if (disabledWindowIds.length) merged.disabledWindowIds = disabledWindowIds;
+    return merged;
 }
 
 function normalizeTimelineHealthAnchor(raw = {}, packId = '', index = 0) {
@@ -315,7 +554,7 @@ function analyzeTimelineDateDerivedSortKeys(health, timeline = {}) {
     }
 }
 
-async function loadTimelineRegistryForHealth(manifest = {}, baseUrl = null, health) {
+async function loadTimelineRegistryForHealth(manifest = {}, baseUrl = null, health, registryRecord = null) {
     const packId = cleanHealthString(manifest.id || health?.packId, 160);
     const timelineRef = getTimelineRegistryRef(manifest);
     const empty = {
@@ -327,33 +566,44 @@ async function loadTimelineRegistryForHealth(manifest = {}, baseUrl = null, heal
         anchorById: new Map(),
         duplicateAnchorIds: new Set(),
     };
-    if (!timelineRef || !baseUrl) return empty;
+    let sourceRegistry = isPlainObject(manifest.timelineRegistry) ? manifest.timelineRegistry : null;
+    let hasTimelineRef = !!timelineRef;
 
-    let timelineUrl = null;
-    try {
-        timelineUrl = new URL(timelineRef, baseUrl);
-    } catch (_) {
-        addHealthIssue(health, 'warning', 'story_position_timeline_invalid_ref', `Timeline registry path is invalid: ${timelineRef}.`, {
-            timelineRef,
-        });
-        return empty;
+    if (timelineRef && baseUrl) {
+        let timelineUrl = null;
+        try {
+            timelineUrl = new URL(timelineRef, baseUrl);
+        } catch (_) {
+            addHealthIssue(health, 'warning', 'story_position_timeline_invalid_ref', `Timeline registry path is invalid: ${timelineRef}.`, {
+                timelineRef,
+            });
+            hasTimelineRef = false;
+        }
+
+        if (timelineUrl) {
+            const result = await fetchJsonDetailed(timelineUrl);
+            if (!result.ok) {
+                addHealthIssue(health, 'warning', 'story_position_timeline_load_failed', `Timeline registry failed to load: ${timelineRef}.`, {
+                    timelineRef,
+                    status: result.status,
+                    detail: result.error || result.statusText || '',
+                });
+                hasTimelineRef = false;
+            } else {
+                sourceRegistry = result.json;
+                hasTimelineRef = true;
+            }
+        }
     }
 
-    const result = await fetchJsonDetailed(timelineUrl);
-    if (!result.ok) {
-        addHealthIssue(health, 'warning', 'story_position_timeline_load_failed', `Timeline registry failed to load: ${timelineRef}.`, {
-            timelineRef,
-            status: result.status,
-            detail: result.error || result.statusText || '',
-        });
-        return empty;
-    }
+    const mergedRegistry = mergeLorepackTimelineRegistries(sourceRegistry, registryRecord?.timelineRegistry);
+    if (!mergedRegistry) return empty;
 
     const timeline = createTimelineHealthIndex({
-        ...normalizeTimelineRegistryForHealth(result.json, packId),
+        ...normalizeTimelineRegistryForHealth(mergedRegistry, packId),
         packId,
         timelineRef,
-        hasTimelineRef: true,
+        hasTimelineRef: hasTimelineRef || !!registryRecord?.timelineRegistry,
     });
     health.summary.timelineAnchorCount = timeline.anchors.length;
     health.summary.timelineWindowCount = timeline.windows.length;
@@ -365,6 +615,51 @@ async function loadTimelineRegistryForHealth(manifest = {}, baseUrl = null, heal
     analyzeTimelineWindowHealth(health, timeline);
     analyzeTimelineDateDerivedSortKeys(health, timeline);
     return timeline;
+}
+
+async function loadTagRegistryForHealth(manifest = {}, baseUrl = null, health, registryRecord = null) {
+    const packId = cleanHealthString(manifest.id || health?.packId, 160);
+    const tagRegistryRef = getTagRegistryRef(manifest);
+    let sourceRegistry = isPlainObject(manifest.tagRegistry) ? manifest.tagRegistry : null;
+    let hasSourceRegistry = !!sourceRegistry || !!tagRegistryRef;
+
+    if (tagRegistryRef && baseUrl) {
+        let tagRegistryUrl = null;
+        try {
+            tagRegistryUrl = new URL(tagRegistryRef, baseUrl);
+        } catch (_) {
+            addHealthIssue(health, 'warning', 'tag_registry_invalid_ref', `Tag registry path is invalid: ${tagRegistryRef}.`, {
+                tagRegistryRef,
+            });
+            hasSourceRegistry = false;
+        }
+
+        if (tagRegistryUrl) {
+            const result = await fetchJsonDetailed(tagRegistryUrl);
+            if (!result.ok) {
+                addHealthIssue(health, 'warning', 'tag_registry_load_failed', `Tag registry failed to load: ${tagRegistryRef}.`, {
+                    tagRegistryRef,
+                    status: result.status,
+                    detail: result.error || result.statusText || '',
+                });
+                hasSourceRegistry = false;
+            } else {
+                sourceRegistry = result.json;
+                hasSourceRegistry = true;
+            }
+        }
+    }
+
+    const tagIndex = createTagRegistryHealthIndex({
+        packId,
+        tagRegistryRef,
+        sourceRegistry,
+        customRegistry: registryRecord?.tagRegistry,
+        hasSourceRegistry,
+    });
+    health.summary.tagRegistryTagCount = tagIndex.definitions.length;
+    analyzeTagRegistryDefinitionHealth(health, tagIndex, manifest);
+    return tagIndex;
 }
 
 function hasFinitePositionNumber(value) {
@@ -666,6 +961,177 @@ function analyzeSchemaV3EntryHealth(health, entry = {}, fileRecord = {}) {
     }
 }
 
+function createInMemoryTagRegistryHealthIndex(manifest = {}, tagRegistry = null, registryRecord = null, health) {
+    const packId = cleanHealthString(manifest.id || health?.packId, 160);
+    const tagRegistryRef = getTagRegistryRef(manifest);
+    const sourceRegistry = isPlainObject(tagRegistry)
+        ? tagRegistry
+        : (isPlainObject(manifest.tagRegistry) ? manifest.tagRegistry : null);
+    const tagIndex = createTagRegistryHealthIndex({
+        packId,
+        tagRegistryRef,
+        sourceRegistry,
+        customRegistry: registryRecord?.tagRegistry,
+        hasSourceRegistry: !!sourceRegistry || !!tagRegistryRef,
+    });
+    health.summary.tagRegistryTagCount = tagIndex.definitions.length;
+    analyzeTagRegistryDefinitionHealth(health, tagIndex, manifest);
+    return tagIndex;
+}
+
+function analyzeTagIdHealth(health, tagId = '', context = {}) {
+    const problems = getTagIdFormatProblems(tagId);
+    if (!problems.length) return;
+    addTagHealthIssue(health, 'warning', 'malformed_tag_namespace', `Tag ${tagId || '(empty)'} has malformed namespace/id syntax: ${problems.join(', ')}.`, {
+        tagIds: tagId ? [tagId] : [],
+        entryIds: context.entryId ? [context.entryId] : [],
+        file: context.file || '',
+        registryTag: context.registryTag === true,
+        reasons: problems,
+    });
+}
+
+function analyzeTagRegistryDefinitionHealth(health, tagIndex = {}, manifest = {}) {
+    const aliasMap = new Map();
+
+    for (const def of tagIndex.definitions || []) {
+        analyzeTagIdHealth(health, def.id, { registryTag: true });
+
+        for (const parent of def.parents || []) {
+            analyzeTagIdHealth(health, parent, { registryTag: true });
+            if (tagIndex.definitionById?.has(parent)) continue;
+            addTagHealthIssue(health, 'warning', 'tag_parent_missing', `Tag ${def.id} references unknown parent tag ${parent}.`, {
+                tagIds: [def.id, parent],
+                parentTagId: parent,
+            });
+        }
+
+        if (def.replacement) {
+            analyzeTagIdHealth(health, def.replacement, { registryTag: true });
+            if (!tagIndex.definitionById?.has(def.replacement)) {
+                addTagHealthIssue(health, 'warning', 'deprecated_tag_replacement_missing', `Deprecated tag ${def.id} references unknown replacement tag ${def.replacement}.`, {
+                    tagIds: [def.id, def.replacement],
+                    replacementTagId: def.replacement,
+                });
+            }
+        }
+
+        for (const alias of def.aliases || []) {
+            const key = alias.toLowerCase();
+            if (!key) continue;
+            if (!aliasMap.has(key)) aliasMap.set(key, []);
+            aliasMap.get(key).push(def.id);
+        }
+
+        if (isBundledManifest(manifest) && !def.id.includes(':')) {
+            addHealthIssue(health, 'suggestion', 'unnamespaced_bundled_tag', `Bundled tag ${def.id} should use a namespace like namespace:value.`, {
+                tagIds: [def.id],
+            });
+        }
+    }
+
+    const duplicates = [];
+    for (const [alias, tagIds] of aliasMap.entries()) {
+        const unique = Array.from(new Set(tagIds));
+        if (unique.length > 1) duplicates.push({ alias, tagIds: unique });
+    }
+    if (duplicates.length) {
+        addTagHealthIssue(health, 'warning', 'duplicate_tag_alias', `${duplicates.length} tag alias${duplicates.length === 1 ? '' : 'es'} resolve to multiple tag definitions.`, {
+            affectedAliasCount: duplicates.length,
+            aliases: duplicates.slice(0, 25),
+        });
+    }
+}
+
+function getEntryTagIdsForHealth(entry = {}) {
+    return normalizeHealthTagList(Array.isArray(entry.tags) ? entry.tags : entry.tags || [], 128, false);
+}
+
+function analyzeEntryTagHealth(health, entryFiles = [], tagIndex = {}, manifest = {}) {
+    const usageByTag = new Map();
+    let entryTagCount = 0;
+
+    for (const fileRecord of entryFiles || []) {
+        for (const entry of fileRecord.entries || []) {
+            const entryId = cleanHealthString(entry?.id, 180);
+            const tags = getEntryTagIdsForHealth(entry);
+            for (const tag of tags) {
+                entryTagCount += 1;
+                analyzeTagIdHealth(health, tag, { entryId, file: fileRecord.file });
+                if (!usageByTag.has(tag)) {
+                    usageByTag.set(tag, {
+                        tag,
+                        entryIds: [],
+                        files: new Set(),
+                    });
+                }
+                const usage = usageByTag.get(tag);
+                if (entryId && usage.entryIds.length < 50) usage.entryIds.push(entryId);
+                if (fileRecord.file) usage.files.add(fileRecord.file);
+            }
+        }
+    }
+
+    if (entryTagCount && !tagIndex.hasRegistry) {
+        addHealthIssue(health, 'suggestion', 'tag_registry_missing', `${usageByTag.size} entry tag${usageByTag.size === 1 ? ' is' : 's are'} used, but this Lorepack has no tag registry.`, {
+            tagIds: Array.from(usageByTag.keys()).slice(0, 50),
+            affectedTagCount: usageByTag.size,
+        });
+        return;
+    }
+
+    const undefinedTags = [];
+    const deprecatedTags = [];
+    for (const [tag, usage] of usageByTag.entries()) {
+        const def = tagIndex.definitionById?.get(tag);
+        if (!def) {
+            undefinedTags.push({
+                tag,
+                entryIds: usage.entryIds,
+                files: Array.from(usage.files).slice(0, 10),
+            });
+            continue;
+        }
+        if (def.deprecated) {
+            deprecatedTags.push({
+                tag,
+                replacement: def.replacement || '',
+                entryIds: usage.entryIds,
+                files: Array.from(usage.files).slice(0, 10),
+            });
+        }
+    }
+
+    if (undefinedTags.length) {
+        addTagHealthIssue(health, 'warning', 'undefined_tag', `${undefinedTags.length} used tag${undefinedTags.length === 1 ? ' is' : 's are'} not defined in the active tag registry.`, {
+            affectedTagCount: undefinedTags.length,
+            tags: undefinedTags.slice(0, 50),
+        });
+    }
+
+    if (deprecatedTags.length) {
+        addTagHealthIssue(health, 'warning', 'deprecated_tag_used', `${deprecatedTags.length} deprecated tag${deprecatedTags.length === 1 ? ' is' : 's are'} still used by entries.`, {
+            affectedTagCount: deprecatedTags.length,
+            tags: deprecatedTags.slice(0, 50),
+        });
+    }
+
+    const referencedByRegistry = new Set();
+    for (const def of tagIndex.definitions || []) {
+        for (const parent of def.parents || []) referencedByRegistry.add(parent);
+        if (def.replacement) referencedByRegistry.add(def.replacement);
+    }
+    const orphaned = (tagIndex.definitions || [])
+        .map(def => def.id)
+        .filter(tagId => !usageByTag.has(tagId) && !referencedByRegistry.has(tagId));
+    if (orphaned.length) {
+        addTagHealthIssue(health, 'suggestion', 'orphaned_tag_definition', `${orphaned.length} tag definition${orphaned.length === 1 ? ' is' : 's are'} not used by entries or registry relationships.`, {
+            affectedTagCount: orphaned.length,
+            tagIds: orphaned.slice(0, 50),
+        });
+    }
+}
+
 function normalizeCategoryCounts(value = {}) {
     const input = isPlainObject(value) ? value : {};
     const out = {};
@@ -745,13 +1211,17 @@ function createEmptyTimelineHealthIndex(packId = '', timelineRef = '') {
     };
 }
 
-function createInMemoryTimelineHealthIndex(manifest = {}, timeline = null, health) {
+function createInMemoryTimelineHealthIndex(manifest = {}, timeline = null, health, registryRecord = null) {
     const packId = cleanHealthString(manifest.id || health?.packId, 160);
     const timelineRef = getTimelineRegistryRef(manifest);
-    if (!isPlainObject(timeline)) return createEmptyTimelineHealthIndex(packId, timelineRef);
+    const mergedRegistry = mergeLorepackTimelineRegistries(
+        isPlainObject(timeline) ? timeline : (isPlainObject(manifest.timelineRegistry) ? manifest.timelineRegistry : null),
+        registryRecord?.timelineRegistry
+    );
+    if (!mergedRegistry) return createEmptyTimelineHealthIndex(packId, timelineRef);
 
     const index = createTimelineHealthIndex({
-        ...normalizeTimelineRegistryForHealth(timeline, packId),
+        ...normalizeTimelineRegistryForHealth(mergedRegistry, packId),
         packId,
         timelineRef,
         hasTimelineRef: true,
@@ -841,13 +1311,14 @@ export function buildLorepackHealthForData(options = {}) {
     const finalEntryFiles = options.registryRecord
         ? applyRegistryEntryOverrides(entryFiles, options.registryRecord, manifest, health)
         : entryFiles;
-    const timeline = createInMemoryTimelineHealthIndex(manifest, options.timeline, health);
+    const timeline = createInMemoryTimelineHealthIndex(manifest, options.timeline, health, options.registryRecord);
+    const tagIndex = createInMemoryTagRegistryHealthIndex(manifest, options.tagRegistry, options.registryRecord, health);
     analyzeEntryPositionHealth(health, finalEntryFiles, timeline);
-    analyzeEntries(health, finalEntryFiles, manifest);
+    analyzeEntries(health, finalEntryFiles, manifest, tagIndex);
     return finalizeHealth(health);
 }
 
-function analyzeEntries(health, entryFiles = [], manifest = {}) {
+function analyzeEntries(health, entryFiles = [], manifest = {}, tagIndex = createEmptyTagRegistryHealthIndex(health?.packId || '', getTagRegistryRef(manifest))) {
     const seenIds = new Map();
     const duplicateIds = new Set();
     let missingEntryIds = 0;
@@ -882,6 +1353,7 @@ function analyzeEntries(health, entryFiles = [], manifest = {}) {
     health.summary.duplicateEntryIdCount = duplicateIds.size;
     health.summary.missingEntryIdCount = missingEntryIds;
     health.summary.categoryCounts = categoryCounts;
+    analyzeEntryTagHealth(health, entryFiles, tagIndex, manifest);
     analyzeManifestStatsHealth(health, manifest);
 }
 
@@ -1122,9 +1594,10 @@ async function loadEntryFiles(manifest = {}, baseUrl, health, registryRecord = n
     }
 
     const finalEntryFiles = applyRegistryEntryOverrides(entryFiles, registryRecord, manifest, health);
-    const timeline = await loadTimelineRegistryForHealth(manifest, baseUrl, health);
+    const timeline = await loadTimelineRegistryForHealth(manifest, baseUrl, health, registryRecord);
+    const tagIndex = await loadTagRegistryForHealth(manifest, baseUrl, health, registryRecord);
     analyzeEntryPositionHealth(health, finalEntryFiles, timeline);
-    analyzeEntries(health, finalEntryFiles, manifest);
+    analyzeEntries(health, finalEntryFiles, manifest, tagIndex);
     return finalEntryFiles;
 }
 
@@ -1144,6 +1617,7 @@ export async function loadLorepackSourceById(packId = DEFAULT_LOREPACK_ID, optio
                 manifest: embeddedManifest,
                 baseUrl: null,
                 sourceKind: 'virtual',
+                registryRecord,
                 pack: buildLorepackMeta(embeddedManifest, stackPriority, stackIndex),
                 health: finalizeHealth(health),
                 entryFiles: [],
@@ -1154,6 +1628,7 @@ export async function loadLorepackSourceById(packId = DEFAULT_LOREPACK_ID, optio
             manifest: embeddedManifest,
             baseUrl: manifestUrl,
             sourceKind: 'virtual',
+            registryRecord,
             pack: {
                 ...buildLorepackMeta(embeddedManifest, stackPriority, stackIndex),
                 source: embeddedManifest.source || registryRecord?.source || {},
@@ -1169,6 +1644,7 @@ export async function loadLorepackSourceById(packId = DEFAULT_LOREPACK_ID, optio
             manifest: null,
             baseUrl: null,
             sourceKind: 'missing',
+            registryRecord,
             pack: buildMissingPackMeta(packId, registryRecord, stackPriority, stackIndex),
             health: finalizeHealth(health),
             entryFiles: [],
@@ -1191,6 +1667,7 @@ export async function loadLorepackSourceById(packId = DEFAULT_LOREPACK_ID, optio
             manifest,
             baseUrl: manifestUrl,
             sourceKind: 'lorepack',
+            registryRecord,
             pack,
             health: finalizeHealth(health),
             entryFiles,
@@ -1208,6 +1685,7 @@ export async function loadLorepackSourceById(packId = DEFAULT_LOREPACK_ID, optio
             manifest: null,
             baseUrl: manifestUrl,
             sourceKind: 'missing',
+            registryRecord,
             pack: buildMissingPackMeta(packId, registryRecord, stackPriority, stackIndex),
             health: finalizeHealth(health),
             entryFiles: [],
@@ -1231,6 +1709,7 @@ export async function loadLorepackSourceById(packId = DEFAULT_LOREPACK_ID, optio
             manifest: null,
             baseUrl,
             sourceKind: 'missing',
+            registryRecord,
             pack: { id: DEFAULT_LOREPACK_ID, type: 'bundled', title: 'Harry Potter: Golden Trio', stackPriority, stackIndex },
             health: finalizeHealth(health),
             entryFiles: [],
@@ -1249,6 +1728,7 @@ export async function loadLorepackSourceById(packId = DEFAULT_LOREPACK_ID, optio
         manifest,
         baseUrl,
         sourceKind: 'legacy',
+        registryRecord,
         pack,
         health: finalizeHealth(health),
         entryFiles,
@@ -1328,6 +1808,12 @@ export function combineLorepackHealth(sources = []) {
         health.summary.schemaV3EntryCount = (Number(health.summary.schemaV3EntryCount) || 0) + (Number(summary.schemaV3EntryCount) || 0);
         health.summary.schemaV3IssueCount = (Number(health.summary.schemaV3IssueCount) || 0) + (Number(summary.schemaV3IssueCount) || 0);
         health.summary.manifestStatsMismatchCount = (Number(health.summary.manifestStatsMismatchCount) || 0) + (Number(summary.manifestStatsMismatchCount) || 0);
+        health.summary.tagRegistryTagCount = (Number(health.summary.tagRegistryTagCount) || 0) + (Number(summary.tagRegistryTagCount) || 0);
+        health.summary.undefinedTagCount = (Number(health.summary.undefinedTagCount) || 0) + (Number(summary.undefinedTagCount) || 0);
+        health.summary.deprecatedTagUsageCount = (Number(health.summary.deprecatedTagUsageCount) || 0) + (Number(summary.deprecatedTagUsageCount) || 0);
+        health.summary.duplicateTagAliasCount = (Number(health.summary.duplicateTagAliasCount) || 0) + (Number(summary.duplicateTagAliasCount) || 0);
+        health.summary.orphanedTagCount = (Number(health.summary.orphanedTagCount) || 0) + (Number(summary.orphanedTagCount) || 0);
+        health.summary.malformedTagCount = (Number(health.summary.malformedTagCount) || 0) + (Number(summary.malformedTagCount) || 0);
         for (const [category, count] of Object.entries(summary.categoryCounts || {})) {
             health.summary.categoryCounts[category] = (health.summary.categoryCounts[category] || 0) + (Number(count) || 0);
         }
@@ -1350,6 +1836,10 @@ export const __lorepackLoaderTestHooks = {
     finalizeHealth,
     normalizeTimelineRegistryForHealth,
     createTimelineHealthIndex,
+    normalizeTagRegistryForHealth,
+    createTagRegistryHealthIndex,
+    analyzeTagRegistryDefinitionHealth,
+    analyzeEntryTagHealth,
     analyzeTimelineWindowHealth,
     analyzeTimelineDateDerivedSortKeys,
     analyzeManifestFileListHealth,

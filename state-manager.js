@@ -345,6 +345,242 @@ function normalizeLorepackDisabledEntryIds(value) {
     return output;
 }
 
+function normalizeLorepackPendingChanges(value) {
+    if (!Array.isArray(value)) return [];
+    const output = [];
+    const seen = new Set();
+    for (const raw of value) {
+        if (!raw || typeof raw !== 'object' || Array.isArray(raw)) continue;
+        const changeId = String(raw.changeId || raw.id || '').trim() || `pending_${output.length + 1}`;
+        if (seen.has(changeId)) continue;
+        seen.add(changeId);
+        const payload = cloneLorepackPlainObject(raw.payload, 200000) || {};
+        const preview = cloneLorepackPlainObject(raw.preview, 20000) || {};
+        output.push({
+            schemaVersion: Number.isFinite(Number(raw.schemaVersion)) ? Number(raw.schemaVersion) : 1,
+            changeId,
+            status: 'pending',
+            source: String(raw.source || 'manual').trim().slice(0, 80),
+            action: String(raw.action || 'record_patch').trim().slice(0, 80),
+            targetKind: String(raw.targetKind || 'lorepack').trim().slice(0, 80),
+            title: String(raw.title || changeId).trim().slice(0, 240),
+            description: String(raw.description || '').trim().slice(0, 1000),
+            affectedEntryIds: normalizeLorepackDisabledEntryIds(raw.affectedEntryIds).slice(0, 500),
+            affectedTagIds: Array.isArray(raw.affectedTagIds)
+                ? raw.affectedTagIds.map(tag => cleanLorepackTagRegistryId(tag)).filter(Boolean).slice(0, 500)
+                : [],
+            affectedTimelineIds: Array.isArray(raw.affectedTimelineIds)
+                ? raw.affectedTimelineIds.map(id => cleanLorepackTimelineRegistryId(id)).filter(Boolean).slice(0, 500)
+                : [],
+            payload,
+            preview,
+            createdAt: Number.isFinite(Number(raw.createdAt)) ? Number(raw.createdAt) : Date.now(),
+            updatedAt: Number.isFinite(Number(raw.updatedAt)) ? Number(raw.updatedAt) : Date.now(),
+        });
+        if (output.length >= 500) break;
+    }
+    return output;
+}
+
+function cleanLorepackTagRegistryId(value) {
+    return String(value || '')
+        .trim()
+        .replace(/[\r\n]+/g, ' ')
+        .replace(/[^\p{L}\p{N} _:\-./]+/gu, '')
+        .replace(/\s+/g, ' ')
+        .slice(0, 96)
+        .trim();
+}
+
+function normalizeLorepackTagRegistryList(value, limit = 64, normalizeId = false) {
+    if (!Array.isArray(value)) return [];
+    const output = [];
+    const seen = new Set();
+    for (const raw of value) {
+        const text = normalizeId ? cleanLorepackTagRegistryId(raw) : String(raw || '').trim().slice(0, 120).trim();
+        if (!text) continue;
+        const key = text.toLowerCase();
+        if (seen.has(key)) continue;
+        seen.add(key);
+        output.push(text);
+        if (output.length >= limit) break;
+    }
+    return output;
+}
+
+function normalizeLorepackTagRegistry(value) {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+    const rawTags = value.tags && typeof value.tags === 'object' && !Array.isArray(value.tags)
+        ? value.tags
+        : value;
+    if (!rawTags || typeof rawTags !== 'object' || Array.isArray(rawTags)) return null;
+    const tags = {};
+    let count = 0;
+    for (const [rawId, rawDef] of Object.entries(rawTags)) {
+        if (!rawDef || typeof rawDef !== 'object' || Array.isArray(rawDef)) continue;
+        const id = cleanLorepackTagRegistryId(rawDef.id || rawId);
+        if (!id) continue;
+        tags[id] = {
+            label: String(rawDef.label || '').trim().slice(0, 160),
+            color: String(rawDef.color || '').trim().slice(0, 32),
+            textColor: String(rawDef.textColor || '').trim().slice(0, 32),
+            description: String(rawDef.description || '').trim().slice(0, 1000),
+            aliases: normalizeLorepackTagRegistryList(rawDef.aliases, 64, false),
+            parents: normalizeLorepackTagRegistryList(rawDef.parents, 64, true),
+            sensitive: rawDef.sensitive === true,
+            deprecated: rawDef.deprecated === true,
+            replacement: cleanLorepackTagRegistryId(rawDef.replacement || ''),
+        };
+        count += 1;
+        if (count >= 2000) break;
+    }
+    if (!Object.keys(tags).length) return null;
+    return {
+        schemaVersion: 1,
+        tags,
+    };
+}
+
+function cleanLorepackTimelineRegistryId(value) {
+    return String(value || '')
+        .trim()
+        .replace(/[\r\n]+/g, ' ')
+        .replace(/[^\p{L}\p{N} _:\-./]+/gu, '')
+        .replace(/\s+/g, '_')
+        .slice(0, 180)
+        .trim();
+}
+
+function normalizeLorepackTimelineRegistryList(value, limit = 64) {
+    if (!Array.isArray(value)) return [];
+    const output = [];
+    const seen = new Set();
+    for (const raw of value) {
+        const text = String(raw || '').trim().slice(0, 160).trim();
+        if (!text) continue;
+        const key = text.toLowerCase();
+        if (seen.has(key)) continue;
+        seen.add(key);
+        output.push(text);
+        if (output.length >= limit) break;
+    }
+    return output;
+}
+
+function normalizeLorepackTimelineDateRange(value = {}) {
+    const input = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+    return {
+        from: String(input.from || input.start || input.validFrom || '').trim().slice(0, 80),
+        to: String(input.to || input.end || input.validTo || '').trim().slice(0, 80),
+        precision: String(input.precision || '').trim().slice(0, 40),
+    };
+}
+
+function normalizeLorepackTimelineNumber(value) {
+    const number = Number(value);
+    return Number.isFinite(number) ? number : null;
+}
+
+function normalizeLorepackTimelineAnchor(raw = {}, fallbackId = '', index = 0) {
+    if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return null;
+    const id = cleanLorepackTimelineRegistryId(raw.id || fallbackId);
+    if (!id) return null;
+    const anchor = {
+        id,
+        label: String(raw.label || raw.title || id).trim().slice(0, 240),
+        positionType: String(raw.positionType || raw.type || 'anchor').trim().slice(0, 80),
+        sortKey: normalizeLorepackTimelineNumber(raw.sortKey) ?? index + 1,
+        dateRange: normalizeLorepackTimelineDateRange(raw.dateRange || raw.date || raw.canonTiming),
+        book: String(raw.book || raw.sourceInfo?.title || raw.source?.book || '').trim().slice(0, 160),
+        work: String(raw.work || raw.sourceInfo?.work || raw.source?.work || '').trim().slice(0, 160),
+        schoolYear: String(raw.schoolYear || raw.date?.schoolYear || raw.canonTiming?.schoolYear || '').trim().slice(0, 80),
+        arc: String(raw.arc || '').trim().slice(0, 180),
+        phase: String(raw.phase || '').trim().slice(0, 180),
+        season: String(raw.season || '').trim().slice(0, 80),
+        episode: String(raw.episode || '').trim().slice(0, 80),
+        chapter: String(raw.chapter || '').trim().slice(0, 80),
+        issue: String(raw.issue || '').trim().slice(0, 80),
+        quest: String(raw.quest || '').trim().slice(0, 180),
+        gameStage: String(raw.gameStage || '').trim().slice(0, 180),
+        aliases: normalizeLorepackTimelineRegistryList(raw.aliases || raw.triggers, 64),
+        tags: normalizeLorepackTimelineRegistryList(raw.tags, 64),
+        notes: String(raw.notes || raw.description || '').trim().slice(0, 1000),
+    };
+    if (raw.sourceInfo && typeof raw.sourceInfo === 'object' && !Array.isArray(raw.sourceInfo)) {
+        anchor.sourceInfo = cloneLorepackPlainObject(raw.sourceInfo, 10000);
+    }
+    return anchor;
+}
+
+function normalizeLorepackTimelineWindow(raw = {}, fallbackId = '', index = 0) {
+    if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return null;
+    const id = cleanLorepackTimelineRegistryId(raw.id || fallbackId);
+    if (!id) return null;
+    return {
+        id,
+        label: String(raw.label || raw.title || id).trim().slice(0, 240),
+        positionType: String(raw.positionType || raw.type || 'anchor_window').trim().slice(0, 80),
+        anchorFrom: cleanLorepackTimelineRegistryId(raw.anchorFrom || raw.from || raw.validFromAnchor),
+        anchorTo: cleanLorepackTimelineRegistryId(raw.anchorTo || raw.to || raw.validToAnchor),
+        sortKeyFrom: normalizeLorepackTimelineNumber(raw.sortKeyFrom),
+        sortKeyTo: normalizeLorepackTimelineNumber(raw.sortKeyTo),
+        dateRange: normalizeLorepackTimelineDateRange(raw.dateRange || raw.date),
+        aliases: normalizeLorepackTimelineRegistryList(raw.aliases || raw.triggers, 64),
+        tags: normalizeLorepackTimelineRegistryList(raw.tags, 64),
+        notes: String(raw.notes || raw.description || '').trim().slice(0, 1000),
+    };
+}
+
+function normalizeLorepackTimelineDisabledIds(value = []) {
+    if (!Array.isArray(value)) return [];
+    const output = [];
+    const seen = new Set();
+    for (const raw of value) {
+        const id = cleanLorepackTimelineRegistryId(raw);
+        if (!id || seen.has(id)) continue;
+        seen.add(id);
+        output.push(id);
+        if (output.length >= 2000) break;
+    }
+    return output;
+}
+
+function normalizeLorepackTimelineRegistry(value) {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+    const input = value;
+    const anchors = [];
+    for (const [index, raw] of (Array.isArray(input.anchors) ? input.anchors : []).entries()) {
+        const anchor = normalizeLorepackTimelineAnchor(raw, '', index);
+        if (anchor) anchors.push(anchor);
+        if (anchors.length >= 5000) break;
+    }
+    const windows = [];
+    const rawWindows = [
+        ...(Array.isArray(input.windows) ? input.windows : []),
+        ...(Array.isArray(input.arcs) ? input.arcs : []),
+        ...(Array.isArray(input.phases) ? input.phases : []),
+    ];
+    for (const [index, raw] of rawWindows.entries()) {
+        const window = normalizeLorepackTimelineWindow(raw, '', index);
+        if (window) windows.push(window);
+        if (windows.length >= 5000) break;
+    }
+    const disabledAnchorIds = normalizeLorepackTimelineDisabledIds(input.disabledAnchorIds || input.disabledAnchors || []);
+    const disabledWindowIds = normalizeLorepackTimelineDisabledIds(input.disabledWindowIds || input.disabledWindows || []);
+    if (!anchors.length && !windows.length && !disabledAnchorIds.length && !disabledWindowIds.length) return null;
+    return {
+        schemaVersion: Number.isFinite(Number(input.schemaVersion)) ? Number(input.schemaVersion) : 1,
+        timelineMode: String(input.timelineMode || 'hybrid').trim().slice(0, 80),
+        defaultPositionType: String(input.defaultPositionType || '').trim().slice(0, 80),
+        sortKeyScale: String(input.sortKeyScale || 'pack_local').trim().slice(0, 160),
+        summary: String(input.summary || input.description || '').trim().slice(0, 1000),
+        anchors,
+        windows,
+        ...(disabledAnchorIds.length ? { disabledAnchorIds } : {}),
+        ...(disabledWindowIds.length ? { disabledWindowIds } : {}),
+    };
+}
+
 function normalizeLorepackRegistry(value, defaults = getDefaultState().lorepackRegistry) {
     const input = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
     const inputPacks = input.packs && typeof input.packs === 'object' && !Array.isArray(input.packs) ? input.packs : {};
@@ -391,6 +627,12 @@ function normalizeLorepackRegistry(value, defaults = getDefaultState().lorepackR
         if (manifestData) pack.manifestData = manifestData;
         pack.entryOverrides = normalizeLorepackEntryOverrides(raw.entryOverrides);
         pack.disabledEntryIds = normalizeLorepackDisabledEntryIds(raw.disabledEntryIds);
+        const tagRegistry = normalizeLorepackTagRegistry(raw.tagRegistry);
+        if (tagRegistry) pack.tagRegistry = tagRegistry;
+        const timelineRegistry = normalizeLorepackTimelineRegistry(raw.timelineRegistry);
+        if (timelineRegistry) pack.timelineRegistry = timelineRegistry;
+        const pendingChanges = normalizeLorepackPendingChanges(raw.pendingChanges);
+        if (pendingChanges.length) pack.pendingChanges = pendingChanges;
         packs[id] = pack;
     }
 
