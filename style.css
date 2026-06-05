@@ -1718,7 +1718,7 @@
 .wandlight-loredeck-library-columns {
     min-height: 0;
     display: grid;
-    grid-template-columns: minmax(320px, 1.1fr) minmax(128px, 0.22fr) minmax(360px, 1.15fr);
+    grid-template-columns: minmax(500px, 1.4fr) minmax(128px, 0.22fr) minmax(360px, 1.08fr);
     gap: 10px;
 }
 
@@ -1834,6 +1834,143 @@
     border-radius: 7px;
     background: rgba(0, 0, 0, 0.13);
     padding: 5px;
+}
+
+.wandlight-loredeck-library-browser {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: minmax(150px, 0.36fr) minmax(0, 1fr);
+    gap: 8px;
+}
+
+.wandlight-loredeck-library-folder-tree,
+.wandlight-loredeck-library-content {
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.wandlight-loredeck-library-folder-tree {
+    border: 1px solid rgba(185, 139, 54, 0.16);
+    border-radius: 7px;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(215, 181, 109, 0.08), transparent 36%),
+        rgba(0, 0, 0, 0.14);
+    padding: 7px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+}
+
+.wandlight-loredeck-library-folder-title {
+    color: var(--wandlight-gold, #d7b56d);
+    font-size: 0.76em;
+    font-weight: 800;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.wandlight-loredeck-library-folder-specials,
+.wandlight-loredeck-library-folder-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.wandlight-loredeck-library-folder-specials {
+    padding-bottom: 7px;
+    border-bottom: 1px solid rgba(185, 139, 54, 0.14);
+}
+
+.wandlight-loredeck-library-folder-row {
+    width: 100%;
+    min-width: 0;
+    min-height: 30px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid rgba(185, 139, 54, 0.12);
+    border-radius: 6px;
+    background: rgba(8, 10, 14, 0.42);
+    color: var(--wandlight-text, #f1ead8);
+    padding: 4px 6px 4px calc(7px + (var(--wandlight-folder-depth, 0) * 12px));
+    text-align: left;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.wandlight-loredeck-library-folder-row:hover,
+.wandlight-loredeck-library-folder-row:focus-visible {
+    border-color: rgba(215, 181, 109, 0.42);
+    background:
+        radial-gradient(circle at 0% 50%, rgba(215, 181, 109, 0.1), transparent 42%),
+        rgba(18, 18, 24, 0.64);
+}
+
+.wandlight-loredeck-library-folder-row-active {
+    border-color: rgba(245, 196, 91, 0.72);
+    background:
+        radial-gradient(circle at 0% 50%, rgba(245, 196, 91, 0.14), transparent 48%),
+        rgba(92, 23, 36, 0.42);
+    box-shadow: 0 0 0 1px rgba(245, 196, 91, 0.12) inset;
+}
+
+.wandlight-loredeck-library-folder-label {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.74em;
+    font-weight: 720;
+    line-height: 1.25;
+}
+
+.wandlight-loredeck-library-folder-count,
+.wandlight-loredeck-library-folder-health-error,
+.wandlight-loredeck-library-folder-health-warning {
+    min-width: 22px;
+    height: 20px;
+    display: inline-grid;
+    place-items: center;
+    border-radius: 999px;
+    border: 1px solid rgba(185, 139, 54, 0.18);
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--wandlight-muted, rgba(241, 234, 216, 0.72));
+    font-size: 0.66em;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.wandlight-loredeck-library-folder-health-error {
+    border-color: rgba(219, 105, 105, 0.48);
+    color: #ffb3aa;
+}
+
+.wandlight-loredeck-library-folder-health-warning {
+    border-color: rgba(226, 177, 98, 0.48);
+    color: #ffd58a;
+}
+
+.wandlight-loredeck-library-current-view {
+    flex: 0 0 auto;
+    border: 1px solid rgba(185, 139, 54, 0.14);
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.13);
+    padding: 6px 7px;
+}
+
+.wandlight-loredeck-library-current-title {
+    min-width: 0;
+    color: var(--wandlight-text, #f1ead8);
+    font-size: 0.86em;
+    font-weight: 780;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
 }
 
 .wandlight-loredeck-library-selection-summary {

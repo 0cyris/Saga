@@ -419,12 +419,20 @@ Out of MVP:
 - Very deep folder trees can become slow or noisy. The tree should virtualize or lazily render if needed.
 - Folder hierarchy and Tags can overlap conceptually. UI copy should keep folders as location and Tags as classification.
 
-## Next Development Slice
+## Implementation Status
+
+Done:
+
+1. `library.suggestedPath` metadata exists on the bundled HP split Loredecks.
+2. `Loredecks/index.json` registers the bundled HP split deck family.
+3. `loredeck-library-index.js` normalizes folders, deck placements, suggested paths, and folder stack resolution.
+4. Folder/index tests cover nested folders, suggested paths, stack flattening, and duplicate suppression.
+5. The Loredeck Library now loads the bundled index, derives folders from suggested paths, and renders a folder browser with special views and scoped deck lists.
 
 Recommended next slice:
 
-1. Add `library.suggestedPath` to bundled HP split Loredeck manifests through the scaffold.
-2. Create a local Library Index module with folder normalization and validation.
-3. Add tests for folder nesting and stack flattening.
-4. Render a basic folder tree in the Loredeck Library.
-5. Add folder Stack Groups to the Active Stack with duplicate suppression.
+1. Add folder mutation controls: create folder, rename folder, delete folder, and move selected decks to folder.
+2. Add drag/drop from Library deck cards into folder rows, with the same auto-scroll behavior used by the deck and stack columns.
+3. Add folder Stack Groups to the Active Stack with collapsible hierarchy and visible duplicate suppression.
+4. Replace the remaining monolithic `hp-golden-trio` default stack/library references with the split HP deck family once entry migration is ready.
+5. Expand tests for folder mutation behavior, invalid moves, delete-content handling, and Library UI smoke selectors.
