@@ -2448,6 +2448,102 @@ function renderLoredeckLibraryOverlay(options = {}) {
     restoreLoredeckLibraryScrollState(scrollState);
 }
 
+function getLoredeckLibraryOverlayContext() {
+    const state = getState();
+    const stack = getLoredeckStack(state);
+    const library = getLoredeckLibrary(state);
+    const libraryIndex = getLoredeckLibraryIndexForPacks(state, library);
+    const canonDb = getCanonLoreDatabaseSync();
+    const health = canonDb?.health || null;
+    const selectedPack = getLoredeckLibrarySelectedPack(state, library);
+    const activeViewId = getLoredeckLibraryActiveViewId();
+    const scopedLibrary = getLoredeckLibraryFolderScopedPacks(library, libraryIndex, activeViewId, stack);
+    const filteredPacks = getFilteredLoredeckLibraryPacks(scopedLibrary, stack, canonDb, health, libraryIndex);
+    const selectedFolderDetails = getLoredeckLibrarySelectedFolderDetails(libraryIndex);
+    const selectedPackIds = getLoredeckLibraryBulkSelectedIds(library);
+    const selectedPacks = selectedPackIds.map(id => library.find(pack => pack.packId === id)).filter(Boolean);
+    return {
+        state,
+        stack,
+        library,
+        libraryIndex,
+        canonDb,
+        health,
+        selectedPack,
+        activeViewId,
+        scopedLibrary,
+        filteredPacks,
+        selectedFolderDetails,
+        selectedPackIds,
+        selectedPacks,
+    };
+}
+
+function refreshLoredeckLibrarySelectionSurfaces() {
+    if (!loredeckLibraryOpen) return;
+    const overlay = document.querySelector('.wandlight-loredeck-library-overlay');
+    if (!overlay) return;
+    const context = getLoredeckLibraryOverlayContext();
+    const selectedId = String(context.state?.lorePanel?.selectedLoredeckId || '').trim();
+    const selectedIds = new Set(context.selectedPackIds || []);
+    const stackByPack = new Map((context.stack || []).map(item => [String(item.packId || '').trim(), item]));
+
+    for (const card of overlay.querySelectorAll('.wandlight-loredeck-library-deck-card[data-pack-id]')) {
+        const packId = String(card.dataset.packId || '').trim();
+        const bulkSelected = selectedIds.has(packId);
+        const activeItem = stackByPack.get(packId);
+        card.classList.toggle('wandlight-loredeck-library-deck-selected', selectedId === packId);
+        card.classList.toggle('wandlight-loredeck-library-deck-bulk-selected', bulkSelected);
+        card.classList.toggle('wandlight-loredeck-library-deck-active', activeItem?.enabled === true);
+        card.setAttribute('aria-pressed', bulkSelected ? 'true' : 'false');
+        const side = card.querySelector('.wandlight-loredeck-library-deck-side');
+        if (side) {
+            const pack = context.library.find(item => item.packId === packId) || null;
+            const healthInfo = pack ? getLoredeckLibraryPackHealthInfo(pack, context.canonDb, context.health) : null;
+            const issueCount = pack ? getLoredeckLibraryDisplayIssueCount(pack, healthInfo) : 0;
+            side.textContent = bulkSelected ? '*' : (issueCount ? String(issueCount) : (activeItem?.enabled ? 'On' : '+'));
+        }
+    }
+
+    for (const card of overlay.querySelectorAll('.wandlight-loredeck-library-stack-card[data-pack-id]')) {
+        const packId = String(card.dataset.packId || '').trim();
+        card.classList.toggle('wandlight-loredeck-library-stack-card-selected', selectedId === packId);
+        card.classList.toggle('wandlight-loredeck-library-stack-card-bulk-selected', selectedIds.has(packId));
+    }
+
+    for (const folderRow of overlay.querySelectorAll('.wandlight-loredeck-library-inline-folder-row[data-folder-id]')) {
+        const folderId = String(folderRow.dataset.folderId || '').trim();
+        folderRow.classList.toggle('wandlight-loredeck-library-folder-row-active', !!folderId && loredeckLibrarySelectedFolderDetailsId === folderId);
+    }
+
+    const titleMeta = overlay.querySelector('.wandlight-loredeck-library-title-meta');
+    titleMeta?.replaceWith(createLoredeckLibraryHeaderMeta(context.stack, context.library, context.canonDb, context.health));
+
+    const selectionToolbar = overlay.querySelector('.wandlight-loredeck-library-selection-toolbar');
+    selectionToolbar?.replaceWith(createLoredeckLibrarySelectionToolbar(context.filteredPacks, context.libraryIndex));
+
+    const transferPane = overlay.querySelector('.wandlight-loredeck-library-transfer-pane');
+    transferPane?.replaceWith(createLoredeckLibraryTransferPane(
+        context.selectedPack,
+        context.filteredPacks,
+        context.stack,
+        context.selectedPacks,
+        context.selectedFolderDetails,
+        context.libraryIndex,
+    ));
+
+    const details = overlay.querySelector('.wandlight-loredeck-library-details');
+    details?.replaceWith(createLoredeckLibraryDetailsPanel(
+        context.selectedPack,
+        context.stack,
+        context.canonDb,
+        context.health,
+        context.selectedFolderDetails,
+        context.libraryIndex,
+        context.library,
+    ));
+}
+
 function getLoredeckLibraryDetailsHeight(state = getState()) {
     return clampNumber(
         Number(state?.lorePanel?.loredeckLibraryDetailsHeight),
@@ -2482,6 +2578,26 @@ function setLoredeckLibraryDetailsHeight(height, options = {}) {
     return next;
 }
 
+function updateLoredeckLibraryDetailsCollapsedDom(collapsed) {
+    const overlay = document.querySelector('.wandlight-loredeck-library-overlay');
+    const body = overlay?.querySelector('.wandlight-loredeck-library-body');
+    const handle = overlay?.querySelector('.wandlight-loredeck-library-resize-handle');
+    if (!body || !handle) return false;
+    const isCollapsed = collapsed === true;
+    body.classList.toggle('wandlight-loredeck-library-details-collapsed', isCollapsed);
+    handle.classList.toggle('wandlight-loredeck-library-resize-handle-collapsed', isCollapsed);
+    handle.setAttribute('aria-expanded', isCollapsed ? 'false' : 'true');
+    handle.dataset.wandlightTooltip = isCollapsed
+        ? 'Expand the selected Loredeck details panel.'
+        : 'Collapse, resize, or reset the selected Loredeck details panel.';
+    const labelText = handle.querySelector('.wandlight-loredeck-library-resize-label-text');
+    if (labelText) labelText.textContent = isCollapsed ? 'Expand Details' : 'Collapse Details';
+    for (const arrow of handle.querySelectorAll('.wandlight-loredeck-library-resize-label-arrow')) {
+        arrow.textContent = isCollapsed ? '\u2191' : '\u2193';
+    }
+    return true;
+}
+
 function setLoredeckLibraryDetailsCollapsed(collapsed, options = {}) {
     const next = collapsed === true;
     const state = getState();
@@ -2494,7 +2610,7 @@ function setLoredeckLibraryDetailsCollapsed(collapsed, options = {}) {
         );
     }
     if (options.persist !== false) saveState(state, { syncPrompt: false });
-    renderLoredeckLibraryOverlay();
+    if (!updateLoredeckLibraryDetailsCollapsedDom(next)) renderLoredeckLibraryOverlay();
 }
 
 function createLoredeckLibraryResizeHandle(collapsed = false) {
@@ -3226,11 +3342,6 @@ function createLoredeckLibraryFolderCoverStrip(coverPacks = [], totalCoverableCo
             img.style.objectPosition = `${Math.round(cover.focalPoint.x * 100)}% ${Math.round(cover.focalPoint.y * 100)}%`;
         }
         tile.appendChild(img);
-        const label = document.createElement('span');
-        label.className = 'wandlight-loredeck-library-folder-cover-label';
-        label.textContent = pack.title || pack.packId || 'Loredeck';
-        label.setAttribute('aria-hidden', 'true');
-        tile.appendChild(label);
         addTooltip(tile, pack.title || pack.packId || 'Loredeck cover');
         strip.appendChild(tile);
     });
@@ -3584,7 +3695,7 @@ function createLoredeckLibraryDeckCard(pack, stack = [], canonDb = null, health 
     card.addEventListener('click', e => {
         e.stopPropagation();
         handleLoredeckLibraryDeckSelection(pack.packId, e, visiblePacks);
-        renderLoredeckLibraryOverlay();
+        refreshLoredeckLibrarySelectionSurfaces();
     });
     card.addEventListener('dblclick', e => {
         e.stopPropagation();
@@ -3656,7 +3767,7 @@ function createLoredeckActiveStackCard(pack, item, index, stackLength, canonDb =
     card.addEventListener('click', e => {
         e.stopPropagation();
         handleLoredeckLibraryDeckSelection(item.packId, e, visibleStackPacks);
-        renderLoredeckLibraryOverlay();
+        refreshLoredeckLibrarySelectionSurfaces();
     });
     addTooltip(card, `${pack.title || item.packId}. Stack priority ${index + 1}.`);
 
@@ -3975,7 +4086,7 @@ function createLoredeckStackFolderPreviewDeckRow(summary = {}, depth = 0) {
         e.stopPropagation();
         loredeckLibrarySelectedFolderDetailsId = '';
         handleLoredeckLibraryDeckSelection(pack.packId, null, [pack]);
-        renderLoredeckLibraryOverlay();
+        refreshLoredeckLibrarySelectionSurfaces();
     });
     const title = document.createElement('span');
     title.className = 'wandlight-loredeck-library-stack-folder-preview-title';
@@ -4814,7 +4925,7 @@ function createLoredeckLibraryFolderLoredeckRow(summary = {}, maxEntries = 1) {
         e.stopPropagation();
         loredeckLibrarySelectedFolderDetailsId = '';
         handleLoredeckLibraryDeckSelection(pack.packId, null, [pack]);
-        renderLoredeckLibraryOverlay();
+        refreshLoredeckLibrarySelectionSurfaces();
     });
 
     const title = document.createElement('span');
@@ -5323,19 +5434,97 @@ function getFilteredLoredeckLibraryPacks(library = [], stack = [], canonDb = nul
     });
 }
 
+function isHealthForLoredeckPack(packId = '', health = null) {
+    const id = String(packId || '').trim();
+    return !!id && !!health && String(health.packId || '').trim() === id;
+}
+
+function getLoredeckPackScopedIssues(issues = [], packId = '') {
+    const id = String(packId || '').trim();
+    if (!id || !Array.isArray(issues)) return [];
+    return issues.filter(issue => String(issue?.packId || '').trim() === id);
+}
+
+function buildLoredeckPackScopedHealth(pack = {}, loadedMeta = null, stackHealth = null) {
+    const packId = String(pack?.packId || loadedMeta?.id || '').trim();
+    if (!packId || !stackHealth || isHealthForLoredeckPack(packId, stackHealth)) {
+        return isHealthForLoredeckPack(packId, stackHealth) ? stackHealth : null;
+    }
+    const errors = getLoredeckPackScopedIssues(stackHealth.errors, packId);
+    const warnings = getLoredeckPackScopedIssues(stackHealth.warnings, packId);
+    const suggestions = getLoredeckPackScopedIssues(stackHealth.suggestions, packId);
+    const entryCount = Number(loadedMeta?.entryCount) || Number(pack.stats?.entryCount) || Number(pack.entryCount) || 0;
+    const categoryCounts = loadedMeta?.categoryCounts && typeof loadedMeta.categoryCounts === 'object' && !Array.isArray(loadedMeta.categoryCounts)
+        ? { ...loadedMeta.categoryCounts }
+        : (pack.stats?.categoryCounts && typeof pack.stats.categoryCounts === 'object' && !Array.isArray(pack.stats.categoryCounts) ? { ...pack.stats.categoryCounts } : {});
+    return {
+        schemaVersion: 1,
+        packId,
+        generatedAt: stackHealth.generatedAt || Date.now(),
+        status: errors.length ? 'has_errors' : (warnings.length ? 'needs_review' : 'good'),
+        errors,
+        warnings,
+        suggestions,
+        summary: {
+            entryCount,
+            fileCount: Number(loadedMeta?.fileCount) || 0,
+            loadedFileCount: Number(loadedMeta?.loadedFileCount) || 0,
+            categoryCounts,
+            errorCount: errors.length,
+            warningCount: warnings.length,
+            suggestionCount: suggestions.length,
+        },
+    };
+}
+
+function getLoredeckPackSummaryCounts(pack = {}, cached = {}, loadedMeta = null, health = null, report = null) {
+    const packId = String(pack?.packId || loadedMeta?.id || '').trim();
+    const healthSummary = isHealthForLoredeckPack(packId, health) ? (health.summary || {}) : {};
+    const reportSummary = report?.databaseId === packId ? (report.summary || {}) : {};
+    const manifest = cached?.manifest || pack.manifestData || {};
+    return {
+        entryCount: Number(healthSummary.entryCount)
+            || Number(loadedMeta?.entryCount)
+            || Number(cached?.entryCount)
+            || Number(reportSummary.entryCount)
+            || Number(pack.stats?.entryCount)
+            || Number(pack.entryCount)
+            || 0,
+        fileCount: Number(healthSummary.fileCount)
+            || Number(loadedMeta?.fileCount)
+            || Number(cached?.fileCount)
+            || Number(reportSummary.fileCount)
+            || countLoredeckManifestFiles(manifest)
+            || Number(pack.stats?.fileCount)
+            || 0,
+        loadedFileCount: Number(healthSummary.loadedFileCount)
+            || Number(loadedMeta?.loadedFileCount)
+            || Number(cached?.loadedFileCount)
+            || Number(reportSummary.loadedFileCount)
+            || 0,
+        categoryCounts: healthSummary.categoryCounts
+            || loadedMeta?.categoryCounts
+            || pack.stats?.categoryCounts
+            || reportSummary.categoryCounts
+            || {},
+    };
+}
+
 function getLoredeckLibraryPackHealthInfo(pack = {}, canonDb = null, stackHealth = null) {
     const cached = getCachedLoredeckHealthRecord(pack.packId);
     const loadedMeta = (canonDb?.loredecks || []).find(item => item.id === pack.packId) || null;
-    const health = cached.health || (loadedMeta ? stackHealth : null);
-    const report = buildLoredeckHealthReport(getState(), loadedMeta ? canonDb : null, health);
+    const health = cached.health || buildLoredeckPackScopedHealth(pack, loadedMeta, loadedMeta ? stackHealth : null);
+    const report = buildLoredeckHealthReport(getState(), null, health);
+    const counts = getLoredeckPackSummaryCounts(pack, cached, loadedMeta, health, report);
     report.packs = [buildLoredeckHealthPackSummary(pack, cached, health)];
     report.enabledPackIds = loadedMeta ? [pack.packId] : [];
     report.databaseId = pack.packId;
     report.summary = {
         ...(report.summary || {}),
-        entryCount: Number(report.summary?.entryCount) || Number(loadedMeta?.entryCount) || Number(cached.entryCount) || Number(pack.stats?.entryCount) || Number(pack.entryCount) || 0,
-        fileCount: Number(report.summary?.fileCount) || Number(cached.fileCount) || countLoredeckManifestFiles(cached.manifest || pack.manifestData) || Number(pack.stats?.fileCount) || 0,
-        loadedFileCount: Number(report.summary?.loadedFileCount) || Number(cached.loadedFileCount) || 0,
+        entryCount: counts.entryCount,
+        fileCount: counts.fileCount,
+        loadedFileCount: counts.loadedFileCount,
+        categoryCounts: counts.categoryCounts,
     };
     const status = getLoredeckHealthStatusDescriptor(report, health);
     const summary = report.summary || {};
@@ -5372,15 +5561,14 @@ function getLoredeckLibraryDisplayIssueCount(pack = {}, healthInfo = null) {
 function getLoredeckLibraryDeckStats(pack = {}, canonDb = null, healthInfo = null) {
     const info = healthInfo || getLoredeckLibraryPackHealthInfo(pack, canonDb, canonDb?.health || null);
     const loadedMeta = info.loadedMeta || (canonDb?.loredecks || []).find(item => item.id === pack.packId) || null;
-    const manifest = info.cached?.manifest || pack.manifestData || {};
-    const summary = info.report?.summary || {};
-    const categoryCounts = loadedMeta?.categoryCounts || pack.stats?.categoryCounts || summary.categoryCounts || {};
+    const counts = getLoredeckPackSummaryCounts(pack, info.cached || {}, loadedMeta, info.health, info.report);
+    const categoryCounts = counts.categoryCounts || {};
     const tagCount = getLoredeckTagRegistryCount(pack.tagRegistry) || (Array.isArray(pack.tags) ? pack.tags.length : 0);
     const timelineCount = getLoredeckTimelineRegistryCount(pack.timelineRegistry);
     const updatedAt = Number(pack.updatedAt) || Number(pack.installedAt) || 0;
     return {
-        entryCount: Number(summary.entryCount) || Number(loadedMeta?.entryCount) || Number(info.cached?.entryCount) || Number(pack.stats?.entryCount) || Number(pack.entryCount) || 0,
-        fileCount: Number(summary.fileCount) || Number(info.cached?.fileCount) || countLoredeckManifestFiles(manifest) || Number(pack.stats?.fileCount) || 0,
+        entryCount: counts.entryCount,
+        fileCount: counts.fileCount,
         tagCount,
         timelineCount,
         categoryCounts,
@@ -10583,9 +10771,11 @@ function getLoredeckHealthCenterContext(packId = '') {
         ? (library.find(item => item.packId === String(packId || '').trim()) || null)
         : null;
     const cached = pack ? getCachedLoredeckHealthRecord(pack.packId) : {};
-    const health = pack ? (cached.health || null) : (canonDb?.health || null);
+    const loadedMeta = pack ? ((canonDb?.loredecks || []).find(item => item.id === pack.packId) || null) : null;
+    const health = pack ? (cached.health || buildLoredeckPackScopedHealth(pack, loadedMeta, canonDb?.health || null)) : (canonDb?.health || null);
     const report = buildLoredeckHealthReport(state, pack ? null : canonDb, health);
     if (pack) {
+        const counts = getLoredeckPackSummaryCounts(pack, cached, loadedMeta, health, report);
         report.scanned = !!health;
         report.insights = [];
         report.packs = [buildLoredeckHealthPackSummary(pack, cached, health)];
@@ -10593,9 +10783,10 @@ function getLoredeckHealthCenterContext(packId = '') {
         report.databaseId = pack.packId;
         report.summary = {
             ...(report.summary || {}),
-            entryCount: Number(report.summary?.entryCount) || Number(cached.entryCount) || Number(pack.stats?.entryCount) || Number(pack.entryCount) || 0,
-            fileCount: Number(report.summary?.fileCount) || Number(cached.fileCount) || countLoredeckManifestFiles(cached.manifest || pack.manifestData) || 0,
-            loadedFileCount: Number(report.summary?.loadedFileCount) || Number(cached.loadedFileCount) || 0,
+            entryCount: counts.entryCount,
+            fileCount: counts.fileCount,
+            loadedFileCount: counts.loadedFileCount,
+            categoryCounts: counts.categoryCounts,
         };
     }
     const status = getLoredeckHealthStatusDescriptor(report, health);
@@ -10643,6 +10834,7 @@ function buildLoredeckHealthPackSummary(pack = {}, cached = {}, health = null) {
     const overrideCount = pack.entryOverrides && typeof pack.entryOverrides === 'object' && !Array.isArray(pack.entryOverrides)
         ? Object.keys(pack.entryOverrides).length
         : 0;
+    const canUseHealthSummary = isHealthForLoredeckPack(pack.packId, health);
     return {
         packId: pack.packId,
         title: pack.title || pack.packId,
@@ -10651,8 +10843,8 @@ function buildLoredeckHealthPackSummary(pack = {}, cached = {}, health = null) {
         description: pack.description || '',
         manifest: pack.manifest || '',
         derivedFrom: pack.derivedFrom?.packId || '',
-        entryCount: Number(health?.summary?.entryCount) || Number(cached.entryCount) || Number(pack.stats?.entryCount) || Number(pack.entryCount) || 0,
-        healthStatus: health?.status || pack.healthStatus || 'unknown',
+        entryCount: Number(canUseHealthSummary ? health?.summary?.entryCount : 0) || Number(cached.entryCount) || Number(pack.stats?.entryCount) || Number(pack.entryCount) || 0,
+        healthStatus: (canUseHealthSummary ? health?.status : '') || pack.healthStatus || 'unknown',
         overrideCount,
         disabledCount: Array.isArray(pack.disabledEntryIds) ? pack.disabledEntryIds.length : 0,
     };

@@ -2132,7 +2132,6 @@
 @media (prefers-reduced-motion: reduce) {
     .wandlight-loredeck-library-folder-cover-strip,
     .wandlight-loredeck-library-folder-cover-tile,
-    .wandlight-loredeck-library-folder-cover-label,
     .wandlight-loredeck-library-inline-folder-row {
         transition: none;
     }
@@ -2145,39 +2144,6 @@
     object-fit: cover;
     object-position: center;
     border-radius: inherit;
-}
-
-.wandlight-loredeck-library-folder-cover-label {
-    position: absolute;
-    left: 50%;
-    top: -17px;
-    width: 62px;
-    max-width: 62px;
-    transform: translateX(-50%) translateY(2px);
-    opacity: 0;
-    border: 1px solid rgba(215, 181, 109, 0.22);
-    border-radius: 999px;
-    background: rgba(8, 10, 14, 0.88);
-    color: rgba(241, 234, 216, 0.86);
-    padding: 2px 5px;
-    box-sizing: border-box;
-    font-size: 0.56rem;
-    font-weight: 800;
-    line-height: 1;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    pointer-events: none;
-    transition:
-        opacity 150ms ease,
-        transform 150ms ease;
-}
-
-.wandlight-loredeck-library-inline-folder-row:hover .wandlight-loredeck-library-folder-cover-label,
-.wandlight-loredeck-library-inline-folder-row:focus-within .wandlight-loredeck-library-folder-cover-label {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
 }
 
 .wandlight-loredeck-library-folder-cover-more {
