@@ -49,7 +49,7 @@ const VALID_TIME_TRAVEL_MODES = new Set([
 const KNOWN_TOP_LEVEL_FIELDS = new Set([
     'schemaVersion', 'id', 'title', 'name', 'kind', 'gateType', 'category', 'canonStatus', 'canon', 'relevance', 'lorePurpose', 'specificityScore', 'injectableByDefault', 'truthStatus',
     'revealPolicy', 'tags', 'priority', 'status', 'protected', 'locked', 'userEditable', 'userEdited',
-    'date', 'canonTiming', 'position', 'coordinates', 'activation', 'expiration', 'lifecycle', 'scope', 'visibility', 'retrieval', 'content', 'effects', 'source', 'sourceInfo', 'ui', 'extensions',
+    'date', 'canonTiming', 'context', 'coordinates', 'activation', 'expiration', 'lifecycle', 'scope', 'visibility', 'retrieval', 'content', 'effects', 'source', 'sourceInfo', 'ui', 'extensions',
     // legacy aliases
     'fact', 'description', 'detail', 'text', 'summary', 'notes', 'validFrom', 'validTo', 'branchId',
     'whoKnowsTruth', 'whoSuspects', 'whoBelievesPublicVersion', 'publicVersion', 'activeWhen',
@@ -276,8 +276,8 @@ function normalizeCanonTiming(input) {
     };
 }
 
-export function normalizeLorePosition(input = {}) {
-    const raw = asPlainObject(input.position);
+export function normalizeLoreEntryContext(input = {}) {
+    const raw = asPlainObject(input.context);
     const sortKeyFrom = asOptionalNumber(raw.sortKeyFrom ?? raw.fromSortKey ?? raw.sortKeyStart);
     const sortKeyTo = asOptionalNumber(raw.sortKeyTo ?? raw.toSortKey ?? raw.sortKeyEnd);
     return {
@@ -299,9 +299,9 @@ export function normalizeLorePosition(input = {}) {
         stardateTo: asFirstLooseString(raw.stardateTo, raw.stardateEnd, input.stardateTo),
         sortKeyFrom,
         sortKeyTo,
-        precision: asFirstLooseString(raw.precision, raw.positionType, raw.type, input.positionPrecision),
+        precision: asFirstLooseString(raw.precision, raw.contextType, raw.type, input.contextPrecision),
         windowKind: asFirstLooseString(raw.windowKind, raw.kind),
-        label: asFirstLooseString(raw.label, raw.title, input.positionLabel),
+        label: asFirstLooseString(raw.label, raw.title, input.contextLabel),
         approximate: asBoolean(raw.approximate, false),
     };
 }
@@ -309,8 +309,8 @@ export function normalizeLorePosition(input = {}) {
 function normalizeLoreCoordinates(input = {}) {
     const rawCoordinates = Array.isArray(input.coordinates)
         ? input.coordinates
-        : Array.isArray(input.position?.coordinates)
-            ? input.position.coordinates
+        : Array.isArray(input.context?.coordinates)
+            ? input.context.coordinates
             : [];
     return rawCoordinates
         .map(raw => {
@@ -405,11 +405,11 @@ function normalizeVisibility(input) {
         secretUntil: asString(raw.secretUntil),
         knownBy: normalizeStringMap(raw.knownBy ?? input.knownBy ?? input.whoKnowsTruth),
         notKnownByBefore: normalizeStringMap(raw.notKnownByBefore ?? input.notKnownByBefore),
-        knownByAtPosition: normalizePlainObjectMap(raw.knownByAtPosition),
-        notKnownByBeforePosition: normalizePlainObjectMap(raw.notKnownByBeforePosition),
+        knownByAtContext: normalizePlainObjectMap(raw.knownByAtContext),
+        notKnownByBeforeContext: normalizePlainObjectMap(raw.notKnownByBeforeContext),
         neverKnownBy: uniqueLimitedStringArray(raw.neverKnownBy, 32),
-        publicFromPosition: asPlainObject(raw.publicFromPosition),
-        secretUntilPosition: asPlainObject(raw.secretUntilPosition),
+        publicFromContext: asPlainObject(raw.publicFromContext),
+        secretUntilContext: asPlainObject(raw.secretUntilContext),
         suspectedBy: normalizeStringMap(raw.suspectedBy ?? input.suspectedBy ?? input.whoSuspects),
         believedBy: normalizeStringMap(raw.believedBy ?? input.whoBelievesPublicVersion),
     };
@@ -421,7 +421,7 @@ function normalizeRetrieval(input) {
     return {
         activation: asFirstString(raw.activation),
         frequency: asFirstString(raw.frequency),
-        positionalBoost: asFirstString(raw.positionalBoost),
+        contextBoost: asFirstString(raw.contextBoost),
         triggers: {
             charactersAny: uniqueLimitedStringArray(triggers.charactersAny, 32),
             locationsAny: uniqueLimitedStringArray(triggers.locationsAny, 24),
@@ -546,7 +546,7 @@ export function normalizeLoreEntry(input = {}) {
     const category = normalizeLoreCategory(asFirstString(input.category) || 'other');
     const date = normalizeDateBlock(input);
     const canonTiming = normalizeCanonTiming(input);
-    const position = normalizeLorePosition(input);
+    const context = normalizeLoreEntryContext(input);
     const coordinates = normalizeLoreCoordinates(input);
     const activation = normalizeActivation(input);
     const expiration = normalizeExpiration(input);
@@ -608,7 +608,7 @@ export function normalizeLoreEntry(input = {}) {
 
         date,
         canonTiming,
-        position,
+        context,
         coordinates,
         activation,
         expiration,

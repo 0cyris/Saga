@@ -29,7 +29,7 @@ const migratedStateRefs = new WeakSet();
 
 const RETIRED_CONTINUITY_CONFIG_KEYS = ['knowledge', 'secrets', 'relationships', 'flags', 'storyMilestones'];
 const ACTIVE_CONTINUITY_CHANGE_KEYS = ['canon', 'scene', 'characters', 'inventory', 'objectives', 'threads'];
-const LOREPACK_STORY_POSITION_TYPES = Object.freeze([
+const LOREDECK_CONTEXT_TYPES = Object.freeze([
     'calendar',
     'anchor',
     'anchor_window',
@@ -41,7 +41,7 @@ const LOREPACK_STORY_POSITION_TYPES = Object.freeze([
     'hybrid',
     'custom',
 ]);
-const LOREPACK_STORY_POSITION_SOURCES = Object.freeze([
+const LOREDECK_CONTEXT_SOURCES = Object.freeze([
     'manual',
     'header',
     'local_alias',
@@ -149,8 +149,8 @@ function ensureTierCompressionStatus(state = {}) {
     }
 }
 
-function normalizeLorepackStack(value) {
-    const defaultStack = getDefaultState().lorepackStack;
+function normalizeLoredeckStack(value) {
+    const defaultStack = getDefaultState().loredeckStack;
     const input = Array.isArray(value) ? value : defaultStack;
     const output = [];
     const seen = new Set();
@@ -173,45 +173,45 @@ function normalizeLorepackStack(value) {
     return output.length || Array.isArray(value) ? output : JSON.parse(JSON.stringify(defaultStack));
 }
 
-function normalizeStoryPositionType(value, fallback = 'custom') {
+function normalizeContextType(value, fallback = 'custom') {
     const normalized = String(value || '').trim().toLowerCase();
-    return LOREPACK_STORY_POSITION_TYPES.includes(normalized) ? normalized : fallback;
+    return LOREDECK_CONTEXT_TYPES.includes(normalized) ? normalized : fallback;
 }
 
-function normalizeStoryPositionSource(value, fallback = 'unknown') {
+function normalizeContextSource(value, fallback = 'unknown') {
     const normalized = String(value || '').trim().toLowerCase();
-    return LOREPACK_STORY_POSITION_SOURCES.includes(normalized) ? normalized : fallback;
+    return LOREDECK_CONTEXT_SOURCES.includes(normalized) ? normalized : fallback;
 }
 
-function clampStoryPositionConfidence(value, fallback = 0) {
+function clampContextConfidence(value, fallback = 0) {
     const number = Number(value);
     if (!Number.isFinite(number)) return fallback;
     if (number > 1 && number <= 100) return Math.max(0, Math.min(1, number / 100));
     return Math.max(0, Math.min(1, number));
 }
 
-function cleanStoryPositionString(value, maxLength = 240) {
+function cleanContextString(value, maxLength = 240) {
     return String(value || '').trim().slice(0, maxLength);
 }
 
-function cleanStoryPositionField(input, key, maxLength, fallback = '') {
+function cleanContextField(input, key, maxLength, fallback = '') {
     return Object.prototype.hasOwnProperty.call(input || {}, key)
-        ? cleanStoryPositionString(input[key], maxLength)
+        ? cleanContextString(input[key], maxLength)
         : fallback;
 }
 
-function buildDefaultLorepackStoryPosition(packId = '', legacyContext = {}) {
-    const id = cleanStoryPositionString(packId, 120);
-    const sceneDate = cleanStoryPositionString(legacyContext?.sceneDate, 80);
-    const canonBoundary = cleanStoryPositionString(legacyContext?.canonBoundary, 240);
+function buildDefaultLoredeckContext(packId = '', legacyContext = {}) {
+    const id = cleanContextString(packId, 120);
+    const sceneDate = cleanContextString(legacyContext?.sceneDate, 80);
+    const canonBoundary = cleanContextString(legacyContext?.canonBoundary, 240);
     return {
         schemaVersion: 1,
         packId: id,
-        positionType: id === 'hp-golden-trio' ? 'calendar' : 'custom',
+        contextType: id === 'hp-golden-trio' ? 'calendar' : 'custom',
         label: canonBoundary || sceneDate || '',
         sceneDate,
-        subjectiveDate: cleanStoryPositionString(legacyContext?.subjectiveDate, 80),
-        positionSortKey: null,
+        subjectiveDate: cleanContextString(legacyContext?.subjectiveDate, 80),
+        contextSortKey: null,
         anchorId: '',
         anchorFrom: '',
         anchorTo: '',
@@ -225,7 +225,7 @@ function buildDefaultLorepackStoryPosition(packId = '', legacyContext = {}) {
         gameStage: '',
         alias: canonBoundary || '',
         notes: '',
-        branchId: cleanStoryPositionString(legacyContext?.branchId || 'main', 120) || 'main',
+        branchId: cleanContextString(legacyContext?.branchId || 'main', 120) || 'main',
         confidence: sceneDate || canonBoundary ? 0.5 : 0,
         manualLock: false,
         source: sceneDate || canonBoundary ? 'unknown' : 'unknown',
@@ -233,38 +233,38 @@ function buildDefaultLorepackStoryPosition(packId = '', legacyContext = {}) {
     };
 }
 
-function normalizeLorepackStoryPosition(value, packId = '', legacyContext = {}) {
-    const id = cleanStoryPositionString(value?.packId || packId, 120);
-    const defaults = buildDefaultLorepackStoryPosition(id, legacyContext);
+function normalizeLoredeckContext(value, packId = '', legacyContext = {}) {
+    const id = cleanContextString(value?.packId || packId, 120);
+    const defaults = buildDefaultLoredeckContext(id, legacyContext);
     const input = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
     const output = {
         ...defaults,
         schemaVersion: 1,
         packId: id || defaults.packId,
-        positionType: normalizeStoryPositionType(input.positionType, defaults.positionType),
-        label: cleanStoryPositionField(input, 'label', 240, defaults.label),
-        sceneDate: cleanStoryPositionField(input, 'sceneDate', 80, defaults.sceneDate),
-        subjectiveDate: cleanStoryPositionField(input, 'subjectiveDate', 80, defaults.subjectiveDate),
-        positionSortKey: Number.isFinite(Number(input.positionSortKey ?? input.sortKey))
-            ? Number(input.positionSortKey ?? input.sortKey)
-            : defaults.positionSortKey,
-        anchorId: cleanStoryPositionField(input, 'anchorId', 180, ''),
-        anchorFrom: cleanStoryPositionField(input, 'anchorFrom', 180, ''),
-        anchorTo: cleanStoryPositionField(input, 'anchorTo', 180, ''),
-        arc: cleanStoryPositionField(input, 'arc', 180, ''),
-        phase: cleanStoryPositionField(input, 'phase', 180, ''),
-        season: cleanStoryPositionField(input, 'season', 80, ''),
-        episode: cleanStoryPositionField(input, 'episode', 80, ''),
-        chapter: cleanStoryPositionField(input, 'chapter', 80, ''),
-        issue: cleanStoryPositionField(input, 'issue', 80, ''),
-        quest: cleanStoryPositionField(input, 'quest', 180, ''),
-        gameStage: cleanStoryPositionField(input, 'gameStage', 180, ''),
-        alias: cleanStoryPositionField(input, 'alias', 240, defaults.alias),
-        notes: cleanStoryPositionField(input, 'notes', 1000, ''),
-        branchId: cleanStoryPositionString(input.branchId || defaults.branchId || 'main', 120) || 'main',
-        confidence: clampStoryPositionConfidence(input.confidence, defaults.confidence),
+        contextType: normalizeContextType(input.contextType, defaults.contextType),
+        label: cleanContextField(input, 'label', 240, defaults.label),
+        sceneDate: cleanContextField(input, 'sceneDate', 80, defaults.sceneDate),
+        subjectiveDate: cleanContextField(input, 'subjectiveDate', 80, defaults.subjectiveDate),
+        contextSortKey: Number.isFinite(Number(input.contextSortKey ?? input.sortKey))
+            ? Number(input.contextSortKey ?? input.sortKey)
+            : defaults.contextSortKey,
+        anchorId: cleanContextField(input, 'anchorId', 180, ''),
+        anchorFrom: cleanContextField(input, 'anchorFrom', 180, ''),
+        anchorTo: cleanContextField(input, 'anchorTo', 180, ''),
+        arc: cleanContextField(input, 'arc', 180, ''),
+        phase: cleanContextField(input, 'phase', 180, ''),
+        season: cleanContextField(input, 'season', 80, ''),
+        episode: cleanContextField(input, 'episode', 80, ''),
+        chapter: cleanContextField(input, 'chapter', 80, ''),
+        issue: cleanContextField(input, 'issue', 80, ''),
+        quest: cleanContextField(input, 'quest', 180, ''),
+        gameStage: cleanContextField(input, 'gameStage', 180, ''),
+        alias: cleanContextField(input, 'alias', 240, defaults.alias),
+        notes: cleanContextField(input, 'notes', 1000, ''),
+        branchId: cleanContextString(input.branchId || defaults.branchId || 'main', 120) || 'main',
+        confidence: clampContextConfidence(input.confidence, defaults.confidence),
         manualLock: input.manualLock === true,
-        source: normalizeStoryPositionSource(input.source, defaults.source),
+        source: normalizeContextSource(input.source, defaults.source),
         updatedAt: Number.isFinite(Number(input.updatedAt)) ? Number(input.updatedAt) : defaults.updatedAt,
     };
     if (!output.label) {
@@ -279,25 +279,25 @@ function normalizeLorepackStoryPosition(value, packId = '', legacyContext = {}) 
     return output;
 }
 
-function normalizeLorepackContexts(value, state = {}) {
+function normalizeLoredeckContexts(value, state = {}) {
     const input = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
     const output = {};
     for (const [rawPackId, rawContext] of Object.entries(input)) {
-        const packId = cleanStoryPositionString(rawContext?.packId || rawPackId, 120);
+        const packId = cleanContextString(rawContext?.packId || rawPackId, 120);
         if (!packId) continue;
-        output[packId] = normalizeLorepackStoryPosition(rawContext, packId, state?.loreContext || {});
+        output[packId] = normalizeLoredeckContext(rawContext, packId, state?.loreContext || {});
     }
 
-    const stack = normalizeLorepackStack(state?.lorepackStack || []);
+    const stack = normalizeLoredeckStack(state?.loredeckStack || []);
     for (const item of stack) {
         if (!item.packId || output[item.packId]) continue;
-        output[item.packId] = normalizeLorepackStoryPosition(null, item.packId, state?.loreContext || {});
+        output[item.packId] = normalizeLoredeckContext(null, item.packId, state?.loreContext || {});
     }
 
     return output;
 }
 
-function cloneLorepackPlainObject(value, maxLength = 200000) {
+function cloneLoredeckPlainObject(value, maxLength = 200000) {
     if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
     try {
         const text = JSON.stringify(value);
@@ -308,8 +308,8 @@ function cloneLorepackPlainObject(value, maxLength = 200000) {
     }
 }
 
-function normalizeEmbeddedLorepackManifest(value) {
-    const manifest = cloneLorepackPlainObject(value);
+function normalizeEmbeddedLoredeckManifest(value) {
+    const manifest = cloneLoredeckPlainObject(value);
     if (!manifest) return null;
     delete manifest.entries;
     if (!Array.isArray(manifest.files)) manifest.files = [];
@@ -320,7 +320,7 @@ function normalizeEmbeddedLorepackManifest(value) {
     return manifest;
 }
 
-function normalizeLorepackEntryOverrides(value) {
+function normalizeLoredeckEntryOverrides(value) {
     if (!value || typeof value !== 'object' || Array.isArray(value)) return {};
     const output = {};
     let count = 0;
@@ -342,7 +342,7 @@ function normalizeLorepackEntryOverrides(value) {
     return output;
 }
 
-function normalizeLorepackDisabledEntryIds(value) {
+function normalizeLoredeckDisabledEntryIds(value) {
     if (!Array.isArray(value)) return [];
     const seen = new Set();
     const output = [];
@@ -356,7 +356,7 @@ function normalizeLorepackDisabledEntryIds(value) {
     return output;
 }
 
-function normalizeLorepackHealthIssueStates(value) {
+function normalizeLoredeckHealthIssueStates(value) {
     if (!value || typeof value !== 'object' || Array.isArray(value)) return {};
     const output = {};
     let count = 0;
@@ -380,7 +380,7 @@ function normalizeLorepackHealthIssueStates(value) {
     return output;
 }
 
-function normalizeLorepackPendingChanges(value) {
+function normalizeLoredeckPendingChanges(value) {
     if (!Array.isArray(value)) return [];
     const output = [];
     const seen = new Set();
@@ -389,23 +389,23 @@ function normalizeLorepackPendingChanges(value) {
         const changeId = String(raw.changeId || raw.id || '').trim() || `pending_${output.length + 1}`;
         if (seen.has(changeId)) continue;
         seen.add(changeId);
-        const payload = cloneLorepackPlainObject(raw.payload, 200000) || {};
-        const preview = cloneLorepackPlainObject(raw.preview, 20000) || {};
+        const payload = cloneLoredeckPlainObject(raw.payload, 200000) || {};
+        const preview = cloneLoredeckPlainObject(raw.preview, 20000) || {};
         output.push({
             schemaVersion: Number.isFinite(Number(raw.schemaVersion)) ? Number(raw.schemaVersion) : 1,
             changeId,
             status: 'pending',
             source: String(raw.source || 'manual').trim().slice(0, 80),
             action: String(raw.action || 'record_patch').trim().slice(0, 80),
-            targetKind: String(raw.targetKind || 'lorepack').trim().slice(0, 80),
+            targetKind: String(raw.targetKind || 'loredeck').trim().slice(0, 80),
             title: String(raw.title || changeId).trim().slice(0, 240),
             description: String(raw.description || '').trim().slice(0, 1000),
-            affectedEntryIds: normalizeLorepackDisabledEntryIds(raw.affectedEntryIds).slice(0, 500),
+            affectedEntryIds: normalizeLoredeckDisabledEntryIds(raw.affectedEntryIds).slice(0, 500),
             affectedTagIds: Array.isArray(raw.affectedTagIds)
-                ? raw.affectedTagIds.map(tag => cleanLorepackTagRegistryId(tag)).filter(Boolean).slice(0, 500)
+                ? raw.affectedTagIds.map(tag => cleanLoredeckTagRegistryId(tag)).filter(Boolean).slice(0, 500)
                 : [],
             affectedTimelineIds: Array.isArray(raw.affectedTimelineIds)
-                ? raw.affectedTimelineIds.map(id => cleanLorepackTimelineRegistryId(id)).filter(Boolean).slice(0, 500)
+                ? raw.affectedTimelineIds.map(id => cleanLoredeckTimelineRegistryId(id)).filter(Boolean).slice(0, 500)
                 : [],
             payload,
             preview,
@@ -417,7 +417,7 @@ function normalizeLorepackPendingChanges(value) {
     return output;
 }
 
-function cleanLorepackTagRegistryId(value) {
+function cleanLoredeckTagRegistryId(value) {
     return String(value || '')
         .trim()
         .replace(/[\r\n]+/g, ' ')
@@ -431,12 +431,12 @@ function cleanLorepackTagRegistryId(value) {
         .trim();
 }
 
-function normalizeLorepackTagRegistryList(value, limit = 64, normalizeId = false) {
+function normalizeLoredeckTagRegistryList(value, limit = 64, normalizeId = false) {
     if (!Array.isArray(value)) return [];
     const output = [];
     const seen = new Set();
     for (const raw of value) {
-        const text = normalizeId ? cleanLorepackTagRegistryId(raw) : String(raw || '').trim().slice(0, 120).trim();
+        const text = normalizeId ? cleanLoredeckTagRegistryId(raw) : String(raw || '').trim().slice(0, 120).trim();
         if (!text) continue;
         const key = text.toLowerCase();
         if (seen.has(key)) continue;
@@ -447,7 +447,7 @@ function normalizeLorepackTagRegistryList(value, limit = 64, normalizeId = false
     return output;
 }
 
-function normalizeLorepackTagRegistry(value) {
+function normalizeLoredeckTagRegistry(value) {
     if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
     const rawTags = value.tags && typeof value.tags === 'object' && !Array.isArray(value.tags)
         ? value.tags
@@ -457,18 +457,18 @@ function normalizeLorepackTagRegistry(value) {
     let count = 0;
     for (const [rawId, rawDef] of Object.entries(rawTags)) {
         if (!rawDef || typeof rawDef !== 'object' || Array.isArray(rawDef)) continue;
-        const id = cleanLorepackTagRegistryId(rawDef.id || rawId);
+        const id = cleanLoredeckTagRegistryId(rawDef.id || rawId);
         if (!id) continue;
         tags[id] = {
             label: String(rawDef.label || '').trim().slice(0, 160),
             color: String(rawDef.color || '').trim().slice(0, 32),
             textColor: String(rawDef.textColor || '').trim().slice(0, 32),
             description: String(rawDef.description || '').trim().slice(0, 1000),
-            aliases: normalizeLorepackTagRegistryList(rawDef.aliases, 64, false),
-            parents: normalizeLorepackTagRegistryList(rawDef.parents, 64, true),
+            aliases: normalizeLoredeckTagRegistryList(rawDef.aliases, 64, false),
+            parents: normalizeLoredeckTagRegistryList(rawDef.parents, 64, true),
             sensitive: rawDef.sensitive === true,
             deprecated: rawDef.deprecated === true,
-            replacement: cleanLorepackTagRegistryId(rawDef.replacement || ''),
+            replacement: cleanLoredeckTagRegistryId(rawDef.replacement || ''),
         };
         count += 1;
         if (count >= 2000) break;
@@ -480,7 +480,7 @@ function normalizeLorepackTagRegistry(value) {
     };
 }
 
-function cleanLorepackTimelineRegistryId(value) {
+function cleanLoredeckTimelineRegistryId(value) {
     return String(value || '')
         .trim()
         .replace(/[\r\n]+/g, ' ')
@@ -490,7 +490,7 @@ function cleanLorepackTimelineRegistryId(value) {
         .trim();
 }
 
-function normalizeLorepackTimelineRegistryList(value, limit = 64) {
+function normalizeLoredeckTimelineRegistryList(value, limit = 64) {
     if (!Array.isArray(value)) return [];
     const output = [];
     const seen = new Set();
@@ -506,7 +506,7 @@ function normalizeLorepackTimelineRegistryList(value, limit = 64) {
     return output;
 }
 
-function normalizeLorepackTimelineDateRange(value = {}) {
+function normalizeLoredeckTimelineDateRange(value = {}) {
     const input = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
     return {
         from: String(input.from || input.start || input.validFrom || '').trim().slice(0, 80),
@@ -515,21 +515,21 @@ function normalizeLorepackTimelineDateRange(value = {}) {
     };
 }
 
-function normalizeLorepackTimelineNumber(value) {
+function normalizeLoredeckTimelineNumber(value) {
     const number = Number(value);
     return Number.isFinite(number) ? number : null;
 }
 
-function normalizeLorepackTimelineAnchor(raw = {}, fallbackId = '', index = 0) {
+function normalizeLoredeckTimelineAnchor(raw = {}, fallbackId = '', index = 0) {
     if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return null;
-    const id = cleanLorepackTimelineRegistryId(raw.id || fallbackId);
+    const id = cleanLoredeckTimelineRegistryId(raw.id || fallbackId);
     if (!id) return null;
     const anchor = {
         id,
         label: String(raw.label || raw.title || id).trim().slice(0, 240),
-        positionType: String(raw.positionType || raw.type || 'anchor').trim().slice(0, 80),
-        sortKey: normalizeLorepackTimelineNumber(raw.sortKey) ?? index + 1,
-        dateRange: normalizeLorepackTimelineDateRange(raw.dateRange || raw.date || raw.canonTiming),
+        contextType: String(raw.contextType || raw.type || 'anchor').trim().slice(0, 80),
+        sortKey: normalizeLoredeckTimelineNumber(raw.sortKey) ?? index + 1,
+        dateRange: normalizeLoredeckTimelineDateRange(raw.dateRange || raw.date || raw.canonTiming),
         book: String(raw.book || raw.sourceInfo?.title || raw.source?.book || '').trim().slice(0, 160),
         work: String(raw.work || raw.sourceInfo?.work || raw.source?.work || '').trim().slice(0, 160),
         schoolYear: String(raw.schoolYear || raw.date?.schoolYear || raw.canonTiming?.schoolYear || '').trim().slice(0, 80),
@@ -541,41 +541,41 @@ function normalizeLorepackTimelineAnchor(raw = {}, fallbackId = '', index = 0) {
         issue: String(raw.issue || '').trim().slice(0, 80),
         quest: String(raw.quest || '').trim().slice(0, 180),
         gameStage: String(raw.gameStage || '').trim().slice(0, 180),
-        aliases: normalizeLorepackTimelineRegistryList(raw.aliases || raw.triggers, 64),
-        tags: normalizeLorepackTimelineRegistryList(raw.tags, 64),
+        aliases: normalizeLoredeckTimelineRegistryList(raw.aliases || raw.triggers, 64),
+        tags: normalizeLoredeckTimelineRegistryList(raw.tags, 64),
         notes: String(raw.notes || raw.description || '').trim().slice(0, 1000),
     };
     if (raw.sourceInfo && typeof raw.sourceInfo === 'object' && !Array.isArray(raw.sourceInfo)) {
-        anchor.sourceInfo = cloneLorepackPlainObject(raw.sourceInfo, 10000);
+        anchor.sourceInfo = cloneLoredeckPlainObject(raw.sourceInfo, 10000);
     }
     return anchor;
 }
 
-function normalizeLorepackTimelineWindow(raw = {}, fallbackId = '', index = 0) {
+function normalizeLoredeckTimelineWindow(raw = {}, fallbackId = '', index = 0) {
     if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return null;
-    const id = cleanLorepackTimelineRegistryId(raw.id || fallbackId);
+    const id = cleanLoredeckTimelineRegistryId(raw.id || fallbackId);
     if (!id) return null;
     return {
         id,
         label: String(raw.label || raw.title || id).trim().slice(0, 240),
-        positionType: String(raw.positionType || raw.type || 'anchor_window').trim().slice(0, 80),
-        anchorFrom: cleanLorepackTimelineRegistryId(raw.anchorFrom || raw.from || raw.validFromAnchor),
-        anchorTo: cleanLorepackTimelineRegistryId(raw.anchorTo || raw.to || raw.validToAnchor),
-        sortKeyFrom: normalizeLorepackTimelineNumber(raw.sortKeyFrom),
-        sortKeyTo: normalizeLorepackTimelineNumber(raw.sortKeyTo),
-        dateRange: normalizeLorepackTimelineDateRange(raw.dateRange || raw.date),
-        aliases: normalizeLorepackTimelineRegistryList(raw.aliases || raw.triggers, 64),
-        tags: normalizeLorepackTimelineRegistryList(raw.tags, 64),
+        contextType: String(raw.contextType || raw.type || 'anchor_window').trim().slice(0, 80),
+        anchorFrom: cleanLoredeckTimelineRegistryId(raw.anchorFrom || raw.from || raw.validFromAnchor),
+        anchorTo: cleanLoredeckTimelineRegistryId(raw.anchorTo || raw.to || raw.validToAnchor),
+        sortKeyFrom: normalizeLoredeckTimelineNumber(raw.sortKeyFrom),
+        sortKeyTo: normalizeLoredeckTimelineNumber(raw.sortKeyTo),
+        dateRange: normalizeLoredeckTimelineDateRange(raw.dateRange || raw.date),
+        aliases: normalizeLoredeckTimelineRegistryList(raw.aliases || raw.triggers, 64),
+        tags: normalizeLoredeckTimelineRegistryList(raw.tags, 64),
         notes: String(raw.notes || raw.description || '').trim().slice(0, 1000),
     };
 }
 
-function normalizeLorepackTimelineDisabledIds(value = []) {
+function normalizeLoredeckTimelineDisabledIds(value = []) {
     if (!Array.isArray(value)) return [];
     const output = [];
     const seen = new Set();
     for (const raw of value) {
-        const id = cleanLorepackTimelineRegistryId(raw);
+        const id = cleanLoredeckTimelineRegistryId(raw);
         if (!id || seen.has(id)) continue;
         seen.add(id);
         output.push(id);
@@ -584,12 +584,12 @@ function normalizeLorepackTimelineDisabledIds(value = []) {
     return output;
 }
 
-function normalizeLorepackTimelineRegistry(value) {
+function normalizeLoredeckTimelineRegistry(value) {
     if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
     const input = value;
     const anchors = [];
     for (const [index, raw] of (Array.isArray(input.anchors) ? input.anchors : []).entries()) {
-        const anchor = normalizeLorepackTimelineAnchor(raw, '', index);
+        const anchor = normalizeLoredeckTimelineAnchor(raw, '', index);
         if (anchor) anchors.push(anchor);
         if (anchors.length >= 5000) break;
     }
@@ -600,17 +600,17 @@ function normalizeLorepackTimelineRegistry(value) {
         ...(Array.isArray(input.phases) ? input.phases : []),
     ];
     for (const [index, raw] of rawWindows.entries()) {
-        const window = normalizeLorepackTimelineWindow(raw, '', index);
+        const window = normalizeLoredeckTimelineWindow(raw, '', index);
         if (window) windows.push(window);
         if (windows.length >= 5000) break;
     }
-    const disabledAnchorIds = normalizeLorepackTimelineDisabledIds(input.disabledAnchorIds || input.disabledAnchors || []);
-    const disabledWindowIds = normalizeLorepackTimelineDisabledIds(input.disabledWindowIds || input.disabledWindows || []);
+    const disabledAnchorIds = normalizeLoredeckTimelineDisabledIds(input.disabledAnchorIds || input.disabledAnchors || []);
+    const disabledWindowIds = normalizeLoredeckTimelineDisabledIds(input.disabledWindowIds || input.disabledWindows || []);
     if (!anchors.length && !windows.length && !disabledAnchorIds.length && !disabledWindowIds.length) return null;
     return {
         schemaVersion: Number.isFinite(Number(input.schemaVersion)) ? Number(input.schemaVersion) : 1,
         timelineMode: String(input.timelineMode || 'hybrid').trim().slice(0, 80),
-        defaultPositionType: String(input.defaultPositionType || '').trim().slice(0, 80),
+        defaultContextType: String(input.defaultContextType || '').trim().slice(0, 80),
         sortKeyScale: String(input.sortKeyScale || 'pack_local').trim().slice(0, 160),
         summary: String(input.summary || input.description || '').trim().slice(0, 1000),
         anchors,
@@ -620,7 +620,7 @@ function normalizeLorepackTimelineRegistry(value) {
     };
 }
 
-function normalizeLorepackRegistry(value, defaults = getDefaultState().lorepackRegistry) {
+function normalizeLoredeckRegistry(value, defaults = getDefaultState().loredeckRegistry) {
     const input = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
     const inputPacks = input.packs && typeof input.packs === 'object' && !Array.isArray(input.packs) ? input.packs : {};
     const defaultPacks = defaults.packs || {};
@@ -667,26 +667,26 @@ function normalizeLorepackRegistry(value, defaults = getDefaultState().lorepackR
             installedAt: Number.isFinite(Number(raw.installedAt)) ? Number(raw.installedAt) : 0,
             updatedAt: Number.isFinite(Number(raw.updatedAt)) ? Number(raw.updatedAt) : 0,
         };
-        const assets = cloneLorepackPlainObject(raw.assets, 50000);
+        const assets = cloneLoredeckPlainObject(raw.assets, 50000);
         if (assets) pack.assets = assets;
         else if (raw.cover || raw.coverImage) {
             pack.assets = {
                 cover: raw.cover || raw.coverImage,
             };
         }
-        const derivedFrom = cloneLorepackPlainObject(raw.derivedFrom, 20000);
+        const derivedFrom = cloneLoredeckPlainObject(raw.derivedFrom, 20000);
         if (derivedFrom) pack.derivedFrom = derivedFrom;
-        const manifestData = normalizeEmbeddedLorepackManifest(raw.manifestData);
+        const manifestData = normalizeEmbeddedLoredeckManifest(raw.manifestData);
         if (manifestData) pack.manifestData = manifestData;
-        pack.entryOverrides = normalizeLorepackEntryOverrides(raw.entryOverrides);
-        pack.disabledEntryIds = normalizeLorepackDisabledEntryIds(raw.disabledEntryIds);
-        const tagRegistry = normalizeLorepackTagRegistry(raw.tagRegistry);
+        pack.entryOverrides = normalizeLoredeckEntryOverrides(raw.entryOverrides);
+        pack.disabledEntryIds = normalizeLoredeckDisabledEntryIds(raw.disabledEntryIds);
+        const tagRegistry = normalizeLoredeckTagRegistry(raw.tagRegistry);
         if (tagRegistry) pack.tagRegistry = tagRegistry;
-        const timelineRegistry = normalizeLorepackTimelineRegistry(raw.timelineRegistry);
+        const timelineRegistry = normalizeLoredeckTimelineRegistry(raw.timelineRegistry);
         if (timelineRegistry) pack.timelineRegistry = timelineRegistry;
-        const pendingChanges = normalizeLorepackPendingChanges(raw.pendingChanges);
+        const pendingChanges = normalizeLoredeckPendingChanges(raw.pendingChanges);
         if (pendingChanges.length) pack.pendingChanges = pendingChanges;
-        const healthIssueStates = normalizeLorepackHealthIssueStates(raw.healthIssueStates);
+        const healthIssueStates = normalizeLoredeckHealthIssueStates(raw.healthIssueStates);
         if (Object.keys(healthIssueStates).length) pack.healthIssueStates = healthIssueStates;
         packs[id] = pack;
     }
@@ -849,11 +849,11 @@ export function importThemePackLibraryRegistry(registry = {}, options = {}) {
     return { ok: true, importedCount, skippedCount, library: settings.themePackLibrary };
 }
 
-export function getLorepackLibraryRegistry(state = null) {
+export function getLoredeckLibraryRegistry(state = null) {
     const settings = getSettings();
-    const globalLibrary = normalizeLorepackRegistry(settings.lorepackLibrary, DEFAULT_SETTINGS.lorepackLibrary);
-    const chatRegistry = normalizeLorepackRegistry(
-        state?.lorepackRegistry,
+    const globalLibrary = normalizeLoredeckRegistry(settings.loredeckLibrary, DEFAULT_SETTINGS.loredeckLibrary);
+    const chatRegistry = normalizeLoredeckRegistry(
+        state?.loredeckRegistry,
         { schemaVersion: 1, packs: {} }
     );
     return {
@@ -865,74 +865,74 @@ export function getLorepackLibraryRegistry(state = null) {
     };
 }
 
-export function upsertLorepackLibraryPack(packRecord = {}) {
-    const normalized = normalizeLorepackRegistry(
+export function upsertLoredeckLibraryPack(packRecord = {}) {
+    const normalized = normalizeLoredeckRegistry(
         { schemaVersion: 1, packs: { [packRecord.packId || packRecord.id || '']: packRecord } },
         { schemaVersion: 1, packs: {} }
     );
     const [packId, pack] = Object.entries(normalized.packs || {})[0] || [];
     if (!packId || !pack) {
-        return { ok: false, error: 'Lorepack record must include a packId/id.' };
+        return { ok: false, error: 'Loredeck record must include a packId/id.' };
     }
-    const bundledDefault = DEFAULT_SETTINGS.lorepackLibrary?.packs?.[packId];
+    const bundledDefault = DEFAULT_SETTINGS.loredeckLibrary?.packs?.[packId];
     if (bundledDefault?.type === 'bundled' && pack.type !== 'bundled') {
-        return { ok: false, error: 'A Custom or Generated Lorepack cannot replace a Bundled Lorepack with the same id.' };
+        return { ok: false, error: 'A Custom or Generated Loredeck cannot replace a Bundled Loredeck with the same id.' };
     }
 
     const settings = getSettings();
-    const library = normalizeLorepackRegistry(settings.lorepackLibrary, DEFAULT_SETTINGS.lorepackLibrary);
+    const library = normalizeLoredeckRegistry(settings.loredeckLibrary, DEFAULT_SETTINGS.loredeckLibrary);
     library.packs[packId] = {
         ...(library.packs[packId] || {}),
         ...pack,
         installedAt: library.packs[packId]?.installedAt || pack.installedAt || Date.now(),
         updatedAt: Date.now(),
     };
-    settings.lorepackLibrary = library;
+    settings.loredeckLibrary = library;
     saveSettings(settings);
     return { ok: true, pack: library.packs[packId], library };
 }
 
-export function removeLorepackLibraryPack(packId, options = {}) {
+export function removeLoredeckLibraryPack(packId, options = {}) {
     const id = String(packId || '').trim();
-    if (!id) return { ok: false, error: 'Missing Lorepack id.' };
-    if (options.allowBundled !== true && DEFAULT_SETTINGS.lorepackLibrary?.packs?.[id]?.type === 'bundled') {
-        return { ok: false, error: 'Bundled Lorepacks cannot be removed from the library.' };
+    if (!id) return { ok: false, error: 'Missing Loredeck id.' };
+    if (options.allowBundled !== true && DEFAULT_SETTINGS.loredeckLibrary?.packs?.[id]?.type === 'bundled') {
+        return { ok: false, error: 'Bundled Loredecks cannot be removed from the library.' };
     }
 
     const state = getState();
     const settings = getSettings();
-    const library = normalizeLorepackRegistry(settings.lorepackLibrary, DEFAULT_SETTINGS.lorepackLibrary);
+    const library = normalizeLoredeckRegistry(settings.loredeckLibrary, DEFAULT_SETTINGS.loredeckLibrary);
     let removed = false;
     if (library.packs[id]) {
         delete library.packs[id];
-        settings.lorepackLibrary = normalizeLorepackRegistry(library, DEFAULT_SETTINGS.lorepackLibrary);
+        settings.loredeckLibrary = normalizeLoredeckRegistry(library, DEFAULT_SETTINGS.loredeckLibrary);
         saveSettings(settings);
         removed = true;
     }
 
-    const chatRegistry = normalizeLorepackRegistry(state?.lorepackRegistry, { schemaVersion: 1, packs: {} });
+    const chatRegistry = normalizeLoredeckRegistry(state?.loredeckRegistry, { schemaVersion: 1, packs: {} });
     if (chatRegistry.packs[id]) {
         delete chatRegistry.packs[id];
-        state.lorepackRegistry = normalizeLorepackRegistry(chatRegistry, { schemaVersion: 1, packs: {} });
+        state.loredeckRegistry = normalizeLoredeckRegistry(chatRegistry, { schemaVersion: 1, packs: {} });
         saveState(state, { syncPrompt: false });
         removed = true;
     }
 
-    if (!removed) return { ok: false, error: 'Lorepack is not registered.' };
-    return { ok: true, library: settings.lorepackLibrary };
+    if (!removed) return { ok: false, error: 'Loredeck is not registered.' };
+    return { ok: true, library: settings.loredeckLibrary };
 }
 
-export function importLorepackLibraryRegistry(registry = {}, options = {}) {
-    const incoming = normalizeLorepackRegistry(registry, { schemaVersion: 1, packs: {} });
+export function importLoredeckLibraryRegistry(registry = {}, options = {}) {
+    const incoming = normalizeLoredeckRegistry(registry, { schemaVersion: 1, packs: {} });
     const settings = getSettings();
     const current = options.replace === true
-        ? normalizeLorepackRegistry(DEFAULT_SETTINGS.lorepackLibrary, DEFAULT_SETTINGS.lorepackLibrary)
-        : normalizeLorepackRegistry(settings.lorepackLibrary, DEFAULT_SETTINGS.lorepackLibrary);
+        ? normalizeLoredeckRegistry(DEFAULT_SETTINGS.loredeckLibrary, DEFAULT_SETTINGS.loredeckLibrary)
+        : normalizeLoredeckRegistry(settings.loredeckLibrary, DEFAULT_SETTINGS.loredeckLibrary);
 
     let importedCount = 0;
     let skippedCount = 0;
     for (const [packId, pack] of Object.entries(incoming.packs || {})) {
-        const bundledDefault = DEFAULT_SETTINGS.lorepackLibrary?.packs?.[packId];
+        const bundledDefault = DEFAULT_SETTINGS.loredeckLibrary?.packs?.[packId];
         if (bundledDefault?.type === 'bundled' && pack.type !== 'bundled') {
             skippedCount += 1;
             continue;
@@ -946,21 +946,21 @@ export function importLorepackLibraryRegistry(registry = {}, options = {}) {
         importedCount += 1;
     }
 
-    settings.lorepackLibrary = normalizeLorepackRegistry(current, DEFAULT_SETTINGS.lorepackLibrary);
+    settings.loredeckLibrary = normalizeLoredeckRegistry(current, DEFAULT_SETTINGS.loredeckLibrary);
     saveSettings(settings);
-    return { ok: true, importedCount, skippedCount, library: settings.lorepackLibrary };
+    return { ok: true, importedCount, skippedCount, library: settings.loredeckLibrary };
 }
 
-function promoteChatLorepackRegistryToSettings(state = {}) {
-    const chatRegistry = normalizeLorepackRegistry(
-        state?.lorepackRegistry,
+function promoteChatLoredeckRegistryToSettings(state = {}) {
+    const chatRegistry = normalizeLoredeckRegistry(
+        state?.loredeckRegistry,
         { schemaVersion: 1, packs: {} }
     );
     const chatPacks = chatRegistry.packs || {};
     if (!Object.keys(chatPacks).length) return;
 
     const settings = getSettings();
-    const globalLibrary = normalizeLorepackRegistry(settings.lorepackLibrary, DEFAULT_SETTINGS.lorepackLibrary);
+    const globalLibrary = normalizeLoredeckRegistry(settings.loredeckLibrary, DEFAULT_SETTINGS.loredeckLibrary);
     let changed = false;
     for (const [packId, pack] of Object.entries(chatPacks)) {
         if (!globalLibrary.packs[packId]) {
@@ -969,7 +969,7 @@ function promoteChatLorepackRegistryToSettings(state = {}) {
         }
     }
     if (!changed) return;
-    settings.lorepackLibrary = globalLibrary;
+    settings.loredeckLibrary = globalLibrary;
     saveSettings(settings);
 }
 
@@ -1044,9 +1044,9 @@ export function getSettings() {
         ...(DEFAULT_SETTINGS.continuitySectionPrompts || {}),
         ...(stored.continuitySectionPrompts || {}),
     };
-    merged.lorepackLibrary = normalizeLorepackRegistry(
-        stored.lorepackLibrary || DEFAULT_SETTINGS.lorepackLibrary,
-        DEFAULT_SETTINGS.lorepackLibrary
+    merged.loredeckLibrary = normalizeLoredeckRegistry(
+        stored.loredeckLibrary || DEFAULT_SETTINGS.loredeckLibrary,
+        DEFAULT_SETTINGS.loredeckLibrary
     );
     merged.themePackLibrary = normalizeThemePackRegistry(
         stored.themePackLibrary || DEFAULT_SETTINGS.themePackLibrary,
@@ -1194,7 +1194,7 @@ export function saveSettings(settings) {
     if (!ctx || !ctx.extensionSettings) return;
     const { extensionSettings, saveSettingsDebounced } = ctx;
     if (settings && typeof settings === 'object') {
-        settings.lorepackLibrary = normalizeLorepackRegistry(settings.lorepackLibrary, DEFAULT_SETTINGS.lorepackLibrary);
+        settings.loredeckLibrary = normalizeLoredeckRegistry(settings.loredeckLibrary, DEFAULT_SETTINGS.loredeckLibrary);
         settings.themePackLibrary = normalizeThemePackRegistry(settings.themePackLibrary, DEFAULT_SETTINGS.themePackLibrary);
     }
     extensionSettings[MODULE_KEY] = settings;
@@ -1512,8 +1512,8 @@ function prePruneLoreEntryForNormalization(entry) {
 
     pruned.tags = prePruneStringArray(entry.tags, 10, 40);
     const generation = entry.extensions?.wandlightGeneration;
-    const sagaLorepack = entry.extensions?.sagaLorepack;
-    const sagaPositionGate = entry.extensions?.sagaPositionGate;
+    const sagaLoredeck = entry.extensions?.sagaLoredeck;
+    const sagaContextGate = entry.extensions?.sagaContextGate;
     const relevanceMigration = entry.extensions?.relevanceMigration;
     const autoRelevance = entry.extensions?.autoRelevance;
     const pendingReview = entry.extensions?.wandlightPendingReview;
@@ -1544,13 +1544,13 @@ function prePruneLoreEntryForNormalization(entry) {
             targetTotal: Number.isFinite(Number(generation.targetTotal)) ? Number(generation.targetTotal) : 0,
         };
     }
-    if (sagaLorepack && typeof sagaLorepack === 'object') {
-        const compact = compactSagaLorepackExtension(sagaLorepack);
-        if (compact) extensions.sagaLorepack = compact;
+    if (sagaLoredeck && typeof sagaLoredeck === 'object') {
+        const compact = compactSagaLoredeckExtension(sagaLoredeck);
+        if (compact) extensions.sagaLoredeck = compact;
     }
-    if (sagaPositionGate && typeof sagaPositionGate === 'object') {
-        const compact = compactSagaPositionGateExtension(sagaPositionGate);
-        if (compact) extensions.sagaPositionGate = compact;
+    if (sagaContextGate && typeof sagaContextGate === 'object') {
+        const compact = compactSagaContextGateExtension(sagaContextGate);
+        if (compact) extensions.sagaContextGate = compact;
     }
     if (relevanceMigration && typeof relevanceMigration === 'object') extensions.relevanceMigration = {
         migratedAt: Number.isFinite(Number(relevanceMigration.migratedAt)) ? Number(relevanceMigration.migratedAt) : 0,
@@ -1619,20 +1619,20 @@ function compactPlainObjectMapForStorage(value, limit = 16, textLimit = 120) {
 }
 
 
-function compactSagaLorepackExtension(sagaLorepack = {}) {
-    if (!sagaLorepack || typeof sagaLorepack !== 'object' || Array.isArray(sagaLorepack)) return null;
+function compactSagaLoredeckExtension(sagaLoredeck = {}) {
+    if (!sagaLoredeck || typeof sagaLoredeck !== 'object' || Array.isArray(sagaLoredeck)) return null;
     const compact = {
-        packId: truncateText(sagaLorepack.packId, 120),
-        packType: truncateText(sagaLorepack.packType, 40),
-        packTitle: truncateText(sagaLorepack.packTitle, 160),
-        file: truncateText(sagaLorepack.file, 240),
-        stackPriority: Number.isFinite(Number(sagaLorepack.stackPriority)) ? Number(sagaLorepack.stackPriority) : 0,
-        stackIndex: Number.isFinite(Number(sagaLorepack.stackIndex)) ? Number(sagaLorepack.stackIndex) : 0,
+        packId: truncateText(sagaLoredeck.packId, 120),
+        packType: truncateText(sagaLoredeck.packType, 40),
+        packTitle: truncateText(sagaLoredeck.packTitle, 160),
+        file: truncateText(sagaLoredeck.file, 240),
+        stackPriority: Number.isFinite(Number(sagaLoredeck.stackPriority)) ? Number(sagaLoredeck.stackPriority) : 0,
+        stackIndex: Number.isFinite(Number(sagaLoredeck.stackIndex)) ? Number(sagaLoredeck.stackIndex) : 0,
     };
     return Object.values(compact).some(value => value !== '' && value !== 0) ? compact : null;
 }
 
-function compactSagaPositionGateExtension(gate = {}) {
+function compactSagaContextGateExtension(gate = {}) {
     if (!gate || typeof gate !== 'object' || Array.isArray(gate)) return null;
     const compact = {
         status: truncateText(gate.status, 40),
@@ -1733,12 +1733,12 @@ function compactLoreExtensionsForStorage(normalized) {
             targetTotal: Number.isFinite(Number(generation.targetTotal)) ? Number(generation.targetTotal) : 0,
         };
     }
-    const sagaLorepack = normalized?.extensions?.sagaLorepack;
-    const compactLorepack = compactSagaLorepackExtension(sagaLorepack);
-    if (compactLorepack) out.sagaLorepack = compactLorepack;
-    const sagaPositionGate = normalized?.extensions?.sagaPositionGate;
-    const compactPositionGate = compactSagaPositionGateExtension(sagaPositionGate);
-    if (compactPositionGate) out.sagaPositionGate = compactPositionGate;
+    const sagaLoredeck = normalized?.extensions?.sagaLoredeck;
+    const compactLoredeck = compactSagaLoredeckExtension(sagaLoredeck);
+    if (compactLoredeck) out.sagaLoredeck = compactLoredeck;
+    const sagaContextGate = normalized?.extensions?.sagaContextGate;
+    const compactContextGate = compactSagaContextGateExtension(sagaContextGate);
+    if (compactContextGate) out.sagaContextGate = compactContextGate;
     const relevanceMigration = normalized?.extensions?.relevanceMigration;
     if (relevanceMigration && typeof relevanceMigration === 'object') out.relevanceMigration = {
         migratedAt: Number.isFinite(Number(relevanceMigration.migratedAt)) ? Number(relevanceMigration.migratedAt) : 0,
@@ -1760,7 +1760,7 @@ function compactLoreExtensionsForStorage(normalized) {
 
 function compactLoreEntryForStorage(entry) {
     const normalized = normalizeLoreEntry(prePruneLoreEntryForNormalization(entry || {}));
-    const position = compactLorePositionForStorage(normalized.position);
+    const contextBlock = compactLorePositionForStorage(normalized.context);
     const coordinates = compactLoreCoordinatesForStorage(normalized.coordinates);
     return {
         schemaVersion: normalized.schemaVersion || 2,
@@ -1804,7 +1804,7 @@ function compactLoreEntryForStorage(entry) {
             book: truncateText(normalized.canonTiming?.book, 100),
             label: truncateText(normalized.canonTiming?.label, 140),
         },
-        ...(position ? { position } : {}),
+        ...(contextBlock ? { context: contextBlock } : {}),
         ...(coordinates.length ? { coordinates } : {}),
         activation: {
             requiresEvents: compactStringArray(normalized.activation?.requiresEvents, 10, 100),
@@ -1847,17 +1847,17 @@ function compactLoreEntryForStorage(entry) {
             secretUntil: truncateText(normalized.visibility?.secretUntil, 32),
             knownBy: compactStringMapForStorage(normalized.visibility?.knownBy, 16, 120),
             notKnownByBefore: compactStringMapForStorage(normalized.visibility?.notKnownByBefore, 16, 120),
-            knownByAtPosition: compactPlainObjectMapForStorage(normalized.visibility?.knownByAtPosition, 16, 120),
-            notKnownByBeforePosition: compactPlainObjectMapForStorage(normalized.visibility?.notKnownByBeforePosition, 16, 120),
+            knownByAtContext: compactPlainObjectMapForStorage(normalized.visibility?.knownByAtContext, 16, 120),
+            notKnownByBeforeContext: compactPlainObjectMapForStorage(normalized.visibility?.notKnownByBeforeContext, 16, 120),
             neverKnownBy: compactStringArray(normalized.visibility?.neverKnownBy, 16, 120),
-            publicFromPosition: normalized.visibility?.publicFromPosition || {},
-            secretUntilPosition: normalized.visibility?.secretUntilPosition || {},
+            publicFromContext: normalized.visibility?.publicFromContext || {},
+            secretUntilContext: normalized.visibility?.secretUntilContext || {},
             suspectedBy: compactStringMapForStorage(normalized.visibility?.suspectedBy, 12, 120),
         },
         retrieval: {
             activation: truncateText(normalized.retrieval?.activation, 40),
             frequency: truncateText(normalized.retrieval?.frequency, 40),
-            positionalBoost: truncateText(normalized.retrieval?.positionalBoost, 40),
+            contextBoost: truncateText(normalized.retrieval?.contextBoost, 40),
             triggers: {
                 charactersAny: compactStringArray(normalized.retrieval?.triggers?.charactersAny, 12, 100),
                 locationsAny: compactStringArray(normalized.retrieval?.triggers?.locationsAny, 10, 100),
@@ -2231,22 +2231,22 @@ export function migrateState(state) {
         state._version = 18;
     }
 
-    // Schema v19: Saga Lorepack stack/context scaffolding
+    // Schema v19: Saga Loredeck stack/context scaffolding
     if (state._version < 19) {
-        state.lorepackStack = normalizeLorepackStack(state.lorepackStack);
-        state.lorepackContexts = normalizeLorepackContexts(state.lorepackContexts, state);
+        state.loredeckStack = normalizeLoredeckStack(state.loredeckStack);
+        state.loredeckContexts = normalizeLoredeckContexts(state.loredeckContexts, state);
         state._version = 19;
     }
 
-    // Schema v20: Saga Lorepack registry for bundled/custom/generated library metadata
+    // Schema v20: Saga Loredeck registry for bundled/custom/generated library metadata
     if (state._version < 20) {
-        state.lorepackRegistry = normalizeLorepackRegistry(state.lorepackRegistry);
+        state.loredeckRegistry = normalizeLoredeckRegistry(state.loredeckRegistry);
         state._version = 20;
     }
 
-    // Schema v21: normalized per-Lorepack Story Position state
+    // Schema v21: normalized per-Loredeck Context state
     if (state._version < 21) {
-        state.lorepackContexts = normalizeLorepackContexts(state.lorepackContexts, state);
+        state.loredeckContexts = normalizeLoredeckContexts(state.loredeckContexts, state);
         state._version = 21;
     }
 
@@ -2262,10 +2262,10 @@ export function migrateState(state) {
     sanitizeLoreArraysForStorage(state);
 
     normalizeContinuityStructure(state);
-    state.lorepackStack = normalizeLorepackStack(state.lorepackStack);
-    state.lorepackRegistry = normalizeLorepackRegistry(state.lorepackRegistry);
-    promoteChatLorepackRegistryToSettings(state);
-    state.lorepackContexts = normalizeLorepackContexts(state.lorepackContexts, state);
+    state.loredeckStack = normalizeLoredeckStack(state.loredeckStack);
+    state.loredeckRegistry = normalizeLoredeckRegistry(state.loredeckRegistry);
+    promoteChatLoredeckRegistryToSettings(state);
+    state.loredeckContexts = normalizeLoredeckContexts(state.loredeckContexts, state);
 
     if (!state.loreCompressionStatus || typeof state.loreCompressionStatus !== 'object') {
         state.loreCompressionStatus = getDefaultState().loreCompressionStatus;
@@ -2293,8 +2293,8 @@ export function migrateState(state) {
         state.lorePanel.selectedCategory = state.lorePanel.selectedCategory || 'all';
         state.lorePanel.search = state.lorePanel.search || '';
         state.lorePanel.selectedEntryId = state.lorePanel.selectedEntryId || '';
-        state.lorePanel.selectedLorepackId = String(state.lorePanel.selectedLorepackId || defaultsPanel.selectedLorepackId || '').trim();
-        state.lorePanel.activeTab = ['lorepacks', 'session', 'continuity', 'context', 'lore', 'injection', 'settings'].includes(state.lorePanel.activeTab)
+        state.lorePanel.selectedLoredeckId = String(state.lorePanel.selectedLoredeckId || defaultsPanel.selectedLoredeckId || '').trim();
+        state.lorePanel.activeTab = ['loredecks', 'session', 'continuity', 'context', 'lore', 'injection', 'settings'].includes(state.lorePanel.activeTab)
             ? state.lorePanel.activeTab
             : (state.lorePanel.activeTab === 'generate' ? 'context' : (state.lorePanel.activeTab === 'review' ? 'lore' : 'session'));
         state.lorePanel.reviewSelectedIds = Array.isArray(state.lorePanel.reviewSelectedIds) ? state.lorePanel.reviewSelectedIds : [];
@@ -3332,20 +3332,20 @@ export function setLoreContext(contextUpdate) {
  * @param {Object} [options={}] - { increment?: boolean } — whether to bump attemptCount
  * @returns {Object} Updated state
  */
-export function getLorepackStoryPosition(state = getState(), packId = '') {
-    const id = cleanStoryPositionString(packId, 120);
-    if (!id) return normalizeLorepackStoryPosition(null, '', state?.loreContext || {});
-    const contexts = normalizeLorepackContexts(state?.lorepackContexts || {}, state || {});
-    return contexts[id] || normalizeLorepackStoryPosition(null, id, state?.loreContext || {});
+export function getLoredeckContext(state = getState(), packId = '') {
+    const id = cleanContextString(packId, 120);
+    if (!id) return normalizeLoredeckContext(null, '', state?.loreContext || {});
+    const contexts = normalizeLoredeckContexts(state?.loredeckContexts || {}, state || {});
+    return contexts[id] || normalizeLoredeckContext(null, id, state?.loreContext || {});
 }
 
-export function setLorepackStoryPosition(packId, patch = {}) {
-    const id = cleanStoryPositionString(packId, 120);
+export function setLoredeckContext(packId, patch = {}) {
+    const id = cleanContextString(packId, 120);
     if (!id) return getState();
     const state = getState();
-    state.lorepackContexts = normalizeLorepackContexts(state.lorepackContexts, state);
-    const previous = state.lorepackContexts[id] || normalizeLorepackStoryPosition(null, id, state.loreContext || {});
-    state.lorepackContexts[id] = normalizeLorepackStoryPosition({
+    state.loredeckContexts = normalizeLoredeckContexts(state.loredeckContexts, state);
+    const previous = state.loredeckContexts[id] || normalizeLoredeckContext(null, id, state.loreContext || {});
+    state.loredeckContexts[id] = normalizeLoredeckContext({
         ...previous,
         ...(patch || {}),
         packId: id,
@@ -3355,13 +3355,13 @@ export function setLorepackStoryPosition(packId, patch = {}) {
     return state;
 }
 
-export function resetLorepackStoryPosition(packId) {
-    const id = cleanStoryPositionString(packId, 120);
+export function resetLoredeckContext(packId) {
+    const id = cleanContextString(packId, 120);
     if (!id) return getState();
     const state = getState();
-    state.lorepackContexts = normalizeLorepackContexts(state.lorepackContexts, state);
-    state.lorepackContexts[id] = normalizeLorepackStoryPosition(null, id, {});
-    state.lorepackContexts[id].updatedAt = Date.now();
+    state.loredeckContexts = normalizeLoredeckContexts(state.loredeckContexts, state);
+    state.loredeckContexts[id] = normalizeLoredeckContext(null, id, {});
+    state.loredeckContexts[id].updatedAt = Date.now();
     saveState(state);
     return state;
 }

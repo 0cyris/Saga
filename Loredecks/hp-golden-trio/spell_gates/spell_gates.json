@@ -1,0 +1,775 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "spell_gate_patronus",
+      "title": "Patronus Charm learning gate",
+      "kind": "spell_gate",
+      "gateType": "spell_gate",
+      "category": "spell",
+      "relevance": "low",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 100,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 90,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.cos.year_2",
+        "validToAnchor": "hp.dh.year_7",
+        "sortKeyFrom": 8401,
+        "sortKeyTo": 10469,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Prisoner of Azkaban: Year 3",
+        "approximate": false
+      },
+      "scope": {
+        "spells": [
+          "Expecto Patronum"
+        ],
+        "topics": [
+          "spell knowledge",
+          "magic ability"
+        ],
+        "characters": [
+          "Harry Potter",
+          "most Hogwarts students",
+          "Dumbledore’s Army"
+        ],
+        "books": [
+          "Prisoner of Azkaban"
+        ],
+        "schoolYears": [
+          "3"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private",
+        "knownBy": [
+          "Harry Potter",
+          "Dumbledore’s Army"
+        ],
+        "knownByAtContext": {
+          "Harry Potter": {
+            "sortKey": 8917,
+            "label": "1994-06-01",
+            "precision": "date_anchor"
+          },
+          "Dumbledore’s Army": {
+            "sortKey": 9527,
+            "label": "1996-02-01",
+            "precision": "date_anchor"
+          }
+        },
+        "notKnownByBeforeContext": {
+          "most Hogwarts students": {
+            "sortKey": 9527,
+            "label": "1996-02-01",
+            "precision": "date_anchor"
+          }
+        }
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "most Hogwarts students",
+            "Dumbledore’s Army"
+          ],
+          "topicsAny": [
+            "spell knowledge",
+            "magic ability",
+            "Expecto Patronum"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Patronus Charm is advanced defensive magic; Harry learns it unusually early, while most students do not cast it before Dumbledore’s Army training.",
+        "injection": "The Patronus Charm is advanced defensive magic; Harry learns it unusually early, while most students do not cast it before Dumbledore’s Army training.",
+        "constraints": [
+          "Treat Expecto Patronum knowledge as Context- and character-gated."
+        ],
+        "antiLore": [
+          "Do not make Expecto Patronum common student knowledge too early."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "Expecto Patronum",
+          "spell-gate"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Prisoner of Azkaban",
+        "confidence": 0.85,
+        "notes": "Curated Context constraint seed entry."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "spell_gate_accio",
+      "title": "Summoning Charm skill gate",
+      "kind": "spell_gate",
+      "gateType": "spell_gate",
+      "category": "spell",
+      "relevance": "low",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 100,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.gof.triwizard_tournament",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 9093,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Goblet of Fire: Year 4",
+        "approximate": false
+      },
+      "scope": {
+        "spells": [
+          "Accio"
+        ],
+        "topics": [
+          "spell knowledge",
+          "magic ability"
+        ],
+        "characters": [
+          "Harry Potter",
+          "Hermione Granger",
+          "younger students"
+        ],
+        "books": [
+          "Goblet of Fire"
+        ],
+        "schoolYears": [
+          "4"
+        ],
+        "phases": [
+          "term_start"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private",
+        "knownBy": [
+          "Harry Potter",
+          "Hermione Granger"
+        ],
+        "knownByAtContext": {
+          "Harry Potter": {
+            "sortKey": 9070,
+            "label": "1994-11-01",
+            "precision": "date_anchor"
+          },
+          "Hermione Granger": {
+            "sortKey": 9009,
+            "label": "1994-09-01",
+            "precision": "date_anchor"
+          }
+        },
+        "notKnownByBeforeContext": {
+          "younger students": {
+            "sortKey": 9009,
+            "label": "1994-09-01",
+            "precision": "date_anchor"
+          }
+        }
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Hermione Granger",
+            "younger students"
+          ],
+          "topicsAny": [
+            "spell knowledge",
+            "magic ability",
+            "Accio"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Summoning Charm is relevant in Year 4 onward and should not be treated as a first-year default skill.",
+        "injection": "The Summoning Charm is relevant in Year 4 onward and should not be treated as a first-year default skill.",
+        "constraints": [
+          "Treat Accio knowledge as Context- and character-gated."
+        ],
+        "antiLore": [
+          "Do not make Accio common student knowledge too early."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "Accio",
+          "spell-gate"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Goblet of Fire",
+        "confidence": 0.85,
+        "notes": "Curated Context constraint seed entry."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "spells_skills",
+          "suggestionRole": "ability_gate",
+          "detailLevel": "detailed",
+          "suggestByDefault": true,
+          "activeUse": "blocks_early_spell_knowledge"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "spell_gate_expelliarmus",
+      "title": "Disarming Charm common defensive spell",
+      "kind": "spell_gate",
+      "gateType": "spell_gate",
+      "category": "spell",
+      "relevance": "low",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 50,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.cos.chamber_resolved",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 8400,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Chamber of Secrets: Year 2",
+        "approximate": false
+      },
+      "scope": {
+        "spells": [
+          "Expelliarmus"
+        ],
+        "topics": [
+          "spell knowledge",
+          "magic ability"
+        ],
+        "characters": [
+          "Harry Potter",
+          "Hogwarts students"
+        ],
+        "books": [
+          "Chamber of Secrets"
+        ],
+        "schoolYears": [
+          "2"
+        ],
+        "phases": [
+          "term_start"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private",
+        "knownBy": [
+          "Harry Potter",
+          "Hogwarts students"
+        ],
+        "knownByAtContext": {
+          "Harry Potter": {
+            "sortKey": 8279,
+            "label": "1992-09-01",
+            "precision": "date_anchor"
+          },
+          "Hogwarts students": {
+            "sortKey": 8279,
+            "label": "1992-09-01",
+            "precision": "date_anchor"
+          }
+        }
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Hogwarts students"
+          ],
+          "topicsAny": [
+            "spell knowledge",
+            "magic ability",
+            "Expelliarmus"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Disarming Charm is a common defensive spell from early Hogwarts years onward.",
+        "injection": "The Disarming Charm is a common defensive spell from early Hogwarts years onward.",
+        "constraints": [
+          "Treat Expelliarmus knowledge as Context- and character-gated."
+        ],
+        "antiLore": [
+          "Do not make Expelliarmus common student knowledge too early."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "Expelliarmus",
+          "spell-gate"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Chamber of Secrets",
+        "confidence": 0.85,
+        "notes": "Curated Context constraint seed entry."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "spells_skills",
+          "suggestionRole": "ability_gate",
+          "detailLevel": "detailed",
+          "suggestByDefault": true,
+          "activeUse": "blocks_early_spell_knowledge"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "spell_gate_sectumsempra",
+      "title": "Sectumsempra",
+      "kind": "spell_gate",
+      "gateType": "spell_gate",
+      "category": "spell",
+      "relevance": "low",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 100,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 100,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.hbp.year_6",
+        "validToAnchor": "hp.dh.year_7",
+        "sortKeyFrom": 9740,
+        "sortKeyTo": 10469,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Half-Blood Prince: Year 6",
+        "approximate": false
+      },
+      "activation": {
+        "requiresMissingEvents": [
+          "sectumsempra_discovered"
+        ]
+      },
+      "expiration": {
+        "expiresWhenEventsHappen": [
+          "sectumsempra_discovered"
+        ],
+        "autoMuteOnExpire": true
+      },
+      "scope": {
+        "spells": [
+          "Sectumsempra"
+        ],
+        "topics": [
+          "spell knowledge",
+          "magic ability"
+        ],
+        "characters": [
+          "Hermione Granger",
+          "most students",
+          "Harry Potter",
+          "Severus Snape",
+          "Ron Weasley"
+        ],
+        "books": [
+          "Half-Blood Prince"
+        ],
+        "schoolYears": [
+          "6"
+        ],
+        "phases": [
+          "term_start"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private",
+        "knownBy": [
+          "Severus Snape",
+          "Harry Potter"
+        ],
+        "knownByAtContext": {
+          "Severus Snape": {
+            "label": "Pre-canon",
+            "scope": "global",
+            "precision": "pre_canon"
+          },
+          "Harry Potter": {
+            "sortKey": 9740,
+            "label": "1996-09-01",
+            "precision": "date_anchor"
+          }
+        },
+        "notKnownByBeforeContext": {
+          "Harry Potter": {
+            "sortKey": 9740,
+            "label": "1996-09-01",
+            "precision": "date_anchor"
+          },
+          "Hermione Granger": {
+            "sortKey": 10042,
+            "label": "1997-06-30",
+            "precision": "date_anchor"
+          },
+          "Ron Weasley": {
+            "sortKey": 10042,
+            "label": "1997-06-30",
+            "precision": "date_anchor"
+          }
+        },
+        "neverKnownBy": [
+          "most students"
+        ]
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Hermione Granger",
+            "most students",
+            "Harry Potter",
+            "Severus Snape",
+            "Ron Weasley"
+          ],
+          "topicsAny": [
+            "spell knowledge",
+            "magic ability",
+            "Sectumsempra"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Sectumsempra is obscure and dangerous; Harry should not know it, and most students should not recognize it.",
+        "injection": "Sectumsempra is obscure and dangerous; Harry should not know it, and most students should not recognize it.",
+        "constraints": [
+          "Treat Sectumsempra knowledge as Context- and character-gated."
+        ],
+        "antiLore": [
+          "Do not make Sectumsempra common student knowledge too early."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "Sectumsempra",
+          "spell-gate"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Half-Blood Prince",
+        "confidence": 0.85,
+        "notes": "Curated Context constraint seed entry."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "spells_skills",
+          "secondaryPacks": [
+            "essential_guardrails"
+          ],
+          "suggestionRole": "ability_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "blocks_obscure_dangerous_spell_leakage"
+        }
+      },
+      "extensions": {
+        "consolidationPass": {
+          "appliedIn": "Wandlight duplicate/title consolidation pass",
+          "notes": "Automatic concise title cleanup for implementation-language wording."
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "spell_gate_unforgivable_curses",
+      "title": "Unforgivable Curses knowledge versus use",
+      "kind": "spell_gate",
+      "gateType": "spell_gate",
+      "category": "spell",
+      "relevance": "low",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 100,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 100,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.gof.year_4",
+        "validToAnchor": "hp.dh.year_7",
+        "sortKeyFrom": 9009,
+        "sortKeyTo": 10469,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Goblet of Fire: Year 4",
+        "approximate": false
+      },
+      "scope": {
+        "spells": [
+          "Unforgivable Curses"
+        ],
+        "topics": [
+          "spell knowledge",
+          "magic ability"
+        ],
+        "characters": [
+          "fourth-year students",
+          "ordinary students casting casually"
+        ],
+        "books": [
+          "Goblet of Fire"
+        ],
+        "schoolYears": [
+          "4"
+        ],
+        "phases": [
+          "term_start"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private",
+        "knownBy": [
+          "fourth-year students"
+        ],
+        "knownByAtContext": {
+          "fourth-year students": {
+            "sortKey": 9009,
+            "label": "1994-09-01",
+            "precision": "date_anchor"
+          }
+        },
+        "neverKnownBy": [
+          "ordinary students casting casually"
+        ]
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "fourth-year students",
+            "ordinary students casting casually"
+          ],
+          "topicsAny": [
+            "spell knowledge",
+            "magic ability",
+            "Unforgivable Curses"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Fourth-years are taught about the Unforgivable Curses, but ordinary students should not casually cast them.",
+        "injection": "Fourth-years are taught about the Unforgivable Curses, but ordinary students should not casually cast them.",
+        "constraints": [
+          "Treat Unforgivable Curses knowledge as Context- and character-gated."
+        ],
+        "antiLore": [
+          "Do not make Unforgivable Curses common student knowledge too early."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "Unforgivable Curses",
+          "spell-gate"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Goblet of Fire",
+        "confidence": 0.85,
+        "notes": "Curated Context constraint seed entry."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "spell_gate_nonverbal_magic",
+      "title": "Nonverbal magic skill gate",
+      "kind": "spell_gate",
+      "gateType": "spell_gate",
+      "category": "spell",
+      "relevance": "low",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 100,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.hbp.year_6",
+        "validToAnchor": "hp.dh.year_7",
+        "sortKeyFrom": 9740,
+        "sortKeyTo": 10469,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Half-Blood Prince: Year 6",
+        "approximate": false
+      },
+      "scope": {
+        "spells": [
+          "nonverbal magic"
+        ],
+        "topics": [
+          "spell knowledge",
+          "magic ability"
+        ],
+        "characters": [
+          "younger students",
+          "sixth-year students"
+        ],
+        "books": [
+          "Half-Blood Prince"
+        ],
+        "schoolYears": [
+          "6"
+        ],
+        "phases": [
+          "term_start"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private",
+        "knownBy": [
+          "sixth-year students"
+        ],
+        "knownByAtContext": {
+          "sixth-year students": {
+            "sortKey": 9740,
+            "label": "1996-09-01",
+            "precision": "date_anchor"
+          }
+        },
+        "notKnownByBeforeContext": {
+          "younger students": {
+            "sortKey": 9740,
+            "label": "1996-09-01",
+            "precision": "date_anchor"
+          }
+        }
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "younger students",
+            "sixth-year students"
+          ],
+          "topicsAny": [
+            "spell knowledge",
+            "magic ability",
+            "nonverbal magic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Nonverbal magic is a Year 6-level skill and should not be routine for younger students.",
+        "injection": "Nonverbal magic is a Year 6-level skill and should not be routine for younger students.",
+        "constraints": [
+          "Treat nonverbal magic knowledge as Context- and character-gated."
+        ],
+        "antiLore": [
+          "Do not make nonverbal magic common student knowledge too early."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "nonverbal magic",
+          "spell-gate"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Half-Blood Prince",
+        "confidence": 0.85,
+        "notes": "Curated Context constraint seed entry."
+      }
+    }
+  ]
+}

@@ -839,31 +839,31 @@
     border-bottom: none;
 }
 
-.wandlight-lorepack-stack-list {
+.wandlight-loredeck-stack-list {
     display: flex;
     flex-direction: column;
     gap: 6px;
 }
 
-.wandlight-lorepack-import-card {
+.wandlight-loredeck-import-card {
     display: flex;
     flex-direction: column;
     gap: 7px;
 }
 
-.wandlight-lorepack-register-row {
+.wandlight-loredeck-register-row {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 6px;
     align-items: center;
 }
 
-.wandlight-lorepack-manifest-input {
+.wandlight-loredeck-manifest-input {
     min-width: 0;
     width: 100%;
 }
 
-.wandlight-lorepack-stack-row {
+.wandlight-loredeck-stack-row {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 8px;
@@ -874,18 +874,18 @@
     padding: 7px;
 }
 
-.wandlight-lorepack-stack-row-disabled {
+.wandlight-loredeck-stack-row-disabled {
     opacity: 0.68;
 }
 
-.wandlight-lorepack-row-main {
+.wandlight-loredeck-row-main {
     min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
 
-.wandlight-lorepack-row-title {
+.wandlight-loredeck-row-title {
     color: var(--SmartThemeBodyColor, #e4dccb);
     font-size: 0.82em;
     font-weight: 700;
@@ -893,25 +893,25 @@
     overflow-wrap: anywhere;
 }
 
-.wandlight-lorepack-row-description {
+.wandlight-loredeck-row-description {
     font-size: 0.76em;
     line-height: 1.35;
     opacity: 0.76;
 }
 
-.wandlight-lorepack-row-meta {
+.wandlight-loredeck-row-meta {
     display: flex;
     flex-wrap: wrap;
     gap: 4px;
 }
 
-.wandlight-lorepack-row-meta .wandlight-status-pill {
+.wandlight-loredeck-row-meta .wandlight-status-pill {
     max-width: 100%;
     white-space: nowrap;
 }
 
-.wandlight-runtime-tab-body-lorepacks .wandlight-status-pill,
-.wandlight-runtime-tab-body-lorepacks .wandlight-lorepack-row-meta .wandlight-status-pill {
+.wandlight-runtime-tab-body-loredecks .wandlight-status-pill,
+.wandlight-runtime-tab-body-loredecks .wandlight-loredeck-row-meta .wandlight-status-pill {
     display: inline-flex;
     align-items: center;
     gap: 3px;
@@ -929,34 +929,34 @@
     white-space: nowrap;
 }
 
-.wandlight-runtime-tab-body-lorepacks .wandlight-status-pill-risk-low,
-.wandlight-runtime-tab-body-lorepacks .wandlight-status-pill-quality-high {
+.wandlight-runtime-tab-body-loredecks .wandlight-status-pill-risk-low,
+.wandlight-runtime-tab-body-loredecks .wandlight-status-pill-quality-high {
     border-color: rgba(94, 178, 126, 0.42);
     background: rgba(94, 178, 126, 0.12);
 }
 
-.wandlight-runtime-tab-body-lorepacks .wandlight-status-pill-risk-medium,
-.wandlight-runtime-tab-body-lorepacks .wandlight-status-pill-health-impact,
-.wandlight-runtime-tab-body-lorepacks .wandlight-status-pill-health-stale,
-.wandlight-runtime-tab-body-lorepacks .wandlight-status-pill-quality-medium,
-.wandlight-runtime-tab-body-lorepacks .wandlight-status-pill-quality-flag {
+.wandlight-runtime-tab-body-loredecks .wandlight-status-pill-risk-medium,
+.wandlight-runtime-tab-body-loredecks .wandlight-status-pill-health-impact,
+.wandlight-runtime-tab-body-loredecks .wandlight-status-pill-health-stale,
+.wandlight-runtime-tab-body-loredecks .wandlight-status-pill-quality-medium,
+.wandlight-runtime-tab-body-loredecks .wandlight-status-pill-quality-flag {
     border-color: rgba(226, 177, 98, 0.48);
     background: rgba(226, 177, 98, 0.13);
 }
 
-.wandlight-runtime-tab-body-lorepacks .wandlight-status-pill-risk-high,
-.wandlight-runtime-tab-body-lorepacks .wandlight-status-pill-quality-low {
+.wandlight-runtime-tab-body-loredecks .wandlight-status-pill-risk-high,
+.wandlight-runtime-tab-body-loredecks .wandlight-status-pill-quality-low {
     border-color: rgba(219, 105, 105, 0.52);
     background: rgba(219, 105, 105, 0.13);
 }
 
-.wandlight-runtime-tab-body-lorepacks .wandlight-status-pill-risk-unknown,
-.wandlight-runtime-tab-body-lorepacks .wandlight-status-pill-quality-not_applicable {
+.wandlight-runtime-tab-body-loredecks .wandlight-status-pill-risk-unknown,
+.wandlight-runtime-tab-body-loredecks .wandlight-status-pill-quality-not_applicable {
     border-color: rgba(159, 174, 194, 0.4);
     background: rgba(159, 174, 194, 0.1);
 }
 
-.wandlight-lorepack-stack-arrow {
+.wandlight-loredeck-stack-arrow {
     width: 30px;
     min-width: 30px;
     padding-left: 0;
@@ -966,7 +966,7 @@
     line-height: 1;
 }
 
-.wandlight-lorepack-creator-launch-row {
+.wandlight-loredeck-creator-launch-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -977,14 +977,14 @@
     background: rgba(10, 12, 16, 0.28);
 }
 
-.wandlight-lorepack-creator-launch-text {
+.wandlight-loredeck-creator-launch-text {
     min-width: 0;
     color: var(--wandlight-muted, rgba(241, 234, 216, 0.72));
     font-size: 0.78em;
     line-height: 1.3;
 }
 
-.wandlight-lorepack-granularity-blurb {
+.wandlight-loredeck-granularity-blurb {
     align-self: stretch;
     min-height: 34px;
     display: flex;
@@ -999,7 +999,7 @@
     box-sizing: border-box;
 }
 
-.wandlight-lorepack-creator-workbench-body {
+.wandlight-loredeck-creator-workbench-body {
     flex: 1 1 auto;
     min-height: 0;
     overflow-y: auto;
@@ -1007,13 +1007,13 @@
     box-sizing: border-box;
 }
 
-.wandlight-lorepack-detail-card {
+.wandlight-loredeck-detail-card {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.wandlight-lorepack-detail-header {
+.wandlight-loredeck-detail-header {
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -1023,26 +1023,26 @@
     padding: 7px;
 }
 
-.wandlight-lorepack-detail-title {
+.wandlight-loredeck-detail-title {
     color: var(--SmartThemeBodyColor, #e4dccb);
     font-size: 0.88em;
     font-weight: 700;
     line-height: 1.2;
 }
 
-.wandlight-lorepack-detail-grid {
+.wandlight-loredeck-detail-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
     gap: 4px 10px;
 }
 
-.wandlight-lorepack-edit-grid {
+.wandlight-loredeck-edit-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 7px;
 }
 
-.wandlight-lorepack-editor-field {
+.wandlight-loredeck-editor-field {
     min-width: 0;
     display: flex;
     flex-direction: column;
@@ -1050,28 +1050,28 @@
     font-size: 0.78em;
 }
 
-.wandlight-lorepack-editor-field-full {
+.wandlight-loredeck-editor-field-full {
     grid-column: 1 / -1;
 }
 
-.wandlight-lorepack-editor-field > span {
+.wandlight-loredeck-editor-field > span {
     color: #d4c8a8;
     font-weight: 650;
 }
 
-.wandlight-lorepack-manifest-preview {
+.wandlight-loredeck-manifest-preview {
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     padding-top: 7px;
 }
 
-.wandlight-lorepack-file-list {
+.wandlight-loredeck-file-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
     gap: 4px;
     margin-top: 6px;
 }
 
-.wandlight-lorepack-file-item {
+.wandlight-loredeck-file-item {
     min-width: 0;
     overflow-wrap: anywhere;
     border: 1px solid rgba(180, 160, 140, 0.12);
@@ -1082,24 +1082,24 @@
     line-height: 1.25;
 }
 
-.wandlight-lorepack-file-item-muted {
+.wandlight-loredeck-file-item-muted {
     opacity: 0.72;
     font-style: italic;
 }
 
-.wandlight-lorepack-generated-readiness {
+.wandlight-loredeck-generated-readiness {
     display: flex;
     flex-direction: column;
     gap: 6px;
 }
 
-.wandlight-lorepack-generated-readiness-list {
+.wandlight-loredeck-generated-readiness-list {
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-.wandlight-lorepack-generated-readiness-item {
+.wandlight-loredeck-generated-readiness-item {
     border: 1px solid rgba(180, 160, 140, 0.14);
     border-left-width: 3px;
     border-radius: 6px;
@@ -1110,32 +1110,32 @@
     line-height: 1.35;
 }
 
-.wandlight-lorepack-generated-readiness-blocker {
+.wandlight-loredeck-generated-readiness-blocker {
     border-left-color: rgba(190, 80, 92, 0.82);
 }
 
-.wandlight-lorepack-generated-readiness-warning {
+.wandlight-loredeck-generated-readiness-warning {
     border-left-color: rgba(215, 181, 109, 0.78);
 }
 
-.wandlight-lorepack-entry-overrides {
+.wandlight-loredeck-entry-overrides {
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     padding-top: 7px;
 }
 
-.wandlight-lorepack-story-position-card {
+.wandlight-loredeck-context-card {
     display: flex;
     flex-direction: column;
     gap: 7px;
 }
 
-.wandlight-lorepack-story-position-list {
+.wandlight-loredeck-context-list {
     display: flex;
     flex-direction: column;
     gap: 7px;
 }
 
-.wandlight-lorepack-story-position-row {
+.wandlight-loredeck-context-row {
     display: flex;
     flex-direction: column;
     gap: 7px;
@@ -1145,7 +1145,7 @@
     padding: 7px;
 }
 
-.wandlight-lorepack-story-position-header {
+.wandlight-loredeck-context-header {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -1153,7 +1153,7 @@
     gap: 7px;
 }
 
-.wandlight-lorepack-story-position-summary {
+.wandlight-loredeck-context-summary {
     border: 1px solid var(--wandlight-border-soft, rgba(180, 160, 140, 0.14));
     border-radius: 6px;
     background: rgba(0, 0, 0, 0.13);
@@ -1164,13 +1164,13 @@
     overflow-wrap: anywhere;
 }
 
-.wandlight-lorepack-story-position-grid {
+.wandlight-loredeck-context-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
     gap: 7px;
 }
 
-.wandlight-lorepack-story-position-quick {
+.wandlight-loredeck-context-quick {
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -1180,31 +1180,31 @@
     padding: 7px;
 }
 
-.wandlight-lorepack-story-position-quick-header {
+.wandlight-loredeck-context-quick-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 8px;
 }
 
-.wandlight-lorepack-story-position-quick .wandlight-story-position-anchor-lookup {
+.wandlight-loredeck-context-quick .wandlight-context-anchor-lookup {
     border: 0;
     border-radius: 0;
     background: transparent;
     padding: 0;
 }
 
-.wandlight-lorepack-story-position-actions {
+.wandlight-loredeck-context-actions {
     justify-content: flex-end;
 }
 
-.wandlight-story-position-index-summary {
+.wandlight-context-index-summary {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
 }
 
-.wandlight-story-position-anchor-lookup {
+.wandlight-context-anchor-lookup {
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -1214,20 +1214,20 @@
     padding: 6px;
 }
 
-.wandlight-story-position-anchor-lookup-top {
+.wandlight-context-anchor-lookup-top {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 6px;
     align-items: center;
 }
 
-.wandlight-story-position-anchor-results {
+.wandlight-context-anchor-results {
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-.wandlight-story-position-anchor-result {
+.wandlight-context-anchor-result {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 7px;
@@ -1238,11 +1238,11 @@
     padding: 5px 6px;
 }
 
-.wandlight-story-position-anchor-main {
+.wandlight-context-anchor-main {
     min-width: 0;
 }
 
-.wandlight-story-position-anchor-title {
+.wandlight-context-anchor-title {
     min-width: 0;
     color: var(--wandlight-text, #f1ead8);
     font-size: 0.82em;
@@ -1251,7 +1251,7 @@
     overflow-wrap: anywhere;
 }
 
-.wandlight-story-position-anchor-meta {
+.wandlight-context-anchor-meta {
     min-width: 0;
     color: var(--wandlight-muted, rgba(241, 234, 216, 0.68));
     font-size: 0.74em;
@@ -1259,7 +1259,7 @@
     overflow-wrap: anywhere;
 }
 
-.wandlight-lorepack-story-position-check {
+.wandlight-loredeck-context-check {
     min-width: 0;
     display: flex;
     align-items: center;
@@ -1272,32 +1272,32 @@
     cursor: pointer;
 }
 
-.wandlight-lorepack-story-position-check input {
+.wandlight-loredeck-context-check input {
     margin: 0;
     accent-color: var(--wandlight-gold, #d7b56d);
 }
 
-.wandlight-lorepack-story-position-check span {
+.wandlight-loredeck-context-check span {
     min-width: 0;
     color: #d4c8a8;
     font-weight: 650;
 }
 
-.wandlight-lorepack-entry-summary {
+.wandlight-loredeck-entry-summary {
     display: flex;
     flex-wrap: wrap;
     gap: 4px;
     margin-bottom: 5px;
 }
 
-.wandlight-lorepack-entry-search {
+.wandlight-loredeck-entry-search {
     min-width: 0;
     width: 100%;
     box-sizing: border-box;
     margin: 4px 0 6px;
 }
 
-.wandlight-lorepack-entry-list {
+.wandlight-loredeck-entry-list {
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -1306,7 +1306,7 @@
     padding-right: 2px;
 }
 
-.wandlight-lorepack-entry-row {
+.wandlight-loredeck-entry-row {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 8px;
@@ -1318,28 +1318,28 @@
     padding: 7px;
 }
 
-.wandlight-lorepack-entry-row-overridden {
+.wandlight-loredeck-entry-row-overridden {
     border-left-color: rgba(215, 181, 109, 0.78);
 }
 
-.wandlight-lorepack-entry-row-added {
+.wandlight-loredeck-entry-row-added {
     border-left-color: rgba(104, 186, 132, 0.76);
 }
 
-.wandlight-lorepack-entry-row-disabled {
+.wandlight-loredeck-entry-row-disabled {
     border-left-color: rgba(190, 80, 92, 0.82);
     opacity: 0.72;
 }
 
-.wandlight-lorepack-assistant-draft-batch {
+.wandlight-loredeck-assistant-draft-batch {
     gap: 7px;
 }
 
-.wandlight-lorepack-assistant-draft-row {
+.wandlight-loredeck-assistant-draft-row {
     border-left-color: rgba(126, 166, 219, 0.76);
 }
 
-.wandlight-lorepack-assistant-draft-title {
+.wandlight-loredeck-assistant-draft-title {
     display: flex;
     align-items: flex-start;
     gap: 7px;
@@ -1347,32 +1347,32 @@
     cursor: pointer;
 }
 
-.wandlight-lorepack-assistant-draft-title input {
+.wandlight-loredeck-assistant-draft-title input {
     margin: 2px 0 0;
     accent-color: var(--wandlight-gold, #d7b56d);
     flex: 0 0 auto;
 }
 
-.wandlight-lorepack-assistant-revise-form {
+.wandlight-loredeck-assistant-revise-form {
     padding: 0;
     overflow: visible;
 }
 
-.wandlight-lorepack-assistant-draft-json {
+.wandlight-loredeck-assistant-draft-json {
     min-height: 360px;
 }
 
-.wandlight-lorepack-creator-card {
+.wandlight-loredeck-creator-card {
     gap: 8px;
 }
 
-.wandlight-lorepack-creator-form,
-.wandlight-lorepack-creator-revise-form {
+.wandlight-loredeck-creator-form,
+.wandlight-loredeck-creator-revise-form {
     padding: 0;
     overflow: visible;
 }
 
-.wandlight-lorepack-creator-brief {
+.wandlight-loredeck-creator-brief {
     display: flex;
     flex-direction: column;
     gap: 7px;
@@ -1382,7 +1382,7 @@
     padding: 8px;
 }
 
-.wandlight-lorepack-creator-brief-list {
+.wandlight-loredeck-creator-brief-list {
     display: flex;
     flex-direction: column;
     gap: 3px;
@@ -1390,35 +1390,35 @@
     padding-top: 6px;
 }
 
-.wandlight-lorepack-creator-title-pass {
+.wandlight-loredeck-creator-title-pass {
     gap: 7px;
 }
 
-.wandlight-lorepack-creator-title-row {
+.wandlight-loredeck-creator-title-row {
     border-left-color: rgba(215, 181, 109, 0.78);
 }
 
-.wandlight-lorepack-creator-title-label {
+.wandlight-loredeck-creator-title-label {
     min-width: 0;
 }
 
-.wandlight-lorepack-creator-title-json {
+.wandlight-loredeck-creator-title-json {
     min-height: 320px;
 }
 
-.wandlight-lorepack-creator-planning {
+.wandlight-loredeck-creator-planning {
     border-left: 3px solid rgba(126, 166, 219, 0.72);
 }
 
-.wandlight-lorepack-creator-entry-drafts {
+.wandlight-loredeck-creator-entry-drafts {
     border-left: 3px solid rgba(104, 186, 132, 0.76);
 }
 
-.wandlight-lorepack-entry-override-shell {
+.wandlight-loredeck-entry-override-shell {
     width: min(820px, calc(100vw - 36px));
 }
 
-.wandlight-lorepack-duplicate-source {
+.wandlight-loredeck-duplicate-source {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 4px 10px;
@@ -1428,7 +1428,7 @@
     padding: 7px;
 }
 
-.wandlight-lorepack-duplicate-option {
+.wandlight-loredeck-duplicate-option {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -1440,19 +1440,19 @@
     cursor: pointer;
 }
 
-.wandlight-lorepack-duplicate-option input {
+.wandlight-loredeck-duplicate-option input {
     margin: 0;
 }
 
-.wandlight-lorepack-install-shell {
+.wandlight-loredeck-install-shell {
     width: min(860px, calc(100vw - 36px));
 }
 
-.wandlight-lorepack-install-form {
+.wandlight-loredeck-install-form {
     gap: 9px;
 }
 
-.wandlight-lorepack-install-matches {
+.wandlight-loredeck-install-matches {
     display: flex;
     flex-direction: column;
     gap: 7px;
@@ -1462,7 +1462,7 @@
     padding: 7px;
 }
 
-.wandlight-lorepack-install-match-list {
+.wandlight-loredeck-install-match-list {
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -1470,7 +1470,7 @@
     overflow-y: auto;
 }
 
-.wandlight-lorepack-install-match-row {
+.wandlight-loredeck-install-match-row {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 8px;
@@ -1482,19 +1482,19 @@
     padding: 7px;
 }
 
-.wandlight-lorepack-install-match-exact {
+.wandlight-loredeck-install-match-exact {
     border-left-color: rgba(104, 186, 132, 0.78);
 }
 
-.wandlight-lorepack-install-match-modified {
+.wandlight-loredeck-install-match-modified {
     border-left-color: rgba(215, 181, 109, 0.82);
 }
 
-.wandlight-lorepack-install-match-main {
+.wandlight-loredeck-install-match-main {
     min-width: 0;
 }
 
-.wandlight-lorepack-install-match-title {
+.wandlight-loredeck-install-match-title {
     color: var(--wandlight-text, #f1ead8);
     font-size: 0.84em;
     font-weight: 700;
@@ -1502,21 +1502,21 @@
     overflow-wrap: anywhere;
 }
 
-.wandlight-lorepack-install-match-meta {
+.wandlight-loredeck-install-match-meta {
     color: var(--wandlight-muted, rgba(241, 234, 216, 0.68));
     font-size: 0.74em;
     line-height: 1.3;
     overflow-wrap: anywhere;
 }
 
-.wandlight-lorepack-install-match-actions {
+.wandlight-loredeck-install-match-actions {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
     gap: 5px;
 }
 
-.wandlight-lorepack-bulk-install-list {
+.wandlight-loredeck-bulk-install-list {
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -1525,7 +1525,7 @@
     padding-right: 3px;
 }
 
-.wandlight-lorepack-bulk-install-row {
+.wandlight-loredeck-bulk-install-row {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
     gap: 8px;
@@ -1538,23 +1538,23 @@
     cursor: pointer;
 }
 
-.wandlight-lorepack-bulk-install-row-error {
+.wandlight-loredeck-bulk-install-row-error {
     border-left-color: rgba(219, 105, 105, 0.82);
     opacity: 0.76;
 }
 
-.wandlight-lorepack-bulk-install-row input {
+.wandlight-loredeck-bulk-install-row input {
     margin: 2px 0 0;
 }
 
-.wandlight-lorepack-bulk-install-main {
+.wandlight-loredeck-bulk-install-main {
     min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 2px;
 }
 
-.wandlight-lorepack-row-actions {
+.wandlight-loredeck-row-actions {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
@@ -1562,13 +1562,13 @@
     max-width: 150px;
 }
 
-.wandlight-lorepack-row-actions .wandlight-runtime-button {
+.wandlight-loredeck-row-actions .wandlight-runtime-button {
     min-width: 58px;
     padding-left: 7px;
     padding-right: 7px;
 }
 
-.wandlight-lorepack-library-launch-card {
+.wandlight-loredeck-library-launch-card {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 10px;
@@ -1579,18 +1579,18 @@
         rgba(10, 12, 16, 0.28);
 }
 
-.wandlight-lorepack-library-launch-main {
+.wandlight-loredeck-library-launch-main {
     min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-.wandlight-lorepack-library-launch-actions {
+.wandlight-loredeck-library-launch-actions {
     justify-content: flex-end;
 }
 
-.wandlight-lorepack-library-shell {
+.wandlight-loredeck-library-shell {
     width: min(1460px, calc(100vw - 24px));
     height: min(940px, calc(100vh - 24px));
     max-height: calc(100vh - 24px);
@@ -1700,18 +1700,18 @@
     outline-offset: 2px;
 }
 
-.wandlight-lorepack-library-header {
+.wandlight-loredeck-library-header {
     flex: 0 0 auto;
 }
 
-.wandlight-lorepack-library-title-row {
+.wandlight-loredeck-library-title-row {
     display: flex;
     align-items: center;
     gap: 11px;
     min-width: 0;
 }
 
-.wandlight-lorepack-library-emblem {
+.wandlight-loredeck-library-emblem {
     flex: 0 0 42px;
     width: 42px;
     height: 42px;
@@ -1728,11 +1728,11 @@
     box-shadow: 0 0 14px rgba(215, 181, 109, 0.12);
 }
 
-.wandlight-lorepack-library-header-actions {
+.wandlight-loredeck-library-header-actions {
     justify-content: flex-end;
 }
 
-.wandlight-lorepack-library-body {
+.wandlight-loredeck-library-body {
     flex: 1 1 auto;
     min-height: 0;
     display: grid;
@@ -1743,7 +1743,7 @@
     box-sizing: border-box;
 }
 
-.wandlight-lorepack-library-status-bar {
+.wandlight-loredeck-library-status-bar {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
@@ -1754,14 +1754,14 @@
     padding: 7px 9px;
 }
 
-.wandlight-lorepack-library-columns {
+.wandlight-loredeck-library-columns {
     min-height: 0;
     display: grid;
     grid-template-columns: minmax(320px, 1.1fr) minmax(128px, 0.22fr) minmax(360px, 1.15fr);
     gap: 10px;
 }
 
-.wandlight-lorepack-library-pane {
+.wandlight-loredeck-library-pane {
     min-width: 0;
     min-height: 0;
     display: flex;
@@ -1777,14 +1777,14 @@
     overflow: hidden;
 }
 
-.wandlight-lorepack-library-pane-stack {
+.wandlight-loredeck-library-pane-stack {
     background:
         radial-gradient(circle at 88% 0%, rgba(215, 181, 109, 0.12), transparent 30%),
         rgba(8, 10, 14, 0.5);
 }
 
-.wandlight-lorepack-library-pane-header,
-.wandlight-lorepack-library-stack-header {
+.wandlight-loredeck-library-pane-header,
+.wandlight-loredeck-library-stack-header {
     flex: 0 0 auto;
     display: flex;
     align-items: flex-start;
@@ -1792,7 +1792,7 @@
     gap: 8px;
 }
 
-.wandlight-lorepack-library-pane-title {
+.wandlight-loredeck-library-pane-title {
     color: var(--wandlight-gold, #d7b56d);
     font-size: 1.02em;
     font-weight: 800;
@@ -1800,34 +1800,34 @@
     line-height: 1.15;
 }
 
-.wandlight-lorepack-library-pane-subtitle {
+.wandlight-loredeck-library-pane-subtitle {
     color: var(--wandlight-muted, rgba(241, 234, 216, 0.68));
     font-size: 0.76em;
     line-height: 1.3;
 }
 
-.wandlight-lorepack-library-controls {
+.wandlight-loredeck-library-controls {
     flex: 0 0 auto;
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(116px, auto);
     gap: 7px;
 }
 
-.wandlight-lorepack-library-search,
-.wandlight-lorepack-library-sort {
+.wandlight-loredeck-library-search,
+.wandlight-loredeck-library-sort {
     width: 100%;
     min-width: 0;
     box-sizing: border-box;
 }
 
-.wandlight-lorepack-library-filters {
+.wandlight-loredeck-library-filters {
     flex: 0 0 auto;
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
 }
 
-.wandlight-lorepack-library-selection-toolbar {
+.wandlight-loredeck-library-selection-toolbar {
     flex: 0 0 auto;
     display: flex;
     flex-wrap: wrap;
@@ -1839,7 +1839,7 @@
     padding: 5px;
 }
 
-.wandlight-lorepack-library-selection-summary {
+.wandlight-loredeck-library-selection-summary {
     flex: 1 1 110px;
     min-width: 0;
     color: var(--wandlight-muted, rgba(241, 234, 216, 0.72));
@@ -1847,16 +1847,16 @@
     line-height: 1.25;
 }
 
-.wandlight-lorepack-library-filter,
-.wandlight-lorepack-library-filter-active,
-.wandlight-lorepack-library-small-button {
+.wandlight-loredeck-library-filter,
+.wandlight-loredeck-library-filter-active,
+.wandlight-loredeck-library-small-button {
     min-width: 0;
     padding: 4px 8px;
     font-size: 0.74em;
 }
 
-.wandlight-lorepack-library-deck-list,
-.wandlight-lorepack-library-stack-list {
+.wandlight-loredeck-library-deck-list,
+.wandlight-loredeck-library-stack-list {
     flex: 1 1 auto;
     min-height: 0;
     display: flex;
@@ -1869,7 +1869,7 @@
     padding-right: 4px;
 }
 
-.wandlight-lorepack-library-deck-card {
+.wandlight-loredeck-library-deck-card {
     width: 100%;
     min-height: 92px;
     display: grid;
@@ -1887,45 +1887,45 @@
     box-sizing: border-box;
 }
 
-.wandlight-lorepack-library-deck-card:hover,
-.wandlight-lorepack-library-stack-card:hover {
+.wandlight-loredeck-library-deck-card:hover,
+.wandlight-loredeck-library-stack-card:hover {
     border-color: rgba(215, 181, 109, 0.42);
     background:
         radial-gradient(circle at 12% 0%, rgba(215, 181, 109, 0.1), transparent 32%),
         linear-gradient(180deg, rgba(28, 20, 22, 0.82), rgba(8, 10, 14, 0.86));
 }
 
-.wandlight-lorepack-library-deck-selected,
-.wandlight-lorepack-library-stack-card-selected {
+.wandlight-loredeck-library-deck-selected,
+.wandlight-loredeck-library-stack-card-selected {
     border-color: rgba(245, 196, 91, 0.78);
     box-shadow:
         0 0 0 1px rgba(245, 196, 91, 0.16) inset,
         0 0 18px rgba(215, 181, 109, 0.12);
 }
 
-.wandlight-lorepack-library-deck-bulk-selected {
+.wandlight-loredeck-library-deck-bulk-selected {
     border-color: rgba(245, 196, 91, 0.86);
     box-shadow:
         0 0 0 1px rgba(245, 196, 91, 0.22) inset,
         3px 0 0 rgba(245, 196, 91, 0.7) inset;
 }
 
-.wandlight-lorepack-library-deck-active {
+.wandlight-loredeck-library-deck-active {
     background:
         radial-gradient(circle at 90% 10%, rgba(76, 138, 78, 0.14), transparent 28%),
         linear-gradient(180deg, rgba(18, 24, 18, 0.74), rgba(8, 10, 14, 0.82));
 }
 
-.wandlight-lorepack-library-deck-warning {
+.wandlight-loredeck-library-deck-warning {
     border-left: 3px solid rgba(226, 177, 98, 0.72);
 }
 
-.wandlight-lorepack-library-deck-error {
+.wandlight-loredeck-library-deck-error {
     border-left: 3px solid rgba(219, 105, 105, 0.82);
 }
 
-.wandlight-lorepack-library-monogram,
-.wandlight-lorepack-library-detail-monogram {
+.wandlight-loredeck-library-monogram,
+.wandlight-loredeck-library-detail-monogram {
     display: grid;
     place-items: center;
     border: 1px solid rgba(185, 139, 54, 0.36);
@@ -1939,17 +1939,17 @@
     box-shadow: 0 0 0 1px rgba(215, 181, 109, 0.05) inset;
 }
 
-.wandlight-lorepack-library-monogram {
+.wandlight-loredeck-library-monogram {
     width: 54px;
     height: 64px;
     font-size: 1.1em;
 }
 
-.wandlight-lorepack-library-visual {
+.wandlight-loredeck-library-visual {
     overflow: hidden;
 }
 
-.wandlight-lorepack-library-visual img {
+.wandlight-loredeck-library-visual img {
     width: 100%;
     height: 100%;
     display: block;
@@ -1957,24 +1957,24 @@
     object-position: center;
 }
 
-.wandlight-lorepack-library-visual-cover {
+.wandlight-loredeck-library-visual-cover {
     padding: 0;
 }
 
-.wandlight-lorepack-library-visual-fallback {
+.wandlight-loredeck-library-visual-fallback {
     padding: 0;
 }
 
-.wandlight-lorepack-library-deck-main,
-.wandlight-lorepack-library-stack-main,
-.wandlight-lorepack-library-detail-main {
+.wandlight-loredeck-library-deck-main,
+.wandlight-loredeck-library-stack-main,
+.wandlight-loredeck-library-detail-main {
     min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
 
-.wandlight-lorepack-library-deck-title {
+.wandlight-loredeck-library-deck-title {
     min-width: 0;
     color: var(--wandlight-text, #f1ead8);
     font-size: 0.94em;
@@ -1983,22 +1983,22 @@
     overflow-wrap: anywhere;
 }
 
-.wandlight-lorepack-library-deck-description,
-.wandlight-lorepack-library-detail-description {
+.wandlight-loredeck-library-deck-description,
+.wandlight-loredeck-library-detail-description {
     color: var(--wandlight-muted, rgba(241, 234, 216, 0.72));
     font-size: 0.75em;
     line-height: 1.35;
     overflow-wrap: anywhere;
 }
 
-.wandlight-lorepack-library-card-stats {
+.wandlight-loredeck-library-card-stats {
     color: rgba(241, 234, 216, 0.74);
     font-size: 0.72em;
     line-height: 1.25;
     overflow-wrap: anywhere;
 }
 
-.wandlight-lorepack-library-deck-side {
+.wandlight-loredeck-library-deck-side {
     min-width: 28px;
     color: var(--wandlight-gold, #d7b56d);
     font-size: 0.82em;
@@ -2006,7 +2006,7 @@
     text-align: right;
 }
 
-.wandlight-lorepack-library-transfer-pane {
+.wandlight-loredeck-library-transfer-pane {
     min-width: 0;
     min-height: 0;
     display: flex;
@@ -2017,13 +2017,13 @@
     padding: 8px 0;
 }
 
-.wandlight-lorepack-library-transfer-button {
+.wandlight-loredeck-library-transfer-button {
     min-height: 42px;
     white-space: normal;
     line-height: 1.2;
 }
 
-.wandlight-lorepack-library-stack-card {
+.wandlight-loredeck-library-stack-card {
     min-height: 94px;
     display: grid;
     grid-template-columns: 28px 58px minmax(0, 1fr) auto;
@@ -2038,25 +2038,25 @@
     cursor: pointer;
 }
 
-.wandlight-lorepack-library-stack-card-disabled {
+.wandlight-loredeck-library-stack-card-disabled {
     opacity: 0.68;
 }
 
-.wandlight-lorepack-library-stack-rank {
+.wandlight-loredeck-library-stack-rank {
     color: var(--wandlight-gold, #d7b56d);
     font-size: 1em;
     font-weight: 800;
     text-align: center;
 }
 
-.wandlight-lorepack-library-stack-controls {
+.wandlight-loredeck-library-stack-controls {
     display: grid;
     grid-template-columns: repeat(2, minmax(44px, auto));
     gap: 4px;
     justify-items: stretch;
 }
 
-.wandlight-lorepack-library-stack-toggle {
+.wandlight-loredeck-library-stack-toggle {
     grid-column: 1 / -1;
     justify-self: end;
     width: 34px;
@@ -2064,13 +2064,13 @@
     accent-color: var(--wandlight-success, #1f4a38);
 }
 
-.wandlight-lorepack-library-mini-button {
+.wandlight-loredeck-library-mini-button {
     min-width: 0;
     padding: 4px 6px;
     font-size: 0.72em;
 }
 
-.wandlight-lorepack-library-drop-zone {
+.wandlight-loredeck-library-drop-zone {
     flex: 0 0 auto;
     display: grid;
     place-items: center;
@@ -2082,7 +2082,7 @@
     background: rgba(0, 0, 0, 0.12);
 }
 
-.wandlight-lorepack-library-details {
+.wandlight-loredeck-library-details {
     min-height: 0;
     display: grid;
     grid-template-columns: minmax(260px, 0.44fr) minmax(0, 1fr);
@@ -2097,7 +2097,7 @@
     box-sizing: border-box;
 }
 
-.wandlight-lorepack-library-detail-identity {
+.wandlight-loredeck-library-detail-identity {
     min-width: 0;
     display: grid;
     grid-template-columns: 78px minmax(0, 1fr);
@@ -2106,13 +2106,13 @@
     overflow: hidden;
 }
 
-.wandlight-lorepack-library-detail-monogram {
+.wandlight-loredeck-library-detail-monogram {
     width: 76px;
     height: 106px;
     font-size: 1.55em;
 }
 
-.wandlight-lorepack-library-detail-title {
+.wandlight-loredeck-library-detail-title {
     min-width: 0;
     color: var(--wandlight-gold, #d7b56d);
     font-size: 1.02em;
@@ -2121,7 +2121,7 @@
     overflow-wrap: anywhere;
 }
 
-.wandlight-lorepack-library-detail-content {
+.wandlight-loredeck-library-detail-content {
     min-width: 0;
     min-height: 0;
     display: flex;
@@ -2129,12 +2129,12 @@
     overflow: hidden;
 }
 
-.wandlight-lorepack-library-detail-tabs {
+.wandlight-loredeck-library-detail-tabs {
     flex: 0 0 auto;
     border-bottom: 1px solid rgba(185, 139, 54, 0.18);
 }
 
-.wandlight-lorepack-library-detail-tab {
+.wandlight-loredeck-library-detail-tab {
     flex: 1 1 auto;
     min-height: 0;
     overflow-y: auto;
@@ -2142,35 +2142,35 @@
     padding: 8px 4px 2px;
 }
 
-.wandlight-lorepack-library-detail-grid-wrap,
-.wandlight-lorepack-library-health-detail,
-.wandlight-lorepack-library-contents-detail,
-.wandlight-lorepack-library-activation-detail,
-.wandlight-lorepack-library-dependencies-detail,
-.wandlight-lorepack-library-files-detail {
+.wandlight-loredeck-library-detail-grid-wrap,
+.wandlight-loredeck-library-health-detail,
+.wandlight-loredeck-library-contents-detail,
+.wandlight-loredeck-library-activation-detail,
+.wandlight-loredeck-library-dependencies-detail,
+.wandlight-loredeck-library-files-detail {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.wandlight-lorepack-library-detail-actions {
+.wandlight-loredeck-library-detail-actions {
     margin-top: 2px;
 }
 
-.wandlight-lorepack-library-category-grid,
-.wandlight-lorepack-library-simple-list {
+.wandlight-loredeck-library-category-grid,
+.wandlight-loredeck-library-simple-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
     gap: 5px;
 }
 
-.wandlight-lorepack-library-mini-section {
+.wandlight-loredeck-library-mini-section {
     display: flex;
     flex-direction: column;
     gap: 6px;
 }
 
-.wandlight-lorepack-library-overlay .wandlight-status-pill {
+.wandlight-loredeck-library-overlay .wandlight-status-pill {
     display: inline-flex;
     align-items: center;
     gap: 3px;
@@ -2189,84 +2189,84 @@
 }
 
 @media (max-width: 980px) {
-    .wandlight-lorepack-library-shell {
+    .wandlight-loredeck-library-shell {
         height: calc(100vh - 18px);
     }
 
-    .wandlight-lorepack-library-body {
+    .wandlight-loredeck-library-body {
         grid-template-rows: auto auto auto;
         overflow-y: auto;
     }
 
-    .wandlight-lorepack-library-columns {
+    .wandlight-loredeck-library-columns {
         grid-template-columns: minmax(0, 1fr);
     }
 
-    .wandlight-lorepack-library-pane {
+    .wandlight-loredeck-library-pane {
         min-height: 260px;
     }
 
-    .wandlight-lorepack-library-transfer-pane {
+    .wandlight-loredeck-library-transfer-pane {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         padding: 0;
     }
 
-    .wandlight-lorepack-library-details {
+    .wandlight-loredeck-library-details {
         grid-template-columns: minmax(0, 1fr);
         min-height: 320px;
     }
 }
 
 @media (max-width: 640px) {
-    .wandlight-lorepack-library-launch-card,
-    .wandlight-lorepack-library-detail-identity,
-    .wandlight-lorepack-library-stack-card,
-    .wandlight-lorepack-library-deck-card {
+    .wandlight-loredeck-library-launch-card,
+    .wandlight-loredeck-library-detail-identity,
+    .wandlight-loredeck-library-stack-card,
+    .wandlight-loredeck-library-deck-card {
         grid-template-columns: minmax(0, 1fr);
     }
 
-    .wandlight-lorepack-library-header,
-    .wandlight-lorepack-library-pane-header,
-    .wandlight-lorepack-library-stack-header {
+    .wandlight-loredeck-library-header,
+    .wandlight-loredeck-library-pane-header,
+    .wandlight-loredeck-library-stack-header {
         flex-direction: column;
         align-items: stretch;
     }
 
-    .wandlight-lorepack-library-header-actions,
-    .wandlight-lorepack-library-launch-actions {
+    .wandlight-loredeck-library-header-actions,
+    .wandlight-loredeck-library-launch-actions {
         justify-content: flex-start;
     }
 
-    .wandlight-lorepack-library-controls,
-    .wandlight-lorepack-library-transfer-pane {
+    .wandlight-loredeck-library-controls,
+    .wandlight-loredeck-library-transfer-pane {
         grid-template-columns: minmax(0, 1fr);
     }
 
-    .wandlight-lorepack-library-monogram,
-    .wandlight-lorepack-library-detail-monogram {
+    .wandlight-loredeck-library-monogram,
+    .wandlight-loredeck-library-detail-monogram {
         width: 58px;
         height: 58px;
     }
 
-    .wandlight-lorepack-library-stack-controls {
+    .wandlight-loredeck-library-stack-controls {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
 
-.wandlight-lorepack-health-card {
+.wandlight-loredeck-health-card {
     display: flex;
     flex-direction: column;
     gap: 7px;
 }
 
-.wandlight-lorepack-health-grid {
+.wandlight-loredeck-health-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
     gap: 6px;
 }
 
-.wandlight-lorepack-health-metric {
+.wandlight-loredeck-health-metric {
     min-width: 0;
     display: flex;
     flex-direction: column;
@@ -2277,12 +2277,12 @@
     padding: 6px;
 }
 
-.wandlight-lorepack-health-metric span {
+.wandlight-loredeck-health-metric span {
     color: var(--wandlight-muted, rgba(241, 234, 216, 0.68));
     font-size: 0.72em;
 }
 
-.wandlight-lorepack-health-metric strong {
+.wandlight-loredeck-health-metric strong {
     min-width: 0;
     overflow-wrap: anywhere;
     color: #d4c8a8;
@@ -2290,45 +2290,45 @@
     line-height: 1.2;
 }
 
-.wandlight-lorepack-health-pack-list,
-.wandlight-lorepack-health-issue-list {
+.wandlight-loredeck-health-pack-list,
+.wandlight-loredeck-health-issue-list {
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-.wandlight-lorepack-health-pack-row,
-.wandlight-lorepack-health-issue {
+.wandlight-loredeck-health-pack-row,
+.wandlight-loredeck-health-issue {
     border: 1px solid rgba(180, 160, 140, 0.14);
     border-radius: 7px;
     background: rgba(0, 0, 0, 0.13);
     padding: 7px;
 }
 
-.wandlight-lorepack-health-issue {
+.wandlight-loredeck-health-issue {
     border-left-width: 3px;
 }
 
-.wandlight-lorepack-health-issue-error {
+.wandlight-loredeck-health-issue-error {
     border-left-color: rgba(210, 78, 88, 0.86);
 }
 
-.wandlight-lorepack-health-issue-warning {
+.wandlight-loredeck-health-issue-warning {
     border-left-color: rgba(215, 181, 109, 0.82);
 }
 
-.wandlight-lorepack-health-issue-suggestion {
+.wandlight-loredeck-health-issue-suggestion {
     border-left-color: rgba(106, 168, 198, 0.78);
 }
 
-.wandlight-lorepack-health-issue-code {
+.wandlight-loredeck-health-issue-code {
     color: #d4c8a8;
     font-size: 0.76em;
     font-weight: 700;
     overflow-wrap: anywhere;
 }
 
-.wandlight-lorepack-health-issue-message {
+.wandlight-loredeck-health-issue-message {
     margin: 3px 0;
     font-size: 0.76em;
     line-height: 1.35;
@@ -2336,7 +2336,7 @@
     overflow-wrap: anywhere;
 }
 
-.wandlight-lorepack-health-repair-planner {
+.wandlight-loredeck-health-repair-planner {
     display: flex;
     flex-direction: column;
     gap: 7px;
@@ -2344,13 +2344,13 @@
     padding-top: 8px;
 }
 
-.wandlight-lorepack-health-repair-list {
+.wandlight-loredeck-health-repair-list {
     max-height: 320px;
     overflow-y: auto;
     padding-right: 2px;
 }
 
-.wandlight-lorepack-health-repair-issue {
+.wandlight-loredeck-health-repair-issue {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
     gap: 7px;
@@ -2358,28 +2358,28 @@
     cursor: pointer;
 }
 
-.wandlight-lorepack-health-repair-issue input {
+.wandlight-loredeck-health-repair-issue input {
     margin: 2px 0 0;
     accent-color: var(--wandlight-gold, #d7b56d);
 }
 
-.wandlight-lorepack-health-center-shell {
+.wandlight-loredeck-health-center-shell {
     width: min(1180px, calc(100vw - 34px));
     height: min(860px, calc(100vh - 34px));
 }
 
-.wandlight-lorepack-health-center-header {
+.wandlight-loredeck-health-center-header {
     align-items: flex-start;
     gap: 10px;
 }
 
-.wandlight-lorepack-health-center-actions {
+.wandlight-loredeck-health-center-actions {
     flex: 0 0 auto;
     justify-content: flex-end;
     margin: 0;
 }
 
-.wandlight-lorepack-health-center-body {
+.wandlight-loredeck-health-center-body {
     flex: 1 1 auto;
     min-height: 0;
     display: flex;
@@ -2387,7 +2387,7 @@
     overflow: hidden;
 }
 
-.wandlight-lorepack-health-tabs {
+.wandlight-loredeck-health-tabs {
     flex: 0 0 auto;
     padding: 8px 10px 0;
     border-bottom: 1px solid rgba(185, 139, 54, 0.22);
@@ -2395,7 +2395,7 @@
     align-items: flex-end;
 }
 
-.wandlight-lorepack-health-tabs .wandlight-lore-workbench-mode-tab {
+.wandlight-loredeck-health-tabs .wandlight-lore-workbench-mode-tab {
     min-height: 30px;
     padding: 7px 11px 8px;
     border: none;
@@ -2407,19 +2407,19 @@
     font-weight: 650;
 }
 
-.wandlight-lorepack-health-tabs .wandlight-lore-workbench-mode-tab:hover {
+.wandlight-loredeck-health-tabs .wandlight-lore-workbench-mode-tab:hover {
     border-bottom-color: rgba(215, 181, 109, 0.42);
     background: rgba(215, 181, 109, 0.07);
     color: var(--wandlight-text, #f1ead8);
 }
 
-.wandlight-lorepack-health-tabs .wandlight-lore-workbench-mode-tab-active {
+.wandlight-loredeck-health-tabs .wandlight-lore-workbench-mode-tab-active {
     border-bottom-color: var(--wandlight-gold, #d7b56d);
     background: rgba(215, 181, 109, 0.1);
     color: var(--wandlight-gold, #d7b56d);
 }
 
-.wandlight-lorepack-health-center-content {
+.wandlight-loredeck-health-center-content {
     flex: 1 1 auto;
     min-height: 0;
     overflow-y: auto;
@@ -2427,17 +2427,17 @@
     box-sizing: border-box;
 }
 
-.wandlight-lorepack-health-overview,
-.wandlight-lorepack-health-issues-view,
-.wandlight-lorepack-health-coverage-view,
-.wandlight-lorepack-health-files-view,
-.wandlight-lorepack-health-advanced-view {
+.wandlight-loredeck-health-overview,
+.wandlight-loredeck-health-issues-view,
+.wandlight-loredeck-health-coverage-view,
+.wandlight-loredeck-health-files-view,
+.wandlight-loredeck-health-advanced-view {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.wandlight-lorepack-health-hero {
+.wandlight-loredeck-health-hero {
     display: grid;
     grid-template-columns: 72px minmax(0, 1fr);
     gap: 14px;
@@ -2450,28 +2450,28 @@
     padding: 14px;
 }
 
-.wandlight-lorepack-health-hero-compact {
+.wandlight-loredeck-health-hero-compact {
     grid-template-columns: 46px minmax(0, 1fr);
     gap: 10px;
     padding: 9px;
 }
 
-.wandlight-lorepack-health-hero-error {
+.wandlight-loredeck-health-hero-error {
     border-color: rgba(219, 105, 105, 0.48);
     background: linear-gradient(135deg, rgba(92, 23, 36, 0.3), rgba(8, 10, 14, 0.24));
 }
 
-.wandlight-lorepack-health-hero-ok {
+.wandlight-loredeck-health-hero-ok {
     border-color: rgba(94, 178, 126, 0.44);
     background: linear-gradient(135deg, rgba(31, 74, 56, 0.24), rgba(8, 10, 14, 0.24));
 }
 
-.wandlight-lorepack-health-hero-suggestion {
+.wandlight-loredeck-health-hero-suggestion {
     border-color: rgba(126, 145, 215, 0.34);
     background: linear-gradient(135deg, rgba(52, 63, 96, 0.28), rgba(8, 10, 14, 0.24));
 }
 
-.wandlight-lorepack-health-emblem {
+.wandlight-loredeck-health-emblem {
     width: 58px;
     height: 58px;
     display: flex;
@@ -2485,20 +2485,20 @@
     box-shadow: 0 0 24px rgba(185, 139, 54, 0.16) inset;
 }
 
-.wandlight-lorepack-health-hero-compact .wandlight-lorepack-health-emblem {
+.wandlight-loredeck-health-hero-compact .wandlight-loredeck-health-emblem {
     width: 38px;
     height: 38px;
     font-size: 0.78em;
 }
 
-.wandlight-lorepack-health-hero-main {
+.wandlight-loredeck-health-hero-main {
     min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-.wandlight-lorepack-health-deck-title {
+.wandlight-loredeck-health-deck-title {
     color: var(--wandlight-text, #f1ead8);
     font-size: 1em;
     font-weight: 700;
@@ -2506,34 +2506,34 @@
     overflow-wrap: anywhere;
 }
 
-.wandlight-lorepack-health-status-label {
+.wandlight-loredeck-health-status-label {
     color: var(--wandlight-gold, #d7b56d);
     font-size: 1.08em;
     font-weight: 750;
     line-height: 1.2;
 }
 
-.wandlight-lorepack-health-status-summary,
-.wandlight-lorepack-health-status-detail,
-.wandlight-lorepack-health-group-message,
-.wandlight-lorepack-health-detail-block p {
+.wandlight-loredeck-health-status-summary,
+.wandlight-loredeck-health-status-detail,
+.wandlight-loredeck-health-group-message,
+.wandlight-loredeck-health-detail-block p {
     color: var(--wandlight-muted, rgba(241, 234, 216, 0.72));
     font-size: 0.8em;
     line-height: 1.4;
     margin: 0;
 }
 
-.wandlight-lorepack-health-severity-grid {
+.wandlight-loredeck-health-severity-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 8px;
 }
 
-.wandlight-lorepack-health-severity-grid-compact {
+.wandlight-loredeck-health-severity-grid-compact {
     grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.wandlight-lorepack-health-severity-card {
+.wandlight-loredeck-health-severity-card {
     min-width: 0;
     display: flex;
     flex-direction: column;
@@ -2544,119 +2544,119 @@
     padding: 9px;
 }
 
-.wandlight-lorepack-health-severity-card span,
-.wandlight-lorepack-health-severity-card small {
+.wandlight-loredeck-health-severity-card span,
+.wandlight-loredeck-health-severity-card small {
     color: var(--wandlight-muted, rgba(241, 234, 216, 0.68));
     font-size: 0.72em;
     line-height: 1.2;
 }
 
-.wandlight-lorepack-health-severity-card strong {
+.wandlight-loredeck-health-severity-card strong {
     color: var(--wandlight-text, #f1ead8);
     font-size: 1.55em;
     line-height: 1;
 }
 
-.wandlight-lorepack-health-severity-card-error {
+.wandlight-loredeck-health-severity-card-error {
     border-color: rgba(219, 105, 105, 0.38);
     background: rgba(92, 23, 36, 0.16);
 }
 
-.wandlight-lorepack-health-severity-card-warning {
+.wandlight-loredeck-health-severity-card-warning {
     border-color: rgba(215, 181, 109, 0.42);
     background: rgba(185, 139, 54, 0.12);
 }
 
-.wandlight-lorepack-health-severity-card-suggestion {
+.wandlight-loredeck-health-severity-card-suggestion {
     border-color: rgba(126, 145, 215, 0.34);
     background: rgba(52, 63, 96, 0.16);
 }
 
-.wandlight-lorepack-health-severity-card-checked {
+.wandlight-loredeck-health-severity-card-checked {
     border-color: rgba(94, 178, 126, 0.34);
     background: rgba(31, 74, 56, 0.14);
 }
 
-.wandlight-lorepack-health-overview-main {
+.wandlight-loredeck-health-overview-main {
     display: grid;
     grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
     gap: 10px;
 }
 
-.wandlight-lorepack-health-panel,
-.wandlight-lorepack-health-group-card,
-.wandlight-lorepack-health-detail-panel,
-.wandlight-lorepack-health-inventory,
-.wandlight-lorepack-health-issue-table,
-.wandlight-lorepack-health-file-table {
+.wandlight-loredeck-health-panel,
+.wandlight-loredeck-health-group-card,
+.wandlight-loredeck-health-detail-panel,
+.wandlight-loredeck-health-inventory,
+.wandlight-loredeck-health-issue-table,
+.wandlight-loredeck-health-file-table {
     border: 1px solid rgba(180, 160, 140, 0.14);
     border-radius: 7px;
     background: rgba(0, 0, 0, 0.15);
 }
 
-.wandlight-lorepack-health-panel,
-.wandlight-lorepack-health-detail-panel {
+.wandlight-loredeck-health-panel,
+.wandlight-loredeck-health-detail-panel {
     padding: 10px;
 }
 
-.wandlight-lorepack-health-compact-issues {
+.wandlight-loredeck-health-compact-issues {
     display: flex;
     flex-direction: column;
     gap: 6px;
 }
 
-.wandlight-lorepack-health-group-card {
+.wandlight-loredeck-health-group-card {
     padding: 0;
     overflow: hidden;
 }
 
-.wandlight-lorepack-health-group-card summary {
+.wandlight-loredeck-health-group-card summary {
     display: flex;
     cursor: pointer;
     list-style: none;
     padding: 10px;
 }
 
-.wandlight-lorepack-health-group-card summary::-webkit-details-marker,
-.wandlight-lorepack-health-issue-table-row summary::-webkit-details-marker {
+.wandlight-loredeck-health-group-card summary::-webkit-details-marker,
+.wandlight-loredeck-health-issue-table-row summary::-webkit-details-marker {
     display: none;
 }
 
-.wandlight-lorepack-health-group-card-compact summary {
+.wandlight-loredeck-health-group-card-compact summary {
     padding: 8px;
 }
 
-.wandlight-lorepack-health-group-error {
+.wandlight-loredeck-health-group-error {
     border-left: 3px solid rgba(219, 105, 105, 0.82);
 }
 
-.wandlight-lorepack-health-group-warning {
+.wandlight-loredeck-health-group-warning {
     border-left: 3px solid rgba(215, 181, 109, 0.86);
 }
 
-.wandlight-lorepack-health-group-suggestion {
+.wandlight-loredeck-health-group-suggestion {
     border-left: 3px solid rgba(126, 145, 215, 0.76);
 }
 
-.wandlight-lorepack-health-group-state-ignored,
-.wandlight-lorepack-health-issue-table-row-state-ignored summary {
+.wandlight-loredeck-health-group-state-ignored,
+.wandlight-loredeck-health-issue-table-row-state-ignored summary {
     opacity: 0.68;
 }
 
-.wandlight-lorepack-health-group-state-resolved,
-.wandlight-lorepack-health-issue-table-row-state-resolved summary {
+.wandlight-loredeck-health-group-state-resolved,
+.wandlight-loredeck-health-issue-table-row-state-resolved summary {
     background: rgba(60, 130, 82, 0.08);
 }
 
-.wandlight-lorepack-health-group-main {
+.wandlight-loredeck-health-group-main {
     min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-.wandlight-lorepack-health-card .wandlight-status-pill,
-.wandlight-lorepack-health-center-overlay .wandlight-status-pill {
+.wandlight-loredeck-health-card .wandlight-status-pill,
+.wandlight-loredeck-health-center-overlay .wandlight-status-pill {
     display: inline-flex;
     align-items: center;
     gap: 3px;
@@ -2675,55 +2675,55 @@
     box-sizing: border-box;
 }
 
-.wandlight-lorepack-health-chip-error {
+.wandlight-loredeck-health-chip-error {
     color: #efa6a6 !important;
     background: rgba(148, 56, 56, 0.2) !important;
     border-color: rgba(218, 112, 112, 0.3) !important;
 }
 
-.wandlight-lorepack-health-chip-warning {
+.wandlight-loredeck-health-chip-warning {
     color: #f0d080 !important;
     background: rgba(170, 120, 35, 0.22) !important;
     border-color: rgba(235, 190, 92, 0.28) !important;
 }
 
-.wandlight-lorepack-health-chip-suggestion {
+.wandlight-loredeck-health-chip-suggestion {
     color: #bdd7ff !important;
     background: rgba(62, 95, 155, 0.22) !important;
     border-color: rgba(135, 165, 220, 0.26) !important;
 }
 
-.wandlight-lorepack-health-chip-affected {
+.wandlight-loredeck-health-chip-affected {
     color: #d8cfaa !important;
     background: rgba(132, 116, 62, 0.2) !important;
     border-color: rgba(198, 178, 108, 0.24) !important;
 }
 
-.wandlight-lorepack-health-chip-file {
+.wandlight-loredeck-health-chip-file {
     color: #b8d8e8 !important;
     background: rgba(55, 105, 135, 0.2) !important;
     border-color: rgba(105, 155, 185, 0.24) !important;
 }
 
-.wandlight-lorepack-health-chip-fix {
+.wandlight-loredeck-health-chip-fix {
     color: #a8d8a8 !important;
     background: rgba(70, 135, 70, 0.18) !important;
     border-color: rgba(105, 175, 105, 0.24) !important;
 }
 
-.wandlight-lorepack-health-chip-state-ignored {
+.wandlight-loredeck-health-chip-state-ignored {
     color: #c6bda8 !important;
     background: rgba(112, 103, 85, 0.18) !important;
     border-color: rgba(180, 160, 140, 0.22) !important;
 }
 
-.wandlight-lorepack-health-chip-state-resolved {
+.wandlight-loredeck-health-chip-state-resolved {
     color: #a8d8a8 !important;
     background: rgba(70, 135, 70, 0.18) !important;
     border-color: rgba(105, 175, 105, 0.24) !important;
 }
 
-.wandlight-lorepack-health-group-title {
+.wandlight-loredeck-health-group-title {
     color: var(--wandlight-text, #f1ead8);
     font-size: 0.86em;
     font-weight: 700;
@@ -2731,34 +2731,34 @@
     overflow-wrap: anywhere;
 }
 
-.wandlight-lorepack-health-detail-panel {
+.wandlight-loredeck-health-detail-panel {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.wandlight-lorepack-health-detail-panel-embedded {
+.wandlight-loredeck-health-detail-panel-embedded {
     margin: 0 10px 10px;
 }
 
-.wandlight-lorepack-health-detail-block {
+.wandlight-loredeck-health-detail-block {
     display: flex;
     flex-direction: column;
     gap: 3px;
 }
 
-.wandlight-lorepack-health-detail-block strong {
+.wandlight-loredeck-health-detail-block strong {
     color: var(--wandlight-gold, #d7b56d);
     font-size: 0.78em;
 }
 
-.wandlight-lorepack-health-affected-list {
+.wandlight-loredeck-health-affected-list {
     display: flex;
     flex-direction: column;
     gap: 3px;
 }
 
-.wandlight-lorepack-health-affected-row {
+.wandlight-loredeck-health-affected-row {
     display: grid;
     grid-template-columns: minmax(110px, 0.7fr) minmax(120px, 0.7fr) minmax(160px, 1fr);
     gap: 8px;
@@ -2768,13 +2768,13 @@
     font-size: 0.74em;
 }
 
-.wandlight-lorepack-health-category-list {
+.wandlight-loredeck-health-category-list {
     display: flex;
     flex-direction: column;
     gap: 0;
 }
 
-.wandlight-lorepack-health-category-row {
+.wandlight-loredeck-health-category-row {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 8px;
@@ -2784,32 +2784,32 @@
     font-size: 0.82em;
 }
 
-.wandlight-lorepack-health-category-row:last-child {
+.wandlight-loredeck-health-category-row:last-child {
     border-bottom: none;
 }
 
-.wandlight-lorepack-health-category-row span:first-child {
+.wandlight-loredeck-health-category-row span:first-child {
     color: var(--wandlight-text, #f1ead8);
     font-weight: 600;
 }
 
-.wandlight-lorepack-health-category-row-ok span:last-child {
+.wandlight-loredeck-health-category-row-ok span:last-child {
     color: #8fca7a;
 }
 
-.wandlight-lorepack-health-category-row-warning span:last-child {
+.wandlight-loredeck-health-category-row-warning span:last-child {
     color: var(--wandlight-gold, #d7b56d);
 }
 
-.wandlight-lorepack-health-category-row-unknown span:last-child {
+.wandlight-loredeck-health-category-row-unknown span:last-child {
     color: var(--wandlight-muted, rgba(241, 234, 216, 0.62));
 }
 
-.wandlight-lorepack-health-category-row-error span:last-child {
+.wandlight-loredeck-health-category-row-error span:last-child {
     color: #e08080;
 }
 
-.wandlight-lorepack-health-inventory {
+.wandlight-loredeck-health-inventory {
     display: grid;
     grid-template-columns: minmax(150px, 1.1fr) repeat(7, minmax(72px, 1fr));
     gap: 0;
@@ -2817,8 +2817,8 @@
     overflow: hidden;
 }
 
-.wandlight-lorepack-health-inventory-title,
-.wandlight-lorepack-health-inventory-item {
+.wandlight-loredeck-health-inventory-title,
+.wandlight-loredeck-health-inventory-item {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -2828,41 +2828,41 @@
     padding: 9px 11px;
 }
 
-.wandlight-lorepack-health-inventory-title {
+.wandlight-loredeck-health-inventory-title {
     color: var(--wandlight-gold, #d7b56d);
     font-weight: 700;
 }
 
-.wandlight-lorepack-health-inventory-item:last-child {
+.wandlight-loredeck-health-inventory-item:last-child {
     border-right: none;
 }
 
-.wandlight-lorepack-health-inventory-item span {
+.wandlight-loredeck-health-inventory-item span {
     color: var(--wandlight-muted, rgba(241, 234, 216, 0.68));
     font-size: 0.7em;
 }
 
-.wandlight-lorepack-health-inventory-item strong {
+.wandlight-loredeck-health-inventory-item strong {
     color: var(--wandlight-text, #f1ead8);
     font-size: 0.92em;
 }
 
-.wandlight-lorepack-health-view-header {
+.wandlight-loredeck-health-view-header {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
 }
 
-.wandlight-lorepack-health-issue-table,
-.wandlight-lorepack-health-file-table {
+.wandlight-loredeck-health-issue-table,
+.wandlight-loredeck-health-file-table {
     display: flex;
     flex-direction: column;
     overflow: hidden;
 }
 
-.wandlight-lorepack-health-issue-table-row summary,
-.wandlight-lorepack-health-issue-table-header,
-.wandlight-lorepack-health-file-row {
+.wandlight-loredeck-health-issue-table-row summary,
+.wandlight-loredeck-health-issue-table-header,
+.wandlight-loredeck-health-file-row {
     display: grid;
     gap: 8px;
     align-items: center;
@@ -2871,42 +2871,42 @@
     font-size: 0.78em;
 }
 
-.wandlight-lorepack-health-issue-table-row summary,
-.wandlight-lorepack-health-issue-table-header {
+.wandlight-loredeck-health-issue-table-row summary,
+.wandlight-loredeck-health-issue-table-header {
     grid-template-columns: 86px minmax(170px, 1.3fr) minmax(120px, 0.7fr) minmax(150px, 1fr) minmax(100px, 0.7fr);
 }
 
-.wandlight-lorepack-health-file-row {
+.wandlight-loredeck-health-file-row {
     grid-template-columns: minmax(220px, 1.4fr) 80px 80px 90px 100px;
 }
 
-.wandlight-lorepack-health-issue-table-row summary {
+.wandlight-loredeck-health-issue-table-row summary {
     cursor: pointer;
     list-style: none;
 }
 
-.wandlight-lorepack-health-issue-table-header,
-.wandlight-lorepack-health-file-row-header {
+.wandlight-loredeck-health-issue-table-header,
+.wandlight-loredeck-health-file-row-header {
     color: var(--wandlight-gold, #d7b56d);
     font-weight: 700;
     background: rgba(185, 139, 54, 0.08);
 }
 
-.wandlight-lorepack-health-issue-table-row-error summary,
-.wandlight-lorepack-health-file-row-error {
+.wandlight-loredeck-health-issue-table-row-error summary,
+.wandlight-loredeck-health-file-row-error {
     background: rgba(92, 23, 36, 0.12);
 }
 
-.wandlight-lorepack-health-issue-table-row-warning summary,
-.wandlight-lorepack-health-file-row-warning {
+.wandlight-loredeck-health-issue-table-row-warning summary,
+.wandlight-loredeck-health-file-row-warning {
     background: rgba(185, 139, 54, 0.08);
 }
 
-.wandlight-lorepack-health-issue-table-row-suggestion summary {
+.wandlight-loredeck-health-issue-table-row-suggestion summary {
     background: rgba(52, 63, 96, 0.1);
 }
 
-.wandlight-lorepack-health-coverage-grid {
+.wandlight-loredeck-health-coverage-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 6px;
@@ -2914,36 +2914,36 @@
 }
 
 @media (max-width: 860px) {
-    .wandlight-lorepack-health-center-shell {
+    .wandlight-loredeck-health-center-shell {
         width: calc(100vw - 18px);
         height: calc(100vh - 18px);
     }
 
-    .wandlight-lorepack-health-center-header {
+    .wandlight-loredeck-health-center-header {
         flex-direction: column;
     }
 
-    .wandlight-lorepack-health-severity-grid,
-    .wandlight-lorepack-health-overview-main {
+    .wandlight-loredeck-health-severity-grid,
+    .wandlight-loredeck-health-overview-main {
         grid-template-columns: 1fr;
     }
 
-    .wandlight-lorepack-health-hero {
+    .wandlight-loredeck-health-hero {
         grid-template-columns: 1fr;
     }
 
-    .wandlight-lorepack-health-inventory {
+    .wandlight-loredeck-health-inventory {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .wandlight-lorepack-health-inventory-title {
+    .wandlight-loredeck-health-inventory-title {
         grid-column: 1 / -1;
     }
 
-    .wandlight-lorepack-health-issue-table-row summary,
-    .wandlight-lorepack-health-issue-table-header,
-    .wandlight-lorepack-health-file-row,
-    .wandlight-lorepack-health-affected-row {
+    .wandlight-loredeck-health-issue-table-row summary,
+    .wandlight-loredeck-health-issue-table-header,
+    .wandlight-loredeck-health-file-row,
+    .wandlight-loredeck-health-affected-row {
         grid-template-columns: 1fr;
     }
 }
@@ -3827,16 +3827,16 @@
 }
 
 @media (max-width: 560px) {
-    .wandlight-lorepack-register-row {
+    .wandlight-loredeck-register-row {
         grid-template-columns: 1fr;
     }
 
-    .wandlight-lorepack-stack-row,
-    .wandlight-lorepack-entry-row {
+    .wandlight-loredeck-stack-row,
+    .wandlight-loredeck-entry-row {
         grid-template-columns: 1fr;
     }
 
-    .wandlight-lorepack-row-actions {
+    .wandlight-loredeck-row-actions {
         justify-content: flex-start;
         max-width: none;
     }
@@ -8541,42 +8541,42 @@
     white-space: pre-wrap;
 }
 
-/* Story Position Workbench: timeline registry and runtime position editor. */
-.wandlight-story-position-workbench-shell {
+/* Context Workbench: timeline registry and runtime position editor. */
+.wandlight-context-workbench-shell {
     width: min(1480px, calc(100vw - 28px));
     height: min(920px, calc(100vh - 28px));
 }
 
-.wandlight-story-position-workbench-header {
+.wandlight-context-workbench-header {
     grid-template-columns: minmax(240px, 1fr) auto auto;
 }
 
-.wandlight-story-position-workbench-header-chips {
+.wandlight-context-workbench-header-chips {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
     margin-top: 6px;
 }
 
-.wandlight-story-position-workbench-header-actions {
+.wandlight-context-workbench-header-actions {
     justify-content: flex-end;
 }
 
-.wandlight-story-position-workbench-body,
-.wandlight-story-position-workbench-view {
+.wandlight-context-workbench-body,
+.wandlight-context-workbench-view {
     flex: 1 1 auto;
     min-height: 0;
     display: flex;
     flex-direction: column;
 }
 
-.wandlight-story-position-workbench-body {
+.wandlight-context-workbench-body {
     padding: 10px;
     gap: 8px;
     box-sizing: border-box;
 }
 
-.wandlight-story-position-workbench-controls {
+.wandlight-context-workbench-controls {
     flex: 0 0 auto;
     display: grid;
     grid-template-columns: minmax(190px, auto) minmax(280px, 1fr) repeat(6, auto);
@@ -8585,12 +8585,12 @@
     margin-bottom: 8px;
 }
 
-.wandlight-story-position-workbench-position-view .wandlight-story-position-workbench-controls {
+.wandlight-context-workbench-position-view .wandlight-context-workbench-controls {
     grid-template-columns: repeat(3, auto) minmax(0, 1fr);
 }
 
-.wandlight-story-position-workbench-main,
-.wandlight-story-position-workbench-validation-layout {
+.wandlight-context-workbench-main,
+.wandlight-context-workbench-validation-layout {
     flex: 1 1 auto;
     min-height: 0;
     display: grid;
@@ -8598,7 +8598,7 @@
     gap: 10px;
 }
 
-.wandlight-story-position-workbench-position-layout {
+.wandlight-context-workbench-position-layout {
     flex: 1 1 auto;
     min-height: 0;
     display: grid;
@@ -8606,11 +8606,11 @@
     gap: 10px;
 }
 
-.wandlight-story-position-workbench-table,
-.wandlight-story-position-workbench-position-table,
-.wandlight-story-position-workbench-alias-table,
-.wandlight-story-position-workbench-validation-table,
-.wandlight-story-position-workbench-inspector {
+.wandlight-context-workbench-table,
+.wandlight-context-workbench-position-table,
+.wandlight-context-workbench-alias-table,
+.wandlight-context-workbench-validation-table,
+.wandlight-context-workbench-inspector {
     min-height: 0;
     overflow-y: auto;
     overflow-x: hidden;
@@ -8621,18 +8621,18 @@
     scrollbar-color: rgba(215, 181, 109, 0.58) rgba(10, 12, 16, 0.38);
 }
 
-.wandlight-story-position-workbench-table,
-.wandlight-story-position-workbench-position-table,
-.wandlight-story-position-workbench-alias-table,
-.wandlight-story-position-workbench-validation-table {
+.wandlight-context-workbench-table,
+.wandlight-context-workbench-position-table,
+.wandlight-context-workbench-alias-table,
+.wandlight-context-workbench-validation-table {
     display: flex;
     flex-direction: column;
 }
 
-.wandlight-story-position-workbench-table-row,
-.wandlight-story-position-workbench-position-row,
-.wandlight-story-position-workbench-alias-row,
-.wandlight-story-position-workbench-validation-row {
+.wandlight-context-workbench-table-row,
+.wandlight-context-workbench-position-row,
+.wandlight-context-workbench-alias-row,
+.wandlight-context-workbench-validation-row {
     display: grid;
     align-items: center;
     gap: 8px;
@@ -8643,23 +8643,23 @@
     cursor: pointer;
 }
 
-.wandlight-story-position-workbench-table-row {
+.wandlight-context-workbench-table-row {
     grid-template-columns: minmax(78px, 0.48fr) minmax(210px, 1.45fr) minmax(92px, 0.62fr) minmax(210px, 1.25fr) minmax(68px, 0.42fr) minmax(68px, 0.42fr) minmax(72px, 0.42fr) minmax(86px, 0.52fr);
 }
 
-.wandlight-story-position-workbench-position-row {
+.wandlight-context-workbench-position-row {
     grid-template-columns: minmax(180px, 0.9fr) minmax(300px, 1.6fr) minmax(112px, 0.55fr) minmax(120px, 0.55fr) minmax(110px, 0.55fr) minmax(160px, auto);
 }
 
-.wandlight-story-position-workbench-alias-row {
+.wandlight-context-workbench-alias-row {
     grid-template-columns: minmax(170px, 0.95fr) minmax(260px, 1.4fr) minmax(72px, 0.4fr) minmax(180px, 1fr) minmax(84px, 0.45fr) minmax(96px, 0.48fr) minmax(128px, auto);
 }
 
-.wandlight-story-position-workbench-validation-row {
+.wandlight-context-workbench-validation-row {
     grid-template-columns: minmax(86px, 0.42fr) minmax(320px, 1.7fr) minmax(160px, 0.78fr) minmax(260px, 1.25fr);
 }
 
-.wandlight-story-position-workbench-row-header {
+.wandlight-context-workbench-row-header {
     position: sticky;
     top: 0;
     z-index: 1;
@@ -8672,28 +8672,28 @@
     cursor: default;
 }
 
-.wandlight-story-position-workbench-table-row:not(.wandlight-story-position-workbench-row-header):hover,
-.wandlight-story-position-workbench-position-row:not(.wandlight-story-position-workbench-row-header):hover,
-.wandlight-story-position-workbench-alias-row:not(.wandlight-story-position-workbench-row-header):hover,
-.wandlight-story-position-workbench-validation-row:not(.wandlight-story-position-workbench-row-header):hover {
+.wandlight-context-workbench-table-row:not(.wandlight-context-workbench-row-header):hover,
+.wandlight-context-workbench-position-row:not(.wandlight-context-workbench-row-header):hover,
+.wandlight-context-workbench-alias-row:not(.wandlight-context-workbench-row-header):hover,
+.wandlight-context-workbench-validation-row:not(.wandlight-context-workbench-row-header):hover {
     background: rgba(215, 181, 109, 0.07);
 }
 
-.wandlight-story-position-workbench-row-active {
+.wandlight-context-workbench-row-active {
     background: rgba(92, 23, 36, 0.42);
     box-shadow: 3px 0 0 rgba(215, 181, 109, 0.72) inset;
 }
 
-.wandlight-story-position-workbench-row-disabled {
+.wandlight-context-workbench-row-disabled {
     opacity: 0.62;
 }
 
-.wandlight-story-position-workbench-row-warning {
+.wandlight-context-workbench-row-warning {
     box-shadow: 3px 0 0 rgba(215, 181, 109, 0.58) inset;
 }
 
-.wandlight-story-position-workbench-row-actions,
-.wandlight-story-position-workbench-inspector-actions {
+.wandlight-context-workbench-row-actions,
+.wandlight-context-workbench-inspector-actions {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
@@ -8701,7 +8701,7 @@
     align-items: center;
 }
 
-.wandlight-story-position-workbench-lock {
+.wandlight-context-workbench-lock {
     display: inline-flex;
     align-items: center;
     gap: 7px;
@@ -8709,23 +8709,23 @@
     font-size: 0.78em;
 }
 
-.wandlight-story-position-workbench-lock input {
+.wandlight-context-workbench-lock input {
     margin: 0;
     accent-color: var(--wandlight-gold, #d7b56d);
 }
 
-.wandlight-story-position-workbench-inspector {
+.wandlight-context-workbench-inspector {
     padding: 10px;
     box-sizing: border-box;
 }
 
-.wandlight-story-position-workbench-position-editor {
+.wandlight-context-workbench-position-editor {
     display: flex;
     flex-direction: column;
     gap: 9px;
 }
 
-.wandlight-story-position-workbench-inspector-title {
+.wandlight-context-workbench-inspector-title {
     color: var(--wandlight-gold, #d7b56d);
     font-size: 1em;
     font-weight: 800;
@@ -8734,25 +8734,25 @@
     overflow-wrap: anywhere;
 }
 
-.wandlight-story-position-workbench-inspector-grid {
+.wandlight-context-workbench-inspector-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 7px;
     margin: 9px 0;
 }
 
-.wandlight-story-position-workbench-editor-grid {
+.wandlight-context-workbench-editor-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(132px, 1fr));
     gap: 7px;
 }
 
-.wandlight-story-position-workbench-editor-grid .wandlight-lorepack-editor-field-full {
+.wandlight-context-workbench-editor-grid .wandlight-loredeck-editor-field-full {
     grid-column: 1 / -1;
 }
 
-.wandlight-story-position-workbench-position-picker,
-.wandlight-story-position-workbench-resolver {
+.wandlight-context-workbench-position-picker,
+.wandlight-context-workbench-resolver {
     display: flex;
     flex-direction: column;
     gap: 7px;
@@ -8762,19 +8762,19 @@
     padding: 8px;
 }
 
-.wandlight-story-position-workbench-position-picker-top,
-.wandlight-story-position-workbench-resolver-top {
+.wandlight-context-workbench-position-picker-top,
+.wandlight-context-workbench-resolver-top {
     display: grid;
     grid-template-columns: auto minmax(180px, 1fr) auto;
     gap: 7px;
     align-items: center;
 }
 
-.wandlight-story-position-workbench-resolver-top {
+.wandlight-context-workbench-resolver-top {
     grid-template-columns: auto minmax(200px, 1fr) auto auto auto auto;
 }
 
-.wandlight-story-position-workbench-position-picker-list {
+.wandlight-context-workbench-position-picker-list {
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -8783,7 +8783,7 @@
     padding-right: 2px;
 }
 
-.wandlight-story-position-workbench-resolver-results {
+.wandlight-context-workbench-resolver-results {
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -8792,8 +8792,8 @@
     padding-right: 2px;
 }
 
-.wandlight-story-position-workbench-position-picker-row,
-.wandlight-story-position-workbench-resolver-row {
+.wandlight-context-workbench-position-picker-row,
+.wandlight-context-workbench-resolver-row {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 8px;
@@ -8804,16 +8804,16 @@
     padding: 6px 7px;
 }
 
-.wandlight-story-position-workbench-resolver-row {
+.wandlight-context-workbench-resolver-row {
     grid-template-columns: minmax(0, 1fr) 44px auto;
 }
 
-.wandlight-story-position-workbench-resolver-row-entry {
+.wandlight-context-workbench-resolver-row-entry {
     border-color: rgba(151, 159, 230, 0.30);
     background: linear-gradient(90deg, rgba(151, 159, 230, 0.10), rgba(10, 12, 16, 0.28) 42%);
 }
 
-.wandlight-story-position-workbench-resolver-score {
+.wandlight-context-workbench-resolver-score {
     justify-self: center;
     min-width: 34px;
     border: 1px solid rgba(215, 181, 109, 0.32);
@@ -8828,7 +8828,7 @@
     box-sizing: border-box;
 }
 
-.wandlight-story-position-workbench-resolver-reason {
+.wandlight-context-workbench-resolver-reason {
     color: var(--wandlight-muted, rgba(241, 234, 216, 0.62));
     font-size: 0.68em;
     line-height: 1.3;
@@ -8837,7 +8837,7 @@
     white-space: nowrap;
 }
 
-.wandlight-story-position-workbench-resolver-diagnostic {
+.wandlight-context-workbench-resolver-diagnostic {
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -8848,46 +8848,46 @@
     padding: 8px 9px;
 }
 
-.wandlight-story-position-workbench-resolver-diagnostic-line {
+.wandlight-context-workbench-resolver-diagnostic-line {
     color: var(--wandlight-muted, rgba(241, 234, 216, 0.72));
     font-size: 0.72em;
     line-height: 1.35;
 }
 
-.wandlight-story-position-workbench-position-picker-main {
+.wandlight-context-workbench-position-picker-main {
     min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 2px;
 }
 
-.wandlight-story-position-workbench-position-picker-title,
-.wandlight-story-position-workbench-position-picker-meta {
+.wandlight-context-workbench-position-picker-title,
+.wandlight-context-workbench-position-picker-meta {
     min-width: 0;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
-.wandlight-story-position-workbench-position-picker-title {
+.wandlight-context-workbench-position-picker-title {
     color: var(--wandlight-text, #f1ead8);
     font-size: 0.8em;
     font-weight: 750;
 }
 
-.wandlight-story-position-workbench-position-picker-meta {
+.wandlight-context-workbench-position-picker-meta {
     color: var(--wandlight-muted, rgba(241, 234, 216, 0.62));
     font-size: 0.7em;
 }
 
-.wandlight-story-position-workbench-mini-list {
+.wandlight-context-workbench-mini-list {
     display: flex;
     flex-direction: column;
     gap: 6px;
     margin-top: 10px;
 }
 
-.wandlight-story-position-workbench-mini-item {
+.wandlight-context-workbench-mini-item {
     border: 1px solid rgba(126, 145, 165, 0.22);
     border-left-width: 3px;
     border-radius: 7px;
@@ -8898,15 +8898,15 @@
     line-height: 1.35;
 }
 
-.wandlight-story-position-workbench-issue-error {
+.wandlight-context-workbench-issue-error {
     border-left-color: rgba(231, 92, 92, 0.88);
 }
 
-.wandlight-story-position-workbench-issue-warning {
+.wandlight-context-workbench-issue-warning {
     border-left-color: rgba(215, 181, 109, 0.86);
 }
 
-.wandlight-story-position-workbench-issue-suggestion {
+.wandlight-context-workbench-issue-suggestion {
     border-left-color: rgba(151, 159, 230, 0.82);
 }
 
@@ -8936,51 +8936,51 @@
         min-height: 320px;
     }
 
-    .wandlight-story-position-workbench-header,
-    .wandlight-story-position-workbench-controls,
-    .wandlight-story-position-workbench-position-view .wandlight-story-position-workbench-controls {
+    .wandlight-context-workbench-header,
+    .wandlight-context-workbench-controls,
+    .wandlight-context-workbench-position-view .wandlight-context-workbench-controls {
         grid-template-columns: 1fr;
     }
 
-    .wandlight-story-position-workbench-main,
-    .wandlight-story-position-workbench-validation-layout,
-    .wandlight-story-position-workbench-position-layout {
+    .wandlight-context-workbench-main,
+    .wandlight-context-workbench-validation-layout,
+    .wandlight-context-workbench-position-layout {
         grid-template-columns: 1fr;
     }
 
-    .wandlight-story-position-workbench-table-row,
-    .wandlight-story-position-workbench-position-row,
-    .wandlight-story-position-workbench-alias-row,
-    .wandlight-story-position-workbench-validation-row {
+    .wandlight-context-workbench-table-row,
+    .wandlight-context-workbench-position-row,
+    .wandlight-context-workbench-alias-row,
+    .wandlight-context-workbench-validation-row {
         grid-template-columns: minmax(0, 1fr);
     }
 
-    .wandlight-story-position-workbench-inspector {
+    .wandlight-context-workbench-inspector {
         min-height: 320px;
     }
 
-    .wandlight-story-position-workbench-inspector-grid {
+    .wandlight-context-workbench-inspector-grid {
         grid-template-columns: 1fr;
     }
 
-    .wandlight-story-position-workbench-editor-grid,
-    .wandlight-story-position-workbench-position-picker-top,
-    .wandlight-story-position-workbench-resolver-top,
-    .wandlight-story-position-workbench-position-picker-row,
-    .wandlight-story-position-workbench-resolver-row {
+    .wandlight-context-workbench-editor-grid,
+    .wandlight-context-workbench-position-picker-top,
+    .wandlight-context-workbench-resolver-top,
+    .wandlight-context-workbench-position-picker-row,
+    .wandlight-context-workbench-resolver-row {
         grid-template-columns: 1fr;
     }
 
-    .wandlight-story-position-workbench-position-picker-row .wandlight-story-position-workbench-row-actions,
-    .wandlight-story-position-workbench-resolver-row .wandlight-story-position-workbench-row-actions {
+    .wandlight-context-workbench-position-picker-row .wandlight-context-workbench-row-actions,
+    .wandlight-context-workbench-resolver-row .wandlight-context-workbench-row-actions {
         justify-content: flex-start;
     }
 
-    .wandlight-story-position-workbench-resolver-score {
+    .wandlight-context-workbench-resolver-score {
         justify-self: flex-start;
     }
 
-    .wandlight-story-position-workbench-resolver-reason {
+    .wandlight-context-workbench-resolver-reason {
         white-space: normal;
     }
 }

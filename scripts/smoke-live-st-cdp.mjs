@@ -467,9 +467,9 @@ async function collectState(client) {
     return await evaluate(client, script(() => {
         const text = document.body?.innerText || '';
         const drawer = document.querySelector('.wandlight-runtime-drawer');
-        const library = document.querySelector('.wandlight-lorepack-library-overlay');
-        const health = document.querySelector('.wandlight-lorepack-health-center-overlay');
-        const creator = document.querySelector('.wandlight-lorepack-creator-workbench-overlay');
+        const library = document.querySelector('.wandlight-loredeck-library-overlay');
+        const health = document.querySelector('.wandlight-loredeck-health-center-overlay');
+        const creator = document.querySelector('.wandlight-loredeck-creator-workbench-overlay');
         const settingsText = document.querySelector('#wandlight_settings')?.innerText || '';
         return {
             title: document.title,
@@ -558,19 +558,19 @@ async function main() {
 
         await clickSelector(client, '.wandlight-runtime-rail-density');
         await wait(400);
-        await clickSelector(client, '.wandlight-runtime-rail-tab[data-tab-id="lorepacks"]');
+        await clickSelector(client, '.wandlight-runtime-rail-tab[data-tab-id="loredecks"]');
         await waitFor(client, 'document.querySelector(".wandlight-runtime-drawer")?.innerText.includes("Loredecks")', 'Loredecks drawer');
         await wait(1500);
         screenshots.push(await screenshot(client, 'live-st-02-loredecks'));
 
         await clickButtonText(client, 'Open Loredeck Library');
-        await waitFor(client, '!!document.querySelector(".wandlight-lorepack-library-overlay")', 'Loredeck Library');
+        await waitFor(client, '!!document.querySelector(".wandlight-loredeck-library-overlay")', 'Loredeck Library');
         await wait(1000);
         screenshots.push(await screenshot(client, 'live-st-03-library'));
 
         const deleteProbe = await evaluate(client, script(() => {
-            const overlay = document.querySelector('.wandlight-lorepack-library-overlay');
-            const selected = overlay?.querySelector('.wandlight-lorepack-library-details');
+            const overlay = document.querySelector('.wandlight-loredeck-library-overlay');
+            const selected = overlay?.querySelector('.wandlight-loredeck-library-details');
             const deleteButton = [...(selected?.querySelectorAll('button') || [])].find(button => button.innerText.trim() === 'Delete Deck');
             return {
                 hasDeleteDeck: !!deleteButton,
@@ -582,7 +582,7 @@ async function main() {
         if (deleteProbe.deleteDisabledForSelected !== true) findings.push('Bundled selected deck Delete Deck control was not disabled.');
 
         const customDeleteProbe = await evaluate(client, script(() => {
-            const cards = [...document.querySelectorAll('.wandlight-lorepack-library-deck-card')];
+            const cards = [...document.querySelectorAll('.wandlight-loredeck-library-deck-card')];
             const custom = cards.find(card => /\bCustom\b/.test(card.innerText || ''));
             if (!custom) return { customFound: false };
             custom.click();
@@ -591,7 +591,7 @@ async function main() {
         await wait(600);
         if (customDeleteProbe.customFound) {
             const customDeleteState = await evaluate(client, script(() => {
-                const detail = document.querySelector('.wandlight-lorepack-library-details');
+                const detail = document.querySelector('.wandlight-loredeck-library-details');
                 const del = [...(detail?.querySelectorAll('button') || [])].find(button => button.innerText.trim() === 'Delete Deck');
                 return {
                     hasDeleteDeck: !!del,
@@ -602,7 +602,7 @@ async function main() {
             if (!customDeleteState.hasDeleteDeck || customDeleteState.deleteDisabled) {
                 findings.push('Custom deck did not expose an enabled Delete Deck control.');
             } else {
-                await clickButtonText(client, 'Delete Deck', { root: '.wandlight-lorepack-library-overlay' });
+                await clickButtonText(client, 'Delete Deck', { root: '.wandlight-loredeck-library-overlay' });
                 await wait(800);
                 const domDeletePrompt = await evaluate(client, script(() => {
                     const prompt = document.querySelector('.wandlight-confirm-overlay');
@@ -629,25 +629,25 @@ async function main() {
         }
 
         await evaluate(client, script(() => {
-            const first = document.querySelector('.wandlight-lorepack-library-deck-card');
+            const first = document.querySelector('.wandlight-loredeck-library-deck-card');
             if (first) first.click();
         }), { userGesture: true });
         await wait(500);
 
-        await clickButtonText(client, 'Open Health Report', { root: '.wandlight-lorepack-library-overlay' });
-        await waitFor(client, '!!document.querySelector(".wandlight-lorepack-health-center-overlay")', 'Deck Health Center');
+        await clickButtonText(client, 'Open Health Report', { root: '.wandlight-loredeck-library-overlay' });
+        await waitFor(client, '!!document.querySelector(".wandlight-loredeck-health-center-overlay")', 'Deck Health Center');
         await wait(1000);
         screenshots.push(await screenshot(client, 'live-st-04-health'));
-        await clickButtonText(client, 'Close', { root: '.wandlight-lorepack-health-center-overlay', enabledOnly: false });
+        await clickButtonText(client, 'Close', { root: '.wandlight-loredeck-health-center-overlay', enabledOnly: false });
         await wait(500);
 
-        await clickButtonText(client, 'Create Deck', { root: '.wandlight-lorepack-library-overlay' });
-        await waitFor(client, '!!document.querySelector(".wandlight-lorepack-creator-workbench-overlay")', 'Loredeck Creator');
+        await clickButtonText(client, 'Create Deck', { root: '.wandlight-loredeck-library-overlay' });
+        await waitFor(client, '!!document.querySelector(".wandlight-loredeck-creator-workbench-overlay")', 'Loredeck Creator');
         await wait(1000);
         screenshots.push(await screenshot(client, 'live-st-05-creator'));
-        await clickButtonText(client, 'Close', { root: '.wandlight-lorepack-creator-workbench-overlay', enabledOnly: false });
+        await clickButtonText(client, 'Close', { root: '.wandlight-loredeck-creator-workbench-overlay', enabledOnly: false });
         await wait(500);
-        await clickButtonText(client, 'Done', { root: '.wandlight-lorepack-library-overlay', enabledOnly: false });
+        await clickButtonText(client, 'Done', { root: '.wandlight-loredeck-library-overlay', enabledOnly: false });
         await wait(800);
 
         const updateProbe = await evaluate(client, script(() => {
@@ -655,7 +655,7 @@ async function main() {
                 const clean = (button.innerText || button.textContent || '').trim();
                 return clean === 'Check Updates';
             });
-            const detailText = document.querySelector('.wandlight-lorepack-detail-card')?.innerText || '';
+            const detailText = document.querySelector('.wandlight-loredeck-detail-card')?.innerText || '';
             return {
                 hasButton: buttons.length > 0,
                 hasEnabledButton: buttons.some(button => !button.disabled),

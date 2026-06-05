@@ -166,14 +166,14 @@ export function syncPromptInjection() {
             syncedAt: Date.now(),
             fallback: false,
             continuity: {
-                position: normalizePosition(settings.continuityInjectionPosition),
+                context: normalizePosition(settings.continuityInjectionPosition),
                 depth: normalizeDepth(settings.continuityInjectionDepth),
                 role: normalizeRole(settings.continuityInjectionRole),
             },
             lore: {
-                high: { position: normalizePosition(settings.loreHighInjectionPosition ?? settings.loreInjectionPosition), depth: normalizeDepth(settings.loreHighInjectionDepth ?? settings.loreInjectionDepth), role: normalizeRole(settings.loreHighInjectionRole ?? settings.loreInjectionRole) },
-                normal: { position: normalizePosition(settings.loreNormalInjectionPosition ?? settings.loreInjectionPosition), depth: normalizeDepth(settings.loreNormalInjectionDepth ?? settings.loreInjectionDepth), role: normalizeRole(settings.loreNormalInjectionRole ?? settings.loreInjectionRole) },
-                low: { position: normalizePosition(settings.loreLowInjectionPosition ?? settings.loreInjectionPosition), depth: normalizeDepth(settings.loreLowInjectionDepth ?? settings.loreInjectionDepth), role: normalizeRole(settings.loreLowInjectionRole ?? settings.loreInjectionRole) },
+                high: { context: normalizePosition(settings.loreHighInjectionPosition ?? settings.loreInjectionPosition), depth: normalizeDepth(settings.loreHighInjectionDepth ?? settings.loreInjectionDepth), role: normalizeRole(settings.loreHighInjectionRole ?? settings.loreInjectionRole) },
+                normal: { context: normalizePosition(settings.loreNormalInjectionPosition ?? settings.loreInjectionPosition), depth: normalizeDepth(settings.loreNormalInjectionDepth ?? settings.loreInjectionDepth), role: normalizeRole(settings.loreNormalInjectionRole ?? settings.loreInjectionRole) },
+                low: { context: normalizePosition(settings.loreLowInjectionPosition ?? settings.loreInjectionPosition), depth: normalizeDepth(settings.loreLowInjectionDepth ?? settings.loreInjectionDepth), role: normalizeRole(settings.loreLowInjectionRole ?? settings.loreInjectionRole) },
             },
         };
 

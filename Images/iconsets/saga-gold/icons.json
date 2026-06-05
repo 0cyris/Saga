@@ -8,7 +8,7 @@
   "version": "1.0.0",
   "preferredSize": 256,
   "icons": {
-    "tab.lorepacks": "256/loredecks.png",
+    "tab.loredecks": "256/loredecks.png",
     "tab.session": "256/session.png",
     "tab.context": "256/context.png",
     "tab.continuity": "256/continuity.png",

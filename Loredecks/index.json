@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "bundled": [
+    {
+      "packId": "hp-golden-trio",
+      "manifest": "hp-golden-trio/loredeck.json",
+      "type": "bundled",
+      "title": "Harry Potter: Golden Trio",
+      "description": "Golden Trio era canon scaffolded from the current Wandlight lore database."
+    }
+  ]
+}

@@ -94,7 +94,7 @@ Use a desktop-width browser first, then repeat at a narrow/mobile-ish width.
 - Selected deck details update when a Library card or stack card is clicked.
 - Click selects one deck, Ctrl/Cmd-click toggles decks, and Shift-click selects a visible range.
 - Selected count, Select Visible, Clear, and Export Selected controls are visible and fit the Library pane.
-- Export Selected downloads one `.saga-lorepack.json` file per selected deck rather than one whole-library file.
+- Export Selected downloads one `.saga-loredeck.json` file per selected deck rather than one whole-library file.
 - Selecting multiple local JSON files from Import Deck opens the bulk install preview and installs checked files only as new Custom copies.
 - Custom/Generated decks expose `Delete Deck`; Bundled decks are protected from deletion.
 - Create/import/duplicate/delete actions refresh the Library without requiring a manual `Refresh Library` click.
@@ -161,7 +161,7 @@ After the harness pass, install or load the extension in SillyTavern and repeat 
 
 Before treating a live pass as current-code validation, verify SillyTavern is serving the current workspace build:
 
-- The served `/scripts/extensions/third-party/Saga/lore-panel.js` contains current workflow markers such as `refreshLorepackSurfaces` and `Delete Deck`.
+- The served `/scripts/extensions/third-party/Saga/lore-panel.js` contains current workflow markers such as `refreshLoredeckSurfaces` and `Delete Deck`.
 - The installed extension menu is reduced to the runtime handoff and `Reset Window`; the old API/model settings dropdown is absent.
 - If those markers are missing, sync or reinstall the extension into the active SillyTavern user extension directory before capturing screenshots.
 - If the direct `settings.html` endpoint is current but the extension menu still shows old copy, restart SillyTavern or clear the extension template cache before treating branding text as validated.
@@ -173,10 +173,10 @@ Additional live checks:
 - The runtime banner and minimized Saga mark fit their containers.
 - API/provider settings retain saved values after reload.
 - The old extension-menu API/model dropdown is absent.
-- `hp-golden-trio` loads from `Lorepacks/hp-golden-trio/lorepack.json`.
+- `hp-golden-trio` loads from `Loredecks/hp-golden-trio/loredeck.json`.
 - Canon preview/suggestion still routes through the active Loredeck stack.
 - Prompt injection sync runs without throwing.
-- Chat reload preserves the active Loredeck stack and Story Position state.
+- Chat reload preserves the active Loredeck stack and Context state.
 - Fullscreen windows render correctly with SillyTavern fonts, not just harness/browser defaults.
 - No Loredeck Library, Health Center, Creator, Theme Pack, import/update, or delete action snaps the runtime drawer unexpectedly to the top.
 

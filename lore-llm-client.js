@@ -4,7 +4,7 @@
  *
  * Provider roles:
  *   continuity — Utility Provider: frequent, fast/cheap tasks such as compression and continuity scans
- *   lore       — Reasoning Provider: deeper story context and lore-generation tasks
+ *   lore       — Reasoning Provider: deeper context and lore-generation tasks
  *
  * Internal kind names are retained for backward-compatible settings storage.
  */

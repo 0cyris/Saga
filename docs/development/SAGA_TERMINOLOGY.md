@@ -2,27 +2,27 @@
 
 **SAGA: Fandom Loresystem.**
 
-This document records the public terminology for Saga after the Lorepack/Lore Entry rename.
+This document records the public terminology for Saga after the Loredeck/Lore Entry rename.
 
 ## Canonical Public Terms
 
 | Use | Public term | Old/internal term |
 | --- | --- | --- |
-| A loadable fandom lore collection | Loredeck | Lorepack |
+| A loadable fandom lore collection | Loredeck | Loredeck |
 | A single reviewable lore unit | Lorecard | Lore Entry |
 | The user-facing deck quality report | Deck Health | Pack Health |
-| Built into Saga and human-vetted | Bundled Loredeck | Bundled Lorepack |
-| Created by Saga's model-assisted creator | Generated Loredeck | Generated Lorepack |
-| User-created, user-edited, imported, AU, crossover, or shared | Custom Loredeck | Custom Lorepack |
-| Deck creation workflow | Loredeck Creator | Lorepack Creator |
-| Deck browsing and management | Loredeck Library | Lorepack Library |
-| Ordered loaded deck list | Active Stack | Lorepack Stack |
+| Built into Saga and human-vetted | Bundled Loredeck | Bundled Loredeck |
+| Created by Saga's model-assisted creator | Generated Loredeck | Generated Loredeck |
+| User-created, user-edited, imported, AU, crossover, or shared | Custom Loredeck | Custom Loredeck |
+| Deck creation workflow | Loredeck Creator | Loredeck Creator |
+| Deck browsing and management | Loredeck Library | Loredeck Library |
+| Ordered loaded deck list | Active Stack | Loredeck Stack |
 
 ## Migration Policy
 
 Public copy, UI labels, tooltips, and docs should use **Loredeck**, **Lorecard**, and **Deck Health**.
 
-Internal identifiers may temporarily remain `lorepack`, `packId`, `lorepack.json`, and `Lorepacks/` to reduce churn while Saga stabilizes. Do not rename internal files, schema keys, persisted state keys, or export bundle fields until compatibility aliases and migration tests exist.
+Internal identifiers may temporarily remain `loredeck`, `packId`, `loredeck.json`, and `Loredecks/` to reduce churn while Saga stabilizes. Do not rename internal files, schema keys, persisted state keys, or export bundle fields until compatibility aliases and migration tests exist.
 
 When a user-facing path or code sample must reference the current on-disk format, keep the real path or field name and explain it as an internal/development name.
 

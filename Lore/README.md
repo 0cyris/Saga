@@ -279,7 +279,7 @@ Example: Year 6 Harry is more suspicious of Draco and affected by Sirius's death
 
 ## How retrieval works
 
-When Story Context has a parseable date, Wandlight:
+When Context has a parseable date, Wandlight:
 
 1. Parses the date.
 2. Loads files listed in `manifest.json`.
@@ -546,7 +546,7 @@ Use `canonTiming` for chronology hints and compatibility with older entries.
 }
 ```
 
-The preprocessor and Auto-Relevance use dates to determine whether an entry is High, Normal, or Low relevance for the current story context.
+The preprocessor and Auto-Relevance use dates to determine whether an entry is High, Normal, or Low relevance for the current context.
 
 ### Activation and expiration
 

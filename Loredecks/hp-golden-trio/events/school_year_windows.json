@@ -1,0 +1,656 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "canon_year_1_ps_window",
+      "title": "Canon window: Year 1",
+      "kind": "event_anchor",
+      "gateType": "event_anchor",
+      "category": "event",
+      "relevance": "low",
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "year-1",
+        "1991",
+        "philosophers-stone",
+        "hogwarts"
+      ],
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.ps.year_1",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 8278,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "1991-09-01 to 1992-08-31",
+        "approximate": false
+      },
+      "scope": {
+        "locations": [
+          "Hogwarts"
+        ],
+        "topics": [
+          "canon window",
+          "1991",
+          "1992",
+          "first year"
+        ],
+        "eras": [
+          "1991-1992 school year",
+          "Year 1",
+          "Philosopher",
+          "Sorcerer"
+        ],
+        "schoolYears": [
+          "Year 1"
+        ],
+        "books": [
+          "Philosopher's Stone"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "canon window",
+            "1991",
+            "1992",
+            "first year",
+            "Year 1",
+            "Philosopher's Stone",
+            "Hogwarts"
+          ],
+          "erasAny": [
+            "1991-1992 school year",
+            "Year 1",
+            "Philosopher",
+            "Sorcerer"
+          ]
+        }
+      },
+      "content": {
+        "fact": "From September 1991 through August 1992, the main school-year context aligns with Harry Potter's first year at Hogwarts.",
+        "injection": "From September 1991 through August 1992, the main school-year context aligns with Harry Potter's first year at Hogwarts.",
+        "publicVersion": "Harry Potter is a first-year student at Hogwarts."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "canon_year_2_cos_window",
+      "title": "Canon window: Year 2",
+      "kind": "event_anchor",
+      "gateType": "event_anchor",
+      "category": "event",
+      "relevance": "low",
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "year-2",
+        "1992",
+        "chamber-secrets",
+        "hogwarts"
+      ],
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.cos.year_2",
+        "validToAnchor": "hp.cos.year_2",
+        "sortKeyFrom": 8279,
+        "sortKeyTo": 8643,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "1992-09-01 to 1993-08-31",
+        "approximate": false
+      },
+      "scope": {
+        "locations": [
+          "Hogwarts"
+        ],
+        "topics": [
+          "canon window",
+          "1992",
+          "1993",
+          "second year"
+        ],
+        "eras": [
+          "1992-1993 school year",
+          "Year 2",
+          "Chamber"
+        ],
+        "schoolYears": [
+          "Year 2"
+        ],
+        "books": [
+          "Chamber of Secrets"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "canon window",
+            "1992",
+            "1993",
+            "second year",
+            "Year 2",
+            "Chamber Secrets",
+            "Hogwarts"
+          ],
+          "erasAny": [
+            "1992-1993 school year",
+            "Year 2",
+            "Chamber"
+          ]
+        }
+      },
+      "content": {
+        "fact": "From September 1992 through August 1993, the main school-year context aligns with Harry Potter's second year at Hogwarts.",
+        "injection": "From September 1992 through August 1993, the main school-year context aligns with Harry Potter's second year at Hogwarts.",
+        "publicVersion": "Harry Potter is a second-year student at Hogwarts."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "canon_year_3_poa_window",
+      "title": "Canon window: Year 3",
+      "kind": "event_anchor",
+      "gateType": "event_anchor",
+      "category": "event",
+      "relevance": "low",
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "year-3",
+        "1993",
+        "azkaban",
+        "hogwarts"
+      ],
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.poa.year_3",
+        "validToAnchor": "hp.poa.year_3",
+        "sortKeyFrom": 8644,
+        "sortKeyTo": 9008,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "1993-09-01 to 1994-08-31",
+        "approximate": false
+      },
+      "scope": {
+        "locations": [
+          "Hogwarts"
+        ],
+        "topics": [
+          "canon window",
+          "1993",
+          "1994",
+          "third year"
+        ],
+        "eras": [
+          "1993-1994 school year",
+          "Year 3",
+          "Azkaban"
+        ],
+        "schoolYears": [
+          "Year 3"
+        ],
+        "books": [
+          "Prisoner of Azkaban"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "canon window",
+            "1993",
+            "1994",
+            "third year",
+            "Year 3",
+            "Azkaban",
+            "Hogwarts"
+          ],
+          "erasAny": [
+            "1993-1994 school year",
+            "Year 3",
+            "Azkaban"
+          ]
+        }
+      },
+      "content": {
+        "fact": "From September 1993 through August 1994, the main school-year context aligns with Harry Potter's third year at Hogwarts.",
+        "injection": "From September 1993 through August 1994, the main school-year context aligns with Harry Potter's third year at Hogwarts.",
+        "publicVersion": "Harry Potter is a third-year student at Hogwarts."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "canon_year_4_gof_window",
+      "title": "Canon window: Year 4",
+      "kind": "event_anchor",
+      "gateType": "event_anchor",
+      "category": "event",
+      "relevance": "low",
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "year-4",
+        "1994",
+        "triwizard",
+        "hogwarts"
+      ],
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.gof.year_4",
+        "validToAnchor": "hp.gof.year_4",
+        "sortKeyFrom": 9009,
+        "sortKeyTo": 9373,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "1994-09-01 to 1995-08-31",
+        "approximate": false
+      },
+      "scope": {
+        "locations": [
+          "Hogwarts"
+        ],
+        "topics": [
+          "canon window",
+          "1994",
+          "1995",
+          "fourth year",
+          "Triwizard Tournament"
+        ],
+        "eras": [
+          "1994-1995 school year",
+          "Year 4",
+          "Goblet",
+          "Triwizard"
+        ],
+        "schoolYears": [
+          "Year 4"
+        ],
+        "books": [
+          "Goblet of Fire"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "canon window",
+            "1994",
+            "1995",
+            "fourth year",
+            "Triwizard Tournament",
+            "Year 4",
+            "Triwizard",
+            "Hogwarts"
+          ],
+          "erasAny": [
+            "1994-1995 school year",
+            "Year 4",
+            "Goblet",
+            "Triwizard"
+          ]
+        }
+      },
+      "content": {
+        "fact": "From September 1994 through August 1995, the main school-year context aligns with Harry Potter's fourth year and the Triwizard Tournament period.",
+        "injection": "From September 1994 through August 1995, the main school-year context aligns with Harry Potter's fourth year and the Triwizard Tournament period.",
+        "publicVersion": "Harry Potter is a fourth-year student during the Triwizard Tournament year."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "canon_year_5_ootp_window",
+      "title": "Canon window: Year 5",
+      "kind": "event_anchor",
+      "gateType": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "year-5",
+        "1995",
+        "order-phoenix",
+        "ministry"
+      ],
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.ootp.year_5",
+        "validToAnchor": "hp.ootp.year_5",
+        "sortKeyFrom": 9374,
+        "sortKeyTo": 9739,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "1995-09-01 to 1996-08-31",
+        "approximate": false
+      },
+      "scope": {
+        "locations": [
+          "Hogwarts",
+          "Ministry of Magic",
+          "Ministry"
+        ],
+        "topics": [
+          "canon window",
+          "1995",
+          "1996",
+          "fifth year",
+          "Ministry interference"
+        ],
+        "eras": [
+          "1995-1996 school year",
+          "Year 5",
+          "Order of the Phoenix",
+          "OotP"
+        ],
+        "schoolYears": [
+          "Year 5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "locationsAny": [
+            "Hogwarts",
+            "Ministry of Magic",
+            "Ministry"
+          ],
+          "topicsAny": [
+            "canon window",
+            "1995",
+            "1996",
+            "fifth year",
+            "Ministry interference",
+            "Year 5",
+            "Order Phoenix",
+            "Ministry"
+          ],
+          "erasAny": [
+            "1995-1996 school year",
+            "Year 5",
+            "Order of the Phoenix",
+            "OotP"
+          ]
+        }
+      },
+      "content": {
+        "fact": "From September 1995 through August 1996, the main school-year context aligns with Harry Potter's fifth year and the Ministry's public denial of Voldemort's return.",
+        "injection": "From September 1995 through August 1996, the main school-year context aligns with Harry Potter's fifth year and the Ministry's public denial of Voldemort's return.",
+        "publicVersion": "Harry Potter is a fifth-year student under a tense Ministry-controlled climate."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "canon_year_6_hbp_window",
+      "title": "Canon window: Year 6",
+      "kind": "event_anchor",
+      "gateType": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "year-6",
+        "1996",
+        "half-blood-prince",
+        "voldemort"
+      ],
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.hbp.year_6",
+        "validToAnchor": "hp.hbp.year_6",
+        "sortKeyFrom": 9740,
+        "sortKeyTo": 10104,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "1996-09-01 to 1997-08-31",
+        "approximate": false
+      },
+      "scope": {
+        "locations": [
+          "Hogwarts"
+        ],
+        "topics": [
+          "canon window",
+          "1996",
+          "1997",
+          "sixth year",
+          "Voldemort war"
+        ],
+        "eras": [
+          "1996-1997 school year",
+          "Year 6",
+          "Half-Blood Prince",
+          "HBP"
+        ],
+        "schoolYears": [
+          "Year 6"
+        ],
+        "books": [
+          "Half-Blood Prince"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "canon window",
+            "1996",
+            "1997",
+            "sixth year",
+            "Voldemort war",
+            "Year 6",
+            "Half Blood Prince",
+            "Voldemort"
+          ],
+          "erasAny": [
+            "1996-1997 school year",
+            "Year 6",
+            "Half-Blood Prince",
+            "HBP"
+          ]
+        }
+      },
+      "content": {
+        "fact": "From September 1996 through August 1997, the main school-year context aligns with Harry Potter's sixth year, when Voldemort's return is publicly acknowledged and the Second Wizarding War escalates.",
+        "injection": "From September 1996 through August 1997, the main school-year context aligns with Harry Potter's sixth year, when Voldemort's return is publicly acknowledged and the Second Wizarding War escalates.",
+        "publicVersion": "Harry Potter is a sixth-year student during the Half-Blood Prince period."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "canon_year_7_dh_window",
+      "title": "Canon window: Year 7",
+      "kind": "event_anchor",
+      "gateType": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "year-7",
+        "1997",
+        "deathly-hallows",
+        "war"
+      ],
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.dh.year_7",
+        "validToAnchor": "hp.dh.year_7",
+        "sortKeyFrom": 10105,
+        "sortKeyTo": 10469,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "1997-09-01 to 1998-08-31",
+        "approximate": false
+      },
+      "scope": {
+        "locations": [
+          "Britain"
+        ],
+        "topics": [
+          "canon window",
+          "1997",
+          "1998",
+          "seventh year",
+          "war"
+        ],
+        "eras": [
+          "1997-1998 war year",
+          "Year 7",
+          "Deathly Hallows",
+          "war"
+        ],
+        "schoolYears": [
+          "Year 7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "locationsAny": [
+            "Britain"
+          ],
+          "topicsAny": [
+            "canon window",
+            "1997",
+            "1998",
+            "seventh year",
+            "war",
+            "Year 7",
+            "Deathly Hallows"
+          ],
+          "erasAny": [
+            "1997-1998 war year",
+            "Year 7",
+            "Deathly Hallows",
+            "war"
+          ]
+        }
+      },
+      "content": {
+        "fact": "From September 1997 through August 1998, the main canon context aligns with the Deathly Hallows period and the open Second Wizarding War.",
+        "injection": "From September 1997 through August 1998, the main canon context aligns with the Deathly Hallows period and the open Second Wizarding War.",
+        "publicVersion": "The wizarding world is in open wartime conditions."
+      }
+    }
+  ]
+}

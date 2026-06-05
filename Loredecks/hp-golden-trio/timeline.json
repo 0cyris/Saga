@@ -1,0 +1,498 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "calendar",
+  "sortKeyScale": "date-derived-day",
+  "summary": "Context anchors for the seven-book Harry Potter Golden Trio era.",
+  "axes": [
+    {
+      "id": "calendar",
+      "type": "calendar",
+      "label": "Calendar Date"
+    },
+    {
+      "id": "book",
+      "type": "anchor",
+      "label": "Book"
+    },
+    {
+      "id": "schoolYear",
+      "type": "phase",
+      "label": "School Year"
+    },
+    {
+      "id": "arc",
+      "type": "arc",
+      "label": "Story Arc"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "hp.ps.year_1",
+      "label": "Year 1: Philosopher's Stone",
+      "contextType": "calendar",
+      "sortKey": 7913,
+      "dateRange": {
+        "from": "1991-09-01",
+        "to": "1992-08-31"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Philosopher's Stone",
+      "aliases": [
+        "Book 1",
+        "Year 1",
+        "Philosopher's Stone",
+        "Sorcerer's Stone",
+        "PS"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "book:philosophers-stone",
+        "school-year:1"
+      ]
+    },
+    {
+      "id": "hp.ps.stone_aftermath",
+      "label": "Stone Incident Aftermath",
+      "contextType": "anchor",
+      "sortKey": 8190,
+      "dateRange": {
+        "from": "1992-06-04",
+        "to": "1992-06-14"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Philosopher's Stone climax",
+      "aliases": [
+        "after the Stone",
+        "after Quirrell",
+        "Stone resolved",
+        "end of Year 1"
+      ],
+      "tags": [
+        "event:stone-incident",
+        "school-year:1",
+        "arc:climax"
+      ]
+    },
+    {
+      "id": "hp.cos.year_2",
+      "label": "Year 2: Chamber of Secrets",
+      "contextType": "calendar",
+      "sortKey": 8279,
+      "dateRange": {
+        "from": "1992-09-01",
+        "to": "1993-08-31"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Chamber of Secrets",
+      "aliases": [
+        "Book 2",
+        "Year 2",
+        "Chamber of Secrets",
+        "CoS"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "book:chamber-of-secrets",
+        "school-year:2"
+      ]
+    },
+    {
+      "id": "hp.cos.chamber_resolved",
+      "label": "Chamber Resolution",
+      "contextType": "anchor",
+      "sortKey": 8549,
+      "dateRange": {
+        "from": "1993-05-29",
+        "to": "1993-06-08"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Chamber of Secrets climax",
+      "aliases": [
+        "after the Chamber",
+        "Chamber resolved",
+        "basilisk defeated",
+        "diary destroyed",
+        "end of Year 2"
+      ],
+      "tags": [
+        "event:chamber-resolution",
+        "school-year:2",
+        "arc:climax"
+      ]
+    },
+    {
+      "id": "hp.poa.year_3",
+      "label": "Year 3: Prisoner of Azkaban",
+      "contextType": "calendar",
+      "sortKey": 8644,
+      "dateRange": {
+        "from": "1993-09-01",
+        "to": "1994-08-31"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Prisoner of Azkaban",
+      "aliases": [
+        "Book 3",
+        "Year 3",
+        "Prisoner of Azkaban",
+        "PoA"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "book:prisoner-of-azkaban",
+        "school-year:3"
+      ]
+    },
+    {
+      "id": "hp.poa.sirius_fugitive",
+      "label": "Sirius Public Fugitive Period",
+      "contextType": "arc",
+      "sortKey": 8613,
+      "dateRange": {
+        "from": "1993-08-01",
+        "to": "1994-06-30"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Sirius Black fugitive arc",
+      "aliases": [
+        "Sirius is a fugitive",
+        "before Sirius reveal",
+        "Sirius Black wanted"
+      ],
+      "tags": [
+        "event:sirius-fugitive",
+        "knowledge:public-belief",
+        "school-year:3"
+      ]
+    },
+    {
+      "id": "hp.poa.sirius_truth_to_trio",
+      "label": "Sirius Truth Revealed to Trio",
+      "contextType": "anchor",
+      "sortKey": 8922,
+      "dateRange": {
+        "from": "1994-06-06",
+        "to": "1994-06-16"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Prisoner of Azkaban climax",
+      "aliases": [
+        "after Shrieking Shack",
+        "Sirius truth revealed",
+        "after Sirius reveal",
+        "end of Year 3"
+      ],
+      "tags": [
+        "event:sirius-truth",
+        "knowledge:private",
+        "school-year:3",
+        "arc:climax"
+      ]
+    },
+    {
+      "id": "hp.gof.year_4",
+      "label": "Year 4: Goblet of Fire",
+      "contextType": "calendar",
+      "sortKey": 9009,
+      "dateRange": {
+        "from": "1994-09-01",
+        "to": "1995-08-31"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Triwizard Tournament",
+      "aliases": [
+        "Book 4",
+        "Year 4",
+        "Goblet of Fire",
+        "GoF",
+        "Triwizard year"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "book:goblet-of-fire",
+        "school-year:4"
+      ]
+    },
+    {
+      "id": "hp.gof.triwizard_tournament",
+      "label": "Triwizard Tournament Year",
+      "contextType": "arc",
+      "sortKey": 9009,
+      "dateRange": {
+        "from": "1994-09-01",
+        "to": "1995-06-24"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Triwizard Tournament",
+      "aliases": [
+        "Triwizard Tournament",
+        "Triwizard",
+        "Harry as champion",
+        "champions and tasks"
+      ],
+      "tags": [
+        "event:triwizard-tournament",
+        "school-year:4",
+        "arc:tournament"
+      ]
+    },
+    {
+      "id": "hp.ootp.year_5",
+      "label": "Year 5: Order of the Phoenix",
+      "contextType": "calendar",
+      "sortKey": 9374,
+      "dateRange": {
+        "from": "1995-09-01",
+        "to": "1996-08-31"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Order of the Phoenix",
+      "aliases": [
+        "Book 5",
+        "Year 5",
+        "Order of the Phoenix",
+        "OotP",
+        "DA year"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "book:order-of-the-phoenix",
+        "school-year:5"
+      ]
+    },
+    {
+      "id": "hp.ootp.department_mysteries",
+      "label": "Department of Mysteries Aftermath",
+      "contextType": "anchor",
+      "sortKey": 9665,
+      "dateRange": {
+        "from": "1996-06-18",
+        "to": "1996-06-28"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Department of Mysteries",
+      "aliases": [
+        "after Department of Mysteries",
+        "after Sirius dies",
+        "Voldemort public acknowledged",
+        "end of Year 5"
+      ],
+      "tags": [
+        "event:department-of-mysteries",
+        "event:sirius-death",
+        "event:voldemort-public",
+        "school-year:5",
+        "arc:climax"
+      ]
+    },
+    {
+      "id": "hp.hbp.year_6",
+      "label": "Year 6: Half-Blood Prince",
+      "contextType": "calendar",
+      "sortKey": 9740,
+      "dateRange": {
+        "from": "1996-09-01",
+        "to": "1997-08-31"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Half-Blood Prince",
+      "aliases": [
+        "Book 6",
+        "Year 6",
+        "Half-Blood Prince",
+        "HBP",
+        "Horcrux lessons"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "book:half-blood-prince",
+        "school-year:6"
+      ]
+    },
+    {
+      "id": "hp.hbp.dumbledore_lessons",
+      "label": "Dumbledore's Private Lessons",
+      "contextType": "anchor",
+      "sortKey": 9740,
+      "dateRange": {
+        "from": "1996-09-01",
+        "to": "1996-09-11"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Horcrux lessons",
+      "aliases": [
+        "Dumbledore lessons",
+        "Horcrux lessons",
+        "Voldemort memories",
+        "Horcruxes revealed"
+      ],
+      "tags": [
+        "event:dumbledore-lessons",
+        "knowledge:horcruxes",
+        "school-year:6"
+      ]
+    },
+    {
+      "id": "hp.hbp.astronomy_tower",
+      "label": "Astronomy Tower Aftermath",
+      "contextType": "anchor",
+      "sortKey": 10042,
+      "dateRange": {
+        "from": "1997-06-30",
+        "to": "1997-07-10"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Astronomy Tower",
+      "aliases": [
+        "after Astronomy Tower",
+        "Dumbledore dead",
+        "after Dumbledore dies",
+        "end of Year 6"
+      ],
+      "tags": [
+        "event:astronomy-tower",
+        "event:dumbledore-death",
+        "school-year:6",
+        "arc:climax"
+      ]
+    },
+    {
+      "id": "hp.dh.year_7",
+      "label": "Year 7: Deathly Hallows",
+      "contextType": "calendar",
+      "sortKey": 10105,
+      "dateRange": {
+        "from": "1997-09-01",
+        "to": "1998-08-31"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Horcrux hunt",
+      "aliases": [
+        "Book 7",
+        "Year 7",
+        "Deathly Hallows",
+        "DH",
+        "Horcrux hunt",
+        "camping year"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "book:deathly-hallows",
+        "school-year:7"
+      ]
+    },
+    {
+      "id": "hp.dh.ministry_falls",
+      "label": "Ministry Falls",
+      "contextType": "anchor",
+      "sortKey": 10074,
+      "dateRange": {
+        "from": "1997-08-01",
+        "to": "1997-08-11"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Ministry takeover",
+      "aliases": [
+        "Ministry falls",
+        "Voldemort controls Ministry",
+        "after Ministry takeover"
+      ],
+      "tags": [
+        "event:ministry-falls",
+        "school-year:7",
+        "arc:ministry-takeover"
+      ]
+    },
+    {
+      "id": "hp.dh.battle_hogwarts",
+      "label": "Battle of Hogwarts Aftermath",
+      "contextType": "anchor",
+      "sortKey": 10348,
+      "dateRange": {
+        "from": "1998-05-02",
+        "to": "1998-05-12"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Battle of Hogwarts",
+      "aliases": [
+        "Battle of Hogwarts",
+        "after Battle of Hogwarts",
+        "Voldemort defeated",
+        "end of Deathly Hallows"
+      ],
+      "tags": [
+        "event:battle-of-hogwarts",
+        "event:voldemort-defeated",
+        "school-year:7",
+        "arc:final-battle"
+      ]
+    }
+  ],
+  "windows": [
+    {
+      "id": "hp.window.pre_hogwarts",
+      "label": "Before Hogwarts",
+      "anchorTo": "hp.ps.year_1",
+      "contextType": "relative",
+      "aliases": [
+        "pre-Hogwarts",
+        "before Hogwarts",
+        "before first year"
+      ],
+      "tags": [
+        "phase:pre-canon"
+      ],
+      "sortKeyTo": 8278
+    },
+    {
+      "id": "hp.window.trio_at_hogwarts",
+      "label": "Golden Trio Hogwarts Years",
+      "anchorFrom": "hp.ps.year_1",
+      "anchorTo": "hp.dh.year_7",
+      "contextType": "anchor_window",
+      "aliases": [
+        "Hogwarts years",
+        "Golden Trio years",
+        "during canon"
+      ],
+      "tags": [
+        "phase:canon-era"
+      ],
+      "sortKeyFrom": 7913,
+      "sortKeyTo": 10469
+    },
+    {
+      "id": "hp.window.post_war",
+      "label": "Post-War",
+      "anchorFrom": "hp.dh.battle_hogwarts",
+      "contextType": "relative",
+      "aliases": [
+        "post-war",
+        "after the war",
+        "after Voldemort"
+      ],
+      "tags": [
+        "phase:post-war"
+      ],
+      "sortKeyFrom": 10348
+    }
+  ]
+}

@@ -1,0 +1,434 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "knowledge_gate_sirius_truth_before_late_year3",
+      "title": "Sirius Innocence Hidden",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 90,
+      "status": "active",
+      "protected": true,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.poa.sirius_truth_to_trio",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 8921,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Prisoner of Azkaban: Year 3",
+        "approximate": false
+      },
+      "activation": {
+        "requiresMissingEvents": [
+          "sirius_truth_revealed"
+        ]
+      },
+      "expiration": {
+        "expiresWhenEventsHappen": [
+          "sirius_truth_revealed"
+        ],
+        "autoMuteOnExpire": true
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Hermione Granger",
+          "Ron Weasley"
+        ],
+        "topics": [
+          "Sirius Black",
+          "Peter Pettigrew",
+          "betrayal"
+        ],
+        "schoolYears": [
+          "3"
+        ],
+        "books": [
+          "Prisoner of Azkaban"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Hermione Granger",
+            "Ron Weasley"
+          ],
+          "topicsAny": [
+            "Sirius Black",
+            "Peter Pettigrew",
+            "betrayal"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before the Shrieking Shack truth is established, Harry should not know Sirius was innocent or that Peter betrayed his parents.",
+        "injection": "Before the Shrieking Shack truth is established, characters generally believe Sirius Black betrayed the Potters; Harry does not know Peter Pettigrew is the traitor.",
+        "constraints": [
+          "Block early revelation of Sirius innocence and Peter’s betrayal."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "knowledge-gate",
+          "Sirius",
+          "year-3"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Prisoner of Azkaban",
+        "confidence": 0.82,
+        "notes": "Expanded curated Context constraint entry."
+      },
+      "extensions": {
+        "titleConsolidationPass": {
+          "appliedIn": "Wandlight title polish pass"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "knowledge_gate_barty_crouch_jr_before_year4_end",
+      "title": "Barty Crouch Jr. identity gate",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 90,
+      "status": "active",
+      "protected": true,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.gof.year_4",
+        "validToAnchor": "hp.gof.triwizard_tournament",
+        "sortKeyFrom": 9009,
+        "sortKeyTo": 9305,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Goblet of Fire: Year 4",
+        "approximate": false
+      },
+      "activation": {
+        "requiresMissingEvents": [
+          "barty_crouch_jr_revealed"
+        ]
+      },
+      "expiration": {
+        "expiresWhenEventsHappen": [
+          "barty_crouch_jr_revealed"
+        ],
+        "autoMuteOnExpire": true
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Hermione Granger",
+          "Ron Weasley"
+        ],
+        "topics": [
+          "Mad-Eye Moody",
+          "Barty Crouch Jr.",
+          "Polyjuice"
+        ],
+        "schoolYears": [
+          "4"
+        ],
+        "books": [
+          "Goblet of Fire"
+        ],
+        "phases": [
+          "term_start"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "position_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Hermione Granger",
+            "Ron Weasley"
+          ],
+          "topicsAny": [
+            "Mad-Eye Moody",
+            "Barty Crouch Jr.",
+            "Polyjuice"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Students should not know that Moody is Barty Crouch Jr. in disguise.",
+        "injection": "Do not have characters know Moody is Barty Crouch Jr. unless this story established it.",
+        "constraints": [
+          "Protect the Moody impostor reveal."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "knowledge-gate",
+          "year-4",
+          "impostor"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Goblet of Fire",
+        "confidence": 0.82,
+        "notes": "Expanded curated Context constraint entry."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "knowledge_gate_draco_mission_before_year6_end",
+      "title": "Draco mission secrecy gate",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 75,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 90,
+      "status": "active",
+      "protected": true,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.hbp.year_6",
+        "validToAnchor": "hp.hbp.astronomy_tower",
+        "sortKeyFrom": 9740,
+        "sortKeyTo": 10041,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Half-Blood Prince: Year 6",
+        "approximate": false
+      },
+      "activation": {
+        "requiresMissingEvents": [
+          "draco_mission_revealed"
+        ]
+      },
+      "expiration": {
+        "expiresWhenEventsHappen": [
+          "draco_mission_revealed"
+        ],
+        "autoMuteOnExpire": true
+      },
+      "scope": {
+        "characters": [
+          "Draco Malfoy",
+          "Harry Potter"
+        ],
+        "topics": [
+          "Draco mission",
+          "Death Eaters",
+          "Vanishing Cabinet"
+        ],
+        "schoolYears": [
+          "6"
+        ],
+        "books": [
+          "Half-Blood Prince"
+        ],
+        "phases": [
+          "term_start"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "position_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Draco Malfoy",
+            "Harry Potter"
+          ],
+          "topicsAny": [
+            "Draco mission",
+            "Death Eaters",
+            "Vanishing Cabinet"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Draco’s specific mission and cabinet plan are not public knowledge.",
+        "injection": "Draco’s task and Vanishing Cabinet repair should remain secret unless directly discovered in our story.",
+        "constraints": [
+          "Harry may suspect Draco, but should not know the full mission without evidence."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "knowledge-gate",
+          "Draco",
+          "year-6"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Half-Blood Prince",
+        "confidence": 0.82,
+        "notes": "Expanded curated Context constraint entry."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "knowledge_gate_snape_loyalty_before_year7_end",
+      "title": "Snape loyalty truth gate",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 100,
+      "status": "active",
+      "protected": true,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.dh.battle_hogwarts",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 10347,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Deathly Hallows: Year 7",
+        "approximate": false
+      },
+      "activation": {
+        "requiresMissingEvents": [
+          "snape_loyalty_truth_revealed"
+        ]
+      },
+      "expiration": {
+        "expiresWhenEventsHappen": [
+          "snape_loyalty_truth_revealed"
+        ],
+        "autoMuteOnExpire": true
+      },
+      "scope": {
+        "characters": [
+          "Severus Snape",
+          "Harry Potter"
+        ],
+        "topics": [
+          "Snape loyalty",
+          "Lily Potter",
+          "Dumbledore"
+        ],
+        "schoolYears": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Severus Snape",
+            "Harry Potter"
+          ],
+          "topicsAny": [
+            "Snape loyalty",
+            "Lily Potter",
+            "Dumbledore"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Snape’s full motivations and loyalty are hidden until near the end of Year 7.",
+        "injection": "Do not reveal Snape’s full loyalty, Lily motivation, or Dumbledore plan before late Year 7 unless accepted story lore explicitly reveals it.",
+        "constraints": [
+          "Protect Snape’s late-canon reveal."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "knowledge-gate",
+          "Snape",
+          "future-guard"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Deathly Hallows",
+        "confidence": 0.82,
+        "notes": "Expanded curated Context constraint entry."
+      }
+    }
+  ]
+}

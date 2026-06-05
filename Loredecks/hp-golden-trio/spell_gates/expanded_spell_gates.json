@@ -1,0 +1,412 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "spell_gate_riddikulus",
+      "title": "Riddikulus Boggart lesson gate",
+      "kind": "spell_gate",
+      "gateType": "spell_gate",
+      "category": "spell",
+      "relevance": "low",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 50,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.poa.sirius_truth_to_trio",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 8704,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Prisoner of Azkaban: Year 3",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Hermione Granger",
+          "Ron Weasley"
+        ],
+        "topics": [
+          "boggarts",
+          "defense"
+        ],
+        "spells": [
+          "Riddikulus"
+        ],
+        "schoolYears": [
+          "3"
+        ],
+        "books": [
+          "Prisoner of Azkaban"
+        ],
+        "phases": [
+          "term_start"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Hermione Granger",
+            "Ron Weasley"
+          ],
+          "topicsAny": [
+            "boggarts",
+            "defense",
+            "Riddikulus"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before Lupin's Year 3 Boggart lesson or a story-established equivalent, Riddikulus should not be routine student knowledge.",
+        "injection": "Do not let first- or second-year students casually know or use Riddikulus unless our story has established early Boggart instruction.",
+        "constraints": [
+          "Date-gate Boggart handling to Year 3 instruction unless our story establishes otherwise."
+        ],
+        "antiLore": [
+          "Do not spotlight Riddikulus in later years unless Boggarts or DADA lessons are actually relevant."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "spell-gate",
+          "defense",
+          "year-3"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Prisoner of Azkaban",
+        "confidence": 0.82,
+        "notes": "Expanded curated Context constraint entry."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "spells_skills",
+          "suggestionRole": "ability_gate",
+          "detailLevel": "detailed",
+          "suggestByDefault": true,
+          "activeUse": "blocks_early_spell_knowledge"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "spell_gate_stupefy",
+      "title": "Stunning Spell practical gate",
+      "kind": "spell_gate",
+      "gateType": "spell_gate",
+      "category": "spell",
+      "relevance": "low",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.gof.triwizard_tournament",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 9009,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Goblet of Fire: Year 4",
+        "approximate": false
+      },
+      "scope": {
+        "topics": [
+          "defense",
+          "dueling",
+          "combat"
+        ],
+        "spells": [
+          "Stupefy"
+        ],
+        "schoolYears": [
+          "4"
+        ],
+        "books": [
+          "Goblet of Fire"
+        ],
+        "phases": [
+          "term_start"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "defense",
+            "dueling",
+            "combat",
+            "Stupefy"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before practical defensive training, Stupefy should not be casual early-year magic.",
+        "injection": "Do not make Stupefy routine for younger students without practical defensive training or a story-established reason.",
+        "constraints": [
+          "Treat Stunning as practical combat magic, not casual first-year curriculum."
+        ],
+        "antiLore": [
+          "Do not give ordinary first- or second-years reliable Stunning Spell use by default."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "spell-gate",
+          "combat",
+          "year-4"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Goblet of Fire",
+        "confidence": 0.82,
+        "notes": "Expanded curated Context constraint entry."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "spells_skills",
+          "suggestionRole": "ability_gate",
+          "detailLevel": "detailed",
+          "suggestByDefault": true,
+          "activeUse": "blocks_early_spell_knowledge"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "spell_gate_protego",
+      "title": "Shield Charm learning gate",
+      "kind": "spell_gate",
+      "gateType": "spell_gate",
+      "category": "spell",
+      "relevance": "low",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.ps.year_1",
+        "validToAnchor": "hp.ootp.department_mysteries",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 9434,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Order of the Phoenix: Year 5",
+        "approximate": false
+      },
+      "scope": {
+        "topics": [
+          "defense",
+          "shield charm",
+          "DA"
+        ],
+        "spells": [
+          "Protego"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ],
+        "phases": [
+          "term_start"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "defense",
+            "shield charm",
+            "DA",
+            "Protego"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before OWL/DA-level defensive training, students should not casually master Protego.",
+        "injection": "Do not let younger students casually master Protego before OWL/DA-level training unless our story has established early shield practice.",
+        "constraints": [
+          "Date-gate practical shield use."
+        ],
+        "antiLore": [
+          "Do not treat shield magic as routine early-year spellwork."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "spell-gate",
+          "defense",
+          "year-5"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Order of the Phoenix",
+        "confidence": 0.82,
+        "notes": "Expanded curated Context constraint entry."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "spells_skills",
+          "suggestionRole": "ability_gate",
+          "detailLevel": "detailed",
+          "suggestByDefault": true,
+          "activeUse": "blocks_early_spell_knowledge"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "spell_gate_apparition_lessons",
+      "title": "Apparition lesson age gate",
+      "kind": "spell_gate",
+      "gateType": "spell_gate",
+      "category": "spell",
+      "relevance": "low",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 75,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.hbp.year_6",
+        "validToAnchor": "hp.dh.year_7",
+        "sortKeyFrom": 9740,
+        "sortKeyTo": 10469,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Half-Blood Prince: Year 6",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "sixth-year students"
+        ],
+        "topics": [
+          "apparition",
+          "age"
+        ],
+        "spells": [
+          "Apparition"
+        ],
+        "schoolYears": [
+          "6"
+        ],
+        "books": [
+          "Half-Blood Prince"
+        ],
+        "phases": [
+          "term_start"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "sixth-year students"
+          ],
+          "topicsAny": [
+            "apparition",
+            "age"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Apparition lessons are for eligible older students around Year 6; legal Apparition requires coming of age.",
+        "injection": "Students should not casually Apparate before eligibility and training; Apparition is tightly age- and license-gated.",
+        "constraints": [
+          "Block underage casual Apparition unless our story explicitly changes the rule."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "spell-gate",
+          "apparition",
+          "age-gate"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Half-Blood Prince",
+        "confidence": 0.82,
+        "notes": "Expanded curated Context constraint entry."
+      }
+    }
+  ]
+}

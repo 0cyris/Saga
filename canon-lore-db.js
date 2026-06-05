@@ -13,13 +13,13 @@
  */
 
 import { LOG_PREFIX } from './constants.js';
-import { getState, getSettings, saveState, pushStateSnapshot, MAX_PENDING_LORE_ENTRIES, getLorepackLibraryRegistry } from './state-manager.js';
+import { getState, getSettings, saveState, pushStateSnapshot, MAX_PENDING_LORE_ENTRIES, getLoredeckLibraryRegistry } from './state-manager.js';
 import { normalizeLoreMatrix, buildLoreGenerationKey } from './lore-matrix.js';
 import { preprocessPendingLoreEntries } from './pending-lore-preprocessor.js';
 import { normalizeLorePurpose, computeSpecificityScore, isSpecificLorePurpose } from './lore-relevance.js';
-import { combineLorepackHealth, fetchJson, loadLorepackStackSources } from './lorepack-loader.js';
-import { evaluateEntryPositionGate, POSITION_GATE_STATUSES } from './story-position-gating.js';
-import { getStoryPositionIndexSync, loadStoryPositionIndex } from './story-position-index.js';
+import { combineLoredeckHealth, fetchJson, loadLoredeckStackSources } from './loredeck-loader.js';
+import { evaluateEntryContextGate, CONTEXT_GATE_STATUSES } from './context-gating.js';
+import { getContextIndexSync, loadContextIndex } from './context-index.js';
 
 let _dbCache = null;
 let _dbLoadPromise = null;
@@ -138,23 +138,23 @@ export function getCanonLoreDatabaseSync() {
     return _dbCache;
 }
 
-function getLorepackStackIndex(entry = {}) {
-    const value = Number(entry.extensions?.sagaLorepack?.stackIndex);
+function getLoredeckStackIndex(entry = {}) {
+    const value = Number(entry.extensions?.sagaLoredeck?.stackIndex);
     return Number.isFinite(value) ? value : 9999;
 }
 
-function getLorepackStackPriority(entry = {}) {
-    const value = Number(entry.extensions?.sagaLorepack?.stackPriority);
+function getLoredeckStackPriority(entry = {}) {
+    const value = Number(entry.extensions?.sagaLoredeck?.stackPriority);
     return Number.isFinite(value) ? value : 0;
 }
 
-function compareLorepackStackPosition(a = {}, b = {}) {
-    const stackIndex = getLorepackStackIndex(a) - getLorepackStackIndex(b);
+function compareLoredeckStackPosition(a = {}, b = {}) {
+    const stackIndex = getLoredeckStackIndex(a) - getLoredeckStackIndex(b);
     if (stackIndex) return stackIndex;
-    return getLorepackStackPriority(b) - getLorepackStackPriority(a);
+    return getLoredeckStackPriority(b) - getLoredeckStackPriority(a);
 }
 
-function compareLorepackSourceStackPosition(a = {}, b = {}) {
+function compareLoredeckSourceStackPosition(a = {}, b = {}) {
     const aIndex = Number.isFinite(Number(a?.pack?.stackIndex)) ? Number(a.pack.stackIndex) : 9999;
     const bIndex = Number.isFinite(Number(b?.pack?.stackIndex)) ? Number(b.pack.stackIndex) : 9999;
     if (aIndex !== bIndex) return aIndex - bIndex;
@@ -166,7 +166,7 @@ function compareLorepackSourceStackPosition(a = {}, b = {}) {
 function sourceSuppressesEntry(suppressorSource = {}, targetSource = {}, entryId = '') {
     const id = String(entryId || '').trim();
     if (!id) return false;
-    if (compareLorepackSourceStackPosition(suppressorSource, targetSource) >= 0) return false;
+    if (compareLoredeckSourceStackPosition(suppressorSource, targetSource) >= 0) return false;
     const targetPackId = String(targetSource?.pack?.id || targetSource?.manifest?.id || '').trim();
     const derivedFromId = String(suppressorSource?.pack?.derivedFrom?.packId || suppressorSource?.manifest?.derivedFrom?.packId || '').trim();
     if (!targetPackId || derivedFromId !== targetPackId) return false;
@@ -193,7 +193,7 @@ function updateHealthCounts(health) {
     return health;
 }
 
-function dedupeLorepackEntriesByStack(entries = [], health = null) {
+function dedupeLoredeckEntriesByStack(entries = [], health = null) {
     const grouped = new Map();
     const passthrough = [];
     for (const entry of entries) {
@@ -213,7 +213,7 @@ function dedupeLorepackEntriesByStack(entries = [], health = null) {
             output.push(group[0]);
             continue;
         }
-        group.sort(compareLorepackStackPosition);
+        group.sort(compareLoredeckStackPosition);
         const winner = group[0];
         duplicateEntryIds.push(id);
         output.push(winner);
@@ -222,10 +222,10 @@ function dedupeLorepackEntriesByStack(entries = [], health = null) {
             health.warnings.push({
                 code: 'duplicate_entry_id_across_stack',
                 severity: 'warning',
-                message: `Duplicate entry id across loaded Lorepacks: ${id}. The higher-priority stack entry was kept.`,
+                message: `Duplicate entry id across loaded Loredecks: ${id}. The higher-priority stack entry was kept.`,
                 entryIds: [id],
-                winningPackId: winner.extensions?.sagaLorepack?.packId || '',
-                droppedPackIds: group.slice(1).map(entry => entry.extensions?.sagaLorepack?.packId || '').filter(Boolean),
+                winningPackId: winner.extensions?.sagaLoredeck?.packId || '',
+                droppedPackIds: group.slice(1).map(entry => entry.extensions?.sagaLoredeck?.packId || '').filter(Boolean),
             });
             if (health.summary) {
                 health.summary.duplicateEntryIdCount = (Number(health.summary.duplicateEntryIdCount) || 0) + 1;
@@ -242,11 +242,11 @@ export async function loadCanonLoreDatabase() {
 
     _dbLoadPromise = (async () => {
         const state = getState();
-        const sources = await loadLorepackStackSources(state?.lorepackStack || [], {
-            registry: getLorepackLibraryRegistry(state),
+        const sources = await loadLoredeckStackSources(state?.loredeckStack || [], {
+            registry: getLoredeckLibraryRegistry(state),
         });
         const usableSources = sources.filter(source => source?.manifest && source?.baseUrl);
-        const health = combineLorepackHealth(sources);
+        const health = combineLoredeckHealth(sources);
 
         let taxonomy = DEFAULT_LORE_TAXONOMY;
         let gateTypes = DEFAULT_GATE_TYPES;
@@ -289,7 +289,7 @@ export async function loadCanonLoreDatabase() {
                         extensions: {
                             ...(entry?.extensions || {}),
                             ...(pack ? {
-                                sagaLorepack: {
+                                sagaLoredeck: {
                                     packId: pack.id,
                                     packType: pack.type,
                                     packTitle: pack.title,
@@ -312,22 +312,22 @@ export async function loadCanonLoreDatabase() {
             title: source.pack?.title || source.manifest?.title || source.pack?.id || '',
             stackPriority: source.pack?.stackPriority ?? 0,
             stackIndex: source.pack?.stackIndex ?? 0,
-            sourceKind: source.sourceKind || 'lorepack',
+            sourceKind: source.sourceKind || 'loredeck',
             entryCount: source.health?.summary?.entryCount || 0,
             healthStatus: source.health?.status || 'unknown',
         }));
-        const deduped = dedupeLorepackEntriesByStack(entries, health);
+        const deduped = dedupeLoredeckEntriesByStack(entries, health);
         const firstManifest = usableSources[0]?.manifest || {};
 
         _dbCache = {
             version: firstManifest.entrySchemaVersion || firstManifest.schemaVersion || firstManifest.version || 2,
-            databaseId: packs.length === 1 ? (firstManifest.databaseId || packs[0].id || 'wandlight.canon') : 'saga.lorepack-stack',
-            title: packs.length === 1 ? (firstManifest.title || packs[0].title || 'Wandlight Canon Lore Database') : 'Saga Lorepack Stack',
+            databaseId: packs.length === 1 ? (firstManifest.databaseId || packs[0].id || 'wandlight.canon') : 'saga.loredeck-stack',
+            title: packs.length === 1 ? (firstManifest.title || packs[0].title || 'Wandlight Canon Lore Database') : 'Saga Loredeck Stack',
             generatedAt: firstManifest.generatedAt || '',
-            sourceKind: packs.length === 1 ? (packs[0].sourceKind || 'lorepack') : 'lorepack-stack',
+            sourceKind: packs.length === 1 ? (packs[0].sourceKind || 'loredeck') : 'loredeck-stack',
             health,
-            lorepack: packs[0] || null,
-            lorepacks: packs,
+            loredeck: packs[0] || null,
+            loredecks: packs,
             files: usableSources.flatMap(source => Array.isArray(source.manifest?.files) ? source.manifest.files.map(file => `${source.pack?.id || source.manifest?.id || 'unknown'}:${file}`) : []),
             taxonomy,
             gateTypes,
@@ -419,48 +419,48 @@ function hasDateWindow(entry = {}) {
 async function getCanonPositionIndex(options = {}) {
     if (options.positionIndex !== undefined) return options.positionIndex;
     try {
-        return await loadStoryPositionIndex({ force: options.forcePositionIndex === true });
+        return await loadContextIndex({ force: options.forcePositionIndex === true });
     } catch (e) {
-        console.warn(`${LOG_PREFIX} Story Position index unavailable for canon scoring:`, e);
-        return getStoryPositionIndexSync();
+        console.warn(`${LOG_PREFIX} Context index unavailable for canon scoring:`, e);
+        return getContextIndexSync();
     }
 }
 
 function evaluateCanonEntryEligibility(entry, state, context, sceneIso, options = {}) {
-    const positionGate = evaluateEntryPositionGate(entry, state, {
+    const contextGate = evaluateEntryContextGate(entry, state, {
         index: options.positionIndex || null,
         unresolvedEligible: false,
     });
     const dateMatches = dateInRange(sceneIso, entry);
     const dateWindow = hasDateWindow(entry);
 
-    if (positionGate.status === POSITION_GATE_STATUSES.NO_GATE) {
+    if (contextGate.status === CONTEXT_GATE_STATUSES.NO_GATE) {
         return {
             eligible: false,
             matchedBy: 'missing_position',
             dateMatches,
             dateWindow,
-            positionGate,
+            contextGate,
         };
     }
 
-    if (positionGate.status === POSITION_GATE_STATUSES.MISMATCH) {
+    if (contextGate.status === CONTEXT_GATE_STATUSES.MISMATCH) {
         return {
             eligible: false,
             matchedBy: 'position_mismatch',
             dateMatches,
             dateWindow,
-            positionGate,
+            contextGate,
         };
     }
 
-    if (positionGate.status === POSITION_GATE_STATUSES.UNRESOLVED) {
+    if (contextGate.status === CONTEXT_GATE_STATUSES.UNRESOLVED) {
         return {
             eligible: false,
             matchedBy: 'unresolved_position',
             dateMatches,
             dateWindow,
-            positionGate,
+            contextGate,
         };
     }
 
@@ -469,14 +469,14 @@ function evaluateCanonEntryEligibility(entry, state, context, sceneIso, options 
         matchedBy: 'position',
         dateMatches,
         dateWindow,
-        positionGate,
+        contextGate,
     };
 }
 
-function getPositionGateScore(positionGate = {}, scoring = DEFAULT_SCORING) {
+function getContextGateScore(contextGate = {}, scoring = DEFAULT_SCORING) {
     const weights = scoring.weights || DEFAULT_SCORING.weights;
-    if (positionGate.status === POSITION_GATE_STATUSES.MATCH) {
-        const position = positionGate.entry?.position || {};
+    if (contextGate.status === CONTEXT_GATE_STATUSES.MATCH) {
+        const position = contextGate.entry?.context || {};
         const base = Number(weights.positionMatch) || 30;
         const scope = String(position.scope || '').toLowerCase();
         const windowKind = String(position.windowKind || '').toLowerCase();
@@ -488,14 +488,14 @@ function getPositionGateScore(positionGate = {}, scoring = DEFAULT_SCORING) {
         if (span !== null && span <= 60) return base;
         return Math.round(base * 0.65);
     }
-    if (positionGate.status === POSITION_GATE_STATUSES.UNRESOLVED) return Number(weights.positionUnresolvedPenalty) || -8;
+    if (contextGate.status === CONTEXT_GATE_STATUSES.UNRESOLVED) return Number(weights.positionUnresolvedPenalty) || -8;
     return 0;
 }
 
-function compactPositionGateMeta(eligibility = {}) {
-    const gate = eligibility.positionGate || {};
+function compactContextGateMeta(eligibility = {}) {
+    const gate = eligibility.contextGate || {};
     return {
-        status: gate.status || POSITION_GATE_STATUSES.NO_GATE,
+        status: gate.status || CONTEXT_GATE_STATUSES.NO_GATE,
         hasGate: gate.hasGate === true,
         eligible: eligibility.eligible === true,
         matchedBy: eligibility.matchedBy || '',
@@ -539,8 +539,8 @@ function scoreCanonEntry(entry, state, context, sceneIso, scoring = DEFAULT_SCOR
     const lorePurpose = normalizeLorePurpose(entry.lorePurpose || entry.purpose, entry);
     const specificPurpose = isSpecificLorePurpose(lorePurpose);
     if (!specificPurpose || entry.injectableByDefault === false) return -1000;
-    if (options.positionGate) {
-        score += getPositionGateScore(options.positionGate, scoring);
+    if (options.contextGate) {
+        score += getContextGateScore(options.contextGate, scoring);
     }
 
     const present = state?.scene?.presentCharacters || [];
@@ -570,7 +570,7 @@ function scoreCanonEntry(entry, state, context, sceneIso, scoring = DEFAULT_SCOR
     if (entry.category === 'character' && present.length) score += 5;
     if (entry.category === 'knowledge' || entry.truthStatus === 'hidden') score += 4;
     if (entry.priority) score += Math.min(Number(weights.priority) || 15, Number(entry.priority) / 6);
-    const stackIndex = getLorepackStackIndex(entry);
+    const stackIndex = getLoredeckStackIndex(entry);
     if (Number.isFinite(stackIndex) && stackIndex < 9999) score += Math.max(0, 12 - (stackIndex * 2));
 
     return score;
@@ -580,7 +580,7 @@ function buildCanonCandidateItem(entry, state, context, sceneIso, scoring = DEFA
     const eligibility = evaluateCanonEntryEligibility(entry, state, context, sceneIso, options);
     if (!eligibility.eligible) return null;
     const score = scoreCanonEntry(entry, state, context, sceneIso, scoring, {
-        positionGate: eligibility.positionGate,
+        contextGate: eligibility.contextGate,
     });
     return {
         entry,
@@ -623,7 +623,7 @@ function canonKindQuotaKey(entry = {}) {
 function sortCanonCandidates(a, b) {
     const ap = Number(a.entry.priority) || 50;
     const bp = Number(b.entry.priority) || 50;
-    const stackOrder = compareLorepackStackPosition(a.entry, b.entry);
+    const stackOrder = compareLoredeckStackPosition(a.entry, b.entry);
     return stackOrder
         || canonPriorityBand(bp) - canonPriorityBand(ap)
         || b.score - a.score
@@ -713,7 +713,7 @@ function compactCanonLoreEntryForPending(entry) {
         protected: !!normalized.protected,
         userEditable: normalized.userEditable !== false,
         branchId: normalized.branchId || 'main',
-        position: normalized.position || {},
+        context: normalized.context || {},
         coordinates: Array.isArray(normalized.coordinates) ? normalized.coordinates.slice(0, 24) : [],
         scope: normalized.scope || {},
         visibility: normalized.visibility || {},
@@ -784,29 +784,29 @@ function compactPendingCanonEntryForStorage(entry) {
         protected: !!normalized.protected,
         userEditable: normalized.userEditable !== false,
         branchId: normalized.branchId || 'main',
-        position: {
-            scope: trim(normalized.position?.scope, 60),
-            anchorId: trim(normalized.position?.anchorId, 180),
-            validFromAnchor: trim(normalized.position?.validFromAnchor, 180),
-            validToAnchor: trim(normalized.position?.validToAnchor, 180),
-            arc: trim(normalized.position?.arc, 180),
-            arcId: trim(normalized.position?.arcId, 180),
-            phase: trim(normalized.position?.phase, 180),
-            phaseId: trim(normalized.position?.phaseId, 180),
-            season: trim(normalized.position?.season, 80),
-            episode: trim(normalized.position?.episode, 80),
-            chapter: trim(normalized.position?.chapter, 80),
-            issue: trim(normalized.position?.issue, 80),
-            quest: trim(normalized.position?.quest, 180),
-            gameStage: trim(normalized.position?.gameStage, 180),
-            stardateFrom: trim(normalized.position?.stardateFrom, 80),
-            stardateTo: trim(normalized.position?.stardateTo, 80),
-            sortKeyFrom: Number.isFinite(Number(normalized.position?.sortKeyFrom)) ? Number(normalized.position.sortKeyFrom) : null,
-            sortKeyTo: Number.isFinite(Number(normalized.position?.sortKeyTo)) ? Number(normalized.position.sortKeyTo) : null,
-            precision: trim(normalized.position?.precision, 80),
-            windowKind: trim(normalized.position?.windowKind, 80),
-            label: trim(normalized.position?.label, 180),
-            approximate: normalized.position?.approximate === true,
+        context: {
+            scope: trim(normalized.context?.scope, 60),
+            anchorId: trim(normalized.context?.anchorId, 180),
+            validFromAnchor: trim(normalized.context?.validFromAnchor, 180),
+            validToAnchor: trim(normalized.context?.validToAnchor, 180),
+            arc: trim(normalized.context?.arc, 180),
+            arcId: trim(normalized.context?.arcId, 180),
+            phase: trim(normalized.context?.phase, 180),
+            phaseId: trim(normalized.context?.phaseId, 180),
+            season: trim(normalized.context?.season, 80),
+            episode: trim(normalized.context?.episode, 80),
+            chapter: trim(normalized.context?.chapter, 80),
+            issue: trim(normalized.context?.issue, 80),
+            quest: trim(normalized.context?.quest, 180),
+            gameStage: trim(normalized.context?.gameStage, 180),
+            stardateFrom: trim(normalized.context?.stardateFrom, 80),
+            stardateTo: trim(normalized.context?.stardateTo, 80),
+            sortKeyFrom: Number.isFinite(Number(normalized.context?.sortKeyFrom)) ? Number(normalized.context.sortKeyFrom) : null,
+            sortKeyTo: Number.isFinite(Number(normalized.context?.sortKeyTo)) ? Number(normalized.context.sortKeyTo) : null,
+            precision: trim(normalized.context?.precision, 80),
+            windowKind: trim(normalized.context?.windowKind, 80),
+            label: trim(normalized.context?.label, 180),
+            approximate: normalized.context?.approximate === true,
         },
         coordinates: Array.isArray(normalized.coordinates)
             ? normalized.coordinates.slice(0, 24).map(coordinate => ({
@@ -856,17 +856,17 @@ function compactPendingCanonEntryForStorage(entry) {
             secretUntil: trim(normalized.visibility?.secretUntil, 32),
             knownBy: compactStringMap(normalized.visibility?.knownBy, 12, 80),
             notKnownByBefore: compactStringMap(normalized.visibility?.notKnownByBefore, 12, 80),
-            knownByAtPosition: normalized.visibility?.knownByAtPosition || {},
-            notKnownByBeforePosition: normalized.visibility?.notKnownByBeforePosition || {},
+            knownByAtContext: normalized.visibility?.knownByAtContext || {},
+            notKnownByBeforeContext: normalized.visibility?.notKnownByBeforeContext || {},
             neverKnownBy: sliceStrings(normalized.visibility?.neverKnownBy, 12, 80),
-            publicFromPosition: normalized.visibility?.publicFromPosition || {},
-            secretUntilPosition: normalized.visibility?.secretUntilPosition || {},
+            publicFromContext: normalized.visibility?.publicFromContext || {},
+            secretUntilContext: normalized.visibility?.secretUntilContext || {},
             suspectedBy: compactStringMap(normalized.visibility?.suspectedBy, 8, 80),
         },
         retrieval: {
             activation: trim(normalized.retrieval?.activation, 40),
             frequency: trim(normalized.retrieval?.frequency, 40),
-            positionalBoost: trim(normalized.retrieval?.positionalBoost, 40),
+            contextBoost: trim(normalized.retrieval?.contextBoost, 40),
             triggers: {
                 charactersAny: sliceStrings(normalized.retrieval?.triggers?.charactersAny, 12, 80),
                 locationsAny: sliceStrings(normalized.retrieval?.triggers?.locationsAny, 10, 80),
@@ -1304,7 +1304,7 @@ function buildCanonPreviewPacks(entries = [], { schoolYear = null, sceneIso = ''
         packs.push({
             id: 'all_active',
             label: 'All Active Constraints',
-            description: 'Every active non-reference canon constraint matching the current date or Story Position.',
+            description: 'Every active non-reference canon constraint matching the current date or Context.',
             entryIds: dedupeIds(activeEntries.map(entry => entry.id)),
             totalCount: activeEntries.length,
             newCount: activeEntries.filter(addable).length,
@@ -1347,7 +1347,7 @@ export async function queryCanonLoreDatabase(context = null, options = {}) {
             source: item.entry.source || CANON_DB_SOURCE,
             extensions: {
                 ...(item.entry.extensions || {}),
-                sagaPositionGate: compactPositionGateMeta(item.eligibility),
+                sagaContextGate: compactContextGateMeta(item.eligibility),
             },
         })),
         matchedCount: candidates.length,
@@ -1388,7 +1388,7 @@ export async function previewCanonLoreForContext(context = null, options = {}) {
             source: item.entry.source || CANON_DB_SOURCE,
             extensions: {
                 ...(item.entry.extensions || {}),
-                sagaPositionGate: compactPositionGateMeta(item.eligibility),
+                sagaContextGate: compactContextGateMeta(item.eligibility),
             },
         });
         const duplicateMeta = getCanonPreviewDuplicateMeta(compact, keySets);
@@ -1397,8 +1397,8 @@ export async function previewCanonLoreForContext(context = null, options = {}) {
             canonPreview: {
                 score: item.score,
                 matchedBy: item.eligibility?.matchedBy || '',
-                positionGateStatus: item.eligibility?.positionGate?.status || '',
-                positionGateReason: item.eligibility?.positionGate?.reason || '',
+                contextGateStatus: item.eligibility?.contextGate?.status || '',
+                contextGateReason: item.eligibility?.contextGate?.reason || '',
                 ...previewConfig,
                 duplicateStatus: duplicateMeta.duplicateStatus,
                 duplicateReason: duplicateMeta.duplicateReason,
@@ -1545,7 +1545,7 @@ export async function proposeCanonLoreForContext(context = null, options = {}) {
     if (!query.entries?.length) {
         dbState.lastProposedCount = 0;
         dbState.lastStatus = query.status === 'no_date'
-            ? 'No canon database query: Story Context has no parseable date.'
+            ? 'No canon database query: Context has no parseable date.'
             : query.status === 'disabled'
                 ? 'Canon lore database disabled.'
                 : 'No matching canon database entries for this date/context.';
@@ -1583,7 +1583,7 @@ export async function proposeCanonLoreForContext(context = null, options = {}) {
         contextKey: buildLoreGenerationKey(state),
         source: CANON_DB_SOURCE,
         status: 'pending',
-        summary: `Local canon database proposed ${entries.length} entries for ${query.sceneIso || 'active Story Position'}.`,
+        summary: `Local canon database proposed ${entries.length} entries for ${query.sceneIso || 'active Context'}.`,
         rawEntryCount: query.entries.length,
         validEntryCount: entries.length,
         createdAt: Date.now(),
@@ -1603,5 +1603,5 @@ export const __canonLoreDbTestHooks = {
     evaluateCanonEntryEligibility,
     scoreCanonEntry,
     buildCanonCandidateItem,
-    compactPositionGateMeta,
+    compactContextGateMeta,
 };

@@ -1,0 +1,316 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "future_guard_dumbledore_alive_before_tower",
+      "title": "Dumbledore alive before Tower",
+      "kind": "future_guard",
+      "gateType": "future_guard",
+      "category": "timeline",
+      "relevance": "normal",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "priority": 100,
+      "status": "active",
+      "protected": true,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.hbp.year_6",
+        "validToAnchor": "hp.hbp.astronomy_tower",
+        "sortKeyFrom": 9740,
+        "sortKeyTo": 10041,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Half-Blood Prince: Year 6",
+        "approximate": false
+      },
+      "activation": {
+        "requiresMissingEvents": [
+          "dumbledore_death_occurs"
+        ]
+      },
+      "expiration": {
+        "expiresWhenEventsHappen": [
+          "dumbledore_death_occurs"
+        ],
+        "autoMuteOnExpire": true
+      },
+      "scope": {
+        "characters": [
+          "Albus Dumbledore",
+          "Harry Potter"
+        ],
+        "topics": [
+          "dumbledore"
+        ],
+        "schoolYears": [
+          "6"
+        ],
+        "books": [
+          "Half-Blood Prince"
+        ],
+        "phases": [
+          "term_start"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "position_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Albus Dumbledore",
+            "Harry Potter"
+          ],
+          "topicsAny": [
+            "dumbledore"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Dumbledore is alive before the late Year 6 tower event.",
+        "injection": "Do not imply Dumbledore is already dead or that ordinary characters know he will die before the event.",
+        "constraints": [
+          "Do not imply Dumbledore is already dead or that ordinary characters know he will die before the event."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "future-guard",
+          "dumbledore"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Half-Blood Prince",
+        "confidence": 0.85,
+        "notes": "Curated Context constraint seed entry."
+      },
+      "extensions": {
+        "consolidationPass": {
+          "appliedIn": "Wandlight duplicate/title consolidation pass",
+          "notes": "Automatic concise title cleanup for implementation-language wording."
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "future_guard_sirius_alive_before_department",
+      "title": "Sirius Before Department Battle",
+      "kind": "temporal_gate",
+      "gateType": "temporal_gate",
+      "category": "timeline",
+      "relevance": "normal",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 75,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "priority": 90,
+      "status": "active",
+      "protected": true,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.poa.sirius_truth_to_trio",
+        "validToAnchor": "hp.ootp.department_mysteries",
+        "sortKeyFrom": 8922,
+        "sortKeyTo": 9664,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Order of the Phoenix: Year 5",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Sirius Black",
+          "Harry Potter"
+        ],
+        "topics": [
+          "sirius"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Sirius Black",
+            "Harry Potter"
+          ],
+          "topicsAny": [
+            "sirius"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before the Department of Mysteries battle, Sirius Black is alive and should not be treated as dead or memorialized unless our story has established a different outcome.",
+        "injection": "Before the Department of Mysteries battle, Sirius Black is alive and should not be treated as dead or memorialized unless our story has established a different outcome.",
+        "constraints": [
+          "Use Sirius death-state lore after the Department of Mysteries battle."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "future-guard",
+          "sirius"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Order of the Phoenix",
+        "confidence": 0.85,
+        "notes": "Curated Context constraint seed entry."
+      },
+      "extensions": {
+        "consolidationPass": {
+          "appliedIn": "Wandlight duplicate/title consolidation pass",
+          "notes": "Merged duplicate Sirius alive-before-death guards."
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "future_guard_voldemort_not_public_year5",
+      "title": "Year 5 Ministry Denial",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "priority": 100,
+      "status": "active",
+      "protected": true,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.gof.year_4",
+        "validToAnchor": "hp.ootp.year_5",
+        "sortKeyFrom": 9305,
+        "sortKeyTo": 9677,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Order of the Phoenix: Year 5",
+        "approximate": false
+      },
+      "activation": {
+        "requiresMissingEvents": [
+          "voldemort_return_publicly_acknowledged"
+        ]
+      },
+      "expiration": {
+        "expiresWhenEventsHappen": [
+          "voldemort_return_publicly_acknowledged"
+        ],
+        "autoMuteOnExpire": true
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Albus Dumbledore",
+          "Cornelius Fudge"
+        ],
+        "topics": [
+          "Voldemort return",
+          "Ministry denial",
+          "public knowledge"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ],
+        "factions": [
+          "Ministry of Magic",
+          "Order of the Phoenix"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Albus Dumbledore",
+            "Cornelius Fudge"
+          ],
+          "topicsAny": [
+            "Voldemort return",
+            "Ministry denial",
+            "public knowledge"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After the graveyard and before public acknowledgment, the Ministry and general public deny or resist the claim that Voldemort has returned, while Harry and close allies know the truth.",
+        "injection": "During Year 5 before public acknowledgment, the Ministry and general public deny or resist the claim that Voldemort has returned, even while Harry and close allies know the truth.",
+        "constraints": [
+          "Separate private truth from public denial during Year 5."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "future-guard",
+          "ministry denial"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Order of the Phoenix",
+        "confidence": 0.85,
+        "notes": "Curated Context constraint seed entry."
+      },
+      "extensions": {
+        "consolidationPass": {
+          "appliedIn": "Wandlight duplicate/title consolidation pass",
+          "notes": "Merged Year 5 public/private Voldemort-return denial duplicates."
+        }
+      }
+    }
+  ]
+}

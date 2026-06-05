@@ -40,7 +40,7 @@ import {
 import { sendLoreRequest, validateLoreProviderConfiguration } from './lore-llm-client.js';
 import { proposeCanonLoreForContext } from './canon-lore-db.js';
 import { normalizeLorePurpose, computeSpecificityScore } from './lore-relevance.js';
-import { resolveAndApplyStoryPositionsFromContext } from './story-position-resolver.js';
+import { resolveAndApplyContextsFromContext } from './context-resolver.js';
 
 // ── Guard flags ─────────────────────────────────────────────────────────────────
 
@@ -451,7 +451,7 @@ function inferStoryContextFromReplyHeaders(messages = [], state = getState()) {
             canonBoundary: inferHarryPotterCanonBoundary(header.sceneDate) || state?.loreContext?.canonBoundary || state?.canon?.canonBoundary || '',
             branchId: state?.loreContext?.branchId || 'main',
             timeTravelMode: state?.loreContext?.timeTravelMode || 'none',
-            summary: `Story context detected from Wandlight reply header: ${header.timeOfDay} at ${header.location}; ${header.weather}.`,
+            summary: `Context detected from Wandlight reply header: ${header.timeOfDay} at ${header.location}; ${header.weather}.`,
         });
         return { ...context, _header: header };
     }
@@ -603,25 +603,25 @@ function formatCanonProposalSuffix(result) {
     return '';
 }
 
-async function maybeResolveStoryPositionsFromContext(context, options = {}) {
+async function maybeResolveContextsFromContext(context, options = {}) {
     try {
         const progress = typeof options.progress === 'function' ? options.progress : null;
-        progress?.('Resolving Lorepack Story Position...', 82);
-        return await resolveAndApplyStoryPositionsFromContext(context, {
+        progress?.('Resolving Loredeck Context...', 82);
+        return await resolveAndApplyContextsFromContext(context, {
             contextSource: options.contextSource || 'local_alias',
             sourceText: options.sourceText || '',
         });
     } catch (e) {
-        console.warn(`${LOG_PREFIX} Story Position resolver failed:`, e);
+        console.warn(`${LOG_PREFIX} Context resolver failed:`, e);
         return { status: 'failed', error: e?.message || String(e || '') };
     }
 }
 
-function formatStoryPositionResolutionSuffix(result) {
+function formatContextResolutionSuffix(result) {
     if (!result || result.status === 'failed') return '';
-    if (result.appliedCount > 0) return ` Story Position resolved for ${result.appliedCount} Lorepack${result.appliedCount === 1 ? '' : 's'}.`;
-    if (result.resolvedCount > 0) return ' Story Position already matched the current context.';
-    if (result.skippedCount > 0 && !result.unresolvedCount) return ' Story Position resolver skipped locked Lorepacks.';
+    if (result.appliedCount > 0) return ` Context resolved for ${result.appliedCount} Loredeck${result.appliedCount === 1 ? '' : 's'}.`;
+    if (result.resolvedCount > 0) return ' Context already matched the current context.';
+    if (result.skippedCount > 0 && !result.unresolvedCount) return ' Context resolver skipped locked Loredecks.';
     return '';
 }
 
@@ -656,13 +656,13 @@ export async function runLoreContextDetection(options = {}) {
             if (headerContext) {
                 const normalized = correctHarryPotterCanonContext({ ...headerContext, lastDetectedAt: Date.now() });
                 setLoreContext(normalized);
-                const positionResult = await maybeResolveStoryPositionsFromContext(normalized, {
+                const positionResult = await maybeResolveContextsFromContext(normalized, {
                     contextSource: 'header',
                     sourceText: headerContext?._header?.rawHeader || '',
                     progress,
                 });
                 const canonResult = await maybeProposeCanonLoreFromContext(normalized, progress);
-                progress?.(`Context detected from recent Wandlight reply header.${formatStoryPositionResolutionSuffix(positionResult)}${formatCanonProposalSuffix(canonResult)}`, 100);
+                progress?.(`Context detected from recent Wandlight reply header.${formatContextResolutionSuffix(positionResult)}${formatCanonProposalSuffix(canonResult)}`, 100);
 
                 if (settings.debugMode) {
                     console.log(`${LOG_PREFIX} Lore context detected from reply header:`, normalized);
@@ -699,13 +699,13 @@ export async function runLoreContextDetection(options = {}) {
             if (fallback) {
                 const savedFallback = { ...fallback, lastDetectedAt: Date.now() };
                 setLoreContext(savedFallback);
-                const positionResult = await maybeResolveStoryPositionsFromContext(savedFallback, {
+                const positionResult = await maybeResolveContextsFromContext(savedFallback, {
                     contextSource: 'local_alias',
                     sourceText: messages,
                     progress,
                 });
                 const canonResult = await maybeProposeCanonLoreFromContext(savedFallback, progress);
-                progress?.(`Context inferred locally from message headings.${formatStoryPositionResolutionSuffix(positionResult)}${formatCanonProposalSuffix(canonResult)}`, 100);
+                progress?.(`Context inferred locally from message headings.${formatContextResolutionSuffix(positionResult)}${formatCanonProposalSuffix(canonResult)}`, 100);
                 return savedFallback;
             }
             progress?.('Context detection returned no response.', 100);
@@ -720,13 +720,13 @@ export async function runLoreContextDetection(options = {}) {
             if (fallback) {
                 const savedFallback = { ...fallback, lastDetectedAt: Date.now() };
                 setLoreContext(savedFallback);
-                const positionResult = await maybeResolveStoryPositionsFromContext(savedFallback, {
+                const positionResult = await maybeResolveContextsFromContext(savedFallback, {
                     contextSource: 'local_alias',
                     sourceText: messages,
                     progress,
                 });
                 const canonResult = await maybeProposeCanonLoreFromContext(savedFallback, progress);
-                progress?.(`Context inferred locally from message headings.${formatStoryPositionResolutionSuffix(positionResult)}${formatCanonProposalSuffix(canonResult)}`, 100);
+                progress?.(`Context inferred locally from message headings.${formatContextResolutionSuffix(positionResult)}${formatCanonProposalSuffix(canonResult)}`, 100);
                 return savedFallback;
             }
             progress?.('Context detection returned no usable result.', 100);
@@ -735,13 +735,13 @@ export async function runLoreContextDetection(options = {}) {
 
         const normalized = correctHarryPotterCanonContext({ ...parsed, lastDetectedAt: Date.now() });
         setLoreContext(normalized);
-        const positionResult = await maybeResolveStoryPositionsFromContext(normalized, {
+        const positionResult = await maybeResolveContextsFromContext(normalized, {
             contextSource: 'model',
             sourceText: messages,
             progress,
         });
         const canonResult = await maybeProposeCanonLoreFromContext(normalized, progress);
-        progress?.(`Context detection complete.${formatStoryPositionResolutionSuffix(positionResult)}${formatCanonProposalSuffix(canonResult)}`, 100);
+        progress?.(`Context detection complete.${formatContextResolutionSuffix(positionResult)}${formatCanonProposalSuffix(canonResult)}`, 100);
 
         if (settings.debugMode) {
             console.log(`${LOG_PREFIX} Lore context detected:`, normalized);
@@ -1536,10 +1536,10 @@ export async function runBulkLoreGeneration(options = {}) {
 
         if (!state.loreContext?.lastDetectedAt) {
             if (force) {
-                progress?.('Detecting story context before lore scan...', 4);
+                progress?.('Detecting context before lore scan...', 4);
                 const detected = await runLoreContextDetection({ progress, signal });
                 if (!detected) {
-                    progress?.('No story context could be detected. Lore scan cancelled.', 100);
+                    progress?.('No context could be detected. Lore scan cancelled.', 100);
                     return { status: 'no_context_detected' };
                 }
                 state = getState();

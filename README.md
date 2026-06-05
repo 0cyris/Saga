@@ -20,7 +20,7 @@ This repository is being prepared for public testing so the extension can be loa
 
 - Load canon and custom fandom Loredecks.
 - Support multiple loaded Loredecks with stack priority.
-- Track Story Position so lore appears when it belongs in the story.
+- Track Context so lore appears when it belongs in the story.
 - Keep future canon, secrets, and timing-sensitive facts from leaking too early.
 - Let users duplicate, customize, generate, validate, and export Loredecks.
 - Provide review-first editing through Pending Review queues.
@@ -31,7 +31,7 @@ This repository is being prepared for public testing so the extension can be loa
 The current production focus is stabilizing the Loredeck system:
 
 - Bundled Harry Potter Golden Trio Loredeck.
-- Story Position-native schema and retrieval.
+- Context-native schema and retrieval.
 - Loredeck Library and Stack UI.
 - Custom and Generated Loredeck editing.
 - Deck Health validation.

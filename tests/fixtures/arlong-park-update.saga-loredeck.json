@@ -1,0 +1,188 @@
+{
+    "bundleType": "saga_loredeck_json",
+    "exportedAt": 1780560000000,
+    "pack": {
+        "packId": "smoke-arlong-park",
+        "type": "custom",
+        "title": "Smoke Test: Arlong Park",
+        "description": "Updated editable Custom Loredeck fixture for Saga visual smoke testing.",
+        "fandom": "One Piece",
+        "era": "Arlong Park Arc",
+        "author": "Saga Smoke Harness",
+        "version": "1.0.1",
+        "entrySchemaVersion": 3,
+        "manifest": "",
+        "source": {
+            "kind": "imported_json",
+            "url": "",
+            "updateUrl": "tests/fixtures/arlong-park-update.saga-loredeck.json",
+            "originalPackId": "smoke-arlong-park"
+        },
+        "tags": [
+            "fandom:one-piece",
+            "arc:arlong-park",
+            "origin:custom",
+            "smoke:test"
+        ],
+        "stats": {
+            "entryCount": 2,
+            "categoryCounts": {
+                "character": 1,
+                "faction": 1
+            }
+        },
+        "healthStatus": "needs_review"
+    },
+    "manifest": {
+        "schemaVersion": 3,
+        "id": "smoke-arlong-park",
+        "type": "custom",
+        "title": "Smoke Test: Arlong Park",
+        "description": "Updated editable Custom Loredeck fixture for Saga visual smoke testing.",
+        "fandom": "One Piece",
+        "era": "Arlong Park Arc",
+        "entrySchemaVersion": 3,
+        "files": [],
+        "stats": {
+            "entryCount": 2,
+            "categoryCounts": {
+                "character": 1,
+                "faction": 1
+            }
+        },
+        "update": {
+            "checkForUpdates": true,
+            "url": "tests/fixtures/arlong-park-update.saga-loredeck.json"
+        }
+    },
+    "entries": [
+        {
+            "id": "smoke_arlong",
+            "schemaVersion": 3,
+            "title": "Arlong Pressure",
+            "category": "character",
+            "canon": "canon",
+            "relevance": "high",
+            "priority": 95,
+            "tags": [
+                "character:arlong",
+                "arc:arlong-park",
+                "tone:cruel"
+            ],
+            "content": {
+                "fact": "Arlong rules Cocoyasi Village through intimidation, debt, violence, and public humiliation.",
+                "injection": "Arlong should feel openly cruel, coercive, and confident that fear gives him ownership over the village."
+            },
+            "context": {
+                "type": "anchor_window",
+                "anchorsAny": [
+                    "op_arlong_park_start"
+                ]
+            },
+            "retrieval": {
+                "cuesAny": [
+                    "Arlong",
+                    "Cocoyasi",
+                    "Nami"
+                ]
+            }
+        },
+        {
+            "id": "smoke_arlong_pirates",
+            "schemaVersion": 3,
+            "title": "Arlong Pirates Control",
+            "category": "faction",
+            "canon": "canon",
+            "relevance": "normal",
+            "priority": 75,
+            "tags": [
+                "faction:arlong-pirates",
+                "arc:arlong-park"
+            ],
+            "content": {
+                "fact": "The Arlong Pirates exploit Cocoyasi Village and enforce obedience through money, surveillance, and violence.",
+                "injection": "Use the Arlong Pirates as a pressure system around Nami, Cocoyasi, tribute demands, and fear of retaliation."
+            },
+            "context": {
+                "type": "anchor_window",
+                "anchorsAny": [
+                    "op_arlong_park_start"
+                ]
+            },
+            "retrieval": {
+                "cuesAny": [
+                    "Arlong Pirates",
+                    "tribute",
+                    "Cocoyasi"
+                ]
+            }
+        }
+    ],
+    "timelineRegistry": {
+        "schemaVersion": 1,
+        "timelineMode": "arc",
+        "defaultContextType": "anchor_window",
+        "anchors": [
+            {
+                "id": "op_arlong_park_start",
+                "label": "Arlong Park begins",
+                "aliases": [
+                    "Arlong Park Arc",
+                    "Cocoyasi Village"
+                ],
+                "sortKey": 1
+            }
+        ],
+        "windows": [
+            {
+                "id": "op_arlong_park",
+                "label": "Arlong Park Arc",
+                "anchorFrom": "op_arlong_park_start",
+                "anchorTo": "op_arlong_park_start",
+                "sortKeyFrom": 1,
+                "sortKeyTo": 10
+            }
+        ]
+    },
+    "tagRegistry": {
+        "schemaVersion": 1,
+        "tags": [
+            {
+                "id": "character:arlong",
+                "label": "Arlong",
+                "group": "character"
+            },
+            {
+                "id": "arc:arlong-park",
+                "label": "Arlong Park",
+                "group": "arc"
+            },
+            {
+                "id": "tone:cruel",
+                "label": "Cruel",
+                "group": "tone"
+            }
+        ]
+    },
+    "health": {
+        "status": "needs_review",
+        "summary": {
+            "entryCount": 2,
+            "errorCount": 0,
+            "warningCount": 1,
+            "suggestionCount": 0,
+            "categoryCounts": {
+                "character": 1,
+                "faction": 1
+            }
+        },
+        "errors": [],
+        "warnings": [
+            {
+                "code": "smoke_fixture",
+                "message": "Fixture bundle used for visual smoke testing."
+            }
+        ],
+        "suggestions": []
+    }
+}

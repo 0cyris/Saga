@@ -3,7 +3,7 @@ import path from 'node:path';
 
 const root = process.cwd();
 const harnessPath = path.join(root, 'tests', 'visual-smoke.html');
-const fixturePath = path.join(root, 'tests', 'fixtures', 'arlong-park-update.saga-lorepack.json');
+const fixturePath = path.join(root, 'tests', 'fixtures', 'arlong-park-update.saga-loredeck.json');
 const panelPath = path.join(root, 'lore-panel.js');
 const stylePath = path.join(root, 'style.css');
 const settingsTemplatePath = path.join(root, 'settings.html');
@@ -31,15 +31,15 @@ assert(fs.existsSync(sagaGoldIconPath), 'Bundled Saga Gold Loredecks icon must e
 assert(JSON.parse(read(sagaGoldManifestPath)).id === 'saga-gold', 'Bundled Saga Gold Icon Set manifest must exist.');
 assert(harness.includes('window.SillyTavern'), 'Harness must stub SillyTavern before importing modules.');
 assert(harness.includes('window.__sagaSmokeReady = true'), 'Harness must expose a smoke-ready marker.');
-assert(harness.includes("activeTab: 'lorepacks'"), 'Harness must open directly to the Loredecks tab.');
-assert(harness.includes("selectedLorepackId: customPack.packId"), 'Harness must select the seeded Custom Loredeck.');
+assert(harness.includes("activeTab: 'loredecks'"), 'Harness must open directly to the Loredecks tab.');
+assert(harness.includes("selectedLoredeckId: customPack.packId"), 'Harness must select the seeded Custom Loredeck.');
 assert(harness.includes('pendingChanges'), 'Harness must seed Pending Review content.');
 assert(harness.includes('source: {'), 'Harness must seed source/update metadata.');
-assert(harness.includes('./fixtures/arlong-park-update.saga-lorepack.json'), 'Harness must point at the local update fixture.');
+assert(harness.includes('./fixtures/arlong-park-update.saga-loredeck.json'), 'Harness must point at the local update fixture.');
 assert(!settingsTemplate.includes('Provider Settings'), 'Extension menu settings must not expose the old Provider Settings dropdown.');
 assert(!settingsTemplate.includes('API and model controls'), 'Extension menu settings must not expose legacy API/model controls.');
 
-assert(fixture.bundleType === 'saga_lorepack_json', 'Fixture must be a Saga Loredeck bundle.');
+assert(fixture.bundleType === 'saga_loredeck_json', 'Fixture must be a Saga Loredeck bundle.');
 assert(fixture.pack?.packId === 'smoke-arlong-park', 'Fixture pack ID must match the harness deck.');
 assert(fixture.manifest?.id === fixture.pack.packId, 'Fixture manifest ID must match the pack ID.');
 assert(fixture.pack?.version === '1.0.1', 'Fixture should simulate a newer published version.');
@@ -48,7 +48,7 @@ for (const entry of fixture.entries) {
     assert(entry.schemaVersion === 3, `Fixture entry ${entry.id || '(missing id)'} must use schema v3.`);
     assert(entry.id && entry.title, 'Fixture entries need IDs and titles.');
     assert(entry.content?.fact && entry.content?.injection, `Fixture entry ${entry.id} needs high-value content fields.`);
-    assert(entry.position && typeof entry.position === 'object', `Fixture entry ${entry.id} needs Story Position metadata.`);
+    assert(entry.context && typeof entry.context === 'object', `Fixture entry ${entry.id} needs Context metadata.`);
     assert(entry.retrieval && typeof entry.retrieval === 'object', `Fixture entry ${entry.id} needs retrieval metadata.`);
 }
 assert(fixture.timelineRegistry?.anchors?.length, 'Fixture must include timeline anchors.');
@@ -69,14 +69,14 @@ for (const token of [
     'Open Health Center',
     'Health Report',
     'Delete Deck',
-    'deleteLorepackLibraryPackWithConfirm',
-    'refreshLorepackSurfaces',
+    'deleteLoredeckLibraryPackWithConfirm',
+    'refreshLoredeckSurfaces',
     'renderSettingsTab',
     'ICONSET_SCHEMA_VERSION',
     'BUNDLED_ICONSET_PRESETS',
     'saga-gold',
     'Images/iconsets/saga-gold/256/loredecks.png',
-    'createLorepackDeckVisual',
+    'createLoredeckDeckVisual',
     'assets.cover',
     'Theme Pack',
     'Live Preview',
@@ -97,21 +97,21 @@ for (const token of [
 }
 
 for (const token of [
-    'wandlight-lorepack-install-shell',
+    'wandlight-loredeck-install-shell',
     'wandlight-runtime-rail',
     'wandlight-runtime-drawer',
-    'wandlight-lorepack-detail-card',
-    'wandlight-lorepack-library-shell',
-    'wandlight-lorepack-library-columns',
-    'wandlight-lorepack-library-stack-card',
+    'wandlight-loredeck-detail-card',
+    'wandlight-loredeck-library-shell',
+    'wandlight-loredeck-library-columns',
+    'wandlight-loredeck-library-stack-card',
     'wandlight-lore-workbench-shell .wandlight-runtime-button',
-    'wandlight-lorepack-health-center-shell',
-    'wandlight-lorepack-health-severity-card',
+    'wandlight-loredeck-health-center-shell',
+    'wandlight-loredeck-health-severity-card',
     'wandlight-theme-top-grid',
     'wandlight-theme-gallery',
     'wandlight-theme-icon-grid',
     'wandlight-theme-preview-surface',
-    'wandlight-lorepack-library-visual-cover',
+    'wandlight-loredeck-library-visual-cover',
     'scrollbar-gutter: stable',
 ]) {
     assert(style.includes(token), `Stylesheet is missing expected smoke selector: ${token}`);

@@ -99,7 +99,7 @@ server.listen(Number.isFinite(port) ? port : 8765, host, async () => {
     try {
         const responses = await Promise.all([
             fetch(url),
-            fetch(`http://${host}:${actualPort}/tests/fixtures/arlong-park-update.saga-lorepack.json`),
+            fetch(`http://${host}:${actualPort}/tests/fixtures/arlong-park-update.saga-loredeck.json`),
         ]);
         for (const response of responses) {
             if (!response.ok) throw new Error(`${response.url} returned HTTP ${response.status}`);

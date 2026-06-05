@@ -149,7 +149,7 @@ export const DEFAULT_SETTINGS = {
         schemaVersion: 1,
         packs: {},
     },
-    lorepackLibrary: {
+    loredeckLibrary: {
         schemaVersion: 1,
         packs: {
             'hp-golden-trio': {
@@ -161,7 +161,7 @@ export const DEFAULT_SETTINGS = {
                 era: 'Golden Trio',
                 author: 'Saga',
                 version: '1.0.0',
-                manifest: 'Lorepacks/hp-golden-trio/lorepack.json',
+                manifest: 'Loredecks/hp-golden-trio/loredeck.json',
                 source: {
                     kind: 'bundled',
                     url: '',
@@ -339,7 +339,7 @@ export const DEFAULT_SETTINGS = {
     // {{storyContext}}, {{directText}}.
     continuityCompressionPromptTemplate: `Compress the following Wandlight {{kind}} injection block for a Harry Potter roleplay.
 
-Story context:
+Context:
 {{storyContext}}
 
 Compression level {{compressionLevel}} — {{compressionLabel}}.
@@ -359,7 +359,7 @@ Direct injection block:
 {{directText}}`,
     loreCompressionPromptTemplate: `Compress the following Wandlight {{kind}} injection block for a Harry Potter roleplay.
 
-Story context:
+Context:
 {{storyContext}}
 
 Compression level {{compressionLevel}} — {{compressionLabel}}.
@@ -384,14 +384,14 @@ Direct injection block:
         'session.dangerZone': true,
         'context.canonDatabase': true,
         'context.automation': true,
-        'lorepacks.activeStack': false,
-        'lorepacks.health': true,
-        'lorepacks.importExport': true,
-        'lorepacks.creator': false,
-        'lorepacks.loaded': false,
-        'lorepacks.storyPosition': true,
-        'lorepacks.library': false,
-        'lorepacks.details': false,
+        'loredecks.activeStack': false,
+        'loredecks.health': true,
+        'loredecks.importExport': true,
+        'loredecks.creator': false,
+        'loredecks.loaded': false,
+        'loredecks.context': true,
+        'loredecks.library': false,
+        'loredecks.details': false,
         'lore.generationSettings': true,
         'lore.storyGenerationSettings': true,
         'lore.story.scanScope': false,
@@ -444,7 +444,7 @@ Direct injection block:
     continuityTopP: 0.98,
     continuityMaxTokens: 8192,
 
-    // Reasoning provider: used by Detect Story Context / Generate Pending Lore. Internal key retained for backward compatibility.
+    // Reasoning provider: used by Detect Context / Generate Pending Lore. Internal key retained for backward compatibility.
     loreProvider: 'st', // 'st' | 'profile' | 'openai_compatible'
     loreProfileId: '',
     // Deprecated: Connection Profiles now own their settings preset.
@@ -533,7 +533,7 @@ export function getDefaultState() {
             lastStatus: 'Not queried.',
         },
 
-        lorepackStack: [
+        loredeckStack: [
             {
                 packId: 'hp-golden-trio',
                 enabled: true,
@@ -542,7 +542,7 @@ export function getDefaultState() {
                 addedAt: 0,
             },
         ],
-        lorepackRegistry: {
+        loredeckRegistry: {
             schemaVersion: 1,
             packs: {
                 'hp-golden-trio': {
@@ -554,7 +554,7 @@ export function getDefaultState() {
                     era: 'Golden Trio',
                     author: 'Saga',
                     version: '1.0.0',
-                    manifest: 'Lorepacks/hp-golden-trio/lorepack.json',
+                    manifest: 'Loredecks/hp-golden-trio/loredeck.json',
                     source: {
                         kind: 'bundled',
                         url: '',
@@ -573,11 +573,11 @@ export function getDefaultState() {
                 },
             },
         },
-        lorepackContexts: {
+        loredeckContexts: {
             'hp-golden-trio': {
                 schemaVersion: 1,
                 packId: 'hp-golden-trio',
-                positionType: 'calendar',
+                contextType: 'calendar',
                 label: '',
                 sceneDate: '',
                 subjectiveDate: '',
@@ -709,7 +709,7 @@ export function getDefaultState() {
             selectedCategory: 'all',
             search: '',
             selectedEntryId: '',
-            selectedLorepackId: 'hp-golden-trio',
+            selectedLoredeckId: 'hp-golden-trio',
             activeTab: 'session',
             reviewSelectedIds: [],
             acceptedSelectedIds: [],
