@@ -77,12 +77,6 @@
         "work": "Harry Potter",
         "confidence": 0.85,
         "notes": "Curated Context constraint seed entry."
-      },
-      "extensions": {
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Concise title cleanup; age gates are non-default metadata unless directly relevant."
-        }
       }
     },
     {
@@ -161,12 +155,6 @@
         "work": "Harry Potter",
         "confidence": 0.85,
         "notes": "Curated Context constraint seed entry."
-      },
-      "extensions": {
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Concise title cleanup; age gates are non-default metadata unless directly relevant."
-        }
       }
     },
     {
@@ -245,12 +233,6 @@
         "work": "Harry Potter",
         "confidence": 0.85,
         "notes": "Curated Context constraint seed entry."
-      },
-      "extensions": {
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Concise title cleanup; age gates are non-default metadata unless directly relevant."
-        }
       }
     },
     {
@@ -329,12 +311,6 @@
         "work": "Harry Potter",
         "confidence": 0.85,
         "notes": "Curated Context constraint seed entry."
-      },
-      "extensions": {
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Concise title cleanup; age gates are non-default metadata unless directly relevant."
-        }
       }
     },
     {
@@ -413,12 +389,6 @@
         "work": "Harry Potter",
         "confidence": 0.85,
         "notes": "Curated Context constraint seed entry."
-      },
-      "extensions": {
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Concise title cleanup; age gates are non-default metadata unless directly relevant."
-        }
       }
     },
     {
@@ -497,12 +467,6 @@
         "work": "Harry Potter",
         "confidence": 0.85,
         "notes": "Curated Context constraint seed entry."
-      },
-      "extensions": {
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Concise title cleanup; age gates are non-default metadata unless directly relevant."
-        }
       }
     },
     {
@@ -581,12 +545,6 @@
         "work": "Harry Potter",
         "confidence": 0.85,
         "notes": "Curated Context constraint seed entry."
-      },
-      "extensions": {
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Concise title cleanup; age gates are non-default metadata unless directly relevant."
-        }
       }
     }
   ]

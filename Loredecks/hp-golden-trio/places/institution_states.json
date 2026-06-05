@@ -91,12 +91,6 @@
         "book": "Order of the Phoenix",
         "confidence": 0.85,
         "notes": "Curated Context constraint seed entry."
-      },
-      "extensions": {
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Merged Umbridge institution/event duplicates."
-        }
       }
     },
     {
@@ -185,7 +179,6 @@
         "deathStateGatePass": {
           "method": "removed positive requiresEvents from canon database entry",
           "notes": "Canon database proposals are Context-gated references; they should not become Future solely because a story milestone flag is absent.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "requiresEventsRemoved": [
             "voldemort_return_publicly_acknowledged"
           ]

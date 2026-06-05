@@ -84,7 +84,6 @@
         "temporalTightening": {
           "method": "curated chronology point event: validFrom plus 10 days",
           "notes": "End date narrowed so event-like lore does not remain active as an open-ended suggestion.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1998-08-31"
         }
       }
@@ -175,20 +174,14 @@
         "temporalTightening": {
           "method": "curated chronology point event: validFrom plus 10 days",
           "notes": "End date narrowed so event-like lore does not remain active as an open-ended suggestion.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1998-08-31"
         },
         "deathStateGatePass": {
           "method": "removed positive requiresEvents from canon database entry",
           "notes": "Canon database proposals are Context-gated references; they should not become Future solely because a story milestone flag is absent.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "requiresEventsRemoved": [
             "chamber_of_secrets_resolved"
           ]
-        },
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Merged Chamber resolution duplicates."
         }
       }
     },
@@ -280,12 +273,6 @@
         "book": "Prisoner of Azkaban",
         "confidence": 0.85,
         "notes": "Curated Context constraint seed entry."
-      },
-      "extensions": {
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Concise title cleanup; public status kept distinct from private truth."
-        }
       }
     },
     {
@@ -371,20 +358,14 @@
         "temporalTightening": {
           "method": "curated chronology point event: validFrom plus 10 days",
           "notes": "End date narrowed so event-like lore does not remain active as an open-ended suggestion.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1996-06-18"
         },
         "deathStateGatePass": {
           "method": "removed positive requiresEvents from canon database entry",
           "notes": "Canon database proposals are Context-gated references; they should not become Future solely because a story milestone flag is absent.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "requiresEventsRemoved": [
             "sirius_truth_revealed"
           ]
-        },
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Concise title cleanup; private truth kept distinct from public status."
         }
       }
     },
@@ -562,11 +543,7 @@
         "temporalTightening": {
           "method": "curated chronology point event: validFrom plus 10 days",
           "notes": "End date narrowed so event-like lore does not remain active as an open-ended suggestion.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1998-08-31"
-        },
-        "titleConsolidationPass": {
-          "appliedIn": "Wandlight title polish pass"
         }
       }
     },
@@ -653,13 +630,11 @@
         "temporalTightening": {
           "method": "curated chronology point event: validFrom plus 10 days",
           "notes": "End date narrowed so event-like lore does not remain active as an open-ended suggestion.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1998-08-31"
         },
         "deathStateGatePass": {
           "method": "removed positive requiresEvents from canon database entry",
           "notes": "Canon database proposals are Context-gated references; they should not become Future solely because a story milestone flag is absent.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "requiresEventsRemoved": [
             "voldemort_return_publicly_acknowledged"
           ]
@@ -749,13 +724,11 @@
         "temporalTightening": {
           "method": "curated chronology point event: validFrom plus 10 days",
           "notes": "End date narrowed so event-like lore does not remain active as an open-ended suggestion.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1997-06-30"
         },
         "deathStateGatePass": {
           "method": "removed positive requiresEvents from canon database entry",
           "notes": "Canon database proposals are Context-gated references; they should not become Future solely because a story milestone flag is absent.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "requiresEventsRemoved": [
             "horcruxes_revealed_to_trio"
           ]
@@ -845,13 +818,11 @@
         "temporalTightening": {
           "method": "curated chronology point event: validFrom plus 10 days",
           "notes": "End date narrowed so event-like lore does not remain active as an open-ended suggestion.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1998-08-31"
         },
         "deathStateGatePass": {
           "method": "removed positive requiresEvents from canon database entry",
           "notes": "Canon database proposals are Context-gated references; they should not become Future solely because a story milestone flag is absent.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "requiresEventsRemoved": [
             "dumbledore_death_occurs"
           ]
@@ -941,13 +912,11 @@
         "temporalTightening": {
           "method": "curated chronology point event: validFrom plus 10 days",
           "notes": "End date narrowed so event-like lore does not remain active as an open-ended suggestion.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1998-05-02"
         },
         "deathStateGatePass": {
           "method": "removed positive requiresEvents from canon database entry",
           "notes": "Canon database proposals are Context-gated references; they should not become Future solely because a story milestone flag is absent.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "requiresEventsRemoved": [
             "ministry_falls"
           ]
@@ -1037,7 +1006,6 @@
         "temporalTightening": {
           "method": "curated chronology point event: validFrom plus 10 days",
           "notes": "End date narrowed so event-like lore does not remain active as an open-ended suggestion.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1998-08-31"
         }
       }

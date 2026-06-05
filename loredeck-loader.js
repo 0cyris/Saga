@@ -1,5 +1,5 @@
 /**
- * loredeck-loader.js -- Saga/Wandlight
+ * loredeck-loader.js -- Saga
  * Minimal Loredeck manifest, entry-file loading, and Deck Health helpers.
  *
  * This module is intentionally data-only: it does not own canon scoring,
@@ -11,8 +11,6 @@ import { normalizeLoreEntry } from './lore-matrix.js';
 export const DEFAULT_LOREDECK_ID = 'hp-golden-trio';
 export const DEFAULT_LOREDECK_MANIFEST_URL = new URL('./Loredecks/hp-golden-trio/loredeck.json', import.meta.url);
 export const LOREDECK_INDEX_URL = new URL('./Loredecks/index.json', import.meta.url);
-export const LEGACY_LORE_MANIFEST_URL = new URL('./Lore/manifest.json', import.meta.url);
-export const LEGACY_LORE_INDEX_URL = new URL('./Lore/index.json', import.meta.url);
 
 export async function fetchJson(url, fallback = null) {
     const result = await fetchJsonDetailed(url);
@@ -1829,64 +1827,20 @@ export async function loadLoredeckSourceById(packId = DEFAULT_LOREDECK_ID, optio
         };
     }
 
-    if (String(packId || '') !== DEFAULT_LOREDECK_ID || options.allowLegacyFallback === false) {
-        const health = createHealth(packId);
-        addHealthIssue(health, 'error', 'missing_loredeck_manifest', `Loredeck manifest failed to load for ${packId}.`, {
-            packId,
-            status: loredeckResult.status,
-            detail: loredeckResult.error || loredeckResult.statusText || '',
-        });
-        return {
-            manifest: null,
-            baseUrl: manifestUrl,
-            sourceKind: 'missing',
-            registryRecord,
-            pack: buildMissingPackMeta(packId, registryRecord, stackPriority, stackIndex),
-            health: finalizeHealth(health),
-            entryFiles: [],
-        };
-    }
-
-    let legacyResult = await fetchJsonDetailed(LEGACY_LORE_MANIFEST_URL);
-    let baseUrl = LEGACY_LORE_MANIFEST_URL;
-    if (!legacyResult.ok) {
-        legacyResult = await fetchJsonDetailed(LEGACY_LORE_INDEX_URL);
-        baseUrl = LEGACY_LORE_INDEX_URL;
-    }
-    if (!legacyResult.ok) {
-        const health = createHealth(DEFAULT_LOREDECK_ID);
-        addHealthIssue(health, 'error', 'missing_default_loredeck', 'Default Loredeck and legacy Lore manifest both failed to load.', {
-            packId: DEFAULT_LOREDECK_ID,
-            status: legacyResult.status,
-            detail: legacyResult.error || legacyResult.statusText || '',
-        });
-        return {
-            manifest: null,
-            baseUrl,
-            sourceKind: 'missing',
-            registryRecord,
-            pack: { id: DEFAULT_LOREDECK_ID, type: 'bundled', title: 'Harry Potter: Golden Trio', stackPriority, stackIndex },
-            health: finalizeHealth(health),
-            entryFiles: [],
-        };
-    }
-
-    const manifest = legacyResult.json;
-    const health = createHealth(manifest.databaseId || 'legacy-lore');
-    const entryFiles = await loadEntryFiles(manifest, baseUrl, health);
-    const pack = buildLoredeckMeta({
-        id: DEFAULT_LOREDECK_ID,
-        type: 'bundled',
-        title: 'Harry Potter: Golden Trio',
-    }, stackPriority, stackIndex);
+    const health = createHealth(packId);
+    addHealthIssue(health, 'error', 'missing_loredeck_manifest', `Loredeck manifest failed to load for ${packId}.`, {
+        packId,
+        status: loredeckResult.status,
+        detail: loredeckResult.error || loredeckResult.statusText || '',
+    });
     return {
-        manifest,
-        baseUrl,
-        sourceKind: 'legacy',
+        manifest: null,
+        baseUrl: manifestUrl,
+        sourceKind: 'missing',
         registryRecord,
-        pack,
+        pack: buildMissingPackMeta(packId, registryRecord, stackPriority, stackIndex),
         health: finalizeHealth(health),
-        entryFiles,
+        entryFiles: [],
     };
 }
 
@@ -1917,7 +1871,6 @@ export async function loadLoredeckStackSources(stack, options = {}) {
             registryRecord,
             stackPriority: item.priority,
             stackIndex: index,
-            allowLegacyFallback: options.allowLegacyFallback !== false,
         }));
     }
     return sources;
@@ -1930,7 +1883,6 @@ export async function loadDefaultLoredeckSource(options = {}) {
     return loadLoredeckSourceById(DEFAULT_LOREDECK_ID, {
         stackPriority: getStackPriority(DEFAULT_LOREDECK_ID),
         stackIndex: 0,
-        allowLegacyFallback: options.allowLegacyFallback !== false,
     });
 }
 

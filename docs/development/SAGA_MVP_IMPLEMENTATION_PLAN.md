@@ -2,9 +2,9 @@
 
 ## Objective
 
-Build the first Saga foundation without changing Wandlight's existing runtime behavior.
+Historical implementation slice: build the first Saga foundation without changing Wandlight's existing runtime behavior.
 
-The MVP should prove that the current Harry Potter database can be loaded as a Bundled Loredeck while the old `Lore/manifest.json` path still works as a fallback.
+Current status: the HP database now loads as a Bundled Loredeck from `Loredecks/hp-golden-trio`, and the old root `Lore/manifest.json` fallback has been removed.
 
 ## Non-Goals For This Slice
 
@@ -29,7 +29,7 @@ Loredecks/hp-golden-trio/
   ...current Lore files...
 ```
 
-For the first implementation, copy the current `Lore/` database into the pack instead of moving it. This avoids breaking legacy paths while the loader is being adapted.
+For the first implementation, the current `Lore/` database was copied into the pack while the loader was being adapted. Current development treats `Loredecks/hp-golden-trio` as the source of truth.
 
 ### 2. Add Loredeck Loader Primitives
 
@@ -39,7 +39,7 @@ Add a small module or focused functions that can:
 - Resolve registry paths relative to that Loredeck manifest.
 - Resolve entry file paths relative to that Loredeck manifest.
 - Annotate loaded entries with pack metadata.
-- Fall back to `Lore/manifest.json` when the Loredeck manifest is unavailable.
+- Fail through Deck Health when the Loredeck manifest is unavailable.
 
 ### 3. Preserve Existing Canon Suggestion Behavior
 
@@ -85,7 +85,7 @@ Run focused checks:
 - A direct loader smoke test.
 - JSON parse check for the new Loredeck manifest.
 - Verify loaded entry count is nonzero.
-- Verify legacy fallback still points at `Lore/manifest.json`.
+- Verify a missing bundled Loredeck manifest produces a loader/Deck Health error instead of falling back to root `Lore/`.
 
 ## Success Criteria
 
@@ -93,6 +93,5 @@ Run focused checks:
 - Current HP lore files are available under the Loredeck directory.
 - The canon database loader can load the HP Loredeck.
 - Existing canon preview/suggestion APIs still work.
-- Legacy `Lore/manifest.json` fallback remains intact.
+- Legacy root `Lore/manifest.json` fallback is removed.
 - No user-facing UI behavior changes are required yet.
-

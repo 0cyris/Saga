@@ -92,8 +92,7 @@
         "injection": "Before the Year 7 Hallows arc is introduced, Harry, Ron, and Hermione should not reason in terms of the Elder Wand, Resurrection Stone, Cloak trio, Hallows symbol, or Hallows-vs-Horcrux choice unless our story has introduced that knowledge early.",
         "constraints": [
           "Do not leak Hallows terminology or quest logic into Years 1-6 unless our story has established it."
-        ],
-        "notes": "Consolidated from overlapping bundled lore gates."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -112,14 +111,7 @@
       "sourceInfo": {
         "work": "Harry Potter",
         "book": "Deathly Hallows",
-        "confidence": 0.86,
-        "notes": "Created by Wandlight duplicate/title consolidation pass."
-      },
-      "extensions": {
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Merged duplicate/overlapping lore gates into one concise entry."
-        }
+        "confidence": 0.86
       }
     },
     {
@@ -210,8 +202,7 @@
         "constraints": [
           "Do not let Horcrux knowledge appear before the story has established how the characters learned it.",
           "In September Year 6, do not assume Hermione or Ron can discuss Horcruxes just because the roleplay is in Half-Blood Prince year."
-        ],
-        "notes": "Consolidated from overlapping bundled lore gates."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -228,14 +219,7 @@
       "sourceInfo": {
         "work": "Harry Potter",
         "book": "Half-Blood Prince",
-        "confidence": 0.86,
-        "notes": "Created by Wandlight duplicate/title consolidation pass."
-      },
-      "extensions": {
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Merged duplicate/overlapping lore gates into one concise entry."
-        }
+        "confidence": 0.86
       }
     },
     {
@@ -327,8 +311,7 @@
         "injection": "Before our story establishes the Year 7 Horcrux hunt, Harry, Ron, and Hermione are not living as fugitives on a mission and should still be treated according to the current school-year context.",
         "constraints": [
           "Do not shift the trio into Deathly Hallows fugitive-road-trip mode before the story establishes it."
-        ],
-        "notes": "Consolidated from overlapping bundled lore gates."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -346,14 +329,7 @@
       "sourceInfo": {
         "work": "Harry Potter",
         "book": "Deathly Hallows",
-        "confidence": 0.86,
-        "notes": "Created by Wandlight duplicate/title consolidation pass."
-      },
-      "extensions": {
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Merged duplicate/overlapping lore gates into one concise entry."
-        }
+        "confidence": 0.86
       }
     }
   ]

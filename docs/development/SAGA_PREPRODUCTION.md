@@ -1508,7 +1508,7 @@ Migration tasks:
 4. Keep old Wandlight slash commands as aliases.
 5. Add new Saga slash commands.
 6. Move current `Lore/` data into `Loredecks/hp-golden-trio/`.
-7. Keep legacy `Lore/manifest.json` fallback temporarily.
+7. Remove the legacy `Lore/manifest.json` fallback once `Loredecks/hp-golden-trio/` is the source of truth.
 8. Update canon loader to load active Loredeck files.
 9. Add single active Loredeck defaulting to Harry Potter: Golden Trio.
 10. Add stack state and UI after single-pack loading is stable.
@@ -1656,7 +1656,7 @@ Mitigation: Build a runtime index, cache loaded manifests, score candidates in s
 
 ## Immediate Next Steps
 
-The initial Loredeck foundation is implemented: `hp-golden-trio` is scaffolded, the Loredeck loader preserves legacy `Lore/manifest.json` fallback, canon suggestions route through the active stack, the Loredeck tab owns library/stack workflows, Context v1 exists, Theme Packs exist, and provider settings now live in the runtime Settings tab.
+The initial Loredeck foundation is implemented: `hp-golden-trio` is scaffolded, the Loredeck loader uses `Loredecks/hp-golden-trio` as the bundled HP source of truth, canon suggestions route through the active stack, the Loredeck tab owns library/stack workflows, Context v1 exists, Theme Packs exist, and provider settings now live in the runtime Settings tab.
 
 Recent production completed **Context-native Loredeck retrieval, HP reference-deck conformance, and the first full-screen Saga workflow surfaces**.
 
@@ -1715,4 +1715,4 @@ Legacy cleanup checkpoint: the Wandlight compatibility posture has changed. Saga
 51. Done: revise timeline densification policy around candidate quality, not alias sprawl. Deck Health now surfaces advisory sparse-candidate, concentrated-anchor, and missing-window suggestions while keeping these findings non-blocking. Durable anchors/windows should be added for high-value recurring story moments, missing registry coverage, Creator output, or accepted user/model suggestions; the Reasoner handles casual phrasing.
 52. Done: audit Wandlight legacy features for removal. The audit marks the full Wandlight chat preset, fast reply-header Context detection, HP-specific global Context inference, root `Lore/` fallback loading, slash/prompt/state namespaces, Provider preset naming, and legacy schema aliases by removal priority.
 53. Done: remove the full Wandlight chat preset product path and fast reply-header Context detection. The Session preset card, bundled Wandlight chat preset, header toggle, header resolver helpers, HP-specific global correction path, deleted header test, and visible UI/model prompt copy now point at Saga's Context workflow instead.
-54. Next: remove the root `Lore/` fallback and make `Loredecks/hp-golden-trio` the only bundled HP reference source, with loader/health/test coverage strong enough to fail loudly if the bundled deck breaks.
+54. Done: remove the root `Lore/` fallback and make `Loredecks/hp-golden-trio` the only bundled HP reference source. The loader now reports a missing Loredeck manifest instead of falling back to legacy root data, and the old root `Lore/` folder has been removed.

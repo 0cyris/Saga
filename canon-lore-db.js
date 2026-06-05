@@ -1,12 +1,12 @@
 /**
- * canon-lore-db.js — Wandlight
- * Local date-aware lore database loader for schema-v2 specific canon lore entries.
+ * canon-lore-db.js -- Saga
+ * Local Context-aware lore database loader for active Loredeck entries.
  *
  * The database is registry-driven:
- * - Lore/manifest.json lists files and registry locations.
- * - Lore/taxonomy.json defines UI chip values/colors.
- * - Lore/gate-types.json defines user-expandable gate kinds.
- * - Lore/scoring.json defines retrieval weights.
+ * - Loredeck manifests list files and registry locations.
+ * - Loredeck tag registries define searchable tags.
+ * - Loredeck timeline registries define Context anchors/windows.
+ * - Loredeck retrieval metadata defines relevance/scoring inputs.
  *
  * Matching entries are proposed into Pending Lore Review; they are not silently
  * accepted into the active lore matrix.

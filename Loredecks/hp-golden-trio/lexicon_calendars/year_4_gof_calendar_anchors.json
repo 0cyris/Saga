@@ -120,7 +120,6 @@
         "temporalTightening": {
           "method": "lexicon calendar point anchor: validFrom plus 7 days, capped by nearby next anchor",
           "notes": "End date narrowed so event-like lore does not remain active as an open-ended suggestion.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1995-08-31"
         }
       }
@@ -242,11 +241,7 @@
         "temporalTightening": {
           "method": "lexicon calendar point anchor: validFrom plus 7 days, capped by nearby next anchor",
           "notes": "End date narrowed so event-like lore does not remain active as an open-ended suggestion.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1995-08-31"
-        },
-        "titleConsolidationPass": {
-          "appliedIn": "Wandlight title polish pass"
         }
       }
     },
@@ -367,11 +362,7 @@
         "temporalTightening": {
           "method": "lexicon calendar point anchor: validFrom plus 7 days, capped by nearby next anchor",
           "notes": "End date narrowed so event-like lore does not remain active as an open-ended suggestion.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1995-08-31"
-        },
-        "titleConsolidationPass": {
-          "appliedIn": "Wandlight title polish pass"
         }
       }
     },
@@ -484,7 +475,6 @@
         "temporalTightening": {
           "method": "lexicon calendar phase/window anchor: capped by next calendar anchor or 45 days",
           "notes": "End date narrowed so event-like lore does not remain active as an open-ended suggestion.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1995-08-31"
         }
       }
@@ -608,7 +598,6 @@
         "temporalTightening": {
           "method": "lexicon calendar point anchor: validFrom plus 7 days, capped by nearby next anchor",
           "notes": "End date narrowed so event-like lore does not remain active as an open-ended suggestion.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1995-08-31"
         }
       }
@@ -726,7 +715,6 @@
         "temporalTightening": {
           "method": "lexicon calendar phase/window anchor: capped by next calendar anchor or 45 days",
           "notes": "End date narrowed so event-like lore does not remain active as an open-ended suggestion.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1995-08-31"
         }
       }
@@ -846,7 +834,6 @@
         "temporalTightening": {
           "method": "lexicon calendar point anchor: validFrom plus 7 days, capped by nearby next anchor",
           "notes": "End date narrowed so event-like lore does not remain active as an open-ended suggestion.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1995-08-31"
         }
       }
@@ -971,7 +958,6 @@
         "temporalTightening": {
           "method": "lexicon calendar point anchor: validFrom plus 7 days, capped by nearby next anchor",
           "notes": "End date narrowed so event-like lore does not remain active as an open-ended suggestion.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1995-08-31"
         }
       }
@@ -1091,11 +1077,7 @@
         "temporalTightening": {
           "method": "lexicon calendar point anchor: validFrom plus 7 days, capped by nearby next anchor",
           "notes": "End date narrowed so event-like lore does not remain active as an open-ended suggestion.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1995-08-31"
-        },
-        "titleConsolidationPass": {
-          "appliedIn": "Wandlight title polish pass"
         }
       }
     },
@@ -1216,11 +1198,7 @@
         "temporalTightening": {
           "method": "lexicon calendar point anchor: validFrom plus 7 days, capped by nearby next anchor",
           "notes": "End date narrowed so event-like lore does not remain active as an open-ended suggestion.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1995-08-31"
-        },
-        "titleConsolidationPass": {
-          "appliedIn": "Wandlight title polish pass"
         }
       }
     },
@@ -1350,11 +1328,7 @@
         "temporalTightening": {
           "method": "lexicon calendar point anchor: validFrom plus 7 days, capped by nearby next anchor",
           "notes": "End date narrowed so event-like lore does not remain active as an open-ended suggestion.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1995-08-31"
-        },
-        "titleConsolidationPass": {
-          "appliedIn": "Wandlight title polish pass"
         }
       }
     },
@@ -1480,12 +1454,7 @@
         "temporalTightening": {
           "method": "lexicon calendar point anchor: validFrom plus 7 days, capped by nearby next anchor",
           "notes": "End date narrowed so event-like lore does not remain active as an open-ended suggestion.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1995-08-31"
-        },
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Concise title cleanup; broad duplicate removed."
         }
       }
     },
@@ -1605,7 +1574,6 @@
         "temporalTightening": {
           "method": "lexicon calendar point anchor: validFrom plus 7 days, capped by nearby next anchor",
           "notes": "End date narrowed so event-like lore does not remain active as an open-ended suggestion.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1995-08-31"
         }
       }
@@ -1730,7 +1698,6 @@
         "temporalTightening": {
           "method": "lexicon calendar point anchor: validFrom plus 7 days, capped by nearby next anchor",
           "notes": "End date narrowed so event-like lore does not remain active as an open-ended suggestion.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1995-08-31"
         }
       }
@@ -1850,11 +1817,7 @@
         "temporalTightening": {
           "method": "lexicon calendar phase/window anchor: capped by next calendar anchor or 45 days",
           "notes": "End date narrowed so event-like lore does not remain active as an open-ended suggestion.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1995-08-31"
-        },
-        "titleConsolidationPass": {
-          "appliedIn": "Wandlight title polish pass"
         }
       }
     },
@@ -1973,7 +1936,6 @@
         "temporalTightening": {
           "method": "lexicon calendar point anchor: validFrom plus 7 days, capped by nearby next anchor",
           "notes": "End date narrowed so event-like lore does not remain active as an open-ended suggestion.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1995-08-31"
         }
       }
@@ -2101,7 +2063,6 @@
         "temporalTightening": {
           "method": "lexicon calendar point anchor: validFrom plus 7 days, capped by nearby next anchor",
           "notes": "End date narrowed so event-like lore does not remain active as an open-ended suggestion.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "previousValidTo": "1995-08-31"
         }
       }

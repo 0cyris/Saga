@@ -100,12 +100,6 @@
         "work": "Harry Potter",
         "confidence": 0.85,
         "notes": "Curated Context constraint seed entry."
-      },
-      "extensions": {
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Automatic concise title cleanup for implementation-language wording."
-        }
       }
     },
     {
@@ -318,12 +312,6 @@
         "work": "Harry Potter",
         "confidence": 0.85,
         "notes": "Curated Context constraint seed entry."
-      },
-      "extensions": {
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Title/content cleanup for concise pre-graveyard knowledge boundary."
-        }
       }
     }
   ]

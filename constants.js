@@ -707,6 +707,7 @@ export function getDefaultState() {
             search: '',
             selectedEntryId: '',
             selectedLoredeckId: 'hp-golden-trio',
+            loredeckLibraryDetailsHeight: 280,
             activeTab: 'session',
             reviewSelectedIds: [],
             acceptedSelectedIds: [],

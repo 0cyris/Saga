@@ -100,12 +100,6 @@
         "book": "Goblet of Fire",
         "confidence": 0.82,
         "notes": "Expanded curated Context constraint entry."
-      },
-      "extensions": {
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Automatic concise title cleanup for implementation-language wording."
-        }
       }
     },
     {
@@ -201,12 +195,6 @@
         "book": "Half-Blood Prince",
         "confidence": 0.82,
         "notes": "Expanded curated Context constraint entry."
-      },
-      "extensions": {
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Automatic concise title cleanup for implementation-language wording."
-        }
       }
     },
     {
@@ -293,12 +281,6 @@
         "book": "Deathly Hallows",
         "confidence": 0.82,
         "notes": "Expanded curated Context constraint entry."
-      },
-      "extensions": {
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Automatic concise title cleanup for implementation-language wording."
-        }
       }
     }
   ]

@@ -103,11 +103,6 @@
         "book": "Prisoner of Azkaban",
         "confidence": 0.82,
         "notes": "Expanded curated Context constraint entry."
-      },
-      "extensions": {
-        "titleConsolidationPass": {
-          "appliedIn": "Wandlight title polish pass"
-        }
       }
     },
     {

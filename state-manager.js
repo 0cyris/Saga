@@ -1224,10 +1224,13 @@ export function saveSettings(settings) {
 
 function queuePromptInjectionSync() {
     try {
-        if (typeof globalThis.wandlightSyncPromptInjection === 'function') {
+        const syncPromptInjection = typeof globalThis.sagaSyncPromptInjection === 'function'
+            ? globalThis.sagaSyncPromptInjection
+            : globalThis.wandlightSyncPromptInjection;
+        if (typeof syncPromptInjection === 'function') {
             queueMicrotask(() => {
                 try {
-                    globalThis.wandlightSyncPromptInjection();
+                    syncPromptInjection();
                 } catch (e) {
                     console.warn(`${LOG_PREFIX} Failed to sync prompt injection after state/settings save`, e);
                 }
@@ -2310,6 +2313,9 @@ export function migrateState(state) {
         state.lorePanel.search = state.lorePanel.search || '';
         state.lorePanel.selectedEntryId = state.lorePanel.selectedEntryId || '';
         state.lorePanel.selectedLoredeckId = String(state.lorePanel.selectedLoredeckId || defaultsPanel.selectedLoredeckId || '').trim();
+        state.lorePanel.loredeckLibraryDetailsHeight = Number.isFinite(Number(state.lorePanel.loredeckLibraryDetailsHeight))
+            ? Math.max(190, Math.min(560, Number(state.lorePanel.loredeckLibraryDetailsHeight)))
+            : defaultsPanel.loredeckLibraryDetailsHeight;
         state.lorePanel.activeTab = ['loredecks', 'session', 'continuity', 'context', 'lore', 'injection', 'settings'].includes(state.lorePanel.activeTab)
             ? state.lorePanel.activeTab
             : (state.lorePanel.activeTab === 'generate' ? 'context' : (state.lorePanel.activeTab === 'review' ? 'lore' : 'session'));

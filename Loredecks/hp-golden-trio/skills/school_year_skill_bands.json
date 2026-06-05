@@ -578,7 +578,6 @@
         "deathStateGatePass": {
           "method": "removed positive requiresEvents from canon database entry",
           "notes": "Canon database proposals are Context-gated references; they should not become Future solely because a story milestone flag is absent.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "requiresEventsRemoved": [
             "horcruxes_revealed_to_trio"
           ]

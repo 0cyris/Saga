@@ -11,7 +11,7 @@ This checkpoint records the current production baseline before starting Context-
 ## Current Foundation
 
 - Bundled Loredeck scaffold exists for `hp-golden-trio`.
-- Loredeck loader reads bundled decks and preserves legacy `Lore/manifest.json` fallback.
+- Loredeck loader reads bundled decks from `Loredecks/`; root `Lore/` fallback has been removed.
 - Canon lore loading routes through the active Loredeck stack.
 - Loredeck tab supports library/stack handling, detail views, Deck Health, Custom duplication, and entry overrides.
 - Context v1 exists with per-loaded-Loredeck context state, timeline index loading, manual editing, local resolver, and explicit model fallback.
@@ -35,9 +35,9 @@ Passed:
 - `node scripts\test-generated-lore-overhaul.mjs`
 - `node scripts\scan-secrets.mjs`
 - Direct Loredeck loader smoke: `hp-golden-trio` loads 417 entries.
-- Direct legacy fallback smoke: forced missing Loredeck manifest falls back to `Lore/manifest.json` and loads 417 entries.
+- Missing bundled Loredeck manifests now fail through Deck Health instead of falling back to root `Lore/`.
 - Direct canon DB smoke: canon DB loads 417 entries from `hp-golden-trio`.
-- JSON parse smoke across `Loredecks`, `Lore`, `Presets`, and `manifest.json`.
+- JSON parse smoke across `Loredecks`, `Presets`, and `manifest.json`.
 - Local visual smoke harness contract: validates the harness, seeded Custom Loredeck, update fixture, runtime panel strings, and CSS hooks.
 - Local visual smoke server self-check: serves the harness and update fixture without external dependencies.
 - First SillyTavern smoke pass: the extension loads without console errors, the shelf opens correctly, and the Loredecks tab renders well enough for focused UX feedback.

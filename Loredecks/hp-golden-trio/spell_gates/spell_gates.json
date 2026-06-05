@@ -537,12 +537,6 @@
           "suggestByDefault": true,
           "activeUse": "blocks_obscure_dangerous_spell_leakage"
         }
-      },
-      "extensions": {
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Automatic concise title cleanup for implementation-language wording."
-        }
       }
     },
     {

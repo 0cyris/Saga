@@ -101,6 +101,10 @@ const DEFAULT_RAIL_LEFT = 20;
 const DEFAULT_COMPACT_RAIL_HEIGHT_ESTIMATE = 420;
 const DEFAULT_EXPANDED_RAIL_HEIGHT_ESTIMATE = 420;
 const LAYOUT_VERSION = 2;
+const LOREDECK_LIBRARY_DETAILS_MIN_HEIGHT = 190;
+const LOREDECK_LIBRARY_DETAILS_DEFAULT_HEIGHT = 280;
+const LOREDECK_LIBRARY_DETAILS_MAX_HEIGHT = 560;
+const LOREDECK_LIBRARY_COLUMNS_MIN_HEIGHT = 250;
 const STORED_API_KEY_SETTING_PREFIXES = Object.freeze(['loreOpenAI', 'continuityOpenAI']);
 const STORED_API_KEY_SETTING_SUFFIXES = Object.freeze(['Encrypted', 'Salt', 'Iv', 'KeyEncrypted', 'KeySalt', 'KeyIv', 'KeySet']);
 const CONTEXT_DETECTION_SETTING_KEYS = Object.freeze([
@@ -1156,6 +1160,7 @@ let loredeckLibrarySort = 'name';
 let loredeckLibraryDetailsTab = 'overview';
 let loredeckLibraryBulkSelectedIds = new Set();
 let loredeckLibraryLastSelectionAnchorId = '';
+let loredeckLibraryDetailsHeight = LOREDECK_LIBRARY_DETAILS_DEFAULT_HEIGHT;
 let contextWorkbenchOpen = false;
 let contextWorkbenchTab = 'context';
 let contextWorkbenchPackId = '';
@@ -2140,8 +2145,6 @@ function refreshRuntimeRailIcons(settings = getSettings()) {
 }
 
 function renderLoredecksTab(container, state) {
-    const stack = getLoredeckStack(state);
-    const enabled = stack.filter(item => item.enabled);
     const canonDb = getCanonLoreDatabaseSync();
     if (!canonDb) {
         loadCanonLoreDatabase()
@@ -2155,85 +2158,6 @@ function renderLoredecksTab(container, state) {
         'Source decks loaded for canon suggestions, relevance, and Saga deck editing.'
     ));
     container.appendChild(createLoredeckLibraryLaunchCard(state, canonDb, health));
-
-    const summary = document.createElement('div');
-    summary.className = 'wandlight-runtime-card';
-    const title = document.createElement('h4');
-    title.textContent = 'Active Stack';
-    summary.appendChild(title);
-    summary.appendChild(createKeyValue('Loaded decks', String(enabled.length), 'Enabled Loredecks in the current chat stack.'));
-    summary.appendChild(createKeyValue('Top priority', enabled[0] ? getLoredeckDisplayName(enabled[0].packId) : 'none', 'Highest-priority enabled Loredeck.'));
-    summary.appendChild(createKeyValue('Stack order', enabled.length ? 'Top to bottom priority' : 'empty', 'Loredeck priority is stored by stack order.'));
-    summary.appendChild(createKeyValue('Deck Health', getLoredeckHealthText(health), 'Current Deck Health summary for the loaded canon Loredeck.'));
-    container.appendChild(createCollapsibleSection(
-        'loredecks.activeStack',
-        'Active Stack',
-        'Current loaded deck count, priority, and health.',
-        true,
-        summary,
-        { className: 'wandlight-loredeck-collapsible', tooltip: 'Current loaded Loredeck stack summary.' }
-    ));
-
-    container.appendChild(createCollapsibleSection(
-        'loredecks.health',
-        'Deck Health',
-        'Advisory readiness, issue triage, and Health Center launch.',
-        false,
-        () => createLoredeckHealthReportCard(state, canonDb, health),
-        { className: 'wandlight-loredeck-collapsible', tooltip: 'Deck Health is advisory. Open the Health Center for grouped issues, categories, files, coverage, and advanced diagnostics.' }
-    ));
-
-    container.appendChild(createCollapsibleSection(
-        'loredecks.importExport',
-        'Install / Import',
-        'Install individual Loredeck JSON bundles or register fetchable manifests.',
-        false,
-        () => createLoredeckImportExportCard(state),
-        { className: 'wandlight-loredeck-collapsible', tooltip: 'Install or register individual Loredecks. Full-library import/export is intentionally not exposed.' }
-    ));
-
-    container.appendChild(createCollapsibleSection(
-        'loredecks.creator',
-        'Loredeck Creator',
-        'Start or continue a staged Generated Loredeck draft.',
-        true,
-        () => createLoredeckCreatorCard(state),
-        { className: 'wandlight-loredeck-collapsible', tooltip: 'Open the Saga Loredeck Creator wizard or continue the current staged draft.' }
-    ));
-
-    const stackCard = document.createElement('div');
-    stackCard.className = 'wandlight-runtime-card';
-    const stackTitle = document.createElement('h4');
-    stackTitle.textContent = 'Loaded Loredecks';
-    stackCard.appendChild(stackTitle);
-
-    if (!stack.length) {
-        stackCard.appendChild(createEmptyMessage('No Loredecks loaded.'));
-    } else {
-        const stackList = document.createElement('div');
-        stackList.className = 'wandlight-loredeck-stack-list';
-        for (let index = 0; index < stack.length; index += 1) {
-            stackList.appendChild(createLoredeckStackRow(stack[index], index, stack.length, canonDb));
-        }
-        stackCard.appendChild(stackList);
-    }
-    container.appendChild(createCollapsibleSection(
-        'loredecks.loaded',
-        'Loaded Loredecks',
-        'Active play pile ordered from highest to lowest priority.',
-        true,
-        stackCard,
-        { className: 'wandlight-loredeck-collapsible', tooltip: 'Loaded Loredecks participate in retrieval and injection according to stack order.' }
-    ));
-
-    container.appendChild(createCollapsibleSection(
-        'loredecks.details',
-        'Loredeck Details',
-        'Metadata, editor controls, Pending Review, tags, timeline, and assistant tools for the selected deck.',
-        true,
-        () => createLoredeckDetailCard(state, canonDb, health),
-        { className: 'wandlight-loredeck-collapsible', tooltip: 'Inspect and edit the selected Loredeck.' }
-    ));
 }
 
 function createLoredeckLibraryLaunchCard(state = getState(), canonDb = null, health = null) {
@@ -2373,6 +2297,8 @@ function renderLoredeckLibraryOverlay() {
 
     const body = document.createElement('div');
     body.className = 'wandlight-loredeck-library-body';
+    loredeckLibraryDetailsHeight = getLoredeckLibraryDetailsHeight(state);
+    body.style.setProperty('--wandlight-loredeck-library-details-height', `${loredeckLibraryDetailsHeight}px`);
     body.appendChild(createLoredeckLibraryStatusBar(stack, library, canonDb, health));
 
     const columns = document.createElement('div');
@@ -2381,8 +2307,101 @@ function renderLoredeckLibraryOverlay() {
     columns.appendChild(createLoredeckLibraryTransferPane(selectedPack, filteredPacks, stack, selectedPacks));
     columns.appendChild(createLoredeckActiveStackPane(stack, library, canonDb, health));
     body.appendChild(columns);
+    body.appendChild(createLoredeckLibraryResizeHandle());
     body.appendChild(createLoredeckLibraryDetailsPanel(selectedPack, stack, canonDb, health));
     shell.appendChild(body);
+}
+
+function getLoredeckLibraryDetailsHeight(state = getState()) {
+    return clampNumber(
+        Number(state?.lorePanel?.loredeckLibraryDetailsHeight),
+        LOREDECK_LIBRARY_DETAILS_MIN_HEIGHT,
+        LOREDECK_LIBRARY_DETAILS_MAX_HEIGHT,
+        LOREDECK_LIBRARY_DETAILS_DEFAULT_HEIGHT,
+    );
+}
+
+function setLoredeckLibraryDetailsHeight(height, options = {}) {
+    const next = clampNumber(
+        Number(height),
+        LOREDECK_LIBRARY_DETAILS_MIN_HEIGHT,
+        LOREDECK_LIBRARY_DETAILS_MAX_HEIGHT,
+        LOREDECK_LIBRARY_DETAILS_DEFAULT_HEIGHT,
+    );
+    loredeckLibraryDetailsHeight = next;
+    document
+        .querySelector('.wandlight-loredeck-library-body')
+        ?.style
+        ?.setProperty('--wandlight-loredeck-library-details-height', `${next}px`);
+    if (options.persist) {
+        const state = getState();
+        state.lorePanel = state.lorePanel && typeof state.lorePanel === 'object' ? state.lorePanel : {};
+        state.lorePanel.loredeckLibraryDetailsHeight = next;
+        saveState(state);
+    }
+    return next;
+}
+
+function createLoredeckLibraryResizeHandle() {
+    const handle = document.createElement('button');
+    handle.type = 'button';
+    handle.className = 'wandlight-loredeck-library-resize-handle';
+    handle.setAttribute('aria-label', 'Resize Loredeck details panel');
+    handle.setAttribute('aria-orientation', 'horizontal');
+    handle.innerHTML = '<span></span>';
+    addTooltip(handle, 'Drag to resize the selected Loredeck details panel. Double-click to reset.');
+
+    handle.addEventListener('dblclick', e => {
+        e.preventDefault();
+        e.stopPropagation();
+        setLoredeckLibraryDetailsHeight(LOREDECK_LIBRARY_DETAILS_DEFAULT_HEIGHT, { persist: true });
+    });
+
+    handle.addEventListener('pointerdown', e => {
+        if (e.button != null && e.button !== 0) return;
+        const body = handle.closest('.wandlight-loredeck-library-body');
+        if (!body) return;
+        e.preventDefault();
+        e.stopPropagation();
+        handle.setPointerCapture?.(e.pointerId);
+        document.body.classList.add('wandlight-loredeck-library-resizing');
+
+        const onMove = event => {
+            const rect = body.getBoundingClientRect();
+            const style = getComputedStyle(body);
+            const bottomPadding = parseFloat(style.paddingBottom) || 0;
+            const reservedTop = 86;
+            const max = Math.max(
+                LOREDECK_LIBRARY_DETAILS_MIN_HEIGHT,
+                Math.min(
+                    LOREDECK_LIBRARY_DETAILS_MAX_HEIGHT,
+                    rect.height - LOREDECK_LIBRARY_COLUMNS_MIN_HEIGHT - reservedTop,
+                ),
+            );
+            const next = clampNumber(
+                rect.bottom - event.clientY - bottomPadding,
+                LOREDECK_LIBRARY_DETAILS_MIN_HEIGHT,
+                max,
+                loredeckLibraryDetailsHeight,
+            );
+            setLoredeckLibraryDetailsHeight(next);
+        };
+
+        const onUp = event => {
+            handle.releasePointerCapture?.(event.pointerId);
+            document.body.classList.remove('wandlight-loredeck-library-resizing');
+            window.removeEventListener('pointermove', onMove);
+            window.removeEventListener('pointerup', onUp);
+            window.removeEventListener('pointercancel', onUp);
+            setLoredeckLibraryDetailsHeight(loredeckLibraryDetailsHeight, { persist: true });
+        };
+
+        window.addEventListener('pointermove', onMove);
+        window.addEventListener('pointerup', onUp, { once: true });
+        window.addEventListener('pointercancel', onUp, { once: true });
+    });
+
+    return handle;
 }
 
 async function refreshLoredeckLibraryWindowData(button = null) {
@@ -2943,20 +2962,17 @@ function createLoredeckLibraryOverviewDetail(pack, stackItem, stats, healthInfo)
 function createLoredeckLibraryHealthDetail(pack, healthInfo) {
     const wrap = document.createElement('div');
     wrap.className = 'wandlight-loredeck-library-health-detail';
-    const context = {
-        state: getState(),
-        canonDb: getCanonLoreDatabaseSync(),
-        pack,
-        cached: healthInfo.cached,
-        health: healthInfo.health,
-        report: healthInfo.report,
-        status: healthInfo.status,
-        title: pack.title || pack.packId,
-        subtitle: `${getLoredeckTypeLabel(pack.packId)} Loredeck health summary.`,
-        generatedAt: healthInfo.cached.loadedAt || healthInfo.report.generatedAt || Date.now(),
-    };
-    wrap.appendChild(createLoredeckHealthSummaryHero(context, { compact: true }));
-    wrap.appendChild(createLoredeckHealthSeverityGrid(context, { compact: true }));
+    const summary = healthInfo.report?.summary || {};
+    const grid = document.createElement('div');
+    grid.className = 'wandlight-loredeck-detail-grid';
+    grid.appendChild(createKeyValue('Status', healthInfo.status.label, healthInfo.status.summary));
+    grid.appendChild(createKeyValue('Errors', String(healthInfo.errorCount), 'Blocking Deck Health findings.'));
+    grid.appendChild(createKeyValue('Warnings', String(healthInfo.warningCount), 'Deck Health findings that should be reviewed.'));
+    grid.appendChild(createKeyValue('Suggestions', String(healthInfo.suggestionCount), 'Optional Deck Health suggestions.'));
+    grid.appendChild(createKeyValue('Checked', String(summary.entryCount || healthInfo.cached.entryCount || 0), 'Lorecards covered by the latest available report.'));
+    grid.appendChild(createKeyValue('Last Scan', healthInfo.cached.loadedAt ? formatRelativeHealthTime(healthInfo.cached.loadedAt) : 'not scanned', 'Most recent Deck Health validation cached for this Loredeck.'));
+    wrap.appendChild(grid);
+
     const groups = groupLoredeckHealthIssues(healthInfo.report);
     if (groups.length) {
         const top = document.createElement('div');
@@ -2965,14 +2981,25 @@ function createLoredeckLibraryHealthDetail(pack, healthInfo) {
         label.className = 'wandlight-runtime-card-title';
         label.textContent = 'Top Issue';
         top.appendChild(label);
-        top.appendChild(createLoredeckHealthIssueGroupCard(groups[0], context, { compact: true }));
+        const issue = document.createElement('div');
+        issue.className = 'wandlight-loredeck-library-health-top-issue';
+        const title = document.createElement('div');
+        title.className = 'wandlight-loredeck-library-health-top-title';
+        title.textContent = groups[0].title || 'Deck Health issue';
+        issue.appendChild(title);
+        const detail = document.createElement('div');
+        detail.className = 'wandlight-runtime-help';
+        detail.textContent = groups[0].summary || groups[0].fixShort || 'Open Health Center for grouped findings and repair actions.';
+        issue.appendChild(detail);
+        issue.appendChild(createStatusPill(groups[0].affectedLabel || `${groups[0].rawCount || 1} finding${(groups[0].rawCount || 1) === 1 ? '' : 's'}`, 'Grouped Deck Health finding count.'));
+        top.appendChild(issue);
         wrap.appendChild(top);
     } else {
         wrap.appendChild(createEmptyMessage(healthInfo.health ? 'No Deck Health issues found.' : 'No scan has been run for this Loredeck yet.'));
     }
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
-    actions.appendChild(createButton('Open Full Health Report', 'Open the fullscreen Deck Health Center for this Loredeck.', () => {
+    actions.appendChild(createButton('Open Health Center', 'Open the fullscreen Deck Health Center for this Loredeck.', () => {
         openLoredeckHealthCenter(pack.packId);
     }, 'wandlight-primary-button'));
     const validate = createButton('Run Validation', 'Load this Loredeck data and run Deck Health validation.', async (btn) => {
@@ -3122,18 +3149,26 @@ function createLoredeckLibraryDetailActions(pack, stackItem = null, healthInfo =
             renderLoredeckLibraryOverlay();
         }, 'wandlight-danger-button'));
     }
-    actions.appendChild(createButton('Open Health Report', 'Open the fullscreen Deck Health Center for this Loredeck.', () => {
+    actions.appendChild(createButton('Open Health Center', 'Open the fullscreen Deck Health Center for this Loredeck.', () => {
         void healthInfo;
         openLoredeckHealthCenter(pack.packId);
     }));
     actions.appendChild(createButton('Duplicate Deck', 'Create an editable Custom Loredeck copy.', () => {
         openDuplicateLoredeckDialog(pack);
     }));
-    const edit = createButton('Edit Metadata', 'Close the Library and inspect this Loredeck in the runtime Details editor.', () => {
-        selectLoredeckForDetails(pack.packId);
-        closeLoredeckLibraryWindow();
+    actions.appendChild(createButton(
+        pack.type === 'bundled' ? 'View Metadata' : 'Edit Metadata',
+        pack.type === 'bundled'
+            ? 'Open the Library metadata window for this read-only Bundled Loredeck.'
+            : 'Open the Library metadata editor for this Loredeck.',
+        () => openLoredeckMetadataEditor(pack.packId)
+    ));
+    const updateButton = createButton('Check Updates', 'Fetch this Loredeck source/update URL and review any installable update bundle.', async (btn) => {
+        await checkLoredeckForUpdates(pack, btn);
+        renderLoredeckLibraryOverlay();
     });
-    actions.appendChild(edit);
+    updateButton.disabled = !getLoredeckUpdateUrl(pack);
+    actions.appendChild(updateButton);
     const exportButton = createButton('Export', 'Validate and export this editable Loredeck draft.', async (btn) => {
         await exportValidatedLoredeckDraft(pack, btn);
         renderLoredeckLibraryOverlay();
@@ -3148,6 +3183,226 @@ function createLoredeckLibraryDetailActions(pack, stackItem = null, healthInfo =
     deleteButton.disabled = pack.type === 'bundled';
     actions.appendChild(deleteButton);
     return actions;
+}
+
+function openLoredeckMetadataEditor(packId = '') {
+    const state = getState();
+    const library = getLoredeckLibrary(state);
+    const id = String(packId || state?.lorePanel?.selectedLoredeckId || '').trim();
+    const pack = library.find(item => item.packId === id) || library[0] || null;
+    if (!pack) {
+        toast('No Loredeck is selected.', 'error');
+        return;
+    }
+    selectLoredeckForDetails(pack.packId, { refresh: false });
+    document.querySelector('.wandlight-loredeck-metadata-overlay')?.remove();
+
+    const overlay = document.createElement('div');
+    overlay.className = 'wandlight-lore-workbench-overlay wandlight-loredeck-metadata-overlay';
+    document.body.appendChild(overlay);
+
+    const shell = document.createElement('div');
+    shell.className = 'wandlight-lore-workbench-shell wandlight-loredeck-metadata-shell';
+    overlay.appendChild(shell);
+
+    const header = document.createElement('div');
+    header.className = 'wandlight-lore-workbench-header';
+    const titleWrap = document.createElement('div');
+    titleWrap.className = 'wandlight-lore-workbench-title-wrap';
+    const title = document.createElement('div');
+    title.className = 'wandlight-lore-workbench-title';
+    title.textContent = pack.type === 'bundled' ? 'Loredeck Metadata' : 'Edit Loredeck Metadata';
+    titleWrap.appendChild(title);
+    const subtitle = document.createElement('div');
+    subtitle.className = 'wandlight-lore-workbench-subtitle';
+    subtitle.textContent = pack.title || pack.packId;
+    titleWrap.appendChild(subtitle);
+    header.appendChild(titleWrap);
+    header.appendChild(createButton('Close', 'Close the Loredeck metadata window.', () => overlay.remove()));
+    shell.appendChild(header);
+
+    const body = document.createElement('div');
+    body.className = 'wandlight-loredeck-metadata-body';
+    body.appendChild(createLoredeckMetadataEditorCard(pack));
+    shell.appendChild(body);
+}
+
+function createLoredeckMetadataEditorCard(pack) {
+    const canonDb = getCanonLoreDatabaseSync();
+    const health = canonDb?.health || null;
+    const healthInfo = getLoredeckLibraryPackHealthInfo(pack, canonDb, health);
+    const loadedMeta = (canonDb?.loredecks || []).find(item => item.id === pack.packId);
+    const entryCount = loadedMeta?.entryCount ?? pack.entryCount ?? 0;
+    const categoryText = formatCategoryCounts(loadedMeta?.categoryCounts || pack.stats?.categoryCounts || {});
+    const readOnly = pack.type === 'bundled';
+    const virtualDuplicate = isVirtualLoredeckPack(pack);
+    const editorCanValidate = canValidateLoredeckInEditor(pack);
+
+    const card = document.createElement('div');
+    card.className = 'wandlight-runtime-card wandlight-loredeck-metadata-card';
+
+    const heading = document.createElement('div');
+    heading.className = 'wandlight-loredeck-metadata-heading';
+    heading.appendChild(createLoredeckDeckVisual(pack, 'wandlight-loredeck-library-detail-monogram'));
+    const main = document.createElement('div');
+    main.className = 'wandlight-loredeck-row-main';
+    const title = document.createElement('div');
+    title.className = 'wandlight-loredeck-row-title';
+    title.textContent = pack.title || pack.packId;
+    main.appendChild(title);
+    const chips = document.createElement('div');
+    chips.className = 'wandlight-loredeck-row-meta';
+    chips.appendChild(createStatusPill(getLoredeckTypeLabel(pack.packId), 'Loredeck source type.'));
+    if (virtualDuplicate) {
+        chips.appendChild(createStatusPill(
+            pack.type === 'generated' ? 'Generated Draft' : 'Virtual Copy',
+            pack.type === 'generated'
+                ? 'Generated Loredeck draft with embedded manifest metadata and no source entry files yet.'
+                : 'Custom duplicate that uses embedded manifest metadata and resolves files from its source manifest.'
+        ));
+    }
+    chips.appendChild(createStatusPill(`${entryCount} Lorecards`, 'Lorecard count from loaded Deck Health or registered metadata.'));
+    chips.appendChild(createStatusPill(healthInfo.status?.label || 'Not scanned', 'Deck Health is advisory and does not block use.'));
+    for (const tag of (pack.tags || []).slice(0, 6)) chips.appendChild(createStatusPill(tag, 'Loredeck tag.'));
+    main.appendChild(chips);
+    heading.appendChild(main);
+    card.appendChild(heading);
+
+    const overview = document.createElement('div');
+    overview.className = 'wandlight-loredeck-detail-grid';
+    overview.appendChild(createKeyValue('Deck ID', pack.packId, 'Stable Loredeck identifier used by the stack and registry.'));
+    overview.appendChild(createKeyValue('Fandom', pack.fandom || 'unset', 'Fandom, canon, universe, or setting.'));
+    overview.appendChild(createKeyValue('Era', pack.era || 'unset', 'Era, arc, continuity slice, or scope.'));
+    overview.appendChild(createKeyValue('Author', pack.author || 'unset', 'Deck author or publisher.'));
+    overview.appendChild(createKeyValue('Version', pack.version || 'unset', 'Deck version from metadata or manifest.'));
+    overview.appendChild(createKeyValue('Categories', categoryText || 'Not checked', 'Lorecard counts by category when available.'));
+    overview.appendChild(createKeyValue(virtualDuplicate ? 'Base Manifest' : 'Manifest', pack.manifest || 'unset', virtualDuplicate ? 'Source manifest used to resolve entry files for this Custom duplicate.' : 'Fetchable loredeck.json path or URL.'));
+    overview.appendChild(createKeyValue('Source', getLoredeckSourceSummary(pack), 'Source and update metadata for this Loredeck record.'));
+    if (pack.derivedFrom?.packId || pack.derivedFrom?.title) {
+        overview.appendChild(createKeyValue('Derived From', pack.derivedFrom.title || pack.derivedFrom.packId, 'Source pack metadata recorded when this Custom Loredeck was duplicated or generated.'));
+    }
+    card.appendChild(overview);
+
+    const edit = document.createElement('div');
+    edit.className = 'wandlight-loredeck-edit-grid';
+    const titleInput = createLoredeckEditorField(edit, 'Title', pack.title, {
+        disabled: readOnly,
+        tooltip: 'Display title shown in the Loredeck Library and stack.',
+    });
+    const fandomInput = createLoredeckEditorField(edit, 'Fandom', pack.fandom, {
+        disabled: readOnly,
+        tooltip: 'Primary fandom or setting label.',
+    });
+    const eraInput = createLoredeckEditorField(edit, 'Era', pack.era, {
+        disabled: readOnly,
+        tooltip: 'Era, arc, continuity slice, or scope.',
+    });
+    const authorInput = createLoredeckEditorField(edit, 'Author', pack.author, {
+        disabled: readOnly,
+        tooltip: 'Deck creator or publisher.',
+    });
+    const versionInput = createLoredeckEditorField(edit, 'Version', pack.version, {
+        disabled: readOnly,
+        tooltip: 'Deck metadata version.',
+    });
+    const manifestInput = createLoredeckEditorField(edit, virtualDuplicate ? 'Base Manifest' : 'Manifest', pack.manifest, {
+        disabled: readOnly || virtualDuplicate,
+        tooltip: virtualDuplicate
+            ? 'Virtual Custom duplicates keep their source manifest as the file-resolution base.'
+            : 'Fetchable loredeck.json path or URL. Entry paths resolve relative to this manifest.',
+    });
+    const tagsInput = createLoredeckEditorField(edit, 'Tags', (pack.tags || []).join(', '), {
+        disabled: readOnly,
+        tooltip: 'Comma-separated metadata tags. Tags are first-class Saga metadata.',
+    });
+    const descriptionInput = createLoredeckEditorField(edit, 'Description', pack.description, {
+        disabled: readOnly,
+        multiline: true,
+        full: true,
+        tooltip: 'Short library description shown on the Loredeck card.',
+    });
+    card.appendChild(edit);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    const inspectButton = createButton('Inspect Manifest', 'Fetch and preview this Loredeck manifest.', async (btn) => {
+        await loadLoredeckManifestPreview(pack, btn);
+        openLoredeckMetadataEditor(pack.packId);
+    }, 'wandlight-primary-button');
+    inspectButton.disabled = !editorCanValidate;
+    actions.appendChild(inspectButton);
+
+    const validateButton = createButton('Validate Deck', 'Load this Loredeck data and run Deck Health validation with the same rules used at runtime.', async (btn) => {
+        await validateLoredeckForEditor(pack, btn);
+        openLoredeckMetadataEditor(pack.packId);
+        renderLoredeckLibraryOverlay();
+    });
+    validateButton.disabled = !editorCanValidate;
+    actions.appendChild(validateButton);
+
+    actions.appendChild(createButton('Open Health Center', 'Open the fullscreen Deck Health Center for this Loredeck.', () => {
+        openLoredeckHealthCenter(pack.packId);
+    }));
+    actions.appendChild(createButton('Duplicate Deck', 'Create an editable Custom Loredeck copy.', () => {
+        openDuplicateLoredeckDialog(pack);
+    }));
+
+    if (!readOnly) {
+        actions.appendChild(createButton('Save Metadata', 'Save edited Custom/Generated Loredeck library metadata.', async (btn) => {
+            await saveLoredeckMetadataFromInputs(pack, {
+                titleInput,
+                descriptionInput,
+                fandomInput,
+                eraInput,
+                authorInput,
+                versionInput,
+                manifestInput,
+                tagsInput,
+            }, btn);
+            openLoredeckMetadataEditor(pack.packId);
+            renderLoredeckLibraryOverlay();
+        }, 'wandlight-primary-button'));
+
+        const syncButton = createButton('Sync From Manifest', 'Fetch the manifest and refresh this library record from its metadata.', async (btn) => {
+            await syncLoredeckMetadataFromManifest(pack, btn);
+            openLoredeckMetadataEditor(pack.packId);
+            renderLoredeckLibraryOverlay();
+        });
+        syncButton.disabled = !pack.manifest;
+        actions.appendChild(syncButton);
+
+        const updateButton = createButton('Check Updates', 'Fetch this Loredeck source/update URL and review any installable update bundle.', async (btn) => {
+            await checkLoredeckForUpdates(pack, btn);
+        });
+        updateButton.disabled = !getLoredeckUpdateUrl(pack);
+        actions.appendChild(updateButton);
+
+        const repairButton = createButton('Repair Safe Issues', 'Apply safe Deck Health repairs to Custom metadata and existing overrides.', async (btn) => {
+            await repairLoredeckSafeHealthIssues(pack, btn);
+            openLoredeckMetadataEditor(pack.packId);
+            renderLoredeckLibraryOverlay();
+        });
+        repairButton.disabled = !editorCanValidate;
+        actions.appendChild(repairButton);
+
+        const exportButton = createButton('Export Validated Draft', 'Validate this Custom/Generated Loredeck record, then export it with Deck Health metadata.', async (btn) => {
+            await exportValidatedLoredeckDraft(pack, btn);
+        });
+        exportButton.disabled = !editorCanValidate;
+        actions.appendChild(exportButton);
+    } else {
+        const note = document.createElement('div');
+        note.className = 'wandlight-runtime-help';
+        note.textContent = 'Bundled Loredeck metadata is read-only. Use Duplicate Deck to create an editable Custom copy.';
+        actions.appendChild(note);
+    }
+    card.appendChild(actions);
+
+    const readiness = createGeneratedLoredeckExportReadinessCard(pack);
+    if (readiness) card.appendChild(readiness);
+    card.appendChild(createLoredeckManifestPreview(pack));
+    if (!readOnly) card.appendChild(createLoredeckEntryOverrideCard(pack));
+    return card;
 }
 
 function getLoredeckLibrarySelectedPack(state = getState(), library = getLoredeckLibrary(state)) {
@@ -3355,45 +3610,6 @@ function clearLoredeckStack() {
         stack.splice(0, stack.length);
     });
     if (changed) toast('Loredeck stack cleared.', 'success');
-}
-
-function createLoredeckImportExportCard(state) {
-    const card = document.createElement('div');
-    card.className = 'wandlight-runtime-card wandlight-loredeck-import-card';
-
-    const title = document.createElement('h4');
-    title.textContent = 'Install / Import';
-    card.appendChild(title);
-
-    const help = document.createElement('div');
-    help.className = 'wandlight-runtime-help';
-    help.textContent = 'Install individual Saga Loredeck JSON bundles, or register a fetchable loredeck.json path from a local URL or GitHub.';
-    card.appendChild(help);
-
-    const row = document.createElement('div');
-    row.className = 'wandlight-loredeck-register-row';
-    const input = document.createElement('input');
-    input.type = 'text';
-    input.className = 'text_pole wandlight-loredeck-manifest-input';
-    input.placeholder = 'Loredecks/my-pack/loredeck.json or https://example.com/loredeck.json';
-    addTooltip(input, 'Manifest must be fetchable by the browser. Entry file paths are resolved relative to this manifest.');
-    row.appendChild(input);
-
-    row.appendChild(createButton('Register', 'Fetch and register this Loredeck manifest as a Custom Loredeck.', async (btn) => {
-        await registerLoredeckManifestFromInput(input.value, { addToStack: false, button: btn });
-    }, 'wandlight-primary-button'));
-    card.appendChild(row);
-
-    const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions';
-    actions.appendChild(createButton('Install Loredeck JSON', 'Install a Saga Loredeck bundle JSON as an editable Custom Loredeck.', () => {
-        installLoredeckBundleFromFile();
-    }, 'wandlight-primary-button'));
-    card.appendChild(actions);
-
-    const registry = getLoredeckLibraryRegistry(state);
-    card.appendChild(createKeyValue('Registered decks', String(Object.keys(registry.packs || {}).length), 'Global Loredeck library records.'));
-    return card;
 }
 
 function openLoredeckCreatorWorkbench() {
@@ -8036,62 +8252,6 @@ function createContextWorkbenchValidationSummary(pack, items = [], issues = []) 
     return panel;
 }
 
-function createLoredeckHealthReportCard(state, canonDb = null, health = null) {
-    const card = document.createElement('div');
-    card.className = 'wandlight-runtime-card wandlight-loredeck-health-card';
-
-    const title = document.createElement('h4');
-    title.textContent = 'Deck Health';
-    card.appendChild(title);
-
-    const help = document.createElement('div');
-    help.className = 'wandlight-runtime-help';
-    help.textContent = 'Deck Health is advisory triage: readiness first, priority issues second, raw diagnostics last.';
-    card.appendChild(help);
-
-    const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions';
-    actions.appendChild(createButton('Open Health Center', 'Open the fullscreen Deck Health Center for grouped issues, category health, files, and advanced diagnostics.', () => {
-        openLoredeckHealthCenter();
-    }, 'wandlight-primary-button'));
-    actions.appendChild(createButton('Refresh Health', 'Reload active Loredecks and recompute Deck Health.', async (btn) => {
-        await refreshLoredeckHealthReport(btn);
-    }));
-    const exportButton = createButton('Export Health JSON', 'Download the current Deck Health report as JSON.', () => {
-        exportLoredeckHealthReport(state, canonDb, health);
-    });
-    exportButton.disabled = !health;
-    actions.appendChild(exportButton);
-    card.appendChild(actions);
-
-    if (!canonDb || !health) {
-        card.appendChild(createEmptyMessage('Deck Health is loading. Use Refresh Health if it does not appear.'));
-        return card;
-    }
-
-    const context = getLoredeckHealthCenterContext('');
-    card.appendChild(createLoredeckHealthSummaryHero(context, { compact: true }));
-    card.appendChild(createLoredeckHealthSeverityGrid(context, { compact: true }));
-
-    const groups = getLoredeckHealthIssueGroupsForContext(context);
-    if (groups.length) {
-        const top = document.createElement('div');
-        top.className = 'wandlight-loredeck-health-compact-issues';
-        const label = document.createElement('div');
-        label.className = 'wandlight-runtime-card-title';
-        label.textContent = 'Priority Issues';
-        top.appendChild(label);
-        for (const group of groups.slice(0, 2)) {
-            top.appendChild(createLoredeckHealthIssueGroupCard(group, context, { compact: true }));
-        }
-        card.appendChild(top);
-    } else {
-        card.appendChild(createEmptyMessage('No Deck Health issues found.'));
-    }
-
-    return card;
-}
-
 function openLoredeckHealthCenter(packId = '') {
     loredeckHealthCenterOpen = true;
     loredeckHealthCenterPackId = String(packId || '').trim();
@@ -10715,240 +10875,6 @@ async function checkLoredeckForUpdates(pack, button = null) {
             fileName: updateUrl,
         });
     });
-}
-
-function createLoredeckStackRow(item, index, stackLength, canonDb = null) {
-    const row = document.createElement('div');
-    row.className = 'wandlight-loredeck-stack-row';
-    if (!item.enabled) row.classList.add('wandlight-loredeck-stack-row-disabled');
-    addTooltip(row, `${item.enabled ? 'Enabled' : 'Disabled'} Loredeck: ${item.packId}`);
-
-    const main = document.createElement('div');
-    main.className = 'wandlight-loredeck-row-main';
-
-    const title = document.createElement('div');
-    title.className = 'wandlight-loredeck-row-title';
-    title.textContent = getLoredeckDisplayName(item.packId);
-    main.appendChild(title);
-
-    const desc = document.createElement('div');
-    desc.className = 'wandlight-loredeck-row-description';
-    const definition = getLoredeckDefinition(item.packId);
-    desc.textContent = definition?.description || `${getLoredeckTypeLabel(item.packId)} Loredeck`;
-    main.appendChild(desc);
-
-    const meta = document.createElement('div');
-    meta.className = 'wandlight-loredeck-row-meta';
-    meta.appendChild(createStatusPill(`#${index + 1}`, 'Stack priority order. Earlier Loredecks outrank later Loredecks.'));
-    meta.appendChild(createStatusPill(getLoredeckTypeLabel(item.packId), 'Loredeck source type.'));
-    meta.appendChild(createStatusPill(item.enabled ? 'Enabled' : 'Disabled', 'Disabled Loredecks stay in the stack but do not participate in retrieval.'));
-    meta.appendChild(createStatusPill(`P${item.priority}`, 'Stored numeric stack priority.'));
-    const loadedMeta = (canonDb?.loredecks || []).find(pack => pack.id === item.packId);
-    if (loadedMeta) {
-        meta.appendChild(createStatusPill(`${loadedMeta.entryCount || 0} Lorecards`, 'Loaded Lorecards from this Loredeck.'));
-    }
-    const context = getLoredeckContext(getState(), item.packId);
-    meta.appendChild(createStatusPill(formatContextSummary(context), 'Current Context for this loaded Loredeck.'));
-    main.appendChild(meta);
-
-    row.appendChild(main);
-
-    const actions = document.createElement('div');
-    actions.className = 'wandlight-loredeck-row-actions';
-
-    const up = createButton('↑', 'Move this Loredeck higher in the loading priority stack.', () => moveLoredeckInStack(item.packId, -1), 'wandlight-loredeck-stack-arrow');
-    up.setAttribute('aria-label', 'Move Loredeck up');
-    up.disabled = index <= 0;
-    actions.appendChild(up);
-
-    const down = createButton('↓', 'Move this Loredeck lower in the loading priority stack.', () => moveLoredeckInStack(item.packId, 1), 'wandlight-loredeck-stack-arrow');
-    down.setAttribute('aria-label', 'Move Loredeck down');
-    down.disabled = index >= stackLength - 1;
-    actions.appendChild(down);
-
-    actions.appendChild(createButton(
-        item.enabled ? 'Disable' : 'Enable',
-        item.enabled ? 'Keep this Loredeck in the stack but exclude it from retrieval.' : 'Enable this Loredeck for retrieval.',
-        () => setLoredeckEnabled(item.packId, !item.enabled)
-    ));
-
-    const remove = createButton('Remove', 'Remove this Loredeck from the current stack.', () => removeLoredeckFromStack(item.packId), 'wandlight-danger-button');
-    actions.appendChild(remove);
-
-    row.appendChild(actions);
-    return row;
-}
-
-function createLoredeckDetailCard(state, canonDb = null, health = null) {
-    const library = getLoredeckLibrary(state);
-    const selectedId = String(state?.lorePanel?.selectedLoredeckId || '').trim();
-    const pack = library.find(item => item.packId === selectedId) || library[0];
-
-    const card = document.createElement('div');
-    card.className = 'wandlight-runtime-card wandlight-loredeck-detail-card';
-
-    const title = document.createElement('h4');
-    title.textContent = 'Loredeck Details';
-    card.appendChild(title);
-
-    if (!pack) {
-        card.appendChild(createEmptyMessage('Select or register a Loredeck to inspect it.'));
-        return card;
-    }
-
-    const loadedMeta = (canonDb?.loredecks || []).find(item => item.id === pack.packId);
-    const entryCount = loadedMeta?.entryCount ?? pack.entryCount ?? 0;
-    const categoryText = formatCategoryCounts(loadedMeta?.categoryCounts || pack.stats?.categoryCounts || {});
-    const readOnly = pack.type === 'bundled';
-    const virtualDuplicate = isVirtualLoredeckPack(pack);
-    const editorCanValidate = canValidateLoredeckInEditor(pack);
-
-    const header = document.createElement('div');
-    header.className = 'wandlight-loredeck-detail-header';
-    const heading = document.createElement('div');
-    heading.className = 'wandlight-loredeck-detail-title';
-    heading.textContent = pack.title || pack.packId;
-    header.appendChild(heading);
-
-    const chips = document.createElement('div');
-    chips.className = 'wandlight-loredeck-row-meta';
-    chips.appendChild(createStatusPill(getLoredeckTypeLabel(pack.packId), 'Loredeck source type.'));
-    if (virtualDuplicate) chips.appendChild(createStatusPill(pack.type === 'generated' ? 'Generated Draft' : 'Virtual Copy', pack.type === 'generated' ? 'Generated Loredeck draft with embedded manifest metadata and no source entry files yet.' : 'Custom duplicate that uses embedded manifest metadata and resolves files from its source manifest.'));
-    chips.appendChild(createStatusPill(`${entryCount} Lorecards`, 'Lorecard count from loaded Deck Health or registered metadata.'));
-    chips.appendChild(createStatusPill(pack.healthStatus || getLoredeckHealthText(health), 'Deck Health is advisory and does not block use.'));
-    for (const tag of (pack.tags || []).slice(0, 6)) {
-        chips.appendChild(createStatusPill(tag, 'Loredeck tag.'));
-    }
-    header.appendChild(chips);
-    card.appendChild(header);
-
-    const overview = document.createElement('div');
-    overview.className = 'wandlight-loredeck-detail-grid';
-    overview.appendChild(createKeyValue('Deck ID', pack.packId, 'Stable Loredeck identifier used by the stack and registry.'));
-    overview.appendChild(createKeyValue('Fandom', pack.fandom || 'unset', 'Fandom, canon, universe, or setting.'));
-    overview.appendChild(createKeyValue('Era', pack.era || 'unset', 'Era, arc, continuity slice, adaptation, or scope.'));
-    overview.appendChild(createKeyValue('Author', pack.author || 'unset', 'Deck author or publisher.'));
-    overview.appendChild(createKeyValue('Version', pack.version || 'unset', 'Deck version from metadata or manifest.'));
-    overview.appendChild(createKeyValue('Categories', categoryText || 'Not checked', 'Lorecard counts by category when available.'));
-    overview.appendChild(createKeyValue(virtualDuplicate ? 'Base Manifest' : 'Manifest', pack.manifest || 'unset', virtualDuplicate ? 'Source manifest used to resolve entry files for this Custom duplicate.' : 'Fetchable loredeck.json path or URL.'));
-    overview.appendChild(createKeyValue('Source', getLoredeckSourceSummary(pack), 'Source and update metadata for this Loredeck record.'));
-    if (pack.derivedFrom?.packId || pack.derivedFrom?.title) {
-        overview.appendChild(createKeyValue('Derived From', pack.derivedFrom.title || pack.derivedFrom.packId, 'Source pack metadata recorded when this Custom Loredeck was duplicated or generated.'));
-    }
-    card.appendChild(overview);
-
-    const edit = document.createElement('div');
-    edit.className = 'wandlight-loredeck-edit-grid';
-    const titleInput = createLoredeckEditorField(edit, 'Title', pack.title, {
-        disabled: readOnly,
-        tooltip: 'Display title shown in the Loredeck Library and stack.',
-    });
-    const fandomInput = createLoredeckEditorField(edit, 'Fandom', pack.fandom, {
-        disabled: readOnly,
-        tooltip: 'Primary fandom or setting label.',
-    });
-    const eraInput = createLoredeckEditorField(edit, 'Era', pack.era, {
-        disabled: readOnly,
-        tooltip: 'Era, arc, adaptation, continuity slice, or scope.',
-    });
-    const authorInput = createLoredeckEditorField(edit, 'Author', pack.author, {
-        disabled: readOnly,
-        tooltip: 'Deck creator or publisher.',
-    });
-    const versionInput = createLoredeckEditorField(edit, 'Version', pack.version, {
-        disabled: readOnly,
-        tooltip: 'Deck metadata version.',
-    });
-    const manifestInput = createLoredeckEditorField(edit, virtualDuplicate ? 'Base Manifest' : 'Manifest', pack.manifest, {
-        disabled: readOnly || virtualDuplicate,
-        tooltip: virtualDuplicate
-            ? 'Virtual Custom duplicates keep their source manifest as the file-resolution base.'
-            : 'Fetchable loredeck.json path or URL. Entry paths resolve relative to this manifest.',
-    });
-    const tagsInput = createLoredeckEditorField(edit, 'Tags', (pack.tags || []).join(', '), {
-        disabled: readOnly,
-        tooltip: 'Comma-separated metadata tags. Tags are first-class Saga metadata.',
-    });
-    const descriptionInput = createLoredeckEditorField(edit, 'Description', pack.description, {
-        disabled: readOnly,
-        multiline: true,
-        full: true,
-        tooltip: 'Short library description shown on the Loredeck card.',
-    });
-    card.appendChild(edit);
-
-    const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions';
-    const refreshButton = createButton('Inspect Manifest', 'Fetch and preview this Loredeck manifest.', async (btn) => {
-        await loadLoredeckManifestPreview(pack, btn);
-    }, 'wandlight-primary-button');
-    refreshButton.disabled = !editorCanValidate;
-    actions.appendChild(refreshButton);
-    const validateButton = createButton('Validate Deck', 'Load this Loredeck data and run Deck Health validation with the same rules used at runtime.', async (btn) => {
-        await validateLoredeckForEditor(pack, btn);
-    });
-    validateButton.disabled = !editorCanValidate;
-    actions.appendChild(validateButton);
-    const healthButton = createButton('Health Report', 'Open the fullscreen Deck Health Center for this Loredeck.', () => {
-        openLoredeckHealthCenter(pack.packId);
-    });
-    actions.appendChild(healthButton);
-    actions.appendChild(createButton('Duplicate as Custom', 'Create a Custom Loredeck copy with its own pack ID and metadata.', () => {
-        openDuplicateLoredeckDialog(pack);
-    }));
-
-    if (!readOnly) {
-        actions.appendChild(createButton('Save Metadata', 'Save edited Custom/Generated Loredeck library metadata.', async (btn) => {
-            await saveLoredeckMetadataFromInputs(pack, {
-                titleInput,
-                descriptionInput,
-                fandomInput,
-                eraInput,
-                authorInput,
-                versionInput,
-                manifestInput,
-                tagsInput,
-            }, btn);
-        }, 'wandlight-primary-button'));
-
-        const syncButton = createButton('Sync From Manifest', 'Fetch the manifest and refresh this library record from its metadata.', async (btn) => {
-            await syncLoredeckMetadataFromManifest(pack, btn);
-        });
-        syncButton.disabled = !pack.manifest;
-        actions.appendChild(syncButton);
-
-        const updateButton = createButton('Check Updates', 'Fetch this Loredeck source/update URL and review any installable update bundle.', async (btn) => {
-            await checkLoredeckForUpdates(pack, btn);
-        });
-        updateButton.disabled = !getLoredeckUpdateUrl(pack);
-        actions.appendChild(updateButton);
-
-        const repairButton = createButton('Repair Safe Issues', 'Apply safe Deck Health repairs to Custom metadata and existing overrides.', async (btn) => {
-            await repairLoredeckSafeHealthIssues(pack, btn);
-        });
-        repairButton.disabled = !editorCanValidate;
-        actions.appendChild(repairButton);
-
-        const exportButton = createButton('Export Validated Draft', 'Validate this Custom/Generated Loredeck record, then export it with Deck Health metadata.', async (btn) => {
-            await exportValidatedLoredeckDraft(pack, btn);
-        });
-        exportButton.disabled = !editorCanValidate;
-        actions.appendChild(exportButton);
-    } else {
-        const note = document.createElement('div');
-        note.className = 'wandlight-runtime-help';
-        note.textContent = 'Bundled Loredeck metadata is read-only. Use Duplicate as Custom to create an editable copy.';
-        actions.appendChild(note);
-    }
-    card.appendChild(actions);
-
-    const readiness = createGeneratedLoredeckExportReadinessCard(pack);
-    if (readiness) card.appendChild(readiness);
-    card.appendChild(createLoredeckManifestPreview(pack));
-    if (!readOnly) {
-        card.appendChild(createLoredeckEntryOverrideCard(pack));
-    }
-    return card;
 }
 
 function createLoredeckEditorField(container, labelText, value = '', options = {}) {
@@ -20761,7 +20687,7 @@ function createCanonLoreDatabaseCard(state) {
     const db = state?.canonLoreDatabase || {};
     const help = document.createElement('div');
     help.className = 'wandlight-runtime-help';
-    help.textContent = 'Canon database entries are proposed for review, not automatically accepted. The database is organized under Lore/characters, Lore/events, Lore/items, Lore/knowledge, and Lore/places.';
+    help.textContent = 'Canon database entries are proposed for review, not automatically accepted. Saga queries the active Loredeck stack and its bundled or custom Lorecard files.';
     card.appendChild(help);
 
     const grid = document.createElement('div');

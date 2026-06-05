@@ -582,7 +582,7 @@ async function sendViaConnectionProfile(cfg, systemPrompt, userPrompt, options =
                 includeInstruct: true,
                 // Do not force reasoning_effort here. Some providers/profiles, especially DeepSeek-compatible
                 // endpoints, reject unsupported values. If a SillyTavern connection profile itself sends
-                // reasoning_effort:'auto', fix that profile/preset or use Wandlight's direct OpenAI-compatible provider.
+                // reasoning_effort:'auto', fix that profile/preset or use Saga's direct OpenAI-compatible provider.
             },
         );
     }

@@ -99,12 +99,6 @@
         "book": "Half-Blood Prince",
         "confidence": 0.85,
         "notes": "Curated Context constraint seed entry."
-      },
-      "extensions": {
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Automatic concise title cleanup for implementation-language wording."
-        }
       }
     },
     {
@@ -191,12 +185,6 @@
         "book": "Order of the Phoenix",
         "confidence": 0.85,
         "notes": "Curated Context constraint seed entry."
-      },
-      "extensions": {
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Merged duplicate Sirius alive-before-death guards."
-        }
       }
     },
     {
@@ -304,12 +292,6 @@
         "book": "Order of the Phoenix",
         "confidence": 0.85,
         "notes": "Curated Context constraint seed entry."
-      },
-      "extensions": {
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Merged Year 5 public/private Voldemort-return denial duplicates."
-        }
       }
     }
   ]

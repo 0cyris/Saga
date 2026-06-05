@@ -634,7 +634,7 @@ async function main() {
         }), { userGesture: true });
         await wait(500);
 
-        await clickButtonText(client, 'Open Health Report', { root: '.wandlight-loredeck-library-overlay' });
+        await clickButtonText(client, 'Open Health Center', { root: '.wandlight-loredeck-library-overlay' });
         await waitFor(client, '!!document.querySelector(".wandlight-loredeck-health-center-overlay")', 'Deck Health Center');
         await wait(1000);
         screenshots.push(await screenshot(client, 'live-st-04-health'));
@@ -655,7 +655,7 @@ async function main() {
                 const clean = (button.innerText || button.textContent || '').trim();
                 return clean === 'Check Updates';
             });
-            const detailText = document.querySelector('.wandlight-loredeck-detail-card')?.innerText || '';
+            const detailText = document.querySelector('.wandlight-loredeck-library-details')?.innerText || '';
             return {
                 hasButton: buttons.length > 0,
                 hasEnabledButton: buttons.some(button => !button.disabled),
@@ -671,7 +671,7 @@ async function main() {
             await clickButtonText(client, 'Cancel', { enabledOnly: false });
             await wait(500);
         } else if (updateProbe.expectsUpdateControl) {
-            findings.push('Selected Loredeck records an update URL, but Check Updates was not enabled in the live Loredecks drawer.');
+            findings.push('Selected Loredeck records an update URL, but Check Updates was not enabled in the Loredeck Library details panel.');
         }
 
         await clickSelector(client, '.wandlight-runtime-rail-tab[data-tab-id="settings"]');

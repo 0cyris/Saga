@@ -80,12 +80,6 @@
         "book": "Philosopher's Stone",
         "confidence": 0.85,
         "notes": "Curated Context constraint seed entry."
-      },
-      "extensions": {
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Converted school-year window to concise non-default timeline metadata."
-        }
       }
     },
     {
@@ -172,14 +166,9 @@
         "deathStateGatePass": {
           "method": "removed positive requiresEvents from canon database entry",
           "notes": "Canon database proposals are Context-gated references; they should not become Future solely because a story milestone flag is absent.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "requiresEventsRemoved": [
             "chamber_of_secrets_resolved"
           ]
-        },
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Converted school-year window to concise non-default timeline metadata."
         }
       }
     },
@@ -262,12 +251,6 @@
         "book": "Prisoner of Azkaban",
         "confidence": 0.85,
         "notes": "Curated Context constraint seed entry."
-      },
-      "extensions": {
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Converted school-year window to concise non-default timeline metadata."
-        }
       }
     },
     {
@@ -349,12 +332,6 @@
         "book": "Goblet of Fire",
         "confidence": 0.85,
         "notes": "Curated Context constraint seed entry."
-      },
-      "extensions": {
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Converted school-year window to concise non-default timeline metadata."
-        }
       }
     },
     {
@@ -436,12 +413,6 @@
         "book": "Order of the Phoenix",
         "confidence": 0.85,
         "notes": "Curated Context constraint seed entry."
-      },
-      "extensions": {
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Converted school-year window to concise non-default timeline metadata."
-        }
       }
     },
     {
@@ -523,12 +494,6 @@
         "book": "Half-Blood Prince",
         "confidence": 0.85,
         "notes": "Curated Context constraint seed entry."
-      },
-      "extensions": {
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Converted school-year window to concise non-default timeline metadata."
-        }
       }
     },
     {
@@ -615,14 +580,9 @@
         "deathStateGatePass": {
           "method": "removed positive requiresEvents from canon database entry",
           "notes": "Canon database proposals are Context-gated references; they should not become Future solely because a story milestone flag is absent.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "requiresEventsRemoved": [
             "deathly_hallows_revealed_to_trio"
           ]
-        },
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Converted school-year window to concise non-default timeline metadata."
         }
       }
     }

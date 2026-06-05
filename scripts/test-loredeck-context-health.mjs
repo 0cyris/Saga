@@ -483,7 +483,6 @@ assert.equal(missingRegistryHealth.status, 'good');
 assert.equal(missingRegistryHealth.suggestions[0].code, 'tag_registry_missing');
 
 const generatedSource = await loadLoredeckSourceById('generated-arlong-park', {
-  allowLegacyFallback: false,
   registry: {
     packs: {
       'generated-arlong-park': {

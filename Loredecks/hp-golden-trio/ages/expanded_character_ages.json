@@ -92,12 +92,7 @@
       "extensions": {
         "deathStateGatePass": {
           "method": "deceased age gate bounded by death date",
-          "notes": "Fred age constraints end at his canon death during the Battle of Hogwarts.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass"
-        },
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Concise title cleanup; age gates are non-default metadata unless directly relevant."
+          "notes": "Fred age constraints end at his canon death during the Battle of Hogwarts."
         }
       }
     },
@@ -177,12 +172,6 @@
         "work": "Harry Potter",
         "confidence": 0.82,
         "notes": "Expanded curated Context constraint entry."
-      },
-      "extensions": {
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Concise title cleanup; age gates are non-default metadata unless directly relevant."
-        }
       }
     },
     {
@@ -276,12 +265,7 @@
       "extensions": {
         "deathStateGatePass": {
           "method": "deceased age gate bounded by death date",
-          "notes": "Cedric age constraints end at his canon death in the graveyard.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass"
-        },
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Concise title cleanup; age gates are non-default metadata unless directly relevant."
+          "notes": "Cedric age constraints end at his canon death in the graveyard."
         }
       }
     },
@@ -361,12 +345,6 @@
         "work": "Harry Potter",
         "confidence": 0.82,
         "notes": "Expanded curated Context constraint entry."
-      },
-      "extensions": {
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Concise title cleanup; age gates are non-default metadata unless directly relevant."
-        }
       }
     }
   ]

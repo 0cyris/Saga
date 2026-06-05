@@ -368,7 +368,6 @@ export async function loadContextIndexForState(state = getState(), options = {})
         const index = createEmptyIndex(signature);
         const sources = await loadLoredeckStackSources(state?.loredeckStack || [], {
             registry,
-            allowLegacyFallback: options.allowLegacyFallback !== false,
         });
         for (const source of sources) {
             const result = await loadTimelineForSource(source);

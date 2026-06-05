@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
-  "databaseId": "wandlight.hp.date_constraints",
-  "title": "Wandlight Harry Potter Date Constraint Database",
-  "description": "Chronology, knowledge, age, behavior, spell, skill, and future-guard constraints for canon-date alignment.",
+  "databaseId": "saga.hp.golden_trio",
+  "title": "Harry Potter: Golden Trio",
+  "description": "Golden Trio era canon reference deck for Harry Potter school years one through seven.",
   "defaultLocale": "en",
   "generatedAt": "2026-05-31",
   "registries": {

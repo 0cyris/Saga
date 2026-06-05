@@ -470,12 +470,6 @@
         "book": "Half-Blood Prince",
         "confidence": 0.85,
         "notes": "Curated Context constraint seed entry."
-      },
-      "extensions": {
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Merged Draco Year 6 behavior duplicates."
-        }
       }
     },
     {
@@ -583,8 +577,7 @@
       "extensions": {
         "deathStateGatePass": {
           "method": "living/office state expires at death",
-          "notes": "Dumbledore behavior state expires at the Astronomy Tower death.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass"
+          "notes": "Dumbledore behavior state expires at the Astronomy Tower death."
         }
       }
     }

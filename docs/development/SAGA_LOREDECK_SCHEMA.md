@@ -1977,7 +1977,7 @@ Imported keyword-heavy packs may not have Context data. That should be allowed. 
 
 ## HP Golden Trio Migration Example
 
-The current `Lore/manifest.json` should map to:
+The old root `Lore/manifest.json` migration mapped to:
 
 ```text
 Loredecks/hp-golden-trio/loredeck.json
@@ -1990,9 +1990,7 @@ Loredecks/hp-golden-trio/knowledge_gates/
 ...
 ```
 
-The initial HP pack can preserve its current entry files and add `tags.json`, `timeline.json`, and `resolver.json` over time.
-
-MVP should keep legacy `Lore/manifest.json` fallback until the new loader is stable.
+The HP pack now lives under `Loredecks/hp-golden-trio` and should remain the source of truth for the bundled reference deck. Root `Lore/` fallback loading has been removed.
 
 ## Fandom Stress Test
 

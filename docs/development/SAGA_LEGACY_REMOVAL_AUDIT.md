@@ -4,7 +4,7 @@ Date: 2026-06-05
 
 This audit marks Wandlight-era features and assumptions that should be removed, renamed, or isolated before Saga's public-facing MVP hardens. The goal is not broad cosmetic churn for its own sake. The goal is to stop shipping Wandlight-specific product behavior as if it were Saga architecture.
 
-Implementation status: the full Wandlight chat preset product path and fast reply-header Context detection have been removed from runtime scope. Remaining high-priority cleanup starts with the root `Lore/` fallback and then moves to slash/prompt/state namespace migration.
+Implementation status: the full Wandlight chat preset product path, fast reply-header Context detection, and root `Lore/` fallback have been removed from runtime scope. Remaining high-priority cleanup moves to slash/prompt/state namespace migration.
 
 ## Current Direction
 
@@ -56,10 +56,11 @@ These are user-facing or runtime-active features that conflict with Saga's curre
      - HP date-to-year mapping belongs in the HP Golden Trio Loredeck timeline registry, not global runtime code.
 
 4. Legacy root `Lore/` fallback
+   - Status: removed. `Loredecks/hp-golden-trio` is now the only bundled HP reference source.
    - Files and code:
-     - `Lore/` directory duplicates the migrated HP data outside the Loredeck package.
-     - `loredeck-loader.js`: `LEGACY_LORE_MANIFEST_URL`, `LEGACY_LORE_INDEX_URL`, and default-pack legacy fallback.
-     - `canon-lore-db.js`: comments and UI text still describe `Lore/` as the canon database root.
+     - Removed `Lore/` directory duplication.
+     - Removed `loredeck-loader.js` default-pack legacy fallback.
+     - Updated `canon-lore-db.js` comments and UI text to describe active Loredecks.
    - Remove behavior:
      - Loading the bundled HP deck should fail loudly if `Loredecks/hp-golden-trio/loredeck.json` is broken.
      - Do not silently fall back to `Lore/manifest.json`.
@@ -80,11 +81,11 @@ These are not necessarily bad features, but they still expose Wandlight implemen
 
 2. Prompt injection names and markers
    - Files and code:
-     - `manifest.json`: `generate_interceptor: "wandlightInterceptor"`
-     - `prompt-injector.js`: `wandlightInterceptor`, `wandlightSyncPromptInjection`, `wandlightClearPromptInjection`, prompt keys beginning `wandlight_`, and prompt wrappers `[WANDLIGHT ...]`
-     - `memo-builder.js`: `[WANDLIGHT CONTINUITY STATE]`
+     - `manifest.json`: active `generate_interceptor` now points at `sagaInterceptor`
+     - `prompt-injector.js`: legacy aliases `wandlightInterceptor`, `wandlightSyncPromptInjection`, `wandlightClearPromptInjection`, and prompt keys beginning `wandlight_`
+     - `memo-builder.js` and `prompt-injector.js`: active model-visible wrappers now use `[SAGA ...]`
    - Target:
-     - Rename active prompt keys and global bridge functions to Saga.
+     - Rename active prompt keys and remaining global bridge functions to Saga.
      - Clear old Wandlight prompt keys once after migration so stale extension prompts do not remain injected.
 
 3. Settings and chat metadata namespace
@@ -152,8 +153,8 @@ These are broad internal implementation names. Changing them now is high-churn a
 1. Done: remove the full Wandlight preset UI and file.
 2. Done: remove fast reply-header Context detection and its tests.
 3. Done: replace the HP-specific Context system prompt with a Saga Context resolver prompt.
-4. Next: remove the root `Lore/` fallback and update canon/health copy to refer to loaded Loredecks.
-5. Add Saga slash commands and Saga prompt/global names, then remove Wandlight aliases.
+4. Done: remove the root `Lore/` fallback and update canon/health copy to refer to loaded Loredecks.
+5. Partly done: Saga prompt wrappers, manifest interceptor, and Saga prompt globals are active. Next, add Saga slash commands, rename prompt keys, and remove Wandlight aliases.
 6. Decide Provider preset fate: remove entirely or rename as a Saga utility preset.
 7. Rename `MODULE_KEY` and persisted state only in a dedicated migration slice.
 

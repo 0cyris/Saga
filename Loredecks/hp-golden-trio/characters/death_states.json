@@ -99,12 +99,7 @@
       "extensions": {
         "deathStateGatePass": {
           "method": "added bounded post-death character state",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "notes": "Provides a bounded deceased-state alternative to alive/age gates."
-        },
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Concise title cleanup for death-state entry."
         }
       }
     },
@@ -203,12 +198,7 @@
       "extensions": {
         "deathStateGatePass": {
           "method": "added bounded post-death character state",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "notes": "Provides a bounded deceased-state alternative to alive/age gates."
-        },
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Concise title cleanup for death-state entry."
         }
       }
     },
@@ -307,12 +297,7 @@
       "extensions": {
         "deathStateGatePass": {
           "method": "added bounded post-death character state",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "notes": "Provides a bounded deceased-state alternative to alive/age gates."
-        },
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Concise title cleanup for death-state entry."
         }
       }
     },
@@ -410,12 +395,7 @@
       "extensions": {
         "deathStateGatePass": {
           "method": "added bounded post-death character state",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "notes": "Provides a bounded deceased-state alternative to alive/age gates."
-        },
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Concise title cleanup for death-state entry."
         }
       }
     },
@@ -512,12 +492,7 @@
       "extensions": {
         "deathStateGatePass": {
           "method": "added bounded post-death character state",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "notes": "Provides a bounded deceased-state alternative to alive/age gates."
-        },
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Concise title cleanup for death-state entry."
         }
       }
     },
@@ -613,12 +588,7 @@
       "extensions": {
         "deathStateGatePass": {
           "method": "added bounded post-death character state",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "notes": "Provides a bounded deceased-state alternative to alive/age gates."
-        },
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Concise title cleanup for death-state entry."
         }
       }
     },
@@ -712,12 +682,7 @@
       "extensions": {
         "deathStateGatePass": {
           "method": "added bounded post-death character state",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "notes": "Provides a bounded deceased-state alternative to alive/age gates."
-        },
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Concise title cleanup for death-state entry."
         }
       }
     },
@@ -813,12 +778,7 @@
       "extensions": {
         "deathStateGatePass": {
           "method": "added bounded post-death character state",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "notes": "Provides a bounded deceased-state alternative to alive/age gates."
-        },
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Concise title cleanup for death-state entry."
         }
       }
     },
@@ -914,12 +874,7 @@
       "extensions": {
         "deathStateGatePass": {
           "method": "added bounded post-death character state",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "notes": "Provides a bounded deceased-state alternative to alive/age gates."
-        },
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Concise title cleanup for death-state entry."
         }
       }
     },
@@ -1013,12 +968,7 @@
       "extensions": {
         "deathStateGatePass": {
           "method": "added bounded post-death character state",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "notes": "Provides a bounded deceased-state alternative to alive/age gates."
-        },
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Concise title cleanup for death-state entry."
         }
       }
     },
@@ -1114,12 +1064,7 @@
       "extensions": {
         "deathStateGatePass": {
           "method": "added bounded post-death character state",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "notes": "Provides a bounded deceased-state alternative to alive/age gates."
-        },
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Concise title cleanup for death-state entry."
         }
       }
     },
@@ -1215,12 +1160,7 @@
       "extensions": {
         "deathStateGatePass": {
           "method": "added bounded post-death character state",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "notes": "Provides a bounded deceased-state alternative to alive/age gates."
-        },
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Concise title cleanup for death-state entry."
         }
       }
     },
@@ -1316,12 +1256,7 @@
       "extensions": {
         "deathStateGatePass": {
           "method": "added bounded post-death character state",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "notes": "Provides a bounded deceased-state alternative to alive/age gates."
-        },
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Concise title cleanup for death-state entry."
         }
       }
     },
@@ -1417,12 +1352,7 @@
       "extensions": {
         "deathStateGatePass": {
           "method": "added bounded post-death character state",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "notes": "Provides a bounded deceased-state alternative to alive/age gates."
-        },
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Concise title cleanup for death-state entry."
         }
       }
     },
@@ -1518,12 +1448,7 @@
       "extensions": {
         "deathStateGatePass": {
           "method": "added bounded post-death character state",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "notes": "Provides a bounded deceased-state alternative to alive/age gates."
-        },
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Concise title cleanup for death-state entry."
         }
       }
     },
@@ -1619,12 +1544,7 @@
       "extensions": {
         "deathStateGatePass": {
           "method": "added bounded post-death character state",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "notes": "Provides a bounded deceased-state alternative to alive/age gates."
-        },
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Concise title cleanup for death-state entry."
         }
       }
     },
@@ -1720,12 +1640,7 @@
       "extensions": {
         "deathStateGatePass": {
           "method": "added bounded post-death character state",
-          "appliedIn": "Wandlight relevance-tier regression repair pass",
           "notes": "Provides a bounded deceased-state alternative to alive/age gates."
-        },
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Concise title cleanup for death-state entry."
         }
       }
     }

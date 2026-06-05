@@ -124,12 +124,7 @@
       "extensions": {
         "deathStateGatePass": {
           "method": "living/office state expires at death",
-          "notes": "Dumbledore Headmaster state is bounded by his death.",
-          "appliedIn": "Wandlight relevance-tier regression repair pass"
-        },
-        "consolidationPass": {
-          "appliedIn": "Wandlight duplicate/title consolidation pass",
-          "notes": "Merged Dumbledore alive/headmaster gates."
+          "notes": "Dumbledore Headmaster state is bounded by his death."
         }
       }
     },
