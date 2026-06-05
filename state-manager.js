@@ -2337,6 +2337,7 @@ export function migrateState(state) {
         state.lorePanel.loredeckLibraryDetailsHeight = Number.isFinite(Number(state.lorePanel.loredeckLibraryDetailsHeight))
             ? Math.max(190, Math.min(560, Number(state.lorePanel.loredeckLibraryDetailsHeight)))
             : defaultsPanel.loredeckLibraryDetailsHeight;
+        state.lorePanel.loredeckLibraryDetailsCollapsed = state.lorePanel.loredeckLibraryDetailsCollapsed === true;
         state.lorePanel.activeTab = ['loredecks', 'session', 'continuity', 'context', 'lore', 'injection', 'settings'].includes(state.lorePanel.activeTab)
             ? state.lorePanel.activeTab
             : (state.lorePanel.activeTab === 'generate' ? 'context' : (state.lorePanel.activeTab === 'review' ? 'lore' : 'session'));

@@ -1716,36 +1716,57 @@
     display: grid;
     grid-template-rows:
         minmax(0, 1fr)
-        12px
+        30px
         minmax(190px, var(--wandlight-loredeck-library-details-height, 280px));
     gap: 6px;
     padding: 10px;
     overflow: hidden;
     box-sizing: border-box;
+    transition: grid-template-rows 180ms ease;
+}
+
+.wandlight-loredeck-library-details-collapsed {
+    grid-template-rows:
+        minmax(0, 1fr)
+        32px
+        minmax(0, 0px);
 }
 
 .wandlight-loredeck-library-columns {
     min-height: 0;
     display: grid;
-    grid-template-columns: minmax(500px, 1.4fr) minmax(128px, 0.22fr) minmax(360px, 1.08fr);
+    grid-template-columns: minmax(600px, 1.65fr) minmax(128px, 0.22fr) minmax(280px, 0.82fr);
     gap: 10px;
 }
 
 .wandlight-loredeck-library-resize-handle {
     width: 100%;
     min-width: 0;
-    min-height: 12px;
-    display: grid;
+    min-height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     place-items: center;
-    border: 0;
-    border-radius: 999px;
-    background: transparent;
-    padding: 0;
+    gap: 8px;
+    border: 1px solid rgba(215, 181, 109, 0.34);
+    border-radius: 8px 8px 0 0;
+    background:
+        linear-gradient(180deg, rgba(215, 181, 109, 0.11), rgba(8, 10, 14, 0.28));
+    color: var(--wandlight-gold, #d7b56d);
+    padding: 0 10px;
     cursor: row-resize;
     box-sizing: border-box;
 }
 
-.wandlight-loredeck-library-resize-handle span {
+.wandlight-loredeck-library-resize-handle-collapsed {
+    cursor: pointer;
+    border-color: rgba(245, 196, 91, 0.64);
+    background:
+        radial-gradient(circle at 50% 0%, rgba(245, 196, 91, 0.16), transparent 56%),
+        rgba(8, 10, 14, 0.64);
+}
+
+.wandlight-loredeck-library-resize-track {
     width: min(180px, 32%);
     height: 4px;
     display: block;
@@ -1755,9 +1776,17 @@
     opacity: 0.72;
 }
 
-.wandlight-loredeck-library-resize-handle:hover span,
-.wandlight-loredeck-library-resize-handle:focus-visible span,
-.wandlight-loredeck-library-resizing .wandlight-loredeck-library-resize-handle span {
+.wandlight-loredeck-library-resize-label {
+    flex: 0 0 auto;
+    color: var(--wandlight-gold, #d7b56d);
+    font-size: 0.72em;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.wandlight-loredeck-library-resize-handle:hover .wandlight-loredeck-library-resize-track,
+.wandlight-loredeck-library-resize-handle:focus-visible .wandlight-loredeck-library-resize-track,
+.wandlight-loredeck-library-resizing .wandlight-loredeck-library-resize-handle .wandlight-loredeck-library-resize-track {
     opacity: 1;
     filter: drop-shadow(0 0 5px rgba(215, 181, 109, 0.36));
 }
@@ -2013,10 +2042,11 @@
 }
 
 .wandlight-loredeck-library-deck-card {
+    position: relative;
     width: 100%;
     min-height: 92px;
     display: grid;
-    grid-template-columns: 20px 58px minmax(0, 1fr) auto;
+    grid-template-columns: 20px 54px minmax(0, 1fr);
     gap: 8px;
     align-items: center;
     border: 1px solid rgba(185, 139, 54, 0.2);
@@ -2025,7 +2055,7 @@
         linear-gradient(180deg, rgba(18, 18, 24, 0.74), rgba(8, 10, 14, 0.82));
     color: var(--wandlight-text, #f1ead8);
     text-align: left;
-    padding: 7px;
+    padding: 7px 34px 7px 7px;
     cursor: pointer;
     box-sizing: border-box;
 }
@@ -2083,7 +2113,7 @@
 }
 
 .wandlight-loredeck-library-monogram {
-    width: 54px;
+    width: 52px;
     height: 64px;
     font-size: 1.1em;
 }
@@ -2142,11 +2172,23 @@
 }
 
 .wandlight-loredeck-library-deck-side {
-    min-width: 28px;
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    min-width: 24px;
+    max-width: 30px;
+    min-height: 22px;
+    display: inline-grid;
+    place-items: center;
+    border: 1px solid rgba(185, 139, 54, 0.2);
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.24);
     color: var(--wandlight-gold, #d7b56d);
-    font-size: 0.82em;
+    font-size: 0.66em;
     font-weight: 800;
-    text-align: right;
+    line-height: 1;
+    text-align: center;
+    pointer-events: none;
 }
 
 .wandlight-loredeck-library-transfer-pane {
@@ -2185,16 +2227,17 @@
 }
 
 .wandlight-loredeck-library-stack-card {
+    position: relative;
     min-height: 94px;
     display: grid;
-    grid-template-columns: 20px 58px minmax(0, 1fr) auto;
+    grid-template-columns: 20px 54px minmax(0, 1fr);
     gap: 9px;
     align-items: center;
     border: 1px solid rgba(185, 139, 54, 0.22);
     border-radius: 7px;
     background:
         linear-gradient(180deg, rgba(18, 18, 24, 0.8), rgba(8, 10, 14, 0.86));
-    padding: 8px;
+    padding: 8px 40px 24px 8px;
     box-sizing: border-box;
     cursor: pointer;
     transition:
@@ -2289,22 +2332,23 @@
 }
 
 .wandlight-loredeck-library-stack-controls {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 6px;
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    display: grid;
+    place-items: center;
 }
 
 .wandlight-loredeck-library-stack-toggle-button {
-    width: 42px;
-    height: 42px;
-    min-width: 42px;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
     display: grid;
     place-items: center;
     border: 1px solid rgba(185, 139, 54, 0.28);
     border-radius: 6px;
     padding: 0;
-    font-size: 0.66em;
+    font-size: 0.48em;
     font-weight: 800;
     line-height: 1;
     letter-spacing: 0;
@@ -2401,6 +2445,16 @@
     padding: 9px;
     overflow: hidden;
     box-sizing: border-box;
+    opacity: 1;
+    transition:
+        opacity 160ms ease,
+        transform 180ms ease;
+}
+
+.wandlight-loredeck-library-details-collapsed .wandlight-loredeck-library-details {
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
 }
 
 .wandlight-loredeck-library-detail-identity {
@@ -2519,6 +2573,10 @@
     }
 
     .wandlight-loredeck-library-resize-handle {
+        display: flex;
+    }
+
+    .wandlight-loredeck-library-details-collapsed .wandlight-loredeck-library-details {
         display: none;
     }
 

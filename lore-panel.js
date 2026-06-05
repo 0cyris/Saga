@@ -109,7 +109,7 @@ const DEFAULT_COMPACT_RAIL_HEIGHT_ESTIMATE = 420;
 const DEFAULT_EXPANDED_RAIL_HEIGHT_ESTIMATE = 420;
 const LAYOUT_VERSION = 2;
 const LOREDECK_LIBRARY_DETAILS_MIN_HEIGHT = 190;
-const LOREDECK_LIBRARY_DETAILS_DEFAULT_HEIGHT = 280;
+const LOREDECK_LIBRARY_DETAILS_DEFAULT_HEIGHT = LOREDECK_LIBRARY_DETAILS_MIN_HEIGHT;
 const LOREDECK_LIBRARY_DETAILS_MAX_HEIGHT = 560;
 const LOREDECK_LIBRARY_COLUMNS_MIN_HEIGHT = 250;
 const STORED_API_KEY_SETTING_PREFIXES = Object.freeze(['loreOpenAI', 'continuityOpenAI']);
@@ -2372,6 +2372,8 @@ function renderLoredeckLibraryOverlay() {
     const body = document.createElement('div');
     body.className = 'wandlight-loredeck-library-body';
     loredeckLibraryDetailsHeight = getLoredeckLibraryDetailsHeight(state);
+    const detailsCollapsed = getLoredeckLibraryDetailsCollapsed(state);
+    body.classList.toggle('wandlight-loredeck-library-details-collapsed', detailsCollapsed);
     body.style.setProperty('--wandlight-loredeck-library-details-height', `${loredeckLibraryDetailsHeight}px`);
 
     const columns = document.createElement('div');
@@ -2380,7 +2382,7 @@ function renderLoredeckLibraryOverlay() {
     columns.appendChild(createLoredeckLibraryTransferPane(selectedPack, filteredPacks, stack, selectedPacks));
     columns.appendChild(createLoredeckActiveStackPane(stack, library, canonDb, health));
     body.appendChild(columns);
-    body.appendChild(createLoredeckLibraryResizeHandle());
+    body.appendChild(createLoredeckLibraryResizeHandle(detailsCollapsed));
     body.appendChild(createLoredeckLibraryDetailsPanel(selectedPack, stack, canonDb, health));
     shell.appendChild(body);
 }
@@ -2392,6 +2394,10 @@ function getLoredeckLibraryDetailsHeight(state = getState()) {
         LOREDECK_LIBRARY_DETAILS_MAX_HEIGHT,
         LOREDECK_LIBRARY_DETAILS_DEFAULT_HEIGHT,
     );
+}
+
+function getLoredeckLibraryDetailsCollapsed(state = getState()) {
+    return state?.lorePanel?.loredeckLibraryDetailsCollapsed === true;
 }
 
 function setLoredeckLibraryDetailsHeight(height, options = {}) {
@@ -2415,22 +2421,46 @@ function setLoredeckLibraryDetailsHeight(height, options = {}) {
     return next;
 }
 
-function createLoredeckLibraryResizeHandle() {
+function setLoredeckLibraryDetailsCollapsed(collapsed, options = {}) {
+    const next = collapsed === true;
+    const state = getState();
+    if (!state.lorePanel || typeof state.lorePanel !== 'object') state.lorePanel = getDefaultState().lorePanel;
+    state.lorePanel.loredeckLibraryDetailsCollapsed = next;
+    if (!next) {
+        state.lorePanel.loredeckLibraryDetailsHeight = Math.max(
+            LOREDECK_LIBRARY_DETAILS_MIN_HEIGHT,
+            Number(state.lorePanel.loredeckLibraryDetailsHeight) || LOREDECK_LIBRARY_DETAILS_DEFAULT_HEIGHT,
+        );
+    }
+    if (options.persist !== false) saveState(state, { syncPrompt: false });
+    renderLoredeckLibraryOverlay();
+}
+
+function createLoredeckLibraryResizeHandle(collapsed = false) {
     const handle = document.createElement('button');
     handle.type = 'button';
-    handle.className = 'wandlight-loredeck-library-resize-handle';
+    handle.className = `wandlight-loredeck-library-resize-handle${collapsed ? ' wandlight-loredeck-library-resize-handle-collapsed' : ''}`;
     handle.setAttribute('aria-label', 'Resize Loredeck details panel');
     handle.setAttribute('aria-orientation', 'horizontal');
-    handle.innerHTML = '<span></span>';
-    addTooltip(handle, 'Drag to resize the selected Loredeck details panel. Double-click to reset.');
+    handle.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+    const track = document.createElement('span');
+    track.className = 'wandlight-loredeck-library-resize-track';
+    handle.appendChild(track);
+    const label = document.createElement('span');
+    label.className = 'wandlight-loredeck-library-resize-label';
+    label.textContent = collapsed ? 'Expand Details ↑' : 'Collapse Details ↓';
+    handle.appendChild(label);
+    addTooltip(handle, collapsed ? 'Expand the selected Loredeck details panel.' : 'Collapse, resize, or reset the selected Loredeck details panel.');
 
-    handle.addEventListener('dblclick', e => {
+    handle.addEventListener('click', e => {
         e.preventDefault();
         e.stopPropagation();
-        setLoredeckLibraryDetailsHeight(LOREDECK_LIBRARY_DETAILS_DEFAULT_HEIGHT, { persist: true });
+        if (handle.dataset.suppressClick === 'true') return;
+        setLoredeckLibraryDetailsCollapsed(!getLoredeckLibraryDetailsCollapsed(), { persist: true });
     });
 
     handle.addEventListener('pointerdown', e => {
+        if (collapsed) return;
         if (e.button != null && e.button !== 0) return;
         const body = handle.closest('.wandlight-loredeck-library-body');
         if (!body) return;
@@ -2438,8 +2468,11 @@ function createLoredeckLibraryResizeHandle() {
         e.stopPropagation();
         handle.setPointerCapture?.(e.pointerId);
         document.body.classList.add('wandlight-loredeck-library-resizing');
+        let dragged = false;
+        const startY = e.clientY;
 
         const onMove = event => {
+            if (Math.abs(event.clientY - startY) > 3) dragged = true;
             const rect = body.getBoundingClientRect();
             const style = getComputedStyle(body);
             const bottomPadding = parseFloat(style.paddingBottom) || 0;
@@ -2467,6 +2500,10 @@ function createLoredeckLibraryResizeHandle() {
             window.removeEventListener('pointerup', onUp);
             window.removeEventListener('pointercancel', onUp);
             setLoredeckLibraryDetailsHeight(loredeckLibraryDetailsHeight, { persist: true });
+            if (dragged) {
+                handle.dataset.suppressClick = 'true';
+                window.setTimeout(() => { delete handle.dataset.suppressClick; }, 0);
+            }
         };
 
         window.addEventListener('pointermove', onMove);
@@ -2990,15 +3027,15 @@ function createLoredeckLibraryTransferPane(selectedPack = null, filteredPacks = 
         });
     duplicate.disabled = !selectedPack || selectedPacks.length > 1;
     libraryActions.appendChild(duplicate);
-    const deleteButton = createLoredeckLibrarySquareIconAction('delete', selectedPack && selectedPacks.length <= 1
-        ? (selectedPack.type === 'bundled'
-            ? 'Bundled Loredecks are built into Saga and cannot be deleted.'
-            : `Delete ${selectedPack.title || selectedPack.packId} from the Library after confirmation.`)
-        : 'Select one Custom or Generated Loredeck before deleting.', () => {
-            if (!selectedPack || selectedPacks.length > 1 || selectedPack.type === 'bundled') return;
-            void deleteLoredeckLibraryPackWithConfirm(selectedPack);
+    const deleteTargets = selectedPacks.length ? selectedPacks : (selectedPack ? [selectedPack] : []);
+    const deletableTargets = deleteTargets.filter(pack => !isBundledLoredeckLibraryPack(pack));
+    const deleteButton = createLoredeckLibrarySquareIconAction('delete', deletableTargets.length
+        ? `Delete ${deletableTargets.length} selected Custom/Generated Loredeck${deletableTargets.length === 1 ? '' : 's'} after confirmation.`
+        : 'Select one or more Custom or Generated Loredecks before deleting.', () => {
+            if (!deletableTargets.length) return;
+            void deleteLoredeckLibraryPacksWithConfirm(deleteTargets);
         }, 'wandlight-loredeck-library-square-action-danger');
-    deleteButton.disabled = !selectedPack || selectedPacks.length > 1 || selectedPack.type === 'bundled';
+    deleteButton.disabled = !deletableTargets.length;
     libraryActions.appendChild(deleteButton);
     footer.appendChild(libraryActions);
     pane.appendChild(footer);
@@ -3139,7 +3176,7 @@ function createLoredeckLibraryDeckCard(pack, stack = [], canonDb = null, health 
     chips.appendChild(createStatusPill(getLoredeckTypeLabel(pack.packId), 'Loredeck source type.'));
     if (pack.fandom) chips.appendChild(createStatusPill(pack.fandom, 'Fandom or setting.'));
     if (pack.era) chips.appendChild(createStatusPill(pack.era, 'Era, arc, continuity slice, or scope.'));
-    chips.appendChild(createStatusPill(healthInfo.status.label, healthInfo.status.summary));
+    if (healthInfo.status.tone !== 'ok') chips.appendChild(createStatusPill(healthInfo.status.label, healthInfo.status.summary));
     if (activeItem) chips.appendChild(createStatusPill(activeItem.enabled ? 'In Stack' : 'Disabled', 'Current session stack state.'));
     main.appendChild(chips);
     const statsLine = document.createElement('div');
@@ -3150,7 +3187,7 @@ function createLoredeckLibraryDeckCard(pack, stack = [], canonDb = null, health 
 
     const side = document.createElement('div');
     side.className = 'wandlight-loredeck-library-deck-side';
-    side.textContent = bulkSelected ? '✓' : (healthInfo.issueCount ? String(healthInfo.issueCount) : (activeItem?.enabled ? 'On' : '+'));
+    side.textContent = bulkSelected ? '*' : (healthInfo.issueCount ? String(healthInfo.issueCount) : (activeItem?.enabled ? 'On' : '+'));
     addTooltip(side, bulkSelected ? 'Selected for bulk Library actions.' : (healthInfo.issueCount ? 'Open Deck Health for issue details.' : (activeItem?.enabled ? 'Enabled in stack.' : 'Available to add.')));
     card.appendChild(side);
     return card;
@@ -3207,11 +3244,10 @@ function createLoredeckActiveStackCard(pack, item, index, stackLength, canonDb =
     chips.className = 'wandlight-loredeck-row-meta';
     chips.appendChild(createStatusPill(item.enabled ? 'Active' : 'Disabled', 'Disabled Loredecks remain in the stack but do not participate in retrieval.'));
     chips.appendChild(createStatusPill(`Priority ${index + 1}`, 'Top decks have higher priority.'));
-    chips.appendChild(createStatusPill(healthInfo.status.label, healthInfo.status.summary));
     main.appendChild(chips);
     const statsLine = document.createElement('div');
     statsLine.className = 'wandlight-loredeck-library-card-stats';
-    statsLine.textContent = `${stats.entryCount} Lorecards | ${healthInfo.warningCount} warnings`;
+    statsLine.textContent = `${stats.entryCount} Lorecards`;
     main.appendChild(statsLine);
     card.appendChild(main);
 
@@ -17679,7 +17715,7 @@ async function deleteLoredeckLibraryPackWithConfirm(packOrId) {
         return false;
     }
     const pack = getLoredeckDefinition(packId) || (typeof packOrId === 'object' ? packOrId : null) || { packId };
-    if (pack.type === 'bundled' || DEFAULT_SETTINGS.loredeckLibrary?.packs?.[packId]?.type === 'bundled') {
+    if (isBundledLoredeckLibraryPack(pack)) {
         toast('Bundled Loredecks are built into Saga and cannot be deleted.', 'warning');
         return false;
     }
@@ -17719,6 +17755,107 @@ async function deleteLoredeckLibraryPackWithConfirm(packOrId) {
     refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
     toast(`${title} deleted from Loredeck Library.`, 'info');
     return true;
+}
+
+function isBundledLoredeckLibraryPack(packOrId) {
+    const packId = String(typeof packOrId === 'string' ? packOrId : packOrId?.packId || '').trim();
+    const pack = typeof packOrId === 'object' ? packOrId : getLoredeckDefinition(packId);
+    return pack?.type === 'bundled' || DEFAULT_SETTINGS.loredeckLibrary?.packs?.[packId]?.type === 'bundled';
+}
+
+function formatLoredeckBulkDeleteList(packs = [], limit = 10) {
+    const titles = packs
+        .map(pack => pack?.title || pack?.packId || '')
+        .filter(Boolean);
+    const visible = titles.slice(0, limit).map((title, index) => `${index + 1}. ${title}`);
+    if (titles.length > limit) visible.push(`...and ${titles.length - limit} more`);
+    return visible.join('\n');
+}
+
+async function deleteLoredeckLibraryPacksWithConfirm(packsOrIds = []) {
+    const library = getLoredeckLibrary(getState());
+    const byId = new Map(library.map(pack => [pack.packId, pack]));
+    const requested = [];
+    const seen = new Set();
+    for (const item of packsOrIds || []) {
+        const packId = String(typeof item === 'string' ? item : item?.packId || '').trim();
+        if (!packId || seen.has(packId)) continue;
+        seen.add(packId);
+        requested.push(byId.get(packId) || (typeof item === 'object' ? item : { packId }));
+    }
+    const deletable = requested.filter(pack => !isBundledLoredeckLibraryPack(pack));
+    const skipped = requested.filter(pack => isBundledLoredeckLibraryPack(pack));
+    if (!deletable.length) {
+        toast('No selected Custom or Generated Loredecks can be deleted.', 'warning');
+        return false;
+    }
+    if (deletable.length === 1 && !skipped.length) {
+        return deleteLoredeckLibraryPackWithConfirm(deletable[0]);
+    }
+
+    const stack = getLoredeckStack(getState());
+    const stackIds = new Set(stack.map(item => item.packId));
+    const inStack = deletable.filter(pack => stackIds.has(pack.packId));
+    const actions = [
+        `Delete ${deletable.length} Custom/Generated Loredeck${deletable.length === 1 ? '' : 's'} from your Library:`,
+        formatLoredeckBulkDeleteList(deletable),
+    ];
+    if (inStack.length) {
+        actions.push(
+            '',
+            `Remove ${inStack.length} deleted Loredeck${inStack.length === 1 ? '' : 's'} from the active stack:`,
+            formatLoredeckBulkDeleteList(inStack),
+        );
+    }
+    if (skipped.length) {
+        actions.push(
+            '',
+            `Skip ${skipped.length} Bundled Loredeck${skipped.length === 1 ? '' : 's'} because Bundled decks are read-only:`,
+            formatLoredeckBulkDeleteList(skipped),
+        );
+    }
+    actions.push('', 'This cannot be undone unless you import or create those Loredecks again.');
+    const proceed = await confirmAction('Delete selected Loredecks?', actions.join('\n'));
+    if (!proceed) return false;
+
+    const deletableIds = new Set(deletable.map(pack => pack.packId));
+    if (inStack.length) {
+        commitLoredeckStackMutation(`Deleted ${inStack.length} Loredeck${inStack.length === 1 ? '' : 's'} from active stack`, stackItems => {
+            for (let index = stackItems.length - 1; index >= 0; index -= 1) {
+                if (deletableIds.has(stackItems[index].packId)) stackItems.splice(index, 1);
+            }
+        });
+    }
+
+    let deletedCount = 0;
+    const failed = [];
+    for (const pack of deletable) {
+        const result = removeLoredeckLibraryPack(pack.packId);
+        if (result.ok) {
+            deletedCount += 1;
+            loredeckManifestPreviewCache.delete(pack.packId);
+            loredeckEntryPreviewCache.delete(pack.packId);
+            loredeckTimelineRegistryCache.delete(pack.packId);
+            loredeckTagRegistryCache.delete(pack.packId);
+            loredeckAssistantDraftCache.delete(pack.packId);
+            loredeckHealthRepairSelectionCache.delete(pack.packId);
+        } else {
+            failed.push(pack.title || pack.packId);
+        }
+    }
+
+    const state = getState();
+    if (deletableIds.has(state?.lorePanel?.selectedLoredeckId)) {
+        const nextPack = getLoredeckLibrary().find(item => !deletableIds.has(item.packId)) || null;
+        if (!state.lorePanel) state.lorePanel = getDefaultState().lorePanel;
+        state.lorePanel.selectedLoredeckId = nextPack?.packId || '';
+        saveState(state, { syncPrompt: false });
+    }
+    setLoredeckLibraryBulkSelection([], '');
+    refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
+    if (deletedCount) toast(`Deleted ${deletedCount} Loredeck${deletedCount === 1 ? '' : 's'} from the Library.`, 'info');
+    if (failed.length) toast(`Could not delete: ${failed.slice(0, 3).join(', ')}${failed.length > 3 ? '...' : ''}`, 'warning');
+    return deletedCount > 0;
 }
 
 function forgetLoredeckLibraryPack(packId) {
