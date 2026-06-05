@@ -87,7 +87,6 @@ for (const token of [
     'createLoredeckDeckVisual',
     'assets.cover',
     'Theme Pack',
-    'Live Preview',
     'Installed Theme Packs',
     'Royal Chronicle',
     'Grimoire Crimson',
@@ -120,7 +119,6 @@ for (const token of [
     'wandlight-theme-iconset-selector',
     'wandlight-theme-iconset-strip',
     'wandlight-theme-icon-grid',
-    'wandlight-theme-preview-surface',
     'wandlight-loredeck-library-visual-cover',
     'scrollbar-gutter: stable',
 ]) {

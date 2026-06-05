@@ -1642,11 +1642,11 @@ Risk: Users load duplicated or barely edited packs together.
 
 Mitigation: Deterministic duplicate detection and stack warnings.
 
-### Wandlight Compatibility
+### Wandlight Legacy Retirement
 
-Risk: Existing chats lose state or behavior.
+Risk: Legacy Wandlight features keep shaping Saga's product surface, especially the full Wandlight chat preset, fast reply-header Context detection, HP-specific global Context inference, root `Lore/` fallback loading, and Wandlight slash/prompt/state namespaces.
 
-Mitigation: Preserve legacy keys, fallback loader paths, and slash command aliases until migration is mature.
+Mitigation: Treat Wandlight compatibility as temporary migration scaffolding, not MVP scope. Track removal in [SAGA_LEGACY_REMOVAL_AUDIT.md](SAGA_LEGACY_REMOVAL_AUDIT.md), remove user-facing Wandlight behavior first, and defer broad internal namespace churn until it can be tested as a dedicated migration slice.
 
 ### Performance
 
@@ -1659,6 +1659,8 @@ Mitigation: Build a runtime index, cache loaded manifests, score candidates in s
 The initial Loredeck foundation is implemented: `hp-golden-trio` is scaffolded, the Loredeck loader preserves legacy `Lore/manifest.json` fallback, canon suggestions route through the active stack, the Loredeck tab owns library/stack workflows, Context v1 exists, Theme Packs exist, and provider settings now live in the runtime Settings tab.
 
 Recent production completed **Context-native Loredeck retrieval, HP reference-deck conformance, and the first full-screen Saga workflow surfaces**.
+
+Legacy cleanup checkpoint: the Wandlight compatibility posture has changed. Saga should not ship the full Wandlight chat preset in MVP, and fast reply-header Context detection should leave scope with it. The current removal plan is captured in [SAGA_LEGACY_REMOVAL_AUDIT.md](SAGA_LEGACY_REMOVAL_AUDIT.md).
 
 1. Done: normalize entry-level `context` metadata in the Lorecard pipeline.
 2. Done: evaluate entry Context gates against each loaded Loredeck's `loredeckContexts`.
@@ -1711,4 +1713,5 @@ Recent production completed **Context-native Loredeck retrieval, HP reference-de
 49. Done: migrate runtime Context controls out of the Loredeck tab. The Context tab now owns loaded-Loredeck Context review, current-context resolving, Reasoner fallback launch, quick anchor selection, manual locks, reset actions, and fullscreen Context Browser access. The Loredeck tab remains focused on library/stack handling, Deck Health, import/export, Creator, and deck detail authoring.
 50. Done: upgrade Reasoner-backed Context resolution. Automatic Context detection now runs local/structured resolution first, then stores bounded Reasoner Context proposals only after the existing message-count cadence and the configured recent-message character threshold. Manual `Ask Reasoner` ignores the threshold, asks for bounded anchor/window candidates, and requires user review before applying patches.
 51. Done: revise timeline densification policy around candidate quality, not alias sprawl. Deck Health now surfaces advisory sparse-candidate, concentrated-anchor, and missing-window suggestions while keeping these findings non-blocking. Durable anchors/windows should be added for high-value recurring story moments, missing registry coverage, Creator output, or accepted user/model suggestions; the Reasoner handles casual phrasing.
-52. Next: implement durable asset/bundle handling for Custom Loredecks, Theme Packs, Icon Sets, and deck covers. Decide zip versus SillyTavern-managed storage, validate allowed image types, block executable content, preserve deck-cover paths, and make imported visual assets survive browser sessions.
+52. Done: audit Wandlight legacy features for removal. The audit marks the full Wandlight chat preset, fast reply-header Context detection, HP-specific global Context inference, root `Lore/` fallback loading, slash/prompt/state namespaces, Provider preset naming, and legacy schema aliases by removal priority.
+53. Next: remove the full Wandlight chat preset product path and fast reply-header Context detection before deeper asset/bundle work. Then resume durable asset/bundle handling for Custom Loredecks, Theme Packs, Icon Sets, and deck covers.

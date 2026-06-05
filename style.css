@@ -3412,160 +3412,6 @@
     font-size: 1.7em;
 }
 
-.wandlight-theme-live-preview-panel {
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.wandlight-theme-preview-surface {
-    display: grid;
-    grid-template-columns: minmax(108px, 0.34fr) minmax(0, 1fr);
-    gap: 10px;
-    border: 1px solid color-mix(in srgb, var(--theme-preview-border, #b98b36) 44%, transparent);
-    border-radius: 8px;
-    background:
-        radial-gradient(circle at 10% 0%, color-mix(in srgb, var(--theme-preview-accent, #d7b56d) 10%, transparent), transparent 32%),
-        linear-gradient(145deg, var(--theme-preview-bg, #120c12), var(--theme-preview-bg-alt, #241018));
-    padding: 10px;
-}
-
-.wandlight-theme-preview-rail,
-.wandlight-theme-preview-card {
-    min-width: 0;
-    border: 1px solid color-mix(in srgb, var(--theme-preview-border, #b98b36) 35%, transparent);
-    border-radius: 7px;
-    background: color-mix(in srgb, var(--theme-preview-surface-alt, #121218) 78%, black);
-}
-
-.wandlight-theme-preview-rail {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    padding: 6px;
-}
-
-.wandlight-theme-preview-tab {
-    display: grid;
-    grid-template-columns: 22px minmax(0, 1fr);
-    gap: 7px;
-    align-items: center;
-    border: 1px solid transparent;
-    border-radius: 5px;
-    color: var(--theme-preview-text, #f1ead8);
-    padding: 5px;
-    font-size: 0.74em;
-}
-
-.wandlight-theme-preview-tab span {
-    display: grid;
-    place-items: center;
-    width: 22px;
-    height: 22px;
-    border: 1px solid color-mix(in srgb, var(--theme-preview-border, #b98b36) 26%, transparent);
-    border-radius: 5px;
-    color: var(--theme-preview-accent, #d7b56d);
-}
-
-.wandlight-theme-preview-tab strong {
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.wandlight-theme-preview-tab-active {
-    border-color: color-mix(in srgb, var(--theme-preview-border-strong, #d7b56d) 48%, transparent);
-    background: color-mix(in srgb, var(--theme-preview-button-hover, #5c1724) 62%, transparent);
-}
-
-.wandlight-theme-preview-card {
-    display: flex;
-    flex-direction: column;
-    gap: 9px;
-    padding: 12px;
-    color: var(--theme-preview-text, #f1ead8);
-}
-
-.wandlight-theme-preview-title {
-    color: var(--theme-preview-accent, #d7b56d);
-    font-weight: 800;
-}
-
-.wandlight-theme-preview-card p {
-    margin: 0;
-    color: var(--theme-preview-muted, #cfc5ad);
-    font-size: 0.8em;
-    line-height: 1.35;
-}
-
-.wandlight-theme-preview-controls,
-.wandlight-theme-preview-states {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-}
-
-.wandlight-theme-preview-controls button,
-.wandlight-theme-preview-controls input,
-.wandlight-theme-preview-focus {
-    min-height: 30px;
-    border: 1px solid color-mix(in srgb, var(--theme-preview-border, #b98b36) 42%, transparent);
-    border-radius: 6px;
-    background: var(--theme-preview-button, #18121a);
-    color: var(--theme-preview-button-text, #f1ead8);
-    padding: 5px 10px;
-    font: inherit;
-    font-size: 0.78em;
-}
-
-.wandlight-theme-preview-controls .wandlight-theme-preview-primary {
-    border-color: color-mix(in srgb, var(--theme-preview-border-strong, #d7b56d) 64%, transparent);
-    color: var(--theme-preview-accent, #d7b56d);
-    font-weight: 800;
-}
-
-.wandlight-theme-preview-controls input {
-    min-width: 0;
-    background: var(--theme-preview-input, #121218);
-    border-color: color-mix(in srgb, var(--theme-preview-input-border, #b98b36) 50%, transparent);
-}
-
-.wandlight-theme-preview-state {
-    border: 1px solid transparent;
-    border-radius: 6px;
-    padding: 5px 10px;
-    font-size: 0.76em;
-    font-weight: 700;
-}
-
-.wandlight-theme-preview-state-warning {
-    border-color: color-mix(in srgb, var(--theme-preview-warning, #b9903c) 48%, transparent);
-    color: var(--theme-preview-warning, #b9903c);
-}
-
-.wandlight-theme-preview-state-danger {
-    border-color: color-mix(in srgb, var(--theme-preview-danger, #5c1724) 62%, transparent);
-    color: #f0b0a0;
-}
-
-.wandlight-theme-preview-state-success {
-    border-color: color-mix(in srgb, var(--theme-preview-success, #1f4a38) 62%, transparent);
-    color: #a8d8a8;
-}
-
-.wandlight-theme-preview-muted {
-    color: var(--theme-preview-muted, #cfc5ad);
-    font-size: 0.78em;
-}
-
-.wandlight-theme-preview-focus {
-    width: fit-content;
-    border-color: var(--theme-preview-focus, #ffeaa7);
-    box-shadow: 0 0 0 2px color-mix(in srgb, var(--theme-preview-focus, #ffeaa7) 18%, transparent);
-}
-
 .wandlight-theme-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
@@ -3611,10 +3457,6 @@
 .wandlight-theme-pack-card-active {
     border-color: rgba(245, 196, 91, 0.72);
     box-shadow: 0 0 0 1px rgba(245, 196, 91, 0.1) inset;
-}
-
-.wandlight-theme-pack-card-preview {
-    border-color: rgba(126, 166, 219, 0.58);
 }
 
 .wandlight-theme-pack-card-title {
@@ -3699,15 +3541,18 @@
 }
 
 .wandlight-theme-iconset-strip {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
     gap: 8px;
-    overflow-x: auto;
-    padding-bottom: 4px;
+    max-height: min(280px, 34vh);
+    overflow-y: auto;
+    padding-right: 4px;
     scrollbar-gutter: stable;
+    align-content: start;
 }
 
 .wandlight-theme-iconset-strip::-webkit-scrollbar {
-    height: 8px;
+    width: 8px;
 }
 
 .wandlight-theme-iconset-strip::-webkit-scrollbar-track {
@@ -3722,7 +3567,7 @@
 }
 
 .wandlight-theme-iconset-card {
-    min-width: 146px;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -3889,8 +3734,7 @@
 @media (max-width: 920px) {
     .wandlight-theme-top-grid,
     .wandlight-theme-middle-grid,
-    .wandlight-theme-lower-grid,
-    .wandlight-theme-preview-surface {
+    .wandlight-theme-lower-grid {
         grid-template-columns: minmax(0, 1fr);
     }
 }
@@ -3898,8 +3742,7 @@
 @container (max-width: 700px) {
     .wandlight-theme-top-grid,
     .wandlight-theme-middle-grid,
-    .wandlight-theme-lower-grid,
-    .wandlight-theme-preview-surface {
+    .wandlight-theme-lower-grid {
         grid-template-columns: minmax(0, 1fr);
     }
 
