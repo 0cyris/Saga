@@ -12,6 +12,12 @@
   "version": "0.1.0",
   "defaultLocale": "en",
   "generatedAt": "2026-06-05",
+  "assets": {
+    "cover": {
+      "path": "assets/cover.png",
+      "alt": "Harry Potter Year 3: Prisoner of Azkaban Loredeck cover"
+    }
+  },
   "databaseId": "saga.hp-year-3-prisoner-of-azkaban",
   "deckFamilyId": "hp-golden-trio",
   "family": {

@@ -12,6 +12,12 @@
   "version": "0.1.0",
   "defaultLocale": "en",
   "generatedAt": "2026-06-05",
+  "assets": {
+    "cover": {
+      "path": "assets/cover.png",
+      "alt": "Harry Potter Year 4: Goblet of Fire Loredeck cover"
+    }
+  },
   "databaseId": "saga.hp-year-4-goblet-of-fire",
   "deckFamilyId": "hp-golden-trio",
   "family": {

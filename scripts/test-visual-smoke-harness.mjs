@@ -4,6 +4,7 @@ import path from 'node:path';
 const root = process.cwd();
 const harnessPath = path.join(root, 'tests', 'visual-smoke.html');
 const fixturePath = path.join(root, 'tests', 'fixtures', 'arlong-park-update.saga-loredeck.json');
+const loredeckIndexPath = path.join(root, 'Loredecks', 'index.json');
 const panelPath = path.join(root, 'lore-panel.js');
 const assistantPath = path.join(root, 'loredeck-assistant.js');
 const stylePath = path.join(root, 'style.css');
@@ -12,6 +13,8 @@ const sagaHeroIconPath = path.join(root, 'Images', 'iconsets', 'saga-hero', 'sag
 const sagaHeroManifestPath = path.join(root, 'Images', 'iconsets', 'saga-hero', 'icons.json');
 const sagaGoldIconPath = path.join(root, 'Images', 'iconsets', 'saga-gold', '256', 'loredecks.png');
 const sagaGoldManifestPath = path.join(root, 'Images', 'iconsets', 'saga-gold', 'icons.json');
+const hpCoreCoverPath = path.join(root, 'Loredecks', 'hp-core', 'assets', 'cover.png');
+const hpYearOneCoverPath = path.join(root, 'Loredecks', 'hp-year-1-philosophers-stone', 'assets', 'cover.png');
 
 function read(file) {
     return fs.readFileSync(file, 'utf8');
@@ -25,6 +28,7 @@ function assert(condition, message) {
 
 const harness = read(harnessPath);
 const fixture = JSON.parse(read(fixturePath));
+const loredeckIndex = JSON.parse(read(loredeckIndexPath));
 const panel = read(panelPath);
 const assistant = read(assistantPath);
 const style = read(stylePath);
@@ -35,6 +39,9 @@ assert(fs.existsSync(sagaHeroIconPath), 'Bundled Saga Hero Loredecks icon must e
 assert(JSON.parse(read(sagaHeroManifestPath)).id === 'saga-hero', 'Bundled Saga Hero Icon Set manifest must exist.');
 assert(fs.existsSync(sagaGoldIconPath), 'Bundled Saga Gold Loredecks icon must exist.');
 assert(JSON.parse(read(sagaGoldManifestPath)).id === 'saga-gold', 'Bundled Saga Gold Icon Set manifest must exist.');
+assert(fs.existsSync(hpCoreCoverPath), 'Bundled HP Core Loredeck cover must be deck-local.');
+assert(fs.existsSync(hpYearOneCoverPath), 'Bundled HP Year 1 Loredeck cover must be deck-local.');
+assert((loredeckIndex.bundled || []).some(record => record.packId === 'hp-core' && record.assets?.cover?.path === 'assets/cover.png'), 'Bundled HP index records must expose deck-local cover paths.');
 assert(harness.includes('window.SillyTavern'), 'Harness must stub SillyTavern before importing modules.');
 assert(harness.includes('window.__sagaSmokeReady = true'), 'Harness must expose a smoke-ready marker.');
 assert(harness.includes("activeTab: 'loredecks'"), 'Harness must open directly to the Loredecks tab.');
@@ -85,6 +92,8 @@ for (const token of [
     'Delete',
     'deleteLoredeckLibraryPackWithConfirm',
     'deleteLoredeckLibraryPacksWithConfirm',
+    'moveLoredecksToLibraryFolder',
+    'folderDropTarget',
     'Expand Details',
     'refreshLoredeckSurfaces',
     'LOREDECK_INDEX_URL',
@@ -125,6 +134,8 @@ for (const token of [
     'wandlight-runtime-drawer',
     'wandlight-loredeck-library-details',
     'wandlight-loredeck-library-resize-handle',
+    'wandlight-loredeck-library-resize-track-left',
+    'wandlight-loredeck-library-resize-label-arrow',
     'wandlight-loredeck-metadata-shell',
     'wandlight-loredeck-library-shell',
     'wandlight-loredeck-library-columns',
@@ -133,6 +144,7 @@ for (const token of [
     'wandlight-loredeck-library-details-collapsed',
     'wandlight-loredeck-library-folder-tree',
     'wandlight-loredeck-library-folder-row',
+    'wandlight-loredeck-library-folder-row-drop-enabled',
     'wandlight-loredeck-library-current-view',
     'wandlight-loredeck-library-transfer-footer',
     'wandlight-loredeck-library-stack-card',
@@ -151,6 +163,7 @@ for (const token of [
     'wandlight-theme-iconset-strip',
     'wandlight-theme-icon-grid',
     'wandlight-loredeck-library-visual-cover',
+    'clip-path: polygon',
     'scrollbar-gutter: stable',
 ]) {
     assert(style.includes(token), `Stylesheet is missing expected smoke selector: ${token}`);

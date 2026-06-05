@@ -15,7 +15,6 @@ export const SPECIAL_LIBRARY_VIEW_IDS = Object.freeze([
   'all',
   'bundled',
   'custom',
-  'generated',
   'unfiled',
   'recent',
 ]);

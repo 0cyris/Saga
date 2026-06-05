@@ -12,6 +12,12 @@
   "version": "0.1.0",
   "defaultLocale": "en",
   "generatedAt": "2026-06-05",
+  "assets": {
+    "cover": {
+      "path": "assets/cover.png",
+      "alt": "Harry Potter: Post-War Years & Epilogue Loredeck cover"
+    }
+  },
   "databaseId": "saga.hp-epilogue-post-war",
   "deckFamilyId": "hp-golden-trio",
   "family": {

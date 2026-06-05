@@ -13,6 +13,12 @@
           "Golden Trio"
         ],
         "familyOrder": 10
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Harry Potter: Core Loredeck cover"
+        }
       }
     },
     {
@@ -27,6 +33,12 @@
           "Golden Trio"
         ],
         "familyOrder": 20
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Harry Potter Year 1: Philosopher's Stone Loredeck cover"
+        }
       }
     },
     {
@@ -41,6 +53,12 @@
           "Golden Trio"
         ],
         "familyOrder": 30
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Harry Potter Year 2: Chamber of Secrets Loredeck cover"
+        }
       }
     },
     {
@@ -55,6 +73,12 @@
           "Golden Trio"
         ],
         "familyOrder": 40
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Harry Potter Year 3: Prisoner of Azkaban Loredeck cover"
+        }
       }
     },
     {
@@ -69,6 +93,12 @@
           "Golden Trio"
         ],
         "familyOrder": 50
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Harry Potter Year 4: Goblet of Fire Loredeck cover"
+        }
       }
     },
     {
@@ -83,6 +113,12 @@
           "Golden Trio"
         ],
         "familyOrder": 60
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Harry Potter Year 5: Order of the Phoenix Loredeck cover"
+        }
       }
     },
     {
@@ -97,6 +133,12 @@
           "Golden Trio"
         ],
         "familyOrder": 70
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Harry Potter Year 6: Half-Blood Prince Loredeck cover"
+        }
       }
     },
     {
@@ -111,6 +153,12 @@
           "Golden Trio"
         ],
         "familyOrder": 80
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Harry Potter Year 7: Deathly Hallows Loredeck cover"
+        }
       }
     },
     {
@@ -125,6 +173,12 @@
           "Golden Trio"
         ],
         "familyOrder": 90
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Harry Potter: Post-War Years & Epilogue Loredeck cover"
+        }
       }
     }
   ]

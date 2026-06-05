@@ -333,6 +333,15 @@ function libraryMetadataForDeck(deck) {
   };
 }
 
+function coverAssetsForDeck(deck) {
+  return {
+    cover: {
+      path: 'assets/cover.png',
+      alt: `${deck.title} Loredeck cover`,
+    },
+  };
+}
+
 function buildAnchor(deck, id, index, total) {
   const dateRange = dateRangeForAnchor(deck, id, index, total);
   const label = labelFromId(id);
@@ -416,6 +425,7 @@ function buildLoredeck(deck, timeline) {
     version: '0.1.0',
     defaultLocale: 'en',
     generatedAt,
+    assets: coverAssetsForDeck(deck),
     databaseId: `saga.${deck.id}`,
     deckFamilyId: 'hp-golden-trio',
     family: {
@@ -498,6 +508,7 @@ async function main() {
       title: deck.title,
       description: deck.description,
       library: libraryMetadataForDeck(deck),
+      assets: coverAssetsForDeck(deck),
     });
   }
   await writeJson(path.join(loredeckRoot, 'index.json'), {

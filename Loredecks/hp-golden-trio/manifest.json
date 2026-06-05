@@ -5,6 +5,12 @@
   "description": "Golden Trio era canon reference deck for Harry Potter school years one through seven.",
   "defaultLocale": "en",
   "generatedAt": "2026-05-31",
+  "assets": {
+    "cover": {
+      "path": "assets/cover.png",
+      "alt": "Harry Potter: Golden Trio Loredeck cover"
+    }
+  },
   "registries": {
     "taxonomy": "taxonomy.json",
     "gateTypes": "gate-types.json",

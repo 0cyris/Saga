@@ -12,6 +12,12 @@
   "version": "0.1.0",
   "defaultLocale": "en",
   "generatedAt": "2026-06-05",
+  "assets": {
+    "cover": {
+      "path": "assets/cover.png",
+      "alt": "Harry Potter Year 5: Order of the Phoenix Loredeck cover"
+    }
+  },
   "databaseId": "saga.hp-year-5-order-of-the-phoenix",
   "deckFamilyId": "hp-golden-trio",
   "family": {

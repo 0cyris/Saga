@@ -12,6 +12,12 @@
   "version": "0.1.0",
   "defaultLocale": "en",
   "generatedAt": "2026-06-05",
+  "assets": {
+    "cover": {
+      "path": "assets/cover.png",
+      "alt": "Harry Potter Year 6: Half-Blood Prince Loredeck cover"
+    }
+  },
   "databaseId": "saga.hp-year-6-half-blood-prince",
   "deckFamilyId": "hp-golden-trio",
   "family": {

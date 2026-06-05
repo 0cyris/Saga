@@ -38,6 +38,8 @@ for (const [deckId, minAnchors, minWindows] of decks) {
   assert.equal(manifest.id, deckId, `${deckId} manifest ID should match folder.`);
   assert.equal(manifest.deckFamilyId, 'hp-golden-trio', `${deckId} should declare the HP deck family.`);
   assert.deepEqual(manifest.library?.suggestedPath, hpFolderPath, `${deckId} should declare the HP Golden Trio library folder path.`);
+  assert.equal(manifest.assets?.cover?.path, 'assets/cover.png', `${deckId} should use a deck-local cover asset.`);
+  assert.ok(fs.existsSync(path.join(root, 'Loredecks', deckId, 'assets', 'cover.png')), `${deckId} should bundle assets/cover.png.`);
   assert.equal(manifest.registries.timeline, 'timeline.json', `${deckId} should expose a first-class timeline registry.`);
   assert.ok(Array.isArray(timeline.anchors) && timeline.anchors.length >= minAnchors, `${deckId} should have dense anchors.`);
   assert.ok(Array.isArray(timeline.windows) && timeline.windows.length >= minWindows, `${deckId} should have curated windows.`);
@@ -120,6 +122,8 @@ const loredeckIndex = readJson(path.join('Loredecks', 'index.json'));
 const indexedIds = new Set((loredeckIndex.bundled || []).map(record => record.packId));
 for (const [deckId] of decks) {
   assert.ok(indexedIds.has(deckId), `Loredecks/index.json should include ${deckId}.`);
+  const record = (loredeckIndex.bundled || []).find(item => item.packId === deckId);
+  assert.equal(record?.assets?.cover?.path, 'assets/cover.png', `Indexed ${deckId} should expose its deck-local cover asset.`);
 }
 const indexedEpilogue = (loredeckIndex.bundled || []).find(record => record.packId === 'hp-epilogue-post-war');
 assert.deepEqual(indexedEpilogue?.library?.suggestedPath, hpFolderPath, 'Indexed Epilogue deck should declare the HP Golden Trio folder path.');
