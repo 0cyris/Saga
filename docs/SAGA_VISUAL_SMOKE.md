@@ -121,6 +121,8 @@ Use a desktop-width browser first, then repeat at a narrow/mobile-ish width.
 - Click `Open Health Center` or `Health Report`.
 - The fullscreen Deck Health Center opens without a layout jump.
 - Malformed tag issue details show `Queue Tag ID Repair` for Custom/Generated decks and `Duplicate as Custom` for Bundled decks.
+- Custom/Generated issue details show `Ignore Issue`, `Mark Resolved`, and `Draft With Assistant`; ignored groups get an `Ignored` chip and drop out of Overview priority issues while remaining visible in the Issues tab.
+- Repair workflow copy tells users to queue/draft repairs, review Pending Review, accept changes, then rerun Refresh Scan.
 - Overview, Issues, Coverage, Files, and Advanced behave like tabs.
 - Severity cards show errors, warnings, suggestions, and checked counts.
 - Priority issues use metadata chips for passive metadata and button styling for actions.

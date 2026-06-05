@@ -5577,12 +5577,11 @@ function createLorepackHealthReportCard(state, canonDb = null, health = null) {
         return card;
     }
 
-    const report = buildLorepackHealthReport(state, canonDb, health);
     const context = getLorepackHealthCenterContext('');
     card.appendChild(createLorepackHealthSummaryHero(context, { compact: true }));
     card.appendChild(createLorepackHealthSeverityGrid(context, { compact: true }));
 
-    const groups = groupLorepackHealthIssues(report);
+    const groups = getLorepackHealthIssueGroupsForContext(context);
     if (groups.length) {
         const top = document.createElement('div');
         top.className = 'wandlight-lorepack-health-compact-issues';
@@ -5848,7 +5847,7 @@ function createLorepackHealthOverviewView(context) {
     issueTitle.className = 'wandlight-runtime-card-title';
     issueTitle.textContent = 'Priority Issues';
     issues.appendChild(issueTitle);
-    const groups = groupLorepackHealthIssues(context.report);
+    const groups = getLorepackHealthIssueGroupsForContext(context);
     if (!groups.length) {
         issues.appendChild(createEmptyMessage(context.report.scanned === false ? 'Run Refresh Scan to check this deck for priority issues.' : 'No priority issues found.'));
     } else {
@@ -5876,11 +5875,14 @@ function createLorepackHealthOverviewView(context) {
 function createLorepackHealthIssuesView(context) {
     const wrap = document.createElement('div');
     wrap.className = 'wandlight-lorepack-health-issues-view';
-    const groups = groupLorepackHealthIssues(context.report);
+    const groups = getLorepackHealthIssueGroupsForContext(context, { includeIgnored: true });
     const header = document.createElement('div');
     header.className = 'wandlight-lorepack-health-view-header';
+    const stateCounts = getLorepackHealthIssueStateCounts(context, groups);
     header.appendChild(createStatusPill(`${groups.length} grouped issue${groups.length === 1 ? '' : 's'}`, 'Issues are grouped by severity, code, and affected file when possible.'));
     header.appendChild(createStatusPill(`${getLorepackHealthAllIssues(context.report).length} raw finding${getLorepackHealthAllIssues(context.report).length === 1 ? '' : 's'}`, 'Raw Deck Health findings before grouping.'));
+    if (stateCounts.ignored) header.appendChild(createStatusPill(`${stateCounts.ignored} ignored`, 'Ignored issue groups are hidden from Overview priority issues but remain visible here.'));
+    if (stateCounts.resolved) header.appendChild(createStatusPill(`${stateCounts.resolved} resolved`, 'Issue groups marked resolved by the user. Rerun Deck Health after repairs to verify they disappear.'));
     wrap.appendChild(header);
     if (!groups.length) {
         wrap.appendChild(createEmptyMessage('No issues found in this Deck Health report.'));
@@ -6165,8 +6167,10 @@ function createLorepackHealthInventoryBar(context) {
 }
 
 function createLorepackHealthIssueGroupCard(group, context, options = {}) {
+    const issueState = getLorepackHealthIssueState(context.pack, group);
     const card = document.createElement('details');
     card.className = `wandlight-lorepack-health-group-card wandlight-lorepack-health-group-${group.severity}${options.compact ? ' wandlight-lorepack-health-group-card-compact' : ''}`;
+    if (issueState?.status) card.classList.add(`wandlight-lorepack-health-group-state-${issueState.status}`);
     card.open = false;
     const summary = document.createElement('summary');
     const main = document.createElement('div');
@@ -6193,6 +6197,12 @@ function createLorepackHealthIssueGroupCard(group, context, options = {}) {
         fixPill.classList.add('wandlight-lorepack-health-chip', 'wandlight-lorepack-health-chip-fix');
         meta.appendChild(fixPill);
     }
+    if (issueState?.status) {
+        const stateLabel = getLorepackHealthIssueStateLabel(issueState, group);
+        const statePill = createStatusPill(stateLabel, issueState.note || 'User-set Deck Health issue state.');
+        statePill.classList.add('wandlight-lorepack-health-chip', `wandlight-lorepack-health-chip-state-${issueState.status}`);
+        meta.appendChild(statePill);
+    }
     main.appendChild(meta);
     const message = document.createElement('div');
     message.className = 'wandlight-lorepack-health-group-message';
@@ -6207,6 +6217,8 @@ function createLorepackHealthIssueGroupCard(group, context, options = {}) {
 }
 
 function createLorepackHealthIssueDetailPanel(group, context, options = {}) {
+    const issueState = getLorepackHealthIssueState(context.pack, group);
+    const editable = !!context.pack && context.pack.type !== 'bundled';
     const panel = document.createElement('div');
     panel.className = `wandlight-lorepack-health-detail-panel${options.embedded ? ' wandlight-lorepack-health-detail-panel-embedded' : ''}`;
     const title = document.createElement('div');
@@ -6232,6 +6244,20 @@ function createLorepackHealthIssueDetailPanel(group, context, options = {}) {
     fix.appendChild(fixText);
     panel.appendChild(fix);
 
+    if (context.pack) {
+        const workflow = document.createElement('div');
+        workflow.className = 'wandlight-lorepack-health-detail-block';
+        const workflowTitle = document.createElement('strong');
+        workflowTitle.textContent = 'Repair workflow';
+        workflow.appendChild(workflowTitle);
+        const workflowText = document.createElement('p');
+        workflowText.textContent = editable
+            ? 'Queue deterministic fixes or assistant drafts, review them in Pending Review, accept the changes, then rerun Refresh Scan. Accepted entry, tag, or timeline changes mark Deck Health stale until the rerun.'
+            : 'Bundled Loredecks are read-only. Duplicate as Custom before repairing, ignoring, or marking issue state.';
+        workflow.appendChild(workflowText);
+        panel.appendChild(workflow);
+    }
+
     const affected = createLorepackHealthAffectedList(group);
     if (affected) panel.appendChild(affected);
 
@@ -6246,11 +6272,29 @@ function createLorepackHealthIssueDetailPanel(group, context, options = {}) {
         }));
     }
     if (context.pack) {
-        if (context.pack.type === 'bundled') {
+        if (!editable) {
             actions.appendChild(createButton('Duplicate as Custom', 'Create an editable Custom Loredeck copy before repairing source-protected health issues.', () => {
                 openDuplicateLorepackDialog(context.pack);
             }));
         } else {
+            const ignoreButton = createButton(issueState?.status === 'ignored' ? 'Clear Ignore' : 'Ignore Issue', issueState?.status === 'ignored' ? 'Clear this user-set ignored state.' : 'Mark this grouped issue as intentionally ignored for this editable Loredeck.', () => {
+                setLorepackHealthIssueGroupState(context.pack, group, issueState?.status === 'ignored' ? '' : 'ignored');
+                renderLorepackHealthCenterOverlay();
+            });
+            actions.appendChild(ignoreButton);
+            const resolveButton = createButton(issueState?.status === 'resolved' ? 'Clear Resolved' : 'Mark Resolved', issueState?.status === 'resolved' ? 'Clear this user-set resolved state.' : 'Mark this grouped issue resolved after you have reviewed or repaired it.', () => {
+                setLorepackHealthIssueGroupState(context.pack, group, issueState?.status === 'resolved' ? '' : 'resolved');
+                renderLorepackHealthCenterOverlay();
+            });
+            actions.appendChild(resolveButton);
+            const assistantButton = createButton('Draft With Assistant', 'Send only this grouped issue to the Lore Assistant as repair-planning context.', async (btn) => {
+                await handleLorepackAssistantHealthRepairDraft(context.pack, context.health, btn, {
+                    selectedIssues: normalizeLorepackHealthGroupIssuesForRepair(group),
+                });
+                renderLorepackHealthCenterOverlay();
+            });
+            assistantButton.disabled = !canValidateLorepackInEditor(context.pack);
+            actions.appendChild(assistantButton);
             if (isLorepackMalformedTagIssueGroup(group)) {
                 const tagRepairButton = createButton('Queue Tag ID Repair', 'Queue deterministic malformed tag ID replacements for Pending Review.', async (btn) => {
                     await queueLorepackMalformedTagRepairFromHealthGroup(context.pack, group, btn);
@@ -6312,10 +6356,15 @@ function createLorepackHealthIssueTableHeader() {
 }
 
 function createLorepackHealthIssueTableRow(group, context) {
+    const issueState = getLorepackHealthIssueState(context.pack, group);
     const row = document.createElement('details');
     row.className = `wandlight-lorepack-health-issue-table-row wandlight-lorepack-health-issue-table-row-${group.severity}`;
+    if (issueState?.status) row.classList.add(`wandlight-lorepack-health-issue-table-row-state-${issueState.status}`);
     const summary = document.createElement('summary');
-    for (const text of [humanizeScopeKey(group.severity), group.title, group.affectedLabel, group.files[0] || 'Multiple / none', group.fixShort]) {
+    const actionText = issueState?.status
+        ? `${getLorepackHealthIssueStateLabel(issueState, group)} | ${group.fixShort}`
+        : group.fixShort;
+    for (const text of [humanizeScopeKey(group.severity), group.title, group.affectedLabel, group.files[0] || 'Multiple / none', actionText]) {
         const cell = document.createElement('div');
         cell.textContent = text;
         summary.appendChild(cell);
@@ -6378,6 +6427,22 @@ function groupLorepackHealthIssues(report = {}) {
             || a.title.localeCompare(b.title));
 }
 
+function getLorepackHealthIssueGroupsForContext(context = {}, options = {}) {
+    const groups = groupLorepackHealthIssues(context.report);
+    if (options.includeIgnored === true) return groups;
+    return groups.filter(group => getLorepackHealthIssueState(context.pack, group)?.status !== 'ignored');
+}
+
+function getLorepackHealthIssueStateCounts(context = {}, groups = groupLorepackHealthIssues(context.report)) {
+    const counts = { ignored: 0, resolved: 0 };
+    for (const group of groups || []) {
+        const status = getLorepackHealthIssueState(context.pack, group)?.status;
+        if (status === 'ignored') counts.ignored += 1;
+        if (status === 'resolved') counts.resolved += 1;
+    }
+    return counts;
+}
+
 function finalizeLorepackHealthIssueGroup(group) {
     const files = [...group.files];
     const tagIds = [...group.tagIds];
@@ -6388,8 +6453,10 @@ function finalizeLorepackHealthIssueGroup(group) {
     const affectedCount = tagIds.length || entryIds.length || timelineIds.length || group.issues.length;
     const affectedKind = tagIds.length ? 'tag' : (entryIds.length ? 'Lorecard' : (timelineIds.length ? 'timeline item' : 'finding'));
     const affectedLabel = `${affectedCount} affected ${affectedKind}${affectedCount === 1 ? '' : 's'}`;
+    const issueKey = getLorepackHealthIssueGroupKey({ ...group, files, tagIds, entryIds, timelineIds });
     return {
         ...group,
+        issueKey,
         files,
         tagIds,
         entryIds,
@@ -6405,6 +6472,72 @@ function finalizeLorepackHealthIssueGroup(group) {
         autoFixLabel: advice.autoFixLabel,
         autoFixTooltip: advice.autoFixTooltip,
     };
+}
+
+function getLorepackHealthIssueGroupKey(group = {}) {
+    const parts = [
+        normalizeLorepackHealthSeverity(group.severity),
+        String(group.code || '').trim(),
+        ...(group.files || []).map(item => `file:${String(item || '').trim()}`).sort(),
+        ...(group.tagIds || []).map(item => `tag:${String(item || '').trim()}`).sort(),
+        ...(group.entryIds || []).map(item => `entry:${String(item || '').trim()}`).sort(),
+        ...(group.timelineIds || []).map(item => `timeline:${String(item || '').trim()}`).sort(),
+    ].filter(Boolean);
+    return `health_issue_${hashLorepackHealthRepairIssueId(parts.join('|'))}`;
+}
+
+function getLorepackHealthIssueState(pack = {}, group = {}) {
+    const key = String(group.issueKey || getLorepackHealthIssueGroupKey(group)).trim();
+    if (!key) return null;
+    return normalizeLorepackHealthIssueStates(pack?.healthIssueStates)[key] || null;
+}
+
+function getLorepackHealthIssueStateLabel(state = null, group = {}) {
+    const status = String(state?.status || '').trim();
+    if (status === 'ignored') return 'Ignored';
+    if (status === 'resolved') return 'Marked resolved';
+    return '';
+}
+
+function setLorepackHealthIssueGroupState(pack = {}, group = {}, status = '') {
+    const fresh = getFreshLorepackLibraryPack(pack.packId, pack);
+    if (!fresh || fresh.type === 'bundled') {
+        toast('Bundled Loredecks are read-only. Duplicate as Custom before setting issue state.', 'warning');
+        return false;
+    }
+    const normalizedStatus = String(status || '').trim().toLowerCase();
+    const issueKey = String(group.issueKey || getLorepackHealthIssueGroupKey(group)).trim();
+    if (!issueKey) {
+        toast('Deck Health issue state needs a stable issue key.', 'warning');
+        return false;
+    }
+    const title = group.title || getLorepackHealthIssueTitle(group.code);
+    const message = normalizedStatus === 'ignored'
+        ? `Marked Deck Health issue ignored: ${title}.`
+        : (normalizedStatus === 'resolved'
+            ? `Marked Deck Health issue resolved: ${title}. Rerun Deck Health to verify.`
+            : `Cleared Deck Health issue state: ${title}.`);
+    return persistLorepackLibraryRecordMutation(fresh, next => {
+        const states = normalizeLorepackHealthIssueStates(next.healthIssueStates);
+        if (['ignored', 'resolved'].includes(normalizedStatus)) {
+            states[issueKey] = {
+                issueKey,
+                status: normalizedStatus,
+                code: String(group.code || '').trim(),
+                severity: normalizeLorepackHealthSeverity(group.severity || ''),
+                title,
+                note: normalizedStatus === 'resolved'
+                    ? 'Marked resolved by user. Rerun Deck Health after accepted repairs to verify it no longer appears.'
+                    : 'Ignored by user. The finding remains in diagnostics but is no longer a priority for this deck.',
+                updatedAt: Date.now(),
+            };
+        } else {
+            delete states[issueKey];
+        }
+        next.healthIssueStates = states;
+    }, message, {
+        errorMessage: 'Deck Health issue state save failed.',
+    });
 }
 
 function normalizeLorepackHealthSeverity(severity = '') {
@@ -8558,6 +8691,12 @@ function normalizeLorepackHealthIssueForRepair(issue = {}, severity = 'suggestio
     };
 }
 
+function normalizeLorepackHealthGroupIssuesForRepair(group = {}) {
+    return (group.issues || [])
+        .map((issue, index) => normalizeLorepackHealthIssueForRepair(issue, group.severity || issue?.severity || 'suggestion', index))
+        .filter(issue => issue.issueId);
+}
+
 function hashLorepackHealthRepairIssueId(value = '') {
     let hash = 2166136261;
     const text = String(value || '');
@@ -9710,6 +9849,30 @@ function normalizeLorepackPendingTagIdList(value = [], limit = 500) {
         if (out.length >= limit) break;
     }
     return out;
+}
+
+function normalizeLorepackHealthIssueStates(value = {}) {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return {};
+    const output = {};
+    let count = 0;
+    for (const [rawKey, rawState] of Object.entries(value)) {
+        if (!rawState || typeof rawState !== 'object' || Array.isArray(rawState)) continue;
+        const issueKey = String(rawKey || rawState.issueKey || '').trim().replace(/[^a-z0-9_.:-]+/gi, '_').slice(0, 160);
+        const status = String(rawState.status || '').trim().toLowerCase();
+        if (!issueKey || !['ignored', 'resolved'].includes(status)) continue;
+        output[issueKey] = {
+            status,
+            issueKey,
+            code: String(rawState.code || '').trim().slice(0, 120),
+            severity: normalizeLorepackHealthSeverity(rawState.severity || ''),
+            title: String(rawState.title || '').trim().slice(0, 240),
+            note: String(rawState.note || '').trim().slice(0, 500),
+            updatedAt: Number.isFinite(Number(rawState.updatedAt)) ? Number(rawState.updatedAt) : Date.now(),
+        };
+        count += 1;
+        if (count >= 500) break;
+    }
+    return output;
 }
 
 function normalizeLorepackPendingTimelineIdList(value = [], limit = 500) {
@@ -10908,7 +11071,7 @@ function collectLorepackHealthRepairEntryIds(issues = []) {
     return ids;
 }
 
-async function handleLorepackAssistantHealthRepairDraft(pack, health = null, button = null) {
+async function handleLorepackAssistantHealthRepairDraft(pack, health = null, button = null, options = {}) {
     await runBusyAction(button, 'Drafting...', async () => {
         if (!ensureLoreProviderReadyForAction('Deck Health repair planning', 'lore')) return;
         const fresh = getFreshLorepackLibraryPack(pack.packId, pack);
@@ -10916,7 +11079,9 @@ async function handleLorepackAssistantHealthRepairDraft(pack, health = null, but
             toast('Bundled Loredecks cannot be repaired directly. Duplicate as Custom first.', 'warning');
             return;
         }
-        const selectedIssues = collectLorepackHealthRepairSelectedIssues(fresh, health);
+        const selectedIssues = Array.isArray(options.selectedIssues) && options.selectedIssues.length
+            ? options.selectedIssues.map((issue, index) => issue?.issueId ? issue : normalizeLorepackHealthIssueForRepair(issue, issue?.severity || 'suggestion', index)).filter(issue => issue?.issueId)
+            : collectLorepackHealthRepairSelectedIssues(fresh, health);
         if (!selectedIssues.length) {
             toast('Select Deck Health issues to plan repairs.', 'warning');
             return;
@@ -13405,7 +13570,7 @@ async function queueLorepackMalformedTagRepairFromHealthGroup(pack, group = {}, 
                 repairMap: plan.pairs,
                 healthIssueCode: group.code || 'malformed_tag_namespace',
             },
-        }), `Queued malformed tag ID repair for ${plan.pairs.length} tag${plan.pairs.length === 1 ? '' : 's'}.`);
+        }), `Queued malformed tag ID repair for ${plan.pairs.length} tag${plan.pairs.length === 1 ? '' : 's'}. Accept it in Pending Review, then rerun Deck Health.`);
         if (queued) {
             lorepackHealthRepairSelectionCache.delete(fresh.packId);
         }
@@ -13978,6 +14143,7 @@ function persistLorepackLibraryRecordMutation(pack, mutator, message, options = 
         tagRegistry: normalizeLorepackTagRegistry(fresh.tagRegistry),
         timelineRegistry: normalizeLorepackTimelineRegistry(fresh.timelineRegistry),
         pendingChanges: normalizeLorepackPendingChanges(fresh.pendingChanges),
+        healthIssueStates: normalizeLorepackHealthIssueStates(fresh.healthIssueStates),
         localModified: true,
         updatedAt: Date.now(),
     };
@@ -13991,6 +14157,9 @@ function persistLorepackLibraryRecordMutation(pack, mutator, message, options = 
     const normalizedPendingChanges = normalizeLorepackPendingChanges(next.pendingChanges);
     if (normalizedPendingChanges.length) next.pendingChanges = normalizedPendingChanges;
     else delete next.pendingChanges;
+    const normalizedHealthIssueStates = normalizeLorepackHealthIssueStates(next.healthIssueStates);
+    if (Object.keys(normalizedHealthIssueStates).length) next.healthIssueStates = normalizedHealthIssueStates;
+    else delete next.healthIssueStates;
     if (isVirtualLorepackPack(next)) {
         next.manifestData = buildEmbeddedCustomManifest(next.manifestData, next);
     }
@@ -16245,6 +16414,7 @@ function normalizeLorepackLibraryPack(raw = {}) {
     const timelineRegistry = normalizeLorepackTimelineRegistry(raw.timelineRegistry);
     const tagRegistry = normalizeLorepackTagRegistry(raw.tagRegistry);
     const pendingChanges = normalizeLorepackPendingChanges(raw.pendingChanges);
+    const healthIssueStates = normalizeLorepackHealthIssueStates(raw.healthIssueStates);
     return {
         packId,
         type: ['bundled', 'custom', 'generated'].includes(raw.type) ? raw.type : 'custom',
@@ -16269,6 +16439,7 @@ function normalizeLorepackLibraryPack(raw = {}) {
         ...(getLorepackTimelineRegistryCount(timelineRegistry) ? { timelineRegistry } : {}),
         ...(getLorepackTagRegistryCount(tagRegistry) ? { tagRegistry } : {}),
         ...(pendingChanges.length ? { pendingChanges } : {}),
+        ...(Object.keys(healthIssueStates).length ? { healthIssueStates } : {}),
         installedAt: Number.isFinite(Number(raw.installedAt)) ? Number(raw.installedAt) : 0,
         updatedAt: Number.isFinite(Number(raw.updatedAt)) ? Number(raw.updatedAt) : 0,
     };

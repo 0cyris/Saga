@@ -90,8 +90,7 @@ Position-aware Loredeck retrieval:
 - Done: start the Deck Health redesign with a fullscreen Deck Health Center for readiness, severity cards, grouped priority issues, health categories, deck inventory, files, coverage, and advanced diagnostics.
 - Done: resolve the live-ST smoke findings around Theme Pack responsiveness, Deck Health unscanned/readiness copy, extension-menu branding cache, and automation-safe delete confirmation.
 - Done: implement selected-Loredeck bulk import/export in the fullscreen Library, including click/Ctrl/Shift selection, selected-count actions, one JSON bundle per selected deck, and safe multi-file local import as new Custom copies.
-- In progress: expand Deck Health remediation. Malformed tag ID groups can now queue deterministic Custom/Generated repair proposals for Pending Review, while Bundled decks route users to Duplicate as Custom before repairs.
+- Done: expand Deck Health remediation. Grouped Health Center issues can persist ignored/resolved advisory state, queue deterministic malformed-tag fixes through Pending Review, hand a single group to the Lore Assistant for repair drafts, and route Bundled decks to Duplicate as Custom before repairs.
 - Next: add a seeded imported/custom update-source fixture to live-ST validation so `Check Updates` can be exercised end to end outside the local harness.
-- Next: finish Deck Health remediation with ignore/resolve states, grouped-issue assistant handoff from the Health Center, and clearer post-repair rerun guidance.
 - Next: audit Loredecks actions that still trigger full panel refreshes or scroll snap-to-top behavior.
 - Next: run UX/UI studies before major implementation for the fullscreen Loredeck Library + Stack Loader workbench and the Story Position editor.

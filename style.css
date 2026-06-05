@@ -2610,6 +2610,16 @@
     border-left: 3px solid rgba(126, 145, 215, 0.76);
 }
 
+.wandlight-lorepack-health-group-state-ignored,
+.wandlight-lorepack-health-issue-table-row-state-ignored summary {
+    opacity: 0.68;
+}
+
+.wandlight-lorepack-health-group-state-resolved,
+.wandlight-lorepack-health-issue-table-row-state-resolved summary {
+    background: rgba(60, 130, 82, 0.08);
+}
+
 .wandlight-lorepack-health-group-main {
     min-width: 0;
     display: flex;
@@ -2668,6 +2678,18 @@
 }
 
 .wandlight-lorepack-health-chip-fix {
+    color: #a8d8a8 !important;
+    background: rgba(70, 135, 70, 0.18) !important;
+    border-color: rgba(105, 175, 105, 0.24) !important;
+}
+
+.wandlight-lorepack-health-chip-state-ignored {
+    color: #c6bda8 !important;
+    background: rgba(112, 103, 85, 0.18) !important;
+    border-color: rgba(180, 160, 140, 0.22) !important;
+}
+
+.wandlight-lorepack-health-chip-state-resolved {
     color: #a8d8a8 !important;
     background: rgba(70, 135, 70, 0.18) !important;
     border-color: rgba(105, 175, 105, 0.24) !important;

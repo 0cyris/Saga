@@ -356,6 +356,30 @@ function normalizeLorepackDisabledEntryIds(value) {
     return output;
 }
 
+function normalizeLorepackHealthIssueStates(value) {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return {};
+    const output = {};
+    let count = 0;
+    for (const [rawKey, rawState] of Object.entries(value)) {
+        if (!rawState || typeof rawState !== 'object' || Array.isArray(rawState)) continue;
+        const key = String(rawKey || rawState.issueKey || '').trim().replace(/[^a-z0-9_.:-]+/gi, '_').slice(0, 160);
+        const status = String(rawState.status || '').trim().toLowerCase();
+        if (!key || !['ignored', 'resolved'].includes(status)) continue;
+        output[key] = {
+            status,
+            issueKey: key,
+            code: String(rawState.code || '').trim().slice(0, 120),
+            severity: String(rawState.severity || '').trim().slice(0, 40),
+            title: String(rawState.title || '').trim().slice(0, 240),
+            note: String(rawState.note || '').trim().slice(0, 500),
+            updatedAt: Number.isFinite(Number(rawState.updatedAt)) ? Number(rawState.updatedAt) : Date.now(),
+        };
+        count += 1;
+        if (count >= 500) break;
+    }
+    return output;
+}
+
 function normalizeLorepackPendingChanges(value) {
     if (!Array.isArray(value)) return [];
     const output = [];
@@ -662,6 +686,8 @@ function normalizeLorepackRegistry(value, defaults = getDefaultState().lorepackR
         if (timelineRegistry) pack.timelineRegistry = timelineRegistry;
         const pendingChanges = normalizeLorepackPendingChanges(raw.pendingChanges);
         if (pendingChanges.length) pack.pendingChanges = pendingChanges;
+        const healthIssueStates = normalizeLorepackHealthIssueStates(raw.healthIssueStates);
+        if (Object.keys(healthIssueStates).length) pack.healthIssueStates = healthIssueStates;
         packs[id] = pack;
     }
 
