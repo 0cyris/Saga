@@ -91,6 +91,7 @@ Context-aware Loredeck retrieval:
 - Done: resolve the live-ST smoke findings around Theme Pack responsiveness, Deck Health unscanned/readiness copy, extension-menu branding cache, and automation-safe delete confirmation.
 - Done: implement selected-Loredeck bulk import/export in the fullscreen Library, including click/Ctrl/Shift selection, selected-count actions, one JSON bundle per selected deck, and safe multi-file local import as new Custom copies.
 - Done: expand Deck Health remediation. Grouped Health Center issues can persist ignored/resolved advisory state, queue deterministic malformed-tag fixes through Pending Review, hand a single group to the Lore Assistant for repair drafts, and route Bundled decks to Duplicate as Custom before repairs.
-- Next: add a seeded imported/custom update-source fixture to live-ST validation so `Check Updates` can be exercised end to end outside the local harness.
-- Next: audit Loredecks actions that still trigger full panel refreshes or scroll snap-to-top behavior.
-- Next: run UX/UI studies before major implementation for the fullscreen Loredeck Library + Stack Loader workbench and the Context editor.
+- Done: migrate runtime Context controls from the Loredeck tab into the Context tab, including loaded-Loredeck Context review, current-context resolving, Reasoner fallback launch, quick anchors, manual locks, reset actions, and fullscreen Context Browser access.
+- Next: upgrade Reasoner-backed Context resolution so automatic fallback follows the existing message-count and character-count cadence, chooses from bounded candidates, and returns structured, confirmable Context patches.
+- Next: revise timeline densification policy around high-value candidate quality rather than alias sprawl.
+- Next: implement durable asset/bundle handling for Custom Loredecks, Theme Packs, Icon Sets, and deck covers.

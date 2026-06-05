@@ -655,7 +655,7 @@ const TAB_LABELS = {
     session: 'Session',
     context: 'Context',
     continuity: 'Continuity',
-    lore: 'Lore',
+    lore: 'Lorecards',
     injection: 'Injection',
     settings: 'Settings',
 };
@@ -1008,7 +1008,7 @@ const TAB_TOOLTIPS = {
     session: 'Runtime overview, preset status, instructions, and destructive cleanup actions.',
     continuity: 'Scan, automatically track, view, and edit lightweight live continuity state: scene/timeline, active characters, key items, and active goals/threads.',
     context: 'Detect, automatically update, view, and edit context: scene date, canon reference point, branch, and source range.',
-    lore: 'Generate pending lore, review generated Lorecards, and manage accepted lore with search, filters, tags, pinning, and muting.',
+    lore: 'Generate pending Lorecards, review generated Lorecards, and manage accepted Lorecards with search, filters, tags, pinning, and muting.',
     injection: 'Choose what Wandlight sends to the model: continuity state, lore entries, direct/compressed handling, and live split injection previews.',
     settings: 'Configure providers, runtime appearance, and future Saga Themepacks.',
 };
@@ -1278,7 +1278,7 @@ const AUTOMATION_MODES = {
     },
     automatic: {
         label: 'Automatic',
-        description: 'Automatically scans continuity, detects context, and generates pending lore on their configured intervals. Generated lore still goes to Pending Lore Review in the Lore tab.',
+        description: 'Automatically scans continuity, detects context, and generates pending Lorecards on their configured intervals. Generated Lorecards still go to Pending Lorecard Review in the Lorecards tab.',
         settings: {
             autoExtract: true,
             autoApplyDelta: true,
@@ -1526,7 +1526,7 @@ const GUIDE_STEPS = Object.freeze({
         guideStep('lore-context', 'Lore Context Status', 'Shows the Context currently driving lore tools.', 'lore', 'lore.contextStatus', {
             expandSections: Object.freeze(['lore.generation']),
             expected: 'Context should be current before canon preview or story-lore scan.',
-            when: 'Use this as the Lore tab’s context sanity check.',
+            when: 'Use this as the Lorecards tab context sanity check.',
         }),
         guideStep('canon-preview', 'Preview Canon Packs', 'Runs the local canon database query and builds selectable lore packs.', 'lore', 'lore.canon.preview', {
             expandSections: Object.freeze(['lore.generation']),
@@ -1608,7 +1608,7 @@ const GUIDE_STEPS = Object.freeze({
         guideStep('accepted-tabs', 'Accepted Category Tabs', 'Filters accepted lore by category, relevance, pin/mute state, and generated categories.', 'lore', 'lore.accepted.categoryTabs', {
             fallbackTarget: 'lore.accepted',
             expandSections: Object.freeze(['lore.acceptedEntries']),
-            expected: 'The accepted list updates without leaving the Lore tab.',
+            expected: 'The accepted list updates without leaving the Lorecards tab.',
             when: 'Use tabs to quickly isolate a type of lore.',
         }),
         guideStep('accepted-filters', 'Accepted Search and Source Filter', 'Searches accepted lore and filters by Canon Database, Story Generation, or Manual source.', 'lore', 'lore.accepted.filters', {
@@ -2080,22 +2080,16 @@ function renderLoredecksTab(container, state) {
     const stack = getLoredeckStack(state);
     const enabled = stack.filter(item => item.enabled);
     const canonDb = getCanonLoreDatabaseSync();
-    const contextIndex = getContextIndexSync();
     if (!canonDb) {
         loadCanonLoreDatabase()
             .then(() => refreshLorePanel({ preserveScroll: true }))
             .catch(e => console.warn('[Wandlight] Loredeck health load failed:', e));
     }
-    if (!contextIndex) {
-        loadContextIndex()
-            .then(() => refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true }))
-            .catch(e => console.warn('[Wandlight] Context index load failed:', e));
-    }
     const health = canonDb?.health || null;
 
     container.appendChild(createSectionHeader(
         'Loredecks',
-        'Source decks loaded for canon suggestions, relevance, and future Saga deck editing.'
+        'Source decks loaded for canon suggestions, relevance, and Saga deck editing.'
     ));
     container.appendChild(createLoredeckLibraryLaunchCard(state, canonDb, health));
 
@@ -2108,11 +2102,10 @@ function renderLoredecksTab(container, state) {
     summary.appendChild(createKeyValue('Top priority', enabled[0] ? getLoredeckDisplayName(enabled[0].packId) : 'none', 'Highest-priority enabled Loredeck.'));
     summary.appendChild(createKeyValue('Stack order', enabled.length ? 'Top to bottom priority' : 'empty', 'Loredeck priority is stored by stack order.'));
     summary.appendChild(createKeyValue('Deck Health', getLoredeckHealthText(health), 'Current Deck Health summary for the loaded canon Loredeck.'));
-    summary.appendChild(createKeyValue('Context Index', formatContextIndexSummary(contextIndex), 'Loaded Context anchors from enabled Loredeck timeline registries.'));
     container.appendChild(createCollapsibleSection(
         'loredecks.activeStack',
         'Active Stack',
-        'Current loaded deck count, priority, health, and Context index.',
+        'Current loaded deck count, priority, and health.',
         true,
         summary,
         { className: 'wandlight-loredeck-collapsible', tooltip: 'Current loaded Loredeck stack summary.' }
@@ -2168,15 +2161,6 @@ function renderLoredecksTab(container, state) {
         true,
         stackCard,
         { className: 'wandlight-loredeck-collapsible', tooltip: 'Loaded Loredecks participate in retrieval and injection according to stack order.' }
-    ));
-
-    container.appendChild(createCollapsibleSection(
-        'loredecks.context',
-        'Context',
-        'Current timeline context per loaded Loredeck.',
-        false,
-        () => createLoredeckContextCard(state, contextIndex),
-        { className: 'wandlight-loredeck-collapsible', tooltip: 'Current Context controls. This surface is queued for a spreadsheet-style UX study.' }
     ));
 
     container.appendChild(createCollapsibleSection(
@@ -4922,12 +4906,12 @@ function createLoredeckContextCard(state = getState(), contextIndex = getContext
     card.className = 'wandlight-runtime-card wandlight-loredeck-context-card';
 
     const title = document.createElement('h4');
-    title.textContent = 'Context';
+    title.textContent = 'Loaded Loredeck Contexts';
     card.appendChild(title);
 
     const help = document.createElement('div');
     help.className = 'wandlight-runtime-help';
-    help.textContent = 'Quickly review where this chat sits in each loaded Loredeck. Open the Workbench for detailed Context editing and timeline registry tools.';
+    help.textContent = 'Set where this chat sits in each loaded Loredeck. Use the browser for start points, before/after windows, resolver tests, and manual locks.';
     card.appendChild(help);
 
     if (!stack.length) {
@@ -4945,13 +4929,13 @@ function createLoredeckContextCard(state = getState(), contextIndex = getContext
 
     const resolveActions = document.createElement('div');
     resolveActions.className = 'wandlight-primary-actions';
-    resolveActions.appendChild(createButton('Open Workbench', 'Open the fullscreen Context Workbench for timeline search, aliases, validation, and registry editing.', () => {
+    resolveActions.appendChild(createButton('Open Context Browser', 'Open the fullscreen Context Browser for timeline search, waypoint selection, resolver testing, and registry tools.', () => {
         openContextWorkbenchForPack(stack[0]?.packId || '', 'context');
     }, 'wandlight-primary-button'));
-    resolveActions.appendChild(createButton('Resolve From Context', 'Use current Context and Loredeck timeline aliases to update unlocked Contexts.', async (btn) => {
+    resolveActions.appendChild(createButton('Resolve Loaded Decks', 'Use the current Context fields and Loredeck timeline aliases to update unlocked loaded-deck Contexts.', async (btn) => {
         await handleResolveContextsFromContext(btn);
     }));
-    resolveActions.appendChild(createButton('Resolve With Reasoner', 'Ask the configured Reasoning Provider to resolve unresolved Contexts using bounded known candidates.', async (btn) => {
+    resolveActions.appendChild(createButton('Ask Reasoner', 'Ask the configured Reasoning Provider to resolve unresolved loaded-deck Contexts using bounded known candidates.', async (btn) => {
         await handleModelResolveContexts(btn);
     }));
     card.appendChild(resolveActions);
@@ -19095,7 +19079,7 @@ function renderSessionTab(container, state) {
     const selectedLoreCount = getSelectedLoreInjectionCount(state, settings);
     const injectionStats = getInjectionCharacterStats(state, settings);
     stats.appendChild(createKeyValue('Pending continuity changes', state?.lastDelta ? '1' : '0', 'Legacy extracted state delta waiting in the Continuity tab. New scans apply directly to Continuity sections.'));
-    stats.appendChild(createKeyValue('Pending lore entries', String((state?.pendingLoreEntries || []).length), 'Generated lore entries waiting in the Lore tab Pending Lore Review section.'));
+    stats.appendChild(createKeyValue('Pending Lorecards', String((state?.pendingLoreEntries || []).length), 'Generated Lorecards waiting in the Lorecards tab Pending Lorecard Review section.'));
     stats.appendChild(createKeyValue('Accepted lore entries', String(counts.all - counts.pending), 'Lore entries currently stored in the accepted lore matrix.'));
     stats.appendChild(createKeyValue('High-relevance lore entries', String(counts.active), 'Accepted lore entries currently assigned to the High-Relevance injection tier.'));
     stats.appendChild(createKeyValue('Lore selected for injection', String(selectedLoreCount), 'Accepted lore entries that Wandlight is currently selecting for Lore Injection after pin/mute rules, context activation, and fallback priority selection. There is no hidden entry cap; mute entries to exclude them.'));
@@ -19620,7 +19604,7 @@ function createDangerZoneCard(state) {
     card.appendChild(title);
 
     card.appendChild(createKeyValue('Accepted lore', String((state?.loreMatrix || []).length), 'Lore entries currently stored in the accepted lore matrix.'));
-    card.appendChild(createKeyValue('Pending lore', String((state?.pendingLoreEntries || []).length), 'Generated lore entries waiting in the Lore tab Pending Lore Review section.'));
+    card.appendChild(createKeyValue('Pending Lorecards', String((state?.pendingLoreEntries || []).length), 'Generated Lorecards waiting in the Lorecards tab Pending Lorecard Review section.'));
     card.appendChild(createKeyValue('Pending continuity changes', state?.lastDelta ? '1' : '0', 'Legacy extracted continuity delta waiting in the Continuity tab.'));
 
     const actions = document.createElement('div');
@@ -19733,12 +19717,20 @@ function ensureContinuityProviderReadyForAction(actionLabel = 'this action') {
 // Context tab -----------------------------------------------------------------
 
 function renderContextTab(container, state) {
+    const contextIndex = getContextIndexSync();
+    if (!contextIndex) {
+        loadContextIndex()
+            .then(() => refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true }))
+            .catch(e => console.warn('[Wandlight] Context index load failed:', e));
+    }
+
     container.appendChild(createSectionHeader(
         'Context',
-        'Detect and edit the date, canon reference point, and branch used by lore generation. Actions are colocated with the fields they update.'
+        'Detect, browse, resolve, and lock where this chat sits in the active canon timeline.'
     ));
 
     container.appendChild(createContextDetectionCard(state));
+    container.appendChild(createLoredeckContextCard(state, contextIndex));
     container.appendChild(createContextEditorCard(state));
 }
 
@@ -24565,23 +24557,23 @@ function createEditableLoreEntryEditor(entry) {
     return editor;
 }
 
-// Lore tab --------------------------------------------------------------------
+// Lorecards tab ---------------------------------------------------------------
 
 function renderLoreTab(container, state) {
     const basic = isBasicExperience();
     container.appendChild(createSectionHeader(
-        'Lore',
-        'Suggest canon lore from the local database, generate story-specific lore with the model, review pending entries, and manage accepted lore.'
+        'Lorecards',
+        'Suggest canon Lorecards from the local database, generate story-specific Lorecards with the model, review pending cards, and manage accepted Lorecards.'
     ));
     container.appendChild(createLoreTimelineCard(state));
 
     const generationSection = createCollapsibleSection(
         'lore.generation',
-        'Lore Generation',
+        'Lorecard Generation',
         'canon suggestions + story generation',
         true,
         createLoreGenerationCard(state),
-        { tooltip: 'Suggest canon lore from the local database or generate story-specific lore from recent chat messages.', className: 'wandlight-lore-generation-collapsible' }
+        { tooltip: 'Suggest canon Lorecards from the local database or generate story-specific Lorecards from recent chat messages.', className: 'wandlight-lore-generation-collapsible' }
     );
     markTourTarget(generationSection, 'lore.generation.section');
     container.appendChild(generationSection);
@@ -24602,11 +24594,11 @@ function renderLoreTab(container, state) {
     const pendingCount = (state?.pendingLoreEntries || []).length;
     const pendingSection = createCollapsibleSection(
         basic ? 'lore.basic.pendingReview' : 'lore.pendingReview',
-        'Pending Lore Review',
+        'Pending Lorecard Review',
         pendingCount ? `${pendingCount} pending` : 'none',
         basic ? true : pendingCount > 0,
         createPendingLoreReviewSection(state),
-        { tooltip: 'Review suggested/generated lore entries before accepting them.', className: 'wandlight-lore-pending-collapsible' }
+        { tooltip: 'Review suggested/generated Lorecards before accepting them.', className: 'wandlight-lore-pending-collapsible' }
     );
     markTourTarget(pendingSection, 'lore.pending');
     container.appendChild(pendingSection);
@@ -24620,7 +24612,7 @@ function renderLoreTab(container, state) {
         `${acceptedCount} accepted · ${injectableCount} injectable`,
         true,
         createAcceptedLoreEntriesSection(state),
-        { tooltip: 'Search, filter, bulk edit, tag, pin, mute, and edit accepted lore entries.', className: 'wandlight-lore-accepted-collapsible' }
+        { tooltip: 'Search, filter, bulk edit, tag, pin, mute, and edit accepted Lorecards.', className: 'wandlight-lore-accepted-collapsible' }
     );
     markTourTarget(acceptedSection, 'lore.accepted');
     container.appendChild(acceptedSection);
@@ -26369,7 +26361,7 @@ function updateAcceptedLoreScrollRegionHeight() {
     const content = acceptedDetails?.querySelector(':scope > .wandlight-collapsible-content');
 
     // Earlier layout code made the accepted-lore section stretch to the bottom of
-    // the drawer. That works for a fixed Lore tab, but it clips later sections
+    // the drawer. That works for a fixed Lorecards tab, but it clips later sections
     // when every Lore section is expanded. The drawer tab is now the outer
     // scroller; accepted lore remains a bounded nested scroller. Clear any stale
     // inline sizing before applying the bounded-scroll CSS variables.

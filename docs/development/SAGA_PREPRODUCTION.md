@@ -67,7 +67,7 @@ Do not expose "bridge deck", "overlay", "installed deck", or "forked deck" as us
 The current project already has several reusable core systems:
 
 - Runtime shelf and drawer UI.
-- Session, Context, Continuity, Lore, and Injection tabs.
+- Session, Context, Continuity, Lorecards, and Injection tabs.
 - Local canon database loader.
 - Pending Lore Review.
 - Accepted lore workbench.
@@ -93,13 +93,13 @@ Current rail order should evolve toward:
 2. Session
 3. Context
 4. Continuity
-5. Lore
+5. Lorecards
 6. Injection
 7. Settings
 
 The Loredeck tab is intentionally above the rest because the active Loredeck stack determines what Context, Lore, Relevance, and Injection mean.
 
-The existing Lore tab should continue to handle chat-specific pending and accepted lore. The new Loredeck tab handles source decks.
+The existing Lorecards tab should continue to handle chat-specific pending and accepted Lorecards. The Loredeck tab handles source decks.
 
 The Settings tab should sit at the end because it configures Saga itself rather than the active roleplay state. It now absorbs the extension-menu API settings so users can configure providers from the same runtime surface they use during play.
 
@@ -612,7 +612,7 @@ Step 4 adds a local, non-model resolver:
 - Alias matching searches anchor labels, aliases, tags, books, arcs, phases, and other timeline fields.
 - Manual locks are respected unless a future caller explicitly forces overwrite.
 - Context detection now runs the local resolver after header/model/local Context detection.
-- The current Loredecks workbench can manually run `Resolve From Context`; this should migrate into the Context tab.
+- The current Context tab owns loaded-Loredeck Context review, local resolution, Reasoner fallback launch, manual locks, quick anchors, and the fullscreen Context Browser launch.
 
 This keeps the common path cheap: a structured reply header, exact date, direct anchor label, or clear Context note can update pack-specific Context without a model call.
 
@@ -1687,7 +1687,7 @@ Recent production completed **Context-native Loredeck retrieval, HP reference-de
 46. Done: redesign the Context editor into a fullscreen Context Workbench. The compact runtime card now launches the workbench; the workbench includes Context, Timeline, Aliases, and Validation tabs; spreadsheet-style anchor/window tables; selected-deck manual editing; timeline row inspection; local phrase resolver testing; and resolver explanations for matched, missing, and ignored terms. Clarified direction: this workbench is a stepping stone. Runtime Context selection should migrate to the Context tab, while Loredeck-side tools should become timeline registry authoring/validation tools.
 47. Done: improve local resolver data coverage without making runtime indexing heavier. The Workbench Phrase Resolver can load Lorecards and include Lorecard-derived Context candidates when `timeline.json` lacks a first-class anchor. Clarified direction: this should feed candidate generation for the Reasoner Provider, not become an exhaustive alias-matching system.
 48. Done: build the first Context Browser slice in the Context tab. `Browse Story Waypoints` lets users search first-class timeline anchors/windows, load Lorecards on demand as Lorecard-derived event waypoints, choose `Start Here`, or create a window with `After` and `Before`. Manual Context selection remains the primary trusted workflow.
-49. Next: migrate runtime Context controls out of the Loredeck tab. Keep Loredeck-side timeline registry editing, Deck Health validation, and Creator tooling, but move current-context browsing, resolving, locking, and drift checks into the Context tab.
+49. Done: migrate runtime Context controls out of the Loredeck tab. The Context tab now owns loaded-Loredeck Context review, current-context resolving, Reasoner fallback launch, quick anchor selection, manual locks, reset actions, and fullscreen Context Browser access. The Loredeck tab remains focused on library/stack handling, Deck Health, import/export, Creator, and deck detail authoring.
 50. Next: upgrade Reasoner-backed Context resolution. Reuse the existing context-detection cadence: local/structured resolution first, then a backup Reasoner call only after the configured message-count and character-count thresholds or explicit user request. The Reasoner should choose from bounded candidates and return structured, confirmable Context patches.
 51. Next: revise timeline densification policy around candidate quality, not alias sprawl. Durable timeline anchors should be added for high-value recurring story moments, missing registry coverage, Creator output, or accepted user/model suggestions. Deck Health can surface sparse coverage, but the Reasoner handles casual phrasing.
 52. Next: implement durable asset/bundle handling for Custom Loredecks, Theme Packs, Icon Sets, and deck covers. Decide zip versus SillyTavern-managed storage, validate allowed image types, block executable content, preserve deck-cover paths, and make imported visual assets survive browser sessions.

@@ -488,7 +488,7 @@ The Reasoner must reject invented active Context. Invented anchors may be return
 3. Reuse the Context Index as Context Browser data.
 4. Add browse/search for anchors, windows, dates, arcs, books, chapters, episodes, quests, and Lorecard-derived Context candidates.
 5. Add `Start Here`, `Before`, `After`, `Between`, lock, and apply controls.
-6. Move runtime manual Context controls and local phrase testing from the Loredeck tab into the Context Browser.
+6. Done: move runtime manual Context controls, quick anchors, resolver launch actions, and manual locks from the Loredeck tab into the Context tab / Context Browser.
 7. Add Reasoner-backed `Resolve Context` using bounded candidates.
 8. Add suspected-jump review using the existing message-count and character-count threshold cadence.
 9. Leave Timeline Registry editing, alias inspection, validation, and Pending Review timeline patches in the Loredeck tab.
@@ -531,6 +531,8 @@ The Context tab now has an initial `Browse Story Waypoints` surface above the ma
 The selected window stores both readable bounds (`anchorFrom` / `anchorTo`) and comparable sort bounds (`contextSortKeyFrom` / `contextSortKeyTo`). Entry gating should compare against that range, not collapse the selection into a single point.
 
 For Harry Potter, this means broad anchors such as `Year 6: Half-Blood Prince` remain first-class timeline entries, while denser events such as Christmas parties, relationship turns, lessons, battles, and reveals can be loaded from Lorecards without forcing the timeline registry to contain every scene on day one.
+
+The Context tab now also owns the loaded-Loredeck Context summary that previously lived under Loredecks. It shows each enabled deck's active Context, index coverage, lock state, confidence, quick anchor lookup, reset action, local resolver launch, Reasoner fallback launch, and fullscreen Context Browser launch. The Loredeck tab no longer exposes a redundant runtime Context dropdown.
 
 This is still a bridge, not the final Context UX. The next development slice is to upgrade Reasoner-backed Context resolution so casual phrases select from the same bounded waypoint set instead of depending on exhaustive aliases.
 
