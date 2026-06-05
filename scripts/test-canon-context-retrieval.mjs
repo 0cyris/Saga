@@ -9,8 +9,8 @@ const {
 const scoring = {
   weights: {
     dateMatch: 30,
-    positionMatch: 30,
-    positionUnresolvedPenalty: -8,
+    contextMatch: 30,
+    contextUnresolvedPenalty: -8,
     characterMatch: 25,
     locationMatch: 12,
     topicMatch: 18,
@@ -97,15 +97,15 @@ const dateOnly = {
     validTo: '2016-12-31',
   },
 };
-const dateEligible = buildCanonCandidateItem(dateOnly, state, context, '2016-05-01', scoring, { positionIndex: index });
+const dateEligible = buildCanonCandidateItem(dateOnly, state, context, '2016-05-01', scoring, { contextIndex: index });
 assert.equal(dateEligible, null);
 
-const dateMissing = buildCanonCandidateItem(dateOnly, state, context, '', scoring, { positionIndex: index });
+const dateMissing = buildCanonCandidateItem(dateOnly, state, context, '', scoring, { contextIndex: index });
 assert.equal(dateMissing, null);
 
-const positionOnly = {
+const contextOnly = {
   ...baseEntry,
-  id: 'position_only',
+  id: 'context_only',
   context: {
     scope: 'window',
     validFromAnchor: 'mcu.age_of_ultron',
@@ -115,25 +115,25 @@ const positionOnly = {
     sortKeyTo: 2500,
   },
 };
-const positionEligible = buildCanonCandidateItem(positionOnly, state, context, '', scoring, { positionIndex: index });
-assert.equal(positionEligible.eligibility.matchedBy, 'position');
-assert.equal(positionEligible.eligibility.contextGate.status, 'match');
-assert.equal(positionEligible.score >= 30, true);
+const contextEligible = buildCanonCandidateItem(contextOnly, state, context, '', scoring, { contextIndex: index });
+assert.equal(contextEligible.eligibility.matchedBy, 'context');
+assert.equal(contextEligible.eligibility.contextGate.status, 'match');
+assert.equal(contextEligible.score >= 30, true);
 
-const positionMismatch = {
+const contextMismatch = {
   ...baseEntry,
-  id: 'position_mismatch',
+  id: 'context_mismatch',
   context: {
     scope: 'window',
     validFromAnchor: 'mcu.infinity_war',
   },
 };
-const mismatch = buildCanonCandidateItem(positionMismatch, state, context, '2016-05-01', scoring, { positionIndex: index });
+const mismatch = buildCanonCandidateItem(contextMismatch, state, context, '2016-05-01', scoring, { contextIndex: index });
 assert.equal(mismatch, null);
 
-const unresolvedPositionOnly = {
+const unresolvedContextOnly = {
   ...baseEntry,
-  id: 'unresolved_position_only',
+  id: 'unresolved_context_only',
   extensions: {
     sagaLoredeck: {
       packId: 'custom-pack',
@@ -144,29 +144,29 @@ const unresolvedPositionOnly = {
     anchorId: 'custom.first_arc',
   },
 };
-const unresolvedWithoutDate = buildCanonCandidateItem(unresolvedPositionOnly, state, context, '', scoring, { positionIndex: index });
+const unresolvedWithoutDate = buildCanonCandidateItem(unresolvedContextOnly, state, context, '', scoring, { contextIndex: index });
 assert.equal(unresolvedWithoutDate, null);
 
 const unresolvedWithDate = buildCanonCandidateItem({
-  ...unresolvedPositionOnly,
+  ...unresolvedContextOnly,
   date: {
     validFrom: '2016-01-01',
     validTo: '2016-12-31',
   },
-}, state, context, '2016-05-01', scoring, { positionIndex: index });
+}, state, context, '2016-05-01', scoring, { contextIndex: index });
 assert.equal(unresolvedWithDate, null);
 
-const dateDoesNotContradictPosition = evaluateCanonEntryEligibility({
-  ...positionOnly,
+const dateDoesNotContradictContext = evaluateCanonEntryEligibility({
+  ...contextOnly,
   date: {
     validFrom: '2018-01-01',
     validTo: '2018-12-31',
   },
-}, state, context, '2016-05-01', { positionIndex: index });
-assert.equal(dateDoesNotContradictPosition.eligible, true);
-assert.equal(dateDoesNotContradictPosition.matchedBy, 'position');
+}, state, context, '2016-05-01', { contextIndex: index });
+assert.equal(dateDoesNotContradictContext.eligible, true);
+assert.equal(dateDoesNotContradictContext.matchedBy, 'context');
 
-const widePosition = {
+const wideContext = {
   ...baseEntry,
   id: 'wide_position',
   context: {
@@ -176,7 +176,7 @@ const widePosition = {
     windowKind: 'wide',
   },
 };
-const wideEligible = buildCanonCandidateItem(widePosition, {
+const wideEligible = buildCanonCandidateItem(wideContext, {
   ...state,
   loredeckContexts: {
     'mcu-infinity-saga': {
@@ -185,8 +185,8 @@ const wideEligible = buildCanonCandidateItem(widePosition, {
       branchId: 'main',
     },
   },
-}, context, '', scoring, { positionIndex: index });
-assert.equal(wideEligible.eligibility.matchedBy, 'position');
-assert.equal(wideEligible.score < positionEligible.score, true);
+}, context, '', scoring, { contextIndex: index });
+assert.equal(wideEligible.eligibility.matchedBy, 'context');
+assert.equal(wideEligible.score < contextEligible.score, true);
 
 console.log('Canon Context retrieval tests passed.');

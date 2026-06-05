@@ -27,6 +27,8 @@ import {
 } from './lore-generator.js';
 import { showLorePanel, hideLorePanel, refreshLorePanel, resetLorePanelLayout } from './lore-panel.js';
 import { onGenerationEndedAutoRelevance, runAutoRelevance } from './auto-relevance.js';
+import { registerSagaToolManagerTools } from './saga-tool-registry.js';
+import { getLastLoreInjectionAudit, getLastLoredeckRetrievalAudit, searchAcceptedLorecards } from './retrieval-audit.js';
 
 // ════════════════════════════════════════════════════════════════════════════════
 // jQuery ready — this is the SillyTavern extension lifecycle entrypoint.
@@ -59,6 +61,7 @@ $(document).ready(async () => {
 
     // ── Register slash commands ─────────────────────────────────────────────
     registerSlashCommands(ctx);
+    registerSagaToolManagerTools(ctx);
 
     // ── Mount settings panel via ST's template system ───────────────────────
     await mountSettingsPanel(ctx);
@@ -511,6 +514,10 @@ function exposeGlobalBridge() {
     globalThis._wandlightShowLorePanel = showLorePanel;
     globalThis._wandlightHideLorePanel = hideLorePanel;
     globalThis._wandlightRefreshLorePanel = refreshLorePanel;
+    globalThis._sagaGetLastLoreInjectionAudit = getLastLoreInjectionAudit;
+    globalThis._sagaGetLastLoredeckRetrievalAudit = getLastLoredeckRetrievalAudit;
+    globalThis._sagaSearchLorecards = (query, options = {}) => searchAcceptedLorecards(getState(), query, options);
+    globalThis._sagaRegisterToolManagerTools = registerSagaToolManagerTools;
     console.log(`${LOG_PREFIX} Global bridge exposed`);
 }
 

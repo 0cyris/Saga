@@ -15,16 +15,16 @@ This audit treats the bundled HP pack as Saga's reference Loredeck, not as a ful
 ## Reference Rules
 
 - Entries must not use `date`, `validFrom`, `validTo`, or `canonTiming`.
-- Every entry must define `position`.
+- Every entry must define `context`.
 - Wide entries must use low-frequency, topic/entity-driven retrieval.
-- Spoiler-sensitive entries should use position-aware visibility metadata.
+- Spoiler-sensitive entries should use Context-aware visibility metadata.
 - Manifest stats must match the files on disk.
 - All entry files under the pack must be listed in `loredeck.json`.
 
 ## Strong Areas
 
 - Character, spell, behavior, knowledge, age, and event constraints are separated into focused files.
-- Broad school-year and series-window lore is now explicit through `position.windowKind` and conservative retrieval metadata.
+- Broad school-year and series-window lore is now explicit through `context.windowKind` and conservative retrieval metadata.
 - HP date picking remains possible because `timeline.json` maps calendar dates to Context anchors and date-derived sort keys.
 
 ## Required Check

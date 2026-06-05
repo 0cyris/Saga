@@ -486,7 +486,7 @@ The Reasoner must reject invented active Context. Invented anchors may be return
 1. Build fullscreen Context Browser shell from the Context tab.
 2. Reuse loaded Loredeck stack state and current `loredeckContexts`.
 3. Reuse the Context Index as Context Browser data.
-4. Add browse/search for anchors, windows, dates, arcs, books, chapters, episodes, quests, and entry-derived candidate positions.
+4. Add browse/search for anchors, windows, dates, arcs, books, chapters, episodes, quests, and Lorecard-derived Context candidates.
 5. Add `Start Here`, `Before`, `After`, `Between`, lock, and apply controls.
 6. Move runtime manual Context controls and local phrase testing from the Loredeck tab into the Context Browser.
 7. Add Reasoner-backed `Resolve Context` using bounded candidates.
@@ -520,7 +520,7 @@ The first fullscreen Context Workbench is implemented with these MVP surfaces:
 
 The Phrase Resolver now explains cleaned terms, ignored direction words, match reasons, missing terms, weak matches, and no-match coverage gaps.
 
-The Phrase Resolver can also load Lorecards and include entry-derived Context candidates. This lets event-level prompts such as `after yule ball` resolve from a Lorecard's Context gate even when the active `timeline.json` is sparse. These rows are visually marked as Lorecard-derived, can be applied to the current chat Context, and can become real timeline anchors through Pending Review on editable decks. Bundled decks remain protected and route users to duplicate as Custom first.
+The Phrase Resolver can also load Lorecards and include Lorecard-derived Context candidates. This lets event-level prompts such as `after yule ball` resolve from a Lorecard's Context gate even when the active `timeline.json` is sparse. These rows are visually marked as Lorecard-derived, can be applied to the current chat Context, and can become real timeline anchors through Pending Review on editable decks. Bundled decks remain protected and route users to duplicate as Custom first.
 
 This is a bridge, not the final Context UX. The clarified next development slice is to move runtime Context selection into a Context Browser and use the existing local resolver as candidate generation for Reasoner-backed Context resolution.
 

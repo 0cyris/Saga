@@ -60,8 +60,8 @@ const result = appendPendingLoreEntries([{
       status: 'match',
       hasGate: true,
       eligible: true,
-      matchedBy: 'date_position',
-      reason: 'Entry position matched active Context.',
+      matchedBy: 'date_context',
+      reason: 'Entry Context matched active Context.',
       packId: 'mcu-infinity-saga',
     },
   },
@@ -83,6 +83,6 @@ assert.equal(stored.coordinates[0].id, 'mcu');
 assert.equal(stored.extensions.sagaLoredeck.packId, 'mcu-infinity-saga');
 assert.equal(stored.extensions.sagaLoredeck.packTitle, 'Marvel: MCU Infinity Saga');
 assert.equal(stored.extensions.sagaContextGate.status, 'match');
-assert.equal(stored.extensions.sagaContextGate.matchedBy, 'date_position');
+assert.equal(stored.extensions.sagaContextGate.matchedBy, 'date_context');
 
 console.log('Pending Context storage test passed.');

@@ -623,7 +623,7 @@ Hard limits:
 - Generate one Lorecard proposal per targetTitleDraft.
 - Use targetTitleDraft.titleId as entry.id unless it is invalid; preserve stable IDs.
 - Use only acceptedTimelineRegistry anchors/windows and acceptedTagRegistry tags. Do not invent anchor IDs or tag IDs at this stage.
-- Every entry must be schemaVersion 3 with content.fact, content.injection, position, retrieval, tags, category, canon/canonStatus, relevance, and priority.
+- Every entry must be schemaVersion 3 with content.fact, content.injection, context, retrieval, tags, category, canon/canonStatus, relevance, and priority.
 - Do not write wiki summaries. The fact should state the useful story constraint; the injection should tell the roleplay prompt what changes in-scene.
 
 Schema v3 entry requirements:
@@ -640,7 +640,7 @@ High-value lore rules:
 - Encode what characters know, hide, want, fear, expect, avoid, misunderstand, reveal, protect, threaten, or risk.
 - Include consequences, relationship pressure, secrets, obligations, local rules, faction expectations, or setting reactions.
 - Keep content.injection concise and directly usable in a prompt.
-- Avoid future canon leakage outside the chosen position window.
+- Avoid future canon leakage outside the chosen Context window.
 - Ask 1-3 clarifying questions and return no proposals if accepted planning metadata is insufficient.
 
 Use the Lore Value Rubric for every proposal.
@@ -665,7 +665,7 @@ Output shape:
         "relevance": "high",
         "priority": 88,
         "tags": ["character:nami", "faction:arlong-pirates"],
-        "position": {
+        "context": {
           "scope": "window",
           "validFromAnchor": "one-piece.arlong.cocoyasi-arrival",
           "validToAnchor": "one-piece.arlong.nami-asks-for-help",
@@ -676,7 +676,7 @@ Output shape:
           "label": "Cocoyasi arrival through Nami asking for help"
         },
         "retrieval": {
-          "activation": "position_or_topic",
+          "activation": "context_or_topic",
           "frequency": "normal",
           "contextBoost": "high"
         },
@@ -725,7 +725,7 @@ export function buildLoredeckCreatorEntryUserPrompt(context = {}) {
             acceptedPlanningMetadataRequired: true,
             upsertEntriesOnly: true,
             schemaVersion: 3,
-            requirePosition: true,
+            requireContext: true,
             requireRetrieval: true,
             requireContentFactAndInjection: true,
             useAcceptedTimelineIdsOnly: true,

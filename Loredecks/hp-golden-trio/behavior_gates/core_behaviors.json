@@ -250,7 +250,7 @@
         "revealPolicy": "public"
       },
       "retrieval": {
-        "activation": "position_or_topic",
+        "activation": "context_or_topic",
         "frequency": "normal",
         "contextBoost": "medium",
         "triggers": {
@@ -434,7 +434,7 @@
         "revealPolicy": "public"
       },
       "retrieval": {
-        "activation": "position_or_topic",
+        "activation": "context_or_topic",
         "frequency": "normal",
         "contextBoost": "medium",
         "triggers": {
@@ -543,7 +543,7 @@
         "revealPolicy": "public"
       },
       "retrieval": {
-        "activation": "position_or_topic",
+        "activation": "context_or_topic",
         "frequency": "normal",
         "contextBoost": "medium",
         "triggers": {

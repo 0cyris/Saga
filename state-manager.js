@@ -1645,42 +1645,42 @@ function compactSagaContextGateExtension(gate = {}) {
     return Object.values(compact).some(value => value !== '' && value !== false) ? compact : null;
 }
 
-function hasCompactPositionValue(position = {}) {
-    if (!position || typeof position !== 'object' || Array.isArray(position)) return false;
-    return Object.entries(position).some(([key, value]) => {
+function hasCompactContextValue(contextGate = {}) {
+    if (!contextGate || typeof contextGate !== 'object' || Array.isArray(contextGate)) return false;
+    return Object.entries(contextGate).some(([key, value]) => {
         if (key === 'approximate') return value === true;
         if (value === null || value === undefined || value === '') return false;
         return Number.isFinite(Number(value)) || String(value || '').trim() !== '';
     });
 }
 
-function compactLorePositionForStorage(position = {}) {
-    if (!position || typeof position !== 'object' || Array.isArray(position)) return null;
+function compactLoreContextForStorage(contextGate = {}) {
+    if (!contextGate || typeof contextGate !== 'object' || Array.isArray(contextGate)) return null;
     const compact = {
-        scope: truncateText(position.scope, 60),
-        anchorId: truncateText(position.anchorId, 180),
-        validFromAnchor: truncateText(position.validFromAnchor, 180),
-        validToAnchor: truncateText(position.validToAnchor, 180),
-        arc: truncateText(position.arc, 180),
-        arcId: truncateText(position.arcId, 180),
-        phase: truncateText(position.phase, 180),
-        phaseId: truncateText(position.phaseId, 180),
-        season: truncateText(position.season, 80),
-        episode: truncateText(position.episode, 80),
-        chapter: truncateText(position.chapter, 80),
-        issue: truncateText(position.issue, 80),
-        quest: truncateText(position.quest, 180),
-        gameStage: truncateText(position.gameStage, 180),
-        stardateFrom: truncateText(position.stardateFrom, 80),
-        stardateTo: truncateText(position.stardateTo, 80),
-        sortKeyFrom: Number.isFinite(Number(position.sortKeyFrom)) ? Number(position.sortKeyFrom) : null,
-        sortKeyTo: Number.isFinite(Number(position.sortKeyTo)) ? Number(position.sortKeyTo) : null,
-        precision: truncateText(position.precision, 80),
-        windowKind: truncateText(position.windowKind, 80),
-        label: truncateText(position.label, 180),
-        approximate: position.approximate === true,
+        scope: truncateText(contextGate.scope, 60),
+        anchorId: truncateText(contextGate.anchorId, 180),
+        validFromAnchor: truncateText(contextGate.validFromAnchor, 180),
+        validToAnchor: truncateText(contextGate.validToAnchor, 180),
+        arc: truncateText(contextGate.arc, 180),
+        arcId: truncateText(contextGate.arcId, 180),
+        phase: truncateText(contextGate.phase, 180),
+        phaseId: truncateText(contextGate.phaseId, 180),
+        season: truncateText(contextGate.season, 80),
+        episode: truncateText(contextGate.episode, 80),
+        chapter: truncateText(contextGate.chapter, 80),
+        issue: truncateText(contextGate.issue, 80),
+        quest: truncateText(contextGate.quest, 180),
+        gameStage: truncateText(contextGate.gameStage, 180),
+        stardateFrom: truncateText(contextGate.stardateFrom, 80),
+        stardateTo: truncateText(contextGate.stardateTo, 80),
+        sortKeyFrom: Number.isFinite(Number(contextGate.sortKeyFrom)) ? Number(contextGate.sortKeyFrom) : null,
+        sortKeyTo: Number.isFinite(Number(contextGate.sortKeyTo)) ? Number(contextGate.sortKeyTo) : null,
+        precision: truncateText(contextGate.precision, 80),
+        windowKind: truncateText(contextGate.windowKind, 80),
+        label: truncateText(contextGate.label, 180),
+        approximate: contextGate.approximate === true,
     };
-    return hasCompactPositionValue(compact) ? compact : null;
+    return hasCompactContextValue(compact) ? compact : null;
 }
 
 function compactLoreCoordinatesForStorage(coordinates = []) {
@@ -1698,7 +1698,7 @@ function compactLoreCoordinatesForStorage(coordinates = []) {
                 confidence: Number.isFinite(Number(coordinate.confidence)) ? Math.max(0, Math.min(1, Number(coordinate.confidence))) : 1,
                 required: coordinate.required !== false,
             };
-            return hasCompactPositionValue(compact) ? compact : null;
+            return hasCompactContextValue(compact) ? compact : null;
         })
         .filter(Boolean)
         .slice(0, 24);
@@ -1760,7 +1760,7 @@ function compactLoreExtensionsForStorage(normalized) {
 
 function compactLoreEntryForStorage(entry) {
     const normalized = normalizeLoreEntry(prePruneLoreEntryForNormalization(entry || {}));
-    const contextBlock = compactLorePositionForStorage(normalized.context);
+    const contextBlock = compactLoreContextForStorage(normalized.context);
     const coordinates = compactLoreCoordinatesForStorage(normalized.coordinates);
     return {
         schemaVersion: normalized.schemaVersion || 2,

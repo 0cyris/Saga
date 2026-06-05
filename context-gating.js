@@ -28,8 +28,8 @@ function hasFiniteNumber(value) {
     return value !== null && value !== undefined && value !== '' && Number.isFinite(Number(value));
 }
 
-function hasAnyContextGate(position = {}, coordinates = []) {
-    const p = isPlainObject(position) ? position : {};
+function hasAnyContextGate(contextGate = {}, coordinates = []) {
+    const p = isPlainObject(contextGate) ? contextGate : {};
     const stringFields = [
         'scope',
         'anchorId',
@@ -119,8 +119,8 @@ function getContextSortKey(index = null, context = {}, packId = '') {
     return null;
 }
 
-function anchorMatches(position = {}, context = {}, index = null, packId = '') {
-    const requiredAnchor = cleanString(position.anchorId);
+function anchorMatches(contextGate = {}, context = {}, index = null, packId = '') {
+    const requiredAnchor = cleanString(contextGate.anchorId);
     if (!requiredAnchor) return { ok: true };
     const contextAnchor = cleanString(context?.anchorId);
     if (!contextAnchor) {
@@ -134,14 +134,14 @@ function anchorMatches(position = {}, context = {}, index = null, packId = '') {
     return { ok: false, reason: `Entry requires anchor ${requiredAnchor}; current anchor is ${contextAnchor}.` };
 }
 
-function windowMatches(position = {}, context = {}, index = null, packId = '') {
-    const fromAnchorId = cleanString(position.validFromAnchor);
-    const toAnchorId = cleanString(position.validToAnchor);
-    const hasWindow = fromAnchorId || toAnchorId || hasFiniteNumber(position.sortKeyFrom) || hasFiniteNumber(position.sortKeyTo);
+function windowMatches(contextGate = {}, context = {}, index = null, packId = '') {
+    const fromAnchorId = cleanString(contextGate.validFromAnchor);
+    const toAnchorId = cleanString(contextGate.validToAnchor);
+    const hasWindow = fromAnchorId || toAnchorId || hasFiniteNumber(contextGate.sortKeyFrom) || hasFiniteNumber(contextGate.sortKeyTo);
     if (!hasWindow) return { ok: true };
 
-    let fromSort = hasFiniteNumber(position.sortKeyFrom) ? Number(position.sortKeyFrom) : null;
-    let toSort = hasFiniteNumber(position.sortKeyTo) ? Number(position.sortKeyTo) : null;
+    let fromSort = hasFiniteNumber(contextGate.sortKeyFrom) ? Number(contextGate.sortKeyFrom) : null;
+    let toSort = hasFiniteNumber(contextGate.sortKeyTo) ? Number(contextGate.sortKeyTo) : null;
     const fromAnchor = findAnchor(index, packId, fromAnchorId);
     const toAnchor = findAnchor(index, packId, toAnchorId);
     const matchingWindow = findWindow(index, packId, fromAnchorId, toAnchorId);
@@ -158,7 +158,7 @@ function windowMatches(position = {}, context = {}, index = null, packId = '') {
         if ((fromAnchorId && contextFrom === fromAnchorId) || (toAnchorId && contextTo === toAnchorId)) {
             return { ok: true };
         }
-        return { ok: false, unresolved: true, reason: 'Entry has a position window, but this Loredeck Context has no comparable anchor or sort key.' };
+        return { ok: false, unresolved: true, reason: 'Entry has a Context window, but this Loredeck Context has no comparable anchor or sort key.' };
     }
 
     if (fromSort !== null && contextSort < fromSort) {
@@ -179,16 +179,16 @@ function textFieldMatches(entryValue, contextValue, label) {
     return { ok: false, reason: `Entry requires ${label} ${entryValue}; current ${label} is ${contextValue}.` };
 }
 
-function mediaFieldsMatch(position = {}, context = {}) {
+function mediaFieldsMatch(contextGate = {}, context = {}) {
     const checks = [
-        ['arc', position.arc || position.arcId, context.arc],
-        ['phase', position.phase || position.phaseId, context.phase],
-        ['season', position.season, context.season],
-        ['episode', position.episode, context.episode],
-        ['chapter', position.chapter, context.chapter],
-        ['issue', position.issue, context.issue],
-        ['quest', position.quest, context.quest],
-        ['game stage', position.gameStage, context.gameStage],
+        ['arc', contextGate.arc || contextGate.arcId, context.arc],
+        ['phase', contextGate.phase || contextGate.phaseId, context.phase],
+        ['season', contextGate.season, context.season],
+        ['episode', contextGate.episode, context.episode],
+        ['chapter', contextGate.chapter, context.chapter],
+        ['issue', contextGate.issue, context.issue],
+        ['quest', contextGate.quest, context.quest],
+        ['game stage', contextGate.gameStage, context.gameStage],
     ];
     for (const [label, entryValue, contextValue] of checks) {
         const result = textFieldMatches(entryValue, contextValue, label);
@@ -197,9 +197,9 @@ function mediaFieldsMatch(position = {}, context = {}) {
     return { ok: true };
 }
 
-function stardateMatches(position = {}, context = {}) {
-    const from = hasFiniteNumber(position.stardateFrom) ? Number(position.stardateFrom) : null;
-    const to = hasFiniteNumber(position.stardateTo) ? Number(position.stardateTo) : null;
+function stardateMatches(contextGate = {}, context = {}) {
+    const from = hasFiniteNumber(contextGate.stardateFrom) ? Number(contextGate.stardateFrom) : null;
+    const to = hasFiniteNumber(contextGate.stardateTo) ? Number(contextGate.stardateTo) : null;
     if (from === null && to === null) return { ok: true };
     const current = Number(context?.stardate || context?.sceneDate || context?.subjectiveDate);
     if (!Number.isFinite(current)) {
@@ -240,10 +240,10 @@ function coordinatesMatch(coordinates = [], context = {}) {
 
 export function evaluateEntryContextGate(entryInput = {}, state = {}, options = {}) {
     const entry = normalizeLoreEntry(entryInput);
-    const position = entry.context || {};
+    const contextGate = entry.context || {};
     const coordinates = Array.isArray(entry.coordinates) ? entry.coordinates : [];
 
-    if (!hasAnyContextGate(position, coordinates)) {
+    if (!hasAnyContextGate(contextGate, coordinates)) {
         return {
             status: CONTEXT_GATE_STATUSES.NO_GATE,
             eligible: true,
@@ -270,10 +270,10 @@ export function evaluateEntryContextGate(entryInput = {}, state = {}, options = 
 
     const index = options.index || null;
     const checks = [
-        anchorMatches(position, context, index, packId),
-        windowMatches(position, context, index, packId),
-        mediaFieldsMatch(position, context),
-        stardateMatches(position, context),
+        anchorMatches(contextGate, context, index, packId),
+        windowMatches(contextGate, context, index, packId),
+        mediaFieldsMatch(contextGate, context),
+        stardateMatches(contextGate, context),
         coordinatesMatch(coordinates, context),
     ];
     const failed = checks.find(result => !result.ok);

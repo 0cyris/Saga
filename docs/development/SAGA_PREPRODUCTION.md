@@ -440,7 +440,7 @@ Primary job:
 Required behavior:
 
 - Show loaded Loredecks and their current Context state: set, unset, locked, low-confidence, floating, or no timeline.
-- Browse/search anchors, windows, arcs, books, chapters, episodes, quests, dates, and important Lorecard-derived event positions.
+- Browse/search anchors, windows, arcs, books, chapters, episodes, quests, dates, and important Lorecard-derived Context events.
 - Support `Start Here`, `Before`, `After`, and `Between` choices where the data supports it.
 - Show a short explanation of what the selected Context will allow/prevent.
 - Let users lock the chosen Context.
@@ -626,7 +626,7 @@ Reasoner behavior:
 
 - Run only when Context is unset, the user asks to resolve a phrase, a thresholded Context check detects a likely timeline jump, or the user clicks `Resolve Context`.
 - Use the existing cadence from Wandlight-style Context detection: resolve locally first, then use a backup model call every configured message count only after the character-count threshold is met.
-- Send the active Loredeck stack, current Context, manual lock state, relevant timeline anchors/windows, and a bounded shortlist of candidate Lorecards/entry-derived positions.
+- Send the active Loredeck stack, current Context, manual lock state, relevant timeline anchors/windows, and a bounded shortlist of candidate Lorecards and Lorecard-derived Context candidates.
 - Ask the model to choose from known candidates or return `needs_clarification` / `unresolved`.
 - Accept model output only when it references a known anchor/window/Lorecard-derived candidate for that Loredeck.
 - Treat invented anchors as suggestions for the Timeline Registry Editor, not as active Context.
@@ -639,7 +639,7 @@ Expected structured result:
 {
   "deckId": "hp-golden-trio",
   "status": "resolved",
-  "targetType": "entry_position",
+  "targetType": "entry_context",
   "targetId": "gof_graveyard_voldemort_return_state",
   "direction": "after",
   "confidence": 0.91,
@@ -651,7 +651,7 @@ Accepted model resolutions may optionally be cached as user/deck-specific learne
 
 ### Entry Gating Draft
 
-Entries can be gated by dates, anchors, windows, arcs, or relative positions.
+Entries can be gated by dates, anchors, windows, arcs, or relative Context references.
 
 ```json
 {
@@ -1677,7 +1677,7 @@ Recent production completed **Context-native Loredeck retrieval, HP reference-de
 44. Done: implement selected-Loredeck bulk import/export. The fullscreen Library now supports click, Ctrl/Cmd-click, and Shift-click selection; exposes selected counts, Select Visible, Clear, and Export Selected actions; exports one `.saga-loredeck.json` bundle per selected Loredeck without whole-library export/import; supports multi-file local JSON import through a safe bulk preview that installs checked decks as new Custom copies; and keeps single-file URL/GitHub/update flows on the existing previewed update/reinstall path that protects locally modified decks.
 45. Done: expand Deck Health remediation from diagnosis into action. Editable Custom/Generated Loredecks can queue deterministic malformed tag ID repairs as Pending Review proposals, mark grouped issues ignored or resolved with persisted advisory state, send a grouped Health Center issue directly to the Lore Assistant for repair drafting, preserve health-impact stale marking through Pending Review acceptance, and route Bundled decks to Duplicate-as-Custom before repair.
 46. Done: redesign the Context editor into a fullscreen Context Workbench. The compact runtime card now launches the workbench; the workbench includes Context, Timeline, Aliases, and Validation tabs; spreadsheet-style anchor/window tables; selected-deck manual editing; timeline row inspection; local phrase resolver testing; and resolver explanations for matched, missing, and ignored terms. Clarified direction: this workbench is a stepping stone. Runtime Context selection should migrate to the Context tab, while Loredeck-side tools should become timeline registry authoring/validation tools.
-47. Done: improve local resolver data coverage without making runtime indexing heavier. The Workbench Phrase Resolver can load Lorecards and include entry-derived Context candidates when `timeline.json` lacks a first-class anchor. Clarified direction: this should feed candidate generation for the Reasoner Provider, not become an exhaustive alias-matching system.
+47. Done: improve local resolver data coverage without making runtime indexing heavier. The Workbench Phrase Resolver can load Lorecards and include Lorecard-derived Context candidates when `timeline.json` lacks a first-class anchor. Clarified direction: this should feed candidate generation for the Reasoner Provider, not become an exhaustive alias-matching system.
 48. Next: build the Context Browser in the Context tab. It should let users choose starting Context for each loaded Loredeck from searchable anchors/windows/Lorecard-derived Context candidates, support before/after/between choices, show current/locked/unset states, and make manual Context selection the primary trusted workflow.
 49. Next: migrate runtime Context controls out of the Loredeck tab. Keep Loredeck-side timeline registry editing, Deck Health validation, and Creator tooling, but move current-context browsing, resolving, locking, and drift checks into the Context tab.
 50. Next: upgrade Reasoner-backed Context resolution. Reuse the existing context-detection cadence: local/structured resolution first, then a backup Reasoner call only after the configured message-count and character-count thresholds or explicit user request. The Reasoner should choose from bounded candidates and return structured, confirmable Context patches.

@@ -18,7 +18,7 @@ This checkpoint records the current production baseline before starting Context-
 - Runtime Settings tab exists at the end of the shelf UI.
 - Provider settings have moved from the extension dropdown into the runtime Settings tab.
 - Theme Pack foundation exists for bundled and installed Custom Theme Packs, JSON import/export, color tokens, icon overrides, and advisory accessibility checks.
-- Entry-level `position` metadata normalizes through the lore pipeline.
+- Entry-level `context` metadata normalizes through the lore pipeline.
 - Context gate evaluation exists as a reusable pure helper, and canon retrieval now requires Context-native eligibility.
 
 ## Validation Run
@@ -55,11 +55,11 @@ Passed:
 
 Context-aware Loredeck retrieval:
 
-- Done: normalize entry-level `position` metadata.
+- Done: normalize entry-level `context` metadata.
 - Done: evaluate entry Context gates against loaded Loredeck Contexts.
 - Done: remove HP entry-local date gates and route canon suggestions through Context-native eligibility.
 - Done: add source chips and Context/gating chips to suggested and pending lore cards.
-- Done: expand Deck Health checks for invalid position references, broken anchor windows, and entries that can never match a known Context.
+- Done: expand Deck Health checks for invalid Context references, broken anchor windows, and entries that can never match a known Context.
 - Done: generalize the HP v3 conformance test into reusable Deck Health checks for schema v3 entries, manifest stats, duplicate manifest files, wide-lore retrieval policy, and date-derived timeline sort keys.
 - Done: wire these Deck Health rules into Loredeck editor validation, validated Custom/Generated export, safe repair actions, and schema v3-safe override persistence.
 - Done: add Context and retrieval fields to the Custom entry editor so new schema v3 entries can be authored fully instead of only preserving source entry Context gates.

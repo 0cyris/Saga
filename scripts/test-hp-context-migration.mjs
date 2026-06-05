@@ -11,16 +11,16 @@ assert.equal(parsed.iso, '1995-06-24');
 assert.equal(parsed.sortKey, Math.floor(Date.UTC(1995, 5, 24) / 86400000));
 assert.equal(parseIsoDate('1995-02-31'), null);
 
-const position = buildContextFromDateRange({
+const contextGate = buildContextFromDateRange({
   from: '1995-06-24',
   to: '1995-06-30',
   precision: 'date',
 });
-assert.equal(position.scope, 'window');
-assert.equal(position.sortKeyFrom, Math.floor(Date.UTC(1995, 5, 24) / 86400000));
-assert.equal(position.sortKeyTo, Math.floor(Date.UTC(1995, 5, 30) / 86400000));
-assert.equal(position.precision, 'event_window');
-assert.equal(position.label, '1995-06-24 to 1995-06-30');
+assert.equal(contextGate.scope, 'window');
+assert.equal(contextGate.sortKeyFrom, Math.floor(Date.UTC(1995, 5, 24) / 86400000));
+assert.equal(contextGate.sortKeyTo, Math.floor(Date.UTC(1995, 5, 30) / 86400000));
+assert.equal(contextGate.precision, 'event_window');
+assert.equal(contextGate.label, '1995-06-24 to 1995-06-30');
 
 const migrated = migrateEntryToContext({
   id: 'hp_test',
@@ -54,7 +54,7 @@ const existing = migrateEntryToContext({
     sortKeyFrom: 1,
     sortKeyTo: 2,
     precision: 'date_window',
-    label: 'Existing position',
+    label: 'Existing Context',
   },
   content: {
     fact: 'Already positioned.',

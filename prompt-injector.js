@@ -12,6 +12,7 @@
 import { LOG_PREFIX, MEMO_MAX_TOKENS } from './constants.js';
 import { getSettings, getState } from './state-manager.js';
 import { buildMemo, buildContinuityMemo, buildLoreMemo } from './memo-builder.js';
+import { buildLoreInjectionAudit, recordLoreInjectionAudit } from './retrieval-audit.js';
 
 const COMBINED_MARKER = '[WANDLIGHT CONTINUITY STATE]';
 const CONTINUITY_PROMPT_KEY = 'wandlight_continuity_state';
@@ -101,12 +102,14 @@ export function syncPromptInjection() {
         if (!settings.enabled) {
             clearExtensionPrompts();
             lastSyncInfo = { transport: 'disabled', continuityChars: 0, loreChars: 0, combinedChars: 0, syncedAt: Date.now(), fallback: false };
+            recordLoreInjectionAudit(buildLoreInjectionAudit(state, settings, lastSyncInfo));
             return lastSyncInfo;
         }
 
         if ((settings.injectionTransport || 'extension_prompt') !== 'extension_prompt') {
             clearExtensionPrompts();
             lastSyncInfo = { transport: 'interceptor', continuityChars: 0, loreChars: 0, combinedChars: 0, syncedAt: Date.now(), fallback: true };
+            recordLoreInjectionAudit(buildLoreInjectionAudit(state, settings, lastSyncInfo));
             return lastSyncInfo;
         }
 
@@ -177,6 +180,15 @@ export function syncPromptInjection() {
             },
         };
 
+        recordLoreInjectionAudit(buildLoreInjectionAudit(state, settings, {
+            ...lastSyncInfo,
+            promptCharsByTier: {
+                high: loreHighText.length,
+                normal: loreNormalText.length,
+                low: loreLowText.length,
+            },
+        }));
+
         if (settings.debugMode) {
             console.log(`${LOG_PREFIX} Extension prompts synced`, lastSyncInfo);
         }
@@ -186,6 +198,7 @@ export function syncPromptInjection() {
         console.error(`${LOG_PREFIX} Failed to sync extension prompts`, e);
         clearExtensionPrompts();
         lastSyncInfo = { transport: 'error', continuityChars: 0, loreChars: 0, combinedChars: 0, syncedAt: Date.now(), fallback: false, error: String(e?.message || e) };
+        recordLoreInjectionAudit(buildLoreInjectionAudit(getState(), getSettings(), lastSyncInfo));
         return lastSyncInfo;
     }
 }

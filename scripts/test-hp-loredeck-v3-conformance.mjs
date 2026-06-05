@@ -78,7 +78,7 @@ const unlistedEntryFiles = entryFiles
 assert.deepEqual(unlistedEntryFiles, []);
 
 let entryCount = 0;
-let widePositionCount = 0;
+let wideContextCount = 0;
 const categoryCounts = {};
 for (const record of entryFiles) {
   assert.equal(record.json.schemaVersion, ENTRY_SCHEMA_VERSION, `${record.relative} should use schemaVersion 3`);
@@ -101,20 +101,20 @@ for (const record of entryFiles) {
     assert.equal(typeof entry.content?.injection, 'string', `${entry.id} must have content.injection`);
     assert.ok(entry.content.fact.trim(), `${entry.id} content.fact cannot be empty`);
     assert.ok(entry.content.injection.trim(), `${entry.id} content.injection cannot be empty`);
-    assert.ok(entry.context && typeof entry.context === 'object', `${entry.id} must have position`);
-    assert.ok(['anchor', 'window', 'global'].includes(entry.context.scope), `${entry.id} must declare position.scope`);
-    assert.equal(Number.isFinite(Number(entry.context.sortKeyFrom)), true, `${entry.id} must have position.sortKeyFrom`);
-    assert.equal(Number.isFinite(Number(entry.context.sortKeyTo)), true, `${entry.id} must have position.sortKeyTo`);
-    assert.ok(entry.context.precision, `${entry.id} must have position.precision`);
-    assert.ok(entry.context.label, `${entry.id} must have position.label`);
+    assert.ok(entry.context && typeof entry.context === 'object', `${entry.id} must have Context`);
+    assert.ok(['anchor', 'window', 'global'].includes(entry.context.scope), `${entry.id} must declare context.scope`);
+    assert.equal(Number.isFinite(Number(entry.context.sortKeyFrom)), true, `${entry.id} must have context.sortKeyFrom`);
+    assert.equal(Number.isFinite(Number(entry.context.sortKeyTo)), true, `${entry.id} must have context.sortKeyTo`);
+    assert.ok(entry.context.precision, `${entry.id} must have context.precision`);
+    assert.ok(entry.context.label, `${entry.id} must have context.label`);
     assert.ok(entry.retrieval?.activation, `${entry.id} must have retrieval.activation`);
     assert.ok(entry.retrieval?.frequency, `${entry.id} must have retrieval.frequency`);
     assert.ok(entry.retrieval?.contextBoost, `${entry.id} must have retrieval.contextBoost`);
     if (entry.context.scope === 'global' || ['series', 'wide'].includes(entry.context.windowKind)) {
-      widePositionCount += 1;
+      wideContextCount += 1;
       assert.equal(entry.retrieval.activation, 'topic_or_entity', `${entry.id} wide lore must require topic/entity retrieval`);
       assert.equal(entry.retrieval.frequency, 'low', `${entry.id} wide lore should be low-frequency`);
-      assert.equal(entry.retrieval.contextBoost, 'low', `${entry.id} wide lore should have low positional boost`);
+      assert.equal(entry.retrieval.contextBoost, 'low', `${entry.id} wide lore should have low Context boost`);
     }
   }
 }
@@ -124,7 +124,7 @@ assert.deepEqual(
   Object.fromEntries(Object.entries(categoryCounts).sort((a, b) => a[0].localeCompare(b[0]))),
   manifest.stats.categoryCounts
 );
-assert.ok(widePositionCount > 0, 'HP pack should include explicit wide-position lore for audit coverage');
+assert.ok(wideContextCount > 0, 'HP pack should include explicit wide-Context lore for audit coverage');
 
 const timeline = readJson(path.join(ROOT, 'timeline.json'));
 assert.equal(timeline.sortKeyScale, 'date-derived-day');

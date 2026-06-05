@@ -1136,11 +1136,11 @@ let loredeckLibraryDetailsTab = 'overview';
 let loredeckLibraryBulkSelectedIds = new Set();
 let loredeckLibraryLastSelectionAnchorId = '';
 let contextWorkbenchOpen = false;
-let contextWorkbenchTab = 'position';
+let contextWorkbenchTab = 'context';
 let contextWorkbenchPackId = '';
 let contextWorkbenchSelectedKey = '';
 let contextWorkbenchQuery = '';
-let contextWorkbenchPositionQuery = '';
+let contextWorkbenchContextQuery = '';
 let contextWorkbenchResolverQuery = '';
 let contextWorkbenchTypeFilter = 'all';
 let loreTimelineOpen = false;
@@ -2096,13 +2096,13 @@ function renderLoredecksTab(container, state) {
     const stack = getLoredeckStack(state);
     const enabled = stack.filter(item => item.enabled);
     const canonDb = getCanonLoreDatabaseSync();
-    const positionIndex = getContextIndexSync();
+    const contextIndex = getContextIndexSync();
     if (!canonDb) {
         loadCanonLoreDatabase()
             .then(() => refreshLorePanel({ preserveScroll: true }))
             .catch(e => console.warn('[Wandlight] Loredeck health load failed:', e));
     }
-    if (!positionIndex) {
+    if (!contextIndex) {
         loadContextIndex()
             .then(() => refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true }))
             .catch(e => console.warn('[Wandlight] Context index load failed:', e));
@@ -2124,7 +2124,7 @@ function renderLoredecksTab(container, state) {
     summary.appendChild(createKeyValue('Top priority', enabled[0] ? getLoredeckDisplayName(enabled[0].packId) : 'none', 'Highest-priority enabled Loredeck.'));
     summary.appendChild(createKeyValue('Stack order', enabled.length ? 'Top to bottom priority' : 'empty', 'Loredeck priority is stored by stack order.'));
     summary.appendChild(createKeyValue('Deck Health', getLoredeckHealthText(health), 'Current Deck Health summary for the loaded canon Loredeck.'));
-    summary.appendChild(createKeyValue('Context Index', formatContextIndexSummary(positionIndex), 'Loaded Context anchors from enabled Loredeck timeline registries.'));
+    summary.appendChild(createKeyValue('Context Index', formatContextIndexSummary(contextIndex), 'Loaded Context anchors from enabled Loredeck timeline registries.'));
     container.appendChild(createCollapsibleSection(
         'loredecks.activeStack',
         'Active Stack',
@@ -2191,7 +2191,7 @@ function renderLoredecksTab(container, state) {
         'Context',
         'Current timeline context per loaded Loredeck.',
         false,
-        () => createLoredeckContextCard(state, positionIndex),
+        () => createLoredeckContextCard(state, contextIndex),
         { className: 'wandlight-loredeck-collapsible', tooltip: 'Current Context controls. This surface is queued for a spreadsheet-style UX study.' }
     ));
 
@@ -4932,7 +4932,7 @@ async function handleLoredeckCreatorEntryDraft(button = null) {
     });
 }
 
-function createLoredeckContextCard(state = getState(), positionIndex = getContextIndexSync()) {
+function createLoredeckContextCard(state = getState(), contextIndex = getContextIndexSync()) {
     const stack = getLoredeckStack(state).filter(item => item.enabled);
     const card = document.createElement('div');
     card.className = 'wandlight-runtime-card wandlight-loredeck-context-card';
@@ -4953,16 +4953,16 @@ function createLoredeckContextCard(state = getState(), positionIndex = getContex
 
     const indexMeta = document.createElement('div');
     indexMeta.className = 'wandlight-context-index-summary';
-    indexMeta.appendChild(createStatusPill(formatContextIndexSummary(positionIndex), 'Context timeline registry status for the enabled Loredeck stack.'));
-    if (positionIndex?.summary?.issueCount) {
-        indexMeta.appendChild(createStatusPill(`${positionIndex.summary.issueCount} index issue${positionIndex.summary.issueCount === 1 ? '' : 's'}`, 'Timeline registry load warnings or suggestions.'));
+    indexMeta.appendChild(createStatusPill(formatContextIndexSummary(contextIndex), 'Context timeline registry status for the enabled Loredeck stack.'));
+    if (contextIndex?.summary?.issueCount) {
+        indexMeta.appendChild(createStatusPill(`${contextIndex.summary.issueCount} index issue${contextIndex.summary.issueCount === 1 ? '' : 's'}`, 'Timeline registry load warnings or suggestions.'));
     }
     card.appendChild(indexMeta);
 
     const resolveActions = document.createElement('div');
     resolveActions.className = 'wandlight-primary-actions';
     resolveActions.appendChild(createButton('Open Workbench', 'Open the fullscreen Context Workbench for timeline search, aliases, validation, and registry editing.', () => {
-        openContextWorkbenchForPack(stack[0]?.packId || '', 'position');
+        openContextWorkbenchForPack(stack[0]?.packId || '', 'context');
     }, 'wandlight-primary-button'));
     resolveActions.appendChild(createButton('Resolve From Context', 'Use current Context and Loredeck timeline aliases to update unlocked Contexts.', async (btn) => {
         await handleResolveContextsFromContext(btn);
@@ -4975,16 +4975,16 @@ function createLoredeckContextCard(state = getState(), positionIndex = getContex
     const list = document.createElement('div');
     list.className = 'wandlight-loredeck-context-list';
     for (const item of stack) {
-        list.appendChild(createLoredeckContextRow(item, state, positionIndex));
+        list.appendChild(createLoredeckContextRow(item, state, contextIndex));
     }
     card.appendChild(list);
     return card;
 }
 
-function createLoredeckContextRow(item, state = getState(), positionIndex = getContextIndexSync()) {
+function createLoredeckContextRow(item, state = getState(), contextIndex = getContextIndexSync()) {
     const packId = item.packId;
     const context = getLoredeckContext(state, packId);
-    const packIndex = getContextPackSummary(positionIndex, packId);
+    const packIndex = getContextPackSummary(contextIndex, packId);
     const row = document.createElement('div');
     row.className = 'wandlight-loredeck-context-row';
 
@@ -4999,12 +4999,12 @@ function createLoredeckContextRow(item, state = getState(), positionIndex = getC
     chips.className = 'wandlight-loredeck-row-meta';
     chips.appendChild(createStatusPill(getContextTypeLabel(context.contextType), 'Context mode for this Loredeck.'));
     chips.appendChild(createStatusPill(formatContextSource(context.source), 'How this Context was last set.'));
-    chips.appendChild(createStatusPill(context.manualLock ? 'Locked' : 'Unlocked', 'Locked positions should not be overwritten by automatic resolvers.'));
+    chips.appendChild(createStatusPill(context.manualLock ? 'Locked' : 'Unlocked', 'Locked Contexts should not be overwritten by automatic resolvers.'));
     chips.appendChild(createStatusPill(`${Math.round((Number(context.confidence) || 0) * 100)}%`, 'Resolver confidence. Manual choices default to high confidence.'));
     if (packIndex?.hasIndex) {
         chips.appendChild(createStatusPill(`${packIndex.anchorCount || 0} anchors`, 'Timeline anchors available from this Loredeck registry.'));
     } else {
-        chips.appendChild(createStatusPill(positionIndex ? 'No index' : 'Index loading', 'This Loredeck has no loaded timeline registry yet.'));
+        chips.appendChild(createStatusPill(contextIndex ? 'No index' : 'Index loading', 'This Loredeck has no loaded timeline registry yet.'));
     }
     header.appendChild(chips);
     row.appendChild(header);
@@ -5024,10 +5024,10 @@ function createLoredeckContextRow(item, state = getState(), positionIndex = getC
     addTooltip(quickTitle, 'Search loaded anchors for a quick exact Context. Use the Workbench for full window and coordinate editing.');
     quickHeader.appendChild(quickTitle);
     quickHeader.appendChild(createButton('Open Editor', 'Open this Loredeck in the fullscreen Context editor.', () => {
-        openContextWorkbenchForPack(packId, 'position');
+        openContextWorkbenchForPack(packId, 'context');
     }, 'wandlight-primary-button'));
     quick.appendChild(quickHeader);
-    quick.appendChild(createContextAnchorLookup(packId, positionIndex));
+    quick.appendChild(createContextAnchorLookup(packId, contextIndex));
     row.appendChild(quick);
 
     const actions = document.createElement('div');
@@ -5053,14 +5053,14 @@ function createLoredeckContextRow(item, state = getState(), positionIndex = getC
     return row;
 }
 
-function getContextPackSummary(positionIndex, packId) {
+function getContextPackSummary(contextIndex, packId) {
     const id = String(packId || '').trim();
-    if (!id || !positionIndex?.packs?.length) return null;
-    return positionIndex.packs.find(pack => pack.packId === id) || null;
+    if (!id || !contextIndex?.packs?.length) return null;
+    return contextIndex.packs.find(pack => pack.packId === id) || null;
 }
 
-function formatContextIndexSummary(positionIndex) {
-    const summary = positionIndex?.summary || null;
+function formatContextIndexSummary(contextIndex) {
+    const summary = contextIndex?.summary || null;
     if (!summary) return 'Loading';
     if (!summary.packCount) return 'No packs';
     if (!summary.indexCount) return `${summary.packCount} pack${summary.packCount === 1 ? '' : 's'}, no timelines`;
@@ -5096,12 +5096,12 @@ function getLoredeckAnchorEndSortKey(anchor = {}) {
     return parseLoredeckAnchorDateSortKey(anchor.dateRange?.to || anchor.dateRange?.from || '') ?? getLoredeckAnchorStartSortKey(anchor);
 }
 
-function setLoredeckPositionInputValue(input, value) {
+function setLoredeckContextInputValue(input, value) {
     if (!input) return;
     input.value = value === null || value === undefined ? '' : String(value);
 }
 
-function applyAnchorToLoredeckPositionFields(anchor = {}, fields = {}, mode = 'exact') {
+function applyAnchorToLoredeckContextFields(anchor = {}, fields = {}, mode = 'exact') {
     if (!fields || !anchor?.id) return;
     const id = String(anchor.id || '').trim();
     const label = String(anchor.label || id).trim();
@@ -5111,34 +5111,34 @@ function applyAnchorToLoredeckPositionFields(anchor = {}, fields = {}, mode = 'e
 
     if (mode === 'from') {
         if (fields.scopeSelect) fields.scopeSelect.value = 'window';
-        setLoredeckPositionInputValue(fields.validFromAnchorInput, id);
-        setLoredeckPositionInputValue(fields.sortKeyFromInput, startSort);
-        if (!fields.precisionInput?.value) setLoredeckPositionInputValue(fields.precisionInput, 'anchor_window');
-        if (!fields.labelInput?.value) setLoredeckPositionInputValue(fields.labelInput, `After ${label}`);
+        setLoredeckContextInputValue(fields.validFromAnchorInput, id);
+        setLoredeckContextInputValue(fields.sortKeyFromInput, startSort);
+        if (!fields.precisionInput?.value) setLoredeckContextInputValue(fields.precisionInput, 'anchor_window');
+        if (!fields.labelInput?.value) setLoredeckContextInputValue(fields.labelInput, `After ${label}`);
         return;
     }
 
     if (mode === 'to') {
         if (fields.scopeSelect) fields.scopeSelect.value = 'window';
-        setLoredeckPositionInputValue(fields.validToAnchorInput, id);
-        setLoredeckPositionInputValue(fields.sortKeyToInput, endSort);
-        if (!fields.precisionInput?.value) setLoredeckPositionInputValue(fields.precisionInput, 'anchor_window');
-        if (!fields.labelInput?.value) setLoredeckPositionInputValue(fields.labelInput, `Before ${label}`);
+        setLoredeckContextInputValue(fields.validToAnchorInput, id);
+        setLoredeckContextInputValue(fields.sortKeyToInput, endSort);
+        if (!fields.precisionInput?.value) setLoredeckContextInputValue(fields.precisionInput, 'anchor_window');
+        if (!fields.labelInput?.value) setLoredeckContextInputValue(fields.labelInput, `Before ${label}`);
         return;
     }
 
     if (fields.scopeSelect) fields.scopeSelect.value = 'anchor';
-    setLoredeckPositionInputValue(fields.anchorIdInput, id);
-    setLoredeckPositionInputValue(fields.validFromAnchorInput, id);
-    setLoredeckPositionInputValue(fields.validToAnchorInput, id);
-    setLoredeckPositionInputValue(fields.sortKeyFromInput, startSort);
-    setLoredeckPositionInputValue(fields.sortKeyToInput, endSort);
+    setLoredeckContextInputValue(fields.anchorIdInput, id);
+    setLoredeckContextInputValue(fields.validFromAnchorInput, id);
+    setLoredeckContextInputValue(fields.validToAnchorInput, id);
+    setLoredeckContextInputValue(fields.sortKeyFromInput, startSort);
+    setLoredeckContextInputValue(fields.sortKeyToInput, endSort);
     if (fields.windowKindSelect) fields.windowKindSelect.value = 'bounded';
-    setLoredeckPositionInputValue(fields.precisionInput, fields.precisionInput?.value || precision);
-    setLoredeckPositionInputValue(fields.labelInput, label);
+    setLoredeckContextInputValue(fields.precisionInput, fields.precisionInput?.value || precision);
+    setLoredeckContextInputValue(fields.labelInput, label);
 }
 
-function createLoredeckEntryAnchorPicker(pack, positionFields = {}, options = {}) {
+function createLoredeckEntryAnchorPicker(pack, contextFields = {}, options = {}) {
     const box = document.createElement('div');
     box.className = 'wandlight-context-anchor-lookup';
 
@@ -5159,11 +5159,11 @@ function createLoredeckEntryAnchorPicker(pack, positionFields = {}, options = {}
 
     const renderResults = () => {
         results.innerHTML = '';
-        const positionIndex = getContextIndexSync();
+        const contextIndex = getContextIndexSync();
         const packId = String(pack?.packId || '').trim();
         const query = input.value.trim();
-        const packIndex = getContextPackSummary(positionIndex, packId);
-        if (!positionIndex) {
+        const packIndex = getContextPackSummary(contextIndex, packId);
+        if (!contextIndex) {
             results.appendChild(createEmptyMessage('Context index is loading. Load this Loredeck in the active stack to search anchors.'));
             return;
         }
@@ -5175,13 +5175,13 @@ function createLoredeckEntryAnchorPicker(pack, positionFields = {}, options = {}
             results.appendChild(createEmptyMessage('Search by event, book, arc, date, alias, or tag.'));
             return;
         }
-        const matches = findContextAnchors(query, { packId, limit: options.limit || 8, index: positionIndex });
+        const matches = findContextAnchors(query, { packId, limit: options.limit || 8, index: contextIndex });
         if (!matches.length) {
             results.appendChild(createEmptyMessage('No matching anchors.'));
             return;
         }
         for (const anchor of matches) {
-            results.appendChild(createLoredeckEntryAnchorPickerResult(anchor, positionFields));
+            results.appendChild(createLoredeckEntryAnchorPickerResult(anchor, contextFields));
         }
     };
 
@@ -5197,7 +5197,7 @@ function createLoredeckEntryAnchorPicker(pack, positionFields = {}, options = {}
     return box;
 }
 
-function createLoredeckEntryAnchorPickerResult(anchor = {}, positionFields = {}) {
+function createLoredeckEntryAnchorPickerResult(anchor = {}, contextFields = {}) {
     const row = document.createElement('div');
     row.className = 'wandlight-context-anchor-result';
 
@@ -5222,19 +5222,19 @@ function createLoredeckEntryAnchorPickerResult(anchor = {}, positionFields = {})
     const actions = document.createElement('div');
     actions.className = 'wandlight-loredeck-row-actions';
     actions.appendChild(createButton('Exact', 'Use this anchor as the exact Context.', () => {
-        applyAnchorToLoredeckPositionFields(anchor, positionFields, 'exact');
+        applyAnchorToLoredeckContextFields(anchor, contextFields, 'exact');
     }, 'wandlight-primary-button'));
     actions.appendChild(createButton('From', 'Use this anchor as the start of a Context window.', () => {
-        applyAnchorToLoredeckPositionFields(anchor, positionFields, 'from');
+        applyAnchorToLoredeckContextFields(anchor, contextFields, 'from');
     }));
     actions.appendChild(createButton('To', 'Use this anchor as the end of a Context window.', () => {
-        applyAnchorToLoredeckPositionFields(anchor, positionFields, 'to');
+        applyAnchorToLoredeckContextFields(anchor, contextFields, 'to');
     }));
     row.appendChild(actions);
     return row;
 }
 
-function createContextAnchorLookup(packId, positionIndex = getContextIndexSync()) {
+function createContextAnchorLookup(packId, contextIndex = getContextIndexSync()) {
     const box = document.createElement('div');
     box.className = 'wandlight-context-anchor-lookup';
 
@@ -5256,8 +5256,8 @@ function createContextAnchorLookup(packId, positionIndex = getContextIndexSync()
     const renderResults = () => {
         results.innerHTML = '';
         const query = input.value.trim();
-        const packIndex = getContextPackSummary(positionIndex, packId);
-        if (!positionIndex) {
+        const packIndex = getContextPackSummary(contextIndex, packId);
+        if (!contextIndex) {
             results.appendChild(createEmptyMessage('Context index is loading.'));
             return;
         }
@@ -5269,7 +5269,7 @@ function createContextAnchorLookup(packId, positionIndex = getContextIndexSync()
             results.appendChild(createEmptyMessage('Search by event, book, arc, date, alias, or tag.'));
             return;
         }
-        const matches = findContextAnchors(query, { packId, limit: 6, index: positionIndex });
+        const matches = findContextAnchors(query, { packId, limit: 6, index: contextIndex });
         if (!matches.length) {
             results.appendChild(createEmptyMessage('No matching anchors.'));
             return;
@@ -5595,8 +5595,8 @@ function openContextWorkbench(packId = '') {
         .catch(e => console.warn('[Wandlight] Context Workbench index load failed:', e));
 }
 
-function openContextWorkbenchForPack(packId = '', tab = 'position') {
-    const nextTab = ['position', 'timeline', 'aliases', 'validation'].includes(tab) ? tab : 'position';
+function openContextWorkbenchForPack(packId = '', tab = 'context') {
+    const nextTab = ['context', 'timeline', 'aliases', 'validation'].includes(tab) ? tab : 'context';
     contextWorkbenchTab = nextTab;
     contextWorkbenchSelectedKey = '';
     openContextWorkbench(packId);
@@ -5628,7 +5628,7 @@ function getContextWorkbenchPack(state = getState()) {
     return getFreshLoredeckLibraryPack(selectedId, getLoredeckDefinition(selectedId)) || { packId: selectedId, title: getLoredeckDisplayName(selectedId) };
 }
 
-function ensureContextWorkbenchSelection(state = getState(), positionIndex = getContextIndexSync()) {
+function ensureContextWorkbenchSelection(state = getState(), contextIndex = getContextIndexSync()) {
     const stack = getContextWorkbenchStack(state);
     if (!stack.length) {
         contextWorkbenchPackId = '';
@@ -5640,7 +5640,7 @@ function ensureContextWorkbenchSelection(state = getState(), positionIndex = get
         contextWorkbenchSelectedKey = '';
     }
     const pack = getContextWorkbenchPack(state);
-    const items = getContextWorkbenchTimelineItems(pack, positionIndex);
+    const items = getContextWorkbenchTimelineItems(pack, contextIndex);
     if (!items.some(item => getContextTimelineItemKey(item) === contextWorkbenchSelectedKey)) {
         contextWorkbenchSelectedKey = items[0] ? getContextTimelineItemKey(items[0]) : '';
     }
@@ -5649,8 +5649,8 @@ function ensureContextWorkbenchSelection(state = getState(), positionIndex = get
 function renderContextWorkbench() {
     if (!contextWorkbenchOpen) return;
     const state = getState();
-    const positionIndex = getContextIndexSync();
-    ensureContextWorkbenchSelection(state, positionIndex);
+    const contextIndex = getContextIndexSync();
+    ensureContextWorkbenchSelection(state, contextIndex);
 
     let overlay = document.getElementById(CONTEXT_WORKBENCH_ID);
     if (!overlay) {
@@ -5667,34 +5667,34 @@ function renderContextWorkbench() {
         document.body.appendChild(overlay);
     }
 
-    overlay.replaceChildren(createContextWorkbenchShell(state, positionIndex));
+    overlay.replaceChildren(createContextWorkbenchShell(state, contextIndex));
     requestAnimationFrame(() => overlay.focus?.());
 }
 
-function createContextWorkbenchShell(state = getState(), positionIndex = getContextIndexSync()) {
+function createContextWorkbenchShell(state = getState(), contextIndex = getContextIndexSync()) {
     const shell = document.createElement('div');
     shell.className = 'wandlight-lore-workbench-shell wandlight-context-workbench-shell';
     shell.addEventListener('click', event => event.stopPropagation());
 
-    shell.appendChild(createContextWorkbenchHeader(state, positionIndex));
+    shell.appendChild(createContextWorkbenchHeader(state, contextIndex));
 
     const body = document.createElement('div');
     body.className = 'wandlight-context-workbench-body';
     if (contextWorkbenchTab === 'timeline') {
-        body.appendChild(createContextWorkbenchTimelineView(state, positionIndex));
+        body.appendChild(createContextWorkbenchTimelineView(state, contextIndex));
     } else if (contextWorkbenchTab === 'aliases') {
-        body.appendChild(createContextWorkbenchAliasesView(state, positionIndex));
+        body.appendChild(createContextWorkbenchAliasesView(state, contextIndex));
     } else if (contextWorkbenchTab === 'validation') {
-        body.appendChild(createContextWorkbenchValidationView(state, positionIndex));
+        body.appendChild(createContextWorkbenchValidationView(state, contextIndex));
     } else {
-        body.appendChild(createContextWorkbenchPositionView(state, positionIndex));
+        body.appendChild(createContextWorkbenchContextView(state, contextIndex));
     }
     shell.appendChild(body);
 
     return shell;
 }
 
-function createContextWorkbenchHeader(state = getState(), positionIndex = getContextIndexSync()) {
+function createContextWorkbenchHeader(state = getState(), contextIndex = getContextIndexSync()) {
     const header = document.createElement('div');
     header.className = 'wandlight-lore-workbench-header wandlight-context-workbench-header';
 
@@ -5716,14 +5716,14 @@ function createContextWorkbenchHeader(state = getState(), positionIndex = getCon
 
     const chips = document.createElement('div');
     chips.className = 'wandlight-context-workbench-header-chips';
-    chips.appendChild(createStatusPill(formatContextIndexSummary(positionIndex), 'Loaded Context timeline registry status.'));
+    chips.appendChild(createStatusPill(formatContextIndexSummary(contextIndex), 'Loaded Context timeline registry status.'));
     if (selectedPack) {
         const context = getLoredeckContext(state, selectedPack.packId);
         chips.appendChild(createStatusPill(context.manualLock ? 'Manual lock' : 'Auto allowed', 'Manual lock prevents automatic Context resolvers from overwriting this deck.'));
         chips.appendChild(createStatusPill(formatContextSource(context.source), 'How this Context was last set.'));
     }
-    if (positionIndex?.summary?.issueCount) {
-        chips.appendChild(createStatusPill(`${positionIndex.summary.issueCount} index issue${positionIndex.summary.issueCount === 1 ? '' : 's'}`, 'Timeline registry load issues from the active stack.'));
+    if (contextIndex?.summary?.issueCount) {
+        chips.appendChild(createStatusPill(`${contextIndex.summary.issueCount} index issue${contextIndex.summary.issueCount === 1 ? '' : 's'}`, 'Timeline registry load issues from the active stack.'));
     }
     titleWrap.appendChild(chips);
     header.appendChild(titleWrap);
@@ -5731,7 +5731,7 @@ function createContextWorkbenchHeader(state = getState(), positionIndex = getCon
     const tabs = document.createElement('div');
     tabs.className = 'wandlight-lore-workbench-mode-tabs wandlight-context-workbench-tabs';
     for (const [id, label] of [
-        ['position', 'Context'],
+        ['context', 'Context'],
         ['timeline', 'Timeline'],
         ['aliases', 'Aliases'],
         ['validation', 'Validation'],
@@ -5773,12 +5773,12 @@ function getContextWorkbenchTabTooltip(tabId = '') {
     return 'Set the current chat Context for each loaded Loredeck.';
 }
 
-function createContextWorkbenchPackSelector(state = getState(), positionIndex = getContextIndexSync()) {
+function createContextWorkbenchPackSelector(state = getState(), contextIndex = getContextIndexSync()) {
     const select = document.createElement('select');
     select.className = 'wandlight-lore-workbench-select';
     addTooltip(select, 'Selected loaded Loredeck for timeline, alias, and validation views.');
     for (const item of getContextWorkbenchStack(state)) {
-        const packSummary = getContextPackSummary(positionIndex, item.packId);
+        const packSummary = getContextPackSummary(contextIndex, item.packId);
         const option = document.createElement('option');
         option.value = item.packId;
         option.textContent = `${getLoredeckDisplayName(item.packId)}${packSummary?.hasIndex ? ` (${packSummary.anchorCount || 0}/${packSummary.windowCount || 0})` : ''}`;
@@ -5793,9 +5793,9 @@ function createContextWorkbenchPackSelector(state = getState(), positionIndex = 
     return select;
 }
 
-function createContextWorkbenchPositionView(state = getState(), positionIndex = getContextIndexSync()) {
+function createContextWorkbenchContextView(state = getState(), contextIndex = getContextIndexSync()) {
     const view = document.createElement('div');
-    view.className = 'wandlight-context-workbench-view wandlight-context-workbench-position-view';
+    view.className = 'wandlight-context-workbench-view wandlight-context-workbench-context-view';
     const stack = getContextWorkbenchStack(state);
     if (!stack.length) {
         view.appendChild(createEmptyMessage('No enabled Loredecks are loaded. Open the Loredeck Library and add decks to the active stack first.'));
@@ -5819,9 +5819,9 @@ function createContextWorkbenchPositionView(state = getState(), positionIndex = 
     view.appendChild(controls);
 
     const table = document.createElement('div');
-    table.className = 'wandlight-context-workbench-position-table';
+    table.className = 'wandlight-context-workbench-context-table';
     const header = document.createElement('div');
-    header.className = 'wandlight-context-workbench-position-row wandlight-context-workbench-row-header';
+    header.className = 'wandlight-context-workbench-context-row wandlight-context-workbench-row-header';
     for (const label of ['Loredeck', 'Current Context', 'Source', 'Index', 'Manual Lock', 'Actions']) {
         const cell = document.createElement('div');
         cell.textContent = label;
@@ -5831,9 +5831,9 @@ function createContextWorkbenchPositionView(state = getState(), positionIndex = 
 
     for (const item of stack) {
         const context = getLoredeckContext(state, item.packId);
-        const packIndex = getContextPackSummary(positionIndex, item.packId);
+        const packIndex = getContextPackSummary(contextIndex, item.packId);
         const row = document.createElement('div');
-        row.className = 'wandlight-context-workbench-position-row';
+        row.className = 'wandlight-context-workbench-context-row';
         if (item.packId === contextWorkbenchPackId) row.classList.add('wandlight-context-workbench-row-active');
         row.addEventListener('click', () => {
             contextWorkbenchPackId = item.packId;
@@ -5881,24 +5881,24 @@ function createContextWorkbenchPositionView(state = getState(), positionIndex = 
     }
 
     const layout = document.createElement('div');
-    layout.className = 'wandlight-context-workbench-position-layout';
+    layout.className = 'wandlight-context-workbench-context-layout';
     layout.appendChild(table);
-    layout.appendChild(createContextWorkbenchPositionEditor(state, positionIndex));
+    layout.appendChild(createContextWorkbenchContextEditor(state, contextIndex));
     view.appendChild(layout);
     return view;
 }
 
-function createContextWorkbenchPositionEditor(state = getState(), positionIndex = getContextIndexSync()) {
+function createContextWorkbenchContextEditor(state = getState(), contextIndex = getContextIndexSync()) {
     const pack = getContextWorkbenchPack(state);
     const panel = document.createElement('div');
-    panel.className = 'wandlight-context-workbench-inspector wandlight-context-workbench-position-editor';
+    panel.className = 'wandlight-context-workbench-inspector wandlight-context-workbench-context-editor';
     if (!pack?.packId) {
         panel.appendChild(createEmptyMessage('Select a loaded Loredeck to edit its Context.'));
         return panel;
     }
 
     const context = getLoredeckContext(state, pack.packId);
-    const packIndex = getContextPackSummary(positionIndex, pack.packId);
+    const packIndex = getContextPackSummary(contextIndex, pack.packId);
     const title = document.createElement('div');
     title.className = 'wandlight-context-workbench-inspector-title';
     title.textContent = pack.title || getLoredeckDisplayName(pack.packId);
@@ -5908,7 +5908,7 @@ function createContextWorkbenchPositionEditor(state = getState(), positionIndex 
     chips.className = 'wandlight-loredeck-row-meta';
     chips.appendChild(createStatusPill(getContextTypeLabel(context.contextType), 'Context mode for this Loredeck.'));
     chips.appendChild(createStatusPill(formatContextSource(context.source), 'How this Context was last set.'));
-    chips.appendChild(createStatusPill(context.manualLock ? 'Locked' : 'Unlocked', 'Locked positions are protected from automatic resolver overwrites.'));
+    chips.appendChild(createStatusPill(context.manualLock ? 'Locked' : 'Unlocked', 'Locked Contexts are protected from automatic resolver overwrites.'));
     chips.appendChild(createStatusPill(`${Math.round((Number(context.confidence) || 0) * 100)}%`, 'Resolver confidence for this Context.'));
     chips.appendChild(createStatusPill(packIndex?.hasIndex ? `${packIndex.anchorCount || 0} anchors / ${packIndex.windowCount || 0} windows` : 'No timeline index', 'Loaded timeline registry coverage for this Loredeck.'));
     panel.appendChild(chips);
@@ -5918,8 +5918,8 @@ function createContextWorkbenchPositionEditor(state = getState(), positionIndex 
     summary.textContent = formatContextSummary(context);
     panel.appendChild(summary);
 
-    panel.appendChild(createContextWorkbenchResolverTester(pack, context, positionIndex));
-    panel.appendChild(createContextWorkbenchPositionPicker(pack, context, positionIndex));
+    panel.appendChild(createContextWorkbenchResolverTester(pack, context, contextIndex));
+    panel.appendChild(createContextWorkbenchContextPicker(pack, context, contextIndex));
 
     const grid = document.createElement('div');
     grid.className = 'wandlight-context-workbench-editor-grid';
@@ -5949,7 +5949,7 @@ function createContextWorkbenchPositionEditor(state = getState(), positionIndex 
     return panel;
 }
 
-function createContextWorkbenchResolverTester(pack, context = {}, positionIndex = getContextIndexSync()) {
+function createContextWorkbenchResolverTester(pack, context = {}, contextIndex = getContextIndexSync()) {
     const wrap = document.createElement('div');
     wrap.className = 'wandlight-context-workbench-resolver';
 
@@ -5997,7 +5997,7 @@ function createContextWorkbenchResolverTester(pack, context = {}, positionIndex 
         renderContextWorkbench();
     }));
     const cachedEntries = loredeckEntryPreviewCache.get(pack?.packId);
-    const loadEntriesButton = createButton(cachedEntries?.loadedAt ? 'Reload Lorecards' : 'Load Lorecards', 'Load this Loredeck\'s Lorecards so the resolver can include entry-derived Context candidates.', async (btn) => {
+    const loadEntriesButton = createButton(cachedEntries?.loadedAt ? 'Reload Lorecards' : 'Load Lorecards', 'Load this Loredeck\'s Lorecards so the resolver can include Lorecard-derived Context candidates.', async (btn) => {
         await loadLoredeckEntriesForEditor(pack, btn);
         renderContextWorkbench();
     });
@@ -6007,11 +6007,11 @@ function createContextWorkbenchResolverTester(pack, context = {}, positionIndex 
 
     const meta = document.createElement('div');
     meta.className = 'wandlight-loredeck-row-meta';
-    const packIndex = getContextPackSummary(positionIndex, pack?.packId);
+    const packIndex = getContextPackSummary(contextIndex, pack?.packId);
     meta.appendChild(createStatusPill('Local match', 'This test does not call a model.'));
     meta.appendChild(createStatusPill(packIndex?.hasIndex ? `${packIndex.anchorCount || 0} anchors` : 'No index', 'Anchor count available to the local resolver.'));
     if (cachedEntries?.loadedAt) {
-        meta.appendChild(createStatusPill(`${cachedEntries.entries?.length || 0} Lorecards loaded`, 'Loaded Lorecards are included as entry-derived Context candidates.'));
+        meta.appendChild(createStatusPill(`${cachedEntries.entries?.length || 0} Lorecards loaded`, 'Loaded Lorecards are included as Lorecard-derived Context candidates.'));
     } else {
         meta.appendChild(createStatusPill('Lorecards not loaded', 'Click Load Lorecards to include event-level Context candidates in resolver testing.'));
     }
@@ -6032,7 +6032,7 @@ function createContextWorkbenchResolverTester(pack, context = {}, positionIndex 
             meta.appendChild(createStatusPill(`Ignored: ${analysis.ignoredTerms.join(', ')}`, 'Direction/filler words ignored so they do not cause false matches.'));
         }
     }
-    if (!positionIndex) {
+    if (!contextIndex) {
         list.appendChild(createEmptyMessage('Context index is loading. Refresh the index and try again.'));
     } else if (!packIndex?.hasIndex) {
         list.appendChild(createEmptyMessage('This Loredeck has no loaded timeline registry for phrase matching.'));
@@ -6048,7 +6048,7 @@ function createContextWorkbenchResolverTester(pack, context = {}, positionIndex 
             'warning'
         ));
     } else {
-        const matches = rankContextAnchors(query, { packId: pack.packId, limit: 8, index: positionIndex });
+        const matches = rankContextAnchors(query, { packId: pack.packId, limit: 8, index: contextIndex });
         const entryMatches = getContextEntryResolverMatches(pack, analysis, { limit: 6 });
         if (!matches.length && !entryMatches.length) {
             list.appendChild(createContextResolverDiagnosticCard(
@@ -6163,7 +6163,7 @@ function getContextResolverEntrySearchText(entry = {}) {
         ...(Array.isArray(content.constraints) ? content.constraints : []),
         ...(Array.isArray(resolverAliases) ? resolverAliases : []),
         ...(Array.isArray(entry.aliases) ? entry.aliases : []),
-        ...(Array.isArray(positionAliasesFromEntry(entry)) ? positionAliasesFromEntry(entry) : []),
+        ...(Array.isArray(contextAliasesFromEntry(entry)) ? contextAliasesFromEntry(entry) : []),
         ...(Array.isArray(scope.characters) ? scope.characters : []),
         ...(Array.isArray(scope.locations) ? scope.locations : []),
         ...(Array.isArray(scope.topics) ? scope.topics : []),
@@ -6176,9 +6176,9 @@ function getContextResolverEntrySearchText(entry = {}) {
     ].filter(Boolean).join(' ');
 }
 
-function positionAliasesFromEntry(entry = {}) {
-    const position = entry.context && typeof entry.context === 'object' && !Array.isArray(entry.context) ? entry.context : {};
-    return Array.isArray(position.aliases) ? position.aliases : [];
+function contextAliasesFromEntry(entry = {}) {
+    const contextGate = entry.context && typeof entry.context === 'object' && !Array.isArray(entry.context) ? entry.context : {};
+    return Array.isArray(contextGate.aliases) ? contextGate.aliases : [];
 }
 
 function getContextEntryResolverMatches(pack, analysis = {}, options = {}) {
@@ -6197,9 +6197,9 @@ function getContextEntryResolverMatches(pack, analysis = {}, options = {}) {
 
 function buildContextEntryResolverMatch(pack, row = {}, analysis = {}) {
     const entry = row.entry || {};
-    const position = entry.context && typeof entry.context === 'object' && !Array.isArray(entry.context) ? entry.context : {};
-    const sortKeyFrom = normalizeLoredeckTimelineNumber(context.sortKeyFrom);
-    const sortKeyTo = normalizeLoredeckTimelineNumber(context.sortKeyTo);
+    const contextGate = entry.context && typeof entry.context === 'object' && !Array.isArray(entry.context) ? entry.context : {};
+    const sortKeyFrom = normalizeLoredeckTimelineNumber(contextGate.sortKeyFrom);
+    const sortKeyTo = normalizeLoredeckTimelineNumber(contextGate.sortKeyTo);
     if (sortKeyFrom === null && sortKeyTo === null) return null;
 
     const terms = Array.isArray(analysis.terms) ? analysis.terms : [];
@@ -6233,10 +6233,10 @@ function buildContextEntryResolverMatch(pack, row = {}, analysis = {}) {
     const resolverAliases = entry.extensions?.contextResolver?.aliases || entry.contextAliases || entry.resolverAliases || triggers.resolverAliases;
     addGroup('Title', entry.title, 18, 72);
     addGroup('ID', row.id || entry.id, 8, 24);
-    addGroup('Context label', context.label, 10, 32);
+    addGroup('Context label', contextGate.label, 10, 32);
     addGroup('Aliases', [
         ...(Array.isArray(entry.aliases) ? entry.aliases : []),
-        ...(Array.isArray(position.aliases) ? position.aliases : []),
+        ...(Array.isArray(contextGate.aliases) ? contextGate.aliases : []),
         ...(Array.isArray(resolverAliases) ? resolverAliases : []),
     ].join(' '), 20, 80);
     addGroup('Topics', [
@@ -6268,7 +6268,7 @@ function buildContextEntryResolverMatch(pack, row = {}, analysis = {}) {
         source: 'entry',
         row,
         entry,
-        position,
+        context: contextGate,
         anchorDefinition,
         score,
         reasons: reasons.sort((a, b) => (b.score || 0) - (a.score || 0)).slice(0, 8),
@@ -6283,9 +6283,9 @@ function buildContextEntryResolverMatch(pack, row = {}, analysis = {}) {
 
 function buildContextEntryDerivedAnchor(pack, row = {}, analysis = {}) {
     const entry = row.entry || {};
-    const position = entry.context && typeof entry.context === 'object' && !Array.isArray(entry.context) ? entry.context : {};
-    const sortKeyFrom = normalizeLoredeckTimelineNumber(context.sortKeyFrom);
-    const sortKeyTo = normalizeLoredeckTimelineNumber(context.sortKeyTo);
+    const contextGate = entry.context && typeof entry.context === 'object' && !Array.isArray(entry.context) ? entry.context : {};
+    const sortKeyFrom = normalizeLoredeckTimelineNumber(contextGate.sortKeyFrom);
+    const sortKeyTo = normalizeLoredeckTimelineNumber(contextGate.sortKeyTo);
     const sortKey = sortKeyFrom ?? sortKeyTo;
     if (sortKey === null) return null;
     const scope = entry.scope || {};
@@ -6301,7 +6301,7 @@ function buildContextEntryDerivedAnchor(pack, row = {}, analysis = {}) {
         analysis.termPhrase,
         analysis.query,
         ...(Array.isArray(entry.aliases) ? entry.aliases : []),
-        ...(Array.isArray(position.aliases) ? position.aliases : []),
+        ...(Array.isArray(contextGate.aliases) ? contextGate.aliases : []),
         ...(Array.isArray(resolverAliases) ? resolverAliases : []),
         ...(Array.isArray(scope.topics) ? scope.topics : []),
         ...(Array.isArray(triggers.topicsAny) ? triggers.topicsAny : []),
@@ -6315,23 +6315,23 @@ function buildContextEntryDerivedAnchor(pack, row = {}, analysis = {}) {
     ], 64);
     return normalizeLoredeckTimelineAnchor({
         id,
-        label: entry.title || context.label || row.id || id,
-        contextType: context.scope === 'anchor' ? 'anchor' : 'anchor_window',
+        label: entry.title || contextGate.label || row.id || id,
+        contextType: contextGate.scope === 'anchor' ? 'anchor' : 'anchor_window',
         sortKey,
         book: entry.sourceInfo?.book || scope.books?.[0] || '',
-        arc: position.arc || '',
-        phase: position.phase || scope.phases?.[0] || '',
-        season: position.season || '',
-        episode: position.episode || '',
-        chapter: position.chapter || '',
-        issue: position.issue || '',
-        quest: position.quest || '',
-        gameStage: position.gameStage || '',
+        arc: contextGate.arc || '',
+        phase: contextGate.phase || scope.phases?.[0] || '',
+        season: contextGate.season || '',
+        episode: contextGate.episode || '',
+        chapter: contextGate.chapter || '',
+        issue: contextGate.issue || '',
+        quest: contextGate.quest || '',
+        gameStage: contextGate.gameStage || '',
         aliases,
         tags,
         notes: [
             `Entry-derived candidate from Lorecard ${row.id || entry.id || 'unknown'}.`,
-            context.label ? `Entry Context label: ${context.label}.` : '',
+            contextGate.label ? `Entry Context label: ${contextGate.label}.` : '',
             content.notes ? `Entry notes: ${truncateText(content.notes, 240)}` : '',
         ].filter(Boolean).join(' '),
     }, id);
@@ -6341,7 +6341,7 @@ function createContextResolverDiagnosticCard(titleText = 'Resolver note', lines 
     const card = document.createElement('div');
     card.className = `wandlight-context-workbench-resolver-diagnostic wandlight-context-workbench-issue-${severity || 'suggestion'}`;
     const title = document.createElement('div');
-    title.className = 'wandlight-context-workbench-position-picker-title';
+    title.className = 'wandlight-context-workbench-context-picker-title';
     title.textContent = titleText;
     card.appendChild(title);
     for (const line of lines.filter(Boolean).slice(0, 5)) {
@@ -6394,13 +6394,13 @@ function createContextWorkbenchResolverResult(pack, match = {}, currentAnchorId 
     if (id && id === currentAnchorId) row.classList.add('wandlight-context-workbench-row-active');
 
     const main = document.createElement('div');
-    main.className = 'wandlight-context-workbench-position-picker-main';
+    main.className = 'wandlight-context-workbench-context-picker-main';
     const title = document.createElement('div');
-    title.className = 'wandlight-context-workbench-position-picker-title';
+    title.className = 'wandlight-context-workbench-context-picker-title';
     title.textContent = anchor.label || id || 'Anchor';
     main.appendChild(title);
     const meta = document.createElement('div');
-    meta.className = 'wandlight-context-workbench-position-picker-meta';
+    meta.className = 'wandlight-context-workbench-context-picker-meta';
     meta.textContent = [
         id,
         getContextResolverConfidenceLabel(match.score),
@@ -6449,19 +6449,19 @@ function createContextWorkbenchEntryResolverResult(pack, match = {}) {
     row.className = 'wandlight-context-workbench-resolver-row wandlight-context-workbench-resolver-row-entry';
 
     const main = document.createElement('div');
-    main.className = 'wandlight-context-workbench-position-picker-main';
+    main.className = 'wandlight-context-workbench-context-picker-main';
     const title = document.createElement('div');
-    title.className = 'wandlight-context-workbench-position-picker-title';
+    title.className = 'wandlight-context-workbench-context-picker-title';
     title.textContent = entry.title || match.row?.id || 'Lorecard candidate';
     main.appendChild(title);
 
     const meta = document.createElement('div');
-    meta.className = 'wandlight-context-workbench-position-picker-meta';
+    meta.className = 'wandlight-context-workbench-context-picker-meta';
     meta.textContent = [
         'Lorecard-derived',
         match.row?.id,
         getContextResolverConfidenceLabel(match.score),
-        getContextEntryCandidatePositionText(match),
+        getContextEntryCandidateText(match),
         entry.category,
         entry.lorePurpose,
     ].filter(Boolean).join(' | ');
@@ -6485,7 +6485,7 @@ function createContextWorkbenchEntryResolverResult(pack, match = {}) {
         applyContextEntryCandidate(pack.packId, match);
     }, 'wandlight-primary-button'));
     if (pack.type === 'bundled') {
-        actions.appendChild(createButton('Duplicate as Custom', 'Create an editable Custom Loredeck before promoting entry-derived anchors.', () => {
+        actions.appendChild(createButton('Duplicate as Custom', 'Create an editable Custom Loredeck before promoting Lorecard-derived anchors.', () => {
             openDuplicateLoredeckDialog(pack);
         }));
     } else {
@@ -6503,30 +6503,30 @@ function createContextWorkbenchEntryResolverResult(pack, match = {}) {
     return row;
 }
 
-function getContextEntryCandidatePositionText(match = {}) {
-    const position = match.context || {};
+function getContextEntryCandidateText(match = {}) {
+    const contextGate = match.context || {};
     const bounds = [
-        normalizeLoredeckTimelineNumber(context.sortKeyFrom),
-        normalizeLoredeckTimelineNumber(context.sortKeyTo),
+        normalizeLoredeckTimelineNumber(contextGate.sortKeyFrom),
+        normalizeLoredeckTimelineNumber(contextGate.sortKeyTo),
     ].filter(value => value !== null && value !== undefined).join(' -> ');
     return [
-        context.scope,
+        contextGate.scope,
         bounds,
-        position.validFromAnchor || position.anchorFrom,
-        position.validToAnchor || position.anchorTo,
-        context.label,
+        contextGate.validFromAnchor || contextGate.anchorFrom,
+        contextGate.validToAnchor || contextGate.anchorTo,
+        contextGate.label,
     ].filter(Boolean).join(' | ');
 }
 
 function applyContextEntryCandidate(packId, match = {}) {
     const entry = match.entry || {};
-    const position = match.context || {};
-    const anchorId = normalizeLoredeckTimelineId(position.anchorId || '');
-    const anchorFrom = normalizeLoredeckTimelineId(position.validFromAnchor || position.anchorFrom || '');
-    const anchorTo = normalizeLoredeckTimelineId(position.validToAnchor || position.anchorTo || '');
-    const sortKeyFrom = normalizeLoredeckTimelineNumber(context.sortKeyFrom);
-    const sortKeyTo = normalizeLoredeckTimelineNumber(context.sortKeyTo);
-    const title = entry.title || match.row?.id || context.label || 'Lorecard-derived Context';
+    const contextGate = match.context || {};
+    const anchorId = normalizeLoredeckTimelineId(contextGate.anchorId || '');
+    const anchorFrom = normalizeLoredeckTimelineId(contextGate.validFromAnchor || contextGate.anchorFrom || '');
+    const anchorTo = normalizeLoredeckTimelineId(contextGate.validToAnchor || contextGate.anchorTo || '');
+    const sortKeyFrom = normalizeLoredeckTimelineNumber(contextGate.sortKeyFrom);
+    const sortKeyTo = normalizeLoredeckTimelineNumber(contextGate.sortKeyTo);
+    const title = entry.title || match.row?.id || contextGate.label || 'Lorecard-derived Context';
     commitLoredeckContextPatch(packId, {
         contextType: anchorId ? 'anchor' : 'anchor_window',
         anchorId,
@@ -6535,14 +6535,14 @@ function applyContextEntryCandidate(packId, match = {}) {
         label: title,
         sceneDate: '',
         contextSortKey: sortKeyFrom ?? sortKeyTo,
-        arc: position.arc || '',
-        phase: position.phase || '',
-        season: position.season || '',
-        episode: position.episode || '',
-        chapter: position.chapter || '',
-        issue: position.issue || '',
-        quest: position.quest || '',
-        gameStage: position.gameStage || '',
+        arc: contextGate.arc || '',
+        phase: contextGate.phase || '',
+        season: contextGate.season || '',
+        episode: contextGate.episode || '',
+        chapter: contextGate.chapter || '',
+        issue: contextGate.issue || '',
+        quest: contextGate.quest || '',
+        gameStage: contextGate.gameStage || '',
         alias: match.query || title,
         source: 'manual',
         confidence: Math.max(0.55, Math.min(0.95, (Number(match.score) || 0) / 180)),
@@ -6589,12 +6589,12 @@ function getContextResolverConfidenceLabel(score = 0) {
     return 'Possible';
 }
 
-function createContextWorkbenchPositionPicker(pack, context = {}, positionIndex = getContextIndexSync()) {
+function createContextWorkbenchContextPicker(pack, context = {}, contextIndex = getContextIndexSync()) {
     const wrap = document.createElement('div');
-    wrap.className = 'wandlight-context-workbench-position-picker';
+    wrap.className = 'wandlight-context-workbench-context-picker';
 
     const top = document.createElement('div');
-    top.className = 'wandlight-context-workbench-position-picker-top';
+    top.className = 'wandlight-context-workbench-context-picker-top';
     const label = document.createElement('div');
     label.className = 'wandlight-runtime-card-title';
     label.textContent = 'Select From Timeline';
@@ -6605,29 +6605,29 @@ function createContextWorkbenchPositionPicker(pack, context = {}, positionIndex 
     search.type = 'search';
     search.className = 'wandlight-lore-workbench-search';
     search.placeholder = 'Search anchors, windows, aliases...';
-    search.value = contextWorkbenchPositionQuery || '';
+    search.value = contextWorkbenchContextQuery || '';
     addTooltip(search, 'Search timeline labels, IDs, aliases, tags, arcs, dates, episodes, chapters, and attached Lorecard IDs.');
     search.addEventListener('keydown', event => {
         if (event.key !== 'Enter') return;
         event.preventDefault();
-        contextWorkbenchPositionQuery = search.value.trim();
+        contextWorkbenchContextQuery = search.value.trim();
         renderContextWorkbench();
     });
     search.addEventListener('change', () => {
-        contextWorkbenchPositionQuery = search.value.trim();
+        contextWorkbenchContextQuery = search.value.trim();
         renderContextWorkbench();
     });
     top.appendChild(search);
     top.appendChild(createButton('Find', 'Search timeline anchors/windows for this Loredeck.', () => {
-        contextWorkbenchPositionQuery = search.value.trim();
+        contextWorkbenchContextQuery = search.value.trim();
         renderContextWorkbench();
     }));
     wrap.appendChild(top);
 
-    const items = getContextWorkbenchTimelineItems(pack, positionIndex);
+    const items = getContextWorkbenchTimelineItems(pack, contextIndex);
     const current = getContextWorkbenchCurrentTimelineItem(context, items);
     const currentKey = current ? getContextTimelineItemKey(current) : '';
-    const q = String(contextWorkbenchPositionQuery || '').trim();
+    const q = String(contextWorkbenchContextQuery || '').trim();
     const filtered = q
         ? filterContextWorkbenchTimelineItems(items, q, 'all')
         : items.slice(0, 12);
@@ -6646,14 +6646,14 @@ function createContextWorkbenchPositionPicker(pack, context = {}, positionIndex 
     }
 
     const list = document.createElement('div');
-    list.className = 'wandlight-context-workbench-position-picker-list';
+    list.className = 'wandlight-context-workbench-context-picker-list';
     if (!items.length) {
         list.appendChild(createEmptyMessage('No timeline registry rows are loaded for this Loredeck yet.'));
     } else if (!visible.length) {
         list.appendChild(createEmptyMessage('No timeline rows match that search.'));
     } else {
         for (const item of visible) {
-            list.appendChild(createContextWorkbenchPositionPickerRow(pack, item, currentKey));
+            list.appendChild(createContextWorkbenchContextPickerRow(pack, item, currentKey));
         }
     }
     wrap.appendChild(list);
@@ -6685,26 +6685,26 @@ function getContextWorkbenchCurrentTimelineItem(context = {}, items = []) {
     return null;
 }
 
-function createContextWorkbenchPositionPickerRow(pack, item = {}, currentKey = '') {
+function createContextWorkbenchContextPickerRow(pack, item = {}, currentKey = '') {
     const def = item.definition || {};
     const key = getContextTimelineItemKey(item);
     const row = document.createElement('div');
-    row.className = 'wandlight-context-workbench-position-picker-row';
+    row.className = 'wandlight-context-workbench-context-picker-row';
     if (key === currentKey) row.classList.add('wandlight-context-workbench-row-active');
     if (item.disabled) row.classList.add('wandlight-context-workbench-row-disabled');
 
     const main = document.createElement('div');
-    main.className = 'wandlight-context-workbench-position-picker-main';
+    main.className = 'wandlight-context-workbench-context-picker-main';
     const title = document.createElement('div');
-    title.className = 'wandlight-context-workbench-position-picker-title';
+    title.className = 'wandlight-context-workbench-context-picker-title';
     title.textContent = def.label || item.id || 'Timeline row';
     main.appendChild(title);
     const meta = document.createElement('div');
-    meta.className = 'wandlight-context-workbench-position-picker-meta';
+    meta.className = 'wandlight-context-workbench-context-picker-meta';
     meta.textContent = [
         item.kind === 'window' ? 'Window' : 'Anchor',
         item.id,
-        getContextTimelineItemPositionText(item),
+        getContextTimelineItemContextText(item),
         getContextTimelineItemCoordinateText(item),
         def.aliases?.slice(0, 2).join(', '),
     ].filter(Boolean).join(' | ');
@@ -6741,7 +6741,7 @@ function getContextTimelineItemKey(item = {}) {
     return `${item.kind || 'anchor'}:${item.id || ''}`;
 }
 
-function getContextTimelineItemPositionText(item = {}) {
+function getContextTimelineItemContextText(item = {}) {
     const def = item.definition || {};
     if (item.kind === 'window') {
         const bounds = [def.sortKeyFrom, def.sortKeyTo].filter(value => value !== null && value !== undefined && value !== '').join(' -> ');
@@ -6766,7 +6766,7 @@ function getContextTimelineItemCoordinateText(item = {}) {
     ].filter(Boolean).join(' | ');
 }
 
-function getContextWorkbenchTimelineItems(pack = null, positionIndex = getContextIndexSync()) {
+function getContextWorkbenchTimelineItems(pack = null, contextIndex = getContextIndexSync()) {
     if (!pack?.packId) return [];
     const rows = getContextWorkbenchEntryRows(pack);
     const items = buildLoredeckTimelineRegistryItems(pack, rows);
@@ -6805,10 +6805,10 @@ function getContextWorkbenchTimelineItems(pack = null, positionIndex = getContex
         });
     };
 
-    for (const anchor of (positionIndex?.anchors || []).filter(anchor => anchor?.packId === pack.packId)) {
+    for (const anchor of (contextIndex?.anchors || []).filter(anchor => anchor?.packId === pack.packId)) {
         addIndexedItem('anchor', anchor);
     }
-    for (const windowDef of (positionIndex?.windows || []).filter(windowDef => windowDef?.packId === pack.packId)) {
+    for (const windowDef of (contextIndex?.windows || []).filter(windowDef => windowDef?.packId === pack.packId)) {
         addIndexedItem('window', windowDef);
     }
     return Array.from(itemMap.values()).sort(compareContextTimelineItems);
@@ -6855,7 +6855,7 @@ function filterContextWorkbenchTimelineItems(items = [], query = contextWorkbenc
     });
 }
 
-function createContextWorkbenchTimelineView(state = getState(), positionIndex = getContextIndexSync()) {
+function createContextWorkbenchTimelineView(state = getState(), contextIndex = getContextIndexSync()) {
     const view = document.createElement('div');
     view.className = 'wandlight-context-workbench-view';
     const pack = getContextWorkbenchPack(state);
@@ -6863,14 +6863,14 @@ function createContextWorkbenchTimelineView(state = getState(), positionIndex = 
         view.appendChild(createEmptyMessage('No loaded Loredeck selected.'));
         return view;
     }
-    const allItems = getContextWorkbenchTimelineItems(pack, positionIndex);
+    const allItems = getContextWorkbenchTimelineItems(pack, contextIndex);
     const visibleItems = filterContextWorkbenchTimelineItems(allItems);
     if (!visibleItems.some(item => getContextTimelineItemKey(item) === contextWorkbenchSelectedKey)) {
         contextWorkbenchSelectedKey = visibleItems[0] ? getContextTimelineItemKey(visibleItems[0]) : (allItems[0] ? getContextTimelineItemKey(allItems[0]) : '');
     }
     const selected = allItems.find(item => getContextTimelineItemKey(item) === contextWorkbenchSelectedKey) || visibleItems[0] || allItems[0] || null;
 
-    view.appendChild(createContextWorkbenchTimelineControls(state, positionIndex, pack, allItems, visibleItems));
+    view.appendChild(createContextWorkbenchTimelineControls(state, contextIndex, pack, allItems, visibleItems));
 
     const main = document.createElement('div');
     main.className = 'wandlight-context-workbench-main';
@@ -6880,10 +6880,10 @@ function createContextWorkbenchTimelineView(state = getState(), positionIndex = 
     return view;
 }
 
-function createContextWorkbenchTimelineControls(state, positionIndex, pack, allItems = [], visibleItems = []) {
+function createContextWorkbenchTimelineControls(state, contextIndex, pack, allItems = [], visibleItems = []) {
     const controls = document.createElement('div');
     controls.className = 'wandlight-context-workbench-controls';
-    controls.appendChild(createContextWorkbenchPackSelector(state, positionIndex));
+    controls.appendChild(createContextWorkbenchPackSelector(state, contextIndex));
 
     const search = document.createElement('input');
     search.type = 'search';
@@ -6974,7 +6974,7 @@ function createContextWorkbenchTimelineTable(pack, items = [], selected = null) 
         });
         row.appendChild(createWorkbenchTextCell(item.kind === 'window' ? 'Window' : 'Anchor', item.registryState || 'source'));
         row.appendChild(createWorkbenchTextCell(def.label || item.id, item.id));
-        row.appendChild(createWorkbenchTextCell(getContextTimelineItemPositionText(item), item.kind === 'window' ? `${def.anchorFrom || '?'} -> ${def.anchorTo || '?'}` : 'sort key'));
+        row.appendChild(createWorkbenchTextCell(getContextTimelineItemContextText(item), item.kind === 'window' ? `${def.anchorFrom || '?'} -> ${def.anchorTo || '?'}` : 'sort key'));
         row.appendChild(createWorkbenchTextCell(getContextTimelineItemCoordinateText(item), def.notes || ''));
         row.appendChild(createWorkbenchTextCell(String(def.aliases?.length || 0), def.aliases?.slice(0, 3).join(', ') || ''));
         row.appendChild(createWorkbenchTextCell(String(def.tags?.length || 0), def.tags?.slice(0, 3).join(', ') || ''));
@@ -7009,14 +7009,14 @@ function createContextWorkbenchInspector(pack, selected = null, allItems = []) {
     chips.className = 'wandlight-loredeck-row-meta';
     chips.appendChild(createStatusPill(selected.kind === 'window' ? 'Window' : 'Anchor', 'Timeline registry object type.'));
     chips.appendChild(createStatusPill(selected.registryState || 'source', 'Source/custom overlay state.'));
-    chips.appendChild(createStatusPill(`${selected.entryIds?.length || 0} attached`, 'Lorecards attached to this timeline position.'));
+    chips.appendChild(createStatusPill(`${selected.entryIds?.length || 0} attached`, 'Lorecards attached to this timeline Context.'));
     if (selected.disabled) chips.appendChild(createStatusPill('Disabled', 'This definition is suppressed by the Custom overlay.'));
     detail.appendChild(chips);
 
     const grid = document.createElement('div');
     grid.className = 'wandlight-context-workbench-inspector-grid';
     grid.appendChild(createKeyValue('ID', selected.id, 'Stable timeline registry ID.'));
-    grid.appendChild(createKeyValue('Context', getContextTimelineItemPositionText(selected) || 'unset', 'Sort key or sort range.'));
+    grid.appendChild(createKeyValue('Context', getContextTimelineItemContextText(selected) || 'unset', 'Sort key or sort range.'));
     if (selected.kind === 'window') {
         grid.appendChild(createKeyValue('From', def.anchorFrom || 'unset', 'Window start anchor.'));
         grid.appendChild(createKeyValue('To', def.anchorTo || 'unset', 'Window end anchor.'));
@@ -7147,7 +7147,7 @@ function applyContextAnchorBoundary(packId, item = {}, mode = 'from') {
     commitLoredeckContextPatch(packId, patch, `Set Context ${mode === 'to' ? 'upper' : 'lower'} bound: ${getLoredeckDisplayName(packId)}`);
 }
 
-function createContextWorkbenchAliasesView(state = getState(), positionIndex = getContextIndexSync()) {
+function createContextWorkbenchAliasesView(state = getState(), contextIndex = getContextIndexSync()) {
     const view = document.createElement('div');
     view.className = 'wandlight-context-workbench-view';
     const pack = getContextWorkbenchPack(state);
@@ -7155,13 +7155,13 @@ function createContextWorkbenchAliasesView(state = getState(), positionIndex = g
         view.appendChild(createEmptyMessage('No loaded Loredeck selected.'));
         return view;
     }
-    const allItems = getContextWorkbenchTimelineItems(pack, positionIndex);
+    const allItems = getContextWorkbenchTimelineItems(pack, contextIndex);
     const filteredItems = filterContextWorkbenchTimelineItems(allItems);
     const aliasRows = getContextWorkbenchAliasRows(filteredItems);
 
     const controls = document.createElement('div');
     controls.className = 'wandlight-context-workbench-controls';
-    controls.appendChild(createContextWorkbenchPackSelector(state, positionIndex));
+    controls.appendChild(createContextWorkbenchPackSelector(state, contextIndex));
     const search = document.createElement('input');
     search.type = 'search';
     search.className = 'wandlight-lore-workbench-search';
@@ -7231,7 +7231,7 @@ function createContextWorkbenchAliasRow(pack, aliasRow = {}) {
     row.appendChild(createWorkbenchTextCell(aliasRow.alias, aliasRow.duplicate ? 'duplicate alias' : 'resolver phrase'));
     row.appendChild(createWorkbenchTextCell(def.label || item.id, item.id));
     row.appendChild(createWorkbenchTextCell(item.kind === 'window' ? 'Window' : 'Anchor', item.registryState || 'source'));
-    row.appendChild(createWorkbenchTextCell(getContextTimelineItemPositionText(item), getContextTimelineItemCoordinateText(item)));
+    row.appendChild(createWorkbenchTextCell(getContextTimelineItemContextText(item), getContextTimelineItemCoordinateText(item)));
     row.appendChild(createWorkbenchTextCell(item.disabled ? 'Disabled' : 'Active', item.registryState || ''));
     row.appendChild(createWorkbenchTextCell(aliasRow.duplicate ? 'Duplicate' : 'OK', aliasRow.duplicate ? 'Same alias maps to multiple targets.' : ''));
     const actions = document.createElement('div');
@@ -7248,7 +7248,7 @@ function createContextWorkbenchAliasRow(pack, aliasRow = {}) {
     return row;
 }
 
-function createContextWorkbenchValidationView(state = getState(), positionIndex = getContextIndexSync()) {
+function createContextWorkbenchValidationView(state = getState(), contextIndex = getContextIndexSync()) {
     const view = document.createElement('div');
     view.className = 'wandlight-context-workbench-view';
     const pack = getContextWorkbenchPack(state);
@@ -7256,12 +7256,12 @@ function createContextWorkbenchValidationView(state = getState(), positionIndex 
         view.appendChild(createEmptyMessage('No loaded Loredeck selected.'));
         return view;
     }
-    const items = getContextWorkbenchTimelineItems(pack, positionIndex);
-    const issues = getContextWorkbenchValidationIssues(pack, items, positionIndex);
+    const items = getContextWorkbenchTimelineItems(pack, contextIndex);
+    const issues = getContextWorkbenchValidationIssues(pack, items, contextIndex);
 
     const controls = document.createElement('div');
     controls.className = 'wandlight-context-workbench-controls';
-    controls.appendChild(createContextWorkbenchPackSelector(state, positionIndex));
+    controls.appendChild(createContextWorkbenchPackSelector(state, contextIndex));
     const counts = {
         error: issues.filter(issue => issue.severity === 'error').length,
         warning: issues.filter(issue => issue.severity === 'warning').length,
@@ -7302,7 +7302,7 @@ function createContextWorkbenchValidationView(state = getState(), positionIndex 
     return view;
 }
 
-function getContextWorkbenchValidationIssues(pack, items = [], positionIndex = getContextIndexSync()) {
+function getContextWorkbenchValidationIssues(pack, items = [], contextIndex = getContextIndexSync()) {
     const issues = [];
     const itemByKey = new Map(items.map(item => [getContextTimelineItemKey(item), item]));
     const anchorIds = new Set(items.filter(item => item.kind === 'anchor' && !item.disabled && item.registryState !== 'undefined').map(item => item.id));
@@ -7396,7 +7396,7 @@ function getContextWorkbenchValidationIssues(pack, items = [], positionIndex = g
             });
         }
     }
-    for (const issue of positionIndex?.issues || []) {
+    for (const issue of contextIndex?.issues || []) {
         if (issue?.packId && issue.packId !== pack?.packId) continue;
         issues.push({
             severity: issue?.severity || 'warning',
@@ -8547,18 +8547,18 @@ function getLoredeckHealthIssueAdvice(code = '', severity = 'suggestion') {
             summary: 'Schema v3 Lorecards should define Context eligibility.',
             why: 'Context prevents future canon leakage and lets Saga activate lore at the right point in the story.',
             fix: 'Add context.scope, sort keys, precision, label, and anchor/window references where appropriate.',
-            fixShort: 'Add position',
+            fixShort: 'Add Context',
         },
         schema_v3_missing_retrieval: {
             summary: 'Lorecards are missing retrieval metadata.',
             why: 'Retrieval metadata tells Saga when a card is useful and prevents broad entries from over-injecting.',
-            fix: 'Add retrieval activation, frequency, positional boost, and cue metadata.',
+            fix: 'Add retrieval activation, frequency, Context boost, and cue metadata.',
             fixShort: 'Add retrieval',
         },
         schema_v3_wide_lore_retrieval: {
             summary: 'Wide lore should use conservative retrieval settings.',
             why: 'High-value global lore is useful, but it can drown scenes if it activates too often.',
-            fix: 'Use topic-or-entity activation, low frequency, and low positional boost for wide/global entries.',
+            fix: 'Use topic-or-entity activation, low frequency, and low Context boost for wide/global entries.',
             fixShort: 'Tune retrieval',
         },
         missing_entry_file: {
@@ -8853,8 +8853,8 @@ function createLoredeckHealthIssueList(titleText, issues = [], severity = 'sugge
         if (issue.anchorId) meta.appendChild(createStatusPill(`anchor: ${issue.anchorId}`, 'Affected Context anchor.'));
         if (Array.isArray(issue.anchorIds) && issue.anchorIds.length) meta.appendChild(createStatusPill(`${issue.anchorIds.length} anchor${issue.anchorIds.length === 1 ? '' : 's'}`, 'Affected Context anchors.'));
         if (issue.timelineWindowId) meta.appendChild(createStatusPill(`window: ${issue.timelineWindowId}`, 'Affected Context timeline window.'));
-        if (issue.positionField) meta.appendChild(createStatusPill(issue.positionField, 'Affected Context field.'));
-        if (Array.isArray(issue.positionFields) && issue.positionFields.length) meta.appendChild(createStatusPill(issue.positionFields.join(', '), 'Affected Context fields.'));
+        if (issue.contextField) meta.appendChild(createStatusPill(issue.contextField, 'Affected Context field.'));
+        if (Array.isArray(issue.contextFields) && issue.contextFields.length) meta.appendChild(createStatusPill(issue.contextFields.join(', '), 'Affected Context fields.'));
         if (issue.winningPackId) meta.appendChild(createStatusPill(`winner: ${issue.winningPackId}`, 'Winning pack after stack duplicate resolution.'));
         item.appendChild(meta);
         list.appendChild(item);
@@ -10787,7 +10787,7 @@ function createLoredeckEntryOverrideCard(pack) {
     bulkTagsButton.disabled = !bulkRows.length;
     actions.appendChild(bulkTagsButton);
     const bulkButton = createButton('Bulk Context', 'Apply one Context and retrieval block to loaded Lorecards or the current search result.', () => {
-        openLoredeckBulkPositionDialog(pack, bulkRows);
+        openLoredeckBulkContextDialog(pack, bulkRows);
     });
     bulkButton.disabled = !bulkRows.length;
     actions.appendChild(bulkButton);
@@ -11282,16 +11282,16 @@ function getLoredeckPendingCurrentEntry(pack, entryId = '') {
 function getLoredeckPendingEntryField(entry = {}, field = '') {
     if (!entry || typeof entry !== 'object') return '';
     const content = entry.content && typeof entry.content === 'object' && !Array.isArray(entry.content) ? entry.content : {};
-    const position = entry.context && typeof entry.context === 'object' && !Array.isArray(entry.context) ? entry.context : {};
+    const contextGate = entry.context && typeof entry.context === 'object' && !Array.isArray(entry.context) ? entry.context : {};
     const retrieval = entry.retrieval && typeof entry.retrieval === 'object' && !Array.isArray(entry.retrieval) ? entry.retrieval : {};
     if (field === 'fact') return content.fact || entry.fact || '';
     if (field === 'injection') return content.injection || entry.injection || '';
     if (field === 'notes') return content.notes || entry.notes || '';
     if (field === 'canon') return entry.canon || entry.canonStatus || '';
     if (field === 'tags') return parseLoredeckEntryTags(entry.tags || []);
-    if (field === 'context.validFromAnchor') return position.validFromAnchor || position.anchorFrom || '';
-    if (field === 'context.validToAnchor') return position.validToAnchor || position.anchorTo || '';
-    if (field.startsWith('context.')) return position[field.slice('context.'.length)] ?? '';
+    if (field === 'context.validFromAnchor') return contextGate.validFromAnchor || contextGate.anchorFrom || '';
+    if (field === 'context.validToAnchor') return contextGate.validToAnchor || contextGate.anchorTo || '';
+    if (field.startsWith('context.')) return contextGate[field.slice('context.'.length)] ?? '';
     if (field.startsWith('retrieval.')) return retrieval[field.slice('retrieval.'.length)] ?? '';
     return entry[field] ?? '';
 }
@@ -11308,9 +11308,9 @@ function collectLoredeckPendingEntryDiffs(diffs, pack, patch = {}) {
         ['priority', 'priority'],
         ['tags', 'tags'],
         ['context.scope', 'context scope'],
-        ['context.anchorId', 'position anchor'],
-        ['context.validFromAnchor', 'position from'],
-        ['context.validToAnchor', 'position to'],
+        ['context.anchorId', 'context anchor'],
+        ['context.validFromAnchor', 'context from'],
+        ['context.validToAnchor', 'context to'],
         ['context.sortKeyFrom', 'sort from'],
         ['context.sortKeyTo', 'sort to'],
         ['context.precision', 'context precision'],
@@ -12141,21 +12141,21 @@ function buildMergedLoredeckTagRegistryForExport(pack, rows = []) {
 }
 
 function getLoredeckEntryAnchorRefs(entry = {}) {
-    const position = entry?.context && typeof entry.context === 'object' && !Array.isArray(entry.context)
+    const contextGate = entry?.context && typeof entry.context === 'object' && !Array.isArray(entry.context)
         ? entry.context
         : {};
     return normalizeLoredeckPendingTimelineIdList([
-        position.anchorId,
-        position.validFromAnchor,
-        position.validToAnchor,
-        position.anchorFrom,
-        position.anchorTo,
+        contextGate.anchorId,
+        contextGate.validFromAnchor,
+        contextGate.validToAnchor,
+        contextGate.anchorFrom,
+        contextGate.anchorTo,
     ], 12);
 }
 
 function buildLoredeckTimelineAttachmentStats(rows = []) {
     const anchorRefs = new Map();
-    const entryPositions = [];
+    const entryContexts = [];
     for (const row of rows || []) {
         if (!row?.id || row.disabled) continue;
         const entry = row.entry || {};
@@ -12165,18 +12165,18 @@ function buildLoredeckTimelineAttachmentStats(rows = []) {
             const list = anchorRefs.get(ref);
             if (list.length < 50) list.push(row.id);
         }
-        const position = entry.context && typeof entry.context === 'object' && !Array.isArray(entry.context)
+        const contextGate = entry.context && typeof entry.context === 'object' && !Array.isArray(entry.context)
             ? entry.context
             : {};
-        entryPositions.push({
+        entryContexts.push({
             id: row.id,
-            from: normalizeLoredeckTimelineId(position.validFromAnchor || position.anchorFrom || ''),
-            to: normalizeLoredeckTimelineId(position.validToAnchor || position.anchorTo || ''),
-            sortKeyFrom: normalizeLoredeckTimelineNumber(context.sortKeyFrom),
-            sortKeyTo: normalizeLoredeckTimelineNumber(context.sortKeyTo),
+            from: normalizeLoredeckTimelineId(contextGate.validFromAnchor || contextGate.anchorFrom || ''),
+            to: normalizeLoredeckTimelineId(contextGate.validToAnchor || contextGate.anchorTo || ''),
+            sortKeyFrom: normalizeLoredeckTimelineNumber(contextGate.sortKeyFrom),
+            sortKeyTo: normalizeLoredeckTimelineNumber(contextGate.sortKeyTo),
         });
     }
-    return { anchorRefs, entryPositions };
+    return { anchorRefs, entryContexts };
 }
 
 function getTimelineWindowEntryRefs(window = {}, stats = {}) {
@@ -12185,7 +12185,7 @@ function getTimelineWindowEntryRefs(window = {}, stats = {}) {
     const anchorTo = normalizeLoredeckTimelineId(window.anchorTo);
     const sortKeyFrom = normalizeLoredeckTimelineNumber(window.sortKeyFrom);
     const sortKeyTo = normalizeLoredeckTimelineNumber(window.sortKeyTo);
-    for (const entry of stats.entryPositions || []) {
+    for (const entry of stats.entryContexts || []) {
         const anchorsMatch = anchorFrom && anchorTo && entry.from === anchorFrom && entry.to === anchorTo;
         const sortsMatch = sortKeyFrom !== null && sortKeyTo !== null && entry.sortKeyFrom === sortKeyFrom && entry.sortKeyTo === sortKeyTo;
         if (anchorsMatch || sortsMatch) refs.push(entry.id);
@@ -12494,7 +12494,7 @@ function getLoredeckAssistantTargetRows(rows = [], filteredRows = [], targetScop
 
 function compactLoredeckAssistantEntry(row = {}) {
     const entry = row.entry || {};
-    const position = entry.context && typeof entry.context === 'object' && !Array.isArray(entry.context) ? entry.context : {};
+    const contextGate = entry.context && typeof entry.context === 'object' && !Array.isArray(entry.context) ? entry.context : {};
     const retrieval = entry.retrieval && typeof entry.retrieval === 'object' && !Array.isArray(entry.retrieval) ? entry.retrieval : {};
     const content = entry.content && typeof entry.content === 'object' && !Array.isArray(entry.content) ? entry.content : {};
     return {
@@ -12507,15 +12507,15 @@ function compactLoredeckAssistantEntry(row = {}) {
         priority: Number.isFinite(Number(entry.priority)) ? Number(entry.priority) : null,
         tags: getLoredeckEntryTags(entry).slice(0, 24),
         context: {
-            scope: context.scope || '',
-            anchorId: position.anchorId || '',
-            validFromAnchor: position.validFromAnchor || position.anchorFrom || '',
-            validToAnchor: position.validToAnchor || position.anchorTo || '',
-            sortKeyFrom: Number.isFinite(Number(context.sortKeyFrom)) ? Number(context.sortKeyFrom) : null,
-            sortKeyTo: Number.isFinite(Number(context.sortKeyTo)) ? Number(context.sortKeyTo) : null,
-            precision: context.precision || '',
-            windowKind: context.windowKind || '',
-            label: context.label || '',
+            scope: contextGate.scope || '',
+            anchorId: contextGate.anchorId || '',
+            validFromAnchor: contextGate.validFromAnchor || contextGate.anchorFrom || '',
+            validToAnchor: contextGate.validToAnchor || contextGate.anchorTo || '',
+            sortKeyFrom: Number.isFinite(Number(contextGate.sortKeyFrom)) ? Number(contextGate.sortKeyFrom) : null,
+            sortKeyTo: Number.isFinite(Number(contextGate.sortKeyTo)) ? Number(contextGate.sortKeyTo) : null,
+            precision: contextGate.precision || '',
+            windowKind: contextGate.windowKind || '',
+            label: contextGate.label || '',
         },
         retrieval: {
             activation: retrieval.activation || '',
@@ -12958,8 +12958,8 @@ function compactLoredeckHealthIssueForAssistant(issue = {}) {
     };
     if (issue.expectedEntryCount !== undefined) out.expectedEntryCount = issue.expectedEntryCount;
     if (issue.actualEntryCount !== undefined) out.actualEntryCount = issue.actualEntryCount;
-    if (issue.positionField) out.positionField = issue.positionField;
-    if (Array.isArray(issue.positionFields) && issue.positionFields.length) out.positionFields = issue.positionFields.slice(0, 20);
+    if (issue.contextField) out.contextField = issue.contextField;
+    if (Array.isArray(issue.contextFields) && issue.contextFields.length) out.contextFields = issue.contextFields.slice(0, 20);
     if (Array.isArray(issue.tags) && issue.tags.length) {
         out.tags = issue.tags.slice(0, 20).map(tag => ({
             tag: String(tag?.tag || tag || '').trim(),
@@ -13314,7 +13314,7 @@ function collectLoredeckAssistantLocalQualityWarnings(proposal = {}, entry = nul
     if (proposal.action !== 'upsert_entry' || !entry) return [];
     const warnings = [];
     const content = entry.content && typeof entry.content === 'object' && !Array.isArray(entry.content) ? entry.content : {};
-    const position = entry.context && typeof entry.context === 'object' && !Array.isArray(entry.context) ? entry.context : {};
+    const contextGate = entry.context && typeof entry.context === 'object' && !Array.isArray(entry.context) ? entry.context : {};
     const title = String(entry.title || proposal.title || '').trim();
     const fact = String(content.fact || entry.fact || '').trim();
     const injection = String(content.injection || entry.injection || '').trim();
@@ -13328,7 +13328,7 @@ function collectLoredeckAssistantLocalQualityWarnings(proposal = {}, entry = nul
     if (!/\b(knows?|hides?|wants?|fears?|expects?|avoids?|reacts?|refuses?|pressures?|threatens?|trusts?|suspects?|believes?|lies?|reveals?|protects?|risks?|obligation|consequence|danger|leverage|taboo|rivalry|pressure|secret|misunderstands?)\b/i.test(searchable)) {
         warnings.push('Behavioral impact is unclear; check that this changes how scenes play.');
     }
-    if (getExpectedLoredeckEntrySchemaVersion(pack) >= 3 && !context.scope) {
+    if (getExpectedLoredeckEntrySchemaVersion(pack) >= 3 && !contextGate.scope) {
         warnings.push('Context fit is unclear; schema v3 entries should have a Context scope.');
     }
     if (!getLoredeckEntryTags(entry).length) {
@@ -13408,15 +13408,15 @@ function buildLoredeckAssistantEntryChange(pack, proposal = {}, rowById = new Ma
     entry.id = id;
     entry.tags = parseLoredeckEntryTags(rawEntry.tags || baseEntry.tags || []);
     if (entrySchemaVersion >= 3) {
-        const position = rawEntry.context || baseEntry.context || {};
+        const contextGate = rawEntry.context || baseEntry.context || {};
         const retrieval = rawEntry.retrieval || baseEntry.retrieval || {};
-        const errors = validateLoredeckV3EditorFields(position, retrieval);
+        const errors = validateLoredeckV3EditorFields(contextGate, retrieval);
         if (errors.length) return null;
         entry = normalizeLoredeckEntryForSchemaV3({
             ...entry,
             id,
             schemaVersion: 3,
-            position,
+            context: contextGate,
             retrieval,
             tags: entry.tags,
         });
@@ -15011,7 +15011,7 @@ function appendLoredeckEntryEditorSection(form, titleText) {
     return grid;
 }
 
-function buildLoredeckPositionFromEditorFields(fields = {}) {
+function buildLoredeckContextFromEditorFields(fields = {}) {
     if (!fields.scopeSelect) return {};
     const scope = getLoredeckEntryEditorString(fields.scopeSelect.value, 60);
     const anchorId = getLoredeckEntryEditorString(fields.anchorIdInput?.value, 180);
@@ -15022,7 +15022,7 @@ function buildLoredeckPositionFromEditorFields(fields = {}) {
     const precision = getLoredeckEntryEditorString(fields.precisionInput?.value, 120);
     const windowKind = getLoredeckEntryEditorString(fields.windowKindSelect?.value, 120);
     const label = getLoredeckEntryEditorString(fields.labelInput?.value, 240);
-    const position = {
+    const contextGate = {
         scope,
         anchorId,
         validFromAnchor: validFromAnchor || (scope === 'anchor' ? anchorId : ''),
@@ -15033,7 +15033,7 @@ function buildLoredeckPositionFromEditorFields(fields = {}) {
         windowKind,
         label,
     };
-    return Object.fromEntries(Object.entries(position).filter(([, value]) => value !== '' && value !== null && value !== undefined));
+    return Object.fromEntries(Object.entries(contextGate).filter(([, value]) => value !== '' && value !== null && value !== undefined));
 }
 
 function buildLoredeckRetrievalFromEditorFields(fields = {}) {
@@ -15046,16 +15046,16 @@ function buildLoredeckRetrievalFromEditorFields(fields = {}) {
     };
 }
 
-function validateLoredeckV3EditorFields(position = {}, retrieval = {}) {
+function validateLoredeckV3EditorFields(contextGate = {}, retrieval = {}) {
     const errors = [];
-    if (!['anchor', 'window', 'global'].includes(context.scope)) errors.push('Context scope');
-    if (!Number.isFinite(Number(context.sortKeyFrom))) errors.push('sort key from');
-    if (!Number.isFinite(Number(context.sortKeyTo))) errors.push('sort key to');
-    if (Number.isFinite(Number(context.sortKeyFrom)) && Number.isFinite(Number(context.sortKeyTo)) && Number(context.sortKeyFrom) > Number(context.sortKeyTo)) {
+    if (!['anchor', 'window', 'global'].includes(contextGate.scope)) errors.push('Context scope');
+    if (!Number.isFinite(Number(contextGate.sortKeyFrom))) errors.push('sort key from');
+    if (!Number.isFinite(Number(contextGate.sortKeyTo))) errors.push('sort key to');
+    if (Number.isFinite(Number(contextGate.sortKeyFrom)) && Number.isFinite(Number(contextGate.sortKeyTo)) && Number(contextGate.sortKeyFrom) > Number(contextGate.sortKeyTo)) {
         errors.push('sort key order');
     }
-    if (!getLoredeckEntryEditorString(context.precision, 120)) errors.push('Context precision');
-    if (!getLoredeckEntryEditorString(context.label, 240)) errors.push('Context label');
+    if (!getLoredeckEntryEditorString(contextGate.precision, 120)) errors.push('Context precision');
+    if (!getLoredeckEntryEditorString(contextGate.label, 240)) errors.push('Context label');
     if (!getLoredeckEntryEditorString(retrieval.activation, 80)) errors.push('retrieval activation');
     if (!getLoredeckEntryEditorString(retrieval.frequency, 80)) errors.push('retrieval frequency');
     if (!getLoredeckEntryEditorString(retrieval.contextBoost, 80)) errors.push('retrieval boost');
@@ -15119,26 +15119,26 @@ function openLoredeckEntryOverrideDialog(pack, row = null) {
     const revealSelect = createNewLoreSelect(metaGrid, 'Reveal', getLoreRegistryValues('revealPolicies', ['private', 'public', 'do_not_reveal']), sourceEntry.revealPolicy || 'private');
     const tagsInput = createNewLoreInput(form, 'Tags', 'Comma-separated tags.', Array.isArray(sourceEntry.tags) ? sourceEntry.tags.join(', ') : '', false, 'au-change, custom-pack');
 
-    let positionFields = null;
+    let contextFields = null;
     let retrievalFields = null;
     if (entrySchemaVersion >= 3) {
-        const sourcePosition = sourceEntry.context && typeof sourceEntry.context === 'object' && !Array.isArray(sourceEntry.context) ? sourceEntry.context : {};
+        const sourceContext = sourceEntry.context && typeof sourceEntry.context === 'object' && !Array.isArray(sourceEntry.context) ? sourceEntry.context : {};
         const sourceRetrieval = sourceEntry.retrieval && typeof sourceEntry.retrieval === 'object' && !Array.isArray(sourceEntry.retrieval) ? sourceEntry.retrieval : {};
-        const widePosition = sourcePosition.scope === 'global' || ['wide', 'series'].includes(String(sourcePosition.windowKind || '').trim());
+        const wideContext = sourceContext.scope === 'global' || ['wide', 'series'].includes(String(sourceContext.windowKind || '').trim());
 
-        const positionGrid = appendLoredeckEntryEditorSection(form, 'Context');
-        const scopeSelect = createNewLoreSelect(positionGrid, 'Scope', ['window', 'anchor', 'global'], sourcePosition.scope || 'window', value => humanizeScopeKey(value));
-        const anchorIdInput = createNewLoreInput(positionGrid, 'Anchor ID', 'Optional exact Context anchor ID for anchor-scoped entries.', sourcePosition.anchorId || '', false, 'hp.ootp.year_5');
-        const validFromAnchorInput = createNewLoreInput(positionGrid, 'From Anchor', 'Optional starting Context anchor ID.', sourcePosition.validFromAnchor || sourcePosition.anchorFrom || '', false, 'hp.ootp.year_5');
-        const validToAnchorInput = createNewLoreInput(positionGrid, 'To Anchor', 'Optional ending Context anchor ID.', sourcePosition.validToAnchor || sourcePosition.anchorTo || '', false, 'hp.ootp.year_5');
-        const sortKeyFromInput = createNewLoreInput(positionGrid, 'Sort From', 'Required numeric Context sort key where this entry starts being eligible.', getLoredeckEntryEditorNumberText(sourcePosition.sortKeyFrom), false, '9374');
-        const sortKeyToInput = createNewLoreInput(positionGrid, 'Sort To', 'Required numeric Context sort key where this entry stops being eligible.', getLoredeckEntryEditorNumberText(sourcePosition.sortKeyTo), false, '9739');
+        const contextGrid = appendLoredeckEntryEditorSection(form, 'Context');
+        const scopeSelect = createNewLoreSelect(contextGrid, 'Scope', ['window', 'anchor', 'global'], sourceContext.scope || 'window', value => humanizeScopeKey(value));
+        const anchorIdInput = createNewLoreInput(contextGrid, 'Anchor ID', 'Optional exact Context anchor ID for anchor-scoped entries.', sourceContext.anchorId || '', false, 'hp.ootp.year_5');
+        const validFromAnchorInput = createNewLoreInput(contextGrid, 'From Anchor', 'Optional starting Context anchor ID.', sourceContext.validFromAnchor || sourceContext.anchorFrom || '', false, 'hp.ootp.year_5');
+        const validToAnchorInput = createNewLoreInput(contextGrid, 'To Anchor', 'Optional ending Context anchor ID.', sourceContext.validToAnchor || sourceContext.anchorTo || '', false, 'hp.ootp.year_5');
+        const sortKeyFromInput = createNewLoreInput(contextGrid, 'Sort From', 'Required numeric Context sort key where this entry starts being eligible.', getLoredeckEntryEditorNumberText(sourceContext.sortKeyFrom), false, '9374');
+        const sortKeyToInput = createNewLoreInput(contextGrid, 'Sort To', 'Required numeric Context sort key where this entry stops being eligible.', getLoredeckEntryEditorNumberText(sourceContext.sortKeyTo), false, '9739');
         sortKeyFromInput.inputMode = 'decimal';
         sortKeyToInput.inputMode = 'decimal';
-        const precisionInput = createNewLoreInput(positionGrid, 'Precision', 'Required precision label for this Context gate.', sourcePosition.precision || '', false, 'anchor_window');
-        const windowKindSelect = createNewLoreSelect(positionGrid, 'Window Kind', ['bounded', 'school_year', 'arc', 'phase', 'relative', 'wide', 'series'], sourcePosition.windowKind || 'bounded', value => humanizeScopeKey(value));
-        const labelInput = createNewLoreInput(positionGrid, 'Context Label', 'Required human-readable Context label.', sourcePosition.label || '', false, 'After Year 5 begins');
-        positionFields = {
+        const precisionInput = createNewLoreInput(contextGrid, 'Precision', 'Required precision label for this Context gate.', sourceContext.precision || '', false, 'anchor_window');
+        const windowKindSelect = createNewLoreSelect(contextGrid, 'Window Kind', ['bounded', 'school_year', 'arc', 'phase', 'relative', 'wide', 'series'], sourceContext.windowKind || 'bounded', value => humanizeScopeKey(value));
+        const labelInput = createNewLoreInput(contextGrid, 'Context Label', 'Required human-readable Context label.', sourceContext.label || '', false, 'After Year 5 begins');
+        contextFields = {
             scopeSelect,
             anchorIdInput,
             validFromAnchorInput,
@@ -15149,12 +15149,12 @@ function openLoredeckEntryOverrideDialog(pack, row = null) {
             windowKindSelect,
             labelInput,
         };
-        form.appendChild(createLoredeckEntryAnchorPicker(pack, positionFields));
+        form.appendChild(createLoredeckEntryAnchorPicker(pack, contextFields));
 
         const retrievalGrid = appendLoredeckEntryEditorSection(form, 'Retrieval');
-        const activationSelect = createNewLoreSelect(retrievalGrid, 'Activation', ['topic_or_entity', 'position_or_topic', 'position_only', 'constant', 'manual'], sourceRetrieval.activation || 'topic_or_entity', value => humanizeScopeKey(value));
-        const frequencySelect = createNewLoreSelect(retrievalGrid, 'Frequency', ['low', 'normal', 'high'], sourceRetrieval.frequency || (widePosition ? 'low' : 'normal'), value => humanizeScopeKey(value));
-        const contextBoostSelect = createNewLoreSelect(retrievalGrid, 'Context Boost', ['low', 'medium', 'high'], sourceRetrieval.contextBoost || (widePosition ? 'low' : 'medium'), value => humanizeScopeKey(value));
+        const activationSelect = createNewLoreSelect(retrievalGrid, 'Activation', ['topic_or_entity', 'context_or_topic', 'context_only', 'constant', 'manual'], sourceRetrieval.activation || 'topic_or_entity', value => humanizeScopeKey(value));
+        const frequencySelect = createNewLoreSelect(retrievalGrid, 'Frequency', ['low', 'normal', 'high'], sourceRetrieval.frequency || (wideContext ? 'low' : 'normal'), value => humanizeScopeKey(value));
+        const contextBoostSelect = createNewLoreSelect(retrievalGrid, 'Context Boost', ['low', 'medium', 'high'], sourceRetrieval.contextBoost || (wideContext ? 'low' : 'medium'), value => humanizeScopeKey(value));
         retrievalFields = {
             activationSelect,
             frequencySelect,
@@ -15171,10 +15171,10 @@ function openLoredeckEntryOverrideDialog(pack, row = null) {
             toast('Entry override needs an ID, title, and lore text.', 'warning');
             return;
         }
-        const position = buildLoredeckPositionFromEditorFields(positionFields);
+        const contextGate = buildLoredeckContextFromEditorFields(contextFields);
         const retrieval = buildLoredeckRetrievalFromEditorFields(retrievalFields);
         if (entrySchemaVersion >= 3) {
-            const v3Errors = validateLoredeckV3EditorFields(position, retrieval);
+            const v3Errors = validateLoredeckV3EditorFields(contextGate, retrieval);
             if (v3Errors.length) {
                 toast(`Schema v3 entry needs: ${v3Errors.join(', ')}.`, 'warning');
                 return;
@@ -15195,7 +15195,7 @@ function openLoredeckEntryOverrideDialog(pack, row = null) {
             tags: parseLoredeckEntryTags(tagsInput.value),
             ...(entrySchemaVersion >= 3 ? {
                 schemaVersion: 3,
-                position,
+                context: contextGate,
                 retrieval,
             } : {}),
             source: sourceEntry.source || `saga-loredeck:${pack.packId}:override`,
@@ -15230,7 +15230,7 @@ function openLoredeckEntryOverrideDialog(pack, row = null) {
                 ...entry,
                 id,
                 schemaVersion: 3,
-                position,
+                context: contextGate,
                 retrieval,
             });
             entry.tags = parseLoredeckEntryTags(tagsInput.value);
@@ -15873,7 +15873,7 @@ function openLoredeckTagRenameDialog(pack, rows = [], item = {}) {
     requestAnimationFrame(() => toInput.focus());
 }
 
-function buildBulkLoredeckPositionOverrideEntry(pack, row, position, retrieval) {
+function buildBulkLoredeckContextOverrideEntry(pack, row, contextGate, retrieval) {
     const baseEntry = row.overrideEntry || row.sourceEntry || row.entry || {};
     const id = String(row.id || baseEntry.id || '').trim();
     const title = String(baseEntry.title || id || 'Lorecard').trim();
@@ -15884,7 +15884,7 @@ function buildBulkLoredeckPositionOverrideEntry(pack, row, position, retrieval) 
         id,
         title,
         schemaVersion: 3,
-        position,
+        context: contextGate,
         retrieval,
         tags: getLoredeckEntryTags(baseEntry),
         content: {
@@ -15910,13 +15910,13 @@ function buildBulkLoredeckPositionOverrideEntry(pack, row, position, retrieval) 
         ...entry,
         id,
         schemaVersion: 3,
-        position,
+        context: contextGate,
         retrieval,
         tags: getLoredeckEntryTags(baseEntry),
     });
 }
 
-function openLoredeckBulkPositionDialog(pack, rows = []) {
+function openLoredeckBulkContextDialog(pack, rows = []) {
     const entrySchemaVersion = getExpectedLoredeckEntrySchemaVersion(pack);
     if (entrySchemaVersion < 3) {
         toast('Bulk Context editing is available for schema v3 Loredecks.', 'warning');
@@ -15929,11 +15929,11 @@ function openLoredeckBulkPositionDialog(pack, rows = []) {
         return;
     }
 
-    const existing = document.querySelector('.wandlight-loredeck-bulk-position-overlay');
+    const existing = document.querySelector('.wandlight-loredeck-bulk-context-overlay');
     existing?.remove();
 
     const overlay = document.createElement('div');
-    overlay.className = 'wandlight-new-lore-overlay wandlight-loredeck-bulk-position-overlay';
+    overlay.className = 'wandlight-new-lore-overlay wandlight-loredeck-bulk-context-overlay';
     document.body.appendChild(overlay);
 
     const shell = document.createElement('div');
@@ -15965,19 +15965,19 @@ function openLoredeckBulkPositionDialog(pack, rows = []) {
     help.textContent = 'This queues Custom override proposals for the chosen entries. Runtime injection is unchanged until the proposals are accepted.';
     form.appendChild(help);
 
-    const positionGrid = appendLoredeckEntryEditorSection(form, 'Context');
-    const scopeSelect = createNewLoreSelect(positionGrid, 'Scope', ['window', 'anchor', 'global'], 'window', value => humanizeScopeKey(value));
-    const anchorIdInput = createNewLoreInput(positionGrid, 'Anchor ID', 'Optional exact Context anchor ID for anchor-scoped entries.', '', false, 'hp.ootp.year_5');
-    const validFromAnchorInput = createNewLoreInput(positionGrid, 'From Anchor', 'Optional starting Context anchor ID.', '', false, 'hp.ootp.year_5');
-    const validToAnchorInput = createNewLoreInput(positionGrid, 'To Anchor', 'Optional ending Context anchor ID.', '', false, 'hp.ootp.year_5');
-    const sortKeyFromInput = createNewLoreInput(positionGrid, 'Sort From', 'Required numeric Context sort key where these entries start being eligible.', '', false, '9374');
-    const sortKeyToInput = createNewLoreInput(positionGrid, 'Sort To', 'Required numeric Context sort key where these entries stop being eligible.', '', false, '9739');
+    const contextGrid = appendLoredeckEntryEditorSection(form, 'Context');
+    const scopeSelect = createNewLoreSelect(contextGrid, 'Scope', ['window', 'anchor', 'global'], 'window', value => humanizeScopeKey(value));
+    const anchorIdInput = createNewLoreInput(contextGrid, 'Anchor ID', 'Optional exact Context anchor ID for anchor-scoped entries.', '', false, 'hp.ootp.year_5');
+    const validFromAnchorInput = createNewLoreInput(contextGrid, 'From Anchor', 'Optional starting Context anchor ID.', '', false, 'hp.ootp.year_5');
+    const validToAnchorInput = createNewLoreInput(contextGrid, 'To Anchor', 'Optional ending Context anchor ID.', '', false, 'hp.ootp.year_5');
+    const sortKeyFromInput = createNewLoreInput(contextGrid, 'Sort From', 'Required numeric Context sort key where these entries start being eligible.', '', false, '9374');
+    const sortKeyToInput = createNewLoreInput(contextGrid, 'Sort To', 'Required numeric Context sort key where these entries stop being eligible.', '', false, '9739');
     sortKeyFromInput.inputMode = 'decimal';
     sortKeyToInput.inputMode = 'decimal';
-    const precisionInput = createNewLoreInput(positionGrid, 'Precision', 'Required precision label for this Context gate.', 'anchor_window', false, 'anchor_window');
-    const windowKindSelect = createNewLoreSelect(positionGrid, 'Window Kind', ['bounded', 'school_year', 'arc', 'phase', 'relative', 'wide', 'series'], 'bounded', value => humanizeScopeKey(value));
-    const labelInput = createNewLoreInput(positionGrid, 'Context Label', 'Required human-readable Context label.', '', false, 'After Year 5 begins');
-    const positionFields = {
+    const precisionInput = createNewLoreInput(contextGrid, 'Precision', 'Required precision label for this Context gate.', 'anchor_window', false, 'anchor_window');
+    const windowKindSelect = createNewLoreSelect(contextGrid, 'Window Kind', ['bounded', 'school_year', 'arc', 'phase', 'relative', 'wide', 'series'], 'bounded', value => humanizeScopeKey(value));
+    const labelInput = createNewLoreInput(contextGrid, 'Context Label', 'Required human-readable Context label.', '', false, 'After Year 5 begins');
+    const contextFields = {
         scopeSelect,
         anchorIdInput,
         validFromAnchorInput,
@@ -15988,10 +15988,10 @@ function openLoredeckBulkPositionDialog(pack, rows = []) {
         windowKindSelect,
         labelInput,
     };
-    form.appendChild(createLoredeckEntryAnchorPicker(pack, positionFields));
+    form.appendChild(createLoredeckEntryAnchorPicker(pack, contextFields));
 
     const retrievalGrid = appendLoredeckEntryEditorSection(form, 'Retrieval');
-    const activationSelect = createNewLoreSelect(retrievalGrid, 'Activation', ['topic_or_entity', 'position_or_topic', 'position_only', 'constant', 'manual'], 'topic_or_entity', value => humanizeScopeKey(value));
+    const activationSelect = createNewLoreSelect(retrievalGrid, 'Activation', ['topic_or_entity', 'context_or_topic', 'context_only', 'constant', 'manual'], 'topic_or_entity', value => humanizeScopeKey(value));
     const frequencySelect = createNewLoreSelect(retrievalGrid, 'Frequency', ['low', 'normal', 'high'], 'normal', value => humanizeScopeKey(value));
     const contextBoostSelect = createNewLoreSelect(retrievalGrid, 'Context Boost', ['low', 'medium', 'high'], 'medium', value => humanizeScopeKey(value));
     const retrievalFields = {
@@ -16003,9 +16003,9 @@ function openLoredeckBulkPositionDialog(pack, rows = []) {
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
     actions.appendChild(createButton('Queue For Review', 'Queue Custom overrides with this Context and retrieval metadata.', () => {
-        const position = buildLoredeckPositionFromEditorFields(positionFields);
+        const contextGate = buildLoredeckContextFromEditorFields(contextFields);
         const retrieval = buildLoredeckRetrievalFromEditorFields(retrievalFields);
-        const v3Errors = validateLoredeckV3EditorFields(position, retrieval);
+        const v3Errors = validateLoredeckV3EditorFields(contextGate, retrieval);
         if (v3Errors.length) {
             toast(`Schema v3 entries need: ${v3Errors.join(', ')}.`, 'warning');
             return;
@@ -16013,7 +16013,7 @@ function openLoredeckBulkPositionDialog(pack, rows = []) {
         const entryOverrides = {};
         const entryIds = [];
         for (const row of editableRows) {
-            const entry = buildBulkLoredeckPositionOverrideEntry(pack, row, position, retrieval);
+            const entry = buildBulkLoredeckContextOverrideEntry(pack, row, contextGate, retrieval);
             if (!entry.id) continue;
             entryOverrides[entry.id] = entry;
             entryIds.push(entry.id);
@@ -19845,7 +19845,7 @@ function createCanonPreviewEntryRow(entry, selectedIds, isStale = false) {
     const meta = document.createElement('div');
     meta.className = 'wandlight-lore-entry-meta wandlight-canon-preview-row-meta';
     const previewMeta = entry?.extensions?.canonPreview || {};
-    appendEntrySourceAndPositionBadges(meta, entry);
+    appendEntrySourceAndContextBadges(meta, entry);
     if (entry?.category) meta.appendChild(createBadge(entry.category, 'Canon entry category.'));
     if (entry?.lorePurpose) meta.appendChild(createBadge(LORE_PURPOSE_LABELS[entry.lorePurpose] || entry.lorePurpose, 'Why this canon entry would be useful.'));
     if (previewMeta.suggestionRole) meta.appendChild(createBadge(previewMeta.suggestionRole.replace(/_/g, ' '), 'Canon preview role used for pack sorting.'));
@@ -23596,7 +23596,7 @@ function createPendingLoreReviewCard(entry, index, selected = false) {
     meta.appendChild(createRegistryBadge('category', entry.category || 'other', `Category: ${entry.category || 'other'}. Pending cards use the same compact metadata style as accepted cards.`));
     meta.appendChild(createLorePurposeBadge(entry));
     meta.appendChild(createRegistryBadge('canonStatus', entry.canon || entry.canonStatus || 'canon', `Canon/Story: ${entry.canon || entry.canonStatus || 'canon'}.`));
-    appendEntrySourceAndPositionBadges(meta, entry);
+    appendEntrySourceAndContextBadges(meta, entry);
     meta.appendChild(createBadge(`P${Number(entry.priority || 50)}`, 'Priority used for sorting, injection preference, and canon-lore suggestion limits.'));
     const generation = entry.extensions?.wandlightGeneration || {};
     const reviewMeta = entry.extensions?.wandlightPendingReview || {};
@@ -26423,14 +26423,14 @@ function getEntryContextGateMeta(entry = {}) {
 
 function getContextGateChipLabel(gate = {}) {
     const matchedBy = String(gate.matchedBy || '').trim();
-    if (matchedBy === 'date_position') return 'Gate: date + position';
-    if (matchedBy === 'position') return 'Gate: position';
-    if (matchedBy === 'date_unresolved_position') return 'Gate: date fallback';
+    if (matchedBy === 'date_context') return 'Gate: date + Context';
+    if (matchedBy === 'context') return 'Gate: Context';
+    if (matchedBy === 'date_unresolved_context') return 'Gate: date fallback';
     if (matchedBy === 'date') return 'Gate: date';
-    if (matchedBy === 'unresolved_position') return 'Gate: unresolved';
-    if (matchedBy === 'position_mismatch' || gate.status === 'mismatch') return 'Gate: blocked';
-    if (matchedBy === 'date_contradicts_position') return 'Gate: date conflict';
-    if (gate.status === 'match') return 'Gate: position';
+    if (matchedBy === 'unresolved_context') return 'Gate: unresolved';
+    if (matchedBy === 'context_mismatch' || gate.status === 'mismatch') return 'Gate: blocked';
+    if (matchedBy === 'date_contradicts_context') return 'Gate: date conflict';
+    if (gate.status === 'match') return 'Gate: Context';
     if (gate.status === 'unresolved') return 'Gate: unresolved';
     if (gate.status === 'no_gate') return '';
     return matchedBy ? `Gate: ${matchedBy.replace(/_/g, ' ')}` : '';
@@ -26438,44 +26438,44 @@ function getContextGateChipLabel(gate = {}) {
 
 function getContextGateClass(gate = {}) {
     const matchedBy = String(gate.matchedBy || '');
-    if (gate.status === 'mismatch' || matchedBy.includes('mismatch') || matchedBy.includes('conflict')) return 'wandlight-lore-badge-position-blocked';
-    if (gate.status === 'unresolved' || matchedBy.includes('unresolved')) return 'wandlight-lore-badge-position-unresolved';
-    if (gate.status === 'match' || matchedBy.includes('position')) return 'wandlight-lore-badge-position-match';
+    if (gate.status === 'mismatch' || matchedBy.includes('mismatch') || matchedBy.includes('conflict')) return 'wandlight-lore-badge-context-blocked';
+    if (gate.status === 'unresolved' || matchedBy.includes('unresolved')) return 'wandlight-lore-badge-context-unresolved';
+    if (gate.status === 'match' || matchedBy.includes('context')) return 'wandlight-lore-badge-context-match';
     if (matchedBy === 'date') return 'wandlight-lore-badge-date-gate';
-    return 'wandlight-lore-badge-position';
+    return 'wandlight-lore-badge-context';
 }
 
-function hasEntryPositionMetadata(entry = {}) {
-    const position = isPlainObjectValue(entry.context) ? entry.context : {};
-    const positionHasValue = Object.entries(position).some(([key, value]) => {
+function hasEntryContextMetadata(entry = {}) {
+    const contextGate = isPlainObjectValue(entry.context) ? entry.context : {};
+    const contextHasValue = Object.entries(contextGate).some(([key, value]) => {
         if (key === 'approximate') return value === true;
         if (value === null || value === undefined || value === '') return false;
         return Number.isFinite(Number(value)) || String(value || '').trim() !== '';
     });
     const coordinates = Array.isArray(entry.coordinates) ? entry.coordinates : [];
-    return positionHasValue || coordinates.some(item => isPlainObjectValue(item)
+    return contextHasValue || coordinates.some(item => isPlainObjectValue(item)
         && [item.axis, item.id, item.label, item.from, item.to].some(value => String(value || '').trim()));
 }
 
-function formatEntryPositionSummary(entry = {}) {
-    if (!hasEntryPositionMetadata(entry)) return '';
-    const position = isPlainObjectValue(entry.context) ? entry.context : {};
+function formatEntryContextSummary(entry = {}) {
+    if (!hasEntryContextMetadata(entry)) return '';
+    const contextGate = isPlainObjectValue(entry.context) ? entry.context : {};
     const parts = [];
-    if (context.scope) parts.push(`Scope: ${context.scope}`);
-    if (context.label) parts.push(context.label);
-    if (position.anchorId) parts.push(`Anchor: ${position.anchorId}`);
-    if (position.validFromAnchor || position.validToAnchor) parts.push(`Window: ${position.validFromAnchor || 'start'} -> ${position.validToAnchor || 'open'}`);
-    if (position.arc) parts.push(`Arc: ${position.arc}`);
-    if (position.phase) parts.push(`Phase: ${position.phase}`);
-    if (position.season || position.episode) parts.push(`S${position.season || '?'} E${position.episode || '?'}`);
-    if (position.chapter) parts.push(`Chapter: ${position.chapter}`);
-    if (position.issue) parts.push(`Issue: ${position.issue}`);
-    if (position.quest) parts.push(`Quest: ${position.quest}`);
-    if (position.gameStage) parts.push(`Game: ${position.gameStage}`);
-    if (position.stardateFrom || position.stardateTo) parts.push(`Stardate: ${position.stardateFrom || 'start'} -> ${position.stardateTo || 'open'}`);
-    if (context.windowKind) parts.push(`Kind: ${context.windowKind}`);
-    if ((Number.isFinite(Number(context.sortKeyFrom)) || Number.isFinite(Number(context.sortKeyTo))) && !parts.some(part => part.startsWith('Window:'))) {
-        parts.push(`Sort: ${context.sortKeyFrom ?? 'start'} -> ${context.sortKeyTo ?? 'open'}`);
+    if (contextGate.scope) parts.push(`Scope: ${contextGate.scope}`);
+    if (contextGate.label) parts.push(contextGate.label);
+    if (contextGate.anchorId) parts.push(`Anchor: ${contextGate.anchorId}`);
+    if (contextGate.validFromAnchor || contextGate.validToAnchor) parts.push(`Window: ${contextGate.validFromAnchor || 'start'} -> ${contextGate.validToAnchor || 'open'}`);
+    if (contextGate.arc) parts.push(`Arc: ${contextGate.arc}`);
+    if (contextGate.phase) parts.push(`Phase: ${contextGate.phase}`);
+    if (contextGate.season || contextGate.episode) parts.push(`S${contextGate.season || '?'} E${contextGate.episode || '?'}`);
+    if (contextGate.chapter) parts.push(`Chapter: ${contextGate.chapter}`);
+    if (contextGate.issue) parts.push(`Issue: ${contextGate.issue}`);
+    if (contextGate.quest) parts.push(`Quest: ${contextGate.quest}`);
+    if (contextGate.gameStage) parts.push(`Game: ${contextGate.gameStage}`);
+    if (contextGate.stardateFrom || contextGate.stardateTo) parts.push(`Stardate: ${contextGate.stardateFrom || 'start'} -> ${contextGate.stardateTo || 'open'}`);
+    if (contextGate.windowKind) parts.push(`Kind: ${contextGate.windowKind}`);
+    if ((Number.isFinite(Number(contextGate.sortKeyFrom)) || Number.isFinite(Number(contextGate.sortKeyTo))) && !parts.some(part => part.startsWith('Window:'))) {
+        parts.push(`Sort: ${contextGate.sortKeyFrom ?? 'start'} -> ${contextGate.sortKeyTo ?? 'open'}`);
     }
     const coordinates = (Array.isArray(entry.coordinates) ? entry.coordinates : [])
         .filter(isPlainObjectValue)
@@ -26486,7 +26486,7 @@ function formatEntryPositionSummary(entry = {}) {
     return parts.join(' | ');
 }
 
-function createEntryPositionBadges(entry = {}) {
+function createEntryContextBadges(entry = {}) {
     const fragment = document.createDocumentFragment();
     const gate = getEntryContextGateMeta(entry);
     const gateLabel = getContextGateChipLabel(gate);
@@ -26496,20 +26496,20 @@ function createEntryPositionBadges(entry = {}) {
             gate.packId ? `Deck ID: ${gate.packId}` : '',
             gate.reason,
         ].filter(Boolean).join(' | ');
-        fragment.appendChild(createSagaMetadataBadge(gateLabel, tooltip, ['wandlight-lore-badge-position', getContextGateClass(gate)]));
+        fragment.appendChild(createSagaMetadataBadge(gateLabel, tooltip, ['wandlight-lore-badge-context', getContextGateClass(gate)]));
     }
 
-    const summary = formatEntryPositionSummary(entry);
+    const summary = formatEntryContextSummary(entry);
     if (summary) {
-        fragment.appendChild(createSagaMetadataBadge(`Pos: ${truncateText(summary, 36)}`, summary, ['wandlight-lore-badge-position']));
+        fragment.appendChild(createSagaMetadataBadge(`Ctx: ${truncateText(summary, 36)}`, summary, ['wandlight-lore-badge-context']));
     }
     return fragment;
 }
 
-function appendEntrySourceAndPositionBadges(meta, entry = {}) {
+function appendEntrySourceAndContextBadges(meta, entry = {}) {
     if (!meta) return;
     meta.appendChild(createEntrySourceBadges(entry));
-    meta.appendChild(createEntryPositionBadges(entry));
+    meta.appendChild(createEntryContextBadges(entry));
 }
 
 function scoreSearchEntry(entry, query) {

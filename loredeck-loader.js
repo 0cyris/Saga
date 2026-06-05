@@ -329,7 +329,7 @@ function getTimelineRegistryRef(manifest = {}) {
         registries.context,
         manifest.timeline,
         isPlainObject(manifest.context) ? manifest.context.timeline : '',
-        manifest.positionIndex,
+        manifest.contextIndex,
     ];
     for (const ref of refs) {
         const cleaned = cleanHealthString(ref, 400);
@@ -470,7 +470,7 @@ function getAnchorRangeEndSortKey(timeline = {}, anchorId = '') {
     return parseIsoDateSortKey(anchor?.dateRange?.to || anchor?.dateRange?.from || '') ?? getAnchorSortKey(timeline, anchorId);
 }
 
-function addPositionHealthIssue(health, severity, code, message, extra = {}) {
+function addContextHealthIssue(health, severity, code, message, extra = {}) {
     if (code === 'broken_anchor_reference') health.summary.brokenAnchorReferenceCount += 1;
     if (code === 'invalid_context_window') health.summary.invalidContextWindowCount += 1;
     if (code === 'unmatchable_context_gate') health.summary.unmatchableContextGateCount += 1;
@@ -479,7 +479,7 @@ function addPositionHealthIssue(health, severity, code, message, extra = {}) {
 
 function analyzeTimelineWindowHealth(health, timeline = {}) {
     for (const anchorId of timeline.duplicateAnchorIds || []) {
-        addPositionHealthIssue(health, 'warning', 'duplicate_timeline_anchor_id', `Timeline defines duplicate anchor id: ${anchorId}.`, {
+        addContextHealthIssue(health, 'warning', 'duplicate_timeline_anchor_id', `Timeline defines duplicate anchor id: ${anchorId}.`, {
             anchorId,
             timelineRef: timeline.timelineRef,
         });
@@ -491,9 +491,9 @@ function analyzeTimelineWindowHealth(health, timeline = {}) {
             window.anchorTo && !timeline.anchorById.has(window.anchorTo) ? window.anchorTo : '',
         ].filter(Boolean);
         if (missingAnchors.length) {
-            addPositionHealthIssue(health, 'warning', 'broken_anchor_reference', `Timeline window ${window.id} references unknown anchor${missingAnchors.length === 1 ? '' : 's'}: ${missingAnchors.join(', ')}.`, {
+            addContextHealthIssue(health, 'warning', 'broken_anchor_reference', `Timeline window ${window.id} references unknown anchor${missingAnchors.length === 1 ? '' : 's'}: ${missingAnchors.join(', ')}.`, {
                 anchorIds: missingAnchors,
-                positionField: 'timelineWindow',
+                contextField: 'timelineWindow',
                 timelineWindowId: window.id,
                 timelineRef: timeline.timelineRef,
             });
@@ -502,7 +502,7 @@ function analyzeTimelineWindowHealth(health, timeline = {}) {
         const fromSort = window.sortKeyFrom ?? getAnchorSortKey(timeline, window.anchorFrom);
         const toSort = window.sortKeyTo ?? getAnchorSortKey(timeline, window.anchorTo);
         if (fromSort !== null && toSort !== null && fromSort > toSort) {
-            addPositionHealthIssue(health, 'warning', 'invalid_context_window', `Timeline window ${window.id} starts after it ends.`, {
+            addContextHealthIssue(health, 'warning', 'invalid_context_window', `Timeline window ${window.id} starts after it ends.`, {
                 timelineWindowId: window.id,
                 anchorFrom: window.anchorFrom,
                 anchorTo: window.anchorTo,
@@ -521,7 +521,7 @@ function analyzeTimelineDateDerivedSortKeys(health, timeline = {}) {
         const expected = parseIsoDateSortKey(anchor.dateRange?.from || '');
         if (expected === null) continue;
         if (Number(anchor.sortKey) !== expected) {
-            addPositionHealthIssue(health, 'warning', 'timeline_anchor_sortkey_mismatch', `Timeline anchor ${anchor.id} sortKey should match dateRange.from for date-derived-day timelines.`, {
+            addContextHealthIssue(health, 'warning', 'timeline_anchor_sortkey_mismatch', `Timeline anchor ${anchor.id} sortKey should match dateRange.from for date-derived-day timelines.`, {
                 anchorId: anchor.id,
                 sortKey: anchor.sortKey,
                 expectedSortKey: expected,
@@ -534,7 +534,7 @@ function analyzeTimelineDateDerivedSortKeys(health, timeline = {}) {
         const expectedFrom = getAnchorSortKey(timeline, window.anchorFrom);
         const expectedTo = getAnchorRangeEndSortKey(timeline, window.anchorTo);
         if (expectedFrom !== null && Number(window.sortKeyFrom) !== expectedFrom) {
-            addPositionHealthIssue(health, 'warning', 'timeline_window_sortkey_mismatch', `Timeline window ${window.id} sortKeyFrom should match its start anchor for date-derived-day timelines.`, {
+            addContextHealthIssue(health, 'warning', 'timeline_window_sortkey_mismatch', `Timeline window ${window.id} sortKeyFrom should match its start anchor for date-derived-day timelines.`, {
                 timelineWindowId: window.id,
                 anchorFrom: window.anchorFrom,
                 sortKeyFrom: window.sortKeyFrom,
@@ -543,7 +543,7 @@ function analyzeTimelineDateDerivedSortKeys(health, timeline = {}) {
             });
         }
         if (expectedTo !== null && Number(window.sortKeyTo) !== expectedTo) {
-            addPositionHealthIssue(health, 'warning', 'timeline_window_sortkey_mismatch', `Timeline window ${window.id} sortKeyTo should match its end anchor range end for date-derived-day timelines.`, {
+            addContextHealthIssue(health, 'warning', 'timeline_window_sortkey_mismatch', `Timeline window ${window.id} sortKeyTo should match its end anchor range end for date-derived-day timelines.`, {
                 timelineWindowId: window.id,
                 anchorTo: window.anchorTo,
                 sortKeyTo: window.sortKeyTo,
@@ -662,11 +662,11 @@ async function loadTagRegistryForHealth(manifest = {}, baseUrl = null, health, r
     return tagIndex;
 }
 
-function hasFinitePositionNumber(value) {
+function hasFiniteContextNumber(value) {
     return value !== null && value !== undefined && value !== '' && Number.isFinite(Number(value));
 }
 
-function hasContextGate(position = {}, coordinates = []) {
+function hasContextGate(contextGate = {}, coordinates = []) {
     const fields = [
         'scope',
         'anchorId',
@@ -685,21 +685,21 @@ function hasContextGate(position = {}, coordinates = []) {
         'stardateFrom',
         'stardateTo',
     ];
-    if (fields.some(field => cleanHealthString(position[field]))) return true;
-    if (hasFinitePositionNumber(position.sortKeyFrom) || hasFinitePositionNumber(position.sortKeyTo)) return true;
+    if (fields.some(field => cleanHealthString(contextGate[field]))) return true;
+    if (hasFiniteContextNumber(contextGate.sortKeyFrom) || hasFiniteContextNumber(contextGate.sortKeyTo)) return true;
     return Array.isArray(coordinates) && coordinates.some(item => isPlainObject(item)
         && [item.axis, item.id, item.from, item.to].some(value => cleanHealthString(value)));
 }
 
-function getEntryAnchorReferences(position = {}) {
+function getEntryAnchorReferences(contextGate = {}) {
     return [
-        ['anchorId', cleanHealthString(position.anchorId, 180)],
-        ['validFromAnchor', cleanHealthString(position.validFromAnchor, 180)],
-        ['validToAnchor', cleanHealthString(position.validToAnchor, 180)],
+        ['anchorId', cleanHealthString(contextGate.anchorId, 180)],
+        ['validFromAnchor', cleanHealthString(contextGate.validFromAnchor, 180)],
+        ['validToAnchor', cleanHealthString(contextGate.validToAnchor, 180)],
     ].filter(([, anchorId]) => anchorId);
 }
 
-function hasOnlyAnchorOrWindowContextGate(position = {}, coordinates = []) {
+function hasOnlyAnchorOrWindowContextGate(contextGate = {}, coordinates = []) {
     const nonAnchorFields = [
         'arc',
         'arcId',
@@ -714,20 +714,20 @@ function hasOnlyAnchorOrWindowContextGate(position = {}, coordinates = []) {
         'stardateFrom',
         'stardateTo',
     ];
-    return getEntryAnchorReferences(position).length > 0
-        && !nonAnchorFields.some(field => cleanHealthString(position[field]))
+    return getEntryAnchorReferences(contextGate).length > 0
+        && !nonAnchorFields.some(field => cleanHealthString(contextGate[field]))
         && (!Array.isArray(coordinates) || coordinates.length === 0);
 }
 
-function analyzeEntryPositionWindowHealth(health, entry, file, timeline = {}) {
-    const position = entry.context || {};
+function analyzeEntryContextWindowHealth(health, entry, file, timeline = {}) {
+    const contextGate = entry.context || {};
     const entryId = cleanHealthString(entry.id, 180);
     const invalidReasons = [];
 
-    const explicitFromSort = hasFinitePositionNumber(position.sortKeyFrom) ? Number(position.sortKeyFrom) : null;
-    const explicitToSort = hasFinitePositionNumber(position.sortKeyTo) ? Number(position.sortKeyTo) : null;
-    const anchorFromSort = getAnchorSortKey(timeline, position.validFromAnchor);
-    const anchorToSort = getAnchorSortKey(timeline, position.validToAnchor);
+    const explicitFromSort = hasFiniteContextNumber(contextGate.sortKeyFrom) ? Number(contextGate.sortKeyFrom) : null;
+    const explicitToSort = hasFiniteContextNumber(contextGate.sortKeyTo) ? Number(contextGate.sortKeyTo) : null;
+    const anchorFromSort = getAnchorSortKey(timeline, contextGate.validFromAnchor);
+    const anchorToSort = getAnchorSortKey(timeline, contextGate.validToAnchor);
     const fromSort = explicitFromSort ?? anchorFromSort;
     const toSort = explicitToSort ?? anchorToSort;
 
@@ -739,11 +739,11 @@ function analyzeEntryPositionWindowHealth(health, entry, file, timeline = {}) {
 
     if (!invalidReasons.length) return [];
 
-    addPositionHealthIssue(health, 'warning', 'invalid_context_window', `Entry ${entryId || entry.title} has an invalid Context window: ${invalidReasons.join('; ')}.`, {
+    addContextHealthIssue(health, 'warning', 'invalid_context_window', `Entry ${entryId || entry.title} has an invalid Context window: ${invalidReasons.join('; ')}.`, {
         entryIds: entryId ? [entryId] : [],
         file,
-        anchorFrom: position.validFromAnchor || '',
-        anchorTo: position.validToAnchor || '',
+        anchorFrom: contextGate.validFromAnchor || '',
+        anchorTo: contextGate.validToAnchor || '',
         sortKeyFrom: fromSort,
         sortKeyTo: toSort,
     });
@@ -760,16 +760,16 @@ function analyzeEntryAnchorReferenceHealth(health, entry, file, timeline = {}) {
     if (!missing.length) return [];
 
     const anchorIds = missing.map(item => item.anchorId);
-    addPositionHealthIssue(health, 'warning', 'broken_anchor_reference', `Entry ${entryId || entry.title} references unknown Context anchor${anchorIds.length === 1 ? '' : 's'}: ${anchorIds.join(', ')}.`, {
+    addContextHealthIssue(health, 'warning', 'broken_anchor_reference', `Entry ${entryId || entry.title} references unknown Context anchor${anchorIds.length === 1 ? '' : 's'}: ${anchorIds.join(', ')}.`, {
         entryIds: entryId ? [entryId] : [],
         file,
         anchorIds,
-        positionFields: missing.map(item => item.field),
+        contextFields: missing.map(item => item.field),
     });
     return missing.map(item => `unknown ${item.field} ${item.anchorId}`);
 }
 
-function analyzeEntryPositionHealth(health, entryFiles = [], timeline = {}) {
+function analyzeEntryContextHealth(health, entryFiles = [], timeline = {}) {
     let contextGateCount = 0;
     let anchorReferenceGateCount = 0;
     const noTimelineEntryIds = [];
@@ -777,13 +777,13 @@ function analyzeEntryPositionHealth(health, entryFiles = [], timeline = {}) {
     for (const fileRecord of entryFiles) {
         for (const rawEntry of fileRecord.entries || []) {
             const entry = normalizeLoreEntry(rawEntry);
-            const position = entry.context || {};
+            const contextGate = entry.context || {};
             const coordinates = Array.isArray(entry.coordinates) ? entry.coordinates : [];
-            if (!hasContextGate(position, coordinates)) continue;
+            if (!hasContextGate(contextGate, coordinates)) continue;
 
             contextGateCount += 1;
             const entryId = cleanHealthString(entry.id, 180);
-            const anchorRefs = getEntryAnchorReferences(position);
+            const anchorRefs = getEntryAnchorReferences(contextGate);
             if (anchorRefs.length) anchorReferenceGateCount += 1;
             if (anchorRefs.length && !timeline.hasTimelineRef) {
                 if (entryId) noTimelineEntryIds.push(entryId);
@@ -794,10 +794,10 @@ function analyzeEntryPositionHealth(health, entryFiles = [], timeline = {}) {
             if (timeline.hasTimelineRef) {
                 impossibleReasons.push(...analyzeEntryAnchorReferenceHealth(health, entry, fileRecord.file, timeline));
             }
-            impossibleReasons.push(...analyzeEntryPositionWindowHealth(health, entry, fileRecord.file, timeline));
+            impossibleReasons.push(...analyzeEntryContextWindowHealth(health, entry, fileRecord.file, timeline));
 
-            if (impossibleReasons.length && hasOnlyAnchorOrWindowContextGate(position, coordinates)) {
-                addPositionHealthIssue(health, 'warning', 'unmatchable_context_gate', `Entry ${entryId || entry.title} has a Context gate that cannot match known anchors: ${impossibleReasons.join('; ')}.`, {
+            if (impossibleReasons.length && hasOnlyAnchorOrWindowContextGate(contextGate, coordinates)) {
+                addContextHealthIssue(health, 'warning', 'unmatchable_context_gate', `Entry ${entryId || entry.title} has a Context gate that cannot match known anchors: ${impossibleReasons.join('; ')}.`, {
                     entryIds: entryId ? [entryId] : [],
                     file: fileRecord.file,
                     reasons: impossibleReasons,
@@ -855,7 +855,7 @@ function analyzeSchemaV3EntryHealth(health, entry = {}, fileRecord = {}) {
     const label = getSchemaV3EntryLabel(entry);
     const file = fileRecord.file;
     const entryIds = id ? [id] : [];
-    const position = isPlainObject(entry.context) ? entry.context : null;
+    const contextGate = isPlainObject(entry.context) ? entry.context : null;
     const retrieval = isPlainObject(entry.retrieval) ? entry.retrieval : null;
     const content = isPlainObject(entry.content) ? entry.content : {};
 
@@ -868,13 +868,13 @@ function analyzeSchemaV3EntryHealth(health, entry = {}, fileRecord = {}) {
         });
     }
 
-    if (!position) {
+    if (!contextGate) {
         addSchemaV3HealthIssue(health, 'error', 'schema_v3_missing_context', `Schema v3 entry ${label} is missing a Context block.`, {
             entryIds,
             file,
         });
     } else {
-        const scope = cleanHealthString(position.scope, 60);
+        const scope = cleanHealthString(contextGate.scope, 60);
         if (!SCHEMA_V3_POSITION_SCOPES.has(scope)) {
             addSchemaV3HealthIssue(health, 'error', 'schema_v3_invalid_context_scope', `Schema v3 entry ${label} must declare context.scope as anchor, window, or global.`, {
                 entryIds,
@@ -882,19 +882,19 @@ function analyzeSchemaV3EntryHealth(health, entry = {}, fileRecord = {}) {
                 scope,
             });
         }
-        if (!hasFinitePositionNumber(position.sortKeyFrom) || !hasFinitePositionNumber(position.sortKeyTo)) {
+        if (!hasFiniteContextNumber(contextGate.sortKeyFrom) || !hasFiniteContextNumber(contextGate.sortKeyTo)) {
             addSchemaV3HealthIssue(health, 'error', 'schema_v3_missing_context_sort_keys', `Schema v3 entry ${label} must define numeric context.sortKeyFrom and context.sortKeyTo.`, {
                 entryIds,
                 file,
             });
         }
-        if (!hasNonEmptyString(position.precision)) {
+        if (!hasNonEmptyString(contextGate.precision)) {
             addSchemaV3HealthIssue(health, 'error', 'schema_v3_missing_context_precision', `Schema v3 entry ${label} must define context.precision.`, {
                 entryIds,
                 file,
             });
         }
-        if (!hasNonEmptyString(position.label)) {
+        if (!hasNonEmptyString(contextGate.label)) {
             addSchemaV3HealthIssue(health, 'error', 'schema_v3_missing_context_label', `Schema v3 entry ${label} must define a human-readable context.label.`, {
                 entryIds,
                 file,
@@ -929,12 +929,12 @@ function analyzeSchemaV3EntryHealth(health, entry = {}, fileRecord = {}) {
         });
     }
 
-    if (position && retrieval) {
-        const from = Number(position.sortKeyFrom);
-        const to = Number(position.sortKeyTo);
+    if (contextGate && retrieval) {
+        const from = Number(contextGate.sortKeyFrom);
+        const to = Number(contextGate.sortKeyTo);
         const span = Number.isFinite(from) && Number.isFinite(to) ? Math.max(1, to - from + 1) : null;
-        const wide = position.scope === 'global'
-            || ['series', 'wide'].includes(cleanHealthString(position.windowKind, 80))
+        const wide = contextGate.scope === 'global'
+            || ['series', 'wide'].includes(cleanHealthString(contextGate.windowKind, 80))
             || (span !== null && span >= 365);
         if (wide) {
             const expected = {
@@ -1268,12 +1268,12 @@ export function repairLoredeckEntryForHealth(entry = {}, options = {}) {
     const forceSchemaV3 = options.forceSchemaVersion === 3 || Number(entry?.schemaVersion) >= 3;
     let next = forceSchemaV3 ? normalizeLoredeckEntryForSchemaV3(entry) : (clonePlainObject(entry) || {});
     if (forceSchemaV3) {
-        const position = isPlainObject(next.context) ? next.context : {};
-        const from = Number(position.sortKeyFrom);
-        const to = Number(position.sortKeyTo);
+        const contextGate = isPlainObject(next.context) ? next.context : {};
+        const from = Number(contextGate.sortKeyFrom);
+        const to = Number(contextGate.sortKeyTo);
         const span = Number.isFinite(from) && Number.isFinite(to) ? Math.max(1, to - from + 1) : null;
-        const wide = position.scope === 'global'
-            || ['series', 'wide'].includes(cleanHealthString(position.windowKind, 80))
+        const wide = contextGate.scope === 'global'
+            || ['series', 'wide'].includes(cleanHealthString(contextGate.windowKind, 80))
             || (span !== null && span >= 365);
         if (wide) {
             next.retrieval = {
@@ -1313,7 +1313,7 @@ export function buildLoredeckHealthForData(options = {}) {
         : entryFiles;
     const timeline = createInMemoryTimelineHealthIndex(manifest, options.timeline, health, options.registryRecord);
     const tagIndex = createInMemoryTagRegistryHealthIndex(manifest, options.tagRegistry, options.registryRecord, health);
-    analyzeEntryPositionHealth(health, finalEntryFiles, timeline);
+    analyzeEntryContextHealth(health, finalEntryFiles, timeline);
     analyzeEntries(health, finalEntryFiles, manifest, tagIndex);
     return finalizeHealth(health);
 }
@@ -1642,7 +1642,7 @@ async function loadEntryFiles(manifest = {}, baseUrl, health, registryRecord = n
     const finalEntryFiles = applyRegistryEntryOverrides(entryFiles, registryRecord, manifest, health);
     const timeline = await loadTimelineRegistryForHealth(manifest, baseUrl, health, registryRecord);
     const tagIndex = await loadTagRegistryForHealth(manifest, baseUrl, health, registryRecord);
-    analyzeEntryPositionHealth(health, finalEntryFiles, timeline);
+    analyzeEntryContextHealth(health, finalEntryFiles, timeline);
     analyzeEntries(health, finalEntryFiles, manifest, tagIndex);
     return finalEntryFiles;
 }
@@ -1920,5 +1920,5 @@ export const __loredeckLoaderTestHooks = {
     analyzeEntries,
     analyzeSchemaV3EntryHealth,
     analyzeManifestStatsHealth,
-    analyzeEntryPositionHealth,
+    analyzeEntryContextHealth,
 };

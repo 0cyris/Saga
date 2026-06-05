@@ -13,7 +13,7 @@ const {
   normalizeLoredeckEntryForSchemaV3,
   repairLoredeckEntryForHealth,
   analyzeEntries,
-  analyzeEntryPositionHealth,
+  analyzeEntryContextHealth,
   normalizeTagRegistryForHealth,
   createTagRegistryHealthIndex,
   analyzeTagRegistryDefinitionHealth,
@@ -41,7 +41,7 @@ health.summary.timelineAnchorCount = timeline.anchors.length;
 health.summary.timelineWindowCount = timeline.windows.length;
 
 analyzeTimelineWindowHealth(health, timeline);
-analyzeEntryPositionHealth(health, [{
+analyzeEntryContextHealth(health, [{
   file: 'entries.json',
   entries: [
     {
@@ -81,7 +81,7 @@ assert.equal(health.summary.unmatchableContextGateCount, 2);
 assert.equal(health.status, 'needs_review');
 
 const noTimelineHealth = createHealth('draft-pack');
-analyzeEntryPositionHealth(noTimelineHealth, [{
+analyzeEntryContextHealth(noTimelineHealth, [{
   file: 'draft.json',
   entries: [{
     id: 'draft_anchor_gate',
@@ -123,7 +123,7 @@ analyzeEntries(schemaHealth, [{
       },
       content: { fact: 'Bad.', injection: 'Bad.' },
       retrieval: {
-        activation: 'position_or_topic',
+        activation: 'context_or_topic',
         frequency: 'normal',
         contextBoost: 'medium',
       },
@@ -204,7 +204,7 @@ const repairedV3Entry = repairLoredeckEntryForHealth({
     label: 'Full series',
   },
   retrieval: {
-    activation: 'position_or_topic',
+    activation: 'context_or_topic',
     frequency: 'normal',
     contextBoost: 'medium',
   },

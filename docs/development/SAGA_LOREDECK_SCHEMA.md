@@ -1398,7 +1398,7 @@ Saga should send the model:
 - Optional supporting user/header text.
 - Target Loredeck IDs.
 - Known timeline anchors/windows for those packs.
-- Bounded entry-derived Context candidates when useful.
+- Bounded Lorecard-derived Context candidates when useful.
 
 The model should return only known target IDs, request clarification, or mark a pack unresolved.
 
@@ -1463,8 +1463,8 @@ Existing fields:
   "schemaVersion": 2,
   "weights": {
     "dateMatch": 30,
-    "positionMatch": 30,
-    "positionUnresolvedPenalty": -8,
+    "contextMatch": 30,
+    "contextUnresolvedPenalty": -8,
     "characterMatch": 25,
     "locationMatch": 12,
     "topicMatch": 18,
@@ -1485,8 +1485,8 @@ Saga additions:
 {
   "schemaVersion": 3,
   "weights": {
-    "positionMatch": 30,
-    "positionUnresolvedPenalty": -8,
+    "contextMatch": 30,
+    "contextUnresolvedPenalty": -8,
     "anchorProximity": 16,
     "tagMatch": 18,
     "packStack": 10,
@@ -1508,7 +1508,7 @@ Current retrieval behavior:
 - Entries with a matching `context` block qualify through the active Loredeck Context.
 - A mismatched `context` block blocks the entry.
 - An unresolved `context` block is not eligible for canon suggestions.
-- Wide Context windows remain eligible but receive conservative positional boost and should require topic/entity retrieval.
+- Wide Context windows remain eligible but receive conservative Context boost and should require topic/entity retrieval.
 
 These values are a draft. Pack stack order should influence tie-breaks and candidate ranking without making top packs blindly suppress useful lower-pack entries.
 

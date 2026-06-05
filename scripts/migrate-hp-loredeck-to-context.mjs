@@ -141,7 +141,7 @@ function shouldSkipFile(root, file) {
   return NON_ENTRY_FILES.has(relative);
 }
 
-function sortObjectKeysForContext(position) {
+function sortObjectKeysForContext(contextGate) {
   const ordered = {};
   for (const key of [
     'scope',
@@ -154,7 +154,7 @@ function sortObjectKeysForContext(position) {
     'label',
     'approximate',
   ]) {
-    if (position[key] !== undefined && position[key] !== null && position[key] !== '') ordered[key] = position[key];
+    if (contextGate[key] !== undefined && contextGate[key] !== null && contextGate[key] !== '') ordered[key] = contextGate[key];
   }
   return ordered;
 }
@@ -269,9 +269,9 @@ function mergeScope(entry = {}) {
   return omitEmptyObject(out) || {};
 }
 
-function buildRetrieval(entry = {}, position = {}) {
-  const span = Number(position.sortKeyTo) - Number(position.sortKeyFrom) + 1;
-  const wide = position.windowKind === 'wide' || position.windowKind === 'series' || (Number.isFinite(span) && span >= 365);
+function buildRetrieval(entry = {}, contextGate = {}) {
+  const span = Number(contextGate.sortKeyTo) - Number(contextGate.sortKeyFrom) + 1;
+  const wide = contextGate.windowKind === 'wide' || contextGate.windowKind === 'series' || (Number.isFinite(span) && span >= 365);
   const narrow = Number.isFinite(span) && span <= 14;
   const scope = mergeScope(entry);
   const triggers = omitEmptyObject({
@@ -281,7 +281,7 @@ function buildRetrieval(entry = {}, position = {}) {
     erasAny: scope.eras || [],
   });
   return omitEmptyObject({
-    activation: wide ? 'topic_or_entity' : 'position_or_topic',
+    activation: wide ? 'topic_or_entity' : 'context_or_topic',
     frequency: wide ? 'low' : narrow ? 'high' : 'normal',
     contextBoost: wide ? 'low' : narrow ? 'high' : 'medium',
     triggers,
@@ -293,10 +293,10 @@ function normalizeVisibilityMapToContext(value = {}) {
   const out = {};
   const plain = [];
   const never = [];
-  for (const [name, rawPosition] of Object.entries(map)) {
+  for (const [name, rawContext] of Object.entries(map)) {
     const subject = cleanString(name, 120);
     if (!subject) continue;
-    const text = cleanString(rawPosition, 80);
+    const text = cleanString(rawContext, 80);
     if (text === '9999-12-31') {
       never.push(subject);
       continue;
@@ -316,14 +316,14 @@ function mergeVisibility(entry = {}) {
   const raw = isPlainObject(entry.visibility) ? entry.visibility : {};
   const known = normalizeVisibilityMapToContext(raw.knownBy ?? entry.whoKnowsTruth);
   const notKnown = normalizeVisibilityMapToContext(raw.notKnownByBefore);
-  const existingKnownByAtPosition = isPlainObject(raw.knownByAtContext) ? raw.knownByAtContext : {};
-  const existingNotKnownByBeforePosition = isPlainObject(raw.notKnownByBeforeContext) ? raw.notKnownByBeforeContext : {};
+  const existingKnownByAtContext = isPlainObject(raw.knownByAtContext) ? raw.knownByAtContext : {};
+  const existingNotKnownByBeforeContext = isPlainObject(raw.notKnownByBeforeContext) ? raw.notKnownByBeforeContext : {};
   const rawKnownBySubjects = isPlainObject(raw.knownBy) ? Object.keys(raw.knownBy) : raw.knownBy;
   const out = {
     revealPolicy: entry.revealPolicy || raw.revealPolicy,
-    knownBy: uniqueStringArray(known.subjects, rawKnownBySubjects, Object.keys(existingKnownByAtPosition)),
-    knownByAtContext: { ...existingKnownByAtPosition, ...known.positions },
-    notKnownByBeforeContext: { ...existingNotKnownByBeforePosition, ...notKnown.positions },
+    knownBy: uniqueStringArray(known.subjects, rawKnownBySubjects, Object.keys(existingKnownByAtContext)),
+    knownByAtContext: { ...existingKnownByAtContext, ...known.positions },
+    notKnownByBeforeContext: { ...existingNotKnownByBeforeContext, ...notKnown.positions },
     neverKnownBy: uniqueStringArray(raw.neverKnownBy, notKnown.never),
     suspectedBy: raw.suspectedBy,
     believedBy: raw.believedBy ?? entry.whoBelievesPublicVersion,
@@ -414,12 +414,12 @@ export function migrateEntryToContext(entry = {}, options = {}) {
     };
   }
   const range = getEntryDateRange(entry);
-  const position = buildContextFromDateRange(range, { timeline: options.timeline });
-  if (!position) {
+  const contextGate = buildContextFromDateRange(range, { timeline: options.timeline });
+  if (!contextGate) {
     return { entry, changed: false, status: range.from || range.to ? 'invalid_date' : 'no_date' };
   }
   return {
-    entry: copyKnownFields(entry, position),
+    entry: copyKnownFields(entry, contextGate),
     changed: true,
     status: 'position_native',
   };

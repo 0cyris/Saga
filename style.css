@@ -5441,8 +5441,8 @@
     background: rgba(70, 100, 120, 0.22);
     border-color: rgba(150, 180, 195, 0.22);
 }
-.wandlight-lore-badge-position,
-.wandlight-lore-badge-position-match {
+.wandlight-lore-badge-context,
+.wandlight-lore-badge-context-match {
     color: #bdd7ff;
     background: rgba(62, 95, 155, 0.24);
     border-color: rgba(135, 165, 220, 0.26);
@@ -5452,12 +5452,12 @@
     background: rgba(132, 116, 62, 0.24);
     border-color: rgba(198, 178, 108, 0.24);
 }
-.wandlight-lore-badge-position-unresolved {
+.wandlight-lore-badge-context-unresolved {
     color: #f0c98f;
     background: rgba(154, 102, 44, 0.24);
     border-color: rgba(220, 162, 86, 0.28);
 }
-.wandlight-lore-badge-position-blocked {
+.wandlight-lore-badge-context-blocked {
     color: #efa6a6;
     background: rgba(148, 56, 56, 0.24);
     border-color: rgba(218, 112, 112, 0.3);
@@ -8585,7 +8585,7 @@
     margin-bottom: 8px;
 }
 
-.wandlight-context-workbench-position-view .wandlight-context-workbench-controls {
+.wandlight-context-workbench-context-view .wandlight-context-workbench-controls {
     grid-template-columns: repeat(3, auto) minmax(0, 1fr);
 }
 
@@ -8598,7 +8598,7 @@
     gap: 10px;
 }
 
-.wandlight-context-workbench-position-layout {
+.wandlight-context-workbench-context-layout {
     flex: 1 1 auto;
     min-height: 0;
     display: grid;
@@ -8607,7 +8607,7 @@
 }
 
 .wandlight-context-workbench-table,
-.wandlight-context-workbench-position-table,
+.wandlight-context-workbench-context-table,
 .wandlight-context-workbench-alias-table,
 .wandlight-context-workbench-validation-table,
 .wandlight-context-workbench-inspector {
@@ -8622,7 +8622,7 @@
 }
 
 .wandlight-context-workbench-table,
-.wandlight-context-workbench-position-table,
+.wandlight-context-workbench-context-table,
 .wandlight-context-workbench-alias-table,
 .wandlight-context-workbench-validation-table {
     display: flex;
@@ -8630,7 +8630,7 @@
 }
 
 .wandlight-context-workbench-table-row,
-.wandlight-context-workbench-position-row,
+.wandlight-context-workbench-context-row,
 .wandlight-context-workbench-alias-row,
 .wandlight-context-workbench-validation-row {
     display: grid;
@@ -8647,7 +8647,7 @@
     grid-template-columns: minmax(78px, 0.48fr) minmax(210px, 1.45fr) minmax(92px, 0.62fr) minmax(210px, 1.25fr) minmax(68px, 0.42fr) minmax(68px, 0.42fr) minmax(72px, 0.42fr) minmax(86px, 0.52fr);
 }
 
-.wandlight-context-workbench-position-row {
+.wandlight-context-workbench-context-row {
     grid-template-columns: minmax(180px, 0.9fr) minmax(300px, 1.6fr) minmax(112px, 0.55fr) minmax(120px, 0.55fr) minmax(110px, 0.55fr) minmax(160px, auto);
 }
 
@@ -8673,7 +8673,7 @@
 }
 
 .wandlight-context-workbench-table-row:not(.wandlight-context-workbench-row-header):hover,
-.wandlight-context-workbench-position-row:not(.wandlight-context-workbench-row-header):hover,
+.wandlight-context-workbench-context-row:not(.wandlight-context-workbench-row-header):hover,
 .wandlight-context-workbench-alias-row:not(.wandlight-context-workbench-row-header):hover,
 .wandlight-context-workbench-validation-row:not(.wandlight-context-workbench-row-header):hover {
     background: rgba(215, 181, 109, 0.07);
@@ -8719,7 +8719,7 @@
     box-sizing: border-box;
 }
 
-.wandlight-context-workbench-position-editor {
+.wandlight-context-workbench-context-editor {
     display: flex;
     flex-direction: column;
     gap: 9px;
@@ -8751,7 +8751,7 @@
     grid-column: 1 / -1;
 }
 
-.wandlight-context-workbench-position-picker,
+.wandlight-context-workbench-context-picker,
 .wandlight-context-workbench-resolver {
     display: flex;
     flex-direction: column;
@@ -8762,7 +8762,7 @@
     padding: 8px;
 }
 
-.wandlight-context-workbench-position-picker-top,
+.wandlight-context-workbench-context-picker-top,
 .wandlight-context-workbench-resolver-top {
     display: grid;
     grid-template-columns: auto minmax(180px, 1fr) auto;
@@ -8774,7 +8774,7 @@
     grid-template-columns: auto minmax(200px, 1fr) auto auto auto auto;
 }
 
-.wandlight-context-workbench-position-picker-list {
+.wandlight-context-workbench-context-picker-list {
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -8792,7 +8792,7 @@
     padding-right: 2px;
 }
 
-.wandlight-context-workbench-position-picker-row,
+.wandlight-context-workbench-context-picker-row,
 .wandlight-context-workbench-resolver-row {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
@@ -8854,28 +8854,28 @@
     line-height: 1.35;
 }
 
-.wandlight-context-workbench-position-picker-main {
+.wandlight-context-workbench-context-picker-main {
     min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 2px;
 }
 
-.wandlight-context-workbench-position-picker-title,
-.wandlight-context-workbench-position-picker-meta {
+.wandlight-context-workbench-context-picker-title,
+.wandlight-context-workbench-context-picker-meta {
     min-width: 0;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
-.wandlight-context-workbench-position-picker-title {
+.wandlight-context-workbench-context-picker-title {
     color: var(--wandlight-text, #f1ead8);
     font-size: 0.8em;
     font-weight: 750;
 }
 
-.wandlight-context-workbench-position-picker-meta {
+.wandlight-context-workbench-context-picker-meta {
     color: var(--wandlight-muted, rgba(241, 234, 216, 0.62));
     font-size: 0.7em;
 }
@@ -8938,18 +8938,18 @@
 
     .wandlight-context-workbench-header,
     .wandlight-context-workbench-controls,
-    .wandlight-context-workbench-position-view .wandlight-context-workbench-controls {
+    .wandlight-context-workbench-context-view .wandlight-context-workbench-controls {
         grid-template-columns: 1fr;
     }
 
     .wandlight-context-workbench-main,
     .wandlight-context-workbench-validation-layout,
-    .wandlight-context-workbench-position-layout {
+    .wandlight-context-workbench-context-layout {
         grid-template-columns: 1fr;
     }
 
     .wandlight-context-workbench-table-row,
-    .wandlight-context-workbench-position-row,
+    .wandlight-context-workbench-context-row,
     .wandlight-context-workbench-alias-row,
     .wandlight-context-workbench-validation-row {
         grid-template-columns: minmax(0, 1fr);
@@ -8964,14 +8964,14 @@
     }
 
     .wandlight-context-workbench-editor-grid,
-    .wandlight-context-workbench-position-picker-top,
+    .wandlight-context-workbench-context-picker-top,
     .wandlight-context-workbench-resolver-top,
-    .wandlight-context-workbench-position-picker-row,
+    .wandlight-context-workbench-context-picker-row,
     .wandlight-context-workbench-resolver-row {
         grid-template-columns: 1fr;
     }
 
-    .wandlight-context-workbench-position-picker-row .wandlight-context-workbench-row-actions,
+    .wandlight-context-workbench-context-picker-row .wandlight-context-workbench-row-actions,
     .wandlight-context-workbench-resolver-row .wandlight-context-workbench-row-actions {
         justify-content: flex-start;
     }

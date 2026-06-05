@@ -65,7 +65,7 @@
         "revealPolicy": "do_not_reveal"
       },
       "retrieval": {
-        "activation": "position_or_topic",
+        "activation": "context_or_topic",
         "frequency": "normal",
         "contextBoost": "medium",
         "triggers": {

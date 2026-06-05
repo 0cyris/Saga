@@ -260,7 +260,7 @@ const creatorEntryUserJson = JSON.parse(creatorEntryUserPrompt);
 assert.equal(creatorEntryUserJson.generatedPackId, 'one-piece-arlong-park');
 assert.equal(creatorEntryUserJson.constraints.upsertEntriesOnly, true);
 assert.equal(creatorEntryUserJson.constraints.schemaVersion, 3);
-assert.equal(creatorEntryUserJson.constraints.requirePosition, true);
+assert.equal(creatorEntryUserJson.constraints.requireContext, true);
 assert.equal(creatorEntryUserJson.targetTitleDrafts[0].targetEntryId, 'nami-hides-her-bargain');
 assert.equal(creatorEntryUserJson.acceptedTagRegistry.tags['character:nami'].label, 'Nami');
 
