@@ -77,7 +77,7 @@ import {
     buildLorepackCreatorEntrySystemPrompt,
     buildLorepackCreatorEntryUserPrompt,
 } from './lorepack-assistant.js';
-import { clearStoryPositionIndexCache, findStoryPositionAnchors, getStoryPositionIndexSync, loadStoryPositionIndex } from './story-position-index.js';
+import { clearStoryPositionIndexCache, findStoryPositionAnchors, getStoryPositionIndexSync, loadStoryPositionIndex, rankStoryPositionAnchors } from './story-position-index.js';
 import { resolveAndApplyStoryPositionsFromContext, resolveStoryPositionsWithModel } from './story-position-resolver.js';
 import { runAutoRelevance, applyAutoRelevanceSuggestions, clearAutoRelevanceSuggestions, rejectAutoRelevanceSuggestions } from './auto-relevance.js';
 import {
@@ -91,6 +91,7 @@ import {
 const PANEL_ID = 'wandlight-lore-panel';
 const LORE_WORKBENCH_ID = 'wandlight-lore-workbench';
 const LORE_TIMELINE_ID = 'wandlight-lore-timeline';
+const STORY_POSITION_WORKBENCH_ID = 'wandlight-story-position-workbench';
 const MIN_PANEL_WIDTH = 420;
 const MIN_PANEL_HEIGHT = 360;
 const MIN_DRAWER_WIDTH = 360;
@@ -1134,6 +1135,14 @@ let lorepackLibrarySort = 'name';
 let lorepackLibraryDetailsTab = 'overview';
 let lorepackLibraryBulkSelectedIds = new Set();
 let lorepackLibraryLastSelectionAnchorId = '';
+let storyPositionWorkbenchOpen = false;
+let storyPositionWorkbenchTab = 'position';
+let storyPositionWorkbenchPackId = '';
+let storyPositionWorkbenchSelectedKey = '';
+let storyPositionWorkbenchQuery = '';
+let storyPositionWorkbenchPositionQuery = '';
+let storyPositionWorkbenchResolverQuery = '';
+let storyPositionWorkbenchTypeFilter = 'all';
 let loreTimelineOpen = false;
 let loreTimelineSelectedId = '';
 let loreTimelineViewport = null;
@@ -2383,6 +2392,7 @@ function refreshLorepackSurfaces(options = {}) {
     refreshPanelBody({ preserveScroll, preserveWindowScroll });
     refreshHeader();
     if (renderLibrary && lorepackLibraryOpen) renderLorepackLibraryOverlay();
+    if (storyPositionWorkbenchOpen) renderStoryPositionWorkbench();
 }
 
 function normalizeLorepackLibraryBulkSelection(library = [], fallbackPackId = '') {
@@ -4933,7 +4943,7 @@ function createLorepackStoryPositionCard(state = getState(), positionIndex = get
 
     const help = document.createElement('div');
     help.className = 'wandlight-runtime-help';
-    help.textContent = 'Set where this chat sits inside each loaded Loredeck. Manual edits lock by default so automated resolvers do not overwrite your chosen canon point.';
+    help.textContent = 'Quickly review where this chat sits in each loaded Loredeck. Open the Workbench for detailed Story Position editing and timeline registry tools.';
     card.appendChild(help);
 
     if (!stack.length) {
@@ -4951,9 +4961,12 @@ function createLorepackStoryPositionCard(state = getState(), positionIndex = get
 
     const resolveActions = document.createElement('div');
     resolveActions.className = 'wandlight-primary-actions';
+    resolveActions.appendChild(createButton('Open Workbench', 'Open the fullscreen Story Position Workbench for timeline search, aliases, validation, and registry editing.', () => {
+        openStoryPositionWorkbenchForPack(stack[0]?.packId || '', 'position');
+    }, 'wandlight-primary-button'));
     resolveActions.appendChild(createButton('Resolve From Context', 'Use current Story Context and Loredeck timeline aliases to update unlocked Story Positions.', async (btn) => {
         await handleResolveStoryPositionsFromContext(btn);
-    }, 'wandlight-primary-button'));
+    }));
     resolveActions.appendChild(createButton('Model Fallback', 'Ask the configured Reasoning Provider to resolve unresolved Story Positions using known timeline anchors only.', async (btn) => {
         await handleModelResolveStoryPositions(btn);
     }));
@@ -5001,45 +5014,29 @@ function createLorepackStoryPositionRow(item, state = getState(), positionIndex 
     summary.textContent = formatStoryPositionSummary(context);
     row.appendChild(summary);
 
-    row.appendChild(createStoryPositionAnchorLookup(packId, positionIndex));
-
-    const grid = document.createElement('div');
-    grid.className = 'wandlight-lorepack-story-position-grid';
-    createStoryPositionSelectField(grid, 'Type', packId, 'positionType', context.positionType, STORY_POSITION_TYPE_OPTIONS, 'How this Loredeck represents story progress.');
-    createStoryPositionTextField(grid, 'Label', packId, 'label', context.label, 'Human-readable story position label.');
-    createStoryPositionTextField(grid, 'Scene Date', packId, 'sceneDate', context.sceneDate, 'Exact or approximate in-universe date when the pack supports dates.');
-    createStoryPositionTextField(grid, 'Branch', packId, 'branchId', context.branchId || 'main', 'Use main for canon baseline, or a custom branch for AU/time travel.');
-    createStoryPositionTextField(grid, 'Arc', packId, 'arc', context.arc, 'Named arc, saga, route, or campaign segment.');
-    createStoryPositionTextField(grid, 'Phase', packId, 'phase', context.phase, 'Broad phase or era, such as MCU Phase 3.');
-    createStoryPositionTextField(grid, 'Season', packId, 'season', context.season, 'Television/anime season when relevant.');
-    createStoryPositionTextField(grid, 'Episode', packId, 'episode', context.episode, 'Episode number, title, or range when relevant.');
-    createStoryPositionTextField(grid, 'Chapter', packId, 'chapter', context.chapter, 'Book/manga/webnovel chapter when relevant.');
-    createStoryPositionTextField(grid, 'Issue', packId, 'issue', context.issue, 'Comic issue or run position when relevant.');
-    createStoryPositionTextField(grid, 'Quest', packId, 'quest', context.quest, 'Game quest, mission, route, or scenario marker.');
-    createStoryPositionTextField(grid, 'Game Stage', packId, 'gameStage', context.gameStage, 'Game progression marker when a calendar date is not useful.');
-    createStoryPositionTextField(grid, 'Anchor', packId, 'anchorId', context.anchorId, 'Selected event/book/film/arc anchor ID or label.');
-    createStoryPositionTextField(grid, 'After', packId, 'anchorFrom', context.anchorFrom, 'Lower bound anchor for before/after windows.');
-    createStoryPositionTextField(grid, 'Before', packId, 'anchorTo', context.anchorTo, 'Upper bound anchor for before/after windows.');
-    createStoryPositionTextField(grid, 'Alias / User Note', packId, 'alias', context.alias, 'Freeform user phrasing, such as after Shibuya Incident or pre-Endgame.');
-    createStoryPositionSelectField(grid, 'Source', packId, 'source', context.source, STORY_POSITION_SOURCE_OPTIONS, 'Where this Story Position came from.', { manual: false });
-    createStoryPositionNumberField(grid, 'Confidence', packId, 'confidence', context.confidence, 'Confidence from 0 to 1. Manual choices commonly use 1.0.', { manual: false });
-    createStoryPositionCheckboxField(grid, 'Manual Lock', packId, 'manualLock', context.manualLock, 'Prevent future automatic Story Position resolvers from overwriting this pack context.');
-    createStoryPositionTextField(grid, 'Notes', packId, 'notes', context.notes, 'Private notes for this pack-specific Story Position.', { multiline: true, full: true });
-    row.appendChild(grid);
+    const quick = document.createElement('div');
+    quick.className = 'wandlight-lorepack-story-position-quick';
+    const quickHeader = document.createElement('div');
+    quickHeader.className = 'wandlight-lorepack-story-position-quick-header';
+    const quickTitle = document.createElement('div');
+    quickTitle.className = 'wandlight-runtime-card-title';
+    quickTitle.textContent = 'Quick Anchor';
+    addTooltip(quickTitle, 'Search loaded anchors for a quick exact Story Position. Use the Workbench for full window and coordinate editing.');
+    quickHeader.appendChild(quickTitle);
+    quickHeader.appendChild(createButton('Open Editor', 'Open this Loredeck in the fullscreen Position editor.', () => {
+        openStoryPositionWorkbenchForPack(packId, 'position');
+    }, 'wandlight-primary-button'));
+    quick.appendChild(quickHeader);
+    quick.appendChild(createStoryPositionAnchorLookup(packId, positionIndex));
+    row.appendChild(quick);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions';
-    actions.appendChild(createButton('Use Legacy Context', 'Seed this Story Position from the current legacy Story Context fields.', () => {
-        const current = getState();
-        const legacy = current?.loreContext || {};
-        commitLorepackStoryPositionPatch(packId, {
-            positionType: packId === 'hp-golden-trio' ? 'calendar' : context.positionType || 'custom',
-            sceneDate: legacy.sceneDate || '',
-            subjectiveDate: legacy.subjectiveDate || '',
-            label: legacy.canonBoundary || legacy.sceneDate || context.label || '',
-            alias: legacy.canonBoundary || context.alias || '',
-            branchId: legacy.branchId || 'main',
-        }, `Seed Story Position from legacy context: ${getLorepackDisplayName(packId)}`);
+    actions.className = 'wandlight-primary-actions wandlight-lorepack-story-position-actions';
+    actions.appendChild(createButton('Seed From Context', 'Seed this Story Position from the current Story Context fields.', () => {
+        seedLorepackStoryPositionFromRuntimeContext(packId, context);
+    }));
+    actions.appendChild(createButton('Timeline', 'Open this Loredeck in the fullscreen Timeline registry view.', () => {
+        openStoryPositionWorkbenchForPack(packId, 'timeline');
     }));
     actions.appendChild(createButton('Reset Position', 'Clear this Loredeck Story Position back to an empty default.', async () => {
         const ok = await confirmAction('Reset Story Position', `Clear Story Position for ${getLorepackDisplayName(packId)}?`);
@@ -5346,6 +5343,19 @@ function applyStoryPositionAnchor(packId, anchor = {}) {
     }, `Set Story Position anchor: ${getLorepackDisplayName(packId)}`);
 }
 
+function seedLorepackStoryPositionFromRuntimeContext(packId, context = {}) {
+    const current = getState();
+    const runtimeContext = current?.loreContext || {};
+    commitLorepackStoryPositionPatch(packId, {
+        positionType: packId === 'hp-golden-trio' ? 'calendar' : context.positionType || 'custom',
+        sceneDate: runtimeContext.sceneDate || '',
+        subjectiveDate: runtimeContext.subjectiveDate || '',
+        label: runtimeContext.canonBoundary || runtimeContext.sceneDate || context.label || '',
+        alias: runtimeContext.canonBoundary || context.alias || '',
+        branchId: runtimeContext.branchId || 'main',
+    }, `Seed Story Position from runtime context: ${getLorepackDisplayName(packId)}`);
+}
+
 async function handleResolveStoryPositionsFromContext(btn = null) {
     await runBusyAction(btn, 'Resolving...', async () => {
         const state = getState();
@@ -5501,6 +5511,29 @@ function createStoryPositionCheckboxField(container, labelText, packId, key, val
     return input;
 }
 
+function appendStoryPositionManualFields(grid, packId, context = {}) {
+    createStoryPositionSelectField(grid, 'Type', packId, 'positionType', context.positionType, STORY_POSITION_TYPE_OPTIONS, 'How this Loredeck represents story progress.');
+    createStoryPositionTextField(grid, 'Label', packId, 'label', context.label, 'Human-readable story position label.');
+    createStoryPositionTextField(grid, 'Scene Date', packId, 'sceneDate', context.sceneDate, 'Exact or approximate in-universe date when the pack supports dates.');
+    createStoryPositionTextField(grid, 'Branch', packId, 'branchId', context.branchId || 'main', 'Use main for canon baseline, or a custom branch for AU/time travel.');
+    createStoryPositionTextField(grid, 'Arc', packId, 'arc', context.arc, 'Named arc, saga, route, or campaign segment.');
+    createStoryPositionTextField(grid, 'Phase', packId, 'phase', context.phase, 'Broad phase or era, such as MCU Phase 3.');
+    createStoryPositionTextField(grid, 'Season', packId, 'season', context.season, 'Television/anime season when relevant.');
+    createStoryPositionTextField(grid, 'Episode', packId, 'episode', context.episode, 'Episode number, title, or range when relevant.');
+    createStoryPositionTextField(grid, 'Chapter', packId, 'chapter', context.chapter, 'Book/manga/webnovel chapter when relevant.');
+    createStoryPositionTextField(grid, 'Issue', packId, 'issue', context.issue, 'Comic issue or run position when relevant.');
+    createStoryPositionTextField(grid, 'Quest', packId, 'quest', context.quest, 'Game quest, mission, route, or scenario marker.');
+    createStoryPositionTextField(grid, 'Game Stage', packId, 'gameStage', context.gameStage, 'Game progression marker when a calendar date is not useful.');
+    createStoryPositionTextField(grid, 'Anchor', packId, 'anchorId', context.anchorId, 'Selected event/book/film/arc anchor ID or label.');
+    createStoryPositionTextField(grid, 'After', packId, 'anchorFrom', context.anchorFrom, 'Lower bound anchor for before/after windows.');
+    createStoryPositionTextField(grid, 'Before', packId, 'anchorTo', context.anchorTo, 'Upper bound anchor for before/after windows.');
+    createStoryPositionTextField(grid, 'Alias / User Note', packId, 'alias', context.alias, 'Freeform user phrasing, such as after Shibuya Incident or pre-Endgame.');
+    createStoryPositionSelectField(grid, 'Source', packId, 'source', context.source, STORY_POSITION_SOURCE_OPTIONS, 'Where this Story Position came from.', { manual: false });
+    createStoryPositionNumberField(grid, 'Confidence', packId, 'confidence', context.confidence, 'Confidence from 0 to 1. Manual choices commonly use 1.0.', { manual: false });
+    createStoryPositionCheckboxField(grid, 'Manual Lock', packId, 'manualLock', context.manualLock, 'Prevent future automatic Story Position resolvers from overwriting this pack context.');
+    createStoryPositionTextField(grid, 'Notes', packId, 'notes', context.notes, 'Private notes for this pack-specific Story Position.', { multiline: true, full: true });
+}
+
 function commitLorepackStoryPositionPatch(packId, patch = {}, summary = 'Edit Story Position', options = {}) {
     const current = getState();
     pushStateSnapshot(current, summary, getSettings().maxSnapshots);
@@ -5513,6 +5546,7 @@ function commitLorepackStoryPositionPatch(packId, patch = {}, summary = 'Edit St
     setLorepackStoryPosition(packId, nextPatch);
     refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
     refreshHeader();
+    refreshStoryPositionWorkbench();
     toast('Story Position updated.', 'success');
 }
 
@@ -5542,6 +5576,1424 @@ function formatStoryPositionSummary(context = {}) {
     if (context.alias && !parts.includes(context.alias)) parts.push(context.alias);
     if (context.branchId && context.branchId !== 'main') parts.push(`Branch: ${context.branchId}`);
     return parts.length ? parts.join(' | ') : 'Unset. Add a date, arc, anchor, chapter, episode, quest, or freeform alias.';
+}
+
+function openStoryPositionWorkbench(packId = '') {
+    storyPositionWorkbenchOpen = true;
+    const state = getState();
+    const stack = getStoryPositionWorkbenchStack(state);
+    const requested = String(packId || '').trim();
+    storyPositionWorkbenchPackId = stack.some(item => item.packId === requested)
+        ? requested
+        : (storyPositionWorkbenchPackId || stack[0]?.packId || '');
+    ensureStoryPositionWorkbenchSelection(state, getStoryPositionIndexSync());
+    renderStoryPositionWorkbench();
+    loadStoryPositionIndex()
+        .then(() => {
+            if (storyPositionWorkbenchOpen) renderStoryPositionWorkbench();
+        })
+        .catch(e => console.warn('[Wandlight] Story Position Workbench index load failed:', e));
+}
+
+function openStoryPositionWorkbenchForPack(packId = '', tab = 'position') {
+    const nextTab = ['position', 'timeline', 'aliases', 'validation'].includes(tab) ? tab : 'position';
+    storyPositionWorkbenchTab = nextTab;
+    storyPositionWorkbenchSelectedKey = '';
+    openStoryPositionWorkbench(packId);
+}
+
+function closeStoryPositionWorkbench() {
+    storyPositionWorkbenchOpen = false;
+    document.getElementById(STORY_POSITION_WORKBENCH_ID)?.remove();
+}
+
+function refreshStoryPositionWorkbench() {
+    if (!storyPositionWorkbenchOpen) return;
+    renderStoryPositionWorkbench();
+}
+
+function getStoryPositionWorkbenchStack(state = getState()) {
+    return getLorepackStack(state)
+        .filter(item => item.enabled !== false && item.packId)
+        .map((item, index) => ({ ...item, stackIndex: index }));
+}
+
+function getStoryPositionWorkbenchPack(state = getState()) {
+    const stack = getStoryPositionWorkbenchStack(state);
+    if (!stack.length) return null;
+    const selectedId = stack.some(item => item.packId === storyPositionWorkbenchPackId)
+        ? storyPositionWorkbenchPackId
+        : stack[0].packId;
+    storyPositionWorkbenchPackId = selectedId;
+    return getFreshLorepackLibraryPack(selectedId, getLorepackDefinition(selectedId)) || { packId: selectedId, title: getLorepackDisplayName(selectedId) };
+}
+
+function ensureStoryPositionWorkbenchSelection(state = getState(), positionIndex = getStoryPositionIndexSync()) {
+    const stack = getStoryPositionWorkbenchStack(state);
+    if (!stack.length) {
+        storyPositionWorkbenchPackId = '';
+        storyPositionWorkbenchSelectedKey = '';
+        return;
+    }
+    if (!stack.some(item => item.packId === storyPositionWorkbenchPackId)) {
+        storyPositionWorkbenchPackId = stack[0].packId;
+        storyPositionWorkbenchSelectedKey = '';
+    }
+    const pack = getStoryPositionWorkbenchPack(state);
+    const items = getStoryPositionWorkbenchTimelineItems(pack, positionIndex);
+    if (!items.some(item => getStoryPositionTimelineItemKey(item) === storyPositionWorkbenchSelectedKey)) {
+        storyPositionWorkbenchSelectedKey = items[0] ? getStoryPositionTimelineItemKey(items[0]) : '';
+    }
+}
+
+function renderStoryPositionWorkbench() {
+    if (!storyPositionWorkbenchOpen) return;
+    const state = getState();
+    const positionIndex = getStoryPositionIndexSync();
+    ensureStoryPositionWorkbenchSelection(state, positionIndex);
+
+    let overlay = document.getElementById(STORY_POSITION_WORKBENCH_ID);
+    if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.id = STORY_POSITION_WORKBENCH_ID;
+        overlay.className = 'wandlight-lore-workbench-overlay wandlight-story-position-workbench-overlay';
+        overlay.tabIndex = -1;
+        overlay.addEventListener('click', event => {
+            if (event.target === overlay) closeStoryPositionWorkbench();
+        });
+        overlay.addEventListener('keydown', event => {
+            if (event.key === 'Escape') closeStoryPositionWorkbench();
+        });
+        document.body.appendChild(overlay);
+    }
+
+    overlay.replaceChildren(createStoryPositionWorkbenchShell(state, positionIndex));
+    requestAnimationFrame(() => overlay.focus?.());
+}
+
+function createStoryPositionWorkbenchShell(state = getState(), positionIndex = getStoryPositionIndexSync()) {
+    const shell = document.createElement('div');
+    shell.className = 'wandlight-lore-workbench-shell wandlight-story-position-workbench-shell';
+    shell.addEventListener('click', event => event.stopPropagation());
+
+    shell.appendChild(createStoryPositionWorkbenchHeader(state, positionIndex));
+
+    const body = document.createElement('div');
+    body.className = 'wandlight-story-position-workbench-body';
+    if (storyPositionWorkbenchTab === 'timeline') {
+        body.appendChild(createStoryPositionWorkbenchTimelineView(state, positionIndex));
+    } else if (storyPositionWorkbenchTab === 'aliases') {
+        body.appendChild(createStoryPositionWorkbenchAliasesView(state, positionIndex));
+    } else if (storyPositionWorkbenchTab === 'validation') {
+        body.appendChild(createStoryPositionWorkbenchValidationView(state, positionIndex));
+    } else {
+        body.appendChild(createStoryPositionWorkbenchPositionView(state, positionIndex));
+    }
+    shell.appendChild(body);
+
+    return shell;
+}
+
+function createStoryPositionWorkbenchHeader(state = getState(), positionIndex = getStoryPositionIndexSync()) {
+    const header = document.createElement('div');
+    header.className = 'wandlight-lore-workbench-header wandlight-story-position-workbench-header';
+
+    const titleWrap = document.createElement('div');
+    titleWrap.className = 'wandlight-lore-workbench-title-wrap';
+    const title = document.createElement('div');
+    title.className = 'wandlight-lore-workbench-title';
+    title.textContent = 'Story Position Workbench';
+    titleWrap.appendChild(title);
+
+    const stack = getStoryPositionWorkbenchStack(state);
+    const selectedPack = getStoryPositionWorkbenchPack(state);
+    const subtitle = document.createElement('div');
+    subtitle.className = 'wandlight-lore-workbench-subtitle';
+    subtitle.textContent = selectedPack
+        ? `${selectedPack.title || selectedPack.packId} | ${stack.length} loaded Loredeck${stack.length === 1 ? '' : 's'}`
+        : 'Load a Loredeck stack to set story position.';
+    titleWrap.appendChild(subtitle);
+
+    const chips = document.createElement('div');
+    chips.className = 'wandlight-story-position-workbench-header-chips';
+    chips.appendChild(createStatusPill(formatStoryPositionIndexSummary(positionIndex), 'Loaded Story Position timeline registry status.'));
+    if (selectedPack) {
+        const context = getLorepackStoryPosition(state, selectedPack.packId);
+        chips.appendChild(createStatusPill(context.manualLock ? 'Manual lock' : 'Auto allowed', 'Manual lock prevents automatic Story Position resolvers from overwriting this deck.'));
+        chips.appendChild(createStatusPill(formatStoryPositionSource(context.source), 'How this Story Position was last set.'));
+    }
+    if (positionIndex?.summary?.issueCount) {
+        chips.appendChild(createStatusPill(`${positionIndex.summary.issueCount} index issue${positionIndex.summary.issueCount === 1 ? '' : 's'}`, 'Timeline registry load issues from the active stack.'));
+    }
+    titleWrap.appendChild(chips);
+    header.appendChild(titleWrap);
+
+    const tabs = document.createElement('div');
+    tabs.className = 'wandlight-lore-workbench-mode-tabs wandlight-story-position-workbench-tabs';
+    for (const [id, label] of [
+        ['position', 'Position'],
+        ['timeline', 'Timeline'],
+        ['aliases', 'Aliases'],
+        ['validation', 'Validation'],
+    ]) {
+        const tab = document.createElement('button');
+        tab.type = 'button';
+        tab.className = 'wandlight-lore-workbench-mode-tab';
+        if (storyPositionWorkbenchTab === id) tab.classList.add('wandlight-lore-workbench-mode-tab-active');
+        tab.textContent = label;
+        addTooltip(tab, getStoryPositionWorkbenchTabTooltip(id));
+        tab.addEventListener('click', () => {
+            storyPositionWorkbenchTab = id;
+            renderStoryPositionWorkbench();
+        });
+        tabs.appendChild(tab);
+    }
+    header.appendChild(tabs);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions wandlight-story-position-workbench-header-actions';
+    actions.appendChild(createButton('Refresh Index', 'Reload loaded Loredeck timeline registries and refresh the workbench.', async (btn) => {
+        await runBusyAction(btn, 'Refreshing...', async () => {
+            clearStoryPositionIndexCache();
+            await loadStoryPositionIndex({ force: true }).catch(() => null);
+            renderStoryPositionWorkbench();
+            refreshHeader();
+            toast('Story Position index refreshed.', 'success');
+        });
+    }));
+    actions.appendChild(createButton('Done', 'Close the Story Position Workbench.', closeStoryPositionWorkbench, 'wandlight-primary-button'));
+    header.appendChild(actions);
+    return header;
+}
+
+function getStoryPositionWorkbenchTabTooltip(tabId = '') {
+    if (tabId === 'timeline') return 'Search, inspect, create, and queue timeline anchor/window registry changes.';
+    if (tabId === 'aliases') return 'Inspect resolver aliases and duplicate phrasing across the selected Loredeck timeline.';
+    if (tabId === 'validation') return 'Check timeline structure for missing anchors, sort issues, sparse aliases, and unmatchable references.';
+    return 'Set the current chat position for each loaded Loredeck.';
+}
+
+function createStoryPositionWorkbenchPackSelector(state = getState(), positionIndex = getStoryPositionIndexSync()) {
+    const select = document.createElement('select');
+    select.className = 'wandlight-lore-workbench-select';
+    addTooltip(select, 'Selected loaded Loredeck for timeline, alias, and validation views.');
+    for (const item of getStoryPositionWorkbenchStack(state)) {
+        const packSummary = getStoryPositionPackSummary(positionIndex, item.packId);
+        const option = document.createElement('option');
+        option.value = item.packId;
+        option.textContent = `${getLorepackDisplayName(item.packId)}${packSummary?.hasIndex ? ` (${packSummary.anchorCount || 0}/${packSummary.windowCount || 0})` : ''}`;
+        if (item.packId === storyPositionWorkbenchPackId) option.selected = true;
+        select.appendChild(option);
+    }
+    select.addEventListener('change', () => {
+        storyPositionWorkbenchPackId = select.value;
+        storyPositionWorkbenchSelectedKey = '';
+        renderStoryPositionWorkbench();
+    });
+    return select;
+}
+
+function createStoryPositionWorkbenchPositionView(state = getState(), positionIndex = getStoryPositionIndexSync()) {
+    const view = document.createElement('div');
+    view.className = 'wandlight-story-position-workbench-view wandlight-story-position-workbench-position-view';
+    const stack = getStoryPositionWorkbenchStack(state);
+    if (!stack.length) {
+        view.appendChild(createEmptyMessage('No enabled Loredecks are loaded. Open the Loredeck Library and add decks to the active stack first.'));
+        return view;
+    }
+
+    const controls = document.createElement('div');
+    controls.className = 'wandlight-story-position-workbench-controls';
+    controls.appendChild(createButton('Resolve From Context', 'Use current Story Context and loaded timeline aliases to update unlocked Story Positions.', async (btn) => {
+        await handleResolveStoryPositionsFromContext(btn);
+        refreshStoryPositionWorkbench();
+    }, 'wandlight-primary-button'));
+    controls.appendChild(createButton('Model Fallback', 'Ask the configured Reasoning Provider to resolve unresolved Story Positions using known timeline anchors only.', async (btn) => {
+        await handleModelResolveStoryPositions(btn);
+        refreshStoryPositionWorkbench();
+    }));
+    controls.appendChild(createButton('Open Selected Timeline', 'Jump to the Timeline tab for the selected Loredeck.', () => {
+        storyPositionWorkbenchTab = 'timeline';
+        renderStoryPositionWorkbench();
+    }));
+    view.appendChild(controls);
+
+    const table = document.createElement('div');
+    table.className = 'wandlight-story-position-workbench-position-table';
+    const header = document.createElement('div');
+    header.className = 'wandlight-story-position-workbench-position-row wandlight-story-position-workbench-row-header';
+    for (const label of ['Loredeck', 'Current Position', 'Source', 'Index', 'Manual Lock', 'Actions']) {
+        const cell = document.createElement('div');
+        cell.textContent = label;
+        header.appendChild(cell);
+    }
+    table.appendChild(header);
+
+    for (const item of stack) {
+        const context = getLorepackStoryPosition(state, item.packId);
+        const packIndex = getStoryPositionPackSummary(positionIndex, item.packId);
+        const row = document.createElement('div');
+        row.className = 'wandlight-story-position-workbench-position-row';
+        if (item.packId === storyPositionWorkbenchPackId) row.classList.add('wandlight-story-position-workbench-row-active');
+        row.addEventListener('click', () => {
+            storyPositionWorkbenchPackId = item.packId;
+            renderStoryPositionWorkbench();
+        });
+        row.appendChild(createWorkbenchTextCell(getLorepackDisplayName(item.packId), `Priority ${item.stackIndex + 1}`));
+        row.appendChild(createWorkbenchTextCell(formatStoryPositionSummary(context), context.anchorId || context.anchorFrom || context.alias || ''));
+        row.appendChild(createWorkbenchTextCell(formatStoryPositionSource(context.source), `${Math.round((Number(context.confidence) || 0) * 100)}% confidence`));
+        row.appendChild(createWorkbenchTextCell(packIndex?.hasIndex ? `${packIndex.anchorCount || 0} anchors` : 'No timeline', packIndex?.hasIndex ? `${packIndex.windowCount || 0} windows` : 'Load or create registry data'));
+
+        const lockCell = document.createElement('label');
+        lockCell.className = 'wandlight-story-position-workbench-lock';
+        const check = document.createElement('input');
+        check.type = 'checkbox';
+        check.checked = context.manualLock === true;
+        check.addEventListener('click', event => event.stopPropagation());
+        check.addEventListener('change', () => {
+            commitLorepackStoryPositionPatch(item.packId, { manualLock: check.checked }, `Edit Story Position Manual Lock: ${getLorepackDisplayName(item.packId)}`, { manual: false });
+        });
+        lockCell.appendChild(check);
+        const lockText = document.createElement('span');
+        lockText.textContent = context.manualLock ? 'Locked' : 'Unlocked';
+        lockCell.appendChild(lockText);
+        row.appendChild(lockCell);
+
+        const actions = document.createElement('div');
+        actions.className = 'wandlight-story-position-workbench-row-actions';
+        actions.appendChild(createButton('Timeline', 'Open this Loredeck in the Timeline tab.', () => {
+            storyPositionWorkbenchPackId = item.packId;
+            storyPositionWorkbenchTab = 'timeline';
+            storyPositionWorkbenchSelectedKey = '';
+            renderStoryPositionWorkbench();
+        }));
+        actions.appendChild(createButton('Reset', 'Clear this Loredeck Story Position.', async () => {
+            const ok = await confirmAction('Reset Story Position', `Clear Story Position for ${getLorepackDisplayName(item.packId)}?`);
+            if (!ok) return;
+            const current = getState();
+            pushStateSnapshot(current, `Reset Story Position: ${getLorepackDisplayName(item.packId)}`, getSettings().maxSnapshots);
+            resetLorepackStoryPosition(item.packId);
+            refreshLorepackSurfaces();
+            toast('Story Position reset.', 'info');
+        }, 'wandlight-danger-button'));
+        row.appendChild(actions);
+        table.appendChild(row);
+    }
+
+    const layout = document.createElement('div');
+    layout.className = 'wandlight-story-position-workbench-position-layout';
+    layout.appendChild(table);
+    layout.appendChild(createStoryPositionWorkbenchPositionEditor(state, positionIndex));
+    view.appendChild(layout);
+    return view;
+}
+
+function createStoryPositionWorkbenchPositionEditor(state = getState(), positionIndex = getStoryPositionIndexSync()) {
+    const pack = getStoryPositionWorkbenchPack(state);
+    const panel = document.createElement('div');
+    panel.className = 'wandlight-story-position-workbench-inspector wandlight-story-position-workbench-position-editor';
+    if (!pack?.packId) {
+        panel.appendChild(createEmptyMessage('Select a loaded Loredeck to edit its Story Position.'));
+        return panel;
+    }
+
+    const context = getLorepackStoryPosition(state, pack.packId);
+    const packIndex = getStoryPositionPackSummary(positionIndex, pack.packId);
+    const title = document.createElement('div');
+    title.className = 'wandlight-story-position-workbench-inspector-title';
+    title.textContent = pack.title || getLorepackDisplayName(pack.packId);
+    panel.appendChild(title);
+
+    const chips = document.createElement('div');
+    chips.className = 'wandlight-lorepack-row-meta';
+    chips.appendChild(createStatusPill(getStoryPositionTypeLabel(context.positionType), 'Story Position mode for this Loredeck.'));
+    chips.appendChild(createStatusPill(formatStoryPositionSource(context.source), 'How this Story Position was last set.'));
+    chips.appendChild(createStatusPill(context.manualLock ? 'Locked' : 'Unlocked', 'Locked positions are protected from automatic resolver overwrites.'));
+    chips.appendChild(createStatusPill(`${Math.round((Number(context.confidence) || 0) * 100)}%`, 'Resolver confidence for this position.'));
+    chips.appendChild(createStatusPill(packIndex?.hasIndex ? `${packIndex.anchorCount || 0} anchors / ${packIndex.windowCount || 0} windows` : 'No timeline index', 'Loaded timeline registry coverage for this Loredeck.'));
+    panel.appendChild(chips);
+
+    const summary = document.createElement('div');
+    summary.className = 'wandlight-lorepack-story-position-summary';
+    summary.textContent = formatStoryPositionSummary(context);
+    panel.appendChild(summary);
+
+    panel.appendChild(createStoryPositionWorkbenchResolverTester(pack, context, positionIndex));
+    panel.appendChild(createStoryPositionWorkbenchPositionPicker(pack, context, positionIndex));
+
+    const grid = document.createElement('div');
+    grid.className = 'wandlight-story-position-workbench-editor-grid';
+    appendStoryPositionManualFields(grid, pack.packId, context);
+    panel.appendChild(grid);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions wandlight-story-position-workbench-inspector-actions';
+    actions.appendChild(createButton('Seed From Context', 'Seed this Story Position from the current Story Context fields.', () => {
+        seedLorepackStoryPositionFromRuntimeContext(pack.packId, context);
+    }));
+    actions.appendChild(createButton('Timeline', 'Open this Loredeck in the Timeline tab.', () => {
+        storyPositionWorkbenchTab = 'timeline';
+        storyPositionWorkbenchSelectedKey = '';
+        renderStoryPositionWorkbench();
+    }));
+    actions.appendChild(createButton('Reset Position', 'Clear this Loredeck Story Position.', async () => {
+        const ok = await confirmAction('Reset Story Position', `Clear Story Position for ${pack.title || getLorepackDisplayName(pack.packId)}?`);
+        if (!ok) return;
+        const current = getState();
+        pushStateSnapshot(current, `Reset Story Position: ${getLorepackDisplayName(pack.packId)}`, getSettings().maxSnapshots);
+        resetLorepackStoryPosition(pack.packId);
+        refreshLorepackSurfaces();
+        toast('Story Position reset.', 'info');
+    }, 'wandlight-danger-button'));
+    panel.appendChild(actions);
+    return panel;
+}
+
+function createStoryPositionWorkbenchResolverTester(pack, context = {}, positionIndex = getStoryPositionIndexSync()) {
+    const wrap = document.createElement('div');
+    wrap.className = 'wandlight-story-position-workbench-resolver';
+
+    const top = document.createElement('div');
+    top.className = 'wandlight-story-position-workbench-resolver-top';
+    const label = document.createElement('div');
+    label.className = 'wandlight-runtime-card-title';
+    label.textContent = 'Phrase Resolver';
+    addTooltip(label, 'Test casual story-position phrasing against this Loredeck timeline registry before applying a match.');
+    top.appendChild(label);
+
+    const input = document.createElement('input');
+    input.type = 'search';
+    input.className = 'wandlight-lore-workbench-search';
+    input.placeholder = 'Try: after the Yule Ball, pre-Endgame, post Shibuya...';
+    input.value = storyPositionWorkbenchResolverQuery || '';
+    addTooltip(input, 'Local-only resolver test using loaded anchor labels, IDs, aliases, dates, arcs, tags, and coordinates.');
+    input.addEventListener('keydown', event => {
+        if (event.key !== 'Enter') return;
+        event.preventDefault();
+        storyPositionWorkbenchResolverQuery = input.value.trim();
+        renderStoryPositionWorkbench();
+    });
+    input.addEventListener('change', () => {
+        storyPositionWorkbenchResolverQuery = input.value.trim();
+        renderStoryPositionWorkbench();
+    });
+    top.appendChild(input);
+
+    top.appendChild(createButton('Test Phrase', 'Run the local phrase resolver for this Loredeck.', () => {
+        storyPositionWorkbenchResolverQuery = input.value.trim();
+        renderStoryPositionWorkbench();
+    }, 'wandlight-primary-button'));
+    top.appendChild(createButton('Use Context', 'Use the current Story Position and runtime context text as the test phrase.', () => {
+        const seed = getStoryPositionResolverSeedText(context);
+        if (!seed) {
+            toast('No Story Position context text is available to test.', 'warning');
+            return;
+        }
+        storyPositionWorkbenchResolverQuery = seed;
+        renderStoryPositionWorkbench();
+    }));
+    top.appendChild(createButton('Clear', 'Clear the phrase resolver test.', () => {
+        storyPositionWorkbenchResolverQuery = '';
+        renderStoryPositionWorkbench();
+    }));
+    wrap.appendChild(top);
+
+    const meta = document.createElement('div');
+    meta.className = 'wandlight-lorepack-row-meta';
+    const packIndex = getStoryPositionPackSummary(positionIndex, pack?.packId);
+    meta.appendChild(createStatusPill('Local match', 'This test does not call a model.'));
+    meta.appendChild(createStatusPill(packIndex?.hasIndex ? `${packIndex.anchorCount || 0} anchors` : 'No index', 'Anchor count available to the local resolver.'));
+    if (storyPositionWorkbenchResolverQuery) {
+        meta.appendChild(createStatusPill(`Query: ${truncateText(storyPositionWorkbenchResolverQuery, 42)}`, 'Current resolver test phrase.'));
+    }
+    wrap.appendChild(meta);
+
+    const list = document.createElement('div');
+    list.className = 'wandlight-story-position-workbench-resolver-results';
+    const query = String(storyPositionWorkbenchResolverQuery || '').trim();
+    if (!positionIndex) {
+        list.appendChild(createEmptyMessage('Position index is loading. Refresh the index and try again.'));
+    } else if (!packIndex?.hasIndex) {
+        list.appendChild(createEmptyMessage('This Loredeck has no loaded timeline registry for phrase matching.'));
+    } else if (!query) {
+        list.appendChild(createEmptyMessage('Enter a loose story phrase to preview matching anchors.'));
+    } else {
+        const matches = rankStoryPositionAnchors(query, { packId: pack.packId, limit: 8, index: positionIndex });
+        if (!matches.length) {
+            list.appendChild(createEmptyMessage('No local anchor match found. Try a clearer date, arc, event, book, chapter, or alias.'));
+        } else {
+            const currentAnchorId = normalizeLorepackTimelineId(context.anchorId);
+            for (const match of matches) {
+                list.appendChild(createStoryPositionWorkbenchResolverResult(pack, match, currentAnchorId));
+            }
+        }
+    }
+    wrap.appendChild(list);
+
+    return wrap;
+}
+
+function getStoryPositionResolverSeedText(context = {}, state = getState()) {
+    const runtimeContext = state?.loreContext || {};
+    return uniqueStrings([
+        context.alias,
+        context.label,
+        context.sceneDate,
+        context.arc,
+        context.phase,
+        context.season ? `season ${context.season}` : '',
+        context.episode ? `episode ${context.episode}` : '',
+        context.chapter ? `chapter ${context.chapter}` : '',
+        context.issue ? `issue ${context.issue}` : '',
+        context.quest,
+        context.gameStage,
+        runtimeContext.canonBoundary,
+        runtimeContext.sceneDate,
+        runtimeContext.subjectiveDate,
+    ]).join(' ');
+}
+
+function uniqueStrings(values = []) {
+    const output = [];
+    const seen = new Set();
+    for (const value of values) {
+        const text = String(value || '').trim();
+        const key = text.toLowerCase();
+        if (!text || seen.has(key)) continue;
+        seen.add(key);
+        output.push(text);
+    }
+    return output;
+}
+
+function createStoryPositionWorkbenchResolverResult(pack, match = {}, currentAnchorId = '') {
+    const anchor = match.anchor || {};
+    const id = normalizeLorepackTimelineId(anchor.id);
+    const row = document.createElement('div');
+    row.className = 'wandlight-story-position-workbench-resolver-row';
+    if (id && id === currentAnchorId) row.classList.add('wandlight-story-position-workbench-row-active');
+
+    const main = document.createElement('div');
+    main.className = 'wandlight-story-position-workbench-position-picker-main';
+    const title = document.createElement('div');
+    title.className = 'wandlight-story-position-workbench-position-picker-title';
+    title.textContent = anchor.label || id || 'Anchor';
+    main.appendChild(title);
+    const meta = document.createElement('div');
+    meta.className = 'wandlight-story-position-workbench-position-picker-meta';
+    meta.textContent = [
+        id,
+        getStoryPositionResolverConfidenceLabel(match.score),
+        formatAnchorDateRange(anchor),
+        anchor.book || anchor.work,
+        anchor.arc,
+        anchor.phase,
+        anchor.aliases?.slice(0, 2).join(', '),
+    ].filter(Boolean).join(' | ');
+    main.appendChild(meta);
+    row.appendChild(main);
+
+    const score = document.createElement('div');
+    score.className = 'wandlight-story-position-workbench-resolver-score';
+    score.textContent = String(Math.round(Number(match.score) || 0));
+    addTooltip(score, 'Local resolver match score. Higher is better; this is not model confidence.');
+    row.appendChild(score);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-story-position-workbench-row-actions';
+    actions.appendChild(createButton('Apply', 'Apply this anchor as the exact Story Position.', () => {
+        applyStoryPositionAnchor(pack.packId, anchor);
+    }, 'wandlight-primary-button'));
+    actions.appendChild(createButton('After', 'Use this anchor as the lower bound of the current Story Position window.', () => {
+        applyStoryPositionAnchorBoundary(pack.packId, { kind: 'anchor', id, definition: anchor }, 'from');
+    }));
+    actions.appendChild(createButton('Before', 'Use this anchor as the upper bound of the current Story Position window.', () => {
+        applyStoryPositionAnchorBoundary(pack.packId, { kind: 'anchor', id, definition: anchor }, 'to');
+    }));
+    actions.appendChild(createButton('Timeline', 'Inspect this anchor in the Timeline tab.', () => {
+        storyPositionWorkbenchSelectedKey = `anchor:${id}`;
+        storyPositionWorkbenchTab = 'timeline';
+        renderStoryPositionWorkbench();
+    }));
+    row.appendChild(actions);
+    return row;
+}
+
+function getStoryPositionResolverConfidenceLabel(score = 0) {
+    const value = Number(score) || 0;
+    if (value >= 120) return 'Exact';
+    if (value >= 70) return 'Strong';
+    if (value >= 32) return 'Likely';
+    return 'Possible';
+}
+
+function createStoryPositionWorkbenchPositionPicker(pack, context = {}, positionIndex = getStoryPositionIndexSync()) {
+    const wrap = document.createElement('div');
+    wrap.className = 'wandlight-story-position-workbench-position-picker';
+
+    const top = document.createElement('div');
+    top.className = 'wandlight-story-position-workbench-position-picker-top';
+    const label = document.createElement('div');
+    label.className = 'wandlight-runtime-card-title';
+    label.textContent = 'Select From Timeline';
+    addTooltip(label, 'Search known anchors/windows and apply them to the selected Loredeck Story Position.');
+    top.appendChild(label);
+
+    const search = document.createElement('input');
+    search.type = 'search';
+    search.className = 'wandlight-lore-workbench-search';
+    search.placeholder = 'Search anchors, windows, aliases...';
+    search.value = storyPositionWorkbenchPositionQuery || '';
+    addTooltip(search, 'Search timeline labels, IDs, aliases, tags, arcs, dates, episodes, chapters, and attached Lorecard IDs.');
+    search.addEventListener('keydown', event => {
+        if (event.key !== 'Enter') return;
+        event.preventDefault();
+        storyPositionWorkbenchPositionQuery = search.value.trim();
+        renderStoryPositionWorkbench();
+    });
+    search.addEventListener('change', () => {
+        storyPositionWorkbenchPositionQuery = search.value.trim();
+        renderStoryPositionWorkbench();
+    });
+    top.appendChild(search);
+    top.appendChild(createButton('Find', 'Search timeline anchors/windows for this Loredeck.', () => {
+        storyPositionWorkbenchPositionQuery = search.value.trim();
+        renderStoryPositionWorkbench();
+    }));
+    wrap.appendChild(top);
+
+    const items = getStoryPositionWorkbenchTimelineItems(pack, positionIndex);
+    const current = getStoryPositionWorkbenchCurrentTimelineItem(context, items);
+    const currentKey = current ? getStoryPositionTimelineItemKey(current) : '';
+    const q = String(storyPositionWorkbenchPositionQuery || '').trim();
+    const filtered = q
+        ? filterStoryPositionWorkbenchTimelineItems(items, q, 'all')
+        : items.slice(0, 12);
+    const visible = [];
+    const seen = new Set();
+    if (current) {
+        visible.push(current);
+        seen.add(currentKey);
+    }
+    for (const item of filtered) {
+        const key = getStoryPositionTimelineItemKey(item);
+        if (seen.has(key)) continue;
+        seen.add(key);
+        visible.push(item);
+        if (visible.length >= 12) break;
+    }
+
+    const list = document.createElement('div');
+    list.className = 'wandlight-story-position-workbench-position-picker-list';
+    if (!items.length) {
+        list.appendChild(createEmptyMessage('No timeline registry rows are loaded for this Loredeck yet.'));
+    } else if (!visible.length) {
+        list.appendChild(createEmptyMessage('No timeline rows match that search.'));
+    } else {
+        for (const item of visible) {
+            list.appendChild(createStoryPositionWorkbenchPositionPickerRow(pack, item, currentKey));
+        }
+    }
+    wrap.appendChild(list);
+
+    if (!q && items.length > visible.length) {
+        const note = document.createElement('div');
+        note.className = 'wandlight-runtime-help';
+        note.textContent = `Showing ${visible.length} of ${items.length} timeline rows. Search to narrow the registry.`;
+        wrap.appendChild(note);
+    }
+    return wrap;
+}
+
+function getStoryPositionWorkbenchCurrentTimelineItem(context = {}, items = []) {
+    const anchorId = normalizeLorepackTimelineId(context.anchorId);
+    if (anchorId) {
+        const anchor = items.find(item => item.kind === 'anchor' && item.id === anchorId);
+        if (anchor) return anchor;
+    }
+    const anchorFrom = normalizeLorepackTimelineId(context.anchorFrom);
+    const anchorTo = normalizeLorepackTimelineId(context.anchorTo);
+    if (anchorFrom || anchorTo) {
+        const exactWindow = items.find(item => item.kind === 'window'
+            && (!anchorFrom || item.definition?.anchorFrom === anchorFrom)
+            && (!anchorTo || item.definition?.anchorTo === anchorTo));
+        if (exactWindow) return exactWindow;
+        return items.find(item => item.kind === 'anchor' && (item.id === anchorFrom || item.id === anchorTo)) || null;
+    }
+    return null;
+}
+
+function createStoryPositionWorkbenchPositionPickerRow(pack, item = {}, currentKey = '') {
+    const def = item.definition || {};
+    const key = getStoryPositionTimelineItemKey(item);
+    const row = document.createElement('div');
+    row.className = 'wandlight-story-position-workbench-position-picker-row';
+    if (key === currentKey) row.classList.add('wandlight-story-position-workbench-row-active');
+    if (item.disabled) row.classList.add('wandlight-story-position-workbench-row-disabled');
+
+    const main = document.createElement('div');
+    main.className = 'wandlight-story-position-workbench-position-picker-main';
+    const title = document.createElement('div');
+    title.className = 'wandlight-story-position-workbench-position-picker-title';
+    title.textContent = def.label || item.id || 'Timeline row';
+    main.appendChild(title);
+    const meta = document.createElement('div');
+    meta.className = 'wandlight-story-position-workbench-position-picker-meta';
+    meta.textContent = [
+        item.kind === 'window' ? 'Window' : 'Anchor',
+        item.id,
+        getStoryPositionTimelineItemPositionText(item),
+        getStoryPositionTimelineItemCoordinateText(item),
+        def.aliases?.slice(0, 2).join(', '),
+    ].filter(Boolean).join(' | ');
+    main.appendChild(meta);
+    row.appendChild(main);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-story-position-workbench-row-actions';
+    if (item.kind === 'window') {
+        actions.appendChild(createButton('Use Window', 'Apply this timeline window as the selected Story Position.', () => {
+            applyStoryPositionTimelineItem(pack.packId, item);
+        }, 'wandlight-primary-button'));
+    } else {
+        actions.appendChild(createButton('Use Anchor', 'Apply this anchor as the exact Story Position.', () => {
+            applyStoryPositionTimelineItem(pack.packId, item);
+        }, 'wandlight-primary-button'));
+        actions.appendChild(createButton('After', 'Use this anchor as the lower bound of the current Story Position window.', () => {
+            applyStoryPositionAnchorBoundary(pack.packId, item, 'from');
+        }));
+        actions.appendChild(createButton('Before', 'Use this anchor as the upper bound of the current Story Position window.', () => {
+            applyStoryPositionAnchorBoundary(pack.packId, item, 'to');
+        }));
+    }
+    row.appendChild(actions);
+    return row;
+}
+
+function getStoryPositionWorkbenchEntryRows(pack = {}) {
+    const cached = lorepackEntryPreviewCache.get(String(pack?.packId || '').trim()) || {};
+    return getLorepackEditableEntryRows(pack, Array.isArray(cached.entries) ? cached.entries : []);
+}
+
+function getStoryPositionTimelineItemKey(item = {}) {
+    return `${item.kind || 'anchor'}:${item.id || ''}`;
+}
+
+function getStoryPositionTimelineItemPositionText(item = {}) {
+    const def = item.definition || {};
+    if (item.kind === 'window') {
+        const bounds = [def.sortKeyFrom, def.sortKeyTo].filter(value => value !== null && value !== undefined && value !== '').join(' -> ');
+        return bounds || `${def.anchorFrom || '?'} -> ${def.anchorTo || '?'}`;
+    }
+    return def.sortKey !== null && def.sortKey !== undefined ? String(def.sortKey) : '';
+}
+
+function getStoryPositionTimelineItemCoordinateText(item = {}) {
+    const def = item.definition || {};
+    return [
+        formatTimelineDateRange(def.dateRange),
+        def.book || def.work,
+        def.schoolYear,
+        def.arc,
+        def.phase,
+        def.season || def.episode ? `S${def.season || '?'} E${def.episode || '?'}` : '',
+        def.chapter ? `Ch ${def.chapter}` : '',
+        def.issue ? `Issue ${def.issue}` : '',
+        def.quest,
+        def.gameStage,
+    ].filter(Boolean).join(' | ');
+}
+
+function getStoryPositionWorkbenchTimelineItems(pack = null, positionIndex = getStoryPositionIndexSync()) {
+    if (!pack?.packId) return [];
+    const rows = getStoryPositionWorkbenchEntryRows(pack);
+    const items = buildLorepackTimelineRegistryItems(pack, rows);
+    const itemMap = new Map(items.map(item => [getStoryPositionTimelineItemKey(item), item]));
+    const stats = buildLorepackTimelineAttachmentStats(rows);
+    const addIndexedItem = (kind, sourceDef) => {
+        const id = normalizeLorepackTimelineId(sourceDef?.id);
+        if (!id) return;
+        const key = `${kind}:${id}`;
+        const existing = itemMap.get(key);
+        if (existing?.sourceDefined) return;
+        const normalized = kind === 'window'
+            ? normalizeLorepackTimelineWindow(sourceDef, id)
+            : normalizeLorepackTimelineAnchor(sourceDef, id);
+        if (!normalized) return;
+        if (existing) {
+            existing.sourceDefined = true;
+            existing.sourceDefinition = normalized;
+            existing.definition = existing.customDefinition || normalized;
+            existing.registryState = existing.disabled
+                ? 'disabled'
+                : (existing.customDefined ? 'custom override' : 'source');
+            return;
+        }
+        itemMap.set(key, {
+            kind,
+            id,
+            sourceDefined: true,
+            customDefined: false,
+            disabled: false,
+            sourceDefinition: normalized,
+            customDefinition: null,
+            definition: normalized,
+            entryIds: kind === 'anchor' ? (stats.anchorRefs.get(id) || []) : getTimelineWindowEntryRefs(normalized, stats),
+            registryState: 'source',
+        });
+    };
+
+    for (const anchor of (positionIndex?.anchors || []).filter(anchor => anchor?.packId === pack.packId)) {
+        addIndexedItem('anchor', anchor);
+    }
+    for (const windowDef of (positionIndex?.windows || []).filter(windowDef => windowDef?.packId === pack.packId)) {
+        addIndexedItem('window', windowDef);
+    }
+    return Array.from(itemMap.values()).sort(compareStoryPositionTimelineItems);
+}
+
+function compareStoryPositionTimelineItems(a = {}, b = {}) {
+    const aSort = normalizeLorepackTimelineNumber(a.definition?.sortKey ?? a.definition?.sortKeyFrom) ?? Number.MAX_SAFE_INTEGER;
+    const bSort = normalizeLorepackTimelineNumber(b.definition?.sortKey ?? b.definition?.sortKeyFrom) ?? Number.MAX_SAFE_INTEGER;
+    if (aSort !== bSort) return aSort - bSort;
+    const kindCompare = String(a.kind || '').localeCompare(String(b.kind || ''));
+    if (kindCompare) return kindCompare;
+    return String(a.id || '').localeCompare(String(b.id || ''), undefined, { numeric: true, sensitivity: 'base' });
+}
+
+function filterStoryPositionWorkbenchTimelineItems(items = [], query = storyPositionWorkbenchQuery, typeFilter = storyPositionWorkbenchTypeFilter) {
+    const q = String(query || '').trim().toLowerCase();
+    return items.filter(item => {
+        if (typeFilter !== 'all' && item.kind !== typeFilter) return false;
+        if (!q) return true;
+        const def = item.definition || {};
+        return [
+            item.kind,
+            item.id,
+            item.registryState,
+            def.label,
+            def.anchorFrom,
+            def.anchorTo,
+            def.book,
+            def.work,
+            def.schoolYear,
+            def.arc,
+            def.phase,
+            def.season,
+            def.episode,
+            def.chapter,
+            def.issue,
+            def.quest,
+            def.gameStage,
+            def.notes,
+            ...(Array.isArray(def.aliases) ? def.aliases : []),
+            ...(Array.isArray(def.tags) ? def.tags : []),
+            ...(Array.isArray(item.entryIds) ? item.entryIds : []),
+        ].filter(Boolean).join(' ').toLowerCase().includes(q);
+    });
+}
+
+function createStoryPositionWorkbenchTimelineView(state = getState(), positionIndex = getStoryPositionIndexSync()) {
+    const view = document.createElement('div');
+    view.className = 'wandlight-story-position-workbench-view';
+    const pack = getStoryPositionWorkbenchPack(state);
+    if (!pack) {
+        view.appendChild(createEmptyMessage('No loaded Loredeck selected.'));
+        return view;
+    }
+    const allItems = getStoryPositionWorkbenchTimelineItems(pack, positionIndex);
+    const visibleItems = filterStoryPositionWorkbenchTimelineItems(allItems);
+    if (!visibleItems.some(item => getStoryPositionTimelineItemKey(item) === storyPositionWorkbenchSelectedKey)) {
+        storyPositionWorkbenchSelectedKey = visibleItems[0] ? getStoryPositionTimelineItemKey(visibleItems[0]) : (allItems[0] ? getStoryPositionTimelineItemKey(allItems[0]) : '');
+    }
+    const selected = allItems.find(item => getStoryPositionTimelineItemKey(item) === storyPositionWorkbenchSelectedKey) || visibleItems[0] || allItems[0] || null;
+
+    view.appendChild(createStoryPositionWorkbenchTimelineControls(state, positionIndex, pack, allItems, visibleItems));
+
+    const main = document.createElement('div');
+    main.className = 'wandlight-story-position-workbench-main';
+    main.appendChild(createStoryPositionWorkbenchTimelineTable(pack, visibleItems, selected));
+    main.appendChild(createStoryPositionWorkbenchInspector(pack, selected, allItems));
+    view.appendChild(main);
+    return view;
+}
+
+function createStoryPositionWorkbenchTimelineControls(state, positionIndex, pack, allItems = [], visibleItems = []) {
+    const controls = document.createElement('div');
+    controls.className = 'wandlight-story-position-workbench-controls';
+    controls.appendChild(createStoryPositionWorkbenchPackSelector(state, positionIndex));
+
+    const search = document.createElement('input');
+    search.type = 'search';
+    search.className = 'wandlight-lore-workbench-search';
+    search.placeholder = 'Search anchors, windows, arcs, dates, aliases, tags...';
+    search.value = storyPositionWorkbenchQuery || '';
+    addTooltip(search, 'Search the selected Loredeck timeline registry.');
+    search.addEventListener('input', () => {
+        storyPositionWorkbenchQuery = search.value;
+        renderStoryPositionWorkbench();
+    });
+    controls.appendChild(search);
+
+    const type = document.createElement('select');
+    type.className = 'wandlight-lore-workbench-select';
+    addTooltip(type, 'Filter timeline rows by registry object type.');
+    for (const [value, label] of [['all', 'All Types'], ['anchor', 'Anchors'], ['window', 'Windows']]) {
+        const option = document.createElement('option');
+        option.value = value;
+        option.textContent = label;
+        if (storyPositionWorkbenchTypeFilter === value) option.selected = true;
+        type.appendChild(option);
+    }
+    type.addEventListener('change', () => {
+        storyPositionWorkbenchTypeFilter = type.value;
+        storyPositionWorkbenchSelectedKey = '';
+        renderStoryPositionWorkbench();
+    });
+    controls.appendChild(type);
+
+    const count = document.createElement('div');
+    count.className = 'wandlight-lore-workbench-count';
+    count.textContent = `${visibleItems.length} / ${allItems.length} shown`;
+    controls.appendChild(count);
+
+    const loadButton = createButton('Load Context', 'Load entries, tags, and timeline files so attachment counts and source registry rows are current.', async (btn) => {
+        await loadLorepackEntriesForEditor(pack, btn);
+        await loadStoryPositionIndex({ force: true }).catch(() => null);
+        renderStoryPositionWorkbench();
+    });
+    loadButton.disabled = !canValidateLorepackInEditor(pack);
+    controls.appendChild(loadButton);
+
+    const newAnchor = createButton('New Anchor', 'Create a new timeline anchor proposal for this Custom Loredeck.', () => openLorepackTimelineAnchorDialog(pack, null));
+    newAnchor.disabled = pack.type === 'bundled';
+    controls.appendChild(newAnchor);
+
+    const newWindow = createButton('New Window', 'Create a new timeline window proposal for this Custom Loredeck.', () => openLorepackTimelineWindowDialog(pack, null));
+    newWindow.disabled = pack.type === 'bundled';
+    controls.appendChild(newWindow);
+
+    const exportButton = createButton('Export Timeline', 'Download the merged active timeline registry for this Loredeck.', () => {
+        downloadJson(buildMergedLorepackTimelineRegistryForExport(pack), `${sanitizeFileStem(pack.packId || 'saga-loredeck')}.timeline.json`);
+        toast('Timeline registry exported.', 'info');
+    });
+    exportButton.disabled = !allItems.length;
+    controls.appendChild(exportButton);
+    return controls;
+}
+
+function createStoryPositionWorkbenchTimelineTable(pack, items = [], selected = null) {
+    const table = document.createElement('div');
+    table.className = 'wandlight-story-position-workbench-table';
+    const header = document.createElement('div');
+    header.className = 'wandlight-story-position-workbench-table-row wandlight-story-position-workbench-row-header';
+    for (const label of ['Type', 'Label / ID', 'Position', 'Coordinates', 'Aliases', 'Tags', 'Attached', 'State']) {
+        const cell = document.createElement('div');
+        cell.textContent = label;
+        header.appendChild(cell);
+    }
+    table.appendChild(header);
+
+    if (!items.length) {
+        table.appendChild(createEmptyMessage('No matching timeline definitions. Load context, create anchors/windows, or clear the search.'));
+        return table;
+    }
+
+    for (const item of items.slice(0, 500)) {
+        const key = getStoryPositionTimelineItemKey(item);
+        const def = item.definition || {};
+        const row = document.createElement('div');
+        row.className = 'wandlight-story-position-workbench-table-row';
+        if (selected && key === getStoryPositionTimelineItemKey(selected)) row.classList.add('wandlight-story-position-workbench-row-active');
+        if (item.disabled) row.classList.add('wandlight-story-position-workbench-row-disabled');
+        row.addEventListener('click', () => {
+            storyPositionWorkbenchSelectedKey = key;
+            renderStoryPositionWorkbench();
+        });
+        row.appendChild(createWorkbenchTextCell(item.kind === 'window' ? 'Window' : 'Anchor', item.registryState || 'source'));
+        row.appendChild(createWorkbenchTextCell(def.label || item.id, item.id));
+        row.appendChild(createWorkbenchTextCell(getStoryPositionTimelineItemPositionText(item), item.kind === 'window' ? `${def.anchorFrom || '?'} -> ${def.anchorTo || '?'}` : 'sort key'));
+        row.appendChild(createWorkbenchTextCell(getStoryPositionTimelineItemCoordinateText(item), def.notes || ''));
+        row.appendChild(createWorkbenchTextCell(String(def.aliases?.length || 0), def.aliases?.slice(0, 3).join(', ') || ''));
+        row.appendChild(createWorkbenchTextCell(String(def.tags?.length || 0), def.tags?.slice(0, 3).join(', ') || ''));
+        row.appendChild(createWorkbenchTextCell(String(item.entryIds?.length || 0), item.entryIds?.slice(0, 2).join(', ') || ''));
+        row.appendChild(createWorkbenchTextCell(item.registryState || 'source', item.disabled ? 'disabled' : 'active'));
+        table.appendChild(row);
+    }
+    if (items.length > 500) {
+        const note = document.createElement('div');
+        note.className = 'wandlight-lore-workbench-row-note';
+        note.textContent = `Showing first 500 of ${items.length} matching definitions. Narrow the search to inspect more precisely.`;
+        table.appendChild(note);
+    }
+    return table;
+}
+
+function createStoryPositionWorkbenchInspector(pack, selected = null, allItems = []) {
+    const detail = document.createElement('div');
+    detail.className = 'wandlight-story-position-workbench-inspector';
+    if (!selected) {
+        detail.appendChild(createEmptyMessage('Select an anchor or window to inspect it.'));
+        return detail;
+    }
+    const def = selected.definition || {};
+
+    const title = document.createElement('div');
+    title.className = 'wandlight-story-position-workbench-inspector-title';
+    title.textContent = def.label || selected.id || 'Timeline Definition';
+    detail.appendChild(title);
+
+    const chips = document.createElement('div');
+    chips.className = 'wandlight-lorepack-row-meta';
+    chips.appendChild(createStatusPill(selected.kind === 'window' ? 'Window' : 'Anchor', 'Timeline registry object type.'));
+    chips.appendChild(createStatusPill(selected.registryState || 'source', 'Source/custom overlay state.'));
+    chips.appendChild(createStatusPill(`${selected.entryIds?.length || 0} attached`, 'Lorecards attached to this timeline position.'));
+    if (selected.disabled) chips.appendChild(createStatusPill('Disabled', 'This definition is suppressed by the Custom overlay.'));
+    detail.appendChild(chips);
+
+    const grid = document.createElement('div');
+    grid.className = 'wandlight-story-position-workbench-inspector-grid';
+    grid.appendChild(createKeyValue('ID', selected.id, 'Stable timeline registry ID.'));
+    grid.appendChild(createKeyValue('Position', getStoryPositionTimelineItemPositionText(selected) || 'unset', 'Sort key or sort range.'));
+    if (selected.kind === 'window') {
+        grid.appendChild(createKeyValue('From', def.anchorFrom || 'unset', 'Window start anchor.'));
+        grid.appendChild(createKeyValue('To', def.anchorTo || 'unset', 'Window end anchor.'));
+    }
+    grid.appendChild(createKeyValue('Coordinates', getStoryPositionTimelineItemCoordinateText(selected) || 'unset', 'Date, arc, episode, chapter, quest, or other coordinates.'));
+    grid.appendChild(createKeyValue('Aliases', def.aliases?.join(', ') || 'none', 'Local resolver aliases.'));
+    grid.appendChild(createKeyValue('Tags', def.tags?.join(', ') || 'none', 'Timeline tags.'));
+    grid.appendChild(createKeyValue('Notes', def.notes || 'none', 'Registry author notes.'));
+    detail.appendChild(grid);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions wandlight-story-position-workbench-inspector-actions';
+    actions.appendChild(createButton('Apply to Position', 'Set the selected Loredeck Story Position to this anchor/window.', () => {
+        applyStoryPositionTimelineItem(pack.packId, selected);
+    }, 'wandlight-primary-button'));
+
+    const editButton = createButton('Edit Definition', 'Edit this timeline definition as a Pending Review proposal.', () => {
+        if (selected.kind === 'anchor') openLorepackTimelineAnchorDialog(pack, selected);
+        else openLorepackTimelineWindowDialog(pack, selected);
+    });
+    editButton.disabled = pack.type === 'bundled';
+    actions.appendChild(editButton);
+
+    const disableButton = createButton(selected.disabled ? 'Restore Definition' : 'Disable Definition', selected.disabled ? 'Queue restore for this timeline definition.' : 'Queue suppression for this timeline definition.', () => {
+        setLorepackTimelineItemDisabled(pack, selected.kind, selected.id, !selected.disabled);
+    });
+    disableButton.disabled = pack.type === 'bundled';
+    actions.appendChild(disableButton);
+
+    if (selected.customDefined) {
+        const forgetButton = createButton('Forget Overlay', 'Queue removal of this Custom timeline overlay definition.', () => {
+            removeLorepackTimelineDefinition(pack, selected.kind, selected.id);
+        }, 'wandlight-danger-button');
+        forgetButton.disabled = pack.type === 'bundled';
+        actions.appendChild(forgetButton);
+    }
+    if (pack.type === 'bundled') {
+        actions.appendChild(createButton('Duplicate as Custom', 'Create an editable Custom Loredeck copy before changing bundled timeline data.', () => {
+            openDuplicateLorepackDialog(pack);
+        }));
+    }
+    const attachedButton = createButton('Find Lorecards', 'Open this Loredeck details panel filtered to Lorecards attached to this timeline ID.', () => {
+        lorepackEntryOverrideQuery = selected.id || '';
+        selectLorepackForDetails(pack.packId);
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        toast('Loredeck editor filtered to attached timeline ID.', 'info');
+    });
+    attachedButton.disabled = !(selected.entryIds?.length);
+    actions.appendChild(attachedButton);
+    detail.appendChild(actions);
+
+    const issues = getStoryPositionWorkbenchValidationIssues(pack, allItems).filter(issue => issue.itemKey === getStoryPositionTimelineItemKey(selected));
+    if (issues.length) {
+        const issueWrap = document.createElement('div');
+        issueWrap.className = 'wandlight-story-position-workbench-mini-list';
+        const issueTitle = document.createElement('div');
+        issueTitle.className = 'wandlight-runtime-card-title';
+        issueTitle.textContent = 'Warnings';
+        issueWrap.appendChild(issueTitle);
+        for (const issue of issues.slice(0, 4)) {
+            const row = document.createElement('div');
+            row.className = `wandlight-story-position-workbench-mini-item wandlight-story-position-workbench-issue-${issue.severity || 'suggestion'}`;
+            row.textContent = issue.message;
+            issueWrap.appendChild(row);
+        }
+        detail.appendChild(issueWrap);
+    }
+    return detail;
+}
+
+function applyStoryPositionTimelineItem(packId, item = {}) {
+    if (!item?.id) return;
+    const def = item.definition || {};
+    if (item.kind === 'window') {
+        const firstDate = String(def.dateRange?.from || def.dateRange?.to || '').trim();
+        commitLorepackStoryPositionPatch(packId, {
+            positionType: def.positionType || 'anchor_window',
+            anchorId: '',
+            anchorFrom: def.anchorFrom || '',
+            anchorTo: def.anchorTo || '',
+            label: def.label || item.id || '',
+            sceneDate: firstDate,
+            positionSortKey: normalizeLorepackTimelineNumber(def.sortKeyFrom),
+            alias: def.aliases?.[0] || def.label || item.id || '',
+            source: 'manual',
+        }, `Set Story Position window: ${getLorepackDisplayName(packId)}`);
+        return;
+    }
+    applyStoryPositionAnchor(packId, def);
+}
+
+function applyStoryPositionAnchorBoundary(packId, item = {}, mode = 'from') {
+    if (!item?.id || item.kind === 'window') return;
+    const def = item.definition || {};
+    const id = normalizeLorepackTimelineId(def.id || item.id);
+    if (!id) return;
+    const context = getLorepackStoryPosition(getState(), packId);
+    const label = String(def.label || id).trim();
+    const firstDate = String(def.dateRange?.from || def.dateRange?.to || '').trim();
+    const startSort = getLorepackAnchorStartSortKey(def);
+    const endSort = getLorepackAnchorEndSortKey(def);
+    const patch = {
+        positionType: 'anchor_window',
+        anchorId: '',
+        sceneDate: firstDate || context.sceneDate || '',
+        arc: def.arc || context.arc || '',
+        phase: def.phase || context.phase || '',
+        season: def.season || context.season || '',
+        episode: def.episode || context.episode || '',
+        chapter: def.chapter || context.chapter || '',
+        issue: def.issue || context.issue || '',
+        quest: def.quest || context.quest || '',
+        gameStage: def.gameStage || context.gameStage || '',
+        alias: def.aliases?.[0] || def.label || id,
+        source: 'manual',
+    };
+    if (mode === 'to') {
+        patch.anchorFrom = context.anchorFrom || '';
+        patch.anchorTo = id;
+        patch.positionSortKey = Number.isFinite(Number(context.positionSortKey)) ? Number(context.positionSortKey) : endSort;
+        patch.label = context.anchorFrom ? `${context.anchorFrom} to ${label}` : `Before ${label}`;
+    } else {
+        patch.anchorFrom = id;
+        patch.anchorTo = context.anchorTo || '';
+        patch.positionSortKey = startSort;
+        patch.label = context.anchorTo ? `${label} to ${context.anchorTo}` : `After ${label}`;
+    }
+    commitLorepackStoryPositionPatch(packId, patch, `Set Story Position ${mode === 'to' ? 'upper' : 'lower'} bound: ${getLorepackDisplayName(packId)}`);
+}
+
+function createStoryPositionWorkbenchAliasesView(state = getState(), positionIndex = getStoryPositionIndexSync()) {
+    const view = document.createElement('div');
+    view.className = 'wandlight-story-position-workbench-view';
+    const pack = getStoryPositionWorkbenchPack(state);
+    if (!pack) {
+        view.appendChild(createEmptyMessage('No loaded Loredeck selected.'));
+        return view;
+    }
+    const allItems = getStoryPositionWorkbenchTimelineItems(pack, positionIndex);
+    const filteredItems = filterStoryPositionWorkbenchTimelineItems(allItems);
+    const aliasRows = getStoryPositionWorkbenchAliasRows(filteredItems);
+
+    const controls = document.createElement('div');
+    controls.className = 'wandlight-story-position-workbench-controls';
+    controls.appendChild(createStoryPositionWorkbenchPackSelector(state, positionIndex));
+    const search = document.createElement('input');
+    search.type = 'search';
+    search.className = 'wandlight-lore-workbench-search';
+    search.placeholder = 'Search aliases and targets...';
+    search.value = storyPositionWorkbenchQuery || '';
+    addTooltip(search, 'Search resolver aliases, target labels, IDs, tags, and coordinates.');
+    search.addEventListener('input', () => {
+        storyPositionWorkbenchQuery = search.value;
+        renderStoryPositionWorkbench();
+    });
+    controls.appendChild(search);
+    const count = document.createElement('div');
+    count.className = 'wandlight-lore-workbench-count';
+    count.textContent = `${aliasRows.length} aliases`;
+    controls.appendChild(count);
+    controls.appendChild(createButton('Timeline', 'Return to the timeline spreadsheet.', () => {
+        storyPositionWorkbenchTab = 'timeline';
+        renderStoryPositionWorkbench();
+    }));
+    view.appendChild(controls);
+
+    const table = document.createElement('div');
+    table.className = 'wandlight-story-position-workbench-alias-table';
+    const header = document.createElement('div');
+    header.className = 'wandlight-story-position-workbench-alias-row wandlight-story-position-workbench-row-header';
+    for (const label of ['Alias', 'Target', 'Kind', 'Position', 'State', 'Warning', 'Actions']) {
+        const cell = document.createElement('div');
+        cell.textContent = label;
+        header.appendChild(cell);
+    }
+    table.appendChild(header);
+    if (!aliasRows.length) {
+        table.appendChild(createEmptyMessage('No aliases match the current filters. Add aliases to timeline anchors/windows to improve casual resolver matching.'));
+    } else {
+        for (const aliasRow of aliasRows.slice(0, 500)) {
+            table.appendChild(createStoryPositionWorkbenchAliasRow(pack, aliasRow));
+        }
+    }
+    view.appendChild(table);
+    return view;
+}
+
+function getStoryPositionWorkbenchAliasRows(items = []) {
+    const rows = [];
+    const counts = new Map();
+    for (const item of items) {
+        const aliases = Array.isArray(item.definition?.aliases) ? item.definition.aliases : [];
+        for (const alias of aliases) {
+            const text = String(alias || '').trim();
+            if (!text) continue;
+            const key = text.toLowerCase();
+            counts.set(key, (counts.get(key) || 0) + 1);
+            rows.push({ alias: text, aliasKey: key, item });
+        }
+    }
+    return rows
+        .map(row => ({ ...row, duplicate: (counts.get(row.aliasKey) || 0) > 1 }))
+        .sort((a, b) => a.alias.localeCompare(b.alias, undefined, { numeric: true, sensitivity: 'base' }));
+}
+
+function createStoryPositionWorkbenchAliasRow(pack, aliasRow = {}) {
+    const item = aliasRow.item || {};
+    const def = item.definition || {};
+    const row = document.createElement('div');
+    row.className = 'wandlight-story-position-workbench-alias-row';
+    if (aliasRow.duplicate) row.classList.add('wandlight-story-position-workbench-row-warning');
+    row.appendChild(createWorkbenchTextCell(aliasRow.alias, aliasRow.duplicate ? 'duplicate alias' : 'resolver phrase'));
+    row.appendChild(createWorkbenchTextCell(def.label || item.id, item.id));
+    row.appendChild(createWorkbenchTextCell(item.kind === 'window' ? 'Window' : 'Anchor', item.registryState || 'source'));
+    row.appendChild(createWorkbenchTextCell(getStoryPositionTimelineItemPositionText(item), getStoryPositionTimelineItemCoordinateText(item)));
+    row.appendChild(createWorkbenchTextCell(item.disabled ? 'Disabled' : 'Active', item.registryState || ''));
+    row.appendChild(createWorkbenchTextCell(aliasRow.duplicate ? 'Duplicate' : 'OK', aliasRow.duplicate ? 'Same alias maps to multiple targets.' : ''));
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-story-position-workbench-row-actions';
+    actions.appendChild(createButton('Select', 'Select this timeline target in the Timeline tab.', () => {
+        storyPositionWorkbenchSelectedKey = getStoryPositionTimelineItemKey(item);
+        storyPositionWorkbenchTab = 'timeline';
+        renderStoryPositionWorkbench();
+    }));
+    actions.appendChild(createButton('Apply', 'Use this alias target as the selected Loredeck Story Position.', () => {
+        applyStoryPositionTimelineItem(pack.packId, item);
+    }, 'wandlight-primary-button'));
+    row.appendChild(actions);
+    return row;
+}
+
+function createStoryPositionWorkbenchValidationView(state = getState(), positionIndex = getStoryPositionIndexSync()) {
+    const view = document.createElement('div');
+    view.className = 'wandlight-story-position-workbench-view';
+    const pack = getStoryPositionWorkbenchPack(state);
+    if (!pack) {
+        view.appendChild(createEmptyMessage('No loaded Loredeck selected.'));
+        return view;
+    }
+    const items = getStoryPositionWorkbenchTimelineItems(pack, positionIndex);
+    const issues = getStoryPositionWorkbenchValidationIssues(pack, items, positionIndex);
+
+    const controls = document.createElement('div');
+    controls.className = 'wandlight-story-position-workbench-controls';
+    controls.appendChild(createStoryPositionWorkbenchPackSelector(state, positionIndex));
+    const counts = {
+        error: issues.filter(issue => issue.severity === 'error').length,
+        warning: issues.filter(issue => issue.severity === 'warning').length,
+        suggestion: issues.filter(issue => issue.severity === 'suggestion').length,
+    };
+    controls.appendChild(createStatusPill(`${counts.error} errors`, 'Structural timeline issues that can break resolution.'));
+    controls.appendChild(createStatusPill(`${counts.warning} warnings`, 'Timeline issues that should be reviewed.'));
+    controls.appendChild(createStatusPill(`${counts.suggestion} suggestions`, 'Optional improvements for resolver coverage.'));
+    controls.appendChild(createButton('Validate Deck', 'Run Deck Health validation and refresh timeline diagnostics.', async (btn) => {
+        await validateLorepackForEditor(pack, btn);
+        await loadStoryPositionIndex({ force: true }).catch(() => null);
+        renderStoryPositionWorkbench();
+    }, 'wandlight-primary-button'));
+    view.appendChild(controls);
+
+    const main = document.createElement('div');
+    main.className = 'wandlight-story-position-workbench-validation-layout';
+    const table = document.createElement('div');
+    table.className = 'wandlight-story-position-workbench-validation-table';
+    const header = document.createElement('div');
+    header.className = 'wandlight-story-position-workbench-validation-row wandlight-story-position-workbench-row-header';
+    for (const label of ['Severity', 'Issue', 'Target', 'Suggested Action']) {
+        const cell = document.createElement('div');
+        cell.textContent = label;
+        header.appendChild(cell);
+    }
+    table.appendChild(header);
+    if (!issues.length) {
+        table.appendChild(createEmptyMessage('No Story Position validation issues found for the selected Loredeck.'));
+    } else {
+        for (const issue of issues.slice(0, 500)) {
+            table.appendChild(createStoryPositionWorkbenchValidationRow(issue));
+        }
+    }
+    main.appendChild(table);
+    main.appendChild(createStoryPositionWorkbenchValidationSummary(pack, items, issues));
+    view.appendChild(main);
+    return view;
+}
+
+function getStoryPositionWorkbenchValidationIssues(pack, items = [], positionIndex = getStoryPositionIndexSync()) {
+    const issues = [];
+    const itemByKey = new Map(items.map(item => [getStoryPositionTimelineItemKey(item), item]));
+    const anchorIds = new Set(items.filter(item => item.kind === 'anchor' && !item.disabled && item.registryState !== 'undefined').map(item => item.id));
+    const aliasTargets = new Map();
+    for (const item of items) {
+        const key = getStoryPositionTimelineItemKey(item);
+        const def = item.definition || {};
+        if (item.registryState === 'undefined') {
+            issues.push({
+                severity: 'warning',
+                code: 'undefined_anchor',
+                itemKey: key,
+                target: item.id,
+                message: `Lorecards reference ${item.id}, but the timeline registry does not define it.`,
+                action: 'Create or map this anchor in the Custom timeline registry.',
+            });
+        }
+        if (!String(def.label || '').trim()) {
+            issues.push({
+                severity: 'warning',
+                code: 'missing_label',
+                itemKey: key,
+                target: item.id,
+                message: `${item.id} is missing a readable label.`,
+                action: 'Add a label before sharing the Loredeck.',
+            });
+        }
+        if (!(def.aliases || []).length) {
+            issues.push({
+                severity: 'suggestion',
+                code: 'missing_aliases',
+                itemKey: key,
+                target: item.id,
+                message: `${def.label || item.id} has no resolver aliases.`,
+                action: 'Add casual phrasing users might type.',
+            });
+        }
+        for (const alias of def.aliases || []) {
+            const aliasKey = String(alias || '').trim().toLowerCase();
+            if (!aliasKey) continue;
+            if (!aliasTargets.has(aliasKey)) aliasTargets.set(aliasKey, []);
+            aliasTargets.get(aliasKey).push(key);
+        }
+        if (item.kind === 'window') {
+            const sortFrom = normalizeLorepackTimelineNumber(def.sortKeyFrom);
+            const sortTo = normalizeLorepackTimelineNumber(def.sortKeyTo);
+            if (sortFrom !== null && sortTo !== null && sortFrom > sortTo) {
+                issues.push({
+                    severity: 'error',
+                    code: 'invalid_window_sort',
+                    itemKey: key,
+                    target: item.id,
+                    message: `${def.label || item.id} has sort bounds in reverse order.`,
+                    action: 'Set Sort From lower than or equal to Sort To.',
+                });
+            }
+            if (def.anchorFrom && !anchorIds.has(def.anchorFrom)) {
+                issues.push({
+                    severity: 'error',
+                    code: 'dangling_start_anchor',
+                    itemKey: key,
+                    target: item.id,
+                    message: `${def.label || item.id} starts at missing anchor ${def.anchorFrom}.`,
+                    action: 'Create the anchor or update the window start.',
+                });
+            }
+            if (def.anchorTo && !anchorIds.has(def.anchorTo)) {
+                issues.push({
+                    severity: 'error',
+                    code: 'dangling_end_anchor',
+                    itemKey: key,
+                    target: item.id,
+                    message: `${def.label || item.id} ends at missing anchor ${def.anchorTo}.`,
+                    action: 'Create the anchor or update the window end.',
+                });
+            }
+        }
+    }
+    for (const [alias, targets] of aliasTargets.entries()) {
+        const uniqueTargets = [...new Set(targets)];
+        if (uniqueTargets.length <= 1) continue;
+        for (const itemKey of uniqueTargets) {
+            const item = itemByKey.get(itemKey);
+            issues.push({
+                severity: 'warning',
+                code: 'duplicate_alias',
+                itemKey,
+                target: item?.id || itemKey,
+                message: `Alias "${alias}" maps to ${uniqueTargets.length} timeline definitions.`,
+                action: 'Rename or narrow duplicate aliases so local matching is predictable.',
+            });
+        }
+    }
+    for (const issue of positionIndex?.issues || []) {
+        if (issue?.packId && issue.packId !== pack?.packId) continue;
+        issues.push({
+            severity: issue?.severity || 'warning',
+            code: issue?.code || 'index_issue',
+            itemKey: '',
+            target: issue?.timelineRef || pack?.packId || '',
+            message: issue?.message || 'Story Position index reported an issue.',
+            action: 'Inspect timeline registry source and reload the index.',
+        });
+    }
+    return issues.sort((a, b) => {
+        const order = { error: 0, warning: 1, suggestion: 2 };
+        return (order[a.severity] ?? 3) - (order[b.severity] ?? 3)
+            || String(a.target || '').localeCompare(String(b.target || ''));
+    });
+}
+
+function createStoryPositionWorkbenchValidationRow(issue = {}) {
+    const row = document.createElement('div');
+    row.className = `wandlight-story-position-workbench-validation-row wandlight-story-position-workbench-issue-${issue.severity || 'suggestion'}`;
+    row.addEventListener('click', () => {
+        if (issue.itemKey) {
+            storyPositionWorkbenchSelectedKey = issue.itemKey;
+            storyPositionWorkbenchTab = 'timeline';
+            renderStoryPositionWorkbench();
+        }
+    });
+    row.appendChild(createWorkbenchTextCell(humanizeScopeKey(issue.severity || 'suggestion'), issue.code || ''));
+    row.appendChild(createWorkbenchTextCell(issue.message || 'Timeline issue', ''));
+    row.appendChild(createWorkbenchTextCell(issue.target || 'registry', issue.itemKey || ''));
+    row.appendChild(createWorkbenchTextCell(issue.action || 'Review timeline data.', issue.itemKey ? 'Click to inspect target.' : ''));
+    return row;
+}
+
+function createStoryPositionWorkbenchValidationSummary(pack, items = [], issues = []) {
+    const panel = document.createElement('div');
+    panel.className = 'wandlight-story-position-workbench-inspector';
+    const title = document.createElement('div');
+    title.className = 'wandlight-story-position-workbench-inspector-title';
+    title.textContent = 'Timeline Summary';
+    panel.appendChild(title);
+    const anchors = items.filter(item => item.kind === 'anchor');
+    const windows = items.filter(item => item.kind === 'window');
+    const aliases = items.reduce((sum, item) => sum + (item.definition?.aliases?.length || 0), 0);
+    const attached = items.filter(item => item.entryIds?.length).length;
+    const grid = document.createElement('div');
+    grid.className = 'wandlight-story-position-workbench-inspector-grid';
+    grid.appendChild(createKeyValue('Deck', pack.title || pack.packId, 'Selected Loredeck.'));
+    grid.appendChild(createKeyValue('Anchors', String(anchors.length), 'Timeline anchors visible to the workbench.'));
+    grid.appendChild(createKeyValue('Windows', String(windows.length), 'Timeline windows visible to the workbench.'));
+    grid.appendChild(createKeyValue('Aliases', String(aliases), 'Explicit resolver aliases across anchors/windows.'));
+    grid.appendChild(createKeyValue('Attached', String(attached), 'Timeline rows referenced by loaded Lorecards.'));
+    grid.appendChild(createKeyValue('Issues', String(issues.length), 'Current Story Position validation findings.'));
+    panel.appendChild(grid);
+    const help = document.createElement('div');
+    help.className = 'wandlight-runtime-help';
+    help.textContent = 'This validation is focused on Story Position structure. Deck Health remains the broader import/export and schema health report.';
+    panel.appendChild(help);
+    return panel;
 }
 
 function createLorepackHealthReportCard(state, canonDb = null, health = null) {
