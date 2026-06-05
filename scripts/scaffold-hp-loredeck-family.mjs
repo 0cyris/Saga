@@ -95,6 +95,19 @@ const decks = [
     startDate: '1997-07-01',
     endDate: '1998-05-03',
   },
+  {
+    section: 'Epilogue: Post-War Years',
+    id: 'hp-epilogue-post-war',
+    title: 'Harry Potter: Post-War Years & Epilogue',
+    era: 'Post-War Years & Epilogue',
+    role: 'epilogue',
+    book: 'Deathly Hallows Epilogue',
+    anchorPrefix: 'hp.postwar.',
+    description: 'Post-war Golden Trio Loredeck for wizarding reconstruction, Ministry reforms, Harry as an Auror, the 2014 Quidditch World Cup, and the 2017 new-generation platform scene.',
+    sourceUrl: 'https://www.hp-lexicon.org/timeline/master-timeline/the-modern-era/the-second-rise-of-voldemort/post-war-years/',
+    startDate: '1998-05-02',
+    endDate: '2017-09-01',
+  },
 ];
 
 const dateOverrides = {
@@ -120,6 +133,38 @@ const dateOverrides = {
   'hp.y6.astronomy_tower_crisis': '1997-06-07',
   'hp.y6.dumbledore_killed': '1997-06-07',
   'hp.y6.funeral': '1997-06-30',
+  'hp.postwar.kingsley_caretaker_minister': '1998-05-02',
+  'hp.postwar.wizarding_reconstruction_begins': '1998-05-03',
+  'hp.postwar.comic_relief_schoolbooks_published': '2001-03-12',
+  'hp.postwar.quidditch_world_cup_2014_opening': '2014-04-12',
+  'hp.postwar.quidditch_world_cup_2014_first_round': '2014-04-13',
+  'hp.postwar.liechtenstein_chad_marathon_match': '2014-05-17',
+  'hp.postwar.hans_augurey_kidnapped': '2014-06-08',
+  'hp.postwar.hans_augurey_returned': '2014-06-09',
+  'hp.postwar.quidditch_world_cup_2014_semifinals': '2014-07-04',
+  'hp.postwar.dumbledores_army_reunited_world_cup': '2014-07-08',
+  'hp.postwar.quidditch_world_cup_2014_final': '2014-07-11',
+  'hp.postwar.james_sirius_sorted_gryffindor': '2015-09-01',
+  'hp.postwar.james_sirius_second_year': '2016-09-01',
+  'hp.postwar.new_generation_kings_cross': '2017-09-01',
+  'hp.postwar.albus_rose_scorpius_start_hogwarts': '2017-09-01',
+  'hp.postwar.teddy_lupin_and_victoire_platform': '2017-09-01',
+  'hp.postwar.draco_family_platform': '2017-09-01',
+};
+
+const dateRangeOverrides = {
+  'hp.postwar.kingsley_elected_minister': { from: '1998-05-03', to: '1998-12-31', precision: 'approximate_year' },
+  'hp.postwar.quidditch_world_cup_1998': { from: '1998-05-03', to: '1998-12-31', precision: 'approximate_year' },
+  'hp.postwar.harry_joins_aurors': { from: '1998-05-03', to: '1998-12-31', precision: 'approximate_year' },
+  'hp.postwar.dementors_removed_from_azkaban': { from: '2000-01-01', to: '2009-12-31', precision: 'decade' },
+  'hp.postwar.ministry_reforms_established': { from: '2000-01-01', to: '2009-12-31', precision: 'decade' },
+  'hp.postwar.quidditch_world_cup_2002': { from: '2002-01-01', to: '2002-12-31', precision: 'year' },
+  'hp.postwar.viktor_krum_international_retirement': { from: '2002-01-01', to: '2002-12-31', precision: 'year' },
+  'hp.postwar.quidditch_world_cup_2006': { from: '2006-01-01', to: '2006-12-31', precision: 'year' },
+  'hp.postwar.harry_head_auror_department': { from: '2007-01-01', to: '2007-12-31', precision: 'year' },
+  'hp.postwar.macusa_quahog_era': { from: '2010-01-01', to: '2019-12-31', precision: 'decade' },
+  'hp.postwar.quidditch_world_cup_2010': { from: '2010-01-01', to: '2010-12-31', precision: 'year' },
+  'hp.postwar.ginny_reports_gobstones_league': { from: '2014-07-01', to: '2014-07-31', precision: 'month' },
 };
 
 const aliasOverrides = {
@@ -130,6 +175,16 @@ const aliasOverrides = {
   'hp.y6.slughorn_christmas_party': ['Slughorn Christmas party', 'Christmas party Year 6', 'Harry brings Luna to Slughorn party'],
   'hp.y4.cedric_killed': ['Cedric dies', 'Cedric Diggory dies', 'when Cedric dies'],
   'hp.y4.voldemort_reborn': ['Voldemort comes back', 'Voldemort returns', 'Voldemort reborn'],
+  'hp.postwar.kingsley_caretaker_minister': ['Kingsley becomes Minister', 'caretaker Minister for Magic', 'right after Voldemort is defeated'],
+  'hp.postwar.wizarding_reconstruction_begins': ['after the war', 'post-war rebuilding', 'wizarding reconstruction'],
+  'hp.postwar.dementors_removed_from_azkaban': ['Dementors removed from Azkaban', 'Azkaban reform', 'Kingsley removes Dementors'],
+  'hp.postwar.harry_head_auror_department': ['Harry becomes Head Auror', 'Harry leads the Auror Department', 'Head of the Auror Department'],
+  'hp.postwar.dumbledores_army_reunited_world_cup': ['Dumbledore\'s Army reunion', 'DA reunion at the World Cup', '2014 DA reunion'],
+  'hp.postwar.quidditch_world_cup_2014_final': ['2014 Quidditch World Cup final', 'Viktor Krum wins the World Cup', 'Brazil versus Bulgaria final'],
+  'hp.postwar.james_sirius_sorted_gryffindor': ['James Sirius starts Hogwarts', 'James Sirius sorted into Gryffindor', 'Harry and Ginny\'s eldest starts Hogwarts'],
+  'hp.postwar.new_generation_kings_cross': ['nineteen years later', '19 years later', 'King\'s Cross epilogue', 'new generation at King\'s Cross'],
+  'hp.postwar.albus_rose_scorpius_start_hogwarts': ['Albus starts Hogwarts', 'Rose starts Hogwarts', 'Scorpius starts Hogwarts', 'Albus Rose and Scorpius board the train'],
+  'hp.postwar.teddy_lupin_and_victoire_platform': ['Teddy Lupin and Victoire', 'Teddy sees Victoire off', 'Victoire Weasley at King\'s Cross'],
 };
 
 const windowRangeOverrides = {
@@ -141,6 +196,13 @@ const windowRangeOverrides = {
   'hp.y7.window.gringotts': ['hp.y7.gringotts_breakin', 'hp.y7.dragon_escape'],
   'hp.y7.window.hogwarts_return': ['hp.y7.hogwarts_return_plan', 'hp.y7.battle_hogwarts_begins'],
   'hp.y7.window.final_duel': ['hp.y7.narcissa_lies', 'hp.y7.voldemort_defeated'],
+  'hp.postwar.window.immediate_rebuilding': ['hp.postwar.kingsley_caretaker_minister', 'hp.postwar.harry_joins_aurors'],
+  'hp.postwar.window.early_ministry_reforms': ['hp.postwar.kingsley_elected_minister', 'hp.postwar.ministry_reforms_established'],
+  'hp.postwar.window.postwar_publications_and_sports': ['hp.postwar.comic_relief_schoolbooks_published', 'hp.postwar.quidditch_world_cup_2010'],
+  'hp.postwar.window.harry_auror_career': ['hp.postwar.harry_joins_aurors', 'hp.postwar.harry_head_auror_department'],
+  'hp.postwar.window.quidditch_world_cup_2014': ['hp.postwar.quidditch_world_cup_2014_opening', 'hp.postwar.ginny_reports_gobstones_league'],
+  'hp.postwar.window.next_generation_hogwarts': ['hp.postwar.james_sirius_sorted_gryffindor', 'hp.postwar.new_generation_kings_cross'],
+  'hp.postwar.window.kings_cross_epilogue': ['hp.postwar.new_generation_kings_cross', 'hp.postwar.draco_family_platform'],
 };
 
 function parseIsoDate(value) {
@@ -219,6 +281,24 @@ function distributedDate(deck, index, total) {
   return isoFromEpoch(epoch);
 }
 
+function dateRangeForAnchor(deck, id, index, total) {
+  if (dateRangeOverrides[id]) return dateRangeOverrides[id];
+  const explicitDate = dateOverrides[id];
+  if (explicitDate) {
+    return {
+      from: explicitDate,
+      to: explicitDate,
+      precision: 'known_or_curated',
+    };
+  }
+  const date = distributedDate(deck, index, total);
+  return {
+    from: date,
+    to: date,
+    precision: 'approximate',
+  };
+}
+
 function aliasesForAnchor(id, label, deck) {
   const aliases = new Set([
     label,
@@ -236,12 +316,14 @@ function aliasesForAnchor(id, label, deck) {
 function tagsForDeck(deck) {
   const tags = ['fandom:harry-potter', 'era:golden-trio', 'structure:split-loredeck', 'quality:human-vetted'];
   if (deck.schoolYear) tags.push(`school-year:${deck.schoolYear}`);
+  else if ((deck.role || '') === 'epilogue') tags.push('scope:post-war', 'era:post-war');
   else tags.push('scope:core');
+  for (const tag of deck.tags || []) tags.push(tag);
   return tags;
 }
 
 function buildAnchor(deck, id, index, total) {
-  const date = dateOverrides[id] || distributedDate(deck, index, total);
+  const dateRange = dateRangeForAnchor(deck, id, index, total);
   const label = labelFromId(id);
   const tags = tagsForDeck(deck);
   if (deck.book) tags.push(`book:${deck.book.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`);
@@ -249,12 +331,8 @@ function buildAnchor(deck, id, index, total) {
     id,
     label,
     contextType: id.startsWith('hp.core.') ? 'recurring_context' : 'story_anchor',
-    sortKey: sortKeyFromIso(date),
-    dateRange: {
-      from: date,
-      to: date,
-      precision: dateOverrides[id] ? 'known_or_curated' : 'approximate',
-    },
+    sortKey: sortKeyFromIso(dateRange.from),
+    dateRange,
     book: deck.book || '',
     schoolYear: deck.schoolYear || '',
     arc: deck.era,
@@ -294,18 +372,19 @@ function buildWindow(deck, id, index, windows, anchors) {
 function buildTimeline(deck, anchorIds, windowIds) {
   const anchors = anchorIds.map((id, index) => buildAnchor(deck, id, index, anchorIds.length));
   const windows = windowIds.map((id, index) => buildWindow(deck, id, index, windowIds, anchors));
+  const axes = [
+    { id: 'calendar', type: 'calendar', label: 'Calendar Date' },
+    { id: 'book', type: 'anchor', label: 'Book' },
+  ];
+  if (deck.schoolYear || deck.id === 'hp-core') axes.push({ id: 'schoolYear', type: 'phase', label: 'School Year' });
+  axes.push({ id: 'arc', type: 'arc', label: 'Story Arc' });
   return {
     schemaVersion: 1,
     timelineMode: 'hybrid',
-    defaultContextType: deck.schoolYear ? 'story_anchor' : 'recurring_context',
+    defaultContextType: deck.id === 'hp-core' ? 'recurring_context' : 'story_anchor',
     sortKeyScale: 'date-derived-day',
     summary: `${deck.title} Context anchors and phase windows for Saga's Harry Potter Golden Trio deck family.`,
-    axes: [
-      { id: 'calendar', type: 'calendar', label: 'Calendar Date' },
-      { id: 'book', type: 'anchor', label: 'Book' },
-      { id: 'schoolYear', type: 'phase', label: 'School Year' },
-      { id: 'arc', type: 'arc', label: 'Story Arc' },
-    ],
+    axes,
     anchors,
     windows,
   };
@@ -331,12 +410,12 @@ function buildLoredeck(deck, timeline) {
     family: {
       id: 'hp-golden-trio',
       title: 'Harry Potter: Golden Trio',
-      role: deck.id === 'hp-core' ? 'core' : 'year',
+      role: deck.role || (deck.id === 'hp-core' ? 'core' : 'year'),
       recommendedCoreDeckId: deck.id === 'hp-core' ? '' : 'hp-core',
     },
     recommendedStack: deck.id === 'hp-core' ? [] : ['hp-core', deck.id],
     tags: tagsForDeck(deck),
-    source: { kind: 'bundled', url: '' },
+    source: { kind: 'bundled', url: deck.sourceUrl || '' },
     update: { checkForUpdates: false, url: '', lastCheckedAt: 0 },
     continuity: {
       continuityId: 'hp-books',
@@ -380,7 +459,7 @@ async function main() {
   const report = [];
   for (const deck of decks) {
     const section = getSection(plan, deck.section);
-    const prefix = deck.id === 'hp-core' ? 'hp.core.' : `hp.y${deck.schoolYear}.`;
+    const prefix = deck.anchorPrefix || (deck.id === 'hp-core' ? 'hp.core.' : `hp.y${deck.schoolYear}.`);
     const anchorIds = extractIds(section, prefix, false);
     const windowIds = extractIds(section, prefix, true);
     if (!anchorIds.length) throw new Error(`No anchors found for ${deck.id}`);

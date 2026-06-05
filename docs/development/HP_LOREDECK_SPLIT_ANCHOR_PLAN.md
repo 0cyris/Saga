@@ -677,9 +677,57 @@ Curated windows:
 - `hp.y7.window.final_duel`
 - `hp.y7.window.battle_aftermath`
 
+## Epilogue: Post-War Years
+
+Goal: support post-war starts after Voldemort's defeat, during Ministry reconstruction, after Azkaban reforms, around Harry's Auror career, around the 2014 Quidditch World Cup / Dumbledore's Army reunion, and at the 2017 King's Cross new-generation epilogue.
+
+Source spine: selected story-useful anchors from the Harry Potter Lexicon post-war timeline, with low-value monthly archive/meta entries omitted from the Saga starter deck.
+
+Primary anchors:
+
+- `hp.postwar.kingsley_caretaker_minister`
+- `hp.postwar.wizarding_reconstruction_begins`
+- `hp.postwar.kingsley_elected_minister`
+- `hp.postwar.quidditch_world_cup_1998`
+- `hp.postwar.harry_joins_aurors`
+- `hp.postwar.dementors_removed_from_azkaban`
+- `hp.postwar.ministry_reforms_established`
+- `hp.postwar.comic_relief_schoolbooks_published`
+- `hp.postwar.quidditch_world_cup_2002`
+- `hp.postwar.viktor_krum_international_retirement`
+- `hp.postwar.quidditch_world_cup_2006`
+- `hp.postwar.harry_head_auror_department`
+- `hp.postwar.quidditch_world_cup_2010`
+- `hp.postwar.macusa_quahog_era`
+- `hp.postwar.quidditch_world_cup_2014_opening`
+- `hp.postwar.quidditch_world_cup_2014_first_round`
+- `hp.postwar.liechtenstein_chad_marathon_match`
+- `hp.postwar.hans_augurey_kidnapped`
+- `hp.postwar.hans_augurey_returned`
+- `hp.postwar.quidditch_world_cup_2014_semifinals`
+- `hp.postwar.dumbledores_army_reunited_world_cup`
+- `hp.postwar.quidditch_world_cup_2014_final`
+- `hp.postwar.ginny_reports_gobstones_league`
+- `hp.postwar.james_sirius_sorted_gryffindor`
+- `hp.postwar.james_sirius_second_year`
+- `hp.postwar.new_generation_kings_cross`
+- `hp.postwar.albus_rose_scorpius_start_hogwarts`
+- `hp.postwar.teddy_lupin_and_victoire_platform`
+- `hp.postwar.draco_family_platform`
+
+Curated windows:
+
+- `hp.postwar.window.immediate_rebuilding`
+- `hp.postwar.window.early_ministry_reforms`
+- `hp.postwar.window.postwar_publications_and_sports`
+- `hp.postwar.window.harry_auror_career`
+- `hp.postwar.window.quidditch_world_cup_2014`
+- `hp.postwar.window.next_generation_hogwarts`
+- `hp.postwar.window.kings_cross_epilogue`
+
 ## Migration Steps
 
-1. Create new Loredeck folders and manifests for Core plus Years 1-7.
+1. Create new Loredeck folders and manifests for Core, Years 1-7, and Epilogue/Post-War.
 2. Add `deckFamilyId: hp-golden-trio` and `recommendedStack` metadata.
 3. Promote existing `lexicon_calendars/year_*` event Lorecards into first-class `timeline.json` anchors for each year deck.
 4. Add missing high-value anchors from this plan, especially Year 6 post-Christmas/Apparition and Year 7 phase boundaries.
@@ -697,4 +745,4 @@ Curated windows:
 - Year 6 supports "after Christmas, before Apparition lessons" without a model call.
 - The Reasoner Provider can map casual phrases to bounded candidates, not invent timeline structure.
 - Entries in a year deck do not inject outside their year-local Context gates.
-- Loading all seven year decks still works as a full-series stack, but the user chooses that complexity intentionally.
+- Loading all seven year decks plus the post-war Epilogue deck still works as a full-series stack, but the user chooses that complexity intentionally.

@@ -1,0 +1,997 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "date-derived-day",
+  "summary": "Harry Potter: Post-War Years & Epilogue Context anchors and phase windows for Saga's Harry Potter Golden Trio deck family.",
+  "axes": [
+    {
+      "id": "calendar",
+      "type": "calendar",
+      "label": "Calendar Date"
+    },
+    {
+      "id": "book",
+      "type": "anchor",
+      "label": "Book"
+    },
+    {
+      "id": "arc",
+      "type": "arc",
+      "label": "Story Arc"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "hp.postwar.kingsley_caretaker_minister",
+      "label": "Kingsley Caretaker Minister",
+      "contextType": "story_anchor",
+      "sortKey": 10348,
+      "dateRange": {
+        "from": "1998-05-02",
+        "to": "1998-05-02",
+        "precision": "known_or_curated"
+      },
+      "book": "Deathly Hallows Epilogue",
+      "schoolYear": "",
+      "arc": "Post-War Years & Epilogue",
+      "aliases": [
+        "Kingsley Caretaker Minister",
+        "kingsley_caretaker_minister",
+        "Kingsley becomes Minister",
+        "caretaker Minister for Magic",
+        "right after Voldemort is defeated"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war",
+        "book:deathly-hallows-epilogue"
+      ]
+    },
+    {
+      "id": "hp.postwar.wizarding_reconstruction_begins",
+      "label": "Wizarding Reconstruction Begins",
+      "contextType": "story_anchor",
+      "sortKey": 10349,
+      "dateRange": {
+        "from": "1998-05-03",
+        "to": "1998-05-03",
+        "precision": "known_or_curated"
+      },
+      "book": "Deathly Hallows Epilogue",
+      "schoolYear": "",
+      "arc": "Post-War Years & Epilogue",
+      "aliases": [
+        "Wizarding Reconstruction Begins",
+        "wizarding_reconstruction_begins",
+        "after the war",
+        "post-war rebuilding",
+        "wizarding reconstruction"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war",
+        "book:deathly-hallows-epilogue"
+      ]
+    },
+    {
+      "id": "hp.postwar.kingsley_elected_minister",
+      "label": "Kingsley Elected Minister",
+      "contextType": "story_anchor",
+      "sortKey": 10349,
+      "dateRange": {
+        "from": "1998-05-03",
+        "to": "1998-12-31",
+        "precision": "approximate_year"
+      },
+      "book": "Deathly Hallows Epilogue",
+      "schoolYear": "",
+      "arc": "Post-War Years & Epilogue",
+      "aliases": [
+        "Kingsley Elected Minister",
+        "kingsley_elected_minister"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war",
+        "book:deathly-hallows-epilogue"
+      ]
+    },
+    {
+      "id": "hp.postwar.quidditch_world_cup_1998",
+      "label": "Quidditch World Cup 1998",
+      "contextType": "story_anchor",
+      "sortKey": 10349,
+      "dateRange": {
+        "from": "1998-05-03",
+        "to": "1998-12-31",
+        "precision": "approximate_year"
+      },
+      "book": "Deathly Hallows Epilogue",
+      "schoolYear": "",
+      "arc": "Post-War Years & Epilogue",
+      "aliases": [
+        "Quidditch World Cup 1998",
+        "quidditch_world_cup_1998"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war",
+        "book:deathly-hallows-epilogue"
+      ]
+    },
+    {
+      "id": "hp.postwar.harry_joins_aurors",
+      "label": "Harry Joins Aurors",
+      "contextType": "story_anchor",
+      "sortKey": 10349,
+      "dateRange": {
+        "from": "1998-05-03",
+        "to": "1998-12-31",
+        "precision": "approximate_year"
+      },
+      "book": "Deathly Hallows Epilogue",
+      "schoolYear": "",
+      "arc": "Post-War Years & Epilogue",
+      "aliases": [
+        "Harry Joins Aurors",
+        "harry_joins_aurors"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war",
+        "book:deathly-hallows-epilogue"
+      ]
+    },
+    {
+      "id": "hp.postwar.dementors_removed_from_azkaban",
+      "label": "Dementors Removed from Azkaban",
+      "contextType": "story_anchor",
+      "sortKey": 10957,
+      "dateRange": {
+        "from": "2000-01-01",
+        "to": "2009-12-31",
+        "precision": "decade"
+      },
+      "book": "Deathly Hallows Epilogue",
+      "schoolYear": "",
+      "arc": "Post-War Years & Epilogue",
+      "aliases": [
+        "Dementors Removed from Azkaban",
+        "dementors_removed_from_azkaban",
+        "Dementors removed from Azkaban",
+        "Azkaban reform",
+        "Kingsley removes Dementors"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war",
+        "book:deathly-hallows-epilogue"
+      ]
+    },
+    {
+      "id": "hp.postwar.ministry_reforms_established",
+      "label": "Ministry Reforms Established",
+      "contextType": "story_anchor",
+      "sortKey": 10957,
+      "dateRange": {
+        "from": "2000-01-01",
+        "to": "2009-12-31",
+        "precision": "decade"
+      },
+      "book": "Deathly Hallows Epilogue",
+      "schoolYear": "",
+      "arc": "Post-War Years & Epilogue",
+      "aliases": [
+        "Ministry Reforms Established",
+        "ministry_reforms_established"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war",
+        "book:deathly-hallows-epilogue"
+      ]
+    },
+    {
+      "id": "hp.postwar.comic_relief_schoolbooks_published",
+      "label": "Comic Relief Schoolbooks Published",
+      "contextType": "story_anchor",
+      "sortKey": 11393,
+      "dateRange": {
+        "from": "2001-03-12",
+        "to": "2001-03-12",
+        "precision": "known_or_curated"
+      },
+      "book": "Deathly Hallows Epilogue",
+      "schoolYear": "",
+      "arc": "Post-War Years & Epilogue",
+      "aliases": [
+        "Comic Relief Schoolbooks Published",
+        "comic_relief_schoolbooks_published"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war",
+        "book:deathly-hallows-epilogue"
+      ]
+    },
+    {
+      "id": "hp.postwar.quidditch_world_cup_2002",
+      "label": "Quidditch World Cup 2002",
+      "contextType": "story_anchor",
+      "sortKey": 11688,
+      "dateRange": {
+        "from": "2002-01-01",
+        "to": "2002-12-31",
+        "precision": "year"
+      },
+      "book": "Deathly Hallows Epilogue",
+      "schoolYear": "",
+      "arc": "Post-War Years & Epilogue",
+      "aliases": [
+        "Quidditch World Cup 2002",
+        "quidditch_world_cup_2002"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war",
+        "book:deathly-hallows-epilogue"
+      ]
+    },
+    {
+      "id": "hp.postwar.viktor_krum_international_retirement",
+      "label": "Viktor Krum International Retirement",
+      "contextType": "story_anchor",
+      "sortKey": 11688,
+      "dateRange": {
+        "from": "2002-01-01",
+        "to": "2002-12-31",
+        "precision": "year"
+      },
+      "book": "Deathly Hallows Epilogue",
+      "schoolYear": "",
+      "arc": "Post-War Years & Epilogue",
+      "aliases": [
+        "Viktor Krum International Retirement",
+        "viktor_krum_international_retirement"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war",
+        "book:deathly-hallows-epilogue"
+      ]
+    },
+    {
+      "id": "hp.postwar.quidditch_world_cup_2006",
+      "label": "Quidditch World Cup 2006",
+      "contextType": "story_anchor",
+      "sortKey": 13149,
+      "dateRange": {
+        "from": "2006-01-01",
+        "to": "2006-12-31",
+        "precision": "year"
+      },
+      "book": "Deathly Hallows Epilogue",
+      "schoolYear": "",
+      "arc": "Post-War Years & Epilogue",
+      "aliases": [
+        "Quidditch World Cup 2006",
+        "quidditch_world_cup_2006"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war",
+        "book:deathly-hallows-epilogue"
+      ]
+    },
+    {
+      "id": "hp.postwar.harry_head_auror_department",
+      "label": "Harry Head Auror Department",
+      "contextType": "story_anchor",
+      "sortKey": 13514,
+      "dateRange": {
+        "from": "2007-01-01",
+        "to": "2007-12-31",
+        "precision": "year"
+      },
+      "book": "Deathly Hallows Epilogue",
+      "schoolYear": "",
+      "arc": "Post-War Years & Epilogue",
+      "aliases": [
+        "Harry Head Auror Department",
+        "harry_head_auror_department",
+        "Harry becomes Head Auror",
+        "Harry leads the Auror Department",
+        "Head of the Auror Department"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war",
+        "book:deathly-hallows-epilogue"
+      ]
+    },
+    {
+      "id": "hp.postwar.quidditch_world_cup_2010",
+      "label": "Quidditch World Cup 2010",
+      "contextType": "story_anchor",
+      "sortKey": 14610,
+      "dateRange": {
+        "from": "2010-01-01",
+        "to": "2010-12-31",
+        "precision": "year"
+      },
+      "book": "Deathly Hallows Epilogue",
+      "schoolYear": "",
+      "arc": "Post-War Years & Epilogue",
+      "aliases": [
+        "Quidditch World Cup 2010",
+        "quidditch_world_cup_2010"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war",
+        "book:deathly-hallows-epilogue"
+      ]
+    },
+    {
+      "id": "hp.postwar.macusa_quahog_era",
+      "label": "Macusa Quahog Era",
+      "contextType": "story_anchor",
+      "sortKey": 14610,
+      "dateRange": {
+        "from": "2010-01-01",
+        "to": "2019-12-31",
+        "precision": "decade"
+      },
+      "book": "Deathly Hallows Epilogue",
+      "schoolYear": "",
+      "arc": "Post-War Years & Epilogue",
+      "aliases": [
+        "Macusa Quahog Era",
+        "macusa_quahog_era"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war",
+        "book:deathly-hallows-epilogue"
+      ]
+    },
+    {
+      "id": "hp.postwar.quidditch_world_cup_2014_opening",
+      "label": "Quidditch World Cup 2014 Opening",
+      "contextType": "story_anchor",
+      "sortKey": 16172,
+      "dateRange": {
+        "from": "2014-04-12",
+        "to": "2014-04-12",
+        "precision": "known_or_curated"
+      },
+      "book": "Deathly Hallows Epilogue",
+      "schoolYear": "",
+      "arc": "Post-War Years & Epilogue",
+      "aliases": [
+        "Quidditch World Cup 2014 Opening",
+        "quidditch_world_cup_2014_opening"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war",
+        "book:deathly-hallows-epilogue"
+      ]
+    },
+    {
+      "id": "hp.postwar.quidditch_world_cup_2014_first_round",
+      "label": "Quidditch World Cup 2014 First Round",
+      "contextType": "story_anchor",
+      "sortKey": 16173,
+      "dateRange": {
+        "from": "2014-04-13",
+        "to": "2014-04-13",
+        "precision": "known_or_curated"
+      },
+      "book": "Deathly Hallows Epilogue",
+      "schoolYear": "",
+      "arc": "Post-War Years & Epilogue",
+      "aliases": [
+        "Quidditch World Cup 2014 First Round",
+        "quidditch_world_cup_2014_first_round"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war",
+        "book:deathly-hallows-epilogue"
+      ]
+    },
+    {
+      "id": "hp.postwar.liechtenstein_chad_marathon_match",
+      "label": "Liechtenstein Chad Marathon Match",
+      "contextType": "story_anchor",
+      "sortKey": 16207,
+      "dateRange": {
+        "from": "2014-05-17",
+        "to": "2014-05-17",
+        "precision": "known_or_curated"
+      },
+      "book": "Deathly Hallows Epilogue",
+      "schoolYear": "",
+      "arc": "Post-War Years & Epilogue",
+      "aliases": [
+        "Liechtenstein Chad Marathon Match",
+        "liechtenstein_chad_marathon_match"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war",
+        "book:deathly-hallows-epilogue"
+      ]
+    },
+    {
+      "id": "hp.postwar.hans_augurey_kidnapped",
+      "label": "Hans Augurey Kidnapped",
+      "contextType": "story_anchor",
+      "sortKey": 16229,
+      "dateRange": {
+        "from": "2014-06-08",
+        "to": "2014-06-08",
+        "precision": "known_or_curated"
+      },
+      "book": "Deathly Hallows Epilogue",
+      "schoolYear": "",
+      "arc": "Post-War Years & Epilogue",
+      "aliases": [
+        "Hans Augurey Kidnapped",
+        "hans_augurey_kidnapped"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war",
+        "book:deathly-hallows-epilogue"
+      ]
+    },
+    {
+      "id": "hp.postwar.hans_augurey_returned",
+      "label": "Hans Augurey Returned",
+      "contextType": "story_anchor",
+      "sortKey": 16230,
+      "dateRange": {
+        "from": "2014-06-09",
+        "to": "2014-06-09",
+        "precision": "known_or_curated"
+      },
+      "book": "Deathly Hallows Epilogue",
+      "schoolYear": "",
+      "arc": "Post-War Years & Epilogue",
+      "aliases": [
+        "Hans Augurey Returned",
+        "hans_augurey_returned"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war",
+        "book:deathly-hallows-epilogue"
+      ]
+    },
+    {
+      "id": "hp.postwar.quidditch_world_cup_2014_semifinals",
+      "label": "Quidditch World Cup 2014 Semifinals",
+      "contextType": "story_anchor",
+      "sortKey": 16255,
+      "dateRange": {
+        "from": "2014-07-04",
+        "to": "2014-07-04",
+        "precision": "known_or_curated"
+      },
+      "book": "Deathly Hallows Epilogue",
+      "schoolYear": "",
+      "arc": "Post-War Years & Epilogue",
+      "aliases": [
+        "Quidditch World Cup 2014 Semifinals",
+        "quidditch_world_cup_2014_semifinals"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war",
+        "book:deathly-hallows-epilogue"
+      ]
+    },
+    {
+      "id": "hp.postwar.dumbledores_army_reunited_world_cup",
+      "label": "Dumbledores Army Reunited World Cup",
+      "contextType": "story_anchor",
+      "sortKey": 16259,
+      "dateRange": {
+        "from": "2014-07-08",
+        "to": "2014-07-08",
+        "precision": "known_or_curated"
+      },
+      "book": "Deathly Hallows Epilogue",
+      "schoolYear": "",
+      "arc": "Post-War Years & Epilogue",
+      "aliases": [
+        "Dumbledores Army Reunited World Cup",
+        "dumbledores_army_reunited_world_cup",
+        "Dumbledore's Army reunion",
+        "DA reunion at the World Cup",
+        "2014 DA reunion"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war",
+        "book:deathly-hallows-epilogue"
+      ]
+    },
+    {
+      "id": "hp.postwar.quidditch_world_cup_2014_final",
+      "label": "Quidditch World Cup 2014 Final",
+      "contextType": "story_anchor",
+      "sortKey": 16262,
+      "dateRange": {
+        "from": "2014-07-11",
+        "to": "2014-07-11",
+        "precision": "known_or_curated"
+      },
+      "book": "Deathly Hallows Epilogue",
+      "schoolYear": "",
+      "arc": "Post-War Years & Epilogue",
+      "aliases": [
+        "Quidditch World Cup 2014 Final",
+        "quidditch_world_cup_2014_final",
+        "2014 Quidditch World Cup final",
+        "Viktor Krum wins the World Cup",
+        "Brazil versus Bulgaria final"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war",
+        "book:deathly-hallows-epilogue"
+      ]
+    },
+    {
+      "id": "hp.postwar.ginny_reports_gobstones_league",
+      "label": "Ginny Reports Gobstones League",
+      "contextType": "story_anchor",
+      "sortKey": 16252,
+      "dateRange": {
+        "from": "2014-07-01",
+        "to": "2014-07-31",
+        "precision": "month"
+      },
+      "book": "Deathly Hallows Epilogue",
+      "schoolYear": "",
+      "arc": "Post-War Years & Epilogue",
+      "aliases": [
+        "Ginny Reports Gobstones League",
+        "ginny_reports_gobstones_league"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war",
+        "book:deathly-hallows-epilogue"
+      ]
+    },
+    {
+      "id": "hp.postwar.james_sirius_sorted_gryffindor",
+      "label": "James Sirius Sorted Gryffindor",
+      "contextType": "story_anchor",
+      "sortKey": 16679,
+      "dateRange": {
+        "from": "2015-09-01",
+        "to": "2015-09-01",
+        "precision": "known_or_curated"
+      },
+      "book": "Deathly Hallows Epilogue",
+      "schoolYear": "",
+      "arc": "Post-War Years & Epilogue",
+      "aliases": [
+        "James Sirius Sorted Gryffindor",
+        "james_sirius_sorted_gryffindor",
+        "James Sirius starts Hogwarts",
+        "James Sirius sorted into Gryffindor",
+        "Harry and Ginny's eldest starts Hogwarts"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war",
+        "book:deathly-hallows-epilogue"
+      ]
+    },
+    {
+      "id": "hp.postwar.james_sirius_second_year",
+      "label": "James Sirius Second Year",
+      "contextType": "story_anchor",
+      "sortKey": 17045,
+      "dateRange": {
+        "from": "2016-09-01",
+        "to": "2016-09-01",
+        "precision": "known_or_curated"
+      },
+      "book": "Deathly Hallows Epilogue",
+      "schoolYear": "",
+      "arc": "Post-War Years & Epilogue",
+      "aliases": [
+        "James Sirius Second Year",
+        "james_sirius_second_year"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war",
+        "book:deathly-hallows-epilogue"
+      ]
+    },
+    {
+      "id": "hp.postwar.new_generation_kings_cross",
+      "label": "New Generation Kings Cross",
+      "contextType": "story_anchor",
+      "sortKey": 17410,
+      "dateRange": {
+        "from": "2017-09-01",
+        "to": "2017-09-01",
+        "precision": "known_or_curated"
+      },
+      "book": "Deathly Hallows Epilogue",
+      "schoolYear": "",
+      "arc": "Post-War Years & Epilogue",
+      "aliases": [
+        "New Generation Kings Cross",
+        "new_generation_kings_cross",
+        "nineteen years later",
+        "19 years later",
+        "King's Cross epilogue",
+        "new generation at King's Cross"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war",
+        "book:deathly-hallows-epilogue"
+      ]
+    },
+    {
+      "id": "hp.postwar.albus_rose_scorpius_start_hogwarts",
+      "label": "Albus Rose Scorpius Start Hogwarts",
+      "contextType": "story_anchor",
+      "sortKey": 17410,
+      "dateRange": {
+        "from": "2017-09-01",
+        "to": "2017-09-01",
+        "precision": "known_or_curated"
+      },
+      "book": "Deathly Hallows Epilogue",
+      "schoolYear": "",
+      "arc": "Post-War Years & Epilogue",
+      "aliases": [
+        "Albus Rose Scorpius Start Hogwarts",
+        "albus_rose_scorpius_start_hogwarts",
+        "Albus starts Hogwarts",
+        "Rose starts Hogwarts",
+        "Scorpius starts Hogwarts",
+        "Albus Rose and Scorpius board the train"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war",
+        "book:deathly-hallows-epilogue"
+      ]
+    },
+    {
+      "id": "hp.postwar.teddy_lupin_and_victoire_platform",
+      "label": "Teddy Lupin and Victoire Platform",
+      "contextType": "story_anchor",
+      "sortKey": 17410,
+      "dateRange": {
+        "from": "2017-09-01",
+        "to": "2017-09-01",
+        "precision": "known_or_curated"
+      },
+      "book": "Deathly Hallows Epilogue",
+      "schoolYear": "",
+      "arc": "Post-War Years & Epilogue",
+      "aliases": [
+        "Teddy Lupin and Victoire Platform",
+        "teddy_lupin_and_victoire_platform",
+        "Teddy Lupin and Victoire",
+        "Teddy sees Victoire off",
+        "Victoire Weasley at King's Cross"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war",
+        "book:deathly-hallows-epilogue"
+      ]
+    },
+    {
+      "id": "hp.postwar.draco_family_platform",
+      "label": "Draco Family Platform",
+      "contextType": "story_anchor",
+      "sortKey": 17410,
+      "dateRange": {
+        "from": "2017-09-01",
+        "to": "2017-09-01",
+        "precision": "known_or_curated"
+      },
+      "book": "Deathly Hallows Epilogue",
+      "schoolYear": "",
+      "arc": "Post-War Years & Epilogue",
+      "aliases": [
+        "Draco Family Platform",
+        "draco_family_platform"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war",
+        "book:deathly-hallows-epilogue"
+      ]
+    }
+  ],
+  "windows": [
+    {
+      "id": "hp.postwar.window.immediate_rebuilding",
+      "label": "Window Immediate Rebuilding",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.postwar.kingsley_caretaker_minister",
+      "validToAnchor": "hp.postwar.harry_joins_aurors",
+      "sortKeyFrom": 10348,
+      "sortKeyTo": 10349,
+      "aliases": [
+        "Window Immediate Rebuilding",
+        "window immediate_rebuilding"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war"
+      ]
+    },
+    {
+      "id": "hp.postwar.window.early_ministry_reforms",
+      "label": "Window Early Ministry Reforms",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.postwar.kingsley_elected_minister",
+      "validToAnchor": "hp.postwar.ministry_reforms_established",
+      "sortKeyFrom": 10349,
+      "sortKeyTo": 10957,
+      "aliases": [
+        "Window Early Ministry Reforms",
+        "window early_ministry_reforms"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war"
+      ]
+    },
+    {
+      "id": "hp.postwar.window.postwar_publications_and_sports",
+      "label": "Window Postwar Publications and Sports",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.postwar.comic_relief_schoolbooks_published",
+      "validToAnchor": "hp.postwar.quidditch_world_cup_2010",
+      "sortKeyFrom": 11393,
+      "sortKeyTo": 14610,
+      "aliases": [
+        "Window Postwar Publications and Sports",
+        "window postwar_publications_and_sports"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war"
+      ]
+    },
+    {
+      "id": "hp.postwar.window.harry_auror_career",
+      "label": "Window Harry Auror Career",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.postwar.harry_joins_aurors",
+      "validToAnchor": "hp.postwar.harry_head_auror_department",
+      "sortKeyFrom": 10349,
+      "sortKeyTo": 13514,
+      "aliases": [
+        "Window Harry Auror Career",
+        "window harry_auror_career"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war"
+      ]
+    },
+    {
+      "id": "hp.postwar.window.quidditch_world_cup_2014",
+      "label": "Window Quidditch World Cup 2014",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.postwar.quidditch_world_cup_2014_opening",
+      "validToAnchor": "hp.postwar.ginny_reports_gobstones_league",
+      "sortKeyFrom": 16172,
+      "sortKeyTo": 16252,
+      "aliases": [
+        "Window Quidditch World Cup 2014",
+        "window quidditch_world_cup_2014"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war"
+      ]
+    },
+    {
+      "id": "hp.postwar.window.next_generation_hogwarts",
+      "label": "Window Next Generation Hogwarts",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.postwar.james_sirius_sorted_gryffindor",
+      "validToAnchor": "hp.postwar.new_generation_kings_cross",
+      "sortKeyFrom": 16679,
+      "sortKeyTo": 17410,
+      "aliases": [
+        "Window Next Generation Hogwarts",
+        "window next_generation_hogwarts"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war"
+      ]
+    },
+    {
+      "id": "hp.postwar.window.kings_cross_epilogue",
+      "label": "Window Kings Cross Epilogue",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.postwar.new_generation_kings_cross",
+      "validToAnchor": "hp.postwar.draco_family_platform",
+      "sortKeyFrom": 17410,
+      "sortKeyTo": 17410,
+      "aliases": [
+        "Window Kings Cross Epilogue",
+        "window kings_cross_epilogue"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war"
+      ]
+    }
+  ]
+}

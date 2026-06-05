@@ -12,6 +12,7 @@ const decks = [
   ['hp-year-5-order-of-the-phoenix', 55, 9],
   ['hp-year-6-half-blood-prince', 55, 12],
   ['hp-year-7-deathly-hallows', 60, 12],
+  ['hp-epilogue-post-war', 25, 7],
 ];
 
 function readJson(relativePath) {
@@ -90,5 +91,27 @@ for (const id of [
 ]) {
   assert.ok(year7.anchors.some(anchor => anchor.id === id), `Year 7 timeline should include ${id}.`);
 }
+
+const epilogueManifest = readJson(path.join('Loredecks', 'hp-epilogue-post-war', 'loredeck.json'));
+const epilogue = readJson(path.join('Loredecks', 'hp-epilogue-post-war', 'timeline.json'));
+assert.equal(epilogueManifest.family.role, 'epilogue');
+assert.equal(epilogueManifest.source.url, 'https://www.hp-lexicon.org/timeline/master-timeline/the-modern-era/the-second-rise-of-voldemort/post-war-years/');
+assert.equal(epilogue.defaultContextType, 'story_anchor');
+const epilogueAnchorIds = new Set(epilogue.anchors.map(anchor => anchor.id));
+for (const id of [
+  'hp.postwar.kingsley_caretaker_minister',
+  'hp.postwar.dementors_removed_from_azkaban',
+  'hp.postwar.harry_head_auror_department',
+  'hp.postwar.dumbledores_army_reunited_world_cup',
+  'hp.postwar.new_generation_kings_cross',
+]) {
+  assert.ok(epilogueAnchorIds.has(id), `Epilogue timeline should include ${id}.`);
+}
+const epilogueStart = epilogue.anchors.find(anchor => anchor.id === 'hp.postwar.kingsley_caretaker_minister');
+const kingsCross = epilogue.anchors.find(anchor => anchor.id === 'hp.postwar.new_generation_kings_cross');
+const azkaban = epilogue.anchors.find(anchor => anchor.id === 'hp.postwar.dementors_removed_from_azkaban');
+assert.equal(epilogueStart.dateRange.from, '1998-05-02');
+assert.equal(kingsCross.dateRange.from, '2017-09-01');
+assert.equal(azkaban.dateRange.precision, 'decade');
 
 console.log('HP Loredeck family scaffold tests passed.');
