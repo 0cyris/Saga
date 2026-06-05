@@ -93,5 +93,5 @@ Context-aware Loredeck retrieval:
 - Done: expand Deck Health remediation. Grouped Health Center issues can persist ignored/resolved advisory state, queue deterministic malformed-tag fixes through Pending Review, hand a single group to the Lore Assistant for repair drafts, and route Bundled decks to Duplicate as Custom before repairs.
 - Done: migrate runtime Context controls from the Loredeck tab into the Context tab, including loaded-Loredeck Context review, current-context resolving, Reasoner fallback launch, quick anchors, manual locks, reset actions, and fullscreen Context Browser access.
 - Done: upgrade Reasoner-backed Context resolution so automatic fallback follows the existing message-count and character-count cadence, chooses from bounded anchor/window candidates, and stores structured, confirmable Context patches for user review.
-- Next: revise timeline densification policy around high-value candidate quality rather than alias sprawl.
+- Done: revise timeline densification policy around high-value candidate quality rather than alias sprawl. Deck Health now gives non-blocking sparse-candidate, concentrated-anchor, and missing-window suggestions.
 - Next: implement durable asset/bundle handling for Custom Loredecks, Theme Packs, Icon Sets, and deck covers.

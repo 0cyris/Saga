@@ -8390,6 +8390,9 @@ function createLoredeckHealthCoverageView(context) {
     grid.appendChild(createLoredeckHealthMetric('Context Gates', String(summary.contextGateCount || 0), 'Lorecards with Context gates.'));
     grid.appendChild(createLoredeckHealthMetric('Schema v3', String(summary.schemaV3EntryCount || 0), 'Lorecards checked against Saga schema v3.'));
     grid.appendChild(createLoredeckHealthMetric('Timeline', `${summary.timelineAnchorCount || 0}/${summary.timelineWindowCount || 0}`, 'Timeline anchors/windows available to Context.'));
+    grid.appendChild(createLoredeckHealthMetric('Candidates', String(summary.timelineCandidateCount || ((summary.timelineAnchorCount || 0) + (summary.timelineWindowCount || 0))), 'Durable timeline candidates available to the Context Browser and Reasoner.'));
+    grid.appendChild(createLoredeckHealthMetric('Gates / Candidate', String(summary.timelineGatesPerCandidate || 0), 'Approximate Context-gated Lorecard density per durable timeline candidate.'));
+    grid.appendChild(createLoredeckHealthMetric('Density Hints', String(summary.timelineDensificationSuggestionCount || 0), 'Advisory suggestions for adding high-value anchors/windows without creating alias sprawl.'));
     panel.appendChild(grid);
     wrap.appendChild(panel);
     wrap.appendChild(createLoredeckHealthCategoryList(context, { asPanel: true }));
@@ -8591,7 +8594,7 @@ function getLoredeckHealthCategories(report = {}) {
         make('JSON Validity', hasCode(/missing_entry_file|load_failed/), false, 'Whether declared JSON resources loaded successfully.'),
         make('Schema', Number(summary.schemaV3IssueCount) > 0 && (report.errors || []).some(issue => String(issue.code || '').startsWith('schema_v3')), Number(summary.schemaV3IssueCount) > 0, 'Saga schema v3 entry shape and required fields.'),
         make('Tags', false, (Number(summary.undefinedTagCount) || 0) + (Number(summary.deprecatedTagUsageCount) || 0) + (Number(summary.duplicateTagAliasCount) || 0) + (Number(summary.malformedTagCount) || 0) > 0 || hasCode(/tag/), 'Tag registry, tag IDs, deprecated tags, aliases, and orphaned tags.'),
-        make('Timeline', false, (Number(summary.invalidContextWindowCount) || 0) > 0 || hasCode(/timeline|context_window/), 'Timeline anchors, windows, sort keys, and registry availability.'),
+        make('Timeline', false, (Number(summary.invalidContextWindowCount) || 0) > 0 || (Number(summary.timelineDensificationSuggestionCount) || 0) > 0 || hasCode(/timeline|context_window/), 'Timeline anchors, windows, sort keys, and registry availability.'),
         make('Anchors', false, (Number(summary.brokenAnchorReferenceCount) || 0) > 0 || hasCode(/anchor/), 'Context anchor references from entries and windows.'),
         make('Coverage', false, (Number(summary.suggestionCount) || 0) > 0, 'Advisory completeness signals such as optional metadata and broad coverage.'),
     ];
@@ -9051,6 +9054,9 @@ function getLoredeckHealthIssueTitle(code = '') {
         context_timeline_invalid_ref: 'Timeline registry path is invalid',
         timeline_anchor_sortkey_mismatch: 'Timeline anchor sort key mismatch',
         timeline_window_sortkey_mismatch: 'Timeline window sort key mismatch',
+        timeline_candidate_sparse: 'Timeline candidates are sparse',
+        timeline_anchor_coverage_concentrated: 'Timeline coverage is concentrated',
+        timeline_windows_missing: 'Timeline windows are missing',
         custom_entry_overrides_applied: 'Custom overrides are active',
         likely_duplicate_pack: 'Likely duplicate deck loaded',
         shared_manifest_with_overrides: 'Loaded decks share a manifest',
@@ -9132,6 +9138,24 @@ function getLoredeckHealthIssueAdvice(code = '', severity = 'suggestion') {
             why: 'Invalid windows can make entries never eligible or eligible at the wrong time.',
             fix: 'Check anchor order, sort keys, and window start/end references.',
             fixShort: 'Fix window',
+        },
+        timeline_candidate_sparse: {
+            summary: 'The timeline may be too sparse for the number of Context-gated Lorecards.',
+            why: 'The Reasoner can translate casual phrasing, but it still needs a healthy set of known story candidates to choose from.',
+            fix: 'Add durable anchors/windows for recurring high-value story moments, major reveals, arc turns, generated Creator output, or accepted user/model suggestions. Do not add aliases for every possible phrase.',
+            fixShort: 'Add waypoints',
+        },
+        timeline_anchor_coverage_concentrated: {
+            summary: 'Many Context gates cluster around only a few anchors.',
+            why: 'Over-concentrated anchors make broad areas of canon feel like one large bucket and reduce Context Browser usefulness.',
+            fix: 'Split the coverage around meaningful story turns, relationship changes, location shifts, public knowledge changes, battles, lessons, or arc transitions.',
+            fixShort: 'Split anchors',
+        },
+        timeline_windows_missing: {
+            summary: 'The timeline has anchors but no broad selectable windows.',
+            why: 'Windows let users choose ranges like arcs, school years, phases, seasons, or before/after spans without selecting a single exact event.',
+            fix: 'Add broad windows over existing anchors for arcs, years, phases, seasons, quests, or chapters.',
+            fixShort: 'Add windows',
         },
         manifest_entry_count_mismatch: {
             summary: 'Manifest stats do not match the loaded deck.',

@@ -734,6 +734,27 @@ Reasoner resolution should run when local matching is insufficient, Context is u
 
 Do not build Saga around exhaustive manual aliases. For large fandoms like One Piece, Naruto, Marvel, DC, or Genshin, exhaustive casual phrase coverage would become unmaintainable. The timeline registry should define stable story structure; the Reasoner should translate messy human phrasing into that structure.
 
+### Timeline Densification Policy
+
+Timeline densification means adding durable story candidates, not adding every possible phrasing a user might type.
+
+Add durable anchors/windows when they represent high-value recurring structure:
+
+- Major story turns, reveals, battles, deaths, betrayals, lessons, relationship changes, public-knowledge changes, location shifts, phase changes, quest stages, seasons, chapters, arcs, or school years.
+- Missing coverage found while browsing Context or resolving phrases.
+- Loredeck Creator output that survives user review.
+- Accepted user/model suggestions from the Timeline Registry Editor, Context Browser, Deck Health, or Lore Assistant.
+
+Do not add anchors solely to catch casual synonyms. Casual phrasing belongs to the Reasoner Provider selecting from bounded candidates. Direct aliases should remain stable labels, abbreviations, and canonical alternate names.
+
+Deck Health should surface timeline density as advisory coverage:
+
+- Sparse candidate count relative to Context-gated Lorecards.
+- Too many anchor-based gates concentrated on only a few anchors.
+- Missing broad windows when a deck already has enough anchors to support arcs, years, phases, seasons, quests, or chapters.
+
+These findings should remain suggestions, not warnings or errors. A small Custom deck, scenario-first deck, or intentionally broad AU can still be useful even if its timeline is sparse.
+
 ### Resolver Registry Draft
 
 ```json
@@ -1689,5 +1710,5 @@ Recent production completed **Context-native Loredeck retrieval, HP reference-de
 48. Done: build the first Context Browser slice in the Context tab. `Browse Story Waypoints` lets users search first-class timeline anchors/windows, load Lorecards on demand as Lorecard-derived event waypoints, choose `Start Here`, or create a window with `After` and `Before`. Manual Context selection remains the primary trusted workflow.
 49. Done: migrate runtime Context controls out of the Loredeck tab. The Context tab now owns loaded-Loredeck Context review, current-context resolving, Reasoner fallback launch, quick anchor selection, manual locks, reset actions, and fullscreen Context Browser access. The Loredeck tab remains focused on library/stack handling, Deck Health, import/export, Creator, and deck detail authoring.
 50. Done: upgrade Reasoner-backed Context resolution. Automatic Context detection now runs local/structured resolution first, then stores bounded Reasoner Context proposals only after the existing message-count cadence and the configured recent-message character threshold. Manual `Ask Reasoner` ignores the threshold, asks for bounded anchor/window candidates, and requires user review before applying patches.
-51. Next: revise timeline densification policy around candidate quality, not alias sprawl. Durable timeline anchors should be added for high-value recurring story moments, missing registry coverage, Creator output, or accepted user/model suggestions. Deck Health can surface sparse coverage, but the Reasoner handles casual phrasing.
+51. Done: revise timeline densification policy around candidate quality, not alias sprawl. Deck Health now surfaces advisory sparse-candidate, concentrated-anchor, and missing-window suggestions while keeping these findings non-blocking. Durable anchors/windows should be added for high-value recurring story moments, missing registry coverage, Creator output, or accepted user/model suggestions; the Reasoner handles casual phrasing.
 52. Next: implement durable asset/bundle handling for Custom Loredecks, Theme Packs, Icon Sets, and deck covers. Decide zip versus SillyTavern-managed storage, validate allowed image types, block executable content, preserve deck-cover paths, and make imported visual assets survive browser sessions.

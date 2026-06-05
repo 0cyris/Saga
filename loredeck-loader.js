@@ -62,6 +62,10 @@ function createHealth(packId = '') {
             suppressedEntryCount: 0,
             timelineAnchorCount: 0,
             timelineWindowCount: 0,
+            timelineCandidateCount: 0,
+            timelineReferencedAnchorCount: 0,
+            timelineGatesPerCandidate: 0,
+            timelineDensificationSuggestionCount: 0,
             contextGateCount: 0,
             brokenAnchorReferenceCount: 0,
             invalidContextWindowCount: 0,
@@ -477,6 +481,14 @@ function addContextHealthIssue(health, severity, code, message, extra = {}) {
     addHealthIssue(health, severity, code, message, extra);
 }
 
+function addTimelineDensificationIssue(health, code, message, extra = {}) {
+    health.summary.timelineDensificationSuggestionCount = (Number(health.summary.timelineDensificationSuggestionCount) || 0) + 1;
+    addHealthIssue(health, 'suggestion', code, message, {
+        policy: 'candidate_quality_not_alias_sprawl',
+        ...extra,
+    });
+}
+
 function analyzeTimelineWindowHealth(health, timeline = {}) {
     for (const anchorId of timeline.duplicateAnchorIds || []) {
         addContextHealthIssue(health, 'warning', 'duplicate_timeline_anchor_id', `Timeline defines duplicate anchor id: ${anchorId}.`, {
@@ -773,6 +785,7 @@ function analyzeEntryContextHealth(health, entryFiles = [], timeline = {}) {
     let contextGateCount = 0;
     let anchorReferenceGateCount = 0;
     const noTimelineEntryIds = [];
+    const referencedAnchorIds = new Set();
 
     for (const fileRecord of entryFiles) {
         for (const rawEntry of fileRecord.entries || []) {
@@ -784,7 +797,10 @@ function analyzeEntryContextHealth(health, entryFiles = [], timeline = {}) {
             contextGateCount += 1;
             const entryId = cleanHealthString(entry.id, 180);
             const anchorRefs = getEntryAnchorReferences(contextGate);
-            if (anchorRefs.length) anchorReferenceGateCount += 1;
+            if (anchorRefs.length) {
+                anchorReferenceGateCount += 1;
+                for (const [, anchorId] of anchorRefs) referencedAnchorIds.add(anchorId);
+            }
             if (anchorRefs.length && !timeline.hasTimelineRef) {
                 if (entryId) noTimelineEntryIds.push(entryId);
                 continue;
@@ -812,6 +828,74 @@ function analyzeEntryContextHealth(health, entryFiles = [], timeline = {}) {
             entryIds: noTimelineEntryIds.slice(0, 50),
             affectedEntryCount: anchorReferenceGateCount,
         });
+    }
+    analyzeTimelineDensificationHealth(health, {
+        timeline,
+        contextGateCount,
+        anchorReferenceGateCount,
+        referencedAnchorIds,
+    });
+}
+
+function analyzeTimelineDensificationHealth(health, metrics = {}) {
+    const timeline = metrics.timeline || {};
+    const contextGateCount = Number(metrics.contextGateCount) || 0;
+    const anchorReferenceGateCount = Number(metrics.anchorReferenceGateCount) || 0;
+    const referencedAnchorIds = metrics.referencedAnchorIds instanceof Set ? metrics.referencedAnchorIds : new Set();
+    const anchorCount = Array.isArray(timeline.anchors) ? timeline.anchors.length : 0;
+    const windowCount = Array.isArray(timeline.windows) ? timeline.windows.length : 0;
+    const candidateCount = anchorCount + windowCount;
+
+    health.summary.timelineCandidateCount = candidateCount;
+    health.summary.timelineReferencedAnchorCount = referencedAnchorIds.size;
+    health.summary.timelineGatesPerCandidate = candidateCount
+        ? Number((contextGateCount / candidateCount).toFixed(2))
+        : 0;
+
+    if (!timeline.hasTimelineRef || contextGateCount < 24) return;
+
+    const recommendedMinimum = Math.min(80, Math.max(8, Math.ceil(contextGateCount / 10)));
+    const gatesPerCandidate = candidateCount ? contextGateCount / candidateCount : contextGateCount;
+    if (candidateCount < 8 || gatesPerCandidate > 14) {
+        addTimelineDensificationIssue(
+            health,
+            'timeline_candidate_sparse',
+            `Timeline has ${candidateCount} durable candidate${candidateCount === 1 ? '' : 's'} for ${contextGateCount} Context-gated Lorecards. Add high-value recurring story anchors/windows rather than aliases for every phrase.`,
+            {
+                contextGateCount,
+                timelineCandidateCount: candidateCount,
+                timelineAnchorCount: anchorCount,
+                timelineWindowCount: windowCount,
+                gatesPerCandidate: Number(gatesPerCandidate.toFixed(2)),
+                recommendedMinimum,
+            }
+        );
+    }
+
+    if (anchorReferenceGateCount >= 32 && referencedAnchorIds.size > 0 && referencedAnchorIds.size <= 3) {
+        addTimelineDensificationIssue(
+            health,
+            'timeline_anchor_coverage_concentrated',
+            `${anchorReferenceGateCount} anchor-based Context gate${anchorReferenceGateCount === 1 ? '' : 's'} reference only ${referencedAnchorIds.size} unique anchor${referencedAnchorIds.size === 1 ? '' : 's'}. Add durable waypoints for major story turns, not exhaustive keyword aliases.`,
+            {
+                anchorReferenceGateCount,
+                referencedAnchorCount: referencedAnchorIds.size,
+                anchorIds: [...referencedAnchorIds].slice(0, 20),
+            }
+        );
+    }
+
+    if (windowCount === 0 && anchorCount >= 2 && contextGateCount >= 24) {
+        addTimelineDensificationIssue(
+            health,
+            'timeline_windows_missing',
+            `Timeline has ${anchorCount} anchor${anchorCount === 1 ? '' : 's'} but no broad windows for ${contextGateCount} Context-gated Lorecards. Add arc/year/phase windows so users can choose story ranges cleanly.`,
+            {
+                contextGateCount,
+                timelineAnchorCount: anchorCount,
+                timelineWindowCount: windowCount,
+            }
+        );
     }
 }
 
@@ -1872,6 +1956,9 @@ export function combineLoredeckHealth(sources = []) {
         health.summary.suppressedEntryCount = (Number(health.summary.suppressedEntryCount) || 0) + (Number(summary.suppressedEntryCount) || 0);
         health.summary.timelineAnchorCount = (Number(health.summary.timelineAnchorCount) || 0) + (Number(summary.timelineAnchorCount) || 0);
         health.summary.timelineWindowCount = (Number(health.summary.timelineWindowCount) || 0) + (Number(summary.timelineWindowCount) || 0);
+        health.summary.timelineCandidateCount = (Number(health.summary.timelineCandidateCount) || 0) + (Number(summary.timelineCandidateCount) || 0);
+        health.summary.timelineReferencedAnchorCount = (Number(health.summary.timelineReferencedAnchorCount) || 0) + (Number(summary.timelineReferencedAnchorCount) || 0);
+        health.summary.timelineDensificationSuggestionCount = (Number(health.summary.timelineDensificationSuggestionCount) || 0) + (Number(summary.timelineDensificationSuggestionCount) || 0);
         health.summary.contextGateCount = (Number(health.summary.contextGateCount) || 0) + (Number(summary.contextGateCount) || 0);
         health.summary.brokenAnchorReferenceCount = (Number(health.summary.brokenAnchorReferenceCount) || 0) + (Number(summary.brokenAnchorReferenceCount) || 0);
         health.summary.invalidContextWindowCount = (Number(health.summary.invalidContextWindowCount) || 0) + (Number(summary.invalidContextWindowCount) || 0);
@@ -1898,6 +1985,9 @@ export function combineLoredeckHealth(sources = []) {
             health.suggestions.push({ ...issue, packId: source?.pack?.id || sourceHealth.packId || '' });
         }
     }
+    health.summary.timelineGatesPerCandidate = health.summary.timelineCandidateCount
+        ? Number(((Number(health.summary.contextGateCount) || 0) / health.summary.timelineCandidateCount).toFixed(2))
+        : 0;
 
     return finalizeHealth(health);
 }

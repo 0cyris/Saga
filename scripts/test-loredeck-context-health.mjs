@@ -102,6 +102,47 @@ assert.equal(noTimelineHealth.suggestions.length, 1);
 assert.equal(noTimelineHealth.suggestions[0].code, 'context_gates_without_timeline');
 assert.equal(noTimelineHealth.status, 'good');
 
+const sparseTimelineHealth = createHealth('sparse-timeline-pack');
+const sparseTimeline = createTimelineHealthIndex({
+  ...normalizeTimelineRegistryForHealth({
+    anchors: [
+      { id: 'sparse.start', sortKey: 100 },
+      { id: 'sparse.end', sortKey: 200 },
+    ],
+    windows: [],
+  }, 'sparse-timeline-pack'),
+  packId: 'sparse-timeline-pack',
+  timelineRef: 'timeline.json',
+  hasTimelineRef: true,
+});
+sparseTimelineHealth.summary.timelineAnchorCount = sparseTimeline.anchors.length;
+sparseTimelineHealth.summary.timelineWindowCount = sparseTimeline.windows.length;
+analyzeEntryContextHealth(sparseTimelineHealth, [{
+  file: 'entries/sparse.json',
+  entries: Array.from({ length: 40 }, (_, index) => ({
+    id: `sparse_gate_${index + 1}`,
+    title: `Sparse Gate ${index + 1}`,
+    category: 'event',
+    fact: 'This entry shares the same broad Context anchors.',
+    context: {
+      validFromAnchor: 'sparse.start',
+      validToAnchor: 'sparse.end',
+      sortKeyFrom: 100,
+      sortKeyTo: 200,
+    },
+  })),
+}], sparseTimeline);
+finalizeHealth(sparseTimelineHealth);
+
+const sparseSuggestionCodes = sparseTimelineHealth.suggestions.map(issue => issue.code);
+assert.ok(sparseSuggestionCodes.includes('timeline_candidate_sparse'));
+assert.ok(sparseSuggestionCodes.includes('timeline_anchor_coverage_concentrated'));
+assert.ok(sparseSuggestionCodes.includes('timeline_windows_missing'));
+assert.equal(sparseTimelineHealth.summary.timelineCandidateCount, 2);
+assert.equal(sparseTimelineHealth.summary.timelineReferencedAnchorCount, 2);
+assert.equal(sparseTimelineHealth.summary.timelineDensificationSuggestionCount, 3);
+assert.equal(sparseTimelineHealth.status, 'good');
+
 const schemaHealth = createHealth('schema-pack');
 analyzeEntries(schemaHealth, [{
   file: 'v3.json',
