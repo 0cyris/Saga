@@ -7952,7 +7952,7 @@
 }
 
 .wandlight-runtime-rail-expanded .wandlight-runtime-rail-mark {
-    min-height: 58px;
+    min-height: 0;
 }
 
 .wandlight-runtime-rail-logo-img {
@@ -7975,6 +7975,15 @@
     height: auto;
     aspect-ratio: 512 / 170;
     max-width: 100%;
+}
+
+.wandlight-runtime-rail-expanded .wandlight-runtime-rail-drag {
+    min-height: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
 }
 
 .wandlight-runtime-rail-mark-fallback {

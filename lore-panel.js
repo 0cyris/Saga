@@ -671,11 +671,13 @@ const TAB_ICONS = {
 };
 
 const TAB_ICON_PATHS = {
-    session: './Images/runtime-icons/wandlight_tab_session_256.png',
-    context: './Images/runtime-icons/wandlight_tab_context_256.png',
-    continuity: './Images/runtime-icons/wandlight_tab_continuity_256.png',
-    lore: './Images/runtime-icons/wandlight_tab_lore_256.png',
-    injection: './Images/runtime-icons/wandlight_tab_injection_256.png',
+    loredecks: './Images/iconsets/saga-gold/256/loredecks.png',
+    session: './Images/iconsets/saga-gold/256/session.png',
+    context: './Images/iconsets/saga-gold/256/context.png',
+    continuity: './Images/iconsets/saga-gold/256/continuity.png',
+    lore: './Images/iconsets/saga-gold/256/lorecards.png',
+    injection: './Images/iconsets/saga-gold/256/injection.png',
+    settings: './Images/iconsets/saga-gold/256/settings.png',
 };
 
 const BRAND_LOGO_PATHS = {
@@ -702,32 +704,12 @@ const ICONSET_TARGET_ALIASES = Object.freeze({
 const BUNDLED_ICONSET_PRESETS = Object.freeze([
     {
         schemaVersion: ICONSET_SCHEMA_VERSION,
-        id: 'wandlight-default',
-        type: 'bundled',
-        title: 'Wandlight Default',
-        description: 'Legacy Wandlight runtime tab icons retained as a bundled fallback Icon Set.',
-        author: 'Saga',
-        version: '1.0.0',
-        preferredSize: 256,
-        icons: {
-            'tab.session': './Images/runtime-icons/wandlight_tab_session_256.png',
-            'tab.context': './Images/runtime-icons/wandlight_tab_context_256.png',
-            'tab.continuity': './Images/runtime-icons/wandlight_tab_continuity_256.png',
-            'tab.lore': './Images/runtime-icons/wandlight_tab_lore_256.png',
-            'tab.injection': './Images/runtime-icons/wandlight_tab_injection_256.png',
-            'brand.compact': BRAND_LOGO_PATHS.compact,
-            'brand.expanded': BRAND_LOGO_PATHS.expanded,
-        },
-        tags: ['iconset:runtime', 'style:legacy', 'quality:bundled'],
-    },
-    {
-        schemaVersion: ICONSET_SCHEMA_VERSION,
         id: 'saga-gold',
         type: 'bundled',
         title: 'Saga Gold',
         description: 'Golden Saga runtime shelf icons for Loredecks, Lorecards, session tools, and settings.',
         author: 'Saga',
-        version: '1.0.0',
+        version: '1.1.0',
         preferredSize: 256,
         icons: {
             'tab.loredecks': './Images/iconsets/saga-gold/256/loredecks.png',
@@ -832,7 +814,7 @@ function resolveThemeIconPath(iconKey, preset = getThemePreset(getSettings().the
     const iconSet = getIconSetPreset(preset?.iconPackId || settings.themeIconPackId || 'saga-gold');
     const iconSetPath = getIconMapValue(iconSet.icons, iconKey);
     if (iconSetPath) return iconSetPath;
-    const fallbackSet = getIconSetPreset('wandlight-default');
+    const fallbackSet = getIconSetPreset('saga-gold');
     return getIconMapValue(fallbackSet.icons, iconKey);
 }
 
@@ -18041,7 +18023,7 @@ function createThemeIconSetPanel(activePreset, settings) {
         const label = document.createElement('div');
         label.textContent = item.label;
         tile.appendChild(label);
-        addTooltip(tile, path ? `${item.label}: ${path}` : `${item.label}: runtime fallback icon.`);
+        addTooltip(tile, path ? `${item.label}: ${path}` : `${item.label}: icon set fallback.`);
         grid.appendChild(tile);
     }
     panel.appendChild(grid);
@@ -18067,7 +18049,7 @@ function createThemeIconSetPanel(activePreset, settings) {
     const rows = document.createElement('div');
     rows.className = 'wandlight-theme-icon-mapping';
     for (const item of getThemeShelfIconItems()) {
-        rows.appendChild(createKeyValue(item.label, getThemeIconPreviewPath(activePreset, item) || 'runtime fallback', 'Icon mapping path used by this Theme Pack preview.'));
+        rows.appendChild(createKeyValue(item.label, getThemeIconPreviewPath(activePreset, item) || 'icon set fallback', 'Icon mapping path used by this Theme Pack preview.'));
     }
     mapping.appendChild(rows);
     panel.appendChild(mapping);

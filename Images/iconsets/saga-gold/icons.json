@@ -5,7 +5,7 @@
   "title": "Saga Gold",
   "description": "Golden Saga runtime shelf icons for Loredecks, Lorecards, session tools, and settings.",
   "author": "Saga",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "preferredSize": 256,
   "icons": {
     "tab.loredecks": "256/loredecks.png",
