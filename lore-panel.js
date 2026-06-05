@@ -2281,7 +2281,44 @@ function ensureBundledLoredeckIndexLoaded() {
         });
 }
 
-function renderLoredeckLibraryOverlay() {
+const LOREDECK_LIBRARY_SCROLL_SELECTORS = Object.freeze({
+    folderTree: '.wandlight-loredeck-library-folder-tree',
+    folderList: '.wandlight-loredeck-library-folder-list',
+    libraryList: '.wandlight-loredeck-library-deck-list',
+    stackList: '.wandlight-loredeck-library-stack-list',
+    details: '.wandlight-loredeck-library-details',
+});
+
+function captureLoredeckLibraryScrollState() {
+    const overlay = document.querySelector('.wandlight-loredeck-library-overlay');
+    if (!overlay) return null;
+    const snapshot = {};
+    for (const [key, selector] of Object.entries(LOREDECK_LIBRARY_SCROLL_SELECTORS)) {
+        const element = overlay.querySelector(selector);
+        if (!element) continue;
+        snapshot[key] = {
+            top: element.scrollTop || 0,
+            left: element.scrollLeft || 0,
+        };
+    }
+    return snapshot;
+}
+
+function restoreLoredeckLibraryScrollState(snapshot = null) {
+    if (!snapshot || typeof snapshot !== 'object') return;
+    const overlay = document.querySelector('.wandlight-loredeck-library-overlay');
+    if (!overlay) return;
+    for (const [key, value] of Object.entries(snapshot)) {
+        const selector = LOREDECK_LIBRARY_SCROLL_SELECTORS[key];
+        const element = selector ? overlay.querySelector(selector) : null;
+        if (!element || !value) continue;
+        element.scrollTop = Number(value.top) || 0;
+        element.scrollLeft = Number(value.left) || 0;
+    }
+}
+
+function renderLoredeckLibraryOverlay(options = {}) {
+    const scrollState = options.preserveScroll === false ? null : captureLoredeckLibraryScrollState();
     document.querySelector('.wandlight-loredeck-library-overlay')?.remove();
     if (!loredeckLibraryOpen) return;
 
@@ -2383,6 +2420,7 @@ function renderLoredeckLibraryOverlay() {
     body.appendChild(createLoredeckLibraryResizeHandle(detailsCollapsed));
     body.appendChild(createLoredeckLibraryDetailsPanel(selectedPack, stack, canonDb, health));
     shell.appendChild(body);
+    restoreLoredeckLibraryScrollState(scrollState);
 }
 
 function getLoredeckLibraryDetailsHeight(state = getState()) {

@@ -2104,6 +2104,7 @@
     padding: 7px 34px 7px 7px;
     cursor: pointer;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .wandlight-loredeck-library-deck-card:hover,
@@ -2212,13 +2213,20 @@
     gap: 4px;
 }
 
+.wandlight-loredeck-library-deck-main,
+.wandlight-loredeck-library-stack-main {
+    overflow: hidden;
+}
+
 .wandlight-loredeck-library-deck-title {
     min-width: 0;
     color: var(--wandlight-text, #f1ead8);
     font-size: 0.94em;
     font-weight: 760;
     line-height: 1.22;
-    overflow-wrap: anywhere;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .wandlight-loredeck-library-deck-description,
@@ -2230,17 +2238,33 @@
 }
 
 .wandlight-loredeck-library-deck-description {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
     overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.wandlight-loredeck-library-deck-main > .wandlight-loredeck-row-meta,
+.wandlight-loredeck-library-stack-main > .wandlight-loredeck-row-meta {
+    min-width: 0;
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
+
+.wandlight-loredeck-library-deck-main > .wandlight-loredeck-row-meta .wandlight-status-pill,
+.wandlight-loredeck-library-stack-main > .wandlight-loredeck-row-meta .wandlight-status-pill {
+    min-width: 0;
+    flex: 0 1 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .wandlight-loredeck-library-card-stats {
     color: rgba(241, 234, 216, 0.74);
     font-size: 0.72em;
     line-height: 1.25;
-    overflow-wrap: anywhere;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .wandlight-loredeck-library-deck-side {
@@ -2319,6 +2343,7 @@
         background 150ms ease,
         box-shadow 150ms ease;
     will-change: transform;
+    overflow: hidden;
 }
 
 .wandlight-loredeck-library-stack-card-disabled {
