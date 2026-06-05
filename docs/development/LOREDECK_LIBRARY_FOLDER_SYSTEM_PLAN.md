@@ -504,15 +504,14 @@ Done:
 3. `loredeck-library-index.js` normalizes folders, deck placements, suggested paths, and folder stack resolution.
 4. Folder/index tests cover nested folders, suggested paths, stack flattening, and duplicate suppression.
 5. The Loredeck Library now loads the bundled index and derives folders from suggested paths.
-6. Deprecated/transitional: the current UI renders a separate folder browser with special views and scoped deck lists. This should be replaced by inline expandable folder rows inside the Library column.
+6. First-pass inline hierarchy is in development: the Library render path now shows expandable folder rows inside the Library column, nests Loredeck cards under those rows, and displays representative folder cover tiles from child Loredeck cover assets. The old side folder browser is no longer used by the Library pane.
 
 Recommended next slice:
 
-1. Replace the side folder browser with inline expandable folder rows in the Library column.
-2. Render Loredecks nested under expanded folders, with compact indentation and smooth expand/collapse animation.
-3. Add folder row selection and folder details in the bottom details panel.
-4. Add folder mutation controls: create folder, create subfolder, rename folder, remove folder without deleting contained Loredecks, and move selected decks to folder.
-5. Add drag/drop for folder rows and Loredeck cards: reorder, move into folders, move out to parent/root, and drag folders to Active Stack.
-6. Add folder Stack Groups to the Active Stack with collapsible hierarchy and visible duplicate suppression.
-7. Replace the remaining monolithic `hp-golden-trio` default stack/library references with the split HP deck family once entry migration is ready.
-8. Expand tests for inline hierarchy rendering, folder mutation behavior, invalid moves, removal-content handling, stack groups, hierarchy-preserving search, and Library UI smoke selectors.
+1. Add folder row selection details in the bottom details panel.
+2. Add folder mutation controls: create folder, create subfolder, rename folder, remove folder without deleting contained Loredecks, and move selected decks to folder.
+3. Add drag/drop for folder rows: reorder folders, move folders into other folders, move folders out to parent/root, and drag folders to Active Stack.
+4. Add folder Stack Groups to the Active Stack with collapsible hierarchy and visible duplicate suppression.
+5. Remove obsolete side-folder-tree helper/style code after the inline path has passed live SillyTavern feedback.
+6. Replace the remaining monolithic `hp-golden-trio` default stack/library references with the split HP deck family once entry migration is ready.
+7. Expand tests for inline hierarchy rendering, folder mutation behavior, invalid moves, removal-content handling, stack groups, hierarchy-preserving search, and Library UI smoke selectors.
