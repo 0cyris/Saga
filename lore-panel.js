@@ -2341,7 +2341,7 @@ function renderLoredeckLibraryOverlay(options = {}) {
     const selectedPack = getLoredeckLibrarySelectedPack(state, library);
     const activeViewId = getLoredeckLibraryActiveViewId();
     const scopedLibrary = getLoredeckLibraryFolderScopedPacks(library, libraryIndex, activeViewId, stack);
-    const filteredPacks = getFilteredLoredeckLibraryPacks(scopedLibrary, stack, canonDb, health);
+    const filteredPacks = getFilteredLoredeckLibraryPacks(scopedLibrary, stack, canonDb, health, libraryIndex);
     const selectedFolderDetails = getLoredeckLibrarySelectedFolderDetails(libraryIndex);
     normalizeLoredeckLibraryBulkSelection(library, selectedFolderDetails ? '' : (selectedPack?.packId || ''));
     const selectedPackIds = getLoredeckLibraryBulkSelectedIds(library);
@@ -2871,11 +2871,14 @@ function createLoredeckLibraryPane(packs = [], stack = [], canonDb = null, healt
         renderLoredeckLibraryOverlay();
     });
     controls.appendChild(sort);
+    controls.appendChild(createButton('New Folder', 'Create a new top-level Library folder.', () => {
+        void promptCreateLoredeckLibraryFolder('');
+    }, 'wandlight-loredeck-library-small-button wandlight-loredeck-library-new-folder-button'));
     pane.appendChild(controls);
 
     pane.appendChild(createLoredeckLibraryCurrentViewHeader(libraryIndex, scopedLibrary, packs, activeViewId));
-    pane.appendChild(createLoredeckLibrarySelectionToolbar(packs));
-    pane.appendChild(createLoredeckLibraryHierarchyList(packs, stack, canonDb, health, libraryIndex, library));
+    pane.appendChild(createLoredeckLibrarySelectionToolbar(packs, libraryIndex));
+    pane.appendChild(createLoredeckLibraryHierarchyList(packs, stack, canonDb, health, libraryIndex, library, scopedLibrary));
     return pane;
 }
 
@@ -2900,12 +2903,116 @@ function createLoredeckLibraryCurrentViewHeader(libraryIndex = {}, scopedLibrary
     return header;
 }
 
-function createLoredeckLibraryHierarchyList(visiblePacks = [], stack = [], canonDb = null, health = null, libraryIndex = {}, library = []) {
+function normalizeLoredeckLibrarySearchQuery() {
+    return String(loredeckLibraryQuery || '').trim().toLowerCase();
+}
+
+function getLoredeckLibraryFolderSearchText(folder = {}, libraryIndex = {}) {
+    const folderId = String(folder?.id || '').trim();
+    const path = getFolderPath(folderId, libraryIndex);
+    return [
+        folderId,
+        folder?.title,
+        folder?.icon,
+        folder?.color,
+        path.join(' '),
+        path.join(' > '),
+    ].filter(Boolean).join(' ').toLowerCase();
+}
+
+function getLoredeckLibraryPackSearchText(pack = {}, libraryIndex = {}) {
+    const folderId = getLoredeckLibraryPackFolderId(pack, libraryIndex);
+    const folderPath = getFolderPath(folderId, libraryIndex);
+    return [
+        pack.packId,
+        pack.title,
+        pack.description,
+        pack.fandom,
+        pack.era,
+        pack.author,
+        pack.version,
+        pack.manifest,
+        getLoredeckTypeLabel(pack.packId),
+        folderId,
+        folderPath.join(' '),
+        folderPath.join(' > '),
+        ...(Array.isArray(pack.tags) ? pack.tags : []),
+        ...(Array.isArray(pack.library?.suggestedPath) ? pack.library.suggestedPath : []),
+    ].filter(Boolean).join(' ').toLowerCase();
+}
+
+function getLoredeckLibraryFolderScopedDeckCount(folderId = '', scopedLibrary = [], libraryIndex = {}) {
+    const id = String(folderId || '').trim();
+    if (!id) return 0;
+    let count = 0;
+    for (const pack of scopedLibrary || []) {
+        const packFolderId = getLoredeckLibraryPackFolderId(pack, libraryIndex);
+        if (packFolderId && isLoredeckLibraryFolderDescendant(packFolderId, id, libraryIndex)) count += 1;
+    }
+    return count;
+}
+
+function getLoredeckLibraryHierarchySearchModel(scopedLibrary = [], visiblePacks = [], libraryIndex = {}, activeViewId = 'all') {
+    const query = normalizeLoredeckLibrarySearchQuery();
+    const visiblePackIds = new Set((visiblePacks || []).map(pack => pack.packId).filter(Boolean));
+    const visibleFolderIds = new Set();
+    const matchingFolderIds = new Set();
+    const contextFolderIds = new Set();
+    const folders = Array.isArray(libraryIndex?.folders) ? libraryIndex.folders : [];
+    const byId = new Map(folders.map(folder => [folder.id, folder]));
+
+    const includeFolderAndAncestors = (folderId = '', match = false) => {
+        const id = String(folderId || '').trim();
+        if (!id || !byId.has(id)) return;
+        let current = byId.get(id);
+        const seen = new Set();
+        while (current && !seen.has(current.id)) {
+            seen.add(current.id);
+            visibleFolderIds.add(current.id);
+            if (match && current.id === id) matchingFolderIds.add(current.id);
+            else contextFolderIds.add(current.id);
+            current = byId.get(current.parentId);
+        }
+    };
+
+    for (const pack of visiblePacks || []) {
+        includeFolderAndAncestors(getLoredeckLibraryPackFolderId(pack, libraryIndex), false);
+    }
+
+    if (query) {
+        for (const folder of folders) {
+            const folderMatches = getLoredeckLibraryFolderSearchText(folder, libraryIndex).includes(query);
+            if (!folderMatches) continue;
+            const scopedDeckCount = getLoredeckLibraryFolderScopedDeckCount(folder.id, scopedLibrary, libraryIndex);
+            if (activeViewId !== 'all' && scopedDeckCount <= 0) continue;
+            includeFolderAndAncestors(folder.id, true);
+        }
+    }
+
+    return {
+        query,
+        visiblePackIds,
+        visibleFolderIds,
+        matchingFolderIds,
+        contextFolderIds,
+    };
+}
+
+function getLoredeckLibraryFolderSearchState(folderId = '', searchModel = {}) {
+    const id = String(folderId || '').trim();
+    if (!id || !searchModel?.query) return '';
+    if (searchModel.matchingFolderIds?.has(id)) return 'match';
+    if (searchModel.contextFolderIds?.has(id) || searchModel.visibleFolderIds?.has(id)) return 'context';
+    return '';
+}
+
+function createLoredeckLibraryHierarchyList(visiblePacks = [], stack = [], canonDb = null, health = null, libraryIndex = {}, library = [], scopedLibrary = library) {
     const list = document.createElement('div');
     list.className = 'wandlight-loredeck-library-deck-list wandlight-loredeck-library-hierarchy-list';
     const query = String(loredeckLibraryQuery || '').trim();
     const activeViewId = getLoredeckLibraryActiveViewId();
     const folderIds = new Set((libraryIndex.folders || []).map(folder => folder.id));
+    const searchModel = getLoredeckLibraryHierarchySearchModel(scopedLibrary, visiblePacks, libraryIndex, activeViewId);
     const visibleOrder = [];
     const visibleByFolder = new Map();
     const unfiledPacks = [];
@@ -2936,15 +3043,11 @@ function createLoredeckLibraryHierarchyList(visiblePacks = [], stack = [], canon
         list.appendChild(card);
     };
 
-    const hasVisibleContent = folder => {
-        if ((visibleByFolder.get(folder.id) || []).length) return true;
-        return (folder.children || []).some(child => hasVisibleContent(child));
-    };
-
     const showEmptyFolders = !query && activeViewId === 'all';
     const appendFolder = (folder, depth = 0) => {
         const visibleDirect = visibleByFolder.get(folder.id) || [];
-        const shouldRender = showEmptyFolders || hasVisibleContent(folder);
+        const searchState = getLoredeckLibraryFolderSearchState(folder.id, searchModel);
+        const shouldRender = showEmptyFolders || searchModel.visibleFolderIds.has(folder.id);
         if (!shouldRender) return;
 
         const folderAllPacks = getLoredeckLibraryFolderPacks(folder.id, library, libraryIndex, { includeNested: true });
@@ -2954,6 +3057,7 @@ function createLoredeckLibraryHierarchyList(visiblePacks = [], stack = [], canon
             depth,
             collapsed,
             stats,
+            searchState,
             coverPacks: getLoredeckLibraryFolderCoverPacks(folder.id, library, libraryIndex),
             totalCoverableCount: folderAllPacks.filter(pack => getLoredeckAssetRef(pack, 'cover')).length,
         }));
@@ -3015,9 +3119,12 @@ function createLoredeckLibraryInlineFolderRow(folder = {}, options = {}) {
     const collapsed = options.collapsed === true;
     const stats = options.stats || {};
     const depth = Math.max(0, Number(options.depth) || 0);
+    const searchState = String(options.searchState || '').trim();
     const row = document.createElement('div');
     row.className = `wandlight-loredeck-library-inline-folder-row${loredeckLibrarySelectedFolderDetailsId === folderId ? ' wandlight-loredeck-library-folder-row-active' : ''}${options.special ? ' wandlight-loredeck-library-folder-row-special' : ''}`.trim();
     row.classList.add('wandlight-loredeck-library-folder-row-drop-enabled');
+    if (searchState === 'match') row.classList.add('wandlight-loredeck-library-search-match');
+    else if (searchState === 'context') row.classList.add('wandlight-loredeck-library-search-context');
     row.style.setProperty('--wandlight-folder-depth', String(depth));
     row.dataset.folderId = folderId;
     row.dataset.folderParentId = String(folder.parentId || '').trim();
@@ -3030,7 +3137,6 @@ function createLoredeckLibraryInlineFolderRow(folder = {}, options = {}) {
     const selectFolder = () => {
         loredeckLibrarySelectedFolderId = folderId || 'all';
         loredeckLibrarySelectedFolderDetailsId = folderId || '';
-        setLoredeckLibraryBulkSelection([], '');
         renderLoredeckLibraryOverlay();
     };
     row.addEventListener('click', e => {
@@ -3089,6 +3195,8 @@ function createLoredeckLibraryInlineFolderRow(folder = {}, options = {}) {
     meta.className = 'wandlight-loredeck-row-meta wandlight-loredeck-library-folder-meta';
     meta.appendChild(createStatusPill(`${stats.deckCount || 0} deck${(stats.deckCount || 0) === 1 ? '' : 's'}`, 'Nested Loredecks in this folder.'));
     if (stats.childFolderCount) meta.appendChild(createStatusPill(`${stats.childFolderCount} folder${stats.childFolderCount === 1 ? '' : 's'}`, 'Direct child folders.'));
+    if (searchState === 'match') meta.appendChild(createStatusPill('Folder match', 'This folder title or path matches the Library search.'));
+    else if (searchState === 'context') meta.appendChild(createStatusPill('Context', 'Shown to preserve the matching Loredeck hierarchy.'));
     if (stats.errorCount) meta.appendChild(createStatusPill(`${stats.errorCount} error${stats.errorCount === 1 ? '' : 's'}`, 'Nested Deck Health errors.'));
     else if (stats.warningCount) meta.appendChild(createStatusPill(`${stats.warningCount} warning${stats.warningCount === 1 ? '' : 's'}`, 'Nested Deck Health warnings.'));
     top.appendChild(meta);
@@ -3291,7 +3399,7 @@ function createLoredeckLibraryFolderRow(options = {}) {
     return row;
 }
 
-function createLoredeckLibrarySelectionToolbar(visiblePacks = []) {
+function createLoredeckLibrarySelectionToolbar(visiblePacks = [], libraryIndex = getLoredeckLibraryIndexForPacks()) {
     const toolbar = document.createElement('div');
     toolbar.className = 'wandlight-loredeck-library-selection-toolbar';
     const selectedIds = getLoredeckLibraryBulkSelectedIds();
@@ -3323,7 +3431,44 @@ function createLoredeckLibrarySelectionToolbar(visiblePacks = []) {
     }, 'wandlight-loredeck-library-small-button');
     exportButton.disabled = !selectedIds.length;
     toolbar.appendChild(exportButton);
+
+    const moveSelect = document.createElement('select');
+    moveSelect.className = 'text_pole wandlight-loredeck-library-folder-move-select';
+    moveSelect.disabled = !selectedIds.length;
+    addTooltip(moveSelect, 'Choose a folder target for selected Loredecks.');
+    appendLoredeckLibraryFolderMoveOptions(moveSelect, libraryIndex);
+    const preferredFolderId = !isLoredeckLibrarySpecialFolderId(loredeckLibrarySelectedFolderDetailsId)
+        ? loredeckLibrarySelectedFolderDetailsId
+        : (!isLoredeckLibrarySpecialFolderId(loredeckLibrarySelectedFolderId) ? loredeckLibrarySelectedFolderId : 'unfiled');
+    moveSelect.value = preferredFolderId && [...moveSelect.options].some(option => option.value === preferredFolderId)
+        ? preferredFolderId
+        : 'unfiled';
+    toolbar.appendChild(moveSelect);
+
+    const moveButton = createButton('Move', selectedIds.length ? 'Move selected Loredecks to the chosen folder.' : 'Select Loredecks before moving them to a folder.', () => {
+        if (!selectedIds.length) return;
+        if (moveLoredecksToLibraryFolder(selectedIds, moveSelect.value || 'unfiled')) renderLoredeckLibraryOverlay();
+    }, 'wandlight-loredeck-library-small-button');
+    moveButton.disabled = !selectedIds.length;
+    toolbar.appendChild(moveButton);
     return toolbar;
+}
+
+function appendLoredeckLibraryFolderMoveOptions(select, libraryIndex = getLoredeckLibraryIndexForPacks()) {
+    if (!select) return;
+    const unfiled = document.createElement('option');
+    unfiled.value = 'unfiled';
+    unfiled.textContent = 'Move to: Unfiled';
+    select.appendChild(unfiled);
+
+    const appendFolder = (folder, depth = 0) => {
+        const option = document.createElement('option');
+        option.value = folder.id;
+        option.textContent = `${'\u00a0\u00a0'.repeat(Math.max(0, depth))}${folder.title || folder.id}`;
+        select.appendChild(option);
+        for (const child of folder.children || []) appendFolder(child, depth + 1);
+    };
+    for (const folder of buildFolderTree(libraryIndex)) appendFolder(folder, 0);
 }
 
 function createLoredeckLibraryTransferPane(selectedPack = null, filteredPacks = [], stack = [], selectedPacks = []) {
@@ -3648,23 +3793,28 @@ function createLoredeckActiveStackFolderCard(item, index, stackLength, library =
     const stackKey = createLoredeckStackFolderKey(folderId);
     const folder = (libraryIndex.folders || []).find(candidate => candidate.id === folderId) || { id: folderId, title: folderId || 'Folder' };
     const path = getFolderPath(folderId, libraryIndex);
-    const packs = getLoredeckLibraryFolderPacks(folderId, library, libraryIndex, { includeNested: item.includeNested !== false });
-    const stats = packs.reduce((acc, pack) => {
-        const healthInfo = getLoredeckLibraryPackHealthInfo(pack, canonDb, health);
-        const deckStats = getLoredeckLibraryDeckStats(pack, canonDb, healthInfo);
-        acc.entryCount += Number(deckStats.entryCount) || 0;
-        acc.warningCount += getLoredeckLibraryDisplayHealthTone(pack, healthInfo) === 'warning' ? 1 : 0;
-        acc.errorCount += getLoredeckLibraryDisplayHealthTone(pack, healthInfo) === 'error' ? 1 : 0;
-        return acc;
-    }, { entryCount: 0, warningCount: 0, errorCount: 0 });
+    const preview = getLoredeckStackFolderPreviewModel(item, getLoredeckStack(getState()), library, libraryIndex, canonDb, health);
+    const stats = preview.summary;
+    const collapsed = item.collapsed === true;
 
     const card = document.createElement('div');
     card.className = 'wandlight-loredeck-library-stack-card wandlight-loredeck-library-stack-folder-card';
     card.dataset.folderId = folderId;
     card.dataset.stackKey = stackKey;
     card.dataset.stackIndex = String(index);
+    card.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+    card.classList.toggle('wandlight-loredeck-library-stack-folder-card-expanded', !collapsed);
     if (!item.enabled) card.classList.add('wandlight-loredeck-library-stack-card-disabled');
+    if (loredeckLibrarySelectedFolderDetailsId === folderId) card.classList.add('wandlight-loredeck-library-stack-card-selected');
     addTooltip(card, `${path.join(' > ') || folder.title}. Folder group priority ${index + 1}.`);
+    card.addEventListener('click', e => {
+        e.stopPropagation();
+        if (e.target?.closest?.('button')) return;
+        loredeckLibrarySelectedFolderId = folderId;
+        loredeckLibrarySelectedFolderDetailsId = folderId;
+        setLoredeckLibraryBulkSelection([], '');
+        renderLoredeckLibraryOverlay();
+    });
 
     const grip = document.createElement('button');
     grip.type = 'button';
@@ -3692,7 +3842,7 @@ function createLoredeckActiveStackFolderCard(item, index, stackLength, library =
     visual.className = 'wandlight-loredeck-library-monogram wandlight-loredeck-library-stack-folder-visual';
     visual.appendChild(createLoredeckLibraryFolderCoverStrip(
         getLoredeckLibraryFolderCoverPacks(folderId, library, libraryIndex),
-        packs.filter(pack => getLoredeckAssetRef(pack, 'cover')).length
+        preview.allPacks.filter(pack => getLoredeckAssetRef(pack, 'cover')).length
     ));
     card.appendChild(visual);
 
@@ -3706,15 +3856,30 @@ function createLoredeckActiveStackFolderCard(item, index, stackLength, library =
     chips.className = 'wandlight-loredeck-row-meta';
     chips.appendChild(createStatusPill(item.enabled ? 'Active Folder' : 'Disabled Folder', 'Folder groups load the Loredecks nested inside this Library folder.'));
     chips.appendChild(createStatusPill(`Priority ${index + 1}`, 'Top stack items have higher priority.'));
+    chips.appendChild(createStatusPill(`${stats.activeCount}/${stats.deckCount} active`, 'Active Loredecks from this folder after stack duplicate suppression.'));
+    if (stats.suppressedCount) chips.appendChild(createStatusPill(`${stats.suppressedCount} suppressed`, 'Loredecks already loaded by a higher-priority stack item.'));
+    if (stats.errorCount) chips.appendChild(createStatusPill(`${stats.errorCount} errors`, 'Contained Loredecks with Deck Health errors.'));
+    else if (stats.warningCount) chips.appendChild(createStatusPill(`${stats.warningCount} warnings`, 'Contained Loredecks with Deck Health warnings.'));
     main.appendChild(chips);
     const statsLine = document.createElement('div');
     statsLine.className = 'wandlight-loredeck-library-card-stats';
-    statsLine.textContent = `${packs.length} Loredecks | ${stats.entryCount} Lorecards`;
+    statsLine.textContent = `${stats.deckCount} Loredecks | ${stats.entryCount} active Lorecards`;
     main.appendChild(statsLine);
     card.appendChild(main);
 
     const controls = document.createElement('div');
     controls.className = 'wandlight-loredeck-library-stack-controls';
+    const disclosure = document.createElement('button');
+    disclosure.type = 'button';
+    disclosure.className = 'wandlight-loredeck-library-stack-disclosure-button';
+    disclosure.textContent = collapsed ? '>' : 'v';
+    disclosure.setAttribute('aria-label', `${collapsed ? 'Expand' : 'Collapse'} ${folder.title || folderId} stack preview`);
+    addTooltip(disclosure, collapsed ? 'Expand folder stack preview.' : 'Collapse folder stack preview.');
+    disclosure.addEventListener('click', e => {
+        e.stopPropagation();
+        setLoredeckStackItemCollapsed(stackKey, !collapsed);
+    });
+    controls.appendChild(disclosure);
     const toggle = document.createElement('button');
     toggle.type = 'button';
     toggle.className = `wandlight-loredeck-library-stack-toggle-button ${item.enabled !== false ? 'wandlight-loredeck-library-stack-toggle-active' : 'wandlight-loredeck-library-stack-toggle-inactive'}`;
@@ -3729,7 +3894,178 @@ function createLoredeckActiveStackFolderCard(item, index, stackLength, library =
     controls.appendChild(toggle);
     void stackLength;
     card.appendChild(controls);
+    if (!collapsed) {
+        card.appendChild(createLoredeckStackFolderPreview(preview, item, libraryIndex));
+    }
     return card;
+}
+
+function getLoredeckStackFolderPreviewModel(item = {}, stack = [], library = [], libraryIndex = {}, canonDb = null, health = null) {
+    const folderId = String(item.folderId || '').trim();
+    const includeNested = item.includeNested !== false;
+    const packMap = getLoredeckLibraryPackMap(library);
+    const resolved = resolveLoredeckStackItems(stack, libraryIndex, { packs: packMap });
+    const activeByPack = new Map((resolved.stack || []).map(entry => [entry.packId, entry]));
+    const suppressedByPack = new Map();
+    for (const duplicate of resolved.duplicates || []) {
+        if (String(duplicate?.source?.folderId || '').trim() !== folderId) continue;
+        if (!suppressedByPack.has(duplicate.packId)) suppressedByPack.set(duplicate.packId, duplicate);
+    }
+    const groupDeckIds = getLoredeckLibraryFolderDeckIds(folderId, libraryIndex, { includeNested });
+    const allPacks = groupDeckIds.map(packId => packMap[packId]).filter(Boolean);
+    const summaryByPack = new Map();
+    const summary = {
+        deckCount: allPacks.length,
+        activeCount: 0,
+        suppressedCount: 0,
+        disabledCount: item.enabled === false ? allPacks.length : 0,
+        entryCount: 0,
+        warningCount: 0,
+        errorCount: 0,
+    };
+
+    for (const pack of allPacks) {
+        const healthInfo = getLoredeckLibraryPackHealthInfo(pack, canonDb, health);
+        const deckStats = getLoredeckLibraryDeckStats(pack, canonDb, healthInfo);
+        const healthTone = getLoredeckLibraryDisplayHealthTone(pack, healthInfo);
+        const active = activeByPack.get(pack.packId) || null;
+        const suppressed = suppressedByPack.get(pack.packId) || null;
+        let stackStatus = 'inactive';
+        if (item.enabled === false) stackStatus = 'disabled';
+        else if (suppressed) stackStatus = 'suppressed';
+        else if (active?.source?.type === 'folder' && String(active.source.folderId || '').trim() === folderId) stackStatus = 'active';
+        else if (active) stackStatus = 'suppressed';
+
+        if (stackStatus === 'active') {
+            summary.activeCount += 1;
+            summary.entryCount += Number(deckStats.entryCount) || 0;
+        } else if (stackStatus === 'suppressed') {
+            summary.suppressedCount += 1;
+        }
+        if (healthTone === 'error') summary.errorCount += 1;
+        else if (healthTone === 'warning') summary.warningCount += 1;
+        summaryByPack.set(pack.packId, {
+            pack,
+            healthInfo,
+            deckStats,
+            healthTone,
+            stackStatus,
+            suppressed,
+            active,
+        });
+    }
+
+    return {
+        folderId,
+        includeNested,
+        allPacks,
+        summary,
+        summaryByPack,
+        activeByPack,
+        suppressedByPack,
+    };
+}
+
+function getLoredeckLibraryDirectFolderPacks(folderId = '', library = getLoredeckLibrary(getState()), libraryIndex = getLoredeckLibraryIndexForPacks()) {
+    const id = String(folderId || '').trim();
+    const byId = new Map((library || []).map(pack => [pack.packId, pack]));
+    return (libraryIndex.deckPlacements || [])
+        .filter(placement => String(placement.folderId || '').trim() === id)
+        .sort((a, b) => (Number(a.sortOrder) || 0) - (Number(b.sortOrder) || 0) || String(a.deckId || a.packId).localeCompare(String(b.deckId || b.packId)))
+        .map(placement => byId.get(String(placement.deckId || placement.packId || '').trim()))
+        .filter(Boolean);
+}
+
+function createLoredeckStackFolderPreview(preview = {}, item = {}, libraryIndex = {}) {
+    const wrap = document.createElement('div');
+    wrap.className = 'wandlight-loredeck-library-stack-folder-preview';
+    wrap.addEventListener('click', e => e.stopPropagation());
+    const list = document.createElement('div');
+    list.className = 'wandlight-loredeck-library-stack-folder-preview-list';
+    appendLoredeckStackFolderPreviewContents(list, preview.folderId, preview, item, libraryIndex, 0, true);
+    if (!list.children.length) {
+        list.appendChild(createEmptyMessage('This folder group does not contain any Loredecks.'));
+    }
+    wrap.appendChild(list);
+    return wrap;
+}
+
+function appendLoredeckStackFolderPreviewContents(list, folderId = '', preview = {}, item = {}, libraryIndex = {}, depth = 0, isRoot = false) {
+    const folder = (libraryIndex.folders || []).find(entry => entry.id === folderId) || null;
+    if (!isRoot && folder) {
+        list.appendChild(createLoredeckStackFolderPreviewFolderRow(folder, depth, libraryIndex));
+    }
+    const library = getLoredeckLibrary(getState());
+    for (const pack of getLoredeckLibraryDirectFolderPacks(folderId, library, libraryIndex)) {
+        list.appendChild(createLoredeckStackFolderPreviewDeckRow(preview.summaryByPack.get(pack.packId) || { pack, stackStatus: 'inactive' }, depth + (isRoot ? 0 : 1)));
+    }
+    if (preview.includeNested === false) return;
+    for (const child of getLoredeckLibraryFolderSiblingRecords(folderId, libraryIndex.folders || [])) {
+        appendLoredeckStackFolderPreviewContents(list, child.id, preview, item, libraryIndex, depth + (isRoot ? 0 : 1), false);
+    }
+}
+
+function createLoredeckStackFolderPreviewFolderRow(folder = {}, depth = 0, libraryIndex = {}) {
+    const row = document.createElement('button');
+    row.type = 'button';
+    row.className = 'wandlight-loredeck-library-stack-folder-preview-row wandlight-loredeck-library-stack-folder-preview-row-folder';
+    row.style.setProperty('--wandlight-stack-preview-depth', String(Math.max(0, Number(depth) || 0)));
+    addTooltip(row, `Open folder details: ${getFolderPath(folder.id, libraryIndex).join(' > ') || folder.title || folder.id}.`);
+    row.addEventListener('click', e => {
+        e.stopPropagation();
+        loredeckLibrarySelectedFolderId = folder.id;
+        loredeckLibrarySelectedFolderDetailsId = folder.id;
+        setLoredeckLibraryBulkSelection([], '');
+        renderLoredeckLibraryOverlay();
+    });
+    const label = document.createElement('span');
+    label.className = 'wandlight-loredeck-library-stack-folder-preview-title';
+    label.textContent = folder.title || folder.id || 'Folder';
+    row.appendChild(label);
+    const chip = document.createElement('span');
+    chip.className = 'wandlight-loredeck-library-stack-folder-preview-chip';
+    const count = getLoredeckLibraryFolderDeckIds(folder.id, libraryIndex, { includeNested: true }).length;
+    chip.textContent = `${count} deck${count === 1 ? '' : 's'}`;
+    row.appendChild(chip);
+    return row;
+}
+
+function createLoredeckStackFolderPreviewDeckRow(summary = {}, depth = 0) {
+    const pack = summary.pack || {};
+    const stackStatus = summary.stackStatus || 'inactive';
+    const healthTone = summary.healthTone || 'unknown';
+    const row = document.createElement('button');
+    row.type = 'button';
+    row.className = `wandlight-loredeck-library-stack-folder-preview-row wandlight-loredeck-library-stack-folder-preview-row-deck wandlight-loredeck-library-stack-folder-preview-row-${stackStatus} wandlight-loredeck-library-stack-folder-preview-health-${healthTone}`;
+    row.style.setProperty('--wandlight-stack-preview-depth', String(Math.max(0, Number(depth) || 0)));
+    addTooltip(row, `Open ${pack.title || pack.packId}. Status: ${humanizeScopeKey(stackStatus)}.`);
+    row.addEventListener('click', e => {
+        e.stopPropagation();
+        loredeckLibrarySelectedFolderDetailsId = '';
+        handleLoredeckLibraryDeckSelection(pack.packId, null, [pack]);
+        renderLoredeckLibraryOverlay();
+    });
+    const title = document.createElement('span');
+    title.className = 'wandlight-loredeck-library-stack-folder-preview-title';
+    title.textContent = pack.title || pack.packId || 'Loredeck';
+    row.appendChild(title);
+
+    const status = document.createElement('span');
+    status.className = `wandlight-loredeck-library-stack-folder-preview-chip wandlight-loredeck-library-stack-folder-preview-chip-${stackStatus}`;
+    status.textContent = stackStatus === 'suppressed'
+        ? 'Suppressed'
+        : stackStatus === 'disabled'
+            ? 'Disabled'
+            : stackStatus === 'active'
+                ? 'Active'
+                : 'Inactive';
+    row.appendChild(status);
+
+    const health = document.createElement('span');
+    health.className = `wandlight-loredeck-library-stack-folder-preview-chip wandlight-loredeck-library-stack-folder-preview-health-chip wandlight-loredeck-library-stack-folder-preview-health-chip-${healthTone}`;
+    health.textContent = healthTone === 'error' ? 'Error' : healthTone === 'warning' ? 'Warn' : 'OK';
+    row.appendChild(health);
+    return row;
 }
 
 function getLoredeckLibraryDropList(clientX, clientY) {
@@ -3769,13 +4105,110 @@ function getLoredeckLibraryDropScrollElement(target = null) {
 }
 
 function setLoredeckLibraryDragDropTarget(state, list = null) {
-    for (const target of document.querySelectorAll('.wandlight-loredeck-library-drag-drop-target')) {
-        target.classList.remove('wandlight-loredeck-library-drag-drop-target');
-    }
+    clearLoredeckLibraryDragDropClasses();
     state.dropList = list || null;
     state.dropKind = getLoredeckLibraryDropKind(list);
     state.dropFolderId = state.dropKind === 'folder' ? String(list?.dataset?.folderId || '').trim() : '';
     if (list) list.classList.add('wandlight-loredeck-library-drag-drop-target');
+}
+
+function clearLoredeckLibraryDragDropClasses() {
+    for (const target of document.querySelectorAll('.wandlight-loredeck-library-drag-drop-target, .wandlight-loredeck-library-drag-drop-valid, .wandlight-loredeck-library-drag-drop-invalid')) {
+        target.classList.remove('wandlight-loredeck-library-drag-drop-target', 'wandlight-loredeck-library-drag-drop-valid', 'wandlight-loredeck-library-drag-drop-invalid');
+    }
+    for (const target of document.querySelectorAll('.wandlight-loredeck-library-root-drop-active')) {
+        target.classList.remove('wandlight-loredeck-library-root-drop-active');
+    }
+}
+
+function getLoredeckLibraryDropFolderTitle(folderId = '', libraryIndex = getLoredeckLibraryIndexForPacks()) {
+    const id = String(folderId || '').trim();
+    if (id === 'unfiled') return 'Unfiled';
+    return getFolderPath(id, libraryIndex).join(' > ')
+        || (libraryIndex.folders || []).find(folder => folder.id === id)?.title
+        || 'Folder';
+}
+
+function getLoredeckLibraryDragCountLabel(count = 1, singular = 'Loredeck', plural = 'Loredecks') {
+    const value = Math.max(1, Number(count) || 1);
+    return `${value} ${value === 1 ? singular : plural}`;
+}
+
+function getLoredeckLibraryDragFeedback(state = {}) {
+    const dropKind = String(state.dropKind || '').trim();
+    const dropFolderId = String(state.dropFolderId || '').trim();
+    const libraryIndex = state.libraryIndex || getLoredeckLibraryIndexForPacks();
+    const isFolderTarget = dropKind === 'folder';
+    const folderTitle = isFolderTarget ? getLoredeckLibraryDropFolderTitle(dropFolderId, libraryIndex) : '';
+
+    if (state.dragType === 'library-deck') {
+        const label = getLoredeckLibraryDragCountLabel(state.packIds?.length || 1);
+        if (dropKind === 'stack') return { valid: true, text: `Add ${label} to Active Stack` };
+        if (dropKind === 'folder') return { valid: true, text: `Move ${label} to ${folderTitle}` };
+        if (dropKind === 'library') return { valid: true, text: state.targetIndex !== state.originalIndex ? 'Reorder in Library' : 'Keep Library position' };
+        return { valid: false, text: 'Not a valid drop target' };
+    }
+
+    if (state.dragType === 'library-folder') {
+        const folderTitleText = state.folderTitle || 'Folder';
+        if (dropKind === 'stack') return { valid: true, text: `Add ${folderTitleText} folder to Active Stack` };
+        if (dropKind === 'folder') {
+            const invalid = !dropFolderId
+                || dropFolderId === 'unfiled'
+                || dropFolderId === state.folderId
+                || isLoredeckLibraryFolderDescendant(dropFolderId, state.folderId, libraryIndex);
+            return invalid
+                ? { valid: false, text: 'Cannot move a folder into itself, Unfiled, or a child folder' }
+                : { valid: true, text: `Move ${folderTitleText} into ${folderTitle}` };
+        }
+        if (dropKind === 'library') {
+            if (state.reparentToRoot) return { valid: true, text: `Move ${folderTitleText} to Library root`, root: true };
+            return { valid: true, text: state.targetIndex !== state.originalIndex ? 'Reorder folder' : 'Keep folder position' };
+        }
+        return { valid: false, text: 'Not a valid drop target' };
+    }
+
+    if (state.dragType === 'stack-item') {
+        const isFolderGroup = String(state.stackKey || '').startsWith('folder:');
+        if (dropKind === 'stack') return { valid: true, text: state.targetIndex !== state.originalIndex ? 'Reorder Active Stack' : 'Keep stack position' };
+        if (dropKind === 'library') return { valid: true, text: 'Remove from Active Stack' };
+        if (dropKind === 'folder') {
+            if (isFolderGroup) return { valid: false, text: 'Folder groups cannot be dropped into Library folders' };
+            const label = getLoredeckLibraryDragCountLabel(state.packIds?.length || 1);
+            return { valid: true, text: `Move ${label} to ${folderTitle}` };
+        }
+        return { valid: false, text: 'Not a valid drop target' };
+    }
+
+    return { valid: true, text: 'Drop to apply' };
+}
+
+function updateLoredeckLibraryDragFeedback(state = {}) {
+    const feedback = getLoredeckLibraryDragFeedback(state);
+    state.dropValid = feedback.valid !== false;
+    state.dropActionText = feedback.text || '';
+    if (state.dropList) {
+        state.dropList.classList.toggle('wandlight-loredeck-library-drag-drop-valid', state.dropValid);
+        state.dropList.classList.toggle('wandlight-loredeck-library-drag-drop-invalid', !state.dropValid);
+        state.dropList.classList.toggle('wandlight-loredeck-library-root-drop-active', !!feedback.root);
+    }
+    const label = ensureLoredeckLibraryDragCopyLabel(state.ghost);
+    if (label) {
+        label.textContent = state.dropActionText || (state.dropValid ? 'Drop to apply' : 'Not a valid drop target');
+        label.classList.toggle('wandlight-loredeck-library-drag-copy-invalid', !state.dropValid);
+        label.classList.toggle('wandlight-loredeck-library-drag-copy-root', !!feedback.root);
+    }
+}
+
+function ensureLoredeckLibraryDragCopyLabel(ghost = null) {
+    if (!ghost) return null;
+    let label = ghost.querySelector?.('.wandlight-loredeck-library-drag-copy');
+    if (!label) {
+        label = document.createElement('div');
+        label.className = 'wandlight-loredeck-library-drag-copy';
+        ghost.appendChild(label);
+    }
+    return label;
 }
 
 function updateLoredeckLibraryDragAutoScroll(state, clientX, clientY) {
@@ -3820,9 +4253,7 @@ function stopLoredeckLibraryDragAutoScroll(state) {
 }
 
 function clearLoredeckLibraryDragDropTargets() {
-    for (const target of document.querySelectorAll('.wandlight-loredeck-library-drag-drop-target')) {
-        target.classList.remove('wandlight-loredeck-library-drag-drop-target');
-    }
+    clearLoredeckLibraryDragDropClasses();
 }
 
 function startLoredeckLibraryDeckDrag(event, packId, visiblePacks = []) {
@@ -3849,6 +4280,7 @@ function startLoredeckLibraryDeckDrag(event, packId, visiblePacks = []) {
     const selectedIds = getLoredeckLibraryBulkSelectedIds().filter(id => visiblePacks.some(pack => pack.packId === id));
     const packIds = selectedIds.includes(packId) ? selectedIds : [String(packId || '').trim()];
     loredeckLibraryDeckDragState = {
+        dragType: 'library-deck',
         packId: String(packId || '').trim(),
         packIds,
         visiblePacks,
@@ -3869,6 +4301,8 @@ function startLoredeckLibraryDeckDrag(event, packId, visiblePacks = []) {
         dropKind: 'library',
         dropFolderId: '',
         reparentToRoot: false,
+        dropValid: true,
+        dropActionText: '',
         onMove: null,
         onUp: null,
         onKeyDown: null,
@@ -3926,6 +4360,7 @@ function updateLoredeckLibraryDeckDrag(clientX, clientY) {
     const canReorder = state.dropKind === 'library' && state.dropList === state.list;
     const targetIndex = canReorder ? getLoredeckLibraryDragTargetIndex(clientY) : state.originalIndex;
     state.targetIndex = Number.isFinite(targetIndex) ? targetIndex : state.originalIndex;
+    updateLoredeckLibraryDragFeedback(state);
     for (const card of state.cards) {
         if (card === state.card) continue;
         const index = Number(card.dataset.libraryIndex);
@@ -3963,8 +4398,9 @@ function finishLoredeckLibraryDeckDrag(commit = true) {
     }
     state.ghost.remove();
     const { packId, packIds, targetIndex, originalIndex, dropKind, dropFolderId, visiblePacks } = state;
+    const canCommit = commit && state.dropValid !== false;
     loredeckLibraryDeckDragState = null;
-    if (!commit) return;
+    if (!canCommit) return;
     if (dropKind === 'stack') {
         addLoredecksToStack(packIds);
         renderLoredeckLibraryOverlay();
@@ -4006,7 +4442,9 @@ function startLoredeckLibraryFolderDrag(event, folderId) {
     document.body.appendChild(ghost);
 
     loredeckLibraryFolderDragState = {
+        dragType: 'library-folder',
         folderId: id,
+        folderTitle: folder.title || id,
         parentId,
         libraryIndex,
         pointerId: event.pointerId,
@@ -4026,6 +4464,8 @@ function startLoredeckLibraryFolderDrag(event, folderId) {
         dropList: list,
         dropKind: 'library',
         dropFolderId: '',
+        dropValid: true,
+        dropActionText: '',
         onMove: null,
         onUp: null,
         onKeyDown: null,
@@ -4085,6 +4525,7 @@ function updateLoredeckLibraryFolderDrag(clientX, clientY) {
     const canReorder = state.dropKind === 'library' && state.dropList === state.list;
     const targetIndex = canReorder ? getLoredeckLibraryFolderDragTargetIndex(clientY) : state.originalIndex;
     state.targetIndex = Number.isFinite(targetIndex) ? targetIndex : state.originalIndex;
+    updateLoredeckLibraryDragFeedback(state);
     for (let index = 0; index < state.siblingRows.length; index += 1) {
         const row = state.siblingRows[index];
         if (row === state.row) continue;
@@ -4122,8 +4563,9 @@ function finishLoredeckLibraryFolderDrag(commit = true) {
     }
     state.ghost.remove();
     const { folderId, parentId, originalIndex, targetIndex, dropKind, dropFolderId, libraryIndex, reparentToRoot } = state;
+    const canCommit = commit && state.dropValid !== false;
     loredeckLibraryFolderDragState = null;
-    if (!commit) return;
+    if (!canCommit) return;
     if (dropKind === 'stack') {
         addLoredeckFolderToStack(folderId, libraryIndex);
         renderLoredeckLibraryOverlay();
@@ -4161,6 +4603,7 @@ function startLoredeckStackDrag(event, stackKey) {
     document.body.appendChild(ghost);
 
     loredeckStackDragState = {
+        dragType: 'stack-item',
         stackKey: key,
         packId,
         packIds: packId && getLoredeckLibraryBulkSelectedIds().includes(packId) ? getLoredeckLibraryBulkSelectedIds() : (packId ? [packId] : []),
@@ -4180,6 +4623,8 @@ function startLoredeckStackDrag(event, stackKey) {
         dropList: list,
         dropKind: 'stack',
         dropFolderId: '',
+        dropValid: true,
+        dropActionText: '',
         onMove: null,
         onUp: null,
         onKeyDown: null,
@@ -4236,6 +4681,7 @@ function updateLoredeckStackDrag(clientX, clientY) {
     const targetIndex = canReorder ? getLoredeckStackDragTargetIndex(clientY) : state.originalIndex;
     state.targetIndex = Number.isFinite(targetIndex) ? targetIndex : state.originalIndex;
     state.ghost.style.transform = `translate3d(${Math.round(clientX - state.offsetX)}px, ${Math.round(clientY - state.offsetY)}px, 0)`;
+    updateLoredeckLibraryDragFeedback(state);
 
     for (const card of state.cards) {
         if (card === state.card) continue;
@@ -4274,18 +4720,19 @@ function finishLoredeckStackDrag(commit = true) {
     }
     state.ghost.remove();
     const { stackKey, packId, packIds, originalIndex, targetIndex, dropKind, dropFolderId } = state;
+    const canCommit = commit && state.dropValid !== false;
     loredeckStackDragState = null;
-    if (commit && dropKind === 'library') {
+    if (canCommit && dropKind === 'library') {
         if (packIds.length) removeLoredecksFromStack(packIds);
         else removeLoredeckStackItem(stackKey);
         renderLoredeckLibraryOverlay();
-    } else if (commit && dropKind === 'folder') {
+    } else if (canCommit && dropKind === 'folder') {
         if (packIds.length) {
             if (moveLoredecksToLibraryFolder(packIds, dropFolderId)) renderLoredeckLibraryOverlay();
         } else if (removeLoredeckStackItem(stackKey)) {
             renderLoredeckLibraryOverlay();
         }
-    } else if (commit && targetIndex !== originalIndex) {
+    } else if (canCommit && targetIndex !== originalIndex) {
         reorderLoredeckStackItem(stackKey || createLoredeckStackDeckKey(packId), targetIndex);
     }
 }
@@ -4426,6 +4873,9 @@ function createLoredeckLibraryFolderDetailsPanel(folder = {}, stack = [], canonD
     desc.className = 'wandlight-loredeck-library-detail-description';
     desc.textContent = path.length ? path.join(' > ') : 'Root Library folder.';
     main.appendChild(desc);
+
+    const selectedIds = getLoredeckLibraryBulkSelectedIds(library);
+    main.appendChild(createLoredeckLibraryFolderActionBar(folder, libraryIndex, selectedIds));
     identity.appendChild(main);
     panel.appendChild(identity);
 
@@ -4458,6 +4908,34 @@ function createLoredeckLibraryFolderDetailsPanel(folder = {}, stack = [], canonD
     content.appendChild(listWrap);
     panel.appendChild(content);
     return panel;
+}
+
+function createLoredeckLibraryFolderActionBar(folder = {}, libraryIndex = {}, selectedIds = []) {
+    const folderId = String(folder.id || '').trim();
+    const isUnfiled = folderId === 'unfiled';
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions wandlight-loredeck-library-folder-actions';
+
+    actions.appendChild(createButton(isUnfiled ? 'New Root Folder' : 'New Subfolder', isUnfiled ? 'Create a new top-level Library folder.' : 'Create a nested folder inside this folder.', () => {
+        void promptCreateLoredeckLibraryFolder(isUnfiled ? '' : folderId);
+    }, 'wandlight-loredeck-library-small-button'));
+
+    const move = createButton(selectedIds.length ? `Move Selected Here (${selectedIds.length})` : 'Move Selected Here', selectedIds.length ? 'Move the selected Loredecks into this folder.' : 'Select one or more Loredecks before moving them into this folder.', () => {
+        if (!selectedIds.length) return;
+        if (moveLoredecksToLibraryFolder(selectedIds, isUnfiled ? 'unfiled' : folderId)) renderLoredeckLibraryOverlay();
+    }, 'wandlight-loredeck-library-small-button');
+    move.disabled = !selectedIds.length;
+    actions.appendChild(move);
+
+    if (!isUnfiled) {
+        actions.appendChild(createButton('Rename', 'Rename this folder without changing its internal ID.', () => {
+            void promptRenameLoredeckLibraryFolder(folderId);
+        }, 'wandlight-loredeck-library-small-button'));
+        actions.appendChild(createButton('Delete Folder', 'Delete this folder with an explicit choice for where its contents should go.', () => {
+            void deleteLoredeckLibraryFolderWithConfirm(folderId);
+        }, 'wandlight-loredeck-library-small-button wandlight-danger-button'));
+    }
+    return actions;
 }
 
 function createLoredeckLibraryFolderLoredeckRow(summary = {}, maxEntries = 1) {
@@ -4972,22 +5450,11 @@ function getLoredeckLibraryStackStats(stack = [], library = [], canonDb = null, 
     };
 }
 
-function getFilteredLoredeckLibraryPacks(library = [], stack = [], canonDb = null, health = null) {
-    const query = String(loredeckLibraryQuery || '').trim().toLowerCase();
+function getFilteredLoredeckLibraryPacks(library = [], stack = [], canonDb = null, health = null, libraryIndex = getLoredeckLibraryIndexForPacks(getState(), library)) {
+    const query = normalizeLoredeckLibrarySearchQuery();
     const filtered = library.filter(pack => {
         if (!query) return true;
-        return [
-            pack.packId,
-            pack.title,
-            pack.description,
-            pack.fandom,
-            pack.era,
-            pack.author,
-            pack.version,
-            pack.manifest,
-            getLoredeckTypeLabel(pack.packId),
-            ...(Array.isArray(pack.tags) ? pack.tags : []),
-        ].filter(Boolean).join(' ').toLowerCase().includes(query);
+        return getLoredeckLibraryPackSearchText(pack, libraryIndex).includes(query);
     });
     return filtered.sort((a, b) => compareLoredeckLibraryPacks(a, b, canonDb, health));
 }
@@ -5305,6 +5772,379 @@ function saveLoredeckLibraryFolderRecords(folders = []) {
         folders: folders.map(folder => ({ ...folder })),
     };
     saveSettings(settings);
+}
+
+function saveLoredeckLibraryOrganizationRecords(folders = [], deckPlacements = null) {
+    const settings = getSettings();
+    const registry = settings.loredeckLibrary && typeof settings.loredeckLibrary === 'object' && !Array.isArray(settings.loredeckLibrary)
+        ? settings.loredeckLibrary
+        : { schemaVersion: 1, packs: {} };
+    const next = {
+        ...registry,
+        folders: folders.map(folder => ({ ...folder })),
+    };
+    if (Array.isArray(deckPlacements)) {
+        next.deckPlacements = deckPlacements.map(placement => ({ ...placement }));
+    }
+    settings.loredeckLibrary = next;
+    saveSettings(settings);
+}
+
+function getLoredeckLibraryWorkingIndex() {
+    const state = getState();
+    const library = getLoredeckLibrary(state);
+    return getLoredeckLibraryIndexForPacks(state, library);
+}
+
+function cleanLoredeckLibraryFolderTitle(value) {
+    return String(value || '').trim().replace(/\s+/g, ' ').slice(0, 120);
+}
+
+function getLoredeckLibraryFolderSiblingRecords(parentId = '', folders = []) {
+    const id = String(parentId || '').trim();
+    return (folders || [])
+        .filter(folder => String(folder.parentId || '').trim() === id)
+        .sort((a, b) => (Number(a.sortOrder) || 0) - (Number(b.sortOrder) || 0) || String(a.title || a.id).localeCompare(String(b.title || b.id)));
+}
+
+function hasLoredeckLibraryFolderSiblingTitle(parentId = '', title = '', folders = [], excludeId = '') {
+    const normalized = cleanLoredeckLibraryFolderTitle(title).toLowerCase();
+    const ignored = String(excludeId || '').trim();
+    return getLoredeckLibraryFolderSiblingRecords(parentId, folders)
+        .some(folder => folder.id !== ignored && cleanLoredeckLibraryFolderTitle(folder.title).toLowerCase() === normalized);
+}
+
+function createUniqueLoredeckLibraryFolderId(parentId = '', title = '', folders = []) {
+    const parentPath = parentId ? getFolderPath(parentId, { folders }) : [];
+    const base = createFolderIdFromPath([...parentPath, title]) || createFolderIdFromPath([title]);
+    const existing = new Set((folders || []).map(folder => folder.id));
+    if (!existing.has(base)) return base;
+    for (let index = 2; index < 1000; index += 1) {
+        const candidate = `${base}__${index}`.slice(0, 180);
+        if (!existing.has(candidate)) return candidate;
+    }
+    return `${base || 'folder'}__${Date.now()}`.slice(0, 180);
+}
+
+async function promptCreateLoredeckLibraryFolder(parentId = '') {
+    const libraryIndex = getLoredeckLibraryWorkingIndex();
+    const targetParentId = String(parentId || '').trim();
+    if (targetParentId && !(libraryIndex.folders || []).some(folder => folder.id === targetParentId)) {
+        toast('Parent folder is no longer available.', 'warning');
+        return false;
+    }
+    const parentPath = targetParentId ? getFolderPath(targetParentId, libraryIndex).join(' > ') : 'Library root';
+    const title = await promptTextAction(
+        targetParentId ? 'Create Subfolder' : 'Create Folder',
+        `Name the new folder under ${parentPath}.`,
+        '',
+        { placeholder: 'Folder name', required: true, confirmLabel: 'Create' },
+    );
+    if (title === null) return false;
+    const created = createLoredeckLibraryFolder(targetParentId, title, libraryIndex);
+    if (created) renderLoredeckLibraryOverlay();
+    return !!created;
+}
+
+function createLoredeckLibraryFolder(parentId = '', title = '', libraryIndex = getLoredeckLibraryWorkingIndex()) {
+    const cleanTitle = cleanLoredeckLibraryFolderTitle(title);
+    if (!cleanTitle) {
+        toast('Folder name is required.', 'warning');
+        return null;
+    }
+    const targetParentId = String(parentId || '').trim();
+    const folders = (libraryIndex.folders || []).map(folder => ({ ...folder }));
+    if (targetParentId && !folders.some(folder => folder.id === targetParentId)) {
+        toast('Parent folder is no longer available.', 'warning');
+        return null;
+    }
+    if (hasLoredeckLibraryFolderSiblingTitle(targetParentId, cleanTitle, folders)) {
+        toast('A sibling folder already uses that name.', 'warning');
+        return null;
+    }
+    const siblings = getLoredeckLibraryFolderSiblingRecords(targetParentId, folders);
+    const now = Date.now();
+    const folder = {
+        id: createUniqueLoredeckLibraryFolderId(targetParentId, cleanTitle, folders),
+        parentId: targetParentId,
+        title: cleanTitle,
+        sortOrder: Math.max(0, ...siblings.map(item => Number(item.sortOrder) || 0)) + 100,
+        icon: '',
+        color: '',
+        collapsed: false,
+        createdAt: now,
+        updatedAt: now,
+    };
+    saveLoredeckLibraryFolderRecords([...folders, folder]);
+    if (targetParentId) loredeckLibraryCollapsedFolderIds.delete(targetParentId);
+    loredeckLibrarySelectedFolderId = folder.id;
+    loredeckLibrarySelectedFolderDetailsId = folder.id;
+    loredeckLibrarySort = 'manual';
+    toast(`${folder.title} folder created.`, 'success');
+    return folder;
+}
+
+async function promptRenameLoredeckLibraryFolder(folderId = '') {
+    const id = String(folderId || '').trim();
+    if (!id || id === 'unfiled') return false;
+    const libraryIndex = getLoredeckLibraryWorkingIndex();
+    const folder = (libraryIndex.folders || []).find(item => item.id === id);
+    if (!folder) {
+        toast('That Library folder is no longer available.', 'warning');
+        return false;
+    }
+    const title = await promptTextAction(
+        'Rename Folder',
+        'Rename this Library folder. The internal folder ID and stack references stay unchanged.',
+        folder.title || '',
+        { placeholder: 'Folder name', required: true, confirmLabel: 'Rename' },
+    );
+    if (title === null) return false;
+    const renamed = renameLoredeckLibraryFolder(id, title, libraryIndex);
+    if (renamed) renderLoredeckLibraryOverlay();
+    return renamed;
+}
+
+function renameLoredeckLibraryFolder(folderId = '', title = '', libraryIndex = getLoredeckLibraryWorkingIndex()) {
+    const id = String(folderId || '').trim();
+    const cleanTitle = cleanLoredeckLibraryFolderTitle(title);
+    if (!id || id === 'unfiled' || !cleanTitle) {
+        toast('Folder name is required.', 'warning');
+        return false;
+    }
+    const folders = (libraryIndex.folders || []).map(folder => ({ ...folder }));
+    const folder = folders.find(item => item.id === id);
+    if (!folder) {
+        toast('That Library folder is no longer available.', 'warning');
+        return false;
+    }
+    const parentId = String(folder.parentId || '').trim();
+    if (hasLoredeckLibraryFolderSiblingTitle(parentId, cleanTitle, folders, id)) {
+        toast('A sibling folder already uses that name.', 'warning');
+        return false;
+    }
+    if (folder.title === cleanTitle) return false;
+    folder.title = cleanTitle;
+    folder.updatedAt = Date.now();
+    saveLoredeckLibraryFolderRecords(folders);
+    loredeckLibrarySelectedFolderId = id;
+    loredeckLibrarySelectedFolderDetailsId = id;
+    toast(`${cleanTitle} folder renamed.`, 'success');
+    return true;
+}
+
+async function deleteLoredeckLibraryFolderWithConfirm(folderId = '') {
+    const id = String(folderId || '').trim();
+    if (!id || id === 'unfiled') return false;
+    const libraryIndex = getLoredeckLibraryWorkingIndex();
+    const plan = getLoredeckLibraryFolderRemovalPlan(id, libraryIndex);
+    if (!plan.folder) {
+        toast('That Library folder is no longer available.', 'warning');
+        return false;
+    }
+    const folder = plan.folder;
+    const stackKey = createLoredeckStackFolderKey(id);
+    const inStack = getLoredeckStack(getState()).some(item => getLoredeckStackItemKey(item) === stackKey);
+    const hasContents = plan.directChildFolders.length || plan.containedDeckIds.length;
+
+    let strategy = 'empty';
+    if (hasContents) {
+        strategy = await promptLoredeckLibraryFolderRemovalStrategy(plan, inStack);
+        if (!strategy) return false;
+    } else {
+        const proceed = await confirmAction(
+            'Delete Empty Folder?',
+            `Delete "${folder.title || id}" from the Library?${inStack ? ' It will also be removed from the active stack.' : ''} This does not delete any Loredecks.`
+        );
+        if (!proceed) return false;
+    }
+
+    return applyLoredeckLibraryFolderRemoval(plan, strategy);
+}
+
+function getLoredeckLibraryFolderRemovalPlan(folderId = '', libraryIndex = getLoredeckLibraryWorkingIndex()) {
+    const id = String(folderId || '').trim();
+    const folders = (libraryIndex.folders || []).map(folder => ({ ...folder }));
+    const folder = folders.find(item => item.id === id) || null;
+    const directChildFolders = folders
+        .filter(item => String(item.parentId || '').trim() === id)
+        .sort((a, b) => (Number(a.sortOrder) || 0) - (Number(b.sortOrder) || 0) || String(a.title || a.id).localeCompare(String(b.title || b.id)));
+    const descendantFolders = folders
+        .filter(item => item.id !== id && isLoredeckLibraryFolderDescendant(item.id, id, libraryIndex))
+        .sort((a, b) => (Number(a.sortOrder) || 0) - (Number(b.sortOrder) || 0) || String(a.title || a.id).localeCompare(String(b.title || b.id)));
+    const directDeckIds = [];
+    for (const placement of libraryIndex.deckPlacements || []) {
+        const deckId = String(placement.deckId || placement.packId || '').trim();
+        if (deckId && String(placement.folderId || '').trim() === id) directDeckIds.push(deckId);
+    }
+    const containedDeckIds = getLoredeckLibraryFolderDeckIds(id, libraryIndex, { includeNested: true });
+    return {
+        folder,
+        folderId: id,
+        parentId: String(folder?.parentId || '').trim(),
+        directChildFolders,
+        descendantFolders,
+        directDeckIds,
+        containedDeckIds,
+    };
+}
+
+function formatLoredeckLibraryFolderRemovalMessage(plan = {}, inStack = false) {
+    const folder = plan.folder || {};
+    const path = getFolderPath(plan.folderId, getLoredeckLibraryWorkingIndex()).join(' > ') || folder.title || plan.folderId || 'Folder';
+    const lines = [
+        `Delete "${folder.title || plan.folderId}" from the Library.`,
+        '',
+        `Path: ${path}`,
+        `Direct subfolders: ${plan.directChildFolders?.length || 0}`,
+        `Nested subfolders: ${Math.max(0, (plan.descendantFolders?.length || 0) - (plan.directChildFolders?.length || 0))}`,
+        `Contained Loredecks: ${plan.containedDeckIds?.length || 0}`,
+    ];
+    if (inStack) lines.push('', 'This folder group is in the active stack and will be removed from the stack.');
+    lines.push('', 'Choose how Saga should preserve the contents.');
+    return lines.join('\n');
+}
+
+async function promptLoredeckLibraryFolderRemovalStrategy(plan = {}, inStack = false) {
+    return await chooseAction(
+        'Delete Folder With Contents?',
+        formatLoredeckLibraryFolderRemovalMessage(plan, inStack),
+        [
+            {
+                value: 'move_to_parent',
+                label: 'Move Contents to Parent',
+                tooltip: 'Delete this folder, move direct Loredecks and subfolders up one level, and keep nested folders intact.',
+                className: 'wandlight-primary-button',
+            },
+            {
+                value: 'move_decks_to_unfiled',
+                label: 'Move Loredecks to Unfiled',
+                tooltip: 'Delete this folder and nested subfolders, then move all contained Loredecks to Unfiled.',
+                className: 'wandlight-danger-button',
+            },
+        ],
+    );
+}
+
+function applyLoredeckLibraryFolderRemoval(plan = {}, strategy = 'empty') {
+    const folderId = String(plan.folderId || '').trim();
+    if (!folderId || !plan.folder) return false;
+    const libraryIndex = getLoredeckLibraryWorkingIndex();
+    const folder = (libraryIndex.folders || []).find(item => item.id === folderId);
+    if (!folder) {
+        toast('That Library folder is no longer available.', 'warning');
+        return false;
+    }
+    const freshPlan = getLoredeckLibraryFolderRemovalPlan(folderId, libraryIndex);
+    const parentId = String(freshPlan.parentId || '').trim();
+    const settings = getSettings();
+    const registry = settings.loredeckLibrary && typeof settings.loredeckLibrary === 'object' && !Array.isArray(settings.loredeckLibrary)
+        ? settings.loredeckLibrary
+        : { schemaVersion: 1, packs: {} };
+    const placementById = new Map();
+    for (const placement of Array.isArray(registry.deckPlacements) ? registry.deckPlacements : []) {
+        const deckId = String(placement.deckId || placement.packId || '').trim();
+        if (deckId) placementById.set(deckId, { ...placement, deckId });
+    }
+    const indexedPlacementById = new Map();
+    for (const placement of libraryIndex.deckPlacements || []) {
+        const deckId = String(placement.deckId || placement.packId || '').trim();
+        if (deckId) indexedPlacementById.set(deckId, { ...placement, deckId });
+    }
+    const updatePlacement = (deckId, targetFolderId, sortOrder = null) => {
+        const id = String(deckId || '').trim();
+        if (!id) return;
+        const existing = placementById.get(id) || indexedPlacementById.get(id) || { deckId: id };
+        placementById.set(id, {
+            ...existing,
+            deckId: id,
+            folderId: String(targetFolderId || '').trim(),
+            sortOrder: Number.isFinite(Number(sortOrder))
+                ? Number(sortOrder)
+                : (Number.isFinite(Number(existing.sortOrder)) ? Number(existing.sortOrder) : 0),
+            updatedAt: Date.now(),
+        });
+    };
+
+    let folders = (libraryIndex.folders || []).map(item => ({ ...item }));
+    let removedFolderIds = [folderId];
+    let selectedFolderId = parentId || 'all';
+    let selectedDeckIds = [];
+
+    if (strategy === 'move_to_parent') {
+        const conflicts = freshPlan.directChildFolders.filter(child => hasLoredeckLibraryFolderSiblingTitle(parentId, child.title, folders, child.id));
+        if (conflicts.length) {
+            toast(`Cannot move contents up: ${conflicts[0].title || conflicts[0].id} already exists in the parent folder.`, 'warning');
+            return false;
+        }
+        folders = folders.filter(item => item.id !== folderId);
+        const siblingMax = Math.max(0, ...getLoredeckLibraryFolderSiblingRecords(parentId, folders)
+            .filter(item => !freshPlan.directChildFolders.some(child => child.id === item.id))
+            .map(item => Number(item.sortOrder) || 0));
+        let nextFolderOrder = Math.max(100, Math.ceil(siblingMax / 100) * 100 + 100);
+        for (const child of freshPlan.directChildFolders) {
+            const record = folders.find(item => item.id === child.id);
+            if (!record) continue;
+            record.parentId = parentId;
+            record.sortOrder = nextFolderOrder;
+            record.updatedAt = Date.now();
+            nextFolderOrder += 100;
+        }
+
+        let targetMaxOrder = Math.max(0, ...(libraryIndex.deckPlacements || [])
+            .filter(placement => String(placement.folderId || '').trim() === parentId && !freshPlan.directDeckIds.includes(String(placement.deckId || placement.packId || '').trim()))
+            .map(placement => Number(placement.sortOrder) || 0));
+        let nextDeckOrder = Math.max(100, Math.ceil(targetMaxOrder / 100) * 100 + 100);
+        for (const deckId of freshPlan.containedDeckIds) {
+            const current = indexedPlacementById.get(deckId) || {};
+            const currentFolderId = String(current.folderId || '').trim();
+            if (currentFolderId === folderId) {
+                updatePlacement(deckId, parentId, nextDeckOrder);
+                nextDeckOrder += 100;
+                selectedDeckIds.push(deckId);
+            } else {
+                updatePlacement(deckId, currentFolderId, current.sortOrder);
+            }
+        }
+        selectedFolderId = parentId || 'all';
+    } else if (strategy === 'move_decks_to_unfiled') {
+        removedFolderIds = [folderId, ...freshPlan.descendantFolders.map(item => item.id)];
+        const removedSet = new Set(removedFolderIds);
+        folders = folders.filter(item => !removedSet.has(item.id));
+        let targetMaxOrder = Math.max(0, ...(libraryIndex.deckPlacements || [])
+            .filter(placement => !removedSet.has(String(placement.folderId || '').trim()))
+            .filter(placement => !freshPlan.containedDeckIds.includes(String(placement.deckId || placement.packId || '').trim()))
+            .filter(placement => !String(placement.folderId || '').trim())
+            .map(placement => Number(placement.sortOrder) || 0));
+        let nextDeckOrder = Math.max(100, Math.ceil(targetMaxOrder / 100) * 100 + 100);
+        for (const deckId of freshPlan.containedDeckIds) {
+            updatePlacement(deckId, '', nextDeckOrder);
+            nextDeckOrder += 100;
+        }
+        selectedFolderId = 'unfiled';
+        selectedDeckIds = freshPlan.containedDeckIds;
+    } else {
+        folders = folders.filter(item => item.id !== folderId);
+    }
+
+    saveLoredeckLibraryOrganizationRecords(folders, [...placementById.values()]);
+    const removedKeys = new Set(removedFolderIds.map(createLoredeckStackFolderKey));
+    if (removedKeys.size) {
+        commitLoredeckStackMutation(`Deleted Library folder ${freshPlan.folder?.title || folderId}`, stack => {
+            for (let index = stack.length - 1; index >= 0; index -= 1) {
+                if (removedKeys.has(getLoredeckStackItemKey(stack[index]))) stack.splice(index, 1);
+            }
+        });
+    }
+    for (const id of removedFolderIds) loredeckLibraryCollapsedFolderIds.delete(id);
+    loredeckLibrarySelectedFolderId = selectedFolderId;
+    loredeckLibrarySelectedFolderDetailsId = '';
+    if (selectedDeckIds.length) setLoredeckLibraryBulkSelection(selectedDeckIds, selectedDeckIds[0]);
+    else setLoredeckLibraryBulkSelection([], '');
+    loredeckLibrarySort = 'manual';
+    renderLoredeckLibraryOverlay();
+    toast(`${freshPlan.folder?.title || folderId} folder deleted.`, 'info');
+    return true;
 }
 
 function moveLoredeckLibraryFolder(folderId = '', targetParentId = '', targetIndex = null, libraryIndex = getLoredeckLibraryIndexForPacks()) {
@@ -18962,6 +19802,17 @@ function setLoredeckStackItemEnabled(stackKey, enabled) {
     return changed;
 }
 
+function setLoredeckStackItemCollapsed(stackKey, collapsed) {
+    const key = String(stackKey || '').trim();
+    const next = collapsed === true;
+    const changed = commitLoredeckStackMutation(`${next ? 'Collapsed' : 'Expanded'} Loredeck stack item`, stack => {
+        const item = stack.find(entry => getLoredeckStackItemKey(entry) === key);
+        if (item && getLoredeckStackItemType(item) === 'folder') item.collapsed = next;
+    });
+    if (!changed) renderLoredeckLibraryOverlay();
+    return changed;
+}
+
 function moveLoredeckInStack(packId, direction) {
     return moveLoredeckStackItem(createLoredeckStackDeckKey(packId), direction);
 }
@@ -30152,6 +31003,165 @@ function showSagaConfirmDialog(title, message) {
     });
 }
 
+function showSagaInputDialog(title, message, initialValue = '', options = {}) {
+    if (typeof document === 'undefined' || !document.body) return Promise.resolve(null);
+    return new Promise(resolve => {
+        document.querySelector('.wandlight-confirm-overlay')?.remove();
+
+        const overlay = document.createElement('div');
+        overlay.className = 'wandlight-confirm-overlay';
+
+        const shell = document.createElement('div');
+        shell.className = 'wandlight-confirm-shell wandlight-input-shell';
+        shell.setAttribute('role', 'dialog');
+        shell.setAttribute('aria-modal', 'true');
+        shell.setAttribute('aria-labelledby', 'wandlight-input-title');
+        shell.setAttribute('aria-describedby', 'wandlight-input-message');
+
+        const heading = document.createElement('div');
+        heading.id = 'wandlight-input-title';
+        heading.className = 'wandlight-confirm-title';
+        heading.textContent = String(title || 'Enter Value');
+        shell.appendChild(heading);
+
+        const body = document.createElement('div');
+        body.id = 'wandlight-input-message';
+        body.className = 'wandlight-confirm-message';
+        body.textContent = String(message || '');
+        shell.appendChild(body);
+
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.className = 'text_pole wandlight-confirm-input';
+        input.value = String(initialValue || '');
+        input.placeholder = String(options.placeholder || '');
+        input.maxLength = Number.isFinite(Number(options.maxLength)) ? Number(options.maxLength) : 120;
+        shell.appendChild(input);
+
+        const error = document.createElement('div');
+        error.className = 'wandlight-confirm-error';
+        error.hidden = true;
+        shell.appendChild(error);
+
+        const actions = document.createElement('div');
+        actions.className = 'wandlight-primary-actions wandlight-confirm-actions';
+        const cancel = createButton('Cancel', 'Cancel this action.', () => finish(null));
+        const confirm = createButton(options.confirmLabel || 'Save', 'Save this value.', () => {
+            const value = String(input.value || '').trim().replace(/\s+/g, ' ');
+            if (options.required && !value) {
+                error.textContent = options.requiredMessage || 'A value is required.';
+                error.hidden = false;
+                input.focus?.();
+                return;
+            }
+            finish(value);
+        }, 'wandlight-primary-button');
+        actions.appendChild(cancel);
+        actions.appendChild(confirm);
+        shell.appendChild(actions);
+
+        function finish(value) {
+            document.removeEventListener('keydown', onKeyDown);
+            overlay.remove();
+            resolve(value);
+        }
+
+        function onKeyDown(event) {
+            if (event.key === 'Escape') {
+                event.preventDefault();
+                finish(null);
+            }
+        }
+
+        input.addEventListener('keydown', event => {
+            if (event.key !== 'Enter') return;
+            event.preventDefault();
+            confirm.click();
+        });
+        overlay.addEventListener('click', event => {
+            if (event.target === overlay) finish(null);
+        });
+        document.addEventListener('keydown', onKeyDown);
+        overlay.appendChild(shell);
+        document.body.appendChild(overlay);
+        setTimeout(() => {
+            input.focus?.();
+            input.select?.();
+        }, 0);
+    });
+}
+
+function showSagaChoiceDialog(title, message, choices = []) {
+    if (typeof document === 'undefined' || !document.body) return Promise.resolve(null);
+    return new Promise(resolve => {
+        document.querySelector('.wandlight-confirm-overlay')?.remove();
+
+        const overlay = document.createElement('div');
+        overlay.className = 'wandlight-confirm-overlay';
+
+        const shell = document.createElement('div');
+        shell.className = 'wandlight-confirm-shell wandlight-choice-shell';
+        shell.setAttribute('role', 'dialog');
+        shell.setAttribute('aria-modal', 'true');
+        shell.setAttribute('aria-labelledby', 'wandlight-choice-title');
+        shell.setAttribute('aria-describedby', 'wandlight-choice-message');
+
+        const heading = document.createElement('div');
+        heading.id = 'wandlight-choice-title';
+        heading.className = 'wandlight-confirm-title';
+        heading.textContent = String(title || 'Choose Action');
+        shell.appendChild(heading);
+
+        const body = document.createElement('div');
+        body.id = 'wandlight-choice-message';
+        body.className = 'wandlight-confirm-message';
+        body.textContent = String(message || '');
+        shell.appendChild(body);
+
+        const choiceWrap = document.createElement('div');
+        choiceWrap.className = 'wandlight-confirm-choice-list';
+        for (const choice of choices || []) {
+            const value = String(choice?.value || '').trim();
+            if (!value) continue;
+            const button = createButton(
+                choice.label || value,
+                choice.tooltip || choice.label || value,
+                () => finish(value),
+                `wandlight-confirm-choice-button ${choice.className || ''}`.trim(),
+            );
+            choiceWrap.appendChild(button);
+        }
+        shell.appendChild(choiceWrap);
+
+        const actions = document.createElement('div');
+        actions.className = 'wandlight-primary-actions wandlight-confirm-actions';
+        const cancel = createButton('Cancel', 'Cancel this action.', () => finish(null));
+        actions.appendChild(cancel);
+        shell.appendChild(actions);
+
+        function finish(value) {
+            document.removeEventListener('keydown', onKeyDown);
+            overlay.remove();
+            resolve(value);
+        }
+
+        function onKeyDown(event) {
+            if (event.key === 'Escape') {
+                event.preventDefault();
+                finish(null);
+            }
+        }
+
+        overlay.addEventListener('click', event => {
+            if (event.target === overlay) finish(null);
+        });
+        document.addEventListener('keydown', onKeyDown);
+        overlay.appendChild(shell);
+        document.body.appendChild(overlay);
+        setTimeout(() => cancel.focus?.(), 0);
+    });
+}
+
 async function confirmAction(title, message) {
     if (typeof document !== 'undefined' && document.body) {
         return await showSagaConfirmDialog(title, message);
@@ -30159,6 +31169,25 @@ async function confirmAction(title, message) {
     const hasPopupConfirm = typeof Popup !== 'undefined' && Popup.show && typeof Popup.show.confirm === 'function';
     if (hasPopupConfirm) return await Popup.show.confirm(title, message);
     return false;
+}
+
+async function chooseAction(title, message, choices = []) {
+    if (typeof document !== 'undefined' && document.body) {
+        return await showSagaChoiceDialog(title, message, choices);
+    }
+    return null;
+}
+
+async function promptTextAction(title, message, initialValue = '', options = {}) {
+    if (typeof document !== 'undefined' && document.body) {
+        return await showSagaInputDialog(title, message, initialValue, options);
+    }
+    if (typeof prompt === 'function') {
+        const value = prompt(`${title}\n\n${message}`, String(initialValue || ''));
+        if (value === null) return null;
+        return String(value || '').trim().replace(/\s+/g, ' ');
+    }
+    return null;
 }
 
 async function showNoticePopup(title, message) {
