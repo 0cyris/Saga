@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "canon_year_2_cos_window",
+      "title": "Canon window: Year 2",
+      "kind": "event_anchor",
+      "gateType": "event_anchor",
+      "category": "event",
+      "relevance": "low",
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "year-2",
+        "1992",
+        "chamber-secrets",
+        "hogwarts"
+      ],
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y2.burrow_arrival",
+        "validToAnchor": "hp.y2.hagrid_returns",
+        "sortKeyFrom": 8279,
+        "sortKeyTo": 8643,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "1992-09-01 to 1993-08-31",
+        "approximate": false
+      },
+      "scope": {
+        "locations": [
+          "Hogwarts"
+        ],
+        "topics": [
+          "canon window",
+          "1992",
+          "1993",
+          "second year"
+        ],
+        "eras": [
+          "1992-1993 school year",
+          "Year 2",
+          "Chamber"
+        ],
+        "schoolYears": [
+          "Year 2"
+        ],
+        "books": [
+          "Chamber of Secrets"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "canon window",
+            "1992",
+            "1993",
+            "second year",
+            "Year 2",
+            "Chamber Secrets",
+            "Hogwarts"
+          ],
+          "erasAny": [
+            "1992-1993 school year",
+            "Year 2",
+            "Chamber"
+          ]
+        }
+      },
+      "content": {
+        "fact": "From September 1992 through August 1993, the main school-year context aligns with Harry Potter's second year at Hogwarts.",
+        "injection": "From September 1992 through August 1993, the main school-year context aligns with Harry Potter's second year at Hogwarts.",
+        "publicVersion": "Harry Potter is a second-year student at Hogwarts."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-2-chamber-of-secrets",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

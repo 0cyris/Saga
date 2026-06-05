@@ -1,0 +1,335 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "knowledge_gate_prophecy_before_department",
+      "title": "Prophecy before Department of Mysteries",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 100,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "priority": 90,
+      "status": "active",
+      "protected": true,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 9665,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "1991-09-01 to 1996-06-18",
+        "approximate": false
+      },
+      "activation": {
+        "requiresMissingEvents": [
+          "prophecy_revealed_to_harry"
+        ]
+      },
+      "expiration": {
+        "expiresWhenEventsHappen": [
+          "prophecy_revealed_to_harry"
+        ],
+        "autoMuteOnExpire": true
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter"
+        ],
+        "topics": [
+          "full prophecy",
+          "knowledge gate"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal",
+        "notKnownByBeforeContext": {
+          "Harry Potter": {
+            "sortKey": 9665,
+            "label": "1996-06-18",
+            "precision": "date_anchor"
+          }
+        }
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter"
+          ],
+          "topicsAny": [
+            "full prophecy",
+            "knowledge gate"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Harry does not know the full prophecy contents.",
+        "injection": "Harry Potter should not know or casually discuss full prophecy unless this story established it.",
+        "constraints": [
+          "Block premature knowledge of full prophecy."
+        ],
+        "antiLore": [
+          "Do not have Harry Potter explain full prophecy ."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "full prophecy",
+          "knowledge-gate",
+          "future-guard"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "confidence": 0.85,
+        "notes": "Curated Context constraint seed entry."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "knowledge_gate_snape_prince_before_year6",
+      "title": "Half-Blood Prince identity gate",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 100,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "priority": 90,
+      "status": "active",
+      "protected": true,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 10042,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "1991-09-01 to 1997-06-30",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Hermione Granger",
+          "Ron Weasley"
+        ],
+        "topics": [
+          "Half-Blood Prince identity",
+          "knowledge gate"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal",
+        "notKnownByBeforeContext": {
+          "Harry Potter": {
+            "sortKey": 10042,
+            "label": "1997-06-30",
+            "precision": "date_anchor"
+          },
+          "Hermione Granger": {
+            "sortKey": 10042,
+            "label": "1997-06-30",
+            "precision": "date_anchor"
+          },
+          "Ron Weasley": {
+            "sortKey": 10042,
+            "label": "1997-06-30",
+            "precision": "date_anchor"
+          }
+        }
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Hermione Granger",
+            "Ron Weasley"
+          ],
+          "topicsAny": [
+            "Half-Blood Prince identity",
+            "knowledge gate"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The trio should not know that Snape is the Half-Blood Prince.",
+        "injection": "Harry Potter, Hermione Granger, Ron Weasley should not know or casually discuss Half-Blood Prince identity unless this story established it.",
+        "constraints": [
+          "Block premature knowledge of Half-Blood Prince identity."
+        ],
+        "antiLore": [
+          "Do not have Harry Potter explain Half-Blood Prince identity .",
+          "Do not have Hermione Granger explain Half-Blood Prince identity .",
+          "Do not have Ron Weasley explain Half-Blood Prince identity ."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "Half-Blood Prince identity",
+          "knowledge-gate",
+          "future-guard"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "confidence": 0.85,
+        "notes": "Curated Context constraint seed entry."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "knowledge_gate_voldemort_return_before_graveyard",
+      "title": "Pre-Graveyard Voldemort Return",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 100,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "priority": 100,
+      "status": "active",
+      "protected": true,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 9304,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "1991-09-01 to 1995-06-23",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Hermione Granger",
+          "Ron Weasley"
+        ],
+        "topics": [
+          "Voldemort return",
+          "knowledge gate"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal",
+        "notKnownByBeforeContext": {
+          "Harry Potter": {
+            "sortKey": 9305,
+            "label": "1995-06-24",
+            "precision": "date_anchor"
+          },
+          "Hermione Granger": {
+            "sortKey": 9305,
+            "label": "1995-06-24",
+            "precision": "date_anchor"
+          },
+          "Ron Weasley": {
+            "sortKey": 9305,
+            "label": "1995-06-24",
+            "precision": "date_anchor"
+          }
+        }
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Hermione Granger",
+            "Ron Weasley"
+          ],
+          "topicsAny": [
+            "Voldemort return",
+            "knowledge gate"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before the graveyard event, characters should not know or discuss Voldemort as physically returned unless our story has established otherwise.",
+        "injection": "Before the graveyard event, Harry, Ron, Hermione, and ordinary wizarding society should not know or discuss Voldemort as physically returned unless our story has established otherwise.",
+        "constraints": [
+          "Block premature public or trio knowledge of Voldemort’s physical return."
+        ],
+        "antiLore": [
+          "Do not have Harry Potter explain Voldemort return .",
+          "Do not have Hermione Granger explain Voldemort return .",
+          "Do not have Ron Weasley explain Voldemort return ."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "Voldemort return",
+          "knowledge-gate",
+          "future-guard"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "confidence": 0.85,
+        "notes": "Curated Context constraint seed entry."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

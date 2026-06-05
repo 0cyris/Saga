@@ -1,0 +1,1514 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "ootp_dementor_attack_hearing_status",
+      "title": "Dementor attack and underage magic hearing",
+      "kind": "institution_state",
+      "gateType": "institution_state",
+      "category": "location",
+      "relevance": "low",
+      "lorePurpose": "status_change",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 90,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.privet_drive_isolation",
+        "validToAnchor": "hp.y5.sirius_trapped_at_grimmauld",
+        "sortKeyFrom": 9343,
+        "sortKeyTo": 9373,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Order of the Phoenix: Year 5",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Dudley Dursley",
+          "Cornelius Fudge",
+          "Albus Dumbledore"
+        ],
+        "locations": [
+          "Little Whinging",
+          "Ministry of Magic"
+        ],
+        "topics": [
+          "underage magic",
+          "hearing",
+          "Dementors",
+          "summer",
+          "year 5"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ],
+        "phases": [
+          "summer"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Dudley Dursley",
+            "Cornelius Fudge",
+            "Albus Dumbledore"
+          ],
+          "locationsAny": [
+            "Little Whinging",
+            "Ministry of Magic"
+          ],
+          "topicsAny": [
+            "underage magic",
+            "hearing",
+            "Dementors",
+            "summer",
+            "year 5"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After the Little Whinging Dementor attack, Harry faces underage-magic legal consequences before being cleared at a Ministry hearing.",
+        "injection": "After the Little Whinging Dementor attack, Harry faces underage-magic legal consequences before being cleared at a Ministry hearing."
+      },
+      "effects": {
+        "addsTags": [
+          "Order of the Phoenix",
+          "Year 5",
+          "summer",
+          "institution_state",
+          "place"
+        ]
+      },
+      "sourceInfo": {
+        "id": "saga-expanded-lore-v1",
+        "work": "Harry Potter canon summary",
+        "book": "Order of the Phoenix",
+        "confidence": 0.86,
+        "notes": "Compact continuity entry for roleplay state management."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-5-order-of-the-phoenix",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "ootp_grimmauld_order_headquarters",
+      "title": "Grimmauld Place and Order headquarters",
+      "kind": "place_fact",
+      "gateType": "place_fact",
+      "category": "location",
+      "relevance": "low",
+      "lorePurpose": "location_state",
+      "specificityScore": 60,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 50,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.privet_drive_isolation",
+        "validToAnchor": "hp.y5.sirius_trapped_at_grimmauld",
+        "sortKeyFrom": 9343,
+        "sortKeyTo": 9373,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Order of the Phoenix: Year 5",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Sirius Black",
+          "Molly Weasley",
+          "Order of the Phoenix"
+        ],
+        "locations": [
+          "12 Grimmauld Place"
+        ],
+        "factions": [
+          "Order of the Phoenix"
+        ],
+        "topics": [
+          "headquarters",
+          "secrecy",
+          "war planning",
+          "summer",
+          "year 5"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ],
+        "phases": [
+          "summer"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Sirius Black",
+            "Molly Weasley",
+            "Order of the Phoenix"
+          ],
+          "locationsAny": [
+            "12 Grimmauld Place"
+          ],
+          "topicsAny": [
+            "headquarters",
+            "secrecy",
+            "war planning",
+            "summer",
+            "year 5"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Number Twelve, Grimmauld Place functions as the Order of the Phoenix headquarters and a tense refuge where Harry learns only limited war information.",
+        "injection": "Number Twelve, Grimmauld Place functions as the Order of the Phoenix headquarters and a tense refuge where Harry learns only limited war information."
+      },
+      "effects": {
+        "addsTags": [
+          "Order of the Phoenix",
+          "Year 5",
+          "summer",
+          "place_fact",
+          "place"
+        ]
+      },
+      "sourceInfo": {
+        "id": "saga-expanded-lore-v1",
+        "work": "Harry Potter canon summary",
+        "book": "Order of the Phoenix",
+        "confidence": 0.86,
+        "notes": "Compact continuity entry for roleplay state management."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-5-order-of-the-phoenix",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "ootp_harry_isolation_dumbledore_distance",
+      "title": "Harry isolation and Dumbledore distance",
+      "kind": "behavior_gate",
+      "gateType": "behavior_gate",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.privet_drive_isolation",
+        "validToAnchor": "hp.y5.grief_and_train_home",
+        "sortKeyFrom": 9343,
+        "sortKeyTo": 9677,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Order of the Phoenix: Year 5",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Albus Dumbledore",
+          "Ron Weasley",
+          "Hermione Granger"
+        ],
+        "locations": [
+          "Grimmauld Place",
+          "Hogwarts"
+        ],
+        "topics": [
+          "isolation",
+          "avoidance",
+          "trauma",
+          "summer",
+          "year 5"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ],
+        "phases": [
+          "summer"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Albus Dumbledore",
+            "Ron Weasley",
+            "Hermione Granger"
+          ],
+          "locationsAny": [
+            "Grimmauld Place",
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "isolation",
+            "avoidance",
+            "trauma",
+            "summer",
+            "year 5"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 5, Harry is angry and isolated after the graveyard, while Dumbledore deliberately keeps distance to reduce perceived risk around Voldemort's link.",
+        "injection": "In Year 5, Harry is angry and isolated after the graveyard, while Dumbledore deliberately keeps distance to reduce perceived risk around Voldemort's link."
+      },
+      "effects": {
+        "addsTags": [
+          "Order of the Phoenix",
+          "Year 5",
+          "summer",
+          "behavior_gate",
+          "behavior"
+        ]
+      },
+      "sourceInfo": {
+        "id": "saga-expanded-lore-v1",
+        "work": "Harry Potter canon summary",
+        "book": "Order of the Phoenix",
+        "confidence": 0.86,
+        "notes": "Compact continuity entry for roleplay state management."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-5-order-of-the-phoenix",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "ootp_umbridge_decrees_control_state",
+      "title": "Umbridge decrees and school control",
+      "kind": "institution_state",
+      "gateType": "institution_state",
+      "category": "location",
+      "relevance": "low",
+      "lorePurpose": "status_change",
+      "specificityScore": 60,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 90,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.sirius_trapped_at_grimmauld",
+        "validToAnchor": "hp.y5.thestrals_visible_to_harry",
+        "sortKeyFrom": 9374,
+        "sortKeyTo": 9418,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Order of the Phoenix: Year 5",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Dolores Umbridge",
+          "Harry Potter",
+          "Albus Dumbledore",
+          "Minerva McGonagall"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Ministry of Magic"
+        ],
+        "topics": [
+          "Educational Decrees",
+          "school control",
+          "DADA",
+          "term start",
+          "year 5"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ],
+        "phases": [
+          "term_start"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Dolores Umbridge",
+            "Harry Potter",
+            "Albus Dumbledore",
+            "Minerva McGonagall"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "Educational Decrees",
+            "school control",
+            "DADA",
+            "term start",
+            "year 5"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Umbridge uses Ministry authority and Educational Decrees to constrain Hogwarts, suppress practical DADA, and expand surveillance over students and staff.",
+        "injection": "Umbridge uses Ministry authority and Educational Decrees to constrain Hogwarts, suppress practical DADA, and expand surveillance over students and staff."
+      },
+      "effects": {
+        "addsTags": [
+          "Order of the Phoenix",
+          "Year 5",
+          "term start",
+          "institution_state",
+          "place"
+        ]
+      },
+      "sourceInfo": {
+        "id": "saga-expanded-lore-v1",
+        "work": "Harry Potter canon summary",
+        "book": "Order of the Phoenix",
+        "confidence": 0.86,
+        "notes": "Compact continuity entry for roleplay state management."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-5-order-of-the-phoenix",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "ootp_da_formation_secrecy_gate",
+      "title": "Dumbledore Army formation secrecy",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 90,
+      "status": "active",
+      "protected": true,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.term_arrival_ministry_denial",
+        "validToAnchor": "hp.y5.quidditch_match_and_bans",
+        "sortKeyFrom": 9419,
+        "sortKeyTo": 9484,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Order of the Phoenix: Year 5",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Hermione Granger",
+          "Ron Weasley",
+          "Neville Longbottom",
+          "Ginny Weasley",
+          "Luna Lovegood",
+          "Dolores Umbridge"
+        ],
+        "locations": [
+          "Room of Requirement",
+          "Hogwarts"
+        ],
+        "factions": [
+          "Dumbledore's Army"
+        ],
+        "topics": [
+          "DA",
+          "secret training",
+          "Room of Requirement",
+          "autumn",
+          "year 5"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ],
+        "phases": [
+          "autumn"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Hermione Granger",
+            "Ron Weasley",
+            "Neville Longbottom",
+            "Ginny Weasley",
+            "Luna Lovegood",
+            "Dolores Umbridge"
+          ],
+          "locationsAny": [
+            "Room of Requirement",
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "DA",
+            "secret training",
+            "Room of Requirement",
+            "autumn",
+            "year 5"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Dumbledore's Army forms secretly because Umbridge blocks practical defensive training; membership and meetings must stay hidden from school authority.",
+        "injection": "Dumbledore's Army forms secretly because Umbridge blocks practical defensive training; membership and meetings must stay hidden from school authority."
+      },
+      "effects": {
+        "addsTags": [
+          "Order of the Phoenix",
+          "Year 5",
+          "autumn",
+          "knowledge_gate",
+          "knowledge"
+        ]
+      },
+      "sourceInfo": {
+        "id": "saga-expanded-lore-v1",
+        "work": "Harry Potter canon summary",
+        "book": "Order of the Phoenix",
+        "confidence": 0.86,
+        "notes": "Compact continuity entry for roleplay state management."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-5-order-of-the-phoenix",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "ootp_da_training_progression",
+      "title": "Dumbledore Army training progression",
+      "kind": "spell_gate",
+      "gateType": "spell_gate",
+      "category": "spell",
+      "relevance": "low",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.hagrid_returns",
+        "validToAnchor": "hp.y5.da_caught",
+        "sortKeyFrom": 9485,
+        "sortKeyTo": 9554,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Order of the Phoenix: Year 5",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Neville Longbottom",
+          "Ginny Weasley",
+          "Luna Lovegood",
+          "Cho Chang"
+        ],
+        "locations": [
+          "Room of Requirement"
+        ],
+        "factions": [
+          "Dumbledore's Army"
+        ],
+        "topics": [
+          "defense training",
+          "student skill",
+          "winter",
+          "year 5"
+        ],
+        "spells": [
+          "Expelliarmus",
+          "Stupefy",
+          "Protego",
+          "Expecto Patronum"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ],
+        "phases": [
+          "winter"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Neville Longbottom",
+            "Ginny Weasley",
+            "Luna Lovegood",
+            "Cho Chang"
+          ],
+          "locationsAny": [
+            "Room of Requirement"
+          ],
+          "topicsAny": [
+            "defense training",
+            "student skill",
+            "winter",
+            "year 5",
+            "Expelliarmus",
+            "Stupefy",
+            "Protego",
+            "Expecto Patronum"
+          ]
+        }
+      },
+      "content": {
+        "fact": "DA sessions improve practical defensive skills among participating students, but proficiency varies and remains tied to secret practice.",
+        "injection": "DA sessions improve practical defensive skills among participating students, but proficiency varies and remains tied to secret practice."
+      },
+      "effects": {
+        "addsTags": [
+          "Order of the Phoenix",
+          "Year 5",
+          "winter",
+          "spell_gate",
+          "spell"
+        ]
+      },
+      "sourceInfo": {
+        "id": "saga-expanded-lore-v1",
+        "work": "Harry Potter canon summary",
+        "book": "Order of the Phoenix",
+        "confidence": 0.86,
+        "notes": "Compact continuity entry for roleplay state management."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-5-order-of-the-phoenix",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "ootp_occlumency_lessons_gate",
+      "title": "Occlumency lessons and memory risk",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 60,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 90,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.hagrid_returns",
+        "validToAnchor": "hp.y5.da_caught",
+        "sortKeyFrom": 9485,
+        "sortKeyTo": 9554,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Order of the Phoenix: Year 5",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Severus Snape",
+          "Voldemort",
+          "Albus Dumbledore"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "topics": [
+          "Occlumency",
+          "mental link",
+          "memory risk",
+          "winter",
+          "year 5"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ],
+        "phases": [
+          "winter"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Severus Snape",
+            "Voldemort",
+            "Albus Dumbledore"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "Occlumency",
+            "mental link",
+            "memory risk",
+            "winter",
+            "year 5"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Harry receives Occlumency lessons from Snape because of the mental connection with Voldemort, but the training is hostile and unreliable.",
+        "injection": "Harry receives Occlumency lessons from Snape because of the mental connection with Voldemort, but the training is hostile and unreliable."
+      },
+      "effects": {
+        "addsTags": [
+          "Order of the Phoenix",
+          "Year 5",
+          "winter",
+          "knowledge_gate",
+          "knowledge"
+        ]
+      },
+      "sourceInfo": {
+        "id": "saga-expanded-lore-v1",
+        "work": "Harry Potter canon summary",
+        "book": "Order of the Phoenix",
+        "confidence": 0.86,
+        "notes": "Compact continuity entry for roleplay state management."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-5-order-of-the-phoenix",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "ootp_st_mungos_neville_arthur_state",
+      "title": "St Mungo’s Visit",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 60,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.hagrid_returns",
+        "validToAnchor": "hp.y5.da_caught",
+        "sortKeyFrom": 9485,
+        "sortKeyTo": 9554,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Order of the Phoenix: Year 5",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Neville Longbottom",
+          "Arthur Weasley",
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger"
+        ],
+        "locations": [
+          "St Mungo's"
+        ],
+        "topics": [
+          "Neville parents",
+          "Arthur attack",
+          "private family history",
+          "winter",
+          "year 5"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ],
+        "phases": [
+          "winter"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Neville Longbottom",
+            "Arthur Weasley",
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger"
+          ],
+          "locationsAny": [
+            "St Mungo's"
+          ],
+          "topicsAny": [
+            "Neville parents",
+            "Arthur attack",
+            "private family history",
+            "winter",
+            "year 5"
+          ]
+        }
+      },
+      "content": {
+        "fact": "At St Mungo’s, Harry’s group sees Arthur recovering and learns more about Neville’s parents, making Neville’s family trauma more visible but still private.",
+        "injection": "At St Mungo’s, Arthur is recovering and Neville’s parents become more visible to Harry’s circle; treat Neville’s family trauma as serious and private."
+      },
+      "effects": {
+        "addsTags": [
+          "Order of the Phoenix",
+          "Year 5",
+          "winter",
+          "knowledge_gate",
+          "knowledge"
+        ]
+      },
+      "sourceInfo": {
+        "id": "saga-expanded-lore-v1",
+        "work": "Harry Potter canon summary",
+        "book": "Order of the Phoenix",
+        "confidence": 0.86,
+        "notes": "Compact continuity entry for roleplay state management."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-5-order-of-the-phoenix",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "ootp_hagrid_grawp_centaur_tension",
+      "title": "Hagrid Grawp and centaur tension",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 50,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.da_caught",
+        "validToAnchor": "hp.y5.harry_bellatrix_chase",
+        "sortKeyFrom": 9556,
+        "sortKeyTo": 9647,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Order of the Phoenix: Year 5",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Rubeus Hagrid",
+          "Grawp",
+          "Harry Potter",
+          "Hermione Granger"
+        ],
+        "locations": [
+          "Forbidden Forest"
+        ],
+        "topics": [
+          "giants",
+          "centaurs",
+          "hidden creature",
+          "spring",
+          "year 5"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ],
+        "phases": [
+          "spring"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Rubeus Hagrid",
+            "Grawp",
+            "Harry Potter",
+            "Hermione Granger"
+          ],
+          "locationsAny": [
+            "Forbidden Forest"
+          ],
+          "topicsAny": [
+            "giants",
+            "centaurs",
+            "hidden creature",
+            "spring",
+            "year 5"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Hagrid hides Grawp in the Forbidden Forest after his giant mission, worsening risk with centaurs and creating a private burden for Harry and Hermione.",
+        "injection": "Hagrid hides Grawp in the Forbidden Forest after his giant mission, worsening risk with centaurs and creating a private burden for Harry and Hermione."
+      },
+      "effects": {
+        "addsTags": [
+          "Order of the Phoenix",
+          "Year 5",
+          "spring",
+          "knowledge_gate",
+          "knowledge"
+        ]
+      },
+      "sourceInfo": {
+        "id": "saga-expanded-lore-v1",
+        "work": "Harry Potter canon summary",
+        "book": "Order of the Phoenix",
+        "confidence": 0.86,
+        "notes": "Compact continuity entry for roleplay state management."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-5-order-of-the-phoenix",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "ootp_owls_career_academic_phase",
+      "title": "OWL exams and career guidance phase",
+      "kind": "skill_band",
+      "gateType": "skill_band",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 60,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 50,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.da_caught",
+        "validToAnchor": "hp.y5.harry_bellatrix_chase",
+        "sortKeyFrom": 9556,
+        "sortKeyTo": 9647,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Order of the Phoenix: Year 5",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Hermione Granger",
+          "Ron Weasley",
+          "Minerva McGonagall",
+          "Severus Snape"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "topics": [
+          "OWL exams",
+          "career advice",
+          "academic pressure",
+          "spring",
+          "year 5"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ],
+        "phases": [
+          "spring"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Hermione Granger",
+            "Ron Weasley",
+            "Minerva McGonagall",
+            "Severus Snape"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "OWL exams",
+            "career advice",
+            "academic pressure",
+            "spring",
+            "year 5"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Spring Year 5 includes OWL pressure and career guidance; students' future class access depends on results and teacher requirements.",
+        "injection": "Spring Year 5 includes OWL pressure and career guidance; students' future class access depends on results and teacher requirements."
+      },
+      "effects": {
+        "addsTags": [
+          "Order of the Phoenix",
+          "Year 5",
+          "spring",
+          "skill_band",
+          "skill"
+        ]
+      },
+      "sourceInfo": {
+        "id": "saga-expanded-lore-v1",
+        "work": "Harry Potter canon summary",
+        "book": "Order of the Phoenix",
+        "confidence": 0.86,
+        "notes": "Compact continuity entry for roleplay state management."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-5-order-of-the-phoenix",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "ootp_department_mysteries_guard",
+      "title": "Department of Mysteries climax guard",
+      "kind": "future_guard",
+      "gateType": "future_guard",
+      "category": "timeline",
+      "relevance": "normal",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "priority": 100,
+      "status": "active",
+      "protected": true,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.sirius_trapped_at_grimmauld",
+        "validToAnchor": "hp.y5.prophecy_explained",
+        "sortKeyFrom": 9374,
+        "sortKeyTo": 9665,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Order of the Phoenix: Year 5",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Sirius Black",
+          "Voldemort",
+          "Bellatrix Lestrange",
+          "Lucius Malfoy"
+        ],
+        "locations": [
+          "Department of Mysteries",
+          "Ministry of Magic"
+        ],
+        "topics": [
+          "prophecy",
+          "vision trap",
+          "Sirius death",
+          "climax",
+          "year 5"
+        ],
+        "objects": [
+          "prophecy record"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ],
+        "phases": [
+          "climax"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Sirius Black",
+            "Voldemort",
+            "Bellatrix Lestrange",
+            "Lucius Malfoy"
+          ],
+          "locationsAny": [
+            "Department of Mysteries",
+            "Ministry of Magic"
+          ],
+          "topicsAny": [
+            "prophecy",
+            "vision trap",
+            "Sirius death",
+            "climax",
+            "year 5",
+            "prophecy record"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before the Department of Mysteries battle, Sirius's death, the prophecy contents, and the trap using Harry's vision must not leak into ordinary scene knowledge.",
+        "injection": "Before the Department of Mysteries battle, Sirius's death, the prophecy contents, and the trap using Harry's vision must not leak into ordinary scene knowledge.",
+        "constraints": [
+          "Keep Sirius alive and the prophecy unrevealed before the Ministry battle."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "Order of the Phoenix",
+          "Year 5",
+          "climax",
+          "future_guard"
+        ]
+      },
+      "sourceInfo": {
+        "id": "saga-expanded-lore-v1",
+        "work": "Harry Potter canon summary",
+        "book": "Order of the Phoenix",
+        "confidence": 0.86,
+        "notes": "Compact continuity entry for roleplay state management."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-5-order-of-the-phoenix",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "ootp_prophecy_battle_aftermath",
+      "title": "Prophecy battle aftermath and public return",
+      "kind": "institution_state",
+      "gateType": "institution_state",
+      "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 90,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.prophecy_explained",
+        "validToAnchor": "hp.y5.grief_and_train_home",
+        "sortKeyFrom": 9665,
+        "sortKeyTo": 9739,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Order of the Phoenix: Year 5",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Albus Dumbledore",
+          "Voldemort",
+          "Cornelius Fudge"
+        ],
+        "locations": [
+          "Ministry of Magic",
+          "Hogwarts"
+        ],
+        "topics": [
+          "public acknowledgment",
+          "prophecy",
+          "Ministry transition",
+          "aftermath",
+          "year 5"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ],
+        "phases": [
+          "aftermath"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Albus Dumbledore",
+            "Voldemort",
+            "Cornelius Fudge"
+          ],
+          "locationsAny": [
+            "Ministry of Magic",
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "public acknowledgment",
+            "prophecy",
+            "Ministry transition",
+            "aftermath",
+            "year 5"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After the Department of Mysteries battle, Voldemort's return becomes publicly undeniable, Fudge's position weakens, and Harry knows more about the prophecy.",
+        "injection": "After the Department of Mysteries battle, Voldemort's return becomes publicly undeniable, Fudge's position weakens, and Harry knows more about the prophecy."
+      },
+      "effects": {
+        "addsTags": [
+          "Order of the Phoenix",
+          "Year 5",
+          "aftermath",
+          "institution_state",
+          "knowledge"
+        ]
+      },
+      "sourceInfo": {
+        "id": "saga-expanded-lore-v1",
+        "work": "Harry Potter canon summary",
+        "book": "Order of the Phoenix",
+        "confidence": 0.86,
+        "notes": "Compact continuity entry for roleplay state management."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-5-order-of-the-phoenix",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "ootp_neville_luna_ginny_resistance_state",
+      "title": "Neville Luna Ginny Year 5 resistance",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "status_change",
+      "specificityScore": 60,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.grief_and_train_home",
+        "validToAnchor": "hp.y5.grief_and_train_home",
+        "sortKeyFrom": 9678,
+        "sortKeyTo": 9739,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Order of the Phoenix: Year 5",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Neville Longbottom",
+          "Luna Lovegood",
+          "Ginny Weasley"
+        ],
+        "locations": [
+          "Hogwarts",
+          "Ministry of Magic"
+        ],
+        "factions": [
+          "Dumbledore's Army"
+        ],
+        "topics": [
+          "DA veterans",
+          "student resistance",
+          "aftermath",
+          "year 5"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ],
+        "phases": [
+          "aftermath"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Neville Longbottom",
+            "Luna Lovegood",
+            "Ginny Weasley"
+          ],
+          "locationsAny": [
+            "Hogwarts",
+            "Ministry of Magic"
+          ],
+          "topicsAny": [
+            "DA veterans",
+            "student resistance",
+            "aftermath",
+            "year 5"
+          ]
+        }
+      },
+      "content": {
+        "fact": "By late Year 5, Neville, Luna, and Ginny have credible DA and Ministry-battle experience that should inform later resistance scenes.",
+        "injection": "By late Year 5, Neville, Luna, and Ginny have credible DA and Ministry-battle experience that should inform later resistance scenes."
+      },
+      "effects": {
+        "addsTags": [
+          "Order of the Phoenix",
+          "Year 5",
+          "aftermath",
+          "character_state",
+          "character"
+        ]
+      },
+      "sourceInfo": {
+        "id": "saga-expanded-lore-v1",
+        "work": "Harry Potter canon summary",
+        "book": "Order of the Phoenix",
+        "confidence": 0.86,
+        "notes": "Compact continuity entry for roleplay state management."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-5-order-of-the-phoenix",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

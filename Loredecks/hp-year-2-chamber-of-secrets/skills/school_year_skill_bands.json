@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "skill_band_year_2",
+      "title": "Hogwarts Year 2 skill band",
+      "kind": "skill_band",
+      "gateType": "skill_band",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y2.burrow_arrival",
+        "validToAnchor": "hp.y2.hagrid_returns",
+        "sortKeyFrom": 8279,
+        "sortKeyTo": 8643,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 2",
+        "approximate": false
+      },
+      "scope": {
+        "schoolYears": [
+          "2"
+        ],
+        "topics": [
+          "school skill",
+          "magic ability"
+        ],
+        "phases": [
+          "term_start"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "school skill",
+            "magic ability"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Second-years have basic spell competence but should not handle advanced defensive, nonverbal, or adult-level magic routinely.",
+        "injection": "Do not let second-years handle advanced defensive, nonverbal, or adult-level magic routinely unless our story has established unusual training.",
+        "constraints": [
+          "Treat second-year competence as basic school magic, not adult combat readiness."
+        ],
+        "antiLore": [
+          "Do not make advanced defensive magic routine for second-years."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "year-2",
+          "skill-band"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "confidence": 0.85,
+        "notes": "Curated Context constraint seed entry."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-2-chamber-of-secrets",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

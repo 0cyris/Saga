@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "canon_year_3_poa_window",
+      "title": "Canon window: Year 3",
+      "kind": "event_anchor",
+      "gateType": "event_anchor",
+      "category": "event",
+      "relevance": "low",
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "year-3",
+        "1993",
+        "azkaban",
+        "hogwarts"
+      ],
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y3.sirius_news_context",
+        "validToAnchor": "hp.y3.firebolt_gift_from_sirius",
+        "sortKeyFrom": 8644,
+        "sortKeyTo": 9008,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "1993-09-01 to 1994-08-31",
+        "approximate": false
+      },
+      "scope": {
+        "locations": [
+          "Hogwarts"
+        ],
+        "topics": [
+          "canon window",
+          "1993",
+          "1994",
+          "third year"
+        ],
+        "eras": [
+          "1993-1994 school year",
+          "Year 3",
+          "Azkaban"
+        ],
+        "schoolYears": [
+          "Year 3"
+        ],
+        "books": [
+          "Prisoner of Azkaban"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "canon window",
+            "1993",
+            "1994",
+            "third year",
+            "Year 3",
+            "Azkaban",
+            "Hogwarts"
+          ],
+          "erasAny": [
+            "1993-1994 school year",
+            "Year 3",
+            "Azkaban"
+          ]
+        }
+      },
+      "content": {
+        "fact": "From September 1993 through August 1994, the main school-year context aligns with Harry Potter's third year at Hogwarts.",
+        "injection": "From September 1993 through August 1994, the main school-year context aligns with Harry Potter's third year at Hogwarts.",
+        "publicVersion": "Harry Potter is a third-year student at Hogwarts."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-3-prisoner-of-azkaban",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

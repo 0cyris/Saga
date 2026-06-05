@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "event_triwizard_tournament",
+      "title": "Triwizard Tournament year",
+      "kind": "future_guard",
+      "gateType": "future_guard",
+      "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 100,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y4.world_cup_campsite",
+        "validToAnchor": "hp.y4.train_home_after_cedric",
+        "sortKeyFrom": 9009,
+        "sortKeyTo": 9305,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Goblet of Fire: Year 4",
+        "approximate": false
+      },
+      "scope": {
+        "topics": [
+          "Triwizard Tournament",
+          "champions",
+          "tasks",
+          "Goblet of Fire"
+        ],
+        "schoolYears": [
+          "4"
+        ],
+        "books": [
+          "Goblet of Fire"
+        ],
+        "phases": [
+          "term_start"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Triwizard Tournament",
+            "champions",
+            "tasks",
+            "Goblet of Fire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "During Year 4, the Triwizard Tournament affects Hogwarts, but champion selection and task outcomes should stay Context-gated.",
+        "injection": "During Year 4, do not treat Harry as a Triwizard champion before the Goblet selects him, and do not leak later task, Portkey, graveyard, or Voldemort-return outcomes before the story reaches them.",
+        "constraints": [
+          "Before champion selection, Harry is not publicly a Triwizard champion.",
+          "After selection, task details and graveyard outcomes still remain future-gated until reached."
+        ],
+        "antiLore": [
+          "Do not make September Year 4 scenes assume Harry is already a champion."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "timeline",
+          "year-4"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Goblet of Fire",
+        "confidence": 0.85,
+        "notes": "Curated Context constraint seed entry."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-4-goblet-of-fire",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

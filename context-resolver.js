@@ -15,7 +15,7 @@ import {
 } from './context-index.js';
 import { sendLoreRequest } from './lore-llm-client.js';
 
-const MIN_ALIAS_SCORE = 22;
+const MIN_ALIAS_SCORE = 40;
 const MIN_MODEL_CONFIDENCE = 0.55;
 const MODEL_CANDIDATE_CAP_PER_PACK = 24;
 const CONTEXT_MODEL_SYSTEM_PROMPT = `You are the Saga Context Resolver.
@@ -168,6 +168,19 @@ function parseAnchorRange(anchor = {}) {
     };
 }
 
+function getWindowSortKeyRange(windowDef = {}) {
+    const from = Number(windowDef.sortKeyFrom);
+    const to = Number(windowDef.sortKeyTo);
+    const hasFrom = Number.isFinite(from);
+    const hasTo = Number.isFinite(to);
+    if (!hasFrom && !hasTo) return null;
+    const start = hasFrom ? from : to;
+    const end = hasTo ? to : from;
+    return start <= end
+        ? { from: start, to: end }
+        : { from: end, to: start };
+}
+
 function scoreAnchorDateMatch(anchor = {}, contextDate = null) {
     if (!contextDate) return null;
     const range = parseAnchorRange(anchor);
@@ -180,6 +193,38 @@ function scoreAnchorDateMatch(anchor = {}, contextDate = null) {
         score: 80 + specificity,
         matchType: 'date',
         confidence: spanDays <= 45 ? 0.88 : 0.78,
+        contextDate: contextDate.iso,
+        spanDays,
+    };
+}
+
+function scoreWindowDateMatch(windowDef = {}, contextDate = null) {
+    if (!contextDate) return null;
+    const contextSortKey = getDateContextSortKey(contextDate);
+    const sortRange = getWindowSortKeyRange(windowDef);
+    if (Number.isFinite(contextSortKey) && sortRange && contextSortKey >= sortRange.from && contextSortKey <= sortRange.to) {
+        const spanDays = Math.max(1, Math.round(sortRange.to - sortRange.from) + 1);
+        const specificity = spanDays <= 14 ? 32 : spanDays <= 45 ? 26 : spanDays <= 120 ? 18 : spanDays <= 370 ? 10 : 5;
+        return {
+            window: windowDef,
+            score: 78 + specificity,
+            matchType: 'date',
+            confidence: spanDays <= 45 ? 0.84 : 0.74,
+            contextDate: contextDate.iso,
+            spanDays,
+        };
+    }
+    const range = parseAnchorRange(windowDef);
+    if (!range?.from || !range?.to || contextDate.epoch < range.from.epoch || contextDate.epoch > range.to.epoch) {
+        return null;
+    }
+    const spanDays = Math.max(1, Math.round((range.to.epoch - range.from.epoch) / 86400000) + 1);
+    const specificity = spanDays <= 14 ? 32 : spanDays <= 45 ? 26 : spanDays <= 120 ? 18 : spanDays <= 370 ? 10 : 5;
+    return {
+        window: windowDef,
+        score: 78 + specificity,
+        matchType: 'date',
+        confidence: spanDays <= 45 ? 0.84 : 0.74,
         contextDate: contextDate.iso,
         spanDays,
     };
@@ -309,9 +354,15 @@ export function buildContextPatchFromWindow(windowDef = {}, options = {}) {
 }
 
 function buildResolutionFromMatch(packId, match, context = {}, options = {}) {
-    const patch = buildContextPatchFromAnchor(match.anchor, {
+    const isWindowMatch = Boolean(match.window);
+    const patch = isWindowMatch ? buildContextPatchFromWindow(match.window, {
         contextSource: options.contextSource,
         confidence: match.confidence,
+        contextSortKey: match.contextSortKey,
+    }) : buildContextPatchFromAnchor(match.anchor, {
+        contextSource: options.contextSource,
+        confidence: match.confidence,
+        contextSortKey: match.contextSortKey,
     });
     if (context.sceneDate && match.matchType === 'date') {
         patch.sceneDate = cleanString(context.sceneDate, 80);
@@ -324,7 +375,8 @@ function buildResolutionFromMatch(packId, match, context = {}, options = {}) {
         matchType: match.matchType,
         score: match.score,
         confidence: patch.confidence,
-        anchor: match.anchor,
+        anchor: match.anchor || null,
+        window: match.window || null,
         patch,
     };
 }
@@ -332,13 +384,21 @@ function buildResolutionFromMatch(packId, match, context = {}, options = {}) {
 function getBestDateMatch(packId, context = {}, index = {}) {
     const contextDate = parseContextDate(context);
     if (!contextDate) return null;
-    return getPackAnchors(index, packId)
+    const anchorMatches = getPackAnchors(index, packId)
         .map(anchor => scoreAnchorDateMatch(anchor, contextDate))
-        .filter(Boolean)
+        .filter(Boolean);
+    const windowMatches = getPackWindows(index, packId)
+        .map(windowDef => scoreWindowDateMatch(windowDef, contextDate))
+        .filter(Boolean);
+    return [...anchorMatches, ...windowMatches]
         .sort((a, b) => {
             if (b.score !== a.score) return b.score - a.score;
             if (a.spanDays !== b.spanDays) return a.spanDays - b.spanDays;
-            return (a.anchor.sortKey || 0) - (b.anchor.sortKey || 0);
+            const aSort = Number.isFinite(Number(a.anchor?.sortKey ?? a.window?.sortKeyFrom)) ? Number(a.anchor?.sortKey ?? a.window?.sortKeyFrom) : 0;
+            const bSort = Number.isFinite(Number(b.anchor?.sortKey ?? b.window?.sortKeyFrom)) ? Number(b.anchor?.sortKey ?? b.window?.sortKeyFrom) : 0;
+            if (a.anchor && b.window) return -1;
+            if (a.window && b.anchor) return 1;
+            return aSort - bSort;
         })[0] || null;
 }
 
@@ -408,8 +468,16 @@ function scoreWindowCandidate(windowDef = {}, resolverText = '', context = {}) {
         }
     }
     const contextDate = parseContextDate(context);
+    const contextSortKey = getDateContextSortKey(contextDate);
+    const sortRange = getWindowSortKeyRange(windowDef);
     const range = parseAnchorRange(windowDef);
-    if (contextDate && range?.from && range?.to && contextDate.epoch >= range.from.epoch && contextDate.epoch <= range.to.epoch) {
+    if (
+        contextDate
+        && (
+            (Number.isFinite(contextSortKey) && sortRange && contextSortKey >= sortRange.from && contextSortKey <= sortRange.to)
+            || (range?.from && range?.to && contextDate.epoch >= range.from.epoch && contextDate.epoch <= range.to.epoch)
+        )
+    ) {
         score += 70;
     }
     return score;
@@ -487,6 +555,7 @@ export function buildContextModelCandidatesForPack(packId = '', context = {}, op
 
     const dateMatch = getBestDateMatch(packId, context, index);
     if (dateMatch?.anchor) addCandidate(makeAnchorCandidate(dateMatch.anchor, dateMatch.score, 'date_match'));
+    if (dateMatch?.window) addCandidate(makeWindowCandidate(dateMatch.window, dateMatch.score, 'date_match'));
 
     for (const ranked of rankContextAnchors(resolverText, { packId, index, limit: limit * 2 }) || []) {
         addCandidate(makeAnchorCandidate(ranked.anchor, ranked.score, 'ranked_anchor'));

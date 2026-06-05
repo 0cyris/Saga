@@ -1,0 +1,1556 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "present_character_harry_potter_year_3_baseline",
+      "title": "Harry Potter: Year 3 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y3.sirius_news_context",
+        "validToAnchor": "hp.y3.firebolt_gift_from_sirius",
+        "sortKeyFrom": 8644,
+        "sortKeyTo": 9008,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 3",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Harry"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Gryffindor"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 3",
+          "Harry Potter",
+          "harry",
+          "gryffindor",
+          "present-character",
+          "year-3"
+        ],
+        "schoolYears": [
+          "3"
+        ],
+        "books": [
+          "Prisoner of Azkaban"
+        ],
+        "eras": [
+          "Year 3",
+          "Prisoner of Azkaban"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Harry"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 3",
+            "Harry Potter",
+            "harry",
+            "gryffindor",
+            "present-character",
+            "year-3"
+          ],
+          "erasAny": [
+            "Year 3",
+            "Prisoner of Azkaban"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 3, Harry is more independent and openly angry at injustice, with growing magical competence but still adolescent judgment.",
+        "injection": "Write Harry as his Year 3 self: more independent, quicker to anger at unfairness, increasingly capable, but still emotionally young and not yet war-hardened.",
+        "constraints": [
+          "His courage can outrun his caution.",
+          "He should challenge perceived unfairness directly rather than manage it diplomatically.",
+          "Keep his practical competence below later DA-leader or wartime levels.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write him as the controlled, mission-driven Harry of Year 7."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "harry",
+          "gryffindor",
+          "present-character",
+          "character-baseline",
+          "year-3"
+        ],
+        "stateHints": {
+          "character": "Harry Potter",
+          "schoolYear": 3,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Prisoner of Azkaban",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-3-prisoner-of-azkaban",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "present_character_hermione_granger_year_3_baseline",
+      "title": "Hermione Granger: Year 3 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y3.sirius_news_context",
+        "validToAnchor": "hp.y3.firebolt_gift_from_sirius",
+        "sortKeyFrom": 8644,
+        "sortKeyTo": 9008,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 3",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Hermione Granger",
+          "Hermione"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Gryffindor"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 3",
+          "Hermione Granger",
+          "hermione",
+          "gryffindor",
+          "present-character",
+          "year-3"
+        ],
+        "schoolYears": [
+          "3"
+        ],
+        "books": [
+          "Prisoner of Azkaban"
+        ],
+        "eras": [
+          "Year 3",
+          "Prisoner of Azkaban"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Hermione Granger",
+            "Hermione"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 3",
+            "Hermione Granger",
+            "hermione",
+            "gryffindor",
+            "present-character",
+            "year-3"
+          ],
+          "erasAny": [
+            "Year 3",
+            "Prisoner of Azkaban"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 3, Hermione is overloaded, perfectionistic, sharp under stress, increasingly independent, and more willing to challenge unfairness directly.",
+        "injection": "Write Hermione as her Year 3 self: brilliant but overloaded, perfectionistic, stressed, principled, and increasingly ready to defy rules for a justified cause.",
+        "constraints": [
+          "Stress should make her sharper and less patient, not serene.",
+          "She should still default to research and procedure before improvising.",
+          "Do not expose hidden logistical explanations unless the scene has established that knowledge.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not make Year 3 Hermione effortlessly balanced or socially effortless."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "hermione",
+          "gryffindor",
+          "present-character",
+          "character-baseline",
+          "year-3"
+        ],
+        "stateHints": {
+          "character": "Hermione Granger",
+          "schoolYear": 3,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Prisoner of Azkaban",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-3-prisoner-of-azkaban",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "present_character_ron_weasley_year_3_baseline",
+      "title": "Ron Weasley: Year 3 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y3.sirius_news_context",
+        "validToAnchor": "hp.y3.firebolt_gift_from_sirius",
+        "sortKeyFrom": 8644,
+        "sortKeyTo": 9008,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 3",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Ron Weasley",
+          "Ron"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Gryffindor",
+          "Weasley family"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 3",
+          "Ron Weasley",
+          "ron",
+          "weasley",
+          "gryffindor",
+          "present-character",
+          "year-3"
+        ],
+        "schoolYears": [
+          "3"
+        ],
+        "books": [
+          "Prisoner of Azkaban"
+        ],
+        "eras": [
+          "Year 3",
+          "Prisoner of Azkaban"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Ron Weasley",
+            "Ron"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 3",
+            "Ron Weasley",
+            "ron",
+            "weasley",
+            "gryffindor",
+            "present-character",
+            "year-3"
+          ],
+          "erasAny": [
+            "Year 3",
+            "Prisoner of Azkaban"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 3, Ron is sarcastic, protective, insecure, emotionally direct, and brave in bursts even when frightened or physically outmatched.",
+        "injection": "Write Ron as his Year 3 self: sarcastic, protective, insecure, loyal, and emotionally straightforward, with courage that appears under pressure.",
+        "constraints": [
+          "He should argue, sulk, or joke in age-appropriate ways rather than process feelings cleanly.",
+          "His loyalty can coexist with pettiness or defensiveness.",
+          "Do not make him strategically or romantically mature.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not erase Ron’s insecurity, but do not reduce him to insecurity alone."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "ron",
+          "weasley",
+          "gryffindor",
+          "present-character",
+          "character-baseline",
+          "year-3"
+        ],
+        "stateHints": {
+          "character": "Ron Weasley",
+          "schoolYear": 3,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Prisoner of Azkaban",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-3-prisoner-of-azkaban",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "present_character_draco_malfoy_year_3_baseline",
+      "title": "Draco Malfoy: Year 3 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y3.sirius_news_context",
+        "validToAnchor": "hp.y3.firebolt_gift_from_sirius",
+        "sortKeyFrom": 8644,
+        "sortKeyTo": 9008,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 3",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Draco Malfoy",
+          "Draco",
+          "Malfoy"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Slytherin",
+          "Malfoy family"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 3",
+          "Draco Malfoy",
+          "draco",
+          "slytherin",
+          "present-character",
+          "year-3"
+        ],
+        "schoolYears": [
+          "3"
+        ],
+        "books": [
+          "Prisoner of Azkaban"
+        ],
+        "eras": [
+          "Year 3",
+          "Prisoner of Azkaban"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Draco Malfoy",
+            "Draco",
+            "Malfoy"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 3",
+            "Draco Malfoy",
+            "draco",
+            "slytherin",
+            "present-character",
+            "year-3"
+          ],
+          "erasAny": [
+            "Year 3",
+            "Prisoner of Azkaban"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 3, Draco is smug, vindictive, and quick to exploit rules, teachers, or family influence when direct courage would be required.",
+        "injection": "Write Draco as his Year 3 self: vindictive, smug, theatrically wronged when useful, and reliant on institutional leverage rather than fair risk.",
+        "constraints": [
+          "He should enjoy humiliating rivals when protected from consequences.",
+          "His bravery should be performative and audience-dependent.",
+          "Keep him adolescent, not politically sophisticated.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not make Year 3 Draco quietly noble unless accepted story lore has established a different arc."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "draco",
+          "slytherin",
+          "present-character",
+          "character-baseline",
+          "year-3"
+        ],
+        "stateHints": {
+          "character": "Draco Malfoy",
+          "schoolYear": 3,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Prisoner of Azkaban",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-3-prisoner-of-azkaban",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "present_character_neville_longbottom_year_3_baseline",
+      "title": "Neville Longbottom: Year 3 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y3.sirius_news_context",
+        "validToAnchor": "hp.y3.firebolt_gift_from_sirius",
+        "sortKeyFrom": 8644,
+        "sortKeyTo": 9008,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 3",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Neville Longbottom",
+          "Neville"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Gryffindor"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 3",
+          "Neville Longbottom",
+          "neville",
+          "gryffindor",
+          "present-character",
+          "year-3"
+        ],
+        "schoolYears": [
+          "3"
+        ],
+        "books": [
+          "Prisoner of Azkaban"
+        ],
+        "eras": [
+          "Year 3",
+          "Prisoner of Azkaban"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Neville Longbottom",
+            "Neville"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 3",
+            "Neville Longbottom",
+            "neville",
+            "gryffindor",
+            "present-character",
+            "year-3"
+          ],
+          "erasAny": [
+            "Year 3",
+            "Prisoner of Azkaban"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 3, Neville is still anxious and error-prone but a little steadier, with a quiet stubbornness that surfaces when pushed.",
+        "injection": "Write Neville as his Year 3 self: anxious and self-doubting, but a little steadier, kind, and capable of stubborn courage under pressure.",
+        "constraints": [
+          "He should not become fluent at confrontation without support or provocation.",
+          "His awkwardness remains part of his baseline.",
+          "Keep later defensive competence and resistance authority out of this year.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write Year 3 Neville as either helpless or fully transformed."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "neville",
+          "gryffindor",
+          "present-character",
+          "character-baseline",
+          "year-3"
+        ],
+        "stateHints": {
+          "character": "Neville Longbottom",
+          "schoolYear": 3,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Prisoner of Azkaban",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-3-prisoner-of-azkaban",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "present_character_ginny_weasley_year_3_baseline",
+      "title": "Ginny Weasley: Year 3 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y3.sirius_news_context",
+        "validToAnchor": "hp.y3.firebolt_gift_from_sirius",
+        "sortKeyFrom": 8644,
+        "sortKeyTo": 9008,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 3",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Ginny Weasley",
+          "Ginny"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Gryffindor",
+          "Weasley family"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 3",
+          "Ginny Weasley",
+          "ginny",
+          "weasley",
+          "gryffindor",
+          "present-character",
+          "year-3"
+        ],
+        "schoolYears": [
+          "3"
+        ],
+        "books": [
+          "Prisoner of Azkaban"
+        ],
+        "eras": [
+          "Year 3",
+          "Prisoner of Azkaban"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Ginny Weasley",
+            "Ginny"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 3",
+            "Ginny Weasley",
+            "ginny",
+            "weasley",
+            "gryffindor",
+            "present-character",
+            "year-3"
+          ],
+          "erasAny": [
+            "Year 3",
+            "Prisoner of Azkaban"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 3, Ginny is recovering social confidence, more present around peers, and beginning to show the bluntness and resilience of her later personality.",
+        "injection": "Write Ginny as her Year 3 self: still younger than Harry’s cohort, but regaining confidence, observant, resilient, and more willing to speak up.",
+        "constraints": [
+          "She should not yet be as socially central or openly forceful as in later years.",
+          "Her resilience can show in small direct moments.",
+          "Do not keep her frozen in Year 2 vulnerability unless the scene specifically invokes it.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write Year 3 Ginny as either permanently timid or already fully mature."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "ginny",
+          "weasley",
+          "gryffindor",
+          "present-character",
+          "character-baseline",
+          "year-3"
+        ],
+        "stateHints": {
+          "character": "Ginny Weasley",
+          "schoolYear": 3,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Prisoner of Azkaban",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-3-prisoner-of-azkaban",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "present_character_luna_lovegood_year_3_baseline",
+      "title": "Luna Lovegood: Year 3 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y3.sirius_news_context",
+        "validToAnchor": "hp.y3.firebolt_gift_from_sirius",
+        "sortKeyFrom": 8644,
+        "sortKeyTo": 9008,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 3",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luna Lovegood",
+          "Luna"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Ravenclaw"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 3",
+          "Luna Lovegood",
+          "luna",
+          "ravenclaw",
+          "present-character",
+          "year-3"
+        ],
+        "schoolYears": [
+          "3"
+        ],
+        "books": [
+          "Prisoner of Azkaban"
+        ],
+        "eras": [
+          "Year 3",
+          "Prisoner of Azkaban"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Luna Lovegood",
+            "Luna"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 3",
+            "Luna Lovegood",
+            "luna",
+            "ravenclaw",
+            "present-character",
+            "year-3"
+          ],
+          "erasAny": [
+            "Year 3",
+            "Prisoner of Azkaban"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 3, Luna remains dreamy, bluntly sincere, socially isolated, and more perceptive than many peers realize.",
+        "injection": "Write Luna in Year 3 as dreamy, unembarrassed, socially marginal, and calmly perceptive without making her omniscient.",
+        "constraints": [
+          "Her observations can be disarming but should remain age-appropriate.",
+          "She should not automatically know private truths outside her experience.",
+          "Do not make her eccentricity purely comedic.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not give Year 3 Luna later battle experience or inner-circle trust by default."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "luna",
+          "ravenclaw",
+          "present-character",
+          "character-baseline",
+          "year-3"
+        ],
+        "stateHints": {
+          "character": "Luna Lovegood",
+          "schoolYear": 3,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Prisoner of Azkaban",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-3-prisoner-of-azkaban",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "present_character_fred_weasley_year_3_baseline",
+      "title": "Fred Weasley: Year 3 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y3.sirius_news_context",
+        "validToAnchor": "hp.y3.firebolt_gift_from_sirius",
+        "sortKeyFrom": 8644,
+        "sortKeyTo": 9008,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 3",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Fred Weasley",
+          "Fred"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Gryffindor",
+          "Weasley family"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 3",
+          "Fred Weasley",
+          "fred",
+          "weasley",
+          "gryffindor",
+          "present-character",
+          "year-3"
+        ],
+        "schoolYears": [
+          "3"
+        ],
+        "books": [
+          "Prisoner of Azkaban"
+        ],
+        "eras": [
+          "Year 3",
+          "Prisoner of Azkaban"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Fred Weasley",
+            "Fred"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 3",
+            "Fred Weasley",
+            "fred",
+            "weasley",
+            "gryffindor",
+            "present-character",
+            "year-3"
+          ],
+          "erasAny": [
+            "Year 3",
+            "Prisoner of Azkaban"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 3, Fred is irreverent, daring, socially confident, and increasingly entrepreneurial in how he treats jokes, risks, and reputation.",
+        "injection": "Write Fred in Year 3 as daring, irreverent, quick to perform for an audience, and increasingly interested in joke-making as craft.",
+        "constraints": [
+          "He should be confident with school corridors, authority loopholes, and peer attention.",
+          "His jokes can be disruptive but should remain clever rather than random.",
+          "Do not make him a formal resistance figure yet.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write Year 3 Fred as a settled adult businessman."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "fred",
+          "weasley",
+          "gryffindor",
+          "present-character",
+          "character-baseline",
+          "year-3"
+        ],
+        "stateHints": {
+          "character": "Fred Weasley",
+          "schoolYear": 3,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Prisoner of Azkaban",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-3-prisoner-of-azkaban",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "present_character_george_weasley_year_3_baseline",
+      "title": "George Weasley: Year 3 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y3.sirius_news_context",
+        "validToAnchor": "hp.y3.firebolt_gift_from_sirius",
+        "sortKeyFrom": 8644,
+        "sortKeyTo": 9008,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 3",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "George Weasley",
+          "George"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Gryffindor",
+          "Weasley family"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 3",
+          "George Weasley",
+          "george",
+          "weasley",
+          "gryffindor",
+          "present-character",
+          "year-3"
+        ],
+        "schoolYears": [
+          "3"
+        ],
+        "books": [
+          "Prisoner of Azkaban"
+        ],
+        "eras": [
+          "Year 3",
+          "Prisoner of Azkaban"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "George Weasley",
+            "George"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 3",
+            "George Weasley",
+            "george",
+            "weasley",
+            "gryffindor",
+            "present-character",
+            "year-3"
+          ],
+          "erasAny": [
+            "Year 3",
+            "Prisoner of Azkaban"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 3, George is daring, witty, socially confident, and increasingly skilled at turning mischief into coordinated planning.",
+        "injection": "Write George in Year 3 as daring, witty, coordinated, and confident, with mischief that feels planned as much as impulsive.",
+        "constraints": [
+          "He should know how to work an audience and a corridor.",
+          "He can be less aggressive in forward push than Fred while still fully complicit.",
+          "Do not make him a formal resistance figure yet.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write Year 3 George as a settled adult businessman."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "george",
+          "weasley",
+          "gryffindor",
+          "present-character",
+          "character-baseline",
+          "year-3"
+        ],
+        "stateHints": {
+          "character": "George Weasley",
+          "schoolYear": 3,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Prisoner of Azkaban",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-3-prisoner-of-azkaban",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "present_character_cedric_diggory_year_3_baseline",
+      "title": "Cedric Diggory: Year 3 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y3.sirius_news_context",
+        "validToAnchor": "hp.y3.firebolt_gift_from_sirius",
+        "sortKeyFrom": 8644,
+        "sortKeyTo": 9008,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 3",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Cedric Diggory",
+          "Cedric"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Hufflepuff"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 3",
+          "Cedric Diggory",
+          "cedric",
+          "hufflepuff",
+          "present-character",
+          "year-3"
+        ],
+        "schoolYears": [
+          "3"
+        ],
+        "books": [
+          "Prisoner of Azkaban"
+        ],
+        "eras": [
+          "Year 3",
+          "Prisoner of Azkaban"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Cedric Diggory",
+            "Cedric"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 3",
+            "Cedric Diggory",
+            "cedric",
+            "hufflepuff",
+            "present-character",
+            "year-3"
+          ],
+          "erasAny": [
+            "Year 3",
+            "Prisoner of Azkaban"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 3, Cedric is capable, popular, fair-minded, and mature for a student, with a calm confidence that contrasts with more performative peers.",
+        "injection": "Write Cedric in Year 3 as capable, popular, courteous, and calm under attention, without arrogance or cruelty.",
+        "constraints": [
+          "He should not be naive, but he should remain decent by default.",
+          "His popularity should not make him vain by default.",
+          "Keep specific match or school-event outcomes modular.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write Year 3 Cedric as either blandly perfect or secretly cruel without story support."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "cedric",
+          "hufflepuff",
+          "present-character",
+          "character-baseline",
+          "year-3"
+        ],
+        "stateHints": {
+          "character": "Cedric Diggory",
+          "schoolYear": 3,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Prisoner of Azkaban",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-3-prisoner-of-azkaban",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

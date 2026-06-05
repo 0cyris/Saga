@@ -9,13 +9,15 @@ import {
   searchAcceptedLorecards,
 } from '../retrieval-audit.js';
 
+const YEAR_5_DECK_ID = 'hp-year-5-order-of-the-phoenix';
+
 const state = {
-  loredeckStack: [{ packId: 'hp-golden-trio', enabled: true, priority: 100 }],
+  loredeckStack: [{ packId: YEAR_5_DECK_ID, enabled: true, priority: 100 }],
   loredeckContexts: {
-    'hp-golden-trio': {
+    [YEAR_5_DECK_ID]: {
       contextType: 'calendar',
       label: 'Year 5',
-      anchorId: 'hp.ootp.year_5',
+      anchorId: 'hp.y5.year_5_hogwarts_return',
       contextSortKey: 9500,
       source: 'manual',
       confidence: 1,
@@ -33,7 +35,7 @@ const state = {
       relevance: 'high',
       priority: 90,
       content: { fact: 'Harry knows the hidden passage.' },
-      extensions: { sagaLoredeck: { packId: 'hp-golden-trio', stackIndex: 0, stackPriority: 100 } },
+      extensions: { sagaLoredeck: { packId: YEAR_5_DECK_ID, stackIndex: 0, stackPriority: 100 } },
     },
     {
       id: 'muted_card',

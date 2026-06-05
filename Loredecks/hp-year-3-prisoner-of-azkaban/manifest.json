@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 1,
   "entrySchemaVersion": 3,
   "id": "hp-year-3-prisoner-of-azkaban",
   "type": "bundled",
@@ -67,15 +67,36 @@
   "registries": {
     "timeline": "timeline.json"
   },
-  "files": [],
+  "files": [
+    "characters/adult_character_phase_baselines.json",
+    "characters/present_character_baselines.json",
+    "chronology/major_events.json",
+    "chronology/school_years.json",
+    "events/school_year_windows.json",
+    "expanded_books/book_3_prisoner_of_azkaban_expansion.json",
+    "knowledge_gates/expanded_knowledge_gates.json",
+    "lexicon_calendars/year_3_poa_calendar_anchors.json",
+    "skills/school_year_skill_bands.json",
+    "spell_gates/expanded_spell_gates.json"
+  ],
   "compatibility": {
     "sagaSchemaMin": 3,
     "sagaSchemaMax": 3
   },
   "stats": {
-    "entryCount": 0,
-    "categoryCounts": {},
+    "entryCount": 46,
+    "categoryCounts": {
+      "character": 14,
+      "event": 13,
+      "item": 5,
+      "knowledge": 6,
+      "location": 3,
+      "relationship": 1,
+      "spell": 3,
+      "timeline": 1
+    },
     "timelineAnchorCount": 55,
     "timelineWindowCount": 9
-  }
+  },
+  "updatedAt": 1780617600000
 }

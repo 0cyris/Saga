@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "skill_band_year_5",
+      "title": "Hogwarts Year 5 skill band",
+      "kind": "skill_band",
+      "gateType": "skill_band",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.sirius_trapped_at_grimmauld",
+        "validToAnchor": "hp.y5.grief_and_train_home",
+        "sortKeyFrom": 9374,
+        "sortKeyTo": 9739,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 5",
+        "approximate": false
+      },
+      "scope": {
+        "schoolYears": [
+          "5"
+        ],
+        "topics": [
+          "school skill",
+          "magic ability"
+        ],
+        "phases": [
+          "term_start"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "school skill",
+            "magic ability"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Fifth-year defensive improvement should be tied to OWL work, DA participation, or other story-established training, not assumed for every student.",
+        "injection": "Do not give all fifth-years DA-level defensive competence by default; tie improved skills to OWL work, DA participation, or established training.",
+        "constraints": [
+          "DA skill gains apply to participants, not every student automatically."
+        ],
+        "antiLore": [
+          "Do not treat DA training as universal school-wide competence."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "year-5",
+          "skill-band"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "confidence": 0.85,
+        "notes": "Curated Context constraint seed entry."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-5-order-of-the-phoenix",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

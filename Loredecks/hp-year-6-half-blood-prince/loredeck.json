@@ -67,15 +67,42 @@
   "registries": {
     "timeline": "timeline.json"
   },
-  "files": [],
+  "files": [
+    "behavior_gates/core_behaviors.json",
+    "behavior_gates/expanded_behaviors.json",
+    "characters/adult_character_phase_baselines.json",
+    "characters/present_character_baselines.json",
+    "chronology/major_events.json",
+    "chronology/school_years.json",
+    "events/school_year_windows.json",
+    "expanded_books/book_6_half_blood_prince_expansion.json",
+    "future_guards/expanded_future_guards.json",
+    "future_guards/major_spoilers.json",
+    "knowledge_gates/added_contextual_gates.json",
+    "knowledge_gates/expanded_knowledge_gates.json",
+    "lexicon_calendars/year_6_hbp_calendar_anchors.json",
+    "places/institution_states.json",
+    "skills/school_year_skill_bands.json"
+  ],
   "compatibility": {
     "sagaSchemaMin": 3,
     "sagaSchemaMax": 3
   },
   "stats": {
-    "entryCount": 0,
-    "categoryCounts": {},
+    "entryCount": 53,
+    "categoryCounts": {
+      "character": 18,
+      "event": 14,
+      "faction": 2,
+      "item": 3,
+      "knowledge": 8,
+      "location": 1,
+      "relationship": 2,
+      "spell": 2,
+      "timeline": 3
+    },
     "timelineAnchorCount": 57,
     "timelineWindowCount": 15
-  }
+  },
+  "updatedAt": 1780617600000
 }

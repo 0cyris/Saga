@@ -54,6 +54,8 @@ assert(!settingsTemplate.includes('API and model controls'), 'Extension menu set
 assert(!panel.includes('Drop support is queued'), 'Loredeck Library must not expose queued drop-support placeholder copy.');
 assert(!panel.includes("['contents', 'Contents'"), 'Loredeck Library details must not expose the low-value Contents tab.');
 assert(!panel.includes("['activation', 'Activation'"), 'Loredeck Library details must not expose the low-value Activation tab.');
+assert(!panel.includes("createButton('Delete Folder'"), 'Folder details must not expose a redundant Delete Folder button.');
+assert(!panel.includes("createButton('Remove', 'Remove this Loredeck from the current stack.'"), 'Loredeck details must not expose a redundant Remove button.');
 assert(panel.includes('LOREDECK_CREATOR_ENTRY_BATCH_SIZE = 3'), 'Creator entry drafting must keep the default micro-batch size small.');
 assert(panel.includes('Draft Next Batch'), 'Creator entry drafting must expose a one-batch action.');
 assert(panel.includes('Draft ${LOREDECK_CREATOR_ENTRY_AUTORUN_BATCHES} Batches'), 'Creator entry drafting must expose a bounded multi-batch action.');
@@ -107,13 +109,17 @@ for (const token of [
     'deleteLoredeckLibraryFolderWithConfirm',
     'promptLoredeckLibraryFolderRemovalStrategy',
     'applyLoredeckLibraryFolderRemoval',
+    'duplicateLoredeckLibraryPacksWithConfirm',
+    'duplicateLoredeckLibraryFolderWithContents',
+    'wireOverlayBackdropClose',
     'showSagaChoiceDialog',
     'appendLoredeckLibraryFolderMoveOptions',
     'showSagaInputDialog',
     'getLoredeckStackFolderPreviewModel',
     'createLoredeckStackFolderPreview',
     'setLoredeckStackItemCollapsed',
-    'getLoredeckLibraryDragFeedback',
+    'resolveLoredeckLibraryDragFeedback',
+    'sortLoredeckLibraryPacks',
     'updateLoredeckLibraryDragFeedback',
     'ensureLoredeckLibraryDragCopyLabel',
     'getLoredeckLibraryPackSearchText',
@@ -169,6 +175,7 @@ for (const token of [
     'wandlight-loredeck-library-inline-folder-row',
     'wandlight-loredeck-library-folder-cover-strip',
     'wandlight-loredeck-library-folder-cover-tile',
+    'wandlight-loredeck-library-folder-cover-label',
     'wandlight-loredeck-library-folder-row-drop-enabled',
     'wandlight-loredeck-library-folder-move-select',
     'wandlight-loredeck-library-folder-actions',

@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "future_guard_cedric_alive_before_third_task",
+      "title": "Cedric alive before Third Task",
+      "kind": "future_guard",
+      "gateType": "future_guard",
+      "category": "timeline",
+      "relevance": "normal",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 100,
+      "status": "active",
+      "protected": true,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y4.world_cup_campsite",
+        "validToAnchor": "hp.y4.train_home_after_cedric",
+        "sortKeyFrom": 9009,
+        "sortKeyTo": 9304,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Goblet of Fire: Year 4",
+        "approximate": false
+      },
+      "activation": {
+        "requiresMissingEvents": [
+          "cedric_dies"
+        ]
+      },
+      "expiration": {
+        "expiresWhenEventsHappen": [
+          "cedric_dies"
+        ],
+        "autoMuteOnExpire": true
+      },
+      "scope": {
+        "characters": [
+          "Cedric Diggory"
+        ],
+        "topics": [
+          "Triwizard Tournament",
+          "Cedric"
+        ],
+        "schoolYears": [
+          "4"
+        ],
+        "books": [
+          "Goblet of Fire"
+        ],
+        "phases": [
+          "term_start"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Cedric Diggory"
+          ],
+          "topicsAny": [
+            "Triwizard Tournament",
+            "Cedric"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Cedric Diggory is alive before the Third Task.",
+        "injection": "Do not imply Cedric is dead or that characters know he will die.",
+        "constraints": [
+          "Protect Cedric’s death as a future event."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "future-guard",
+          "Cedric",
+          "year-4"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Goblet of Fire",
+        "confidence": 0.82,
+        "notes": "Expanded curated Context constraint entry."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-4-goblet-of-fire",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

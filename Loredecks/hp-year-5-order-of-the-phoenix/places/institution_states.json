@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "institution_hogwarts_year5_umbridge",
+      "title": "Hogwarts Under Umbridge",
+      "kind": "institution_state",
+      "gateType": "institution_state",
+      "category": "faction",
+      "relevance": "low",
+      "lorePurpose": "status_change",
+      "specificityScore": 60,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 90,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.sirius_trapped_at_grimmauld",
+        "validToAnchor": "hp.y5.grief_and_train_home",
+        "sortKeyFrom": 9374,
+        "sortKeyTo": 9677,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Order of the Phoenix: Year 5",
+        "approximate": false
+      },
+      "scope": {
+        "locations": [
+          "Hogwarts"
+        ],
+        "topics": [
+          "Umbridge",
+          "Ministry",
+          "Defense Against the Dark Arts"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ],
+        "phases": [
+          "term_start"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "Umbridge",
+            "Ministry",
+            "Defense Against the Dark Arts"
+          ]
+        }
+      },
+      "content": {
+        "fact": "During Year 5, Umbridge’s authority reshapes Hogwarts through Ministry interference, surveillance, punitive discipline, and resistance from students and staff.",
+        "injection": "During Year 5, Umbridge’s authority reshapes Hogwarts through Ministry interference, surveillance, punitive discipline, and resistance from students and staff.",
+        "constraints": [
+          "Treat Hogwarts as politically constrained under Umbridge during this period."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "Hogwarts",
+          "Year 5",
+          "Umbridge"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Order of the Phoenix",
+        "confidence": 0.85,
+        "notes": "Curated Context constraint seed entry."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-5-order-of-the-phoenix",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

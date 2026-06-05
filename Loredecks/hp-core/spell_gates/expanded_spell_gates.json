@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "spell_gate_apparition_lessons",
+      "title": "Apparition lesson age gate",
+      "kind": "spell_gate",
+      "gateType": "spell_gate",
+      "category": "spell",
+      "relevance": "low",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 75,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 9740,
+        "sortKeyTo": 10469,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Half-Blood Prince: Year 6",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "sixth-year students"
+        ],
+        "topics": [
+          "apparition",
+          "age"
+        ],
+        "spells": [
+          "Apparition"
+        ],
+        "schoolYears": [
+          "6"
+        ],
+        "books": [
+          "Half-Blood Prince"
+        ],
+        "phases": [
+          "term_start"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "sixth-year students"
+          ],
+          "topicsAny": [
+            "apparition",
+            "age"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Apparition lessons are for eligible older students around Year 6; legal Apparition requires coming of age.",
+        "injection": "Students should not casually Apparate before eligibility and training; Apparition is tightly age- and license-gated.",
+        "constraints": [
+          "Block underage casual Apparition unless our story explicitly changes the rule."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "spell-gate",
+          "apparition",
+          "age-gate"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Half-Blood Prince",
+        "confidence": 0.82,
+        "notes": "Expanded curated Context constraint entry."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

@@ -8,9 +8,10 @@
 
 import { normalizeLoreEntry } from './lore-matrix.js';
 import { resolveLoredeckStackItems } from './loredeck-library-index.js';
+import { DEFAULT_HP_LOREDECK_ID } from './loredeck-defaults.js';
 
-export const DEFAULT_LOREDECK_ID = 'hp-golden-trio';
-export const DEFAULT_LOREDECK_MANIFEST_URL = new URL('./Loredecks/hp-golden-trio/loredeck.json', import.meta.url);
+export const DEFAULT_LOREDECK_ID = DEFAULT_HP_LOREDECK_ID;
+export const DEFAULT_LOREDECK_MANIFEST_URL = new URL(`./Loredecks/${DEFAULT_LOREDECK_ID}/loredeck.json`, import.meta.url);
 export const LOREDECK_INDEX_URL = new URL('./Loredecks/index.json', import.meta.url);
 
 export async function fetchJson(url, fallback = null) {
@@ -1445,7 +1446,7 @@ function buildLoredeckMeta(manifest = {}, stackPriority = 100, stackIndex = 0) {
     return {
         id,
         type: manifest.type || 'bundled',
-        title: manifest.title || 'Harry Potter: Golden Trio',
+        title: manifest.title || 'Harry Potter: Core',
         derivedFrom: manifest.derivedFrom || null,
         disabledEntryIds: Array.isArray(manifest.disabledEntryIds) ? manifest.disabledEntryIds.map(id => String(id || '').trim()).filter(Boolean) : [],
         stackPriority,

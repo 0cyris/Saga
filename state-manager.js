@@ -24,6 +24,14 @@ import { normalizeLoreRelevance, normalizeLoreCanon, normalizeLoreCategory, comp
 import { preprocessPendingLoreEntries } from './pending-lore-preprocessor.js';
 import { normalizeLoreTimeline, captureLoreTimelineState, recordLoreTimelineEvent, restoreTimelineEntriesToPending } from './lore-timeline.js';
 import { normalizeLoredeckLibraryIndex, normalizePackLibraryMetadata } from './loredeck-library-index.js';
+import {
+    DEFAULT_HP_LOREDECK_CONTEXTS,
+    DEFAULT_HP_LOREDECK_ID,
+    DEFAULT_HP_LOREDECK_LIBRARY_PACKS,
+    DEFAULT_HP_LOREDECK_STACK,
+    HP_LEGACY_LOREDECK_ID,
+    isDefaultHarryPotterLoredeckId,
+} from './loredeck-defaults.js';
 
 const MAX_CHAT_STATE_BYTES_BEFORE_AUTO_PERSIST = 200000;
 const migratedStateRefs = new WeakSet();
@@ -193,6 +201,76 @@ function normalizeLoredeckStack(value) {
     return output.length || Array.isArray(value) ? output : JSON.parse(JSON.stringify(defaultStack));
 }
 
+function cloneDefaultHpLoredeckStack() {
+    return DEFAULT_HP_LOREDECK_STACK.map(item => ({ ...item }));
+}
+
+function isLegacyHpLoredeckStackItem(item = {}) {
+    const type = item?.type === 'folder' || item?.folderId ? 'folder' : 'deck';
+    return type === 'deck' && String(item?.packId || item?.deckId || '').trim() === HP_LEGACY_LOREDECK_ID;
+}
+
+function replaceLegacyHpLoredeckStack(value) {
+    const input = Array.isArray(value) ? value : [];
+    let replaced = false;
+    let insertedDefault = false;
+    const output = [];
+    for (const item of input) {
+        if (isLegacyHpLoredeckStackItem(item)) {
+            replaced = true;
+            if (!insertedDefault) {
+                output.push(...cloneDefaultHpLoredeckStack());
+                insertedDefault = true;
+            }
+            continue;
+        }
+        output.push(item);
+    }
+    return replaced ? output : value;
+}
+
+function migrateLegacyHpLoredeckRegistry(value) {
+    const input = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+    const packs = { ...(input.packs || {}) };
+    delete packs[HP_LEGACY_LOREDECK_ID];
+    for (const [packId, pack] of Object.entries(DEFAULT_HP_LOREDECK_LIBRARY_PACKS)) {
+        if (!packs[packId]) packs[packId] = pack;
+    }
+    return {
+        ...input,
+        schemaVersion: 1,
+        packs,
+        deckPlacements: Array.isArray(input.deckPlacements)
+            ? input.deckPlacements.filter(item => String(item?.deckId || item?.packId || '').trim() !== HP_LEGACY_LOREDECK_ID)
+            : input.deckPlacements,
+        activeStack: replaceLegacyHpLoredeckStack(input.activeStack),
+    };
+}
+
+function migrateLegacyHpLoredeckContexts(value) {
+    const input = value && typeof value === 'object' && !Array.isArray(value) ? { ...value } : {};
+    delete input[HP_LEGACY_LOREDECK_ID];
+    for (const [packId, context] of Object.entries(DEFAULT_HP_LOREDECK_CONTEXTS)) {
+        if (!input[packId]) input[packId] = { ...context };
+    }
+    return input;
+}
+
+function migrateLegacyHpLoredeckState(state = {}) {
+    const hasLegacyStack = Array.isArray(state.loredeckStack) && state.loredeckStack.some(isLegacyHpLoredeckStackItem);
+    const hasLegacyRegistry = !!state.loredeckRegistry?.packs?.[HP_LEGACY_LOREDECK_ID];
+    const hasLegacyContext = !!state.loredeckContexts?.[HP_LEGACY_LOREDECK_ID];
+    const hasLegacySelection = state.lorePanel?.selectedLoredeckId === HP_LEGACY_LOREDECK_ID;
+    if (!hasLegacyStack && !hasLegacyRegistry && !hasLegacyContext && !hasLegacySelection) return state;
+    state.loredeckStack = replaceLegacyHpLoredeckStack(state.loredeckStack);
+    state.loredeckRegistry = migrateLegacyHpLoredeckRegistry(state.loredeckRegistry);
+    state.loredeckContexts = migrateLegacyHpLoredeckContexts(state.loredeckContexts);
+    if (hasLegacySelection) {
+        state.lorePanel.selectedLoredeckId = DEFAULT_HP_LOREDECK_ID;
+    }
+    return state;
+}
+
 function normalizeContextType(value, fallback = 'custom') {
     const normalized = String(value || '').trim().toLowerCase();
     return LOREDECK_CONTEXT_TYPES.includes(normalized) ? normalized : fallback;
@@ -233,7 +311,7 @@ function buildDefaultLoredeckContext(packId = '', legacyContext = {}) {
     return {
         schemaVersion: 1,
         packId: id,
-        contextType: id === 'hp-golden-trio' ? 'calendar' : 'custom',
+        contextType: id === HP_LEGACY_LOREDECK_ID || isDefaultHarryPotterLoredeckId(id) ? 'calendar' : 'custom',
         label: canonBoundary || sceneDate || '',
         sceneDate,
         subjectiveDate: cleanContextString(legacyContext?.subjectiveDate, 80),
@@ -1123,6 +1201,14 @@ export function getSettings() {
         merged.themeIconPackMigrated20260605 = true;
     }
 
+    if (stored.hpSplitLoredeckDefaultsMigrated20260605 !== true) {
+        merged.loredeckLibrary = normalizeLoredeckRegistry(
+            migrateLegacyHpLoredeckRegistry(merged.loredeckLibrary),
+            DEFAULT_SETTINGS.loredeckLibrary
+        );
+        merged.hpSplitLoredeckDefaultsMigrated20260605 = true;
+    }
+
     // One-time upgrade from the old conservative story-lore generation defaults.
     // Previous builds wrote defaults into user settings, so simply changing
     // DEFAULT_SETTINGS would not affect existing installs that still hold the old
@@ -1250,7 +1336,10 @@ export function saveSettings(settings) {
     if (!ctx || !ctx.extensionSettings) return;
     const { extensionSettings, saveSettingsDebounced } = ctx;
     if (settings && typeof settings === 'object') {
-        settings.loredeckLibrary = normalizeLoredeckRegistry(settings.loredeckLibrary, DEFAULT_SETTINGS.loredeckLibrary);
+        settings.loredeckLibrary = normalizeLoredeckRegistry(
+            migrateLegacyHpLoredeckRegistry(settings.loredeckLibrary),
+            DEFAULT_SETTINGS.loredeckLibrary
+        );
         settings.themePackLibrary = normalizeThemePackRegistry(settings.themePackLibrary, DEFAULT_SETTINGS.themePackLibrary);
     }
     extensionSettings[MODULE_KEY] = settings;
@@ -2309,6 +2398,12 @@ export function migrateState(state) {
         state._version = 21;
     }
 
+    // Schema v22: replace the monolithic bundled HP Loredeck with the split HP family
+    if (state._version < 22) {
+        migrateLegacyHpLoredeckState(state);
+        state._version = 22;
+    }
+
     // ── Always normalize lore fields post-migration ────────────────────────
     // First compact known-heavy canon DB payloads and oversized pending batches so
     // a poisoned chat can recover instead of freezing during panel render/save.
@@ -2321,6 +2416,7 @@ export function migrateState(state) {
     sanitizeLoreArraysForStorage(state);
 
     normalizeContinuityStructure(state);
+    migrateLegacyHpLoredeckState(state);
     state.loredeckStack = normalizeLoredeckStack(state.loredeckStack);
     state.loredeckRegistry = normalizeLoredeckRegistry(state.loredeckRegistry);
     promoteChatLoredeckRegistryToSettings(state);

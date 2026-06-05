@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "item_gate_invisibility_cloak_pre_christmas",
+      "title": "Pre-Invisibility Cloak Access",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "item",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 100,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 90,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y1.diagon_alley_first_visit",
+        "validToAnchor": "hp.y1.fluffy_discovery",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 8027,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Philosopher's Stone: Year 1",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "topics": [
+          "Invisibility Cloak",
+          "stealth",
+          "hidden movement"
+        ],
+        "objects": [
+          "Invisibility Cloak"
+        ],
+        "schoolYears": [
+          "1"
+        ],
+        "books": [
+          "Philosopher's Stone"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "Invisibility Cloak",
+            "stealth",
+            "hidden movement"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before Christmas 1991, Harry has not received his Invisibility Cloak.",
+        "injection": "Before Christmas 1991, Harry should not have or use his Invisibility Cloak unless our story has established an early gift.",
+        "constraints": [
+          "Do not solve early Year 1 stealth scenes with Harry's cloak before he receives it."
+        ],
+        "antiLore": [
+          "Do not assume Harry always has cloak access from the start of first year."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Philosopher's Stone",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-1-philosophers-stone",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

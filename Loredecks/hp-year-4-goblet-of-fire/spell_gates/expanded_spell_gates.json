@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "spell_gate_stupefy",
+      "title": "Stunning Spell practical gate",
+      "kind": "spell_gate",
+      "gateType": "spell_gate",
+      "category": "spell",
+      "relevance": "low",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y4.frank_bryce_murder",
+        "validToAnchor": "hp.y4.world_cup_campsite",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 9009,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Goblet of Fire: Year 4",
+        "approximate": false
+      },
+      "scope": {
+        "topics": [
+          "defense",
+          "dueling",
+          "combat"
+        ],
+        "spells": [
+          "Stupefy"
+        ],
+        "schoolYears": [
+          "4"
+        ],
+        "books": [
+          "Goblet of Fire"
+        ],
+        "phases": [
+          "term_start"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "defense",
+            "dueling",
+            "combat",
+            "Stupefy"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before practical defensive training, Stupefy should not be casual early-year magic.",
+        "injection": "Do not make Stupefy routine for younger students without practical defensive training or a story-established reason.",
+        "constraints": [
+          "Treat Stunning as practical combat magic, not casual first-year curriculum."
+        ],
+        "antiLore": [
+          "Do not give ordinary first- or second-years reliable Stunning Spell use by default."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "spell-gate",
+          "combat",
+          "year-4"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Goblet of Fire",
+        "confidence": 0.82,
+        "notes": "Expanded curated Context constraint entry."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "spells_skills",
+          "suggestionRole": "ability_gate",
+          "detailLevel": "detailed",
+          "suggestByDefault": true,
+          "activeUse": "blocks_early_spell_knowledge"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-4-goblet-of-fire",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

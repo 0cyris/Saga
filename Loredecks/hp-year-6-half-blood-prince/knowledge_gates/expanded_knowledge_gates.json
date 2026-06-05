@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "knowledge_gate_draco_mission_before_year6_end",
+      "title": "Draco mission secrecy gate",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 75,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 90,
+      "status": "active",
+      "protected": true,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y6.draco_borgin_burkes_suspicion",
+        "validToAnchor": "hp.y6.funeral",
+        "sortKeyFrom": 9740,
+        "sortKeyTo": 10041,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Half-Blood Prince: Year 6",
+        "approximate": false
+      },
+      "activation": {
+        "requiresMissingEvents": [
+          "draco_mission_revealed"
+        ]
+      },
+      "expiration": {
+        "expiresWhenEventsHappen": [
+          "draco_mission_revealed"
+        ],
+        "autoMuteOnExpire": true
+      },
+      "scope": {
+        "characters": [
+          "Draco Malfoy",
+          "Harry Potter"
+        ],
+        "topics": [
+          "Draco mission",
+          "Death Eaters",
+          "Vanishing Cabinet"
+        ],
+        "schoolYears": [
+          "6"
+        ],
+        "books": [
+          "Half-Blood Prince"
+        ],
+        "phases": [
+          "term_start"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Draco Malfoy",
+            "Harry Potter"
+          ],
+          "topicsAny": [
+            "Draco mission",
+            "Death Eaters",
+            "Vanishing Cabinet"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Draco’s specific mission and cabinet plan are not public knowledge.",
+        "injection": "Draco’s task and Vanishing Cabinet repair should remain secret unless directly discovered in our story.",
+        "constraints": [
+          "Harry may suspect Draco, but should not know the full mission without evidence."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "knowledge-gate",
+          "Draco",
+          "year-6"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Half-Blood Prince",
+        "confidence": 0.82,
+        "notes": "Expanded curated Context constraint entry."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-6-half-blood-prince",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

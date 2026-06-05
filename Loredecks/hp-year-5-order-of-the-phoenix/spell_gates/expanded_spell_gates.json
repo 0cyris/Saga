@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "spell_gate_protego",
+      "title": "Shield Charm learning gate",
+      "kind": "spell_gate",
+      "gateType": "spell_gate",
+      "category": "spell",
+      "relevance": "low",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.privet_drive_isolation",
+        "validToAnchor": "hp.y5.blood_quill_detention_begins",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 9434,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Order of the Phoenix: Year 5",
+        "approximate": false
+      },
+      "scope": {
+        "topics": [
+          "defense",
+          "shield charm",
+          "DA"
+        ],
+        "spells": [
+          "Protego"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ],
+        "phases": [
+          "term_start"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "defense",
+            "shield charm",
+            "DA",
+            "Protego"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before OWL/DA-level defensive training, students should not casually master Protego.",
+        "injection": "Do not let younger students casually master Protego before OWL/DA-level training unless our story has established early shield practice.",
+        "constraints": [
+          "Date-gate practical shield use."
+        ],
+        "antiLore": [
+          "Do not treat shield magic as routine early-year spellwork."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "spell-gate",
+          "defense",
+          "year-5"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Order of the Phoenix",
+        "confidence": 0.82,
+        "notes": "Expanded curated Context constraint entry."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "spells_skills",
+          "suggestionRole": "ability_gate",
+          "detailLevel": "detailed",
+          "suggestByDefault": true,
+          "activeUse": "blocks_early_spell_knowledge"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-5-order-of-the-phoenix",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

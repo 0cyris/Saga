@@ -1,0 +1,517 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "death_state_quirinus_quirrell",
+      "title": "Quirrell Death",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "status_change",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 50,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 8190,
+        "sortKeyTo": 10469,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "Philosopher's Stone",
+        "approximate": false
+      },
+      "expiration": {
+        "autoMuteOnExpire": false
+      },
+      "scope": {
+        "characters": [
+          "Quirinus Quirrell",
+          "Quirinus"
+        ],
+        "topics": [
+          "death state",
+          "canon outcome",
+          "Quirinus Quirrell"
+        ],
+        "books": [
+          "Philosopher's Stone",
+          "Chamber of Secrets",
+          "Prisoner of Azkaban",
+          "Goblet of Fire",
+          "Order of the Phoenix",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Quirinus Quirrell",
+            "Quirinus"
+          ],
+          "topicsAny": [
+            "death state",
+            "canon outcome",
+            "Quirinus Quirrell"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Quirinus Quirrell is dead after the Philosopher's Stone confrontation.",
+        "injection": "Quirinus Quirrell is dead after the Philosopher's Stone confrontation.",
+        "constraints": [
+          "Do not treat Quirinus Quirrell as alive after 1992-06-04 unless accepted story lore has established a different outcome."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "death-state",
+          "quirinus"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Philosopher's Stone",
+        "confidence": 0.82,
+        "notes": "Curated post-death canon state added during dead-character gate repair."
+      },
+      "extensions": {
+        "deathStateGatePass": {
+          "method": "added bounded post-death character state",
+          "notes": "Provides a bounded deceased-state alternative to alive/age gates."
+        },
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "death_state_barty_crouch_sr",
+      "title": "Barty Crouch Sr. Death",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "status_change",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 50,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 9277,
+        "sortKeyTo": 10469,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "Goblet of Fire",
+        "approximate": false
+      },
+      "expiration": {
+        "autoMuteOnExpire": false
+      },
+      "scope": {
+        "characters": [
+          "Barty Crouch Sr.",
+          "Barty"
+        ],
+        "topics": [
+          "death state",
+          "canon outcome",
+          "Barty Crouch Sr."
+        ],
+        "books": [
+          "Goblet of Fire",
+          "Order of the Phoenix",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Barty Crouch Sr.",
+            "Barty"
+          ],
+          "topicsAny": [
+            "death state",
+            "canon outcome",
+            "Barty Crouch Sr."
+          ]
+        }
+      },
+      "content": {
+        "fact": "Barty Crouch Sr. is dead after his appearance near Hogwarts in late Year 4.",
+        "injection": "Barty Crouch Sr. is dead after his appearance near Hogwarts in late Year 4.",
+        "constraints": [
+          "Do not treat Barty Crouch Sr. as alive after 1995-05-27 unless accepted story lore has established a different outcome."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "death-state",
+          "barty"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Goblet of Fire",
+        "confidence": 0.82,
+        "notes": "Curated post-death canon state added during dead-character gate repair."
+      },
+      "extensions": {
+        "deathStateGatePass": {
+          "method": "added bounded post-death character state",
+          "notes": "Provides a bounded deceased-state alternative to alive/age gates."
+        },
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "death_state_cedric_diggory",
+      "title": "Cedric Diggory Death",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "status_change",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 50,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 9305,
+        "sortKeyTo": 10469,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "Goblet of Fire",
+        "approximate": false
+      },
+      "expiration": {
+        "autoMuteOnExpire": false
+      },
+      "scope": {
+        "characters": [
+          "Cedric Diggory",
+          "Cedric"
+        ],
+        "topics": [
+          "death state",
+          "canon outcome",
+          "Cedric Diggory"
+        ],
+        "books": [
+          "Goblet of Fire",
+          "Order of the Phoenix",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Cedric Diggory",
+            "Cedric"
+          ],
+          "topicsAny": [
+            "death state",
+            "canon outcome",
+            "Cedric Diggory"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Cedric Diggory is dead after the Third Task graveyard event unless our story has established a different outcome.",
+        "injection": "Cedric Diggory is dead after the Third Task graveyard event unless our story has established a different outcome.",
+        "constraints": [
+          "Do not treat Cedric Diggory as alive after 1995-06-24 unless accepted story lore has established a different outcome."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "death-state",
+          "cedric"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Goblet of Fire",
+        "confidence": 0.82,
+        "notes": "Curated post-death canon state added during dead-character gate repair."
+      },
+      "extensions": {
+        "deathStateGatePass": {
+          "method": "added bounded post-death character state",
+          "notes": "Provides a bounded deceased-state alternative to alive/age gates."
+        },
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "death_state_sirius_black",
+      "title": "Sirius Black Death",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "status_change",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 50,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 9665,
+        "sortKeyTo": 10469,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "Order of the Phoenix",
+        "approximate": false
+      },
+      "expiration": {
+        "autoMuteOnExpire": false
+      },
+      "scope": {
+        "characters": [
+          "Sirius Black",
+          "Sirius"
+        ],
+        "topics": [
+          "death state",
+          "canon outcome",
+          "Sirius Black"
+        ],
+        "books": [
+          "Order of the Phoenix",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Sirius Black",
+            "Sirius"
+          ],
+          "topicsAny": [
+            "death state",
+            "canon outcome",
+            "Sirius Black"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Sirius Black is dead after the Department of Mysteries battle unless our story has established a different outcome.",
+        "injection": "Sirius Black is dead after the Department of Mysteries battle unless our story has established a different outcome.",
+        "constraints": [
+          "Do not treat Sirius Black as alive after 1996-06-18 unless accepted story lore has established a different outcome."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "death-state",
+          "sirius"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Order of the Phoenix",
+        "confidence": 0.82,
+        "notes": "Curated post-death canon state added during dead-character gate repair."
+      },
+      "extensions": {
+        "deathStateGatePass": {
+          "method": "added bounded post-death character state",
+          "notes": "Provides a bounded deceased-state alternative to alive/age gates."
+        },
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "death_state_albus_dumbledore",
+      "title": "Dumbledore Death",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "status_change",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 10042,
+        "sortKeyTo": 10469,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "Half-Blood Prince",
+        "approximate": false
+      },
+      "expiration": {
+        "autoMuteOnExpire": false
+      },
+      "scope": {
+        "characters": [
+          "Albus Dumbledore",
+          "Albus"
+        ],
+        "topics": [
+          "death state",
+          "canon outcome",
+          "Albus Dumbledore"
+        ],
+        "books": [
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Albus Dumbledore",
+            "Albus"
+          ],
+          "topicsAny": [
+            "death state",
+            "canon outcome",
+            "Albus Dumbledore"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Albus Dumbledore is dead after the Astronomy Tower event unless our story has established a different outcome.",
+        "injection": "Albus Dumbledore is dead after the Astronomy Tower event unless our story has established a different outcome.",
+        "constraints": [
+          "Do not treat Albus Dumbledore as alive after 1997-06-30 unless accepted story lore has established a different outcome."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "death-state",
+          "albus"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Half-Blood Prince",
+        "confidence": 0.82,
+        "notes": "Curated post-death canon state added during dead-character gate repair."
+      },
+      "extensions": {
+        "deathStateGatePass": {
+          "method": "added bounded post-death character state",
+          "notes": "Provides a bounded deceased-state alternative to alive/age gates."
+        },
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

@@ -64,15 +64,42 @@
   "registries": {
     "timeline": "timeline.json"
   },
-  "files": [],
+  "files": [
+    "ages/core_character_ages.json",
+    "ages/expanded_character_ages.json",
+    "characters/adult_character_phase_baselines.json",
+    "characters/adults_and_factions.json",
+    "characters/core_students.json",
+    "characters/death_states.json",
+    "future_guards/expanded_future_guards.json",
+    "items/artifacts_and_objects.json",
+    "knowledge_gates/added_contextual_gates.json",
+    "knowledge_gates/consolidated_story_gates.json",
+    "knowledge_gates/core_knowledge_gates.json",
+    "knowledge_gates/expanded_knowledge_gates.json",
+    "knowledge/secret_knowledge.json",
+    "places/hogwarts_and_britain.json",
+    "spell_gates/expanded_spell_gates.json",
+    "spell_gates/spell_gates.json"
+  ],
   "compatibility": {
     "sagaSchemaMin": 3,
     "sagaSchemaMax": 3
   },
   "stats": {
-    "entryCount": 0,
-    "categoryCounts": {},
+    "entryCount": 74,
+    "categoryCounts": {
+      "character": 47,
+      "faction": 1,
+      "item": 4,
+      "knowledge": 9,
+      "location": 4,
+      "rule": 1,
+      "spell": 6,
+      "timeline": 2
+    },
     "timelineAnchorCount": 22,
     "timelineWindowCount": 6
-  }
+  },
+  "updatedAt": 1780617600000
 }

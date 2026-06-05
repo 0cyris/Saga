@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "canon_year_7_dh_window",
+      "title": "Canon window: Year 7",
+      "kind": "event_anchor",
+      "gateType": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "year-7",
+        "1997",
+        "deathly-hallows",
+        "war"
+      ],
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y7.rab_discovered",
+        "validToAnchor": "hp.y7.battle_aftermath",
+        "sortKeyFrom": 10105,
+        "sortKeyTo": 10469,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "1997-09-01 to 1998-08-31",
+        "approximate": false
+      },
+      "scope": {
+        "locations": [
+          "Britain"
+        ],
+        "topics": [
+          "canon window",
+          "1997",
+          "1998",
+          "seventh year",
+          "war"
+        ],
+        "eras": [
+          "1997-1998 war year",
+          "Year 7",
+          "Deathly Hallows",
+          "war"
+        ],
+        "schoolYears": [
+          "Year 7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "locationsAny": [
+            "Britain"
+          ],
+          "topicsAny": [
+            "canon window",
+            "1997",
+            "1998",
+            "seventh year",
+            "war",
+            "Year 7",
+            "Deathly Hallows"
+          ],
+          "erasAny": [
+            "1997-1998 war year",
+            "Year 7",
+            "Deathly Hallows",
+            "war"
+          ]
+        }
+      },
+      "content": {
+        "fact": "From September 1997 through August 1998, the main canon context aligns with the Deathly Hallows period and the open Second Wizarding War.",
+        "injection": "From September 1997 through August 1998, the main canon context aligns with the Deathly Hallows period and the open Second Wizarding War.",
+        "publicVersion": "The wizarding world is in open wartime conditions."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-7-deathly-hallows",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

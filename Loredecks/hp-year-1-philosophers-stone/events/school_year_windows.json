@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "canon_year_1_ps_window",
+      "title": "Canon window: Year 1",
+      "kind": "event_anchor",
+      "gateType": "event_anchor",
+      "category": "event",
+      "relevance": "low",
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "year-1",
+        "1991",
+        "philosophers-stone",
+        "hogwarts"
+      ],
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y1.diagon_alley_first_visit",
+        "validToAnchor": "hp.y1.train_home",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 8278,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "1991-09-01 to 1992-08-31",
+        "approximate": false
+      },
+      "scope": {
+        "locations": [
+          "Hogwarts"
+        ],
+        "topics": [
+          "canon window",
+          "1991",
+          "1992",
+          "first year"
+        ],
+        "eras": [
+          "1991-1992 school year",
+          "Year 1",
+          "Philosopher",
+          "Sorcerer"
+        ],
+        "schoolYears": [
+          "Year 1"
+        ],
+        "books": [
+          "Philosopher's Stone"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "canon window",
+            "1991",
+            "1992",
+            "first year",
+            "Year 1",
+            "Philosopher's Stone",
+            "Hogwarts"
+          ],
+          "erasAny": [
+            "1991-1992 school year",
+            "Year 1",
+            "Philosopher",
+            "Sorcerer"
+          ]
+        }
+      },
+      "content": {
+        "fact": "From September 1991 through August 1992, the main school-year context aligns with Harry Potter's first year at Hogwarts.",
+        "injection": "From September 1991 through August 1992, the main school-year context aligns with Harry Potter's first year at Hogwarts.",
+        "publicVersion": "Harry Potter is a first-year student at Hogwarts."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-1-philosophers-stone",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

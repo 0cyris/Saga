@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "future_guard_dumbledore_alive_before_tower",
+      "title": "Dumbledore alive before Tower",
+      "kind": "future_guard",
+      "gateType": "future_guard",
+      "category": "timeline",
+      "relevance": "normal",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "priority": 100,
+      "status": "active",
+      "protected": true,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y6.draco_borgin_burkes_suspicion",
+        "validToAnchor": "hp.y6.funeral",
+        "sortKeyFrom": 9740,
+        "sortKeyTo": 10041,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Half-Blood Prince: Year 6",
+        "approximate": false
+      },
+      "activation": {
+        "requiresMissingEvents": [
+          "dumbledore_death_occurs"
+        ]
+      },
+      "expiration": {
+        "expiresWhenEventsHappen": [
+          "dumbledore_death_occurs"
+        ],
+        "autoMuteOnExpire": true
+      },
+      "scope": {
+        "characters": [
+          "Albus Dumbledore",
+          "Harry Potter"
+        ],
+        "topics": [
+          "dumbledore"
+        ],
+        "schoolYears": [
+          "6"
+        ],
+        "books": [
+          "Half-Blood Prince"
+        ],
+        "phases": [
+          "term_start"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Albus Dumbledore",
+            "Harry Potter"
+          ],
+          "topicsAny": [
+            "dumbledore"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Dumbledore is alive before the late Year 6 tower event.",
+        "injection": "Do not imply Dumbledore is already dead or that ordinary characters know he will die before the event.",
+        "constraints": [
+          "Do not imply Dumbledore is already dead or that ordinary characters know he will die before the event."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "future-guard",
+          "dumbledore"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Half-Blood Prince",
+        "confidence": 0.85,
+        "notes": "Curated Context constraint seed entry."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-6-half-blood-prince",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

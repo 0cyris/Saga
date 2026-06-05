@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "knowledge_gate_barty_crouch_jr_before_year4_end",
+      "title": "Barty Crouch Jr. identity gate",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 90,
+      "status": "active",
+      "protected": true,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y4.world_cup_campsite",
+        "validToAnchor": "hp.y4.train_home_after_cedric",
+        "sortKeyFrom": 9009,
+        "sortKeyTo": 9305,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Goblet of Fire: Year 4",
+        "approximate": false
+      },
+      "activation": {
+        "requiresMissingEvents": [
+          "barty_crouch_jr_revealed"
+        ]
+      },
+      "expiration": {
+        "expiresWhenEventsHappen": [
+          "barty_crouch_jr_revealed"
+        ],
+        "autoMuteOnExpire": true
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Hermione Granger",
+          "Ron Weasley"
+        ],
+        "topics": [
+          "Mad-Eye Moody",
+          "Barty Crouch Jr.",
+          "Polyjuice"
+        ],
+        "schoolYears": [
+          "4"
+        ],
+        "books": [
+          "Goblet of Fire"
+        ],
+        "phases": [
+          "term_start"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Hermione Granger",
+            "Ron Weasley"
+          ],
+          "topicsAny": [
+            "Mad-Eye Moody",
+            "Barty Crouch Jr.",
+            "Polyjuice"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Students should not know that Moody is Barty Crouch Jr. in disguise.",
+        "injection": "Do not have characters know Moody is Barty Crouch Jr. unless this story established it.",
+        "constraints": [
+          "Protect the Moody impostor reveal."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "knowledge-gate",
+          "year-4",
+          "impostor"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Goblet of Fire",
+        "confidence": 0.82,
+        "notes": "Expanded curated Context constraint entry."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-4-goblet-of-fire",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

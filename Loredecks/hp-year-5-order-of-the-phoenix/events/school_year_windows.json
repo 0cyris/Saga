@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "canon_year_5_ootp_window",
+      "title": "Canon window: Year 5",
+      "kind": "event_anchor",
+      "gateType": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "year-5",
+        "1995",
+        "order-phoenix",
+        "ministry"
+      ],
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.sirius_trapped_at_grimmauld",
+        "validToAnchor": "hp.y5.grief_and_train_home",
+        "sortKeyFrom": 9374,
+        "sortKeyTo": 9739,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "1995-09-01 to 1996-08-31",
+        "approximate": false
+      },
+      "scope": {
+        "locations": [
+          "Hogwarts",
+          "Ministry of Magic",
+          "Ministry"
+        ],
+        "topics": [
+          "canon window",
+          "1995",
+          "1996",
+          "fifth year",
+          "Ministry interference"
+        ],
+        "eras": [
+          "1995-1996 school year",
+          "Year 5",
+          "Order of the Phoenix",
+          "OotP"
+        ],
+        "schoolYears": [
+          "Year 5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "locationsAny": [
+            "Hogwarts",
+            "Ministry of Magic",
+            "Ministry"
+          ],
+          "topicsAny": [
+            "canon window",
+            "1995",
+            "1996",
+            "fifth year",
+            "Ministry interference",
+            "Year 5",
+            "Order Phoenix",
+            "Ministry"
+          ],
+          "erasAny": [
+            "1995-1996 school year",
+            "Year 5",
+            "Order of the Phoenix",
+            "OotP"
+          ]
+        }
+      },
+      "content": {
+        "fact": "From September 1995 through August 1996, the main school-year context aligns with Harry Potter's fifth year and the Ministry's public denial of Voldemort's return.",
+        "injection": "From September 1995 through August 1996, the main school-year context aligns with Harry Potter's fifth year and the Ministry's public denial of Voldemort's return.",
+        "publicVersion": "Harry Potter is a fifth-year student under a tense Ministry-controlled climate."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-5-order-of-the-phoenix",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

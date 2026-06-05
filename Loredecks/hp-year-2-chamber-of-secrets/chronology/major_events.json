@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "event_chamber_resolved",
+      "title": "Chamber Resolution",
+      "kind": "event_anchor",
+      "gateType": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 65,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 90,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y2.basilisk_confrontation",
+        "validToAnchor": "hp.y2.ginny_rescued",
+        "sortKeyFrom": 8549,
+        "sortKeyTo": 8559,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Chamber of Secrets: Year 2",
+        "approximate": false
+      },
+      "scope": {
+        "topics": [
+          "timeline",
+          "canon state"
+        ],
+        "schoolYears": [
+          "2"
+        ],
+        "books": [
+          "Chamber of Secrets"
+        ],
+        "phases": [
+          "climax"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "topicsAny": [
+            "timeline",
+            "canon state"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After the Chamber resolution, the basilisk is defeated, the diary is destroyed, Ginny is rescued, and Dobby can be freed through Lucius’s mistake.",
+        "injection": "After the Chamber resolution, the basilisk is defeated, the diary is destroyed, Ginny is rescued, and Dobby can be freed through Lucius’s mistake.",
+        "constraints": [
+          "Do not keep the Year 2 Chamber crisis unresolved after this event unless our story has established a different outcome."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "timeline",
+          "year-2"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Chamber of Secrets",
+        "confidence": 0.85,
+        "notes": "Curated Context constraint seed entry."
+      },
+      "extensions": {
+        "temporalTightening": {
+          "method": "curated chronology point event: validFrom plus 10 days",
+          "notes": "End date narrowed so event-like lore does not remain active as an open-ended suggestion.",
+          "previousValidTo": "1998-08-31"
+        },
+        "deathStateGatePass": {
+          "method": "removed positive requiresEvents from canon database entry",
+          "notes": "Canon database proposals are Context-gated references; they should not become Future solely because a story milestone flag is absent.",
+          "requiresEventsRemoved": [
+            "chamber_of_secrets_resolved"
+          ]
+        },
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-2-chamber-of-secrets",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

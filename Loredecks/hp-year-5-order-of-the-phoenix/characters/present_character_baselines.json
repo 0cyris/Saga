@@ -1,0 +1,1403 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "present_character_harry_potter_year_5_baseline",
+      "title": "Harry Potter: Year 5 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.sirius_trapped_at_grimmauld",
+        "validToAnchor": "hp.y5.grief_and_train_home",
+        "sortKeyFrom": 9374,
+        "sortKeyTo": 9739,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 5",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Harry"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Gryffindor"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 5",
+          "Harry Potter",
+          "harry",
+          "gryffindor",
+          "present-character",
+          "year-5"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ],
+        "eras": [
+          "Year 5",
+          "Order of the Phoenix"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Harry"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 5",
+            "Harry Potter",
+            "harry",
+            "gryffindor",
+            "present-character",
+            "year-5"
+          ],
+          "erasAny": [
+            "Year 5",
+            "Order of the Phoenix"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 5, Harry is traumatized, volatile, protective, suspicious of official reassurance, and increasingly determined to act rather than be managed by adults.",
+        "injection": "Write Harry as his Year 5 self: angry, isolated, protective, agency-seeking, and volatile under pressure, while still capable of loyalty and humor when the scene supports it.",
+        "constraints": [
+          "His anger should be available but not permanently maxed without scene reinforcement.",
+          "He is beginning to teach and lead, but he is still an adolescent acting under stress.",
+          "Do not make him fully emotionally processed, politically polished, or calmly obedient to institutions.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not flatten Year 5 Harry into constant rage; modulate him by immediate context."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "harry",
+          "gryffindor",
+          "present-character",
+          "character-baseline",
+          "year-5"
+        ],
+        "stateHints": {
+          "character": "Harry Potter",
+          "schoolYear": 5,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Order of the Phoenix",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-5-order-of-the-phoenix",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "present_character_hermione_granger_year_5_baseline",
+      "title": "Hermione Granger: Year 5 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.sirius_trapped_at_grimmauld",
+        "validToAnchor": "hp.y5.grief_and_train_home",
+        "sortKeyFrom": 9374,
+        "sortKeyTo": 9739,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 5",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Hermione Granger",
+          "Hermione"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Gryffindor"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 5",
+          "Hermione Granger",
+          "hermione",
+          "gryffindor",
+          "present-character",
+          "year-5"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ],
+        "eras": [
+          "Year 5",
+          "Order of the Phoenix"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Hermione Granger",
+            "Hermione"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 5",
+            "Hermione Granger",
+            "hermione",
+            "gryffindor",
+            "present-character",
+            "year-5"
+          ],
+          "erasAny": [
+            "Year 5",
+            "Order of the Phoenix"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 5, Hermione is disciplined, politically alert for her age, strategic within school constraints, and more willing to build systems when authority fails.",
+        "injection": "Write Hermione as her Year 5 self: disciplined, strategic, morally serious, increasingly political, and impatient with denial or incompetence.",
+        "constraints": [
+          "Her planning should be strong but still bounded by teenage information and school resources.",
+          "She should be more comfortable with organized rule-breaking when she considers authority illegitimate.",
+          "Do not make her omniscient or free of emotional bias.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write Year 5 Hermione as passively rule-bound when the scene clearly involves unjust authority."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "hermione",
+          "gryffindor",
+          "present-character",
+          "character-baseline",
+          "year-5"
+        ],
+        "stateHints": {
+          "character": "Hermione Granger",
+          "schoolYear": 5,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Order of the Phoenix",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-5-order-of-the-phoenix",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "present_character_ron_weasley_year_5_baseline",
+      "title": "Ron Weasley: Year 5 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.sirius_trapped_at_grimmauld",
+        "validToAnchor": "hp.y5.grief_and_train_home",
+        "sortKeyFrom": 9374,
+        "sortKeyTo": 9739,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 5",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Ron Weasley",
+          "Ron"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Gryffindor",
+          "Weasley family"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 5",
+          "Ron Weasley",
+          "ron",
+          "weasley",
+          "gryffindor",
+          "present-character",
+          "year-5"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ],
+        "eras": [
+          "Year 5",
+          "Order of the Phoenix"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Ron Weasley",
+            "Ron"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 5",
+            "Ron Weasley",
+            "ron",
+            "weasley",
+            "gryffindor",
+            "present-character",
+            "year-5"
+          ],
+          "erasAny": [
+            "Year 5",
+            "Order of the Phoenix"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 5, Ron is somewhat more confident but still self-doubting, bluntly funny, protective, and volatile when humiliation or status anxiety is triggered.",
+        "injection": "Write Ron as his Year 5 self: loyal, blunt, funny, somewhat more confident, but still vulnerable to insecurity, embarrassment, and defensive anger.",
+        "constraints": [
+          "He should show growth without becoming polished.",
+          "His competence can emerge unevenly, especially under social pressure.",
+          "Do not make him either a passive sidekick or a fully mature partner.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not let later Year 7 deprivation and despair bleed into ordinary Year 5 school scenes."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "ron",
+          "weasley",
+          "gryffindor",
+          "present-character",
+          "character-baseline",
+          "year-5"
+        ],
+        "stateHints": {
+          "character": "Ron Weasley",
+          "schoolYear": 5,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Order of the Phoenix",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-5-order-of-the-phoenix",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "present_character_draco_malfoy_year_5_baseline",
+      "title": "Draco Malfoy: Year 5 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.sirius_trapped_at_grimmauld",
+        "validToAnchor": "hp.y5.grief_and_train_home",
+        "sortKeyFrom": 9374,
+        "sortKeyTo": 9739,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 5",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Draco Malfoy",
+          "Draco",
+          "Malfoy"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Slytherin",
+          "Malfoy family"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 5",
+          "Draco Malfoy",
+          "draco",
+          "slytherin",
+          "present-character",
+          "year-5"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ],
+        "eras": [
+          "Year 5",
+          "Order of the Phoenix"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Draco Malfoy",
+            "Draco",
+            "Malfoy"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 5",
+            "Draco Malfoy",
+            "draco",
+            "slytherin",
+            "present-character",
+            "year-5"
+          ],
+          "erasAny": [
+            "Year 5",
+            "Order of the Phoenix"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 5, Draco is emboldened by authoritarian school politics, more openly spiteful, and eager to use sanctioned power against rivals.",
+        "injection": "Write Draco as his Year 5 self: spiteful, authoritarian, socially predatory, and pleased when institutions validate his cruelty.",
+        "constraints": [
+          "He should sound more confident when backed by authority.",
+          "His arrogance should still mask immaturity and dependence on protection.",
+          "Keep specific squad memberships or decrees modular if they are date-triggered elsewhere.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not make Year 5 Draco introspective about the full cost of the war unless the story has changed him."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "draco",
+          "slytherin",
+          "present-character",
+          "character-baseline",
+          "year-5"
+        ],
+        "stateHints": {
+          "character": "Draco Malfoy",
+          "schoolYear": 5,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Order of the Phoenix",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-5-order-of-the-phoenix",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "present_character_neville_longbottom_year_5_baseline",
+      "title": "Neville Longbottom: Year 5 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.sirius_trapped_at_grimmauld",
+        "validToAnchor": "hp.y5.grief_and_train_home",
+        "sortKeyFrom": 9374,
+        "sortKeyTo": 9739,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 5",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Neville Longbottom",
+          "Neville"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Gryffindor"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 5",
+          "Neville Longbottom",
+          "neville",
+          "gryffindor",
+          "present-character",
+          "year-5"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ],
+        "eras": [
+          "Year 5",
+          "Order of the Phoenix"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Neville Longbottom",
+            "Neville"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 5",
+            "Neville Longbottom",
+            "neville",
+            "gryffindor",
+            "present-character",
+            "year-5"
+          ],
+          "erasAny": [
+            "Year 5",
+            "Order of the Phoenix"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 5, Neville grows quickly under pressure: still awkward, but more determined, braver, and increasingly capable when given structure and purpose.",
+        "injection": "Write Neville as his Year 5 self: still awkward and self-doubting, but visibly growing in courage, discipline, and defensive competence.",
+        "constraints": [
+          "His confidence should be emerging, not effortless.",
+          "He may surprise others by persisting after failure.",
+          "Keep specific training memberships or family revelations modular if date-sensitive.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write Year 5 Neville as already the uncontested student-resistance leader."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "neville",
+          "gryffindor",
+          "present-character",
+          "character-baseline",
+          "year-5"
+        ],
+        "stateHints": {
+          "character": "Neville Longbottom",
+          "schoolYear": 5,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Order of the Phoenix",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-5-order-of-the-phoenix",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "present_character_ginny_weasley_year_5_baseline",
+      "title": "Ginny Weasley: Year 5 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.sirius_trapped_at_grimmauld",
+        "validToAnchor": "hp.y5.grief_and_train_home",
+        "sortKeyFrom": 9374,
+        "sortKeyTo": 9739,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 5",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Ginny Weasley",
+          "Ginny"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Gryffindor",
+          "Weasley family"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 5",
+          "Ginny Weasley",
+          "ginny",
+          "weasley",
+          "gryffindor",
+          "present-character",
+          "year-5"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ],
+        "eras": [
+          "Year 5",
+          "Order of the Phoenix"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Ginny Weasley",
+            "Ginny"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 5",
+            "Ginny Weasley",
+            "ginny",
+            "weasley",
+            "gryffindor",
+            "present-character",
+            "year-5"
+          ],
+          "erasAny": [
+            "Year 5",
+            "Order of the Phoenix"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 5, Ginny is self-possessed, sharp, athletic, more socially confident, and comfortable pushing back when underestimated.",
+        "injection": "Write Ginny as her Year 5 self: confident, sharp, practical, athletic, and willing to challenge patronizing treatment.",
+        "constraints": [
+          "She should sound more direct and less hesitant than early Ginny.",
+          "Her confidence should not require constant explanation from others.",
+          "Keep specific resistance-group membership or operations Context-gated elsewhere.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write Year 5 Ginny as passive background sibling by default."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "ginny",
+          "weasley",
+          "gryffindor",
+          "present-character",
+          "character-baseline",
+          "year-5"
+        ],
+        "stateHints": {
+          "character": "Ginny Weasley",
+          "schoolYear": 5,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Order of the Phoenix",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-5-order-of-the-phoenix",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "present_character_luna_lovegood_year_5_baseline",
+      "title": "Luna Lovegood: Year 5 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.sirius_trapped_at_grimmauld",
+        "validToAnchor": "hp.y5.grief_and_train_home",
+        "sortKeyFrom": 9374,
+        "sortKeyTo": 9739,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 5",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luna Lovegood",
+          "Luna"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Ravenclaw"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 5",
+          "Luna Lovegood",
+          "luna",
+          "ravenclaw",
+          "present-character",
+          "year-5"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ],
+        "eras": [
+          "Year 5",
+          "Order of the Phoenix"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Luna Lovegood",
+            "Luna"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 5",
+            "Luna Lovegood",
+            "luna",
+            "ravenclaw",
+            "present-character",
+            "year-5"
+          ],
+          "erasAny": [
+            "Year 5",
+            "Order of the Phoenix"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 5, Luna is openly eccentric, calmly honest, perceptive about grief and isolation, and less embarrassed by social rejection than others expect.",
+        "injection": "Write Luna as her Year 5 self: candid, dreamy, resilient, perceptive, and unashamed, with emotional insight that remains grounded in her own experience.",
+        "constraints": [
+          "Her bluntness should often be gentle rather than cruel.",
+          "She can comfort others through odd but sincere perspective.",
+          "Keep specific group memberships, battles, or discoveries Context-gated elsewhere.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not make Year 5 Luna merely comic relief or an omniscient seer."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "luna",
+          "ravenclaw",
+          "present-character",
+          "character-baseline",
+          "year-5"
+        ],
+        "stateHints": {
+          "character": "Luna Lovegood",
+          "schoolYear": 5,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Order of the Phoenix",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-5-order-of-the-phoenix",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "present_character_fred_weasley_year_5_baseline",
+      "title": "Fred Weasley: Year 5 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.sirius_trapped_at_grimmauld",
+        "validToAnchor": "hp.y5.grief_and_train_home",
+        "sortKeyFrom": 9374,
+        "sortKeyTo": 9739,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 5",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Fred Weasley",
+          "Fred"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Gryffindor",
+          "Weasley family"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 5",
+          "Fred Weasley",
+          "fred",
+          "weasley",
+          "gryffindor",
+          "present-character",
+          "year-5"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ],
+        "eras": [
+          "Year 5",
+          "Order of the Phoenix"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Fred Weasley",
+            "Fred"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 5",
+            "Fred Weasley",
+            "fred",
+            "weasley",
+            "gryffindor",
+            "present-character",
+            "year-5"
+          ],
+          "erasAny": [
+            "Year 5",
+            "Order of the Phoenix"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 5, Fred is openly anti-authoritarian, theatrically defiant, entrepreneurial, and more willing to turn rebellion into public performance.",
+        "injection": "Write Fred in Year 5 as defiant, funny, entrepreneurial, and openly contemptuous of petty authority.",
+        "constraints": [
+          "He should be bolder and more confrontational than in earlier school years.",
+          "Keep specific exit, shop, or product milestones in separate dated entries.",
+          "His humor should become a form of resistance when authority is abusive.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not bake any specific departure-from-Hogwarts event into the whole-year baseline."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "fred",
+          "weasley",
+          "gryffindor",
+          "present-character",
+          "character-baseline",
+          "year-5"
+        ],
+        "stateHints": {
+          "character": "Fred Weasley",
+          "schoolYear": 5,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Order of the Phoenix",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-5-order-of-the-phoenix",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "present_character_george_weasley_year_5_baseline",
+      "title": "George Weasley: Year 5 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.sirius_trapped_at_grimmauld",
+        "validToAnchor": "hp.y5.grief_and_train_home",
+        "sortKeyFrom": 9374,
+        "sortKeyTo": 9739,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 5",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "George Weasley",
+          "George"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Gryffindor",
+          "Weasley family"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 5",
+          "George Weasley",
+          "george",
+          "weasley",
+          "gryffindor",
+          "present-character",
+          "year-5"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ],
+        "eras": [
+          "Year 5",
+          "Order of the Phoenix"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "George Weasley",
+            "George"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 5",
+            "George Weasley",
+            "george",
+            "weasley",
+            "gryffindor",
+            "present-character",
+            "year-5"
+          ],
+          "erasAny": [
+            "Year 5",
+            "Order of the Phoenix"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 5, George is anti-authoritarian, funny, entrepreneurial, and increasingly willing to make rebellion public, though often with a cooler edge than Fred.",
+        "injection": "Write George in Year 5 as witty, defiant, entrepreneurial, and openly contemptuous of petty authority.",
+        "constraints": [
+          "He should be bolder than in earlier years while retaining a dry comic cadence.",
+          "Keep specific exit, shop, or product milestones in separate dated entries.",
+          "His humor can become resistance when authority is abusive.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not bake any specific departure-from-Hogwarts event into the whole-year baseline."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "george",
+          "weasley",
+          "gryffindor",
+          "present-character",
+          "character-baseline",
+          "year-5"
+        ],
+        "stateHints": {
+          "character": "George Weasley",
+          "schoolYear": 5,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Order of the Phoenix",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-5-order-of-the-phoenix",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

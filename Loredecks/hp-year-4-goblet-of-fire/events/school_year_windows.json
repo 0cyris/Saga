@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "canon_year_4_gof_window",
+      "title": "Canon window: Year 4",
+      "kind": "event_anchor",
+      "gateType": "event_anchor",
+      "category": "event",
+      "relevance": "low",
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "year-4",
+        "1994",
+        "triwizard",
+        "hogwarts"
+      ],
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y4.world_cup_campsite",
+        "validToAnchor": "hp.y4.train_home_after_cedric",
+        "sortKeyFrom": 9009,
+        "sortKeyTo": 9373,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "1994-09-01 to 1995-08-31",
+        "approximate": false
+      },
+      "scope": {
+        "locations": [
+          "Hogwarts"
+        ],
+        "topics": [
+          "canon window",
+          "1994",
+          "1995",
+          "fourth year",
+          "Triwizard Tournament"
+        ],
+        "eras": [
+          "1994-1995 school year",
+          "Year 4",
+          "Goblet",
+          "Triwizard"
+        ],
+        "schoolYears": [
+          "Year 4"
+        ],
+        "books": [
+          "Goblet of Fire"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "canon window",
+            "1994",
+            "1995",
+            "fourth year",
+            "Triwizard Tournament",
+            "Year 4",
+            "Triwizard",
+            "Hogwarts"
+          ],
+          "erasAny": [
+            "1994-1995 school year",
+            "Year 4",
+            "Goblet",
+            "Triwizard"
+          ]
+        }
+      },
+      "content": {
+        "fact": "From September 1994 through August 1995, the main school-year context aligns with Harry Potter's fourth year and the Triwizard Tournament period.",
+        "injection": "From September 1994 through August 1995, the main school-year context aligns with Harry Potter's fourth year and the Triwizard Tournament period.",
+        "publicVersion": "Harry Potter is a fourth-year student during the Triwizard Tournament year."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-4-goblet-of-fire",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

@@ -19,6 +19,34 @@
           "path": "assets/cover.png",
           "alt": "Harry Potter: Core Loredeck cover"
         }
+      },
+      "entrySchemaVersion": 3,
+      "version": "0.1.0",
+      "author": "Saga",
+      "fandom": "Harry Potter",
+      "era": "Golden Trio Core",
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:core"
+      ],
+      "updatedAt": 1780617600000,
+      "stats": {
+        "entryCount": 74,
+        "categoryCounts": {
+          "character": 47,
+          "faction": 1,
+          "item": 4,
+          "knowledge": 9,
+          "location": 4,
+          "rule": 1,
+          "spell": 6,
+          "timeline": 2
+        },
+        "timelineAnchorCount": 22,
+        "timelineWindowCount": 6
       }
     },
     {
@@ -39,6 +67,32 @@
           "path": "assets/cover.png",
           "alt": "Harry Potter Year 1: Philosopher's Stone Loredeck cover"
         }
+      },
+      "entrySchemaVersion": 3,
+      "version": "0.1.0",
+      "author": "Saga",
+      "fandom": "Harry Potter",
+      "era": "Year 1: Philosopher's Stone",
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1"
+      ],
+      "updatedAt": 1780617600000,
+      "stats": {
+        "entryCount": 45,
+        "categoryCounts": {
+          "character": 15,
+          "event": 18,
+          "item": 5,
+          "knowledge": 3,
+          "relationship": 2,
+          "timeline": 2
+        },
+        "timelineAnchorCount": 55,
+        "timelineWindowCount": 9
       }
     },
     {
@@ -59,6 +113,33 @@
           "path": "assets/cover.png",
           "alt": "Harry Potter Year 2: Chamber of Secrets Loredeck cover"
         }
+      },
+      "entrySchemaVersion": 3,
+      "version": "0.1.0",
+      "author": "Saga",
+      "fandom": "Harry Potter",
+      "era": "Year 2: Chamber of Secrets",
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2"
+      ],
+      "updatedAt": 1780617600000,
+      "stats": {
+        "entryCount": 43,
+        "categoryCounts": {
+          "character": 17,
+          "event": 13,
+          "item": 1,
+          "knowledge": 8,
+          "location": 2,
+          "spell": 1,
+          "timeline": 1
+        },
+        "timelineAnchorCount": 55,
+        "timelineWindowCount": 9
       }
     },
     {
@@ -79,6 +160,34 @@
           "path": "assets/cover.png",
           "alt": "Harry Potter Year 3: Prisoner of Azkaban Loredeck cover"
         }
+      },
+      "entrySchemaVersion": 3,
+      "version": "0.1.0",
+      "author": "Saga",
+      "fandom": "Harry Potter",
+      "era": "Year 3: Prisoner of Azkaban",
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3"
+      ],
+      "updatedAt": 1780617600000,
+      "stats": {
+        "entryCount": 46,
+        "categoryCounts": {
+          "character": 14,
+          "event": 13,
+          "item": 5,
+          "knowledge": 6,
+          "location": 3,
+          "relationship": 1,
+          "spell": 3,
+          "timeline": 1
+        },
+        "timelineAnchorCount": 55,
+        "timelineWindowCount": 9
       }
     },
     {
@@ -99,6 +208,34 @@
           "path": "assets/cover.png",
           "alt": "Harry Potter Year 4: Goblet of Fire Loredeck cover"
         }
+      },
+      "entrySchemaVersion": 3,
+      "version": "0.1.0",
+      "author": "Saga",
+      "fandom": "Harry Potter",
+      "era": "Year 4: Goblet of Fire",
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4"
+      ],
+      "updatedAt": 1780617600000,
+      "stats": {
+        "entryCount": 53,
+        "categoryCounts": {
+          "character": 17,
+          "event": 18,
+          "faction": 1,
+          "knowledge": 7,
+          "location": 2,
+          "relationship": 1,
+          "spell": 4,
+          "timeline": 3
+        },
+        "timelineAnchorCount": 56,
+        "timelineWindowCount": 9
       }
     },
     {
@@ -119,6 +256,33 @@
           "path": "assets/cover.png",
           "alt": "Harry Potter Year 5: Order of the Phoenix Loredeck cover"
         }
+      },
+      "entrySchemaVersion": 3,
+      "version": "0.1.0",
+      "author": "Saga",
+      "fandom": "Harry Potter",
+      "era": "Year 5: Order of the Phoenix",
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5"
+      ],
+      "updatedAt": 1780617600000,
+      "stats": {
+        "entryCount": 53,
+        "categoryCounts": {
+          "character": 20,
+          "event": 11,
+          "faction": 7,
+          "knowledge": 6,
+          "location": 4,
+          "spell": 2,
+          "timeline": 3
+        },
+        "timelineAnchorCount": 55,
+        "timelineWindowCount": 10
       }
     },
     {
@@ -139,6 +303,35 @@
           "path": "assets/cover.png",
           "alt": "Harry Potter Year 6: Half-Blood Prince Loredeck cover"
         }
+      },
+      "entrySchemaVersion": 3,
+      "version": "0.1.0",
+      "author": "Saga",
+      "fandom": "Harry Potter",
+      "era": "Year 6: Half-Blood Prince",
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6"
+      ],
+      "updatedAt": 1780617600000,
+      "stats": {
+        "entryCount": 53,
+        "categoryCounts": {
+          "character": 18,
+          "event": 14,
+          "faction": 2,
+          "item": 3,
+          "knowledge": 8,
+          "location": 1,
+          "relationship": 2,
+          "spell": 2,
+          "timeline": 3
+        },
+        "timelineAnchorCount": 57,
+        "timelineWindowCount": 15
       }
     },
     {
@@ -159,6 +352,33 @@
           "path": "assets/cover.png",
           "alt": "Harry Potter Year 7: Deathly Hallows Loredeck cover"
         }
+      },
+      "entrySchemaVersion": 3,
+      "version": "0.1.0",
+      "author": "Saga",
+      "fandom": "Harry Potter",
+      "era": "Year 7: Deathly Hallows",
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7"
+      ],
+      "updatedAt": 1780617600000,
+      "stats": {
+        "entryCount": 63,
+        "categoryCounts": {
+          "character": 29,
+          "event": 16,
+          "item": 4,
+          "knowledge": 5,
+          "location": 3,
+          "relationship": 2,
+          "timeline": 4
+        },
+        "timelineAnchorCount": 70,
+        "timelineWindowCount": 18
       }
     },
     {
@@ -179,6 +399,28 @@
           "path": "assets/cover.png",
           "alt": "Harry Potter: Post-War Years & Epilogue Loredeck cover"
         }
+      },
+      "entrySchemaVersion": 3,
+      "version": "0.1.0",
+      "author": "Saga",
+      "fandom": "Harry Potter",
+      "era": "Post-War Years & Epilogue",
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "scope:post-war",
+        "era:post-war"
+      ],
+      "updatedAt": 1780617600000,
+      "stats": {
+        "entryCount": 1,
+        "categoryCounts": {
+          "event": 1
+        },
+        "timelineAnchorCount": 29,
+        "timelineWindowCount": 7
       }
     }
   ]

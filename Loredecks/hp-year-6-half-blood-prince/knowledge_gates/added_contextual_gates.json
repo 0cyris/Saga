@@ -1,0 +1,192 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "behavior_hermione_year6_research_mode",
+      "title": "Hermione Year 6 Research Boundaries",
+      "kind": "behavior_gate",
+      "gateType": "behavior_gate",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 75,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y6.draco_borgin_burkes_suspicion",
+        "validToAnchor": "hp.y6.funeral",
+        "sortKeyFrom": 9740,
+        "sortKeyTo": 10042,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Half-Blood Prince: Year 6",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Hermione Granger"
+        ],
+        "topics": [
+          "research",
+          "suspicion",
+          "library",
+          "rules"
+        ],
+        "schoolYears": [
+          "6"
+        ],
+        "books": [
+          "Half-Blood Prince"
+        ],
+        "phases": [
+          "term_start"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Hermione Granger"
+          ],
+          "topicsAny": [
+            "research",
+            "suspicion",
+            "library",
+            "rules"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 6, Hermione is precise, skeptical, and research-driven, but her knowledge remains bounded by what the story has established she discovered.",
+        "injection": "Write Year 6 Hermione as precise, skeptical, rule-aware, and intensely research-driven; she should ask for evidence and seek library/professor routes, but she should not know hidden plot truths before our story establishes how she learned them.",
+        "constraints": [
+          "Do not let Hermione’s intelligence become automatic knowledge of unrevealed secrets."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Half-Blood Prince",
+        "confidence": 0.85
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-6-half-blood-prince",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "institution_hogwarts_year6_security",
+      "title": "Year 6 Hogwarts Security",
+      "kind": "institution_state",
+      "gateType": "institution_state",
+      "category": "faction",
+      "relevance": "low",
+      "lorePurpose": "status_change",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 90,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y6.draco_borgin_burkes_suspicion",
+        "validToAnchor": "hp.y6.funeral",
+        "sortKeyFrom": 9740,
+        "sortKeyTo": 10042,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Half-Blood Prince: Year 6",
+        "approximate": false
+      },
+      "scope": {
+        "locations": [
+          "Hogwarts"
+        ],
+        "topics": [
+          "security",
+          "Death Eaters",
+          "Dumbledore"
+        ],
+        "schoolYears": [
+          "6"
+        ],
+        "books": [
+          "Half-Blood Prince"
+        ],
+        "phases": [
+          "term_start"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "security",
+            "Death Eaters",
+            "Dumbledore"
+          ]
+        }
+      },
+      "content": {
+        "fact": "During the 1996-1997 school year before the Astronomy Tower crisis, Hogwarts operates under heightened security and Dumbledore remains the decisive authority.",
+        "injection": "During Year 6 before the Astronomy Tower crisis, Hogwarts operates under heightened security and Dumbledore remains the decisive authority; suspicious attacks, secret movement, and unusual magic should draw more scrutiny than in ordinary school years.",
+        "constraints": [
+          "Keep Year 6 Hogwarts more security-conscious than ordinary school years."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Half-Blood Prince",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "deathStateGatePass": {
+          "method": "removed positive requiresEvents from canon database entry",
+          "notes": "Canon database proposals are Context-gated references; they should not become Future solely because a story milestone flag is absent.",
+          "requiresEventsRemoved": [
+            "dumbledore_death_occurs"
+          ]
+        },
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-6-half-blood-prince",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 1,
   "entrySchemaVersion": 3,
   "id": "hp-year-2-chamber-of-secrets",
   "type": "bundled",
@@ -67,15 +67,34 @@
   "registries": {
     "timeline": "timeline.json"
   },
-  "files": [],
+  "files": [
+    "characters/adult_character_phase_baselines.json",
+    "characters/present_character_baselines.json",
+    "chronology/major_events.json",
+    "chronology/school_years.json",
+    "events/school_year_windows.json",
+    "expanded_books/book_2_chamber_of_secrets_expansion.json",
+    "lexicon_calendars/year_2_cos_calendar_anchors.json",
+    "skills/school_year_skill_bands.json",
+    "spell_gates/spell_gates.json"
+  ],
   "compatibility": {
     "sagaSchemaMin": 3,
     "sagaSchemaMax": 3
   },
   "stats": {
-    "entryCount": 0,
-    "categoryCounts": {},
+    "entryCount": 43,
+    "categoryCounts": {
+      "character": 17,
+      "event": 13,
+      "item": 1,
+      "knowledge": 8,
+      "location": 2,
+      "spell": 1,
+      "timeline": 1
+    },
     "timelineAnchorCount": 55,
     "timelineWindowCount": 9
-  }
+  },
+  "updatedAt": 1780617600000
 }

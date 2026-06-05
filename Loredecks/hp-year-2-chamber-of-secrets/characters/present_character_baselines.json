@@ -1,0 +1,1556 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "present_character_harry_potter_year_2_baseline",
+      "title": "Harry Potter: Year 2 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y2.burrow_arrival",
+        "validToAnchor": "hp.y2.hagrid_returns",
+        "sortKeyFrom": 8279,
+        "sortKeyTo": 8643,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 2",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Harry"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Gryffindor"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 2",
+          "Harry Potter",
+          "harry",
+          "gryffindor",
+          "present-character",
+          "year-2"
+        ],
+        "schoolYears": [
+          "2"
+        ],
+        "books": [
+          "Chamber of Secrets"
+        ],
+        "eras": [
+          "Year 2",
+          "Chamber of Secrets"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Harry"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 2",
+            "Harry Potter",
+            "harry",
+            "gryffindor",
+            "present-character",
+            "year-2"
+          ],
+          "erasAny": [
+            "Year 2",
+            "Chamber of Secrets"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 2, Harry is more at home at Hogwarts but still young, defensive when suspected, impulsive under pressure, and quicker to act than to plan.",
+        "injection": "Write Harry as his Year 2 self: more settled at Hogwarts, brave and reactive, but still a twelve-year-old with limited strategy and limited emotional distance.",
+        "constraints": [
+          "He can be defensive about suspicion and exclusion without becoming cynical or hardened.",
+          "He should rely on instinct, loyalty, and immediate problem-solving rather than long-term planning.",
+          "Do not make him comfortable with fame, institutional scrutiny, or public accusation.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not give Year 2 Harry later knowledge of war politics, Horcruxes, or adult-level combat habits."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "harry",
+          "gryffindor",
+          "present-character",
+          "character-baseline",
+          "year-2"
+        ],
+        "stateHints": {
+          "character": "Harry Potter",
+          "schoolYear": 2,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Chamber of Secrets",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-2-chamber-of-secrets",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "present_character_hermione_granger_year_2_baseline",
+      "title": "Hermione Granger: Year 2 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y2.burrow_arrival",
+        "validToAnchor": "hp.y2.hagrid_returns",
+        "sortKeyFrom": 8279,
+        "sortKeyTo": 8643,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 2",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Hermione Granger",
+          "Hermione"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Gryffindor"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 2",
+          "Hermione Granger",
+          "hermione",
+          "gryffindor",
+          "present-character",
+          "year-2"
+        ],
+        "schoolYears": [
+          "2"
+        ],
+        "books": [
+          "Chamber of Secrets"
+        ],
+        "eras": [
+          "Year 2",
+          "Chamber of Secrets"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Hermione Granger",
+            "Hermione"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 2",
+            "Hermione Granger",
+            "hermione",
+            "gryffindor",
+            "present-character",
+            "year-2"
+          ],
+          "erasAny": [
+            "Year 2",
+            "Chamber of Secrets"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 2, Hermione is more settled with friends, still intensely studious, rational, prepared, and willing to bend rules when she believes necessity justifies it.",
+        "injection": "Write Hermione as her Year 2 self: prepared, rational, academically formidable for her age, still procedural, and only selectively willing to break rules.",
+        "constraints": [
+          "She should prefer research, evidence, and planning over improvisation.",
+          "Her rule-breaking should feel reasoned and purposeful, not casual.",
+          "Keep her emotional maturity appropriate for twelve.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not turn Year 2 Hermione into a flawless adult strategist or a casual rebel."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "hermione",
+          "gryffindor",
+          "present-character",
+          "character-baseline",
+          "year-2"
+        ],
+        "stateHints": {
+          "character": "Hermione Granger",
+          "schoolYear": 2,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Chamber of Secrets",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-2-chamber-of-secrets",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "present_character_ron_weasley_year_2_baseline",
+      "title": "Ron Weasley: Year 2 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y2.burrow_arrival",
+        "validToAnchor": "hp.y2.hagrid_returns",
+        "sortKeyFrom": 8279,
+        "sortKeyTo": 8643,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 2",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Ron Weasley",
+          "Ron"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Gryffindor",
+          "Weasley family"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 2",
+          "Ron Weasley",
+          "ron",
+          "weasley",
+          "gryffindor",
+          "present-character",
+          "year-2"
+        ],
+        "schoolYears": [
+          "2"
+        ],
+        "books": [
+          "Chamber of Secrets"
+        ],
+        "eras": [
+          "Year 2",
+          "Chamber of Secrets"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Ron Weasley",
+            "Ron"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 2",
+            "Ron Weasley",
+            "ron",
+            "weasley",
+            "gryffindor",
+            "present-character",
+            "year-2"
+          ],
+          "erasAny": [
+            "Year 2",
+            "Chamber of Secrets"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 2, Ron is more settled at Hogwarts, still anxious about inadequacy, reflexively funny, loyal under pressure, and braver than he claims.",
+        "injection": "Write Ron as his Year 2 self: loyal, comic, insecure, easily embarrassed, and capable of acting despite fear.",
+        "constraints": [
+          "His fear should not erase his willingness to help when it matters.",
+          "Keep his speech blunt, adolescent, and less analytical than Hermione’s.",
+          "Do not make him socially or emotionally sophisticated.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write Year 2 Ron as either useless comic relief or a hardened veteran."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "ron",
+          "weasley",
+          "gryffindor",
+          "present-character",
+          "character-baseline",
+          "year-2"
+        ],
+        "stateHints": {
+          "character": "Ron Weasley",
+          "schoolYear": 2,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Chamber of Secrets",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-2-chamber-of-secrets",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "present_character_draco_malfoy_year_2_baseline",
+      "title": "Draco Malfoy: Year 2 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y2.burrow_arrival",
+        "validToAnchor": "hp.y2.hagrid_returns",
+        "sortKeyFrom": 8279,
+        "sortKeyTo": 8643,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 2",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Draco Malfoy",
+          "Draco",
+          "Malfoy"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Slytherin",
+          "Malfoy family"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 2",
+          "Draco Malfoy",
+          "draco",
+          "slytherin",
+          "present-character",
+          "year-2"
+        ],
+        "schoolYears": [
+          "2"
+        ],
+        "books": [
+          "Chamber of Secrets"
+        ],
+        "eras": [
+          "Year 2",
+          "Chamber of Secrets"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Draco Malfoy",
+            "Draco",
+            "Malfoy"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 2",
+            "Draco Malfoy",
+            "draco",
+            "slytherin",
+            "present-character",
+            "year-2"
+          ],
+          "erasAny": [
+            "Year 2",
+            "Chamber of Secrets"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 2, Draco is more entrenched in prejudice, arrogant in public, cruel when protected by status, and insecure beneath family-name performance.",
+        "injection": "Write Draco as his Year 2 self: arrogant, prejudiced, status-protected, performatively cruel, and still fundamentally adolescent.",
+        "constraints": [
+          "He should needle and posture more than plan deeply.",
+          "His confidence should depend heavily on audience, allies, and family status.",
+          "Do not make him a secret adult-level conspirator.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not import Year 6 fear, mission pressure, or moral collapse into Year 2 Draco."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "draco",
+          "slytherin",
+          "present-character",
+          "character-baseline",
+          "year-2"
+        ],
+        "stateHints": {
+          "character": "Draco Malfoy",
+          "schoolYear": 2,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Chamber of Secrets",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-2-chamber-of-secrets",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "present_character_neville_longbottom_year_2_baseline",
+      "title": "Neville Longbottom: Year 2 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y2.burrow_arrival",
+        "validToAnchor": "hp.y2.hagrid_returns",
+        "sortKeyFrom": 8279,
+        "sortKeyTo": 8643,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 2",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Neville Longbottom",
+          "Neville"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Gryffindor"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 2",
+          "Neville Longbottom",
+          "neville",
+          "gryffindor",
+          "present-character",
+          "year-2"
+        ],
+        "schoolYears": [
+          "2"
+        ],
+        "books": [
+          "Chamber of Secrets"
+        ],
+        "eras": [
+          "Year 2",
+          "Chamber of Secrets"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Neville Longbottom",
+            "Neville"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 2",
+            "Neville Longbottom",
+            "neville",
+            "gryffindor",
+            "present-character",
+            "year-2"
+          ],
+          "erasAny": [
+            "Year 2",
+            "Chamber of Secrets"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 2, Neville remains insecure and accident-prone, but his loyalty and desire to be brave are visible beneath anxiety.",
+        "injection": "Write Neville as his Year 2 self: nervous, sincere, easily rattled, and loyal, with bravery still tentative rather than practiced.",
+        "constraints": [
+          "He should be vulnerable to embarrassment and intimidation.",
+          "His competence should be uneven and situational.",
+          "Do not make him socially commanding or magically formidable yet.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not make Year 2 Neville the confident public symbol he becomes later."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "neville",
+          "gryffindor",
+          "present-character",
+          "character-baseline",
+          "year-2"
+        ],
+        "stateHints": {
+          "character": "Neville Longbottom",
+          "schoolYear": 2,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Chamber of Secrets",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-2-chamber-of-secrets",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "present_character_ginny_weasley_year_2_baseline",
+      "title": "Ginny Weasley: Year 2 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y2.burrow_arrival",
+        "validToAnchor": "hp.y2.hagrid_returns",
+        "sortKeyFrom": 8279,
+        "sortKeyTo": 8643,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 2",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Ginny Weasley",
+          "Ginny"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Gryffindor",
+          "Weasley family"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 2",
+          "Ginny Weasley",
+          "ginny",
+          "weasley",
+          "gryffindor",
+          "present-character",
+          "year-2"
+        ],
+        "schoolYears": [
+          "2"
+        ],
+        "books": [
+          "Chamber of Secrets"
+        ],
+        "eras": [
+          "Year 2",
+          "Chamber of Secrets"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Ginny Weasley",
+            "Ginny"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 2",
+            "Ginny Weasley",
+            "ginny",
+            "weasley",
+            "gryffindor",
+            "present-character",
+            "year-2"
+          ],
+          "erasAny": [
+            "Year 2",
+            "Chamber of Secrets"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 2, Ginny is a first-year who is shy, overwhelmed, observant, and much less outwardly confident than her later self.",
+        "injection": "Write Ginny as her Year 2 self: young, shy, overwhelmed, and quiet under pressure, not yet the openly forceful Ginny of later years.",
+        "constraints": [
+          "Her confidence should be limited and situational.",
+          "She should not dominate peer dynamics or act like an older student.",
+          "Keep possession, diary, or recovery details in separate date-sensitive entries.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not make Year 2 Ginny socially fearless or combatively self-possessed by default."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "ginny",
+          "weasley",
+          "gryffindor",
+          "present-character",
+          "character-baseline",
+          "year-2"
+        ],
+        "stateHints": {
+          "character": "Ginny Weasley",
+          "schoolYear": 2,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Chamber of Secrets",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-2-chamber-of-secrets",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "present_character_luna_lovegood_year_2_baseline",
+      "title": "Luna Lovegood: Year 2 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y2.burrow_arrival",
+        "validToAnchor": "hp.y2.hagrid_returns",
+        "sortKeyFrom": 8279,
+        "sortKeyTo": 8643,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 2",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luna Lovegood",
+          "Luna"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Ravenclaw"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 2",
+          "Luna Lovegood",
+          "luna",
+          "ravenclaw",
+          "present-character",
+          "year-2"
+        ],
+        "schoolYears": [
+          "2"
+        ],
+        "books": [
+          "Chamber of Secrets"
+        ],
+        "eras": [
+          "Year 2",
+          "Chamber of Secrets"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Luna Lovegood",
+            "Luna"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 2",
+            "Luna Lovegood",
+            "luna",
+            "ravenclaw",
+            "present-character",
+            "year-2"
+          ],
+          "erasAny": [
+            "Year 2",
+            "Chamber of Secrets"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 2, Luna is a young Ravenclaw student with an unusual, dreamy manner, social vulnerability, and a sincere indifference to ordinary status games.",
+        "injection": "Write Luna in Year 2 as a younger, dreamy, socially isolated Ravenclaw: sincere, odd, and not yet central to major peer conflicts.",
+        "constraints": [
+          "Her oddness should be gentle and sincere, not random nonsense.",
+          "Keep her age and social reach limited.",
+          "Do not import later close-war involvement into this early baseline.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write early Luna as a fully initiated member of later resistance circles."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "luna",
+          "ravenclaw",
+          "present-character",
+          "character-baseline",
+          "year-2"
+        ],
+        "stateHints": {
+          "character": "Luna Lovegood",
+          "schoolYear": 2,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Chamber of Secrets",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-2-chamber-of-secrets",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "present_character_fred_weasley_year_2_baseline",
+      "title": "Fred Weasley: Year 2 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y2.burrow_arrival",
+        "validToAnchor": "hp.y2.hagrid_returns",
+        "sortKeyFrom": 8279,
+        "sortKeyTo": 8643,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 2",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Fred Weasley",
+          "Fred"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Gryffindor",
+          "Weasley family"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 2",
+          "Fred Weasley",
+          "fred",
+          "weasley",
+          "gryffindor",
+          "present-character",
+          "year-2"
+        ],
+        "schoolYears": [
+          "2"
+        ],
+        "books": [
+          "Chamber of Secrets"
+        ],
+        "eras": [
+          "Year 2",
+          "Chamber of Secrets"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Fred Weasley",
+            "Fred"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 2",
+            "Fred Weasley",
+            "fred",
+            "weasley",
+            "gryffindor",
+            "present-character",
+            "year-2"
+          ],
+          "erasAny": [
+            "Year 2",
+            "Chamber of Secrets"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 2, Fred is a confident prankster with quick comic timing, appetite for risk, and a talent for turning school discipline into performance.",
+        "injection": "Write Fred in Year 2 as bold, funny, irreverent, and rule-testing, with comedy used as social control and defiance.",
+        "constraints": [
+          "He should often escalate jokes more aggressively than George.",
+          "Keep the mischief school-aged rather than professionally polished.",
+          "Do not make him careless about real danger when the stakes are clear.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not reduce Fred to interchangeable twin dialogue; give him slightly sharper forward momentum."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "fred",
+          "weasley",
+          "gryffindor",
+          "present-character",
+          "character-baseline",
+          "year-2"
+        ],
+        "stateHints": {
+          "character": "Fred Weasley",
+          "schoolYear": 2,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Chamber of Secrets",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-2-chamber-of-secrets",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "present_character_george_weasley_year_2_baseline",
+      "title": "George Weasley: Year 2 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y2.burrow_arrival",
+        "validToAnchor": "hp.y2.hagrid_returns",
+        "sortKeyFrom": 8279,
+        "sortKeyTo": 8643,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 2",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "George Weasley",
+          "George"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Gryffindor",
+          "Weasley family"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 2",
+          "George Weasley",
+          "george",
+          "weasley",
+          "gryffindor",
+          "present-character",
+          "year-2"
+        ],
+        "schoolYears": [
+          "2"
+        ],
+        "books": [
+          "Chamber of Secrets"
+        ],
+        "eras": [
+          "Year 2",
+          "Chamber of Secrets"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "George Weasley",
+            "George"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 2",
+            "George Weasley",
+            "george",
+            "weasley",
+            "gryffindor",
+            "present-character",
+            "year-2"
+          ],
+          "erasAny": [
+            "Year 2",
+            "Chamber of Secrets"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 2, George is irreverent, funny, coordinated with Fred, and adept at making authority look ridiculous without losing social charm.",
+        "injection": "Write George in Year 2 as funny, irreverent, quick, and socially deft, with a slightly steadier rhythm than Fred.",
+        "constraints": [
+          "He should complement rather than simply duplicate Fred.",
+          "His humor can undercut tension without ignoring serious danger.",
+          "Keep the mischief school-aged rather than professionally polished.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not reduce George to interchangeable twin dialogue with no individual cadence."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "george",
+          "weasley",
+          "gryffindor",
+          "present-character",
+          "character-baseline",
+          "year-2"
+        ],
+        "stateHints": {
+          "character": "George Weasley",
+          "schoolYear": 2,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Chamber of Secrets",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-2-chamber-of-secrets",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "present_character_cedric_diggory_year_2_baseline",
+      "title": "Cedric Diggory: Year 2 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y2.burrow_arrival",
+        "validToAnchor": "hp.y2.hagrid_returns",
+        "sortKeyFrom": 8279,
+        "sortKeyTo": 8643,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 2",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Cedric Diggory",
+          "Cedric"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Hufflepuff"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 2",
+          "Cedric Diggory",
+          "cedric",
+          "hufflepuff",
+          "present-character",
+          "year-2"
+        ],
+        "schoolYears": [
+          "2"
+        ],
+        "books": [
+          "Chamber of Secrets"
+        ],
+        "eras": [
+          "Year 2",
+          "Chamber of Secrets"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Cedric Diggory",
+            "Cedric"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 2",
+            "Cedric Diggory",
+            "cedric",
+            "hufflepuff",
+            "present-character",
+            "year-2"
+          ],
+          "erasAny": [
+            "Year 2",
+            "Chamber of Secrets"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 2, Cedric remains courteous, grounded, socially capable, and quietly competitive without the entitlement associated with more status-driven students.",
+        "injection": "Write Cedric in Year 2 as courteous, capable, grounded, and fair-minded, with confidence that does not require cruelty.",
+        "constraints": [
+          "He should be socially competent and liked without feeling smug.",
+          "His competitiveness should remain sportsmanlike.",
+          "Do not make him a central war figure.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not let future death-state tragedy dominate ordinary Year 2 Cedric scenes."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "cedric",
+          "hufflepuff",
+          "present-character",
+          "character-baseline",
+          "year-2"
+        ],
+        "stateHints": {
+          "character": "Cedric Diggory",
+          "schoolYear": 2,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Chamber of Secrets",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-2-chamber-of-secrets",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

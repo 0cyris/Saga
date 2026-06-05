@@ -1,0 +1,198 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "event_sirius_death_after",
+      "title": "Sirius Death Aftermath",
+      "kind": "event_anchor",
+      "gateType": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 55,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.prophecy_explained",
+        "validToAnchor": "hp.y5.grief_and_train_home",
+        "sortKeyFrom": 9665,
+        "sortKeyTo": 9675,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Order of the Phoenix: Year 5",
+        "approximate": false
+      },
+      "scope": {
+        "topics": [
+          "timeline",
+          "canon state"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ],
+        "phases": [
+          "climax"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "topicsAny": [
+            "timeline",
+            "canon state"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Sirius Black is dead after the Department of Mysteries battle, and Harry is grieving.",
+        "injection": "After the Department of Mysteries battle, Sirius Black is dead and Harry is grieving unless our story has established a different outcome."
+      },
+      "effects": {
+        "addsTags": [
+          "timeline",
+          "year-5"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Order of the Phoenix",
+        "confidence": 0.85,
+        "notes": "Curated Context constraint seed entry."
+      },
+      "extensions": {
+        "temporalTightening": {
+          "method": "curated chronology point event: validFrom plus 10 days",
+          "notes": "End date narrowed so event-like lore does not remain active as an open-ended suggestion.",
+          "previousValidTo": "1998-08-31"
+        },
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-5-order-of-the-phoenix",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "event_voldemort_public_acknowledged",
+      "title": "Voldemort return publicly acknowledged",
+      "kind": "event_anchor",
+      "gateType": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 55,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.prophecy_explained",
+        "validToAnchor": "hp.y5.grief_and_train_home",
+        "sortKeyFrom": 9665,
+        "sortKeyTo": 9675,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Order of the Phoenix: Year 5",
+        "approximate": false
+      },
+      "scope": {
+        "topics": [
+          "timeline",
+          "canon state"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ],
+        "phases": [
+          "climax"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "topicsAny": [
+            "timeline",
+            "canon state"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Voldemort’s return is publicly acknowledged.",
+        "injection": "Voldemort’s return is publicly acknowledged."
+      },
+      "effects": {
+        "addsTags": [
+          "timeline",
+          "year-5"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Order of the Phoenix",
+        "confidence": 0.85,
+        "notes": "Curated Context constraint seed entry."
+      },
+      "extensions": {
+        "temporalTightening": {
+          "method": "curated chronology point event: validFrom plus 10 days",
+          "notes": "End date narrowed so event-like lore does not remain active as an open-ended suggestion.",
+          "previousValidTo": "1998-08-31"
+        },
+        "deathStateGatePass": {
+          "method": "removed positive requiresEvents from canon database entry",
+          "notes": "Canon database proposals are Context-gated references; they should not become Future solely because a story milestone flag is absent.",
+          "requiresEventsRemoved": [
+            "voldemort_return_publicly_acknowledged"
+          ]
+        },
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-5-order-of-the-phoenix",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

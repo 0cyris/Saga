@@ -9,9 +9,18 @@ import {
   resolveLoredeckStackItems,
 } from '../loredeck-library-index.js';
 import {
+  resolveLoredeckLibraryDragFeedback,
+} from '../loredeck-library-drag.js';
+import {
+  getLoredeckLibraryManualSortOrder,
+  sortLoredeckLibraryPacks,
+} from '../loredeck-library-view.js';
+import {
   applyLoredeckLibraryFolderRemovalPlan,
   createLoredeckLibraryFolderRecord,
+  getLoredeckLibraryFolderDeckIds,
   getLoredeckLibraryFolderRemovalPlan,
+  isLoredeckLibraryFolderDescendant,
   moveLoredeckLibraryFolderRecord,
   moveLoredecksToLibraryFolderPlacement,
   renameLoredeckLibraryFolderRecord,
@@ -60,6 +69,13 @@ assert.equal(index.deckPlacements.find(item => item.deckId === 'hp-year-6-half-b
 
 const tree = buildFolderTree(index);
 assert.equal(tree.find(folder => folder.id === onePieceId)?.children[0]?.id, eastBlueId);
+assert.equal(isLoredeckLibraryFolderDescendant(arlongId, onePieceId, index), true);
+assert.equal(isLoredeckLibraryFolderDescendant(onePieceId, arlongId, index), false);
+assert.deepEqual(getLoredeckLibraryFolderDeckIds(arlongId, index).sort(), [
+  'onepiece-arlong-core',
+  'onepiece-arlong-villains',
+]);
+assert.deepEqual(getLoredeckLibraryFolderDeckIds(onePieceId, index, { includeNested: false }), []);
 
 const resolved = resolveLoredeckStackItems([
   { type: 'deck', packId: 'onepiece-arlong-villains', priority: 100, sortOrder: 10 },
@@ -174,5 +190,90 @@ assert.equal(unfiledRemoval.ok, true);
 assert.equal(unfiledRemoval.folders.some(folder => folder.id === 'folder_series__arc__scene'), false);
 assert.equal(unfiledRemoval.deckPlacements.find(item => item.deckId === 'deck-direct')?.folderId, '');
 assert.equal(unfiledRemoval.deckPlacements.find(item => item.deckId === 'deck-nested')?.folderId, '');
+
+assert.deepEqual(resolveLoredeckLibraryDragFeedback({
+  dragType: 'library-deck',
+  packIds: ['onepiece-arlong-core', 'onepiece-arlong-villains'],
+  dropKind: 'folder',
+  dropFolderId: arlongId,
+  libraryIndex: index,
+}), {
+  valid: true,
+  text: 'Move 2 Loredecks to One Piece > East Blue Saga > Arlong Park',
+});
+
+assert.equal(resolveLoredeckLibraryDragFeedback({
+  dragType: 'library-folder',
+  folderId: onePieceId,
+  folderTitle: 'One Piece',
+  dropKind: 'folder',
+  dropFolderId: arlongId,
+  libraryIndex: index,
+}).valid, false);
+
+assert.deepEqual(resolveLoredeckLibraryDragFeedback({
+  dragType: 'library-folder',
+  folderId: arlongId,
+  folderTitle: 'Arlong Park',
+  dropKind: 'library',
+  reparentToRoot: true,
+  libraryIndex: index,
+}), {
+  valid: true,
+  text: 'Move Arlong Park to Library root',
+  root: true,
+});
+
+assert.equal(resolveLoredeckLibraryDragFeedback({
+  dragType: 'stack-item',
+  stackKey: `folder:${arlongId}`,
+  dropKind: 'folder',
+  dropFolderId: eastBlueId,
+  libraryIndex: index,
+}).text, 'Folder groups cannot be dropped into Library folders');
+
+const sortPacks = [
+  { packId: 'custom-b', title: 'Custom B', type: 'custom', library: { familyOrder: 500 }, updatedAt: 2000, stats: { entryCount: 8 } },
+  { packId: 'bundled-a', title: 'Bundled A', type: 'bundled', library: { familyOrder: 300 }, updatedAt: 1000, stats: { entryCount: 20 } },
+  { packId: 'generated-c', title: 'Generated C', type: 'generated', updatedAt: 3000, stats: { entryCount: 2 } },
+];
+const sortRegistry = {
+  deckPlacements: [
+    { deckId: 'generated-c', sortOrder: 100 },
+    { deckId: 'bundled-a', sortOrder: 200 },
+  ],
+};
+assert.equal(getLoredeckLibraryManualSortOrder(sortPacks[2], sortRegistry), 100);
+assert.deepEqual(sortLoredeckLibraryPacks(sortPacks, { sortMode: 'manual', registry: sortRegistry }).map(pack => pack.packId), [
+  'generated-c',
+  'bundled-a',
+  'custom-b',
+]);
+assert.deepEqual(sortLoredeckLibraryPacks(sortPacks, { sortMode: 'type' }).map(pack => pack.packId), [
+  'bundled-a',
+  'custom-b',
+  'generated-c',
+]);
+assert.deepEqual(sortLoredeckLibraryPacks(sortPacks, {
+  sortMode: 'health',
+  getHealthTone: pack => ({ 'bundled-a': 'warning', 'custom-b': 'error', 'generated-c': 'ok' }[pack.packId]),
+}).map(pack => pack.packId), [
+  'custom-b',
+  'bundled-a',
+  'generated-c',
+]);
+assert.deepEqual(sortLoredeckLibraryPacks(sortPacks, {
+  sortMode: 'entries',
+  getEntryCount: pack => pack.stats.entryCount,
+}).map(pack => pack.packId), [
+  'bundled-a',
+  'custom-b',
+  'generated-c',
+]);
+assert.deepEqual(sortLoredeckLibraryPacks(sortPacks, { sortMode: 'updated' }).map(pack => pack.packId), [
+  'generated-c',
+  'custom-b',
+  'bundled-a',
+]);
 
 console.log('Loredeck Library folder tests passed.');

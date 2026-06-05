@@ -1,0 +1,1391 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "present_character_harry_potter_year_6_baseline",
+      "title": "Harry Potter: Year 6 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y6.draco_borgin_burkes_suspicion",
+        "validToAnchor": "hp.y6.horcrux_hunt_decision",
+        "sortKeyFrom": 9740,
+        "sortKeyTo": 10104,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 6",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Harry"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Gryffindor"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 6",
+          "Harry Potter",
+          "harry",
+          "gryffindor",
+          "present-character",
+          "year-6"
+        ],
+        "schoolYears": [
+          "6"
+        ],
+        "books": [
+          "Half-Blood Prince"
+        ],
+        "eras": [
+          "Year 6",
+          "Half-Blood Prince"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Harry"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 6",
+            "Harry Potter",
+            "harry",
+            "gryffindor",
+            "present-character",
+            "year-6"
+          ],
+          "erasAny": [
+            "Year 6",
+            "Half-Blood Prince"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 6, Harry is more experienced, suspicious, practically capable, emotionally intense, and increasingly willing to trust his own judgment over official explanations.",
+        "injection": "Write Harry as his Year 6 self: more capable and suspicious, still emotionally intense, with stronger practical instincts but persistent teenage blind spots.",
+        "constraints": [
+          "He can be forceful about hunches without having airtight evidence.",
+          "He should be more competent than earlier years but not an adult investigator or soldier.",
+          "Do not give him complete emotional detachment or postwar hindsight.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write Year 6 Harry as naive first-year Harry or as a fully hardened Year 7 survivor."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "harry",
+          "gryffindor",
+          "present-character",
+          "character-baseline",
+          "year-6"
+        ],
+        "stateHints": {
+          "character": "Harry Potter",
+          "schoolYear": 6,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Half-Blood Prince",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-6-half-blood-prince",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "present_character_hermione_granger_year_6_baseline",
+      "title": "Hermione Granger: Year 6 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y6.draco_borgin_burkes_suspicion",
+        "validToAnchor": "hp.y6.horcrux_hunt_decision",
+        "sortKeyFrom": 9740,
+        "sortKeyTo": 10104,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 6",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Hermione Granger",
+          "Hermione"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Gryffindor"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 6",
+          "Hermione Granger",
+          "hermione",
+          "gryffindor",
+          "present-character",
+          "year-6"
+        ],
+        "schoolYears": [
+          "6"
+        ],
+        "books": [
+          "Half-Blood Prince"
+        ],
+        "eras": [
+          "Year 6",
+          "Half-Blood Prince"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Hermione Granger",
+            "Hermione"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 6",
+            "Hermione Granger",
+            "hermione",
+            "gryffindor",
+            "present-character",
+            "year-6"
+          ],
+          "erasAny": [
+            "Year 6",
+            "Half-Blood Prince"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 6, Hermione is academically formidable, proud, emotionally more exposed, and often torn between evidence, principle, and personal frustration.",
+        "injection": "Write Hermione as her Year 6 self: highly competent, proud, evidence-driven, emotionally vulnerable under strain, and less detached than she wants to appear.",
+        "constraints": [
+          "Her arguments should often rest on logic and evidence, but personal feelings can sharpen them.",
+          "She should not be infallible; pride and hurt can distort her reactions.",
+          "Do not make her calmly above all adolescent jealousy, insecurity, or frustration.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not flatten Year 6 Hermione into a neutral encyclopedia voice."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "hermione",
+          "gryffindor",
+          "present-character",
+          "character-baseline",
+          "year-6"
+        ],
+        "stateHints": {
+          "character": "Hermione Granger",
+          "schoolYear": 6,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Half-Blood Prince",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-6-half-blood-prince",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "present_character_ron_weasley_year_6_baseline",
+      "title": "Ron Weasley: Year 6 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y6.draco_borgin_burkes_suspicion",
+        "validToAnchor": "hp.y6.horcrux_hunt_decision",
+        "sortKeyFrom": 9740,
+        "sortKeyTo": 10104,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 6",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Ron Weasley",
+          "Ron"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Gryffindor",
+          "Weasley family"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 6",
+          "Ron Weasley",
+          "ron",
+          "weasley",
+          "gryffindor",
+          "present-character",
+          "year-6"
+        ],
+        "schoolYears": [
+          "6"
+        ],
+        "books": [
+          "Half-Blood Prince"
+        ],
+        "eras": [
+          "Year 6",
+          "Half-Blood Prince"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Ron Weasley",
+            "Ron"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 6",
+            "Ron Weasley",
+            "ron",
+            "weasley",
+            "gryffindor",
+            "present-character",
+            "year-6"
+          ],
+          "erasAny": [
+            "Year 6",
+            "Half-Blood Prince"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 6, Ron mixes loyalty, humor, insecurity, romantic awkwardness, and sensitivity about status, competence, and public embarrassment.",
+        "injection": "Write Ron as his Year 6 self: loyal and funny but vulnerable to insecurity, jealousy, humiliation, and romantic awkwardness.",
+        "constraints": [
+          "He can be more socially active than earlier years while remaining emotionally clumsy.",
+          "His confidence should fluctuate with immediate success or embarrassment.",
+          "Do not make him hardened, articulate about feelings, or free of adolescent defensiveness.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write Year 6 Ron as the desperate, hunted Ron of Year 7."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "ron",
+          "weasley",
+          "gryffindor",
+          "present-character",
+          "character-baseline",
+          "year-6"
+        ],
+        "stateHints": {
+          "character": "Ron Weasley",
+          "schoolYear": 6,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Half-Blood Prince",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-6-half-blood-prince",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "present_character_draco_malfoy_year_6_baseline",
+      "title": "Draco Malfoy: Year 6 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y6.draco_borgin_burkes_suspicion",
+        "validToAnchor": "hp.y6.horcrux_hunt_decision",
+        "sortKeyFrom": 9740,
+        "sortKeyTo": 10104,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 6",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Draco Malfoy",
+          "Draco",
+          "Malfoy"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Slytherin",
+          "Malfoy family"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 6",
+          "Draco Malfoy",
+          "draco",
+          "slytherin",
+          "present-character",
+          "year-6"
+        ],
+        "schoolYears": [
+          "6"
+        ],
+        "books": [
+          "Half-Blood Prince"
+        ],
+        "eras": [
+          "Year 6",
+          "Half-Blood Prince"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Draco Malfoy",
+            "Draco",
+            "Malfoy"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 6",
+            "Draco Malfoy",
+            "draco",
+            "slytherin",
+            "present-character",
+            "year-6"
+          ],
+          "erasAny": [
+            "Year 6",
+            "Half-Blood Prince"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 6, Draco is brittle, secretive, frightened, isolated, and still masking fear with aristocratic contempt and cruelty.",
+        "injection": "Write Draco as his Year 6 self: strained, secretive, frightened beneath arrogance, and less stable than his earlier school-bully persona.",
+        "constraints": [
+          "His contempt can be a mask for fear rather than simple confidence.",
+          "He should avoid full honesty about pressure unless the scene has earned it.",
+          "Do not make him casually carefree or fully redeemed by default.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write Year 6 Draco as merely the comic bully of earlier years."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "draco",
+          "slytherin",
+          "present-character",
+          "character-baseline",
+          "year-6"
+        ],
+        "stateHints": {
+          "character": "Draco Malfoy",
+          "schoolYear": 6,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Half-Blood Prince",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-6-half-blood-prince",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "present_character_neville_longbottom_year_6_baseline",
+      "title": "Neville Longbottom: Year 6 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y6.draco_borgin_burkes_suspicion",
+        "validToAnchor": "hp.y6.horcrux_hunt_decision",
+        "sortKeyFrom": 9740,
+        "sortKeyTo": 10104,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 6",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Neville Longbottom",
+          "Neville"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Gryffindor"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 6",
+          "Neville Longbottom",
+          "neville",
+          "gryffindor",
+          "present-character",
+          "year-6"
+        ],
+        "schoolYears": [
+          "6"
+        ],
+        "books": [
+          "Half-Blood Prince"
+        ],
+        "eras": [
+          "Year 6",
+          "Half-Blood Prince"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Neville Longbottom",
+            "Neville"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 6",
+            "Neville Longbottom",
+            "neville",
+            "gryffindor",
+            "present-character",
+            "year-6"
+          ],
+          "erasAny": [
+            "Year 6",
+            "Half-Blood Prince"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 6, Neville is more self-possessed, still modest, and increasingly dependable, with quiet confidence replacing some earlier panic.",
+        "injection": "Write Neville as his Year 6 self: modest, kinder than bold, more dependable, and quietly more confident without losing humility.",
+        "constraints": [
+          "He should show growth through steadiness rather than swagger.",
+          "His competence should be plausible but not exaggerated into effortless mastery.",
+          "Do not make him socially dominant without story support.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not erase Neville’s gentleness when increasing his confidence."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "neville",
+          "gryffindor",
+          "present-character",
+          "character-baseline",
+          "year-6"
+        ],
+        "stateHints": {
+          "character": "Neville Longbottom",
+          "schoolYear": 6,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Half-Blood Prince",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-6-half-blood-prince",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "present_character_ginny_weasley_year_6_baseline",
+      "title": "Ginny Weasley: Year 6 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y6.draco_borgin_burkes_suspicion",
+        "validToAnchor": "hp.y6.horcrux_hunt_decision",
+        "sortKeyFrom": 9740,
+        "sortKeyTo": 10104,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 6",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Ginny Weasley",
+          "Ginny"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Gryffindor",
+          "Weasley family"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 6",
+          "Ginny Weasley",
+          "ginny",
+          "weasley",
+          "gryffindor",
+          "present-character",
+          "year-6"
+        ],
+        "schoolYears": [
+          "6"
+        ],
+        "books": [
+          "Half-Blood Prince"
+        ],
+        "eras": [
+          "Year 6",
+          "Half-Blood Prince"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Ginny Weasley",
+            "Ginny"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 6",
+            "Ginny Weasley",
+            "ginny",
+            "weasley",
+            "gryffindor",
+            "present-character",
+            "year-6"
+          ],
+          "erasAny": [
+            "Year 6",
+            "Half-Blood Prince"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 6, Ginny is confident, socially capable, direct, athletic, and often impatient with condescension or overprotection.",
+        "injection": "Write Ginny as her Year 6 self: direct, confident, socially adept, athletic, and quick to push back against condescension.",
+        "constraints": [
+          "She should be warm in her own blunt way, not merely abrasive.",
+          "Do not reduce her to anyone else’s romantic context.",
+          "Keep specific dating, breakup, or battle states in separate entries.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not make Year 6 Ginny shy, fragile, or defined only by her family."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "ginny",
+          "weasley",
+          "gryffindor",
+          "present-character",
+          "character-baseline",
+          "year-6"
+        ],
+        "stateHints": {
+          "character": "Ginny Weasley",
+          "schoolYear": 6,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Half-Blood Prince",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-6-half-blood-prince",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "present_character_luna_lovegood_year_6_baseline",
+      "title": "Luna Lovegood: Year 6 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y6.draco_borgin_burkes_suspicion",
+        "validToAnchor": "hp.y6.horcrux_hunt_decision",
+        "sortKeyFrom": 9740,
+        "sortKeyTo": 10104,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 6",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luna Lovegood",
+          "Luna"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Ravenclaw"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 6",
+          "Luna Lovegood",
+          "luna",
+          "ravenclaw",
+          "present-character",
+          "year-6"
+        ],
+        "schoolYears": [
+          "6"
+        ],
+        "books": [
+          "Half-Blood Prince"
+        ],
+        "eras": [
+          "Year 6",
+          "Half-Blood Prince"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Luna Lovegood",
+            "Luna"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 6",
+            "Luna Lovegood",
+            "luna",
+            "ravenclaw",
+            "present-character",
+            "year-6"
+          ],
+          "erasAny": [
+            "Year 6",
+            "Half-Blood Prince"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 6, Luna is steadier, braver, still eccentric, and increasingly willing to stand with others without changing her unusual manner.",
+        "injection": "Write Luna as her Year 6 self: eccentric, steady, brave, kind, and socially unconventional without needing to become normal.",
+        "constraints": [
+          "She should remain sincere and literal in unexpected ways.",
+          "Her courage should be quiet rather than boastful.",
+          "Do not make acceptance by others erase her distinct voice.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not normalize Luna into a generic brave student."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "luna",
+          "ravenclaw",
+          "present-character",
+          "character-baseline",
+          "year-6"
+        ],
+        "stateHints": {
+          "character": "Luna Lovegood",
+          "schoolYear": 6,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Half-Blood Prince",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-6-half-blood-prince",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "present_character_fred_weasley_year_6_baseline",
+      "title": "Fred Weasley: Year 6 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y6.draco_borgin_burkes_suspicion",
+        "validToAnchor": "hp.y6.horcrux_hunt_decision",
+        "sortKeyFrom": 9740,
+        "sortKeyTo": 10104,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 6",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Fred Weasley",
+          "Fred"
+        ],
+        "factions": [
+          "Gryffindor",
+          "Weasley family"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 6",
+          "Fred Weasley",
+          "fred",
+          "weasley",
+          "gryffindor",
+          "present-character",
+          "year-6"
+        ],
+        "schoolYears": [
+          "6"
+        ],
+        "books": [
+          "Half-Blood Prince"
+        ],
+        "eras": [
+          "Year 6",
+          "Half-Blood Prince"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Fred Weasley",
+            "Fred"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 6",
+            "Fred Weasley",
+            "fred",
+            "weasley",
+            "gryffindor",
+            "present-character",
+            "year-6"
+          ],
+          "erasAny": [
+            "Year 6",
+            "Half-Blood Prince"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 6, Fred is no longer an ordinary Hogwarts student; he is a young entrepreneur whose humor is sharper, more professional, and still reckless under stress.",
+        "injection": "Write Fred in Year 6 as a young joke-shop entrepreneur: fast, theatrical, ambitious, anti-authoritarian, and more adult than the current students.",
+        "constraints": [
+          "He should not be treated as attending normal Hogwarts classes unless accepted story lore changed that.",
+          "His comedy can be commercial and tactical, not just schoolboy pranking.",
+          "Do not make him sedate or risk-averse.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not revert Year 6 Fred to a normal enrolled student by default."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "fred",
+          "weasley",
+          "gryffindor",
+          "present-character",
+          "character-baseline",
+          "year-6"
+        ],
+        "stateHints": {
+          "character": "Fred Weasley",
+          "schoolYear": 6,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Half-Blood Prince",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-6-half-blood-prince",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "present_character_george_weasley_year_6_baseline",
+      "title": "George Weasley: Year 6 present-character baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y6.draco_borgin_burkes_suspicion",
+        "validToAnchor": "hp.y6.horcrux_hunt_decision",
+        "sortKeyFrom": 9740,
+        "sortKeyTo": 10104,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 6",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "George Weasley",
+          "George"
+        ],
+        "factions": [
+          "Gryffindor",
+          "Weasley family"
+        ],
+        "topics": [
+          "present character",
+          "character baseline",
+          "behavior",
+          "personality",
+          "year 6",
+          "George Weasley",
+          "george",
+          "weasley",
+          "gryffindor",
+          "present-character",
+          "year-6"
+        ],
+        "schoolYears": [
+          "6"
+        ],
+        "books": [
+          "Half-Blood Prince"
+        ],
+        "eras": [
+          "Year 6",
+          "Half-Blood Prince"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "George Weasley",
+            "George"
+          ],
+          "topicsAny": [
+            "present character",
+            "character baseline",
+            "behavior",
+            "personality",
+            "year 6",
+            "George Weasley",
+            "george",
+            "weasley",
+            "gryffindor",
+            "present-character",
+            "year-6"
+          ],
+          "erasAny": [
+            "Year 6",
+            "Half-Blood Prince"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 6, George is no longer an ordinary Hogwarts student; he is a young entrepreneur whose humor is professional, coordinated, and still anti-authoritarian.",
+        "injection": "Write George in Year 6 as a young joke-shop entrepreneur: witty, coordinated, ambitious, anti-authoritarian, and more adult than current students.",
+        "constraints": [
+          "He should not be treated as attending normal Hogwarts classes unless accepted story lore changed that.",
+          "His humor can be commercial, technical, and tactical.",
+          "Do not make him sedate or detached from risk.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not revert Year 6 George to a normal enrolled student by default."
+        ],
+        "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "george",
+          "weasley",
+          "gryffindor",
+          "present-character",
+          "character-baseline",
+          "year-6"
+        ],
+        "stateHints": {
+          "character": "George Weasley",
+          "schoolYear": 6,
+          "baselineOnly": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Half-Blood Prince",
+        "confidence": 0.86,
+        "notes": "Curated present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "present_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-6-half-blood-prince",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

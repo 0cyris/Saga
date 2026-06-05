@@ -67,15 +67,37 @@
   "registries": {
     "timeline": "timeline.json"
   },
-  "files": [],
+  "files": [
+    "behavior_gates/core_behaviors.json",
+    "characters/adult_character_phase_baselines.json",
+    "characters/present_character_baselines.json",
+    "chronology/major_events.json",
+    "chronology/school_years.json",
+    "events/school_year_windows.json",
+    "expanded_books/book_5_order_of_the_phoenix_expansion.json",
+    "future_guards/major_spoilers.json",
+    "lexicon_calendars/year_5_ootp_calendar_anchors.json",
+    "places/institution_states.json",
+    "skills/school_year_skill_bands.json",
+    "spell_gates/expanded_spell_gates.json"
+  ],
   "compatibility": {
     "sagaSchemaMin": 3,
     "sagaSchemaMax": 3
   },
   "stats": {
-    "entryCount": 0,
-    "categoryCounts": {},
+    "entryCount": 53,
+    "categoryCounts": {
+      "character": 20,
+      "event": 11,
+      "faction": 7,
+      "knowledge": 6,
+      "location": 4,
+      "spell": 2,
+      "timeline": 3
+    },
     "timelineAnchorCount": 55,
     "timelineWindowCount": 10
-  }
+  },
+  "updatedAt": 1780617600000
 }

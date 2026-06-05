@@ -1,75 +1,71 @@
 import assert from 'node:assert/strict';
+import './test-hp-loredeck-family-split.mjs';
+import { SCHEMA_VERSION } from '../constants.js';
 import {
-  buildContextFromDateRange,
-  migrateEntryToContext,
-  migrateLoredeckRoot,
-  parseIsoDate,
-} from './migrate-hp-loredeck-to-context.mjs';
+  DEFAULT_HP_LOREDECK_FOLDER_ID,
+  DEFAULT_HP_LOREDECK_ID,
+  DEFAULT_HP_LOREDECK_IDS,
+  HP_LEGACY_LOREDECK_ID,
+} from '../loredeck-defaults.js';
+import { migrateState } from '../state-manager.js';
 
-const parsed = parseIsoDate('1995-06-24');
-assert.equal(parsed.iso, '1995-06-24');
-assert.equal(parsed.sortKey, Math.floor(Date.UTC(1995, 5, 24) / 86400000));
-assert.equal(parseIsoDate('1995-02-31'), null);
-
-const contextGate = buildContextFromDateRange({
-  from: '1995-06-24',
-  to: '1995-06-30',
-  precision: 'date',
-});
-assert.equal(contextGate.scope, 'window');
-assert.equal(contextGate.sortKeyFrom, Math.floor(Date.UTC(1995, 5, 24) / 86400000));
-assert.equal(contextGate.sortKeyTo, Math.floor(Date.UTC(1995, 5, 30) / 86400000));
-assert.equal(contextGate.precision, 'event_window');
-assert.equal(contextGate.label, '1995-06-24 to 1995-06-30');
-
-const migrated = migrateEntryToContext({
-  id: 'hp_test',
-  title: 'HP Test',
-  date: {
-    validFrom: '1994-09-01',
-    validTo: '1995-08-31',
-    precision: 'date',
+globalThis.SillyTavern = {
+  getContext() {
+    return { extensionSettings: {} };
   },
-  content: {
-    fact: 'HP Test fact.',
-    injection: 'HP Test injection.',
-  },
-});
-assert.equal(migrated.changed, true);
-assert.equal(migrated.status, 'position_native');
-assert.equal(migrated.entry.schemaVersion, 3);
-assert.equal(migrated.entry.date, undefined);
-assert.equal(migrated.entry.canonTiming, undefined);
-assert.equal(migrated.entry.validFrom, undefined);
-assert.equal(migrated.entry.validTo, undefined);
-assert.equal(migrated.entry.context.sortKeyFrom, Math.floor(Date.UTC(1994, 8, 1) / 86400000));
-assert.equal(migrated.entry.context.sortKeyTo, Math.floor(Date.UTC(1995, 7, 31) / 86400000));
-assert.equal(migrated.entry.retrieval.activation, 'topic_or_entity');
+};
 
-const existing = migrateEntryToContext({
-  id: 'hp_existing',
-  title: 'HP Existing',
-  context: {
-    scope: 'window',
-    sortKeyFrom: 1,
-    sortKeyTo: 2,
-    precision: 'date_window',
-    label: 'Existing Context',
+const migrated = migrateState({
+  _version: 21,
+  loreContext: {},
+  loreMatrix: [],
+  pendingLoreEntries: [],
+  loredeckStack: [
+    { packId: HP_LEGACY_LOREDECK_ID, enabled: true, priority: 100, addedAt: 1 },
+  ],
+  loredeckRegistry: {
+    schemaVersion: 1,
+    packs: {
+      [HP_LEGACY_LOREDECK_ID]: {
+        packId: HP_LEGACY_LOREDECK_ID,
+        type: 'bundled',
+        title: 'Harry Potter: Golden Trio',
+        stats: { entryCount: 431 },
+      },
+    },
+    deckPlacements: [
+      { deckId: HP_LEGACY_LOREDECK_ID, folderId: 'legacy-hp', sortOrder: 1 },
+    ],
+    activeStack: [
+      { packId: HP_LEGACY_LOREDECK_ID, enabled: true, priority: 100 },
+    ],
   },
-  content: {
-    fact: 'Already positioned.',
-    injection: 'Already positioned.',
+  loredeckContexts: {
+    [HP_LEGACY_LOREDECK_ID]: {
+      packId: HP_LEGACY_LOREDECK_ID,
+      contextType: 'calendar',
+      label: 'Legacy HP',
+    },
+  },
+  lorePanel: {
+    selectedLoredeckId: HP_LEGACY_LOREDECK_ID,
   },
 });
-assert.equal(existing.changed, true);
-assert.equal(existing.status, 'position_native_existing');
-assert.equal(existing.entry.context.scope, 'window');
 
-const report = migrateLoredeckRoot('Loredecks/hp-golden-trio', { write: false });
-assert.equal(report.entryCount, 431);
-assert.equal(report.invalidDateCount, 0);
-assert.equal(report.noDateCount, 0);
-assert.equal(report.changedEntryCount, report.entryCount);
-assert.equal(report.manifestEntryCount, report.entryCount);
+assert.equal(migrated._version, SCHEMA_VERSION);
+assert.equal(migrated.lorePanel.selectedLoredeckId, DEFAULT_HP_LOREDECK_ID);
+assert.equal(migrated.loredeckStack.length, 1);
+assert.equal(migrated.loredeckStack[0].type, 'folder');
+assert.equal(migrated.loredeckStack[0].folderId, DEFAULT_HP_LOREDECK_FOLDER_ID);
+assert.equal(migrated.loredeckStack[0].includeNested, true);
+assert.ok(!migrated.loredeckStack.some(item => item.packId === HP_LEGACY_LOREDECK_ID));
+assert.ok(!migrated.loredeckRegistry.packs[HP_LEGACY_LOREDECK_ID]);
+assert.ok(!migrated.loredeckContexts[HP_LEGACY_LOREDECK_ID]);
+assert.ok(!(migrated.loredeckRegistry.deckPlacements || []).some(item => item.deckId === HP_LEGACY_LOREDECK_ID || item.packId === HP_LEGACY_LOREDECK_ID));
+
+for (const deckId of DEFAULT_HP_LOREDECK_IDS) {
+  assert.ok(migrated.loredeckRegistry.packs[deckId], `${deckId} should be present in the migrated registry.`);
+  assert.ok(migrated.loredeckContexts[deckId], `${deckId} should have a migrated Context state.`);
+}
 
 console.log('HP Context migration tests passed.');

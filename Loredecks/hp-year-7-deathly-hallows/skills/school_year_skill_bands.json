@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "skill_band_year_7",
+      "title": "Hogwarts Year 7 skill band",
+      "kind": "skill_band",
+      "gateType": "skill_band",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y7.rab_discovered",
+        "validToAnchor": "hp.y7.battle_aftermath",
+        "sortKeyFrom": 10105,
+        "sortKeyTo": 10469,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 7",
+        "approximate": false
+      },
+      "scope": {
+        "schoolYears": [
+          "7"
+        ],
+        "topics": [
+          "school skill",
+          "magic ability"
+        ],
+        "phases": [
+          "road_trip"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "school skill",
+            "magic ability"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Seventh-year-age students can have advanced training, but canon Year 7 is not a normal Hogwarts school year for the trio.",
+        "injection": "Do not treat canon Year 7 as ordinary school life for Harry, Ron, and Hermione; do not give students war or Horcrux-context skills unless our story established that path.",
+        "constraints": [
+          "Separate seventh-year-age competence from the trio's specific war/Horcrux context."
+        ],
+        "antiLore": [
+          "Do not assume normal Hogwarts classes for the trio in canon Year 7."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "year-7",
+          "skill-band"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "confidence": 0.85,
+        "notes": "Curated Context constraint seed entry."
+      },
+      "extensions": {
+        "deathStateGatePass": {
+          "method": "removed positive requiresEvents from canon database entry",
+          "notes": "Canon database proposals are Context-gated references; they should not become Future solely because a story milestone flag is absent.",
+          "requiresEventsRemoved": [
+            "horcruxes_revealed_to_trio"
+          ]
+        },
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-7-deathly-hallows",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

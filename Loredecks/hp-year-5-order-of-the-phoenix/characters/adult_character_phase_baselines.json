@@ -1,0 +1,847 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "adult_phase_dumbledore_year_5_politically_constrained_baseline",
+      "title": "Albus Dumbledore: politically constrained phase baseline, Year 5",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.sirius_trapped_at_grimmauld",
+        "validToAnchor": "hp.y5.grief_and_train_home",
+        "sortKeyFrom": 9374,
+        "sortKeyTo": 9739,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 5",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Albus Dumbledore",
+          "Dumbledore",
+          "Professor Dumbledore"
+        ],
+        "locations": [
+          "Hogwarts",
+          "Headmaster's office"
+        ],
+        "factions": [
+          "Hogwarts staff",
+          "Order of the Phoenix"
+        ],
+        "topics": [
+          "present character",
+          "adult phase baseline",
+          "behavior",
+          "personality",
+          "voice",
+          "role baseline",
+          "dumbledore",
+          "headmaster",
+          "year-5",
+          "ministry-pressure",
+          "present-character",
+          "adult-phase-baseline",
+          "Albus Dumbledore"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ],
+        "eras": [
+          "Year 5",
+          "Order of the Phoenix"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Albus Dumbledore",
+            "Dumbledore",
+            "Professor Dumbledore"
+          ],
+          "locationsAny": [
+            "Hogwarts",
+            "Headmaster's office"
+          ],
+          "topicsAny": [
+            "present character",
+            "adult phase baseline",
+            "behavior",
+            "personality",
+            "voice",
+            "role baseline",
+            "dumbledore",
+            "headmaster",
+            "year-5",
+            "ministry-pressure",
+            "present-character",
+            "adult-phase-baseline",
+            "Albus Dumbledore"
+          ],
+          "erasAny": [
+            "Year 5",
+            "Order of the Phoenix"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 5, Dumbledore remains calm and formidable but is politically constrained, more distant, and more willing to absorb suspicion or institutional pressure without explaining his motives.",
+        "injection": "Write Dumbledore as his Year 5 self: still serene and powerful, but more distant, politically pressured, guarded with information, and prepared to endure misinterpretation for strategic reasons.",
+        "constraints": [
+          "Do not make him constantly available as a comforting mentor; his distance is part of the baseline for this phase.",
+          "He should avoid needless confrontation with hostile institutions until necessary, but he should not seem weak or naive.",
+          "Keep relationship shifts, specific confrontations, and secret-knowledge mechanics in separate dated entries.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write Year 5 Dumbledore as the freely accessible, lightly whimsical Headmaster of early years."
+        ],
+        "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "dumbledore",
+          "headmaster",
+          "year-5",
+          "ministry-pressure",
+          "present-character",
+          "adult-phase-baseline"
+        ],
+        "stateHints": {
+          "character": "Albus Dumbledore",
+          "phase": "politically constrained phase baseline, Year 5",
+          "schoolYears": [
+            5
+          ],
+          "baselineOnly": true,
+          "adultPhaseBaseline": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Order of the Phoenix",
+        "confidence": 0.84,
+        "notes": "Curated adult/phase present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "adult_phase_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-5-order-of-the-phoenix",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "adult_phase_sirius_grimmauld_confined_year_5_baseline",
+      "title": "Sirius Black: Grimmauld confinement phase baseline, Year 5",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.sirius_trapped_at_grimmauld",
+        "validToAnchor": "hp.y5.prophecy_explained",
+        "sortKeyFrom": 9374,
+        "sortKeyTo": 9665,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 5",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Sirius Black",
+          "Sirius"
+        ],
+        "locations": [
+          "Grimmauld Place",
+          "Britain"
+        ],
+        "factions": [
+          "Order of the Phoenix",
+          "Black family"
+        ],
+        "topics": [
+          "present character",
+          "adult phase baseline",
+          "behavior",
+          "personality",
+          "voice",
+          "role baseline",
+          "sirius",
+          "grimmauld-place",
+          "order-of-the-phoenix",
+          "year-5",
+          "present-character",
+          "adult-phase-baseline",
+          "Sirius Black"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ],
+        "eras": [
+          "Year 5",
+          "Order of the Phoenix"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Sirius Black",
+            "Sirius"
+          ],
+          "locationsAny": [
+            "Grimmauld Place",
+            "Britain"
+          ],
+          "topicsAny": [
+            "present character",
+            "adult phase baseline",
+            "behavior",
+            "personality",
+            "voice",
+            "role baseline",
+            "sirius",
+            "grimmauld-place",
+            "order-of-the-phoenix",
+            "year-5",
+            "present-character",
+            "adult-phase-baseline",
+            "Sirius Black"
+          ],
+          "erasAny": [
+            "Year 5",
+            "Order of the Phoenix"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 5, Sirius is confined, restless, affectionate, reckless, and emotionally volatile under the pressure of hiding in his family home.",
+        "injection": "Write Sirius in his Grimmauld confinement phase as loving but frustrated, sharp-tongued, restless, reckless, and prone to projecting his need for action onto others.",
+        "constraints": [
+          "He can be deeply loyal without being emotionally stable or prudent.",
+          "Do not make him calmly accepting of confinement, family history, or enforced inaction.",
+          "Keep specific arguments, missions, and death outcomes in separate dated entries.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write Year 5 Sirius as a placid, consistently responsible adult guardian."
+        ],
+        "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "sirius",
+          "grimmauld-place",
+          "order-of-the-phoenix",
+          "year-5",
+          "present-character",
+          "adult-phase-baseline"
+        ],
+        "stateHints": {
+          "character": "Sirius Black",
+          "phase": "Grimmauld confinement phase baseline, Year 5",
+          "schoolYears": [
+            5
+          ],
+          "baselineOnly": true,
+          "adultPhaseBaseline": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Order of the Phoenix",
+        "confidence": 0.84,
+        "notes": "Curated adult/phase present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "adult_phase_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-5-order-of-the-phoenix",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "adult_phase_voldemort_restored_publicly_denied_year_5_baseline",
+      "title": "Voldemort: restored but publicly denied phase baseline, Year 5",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.privet_drive_isolation",
+        "validToAnchor": "hp.y5.prophecy_explained",
+        "sortKeyFrom": 9305,
+        "sortKeyTo": 9665,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 5",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Lord Voldemort",
+          "Voldemort",
+          "Tom Riddle",
+          "The Dark Lord"
+        ],
+        "locations": [
+          "Britain"
+        ],
+        "factions": [
+          "Death Eaters"
+        ],
+        "topics": [
+          "present character",
+          "adult phase baseline",
+          "behavior",
+          "personality",
+          "voice",
+          "role baseline",
+          "voldemort",
+          "restored",
+          "year-5",
+          "present-character",
+          "adult-phase-baseline",
+          "Lord Voldemort"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ],
+        "eras": [
+          "Year 5",
+          "Order of the Phoenix"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Lord Voldemort",
+            "Voldemort",
+            "Tom Riddle",
+            "The Dark Lord"
+          ],
+          "locationsAny": [
+            "Britain"
+          ],
+          "topicsAny": [
+            "present character",
+            "adult phase baseline",
+            "behavior",
+            "personality",
+            "voice",
+            "role baseline",
+            "voldemort",
+            "restored",
+            "year-5",
+            "present-character",
+            "adult-phase-baseline",
+            "Lord Voldemort"
+          ],
+          "erasAny": [
+            "Year 5",
+            "Order of the Phoenix"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After his restoration but before public acknowledgment, Voldemort is embodied and active, but secrecy and denial shape how he operates and how others respond.",
+        "injection": "Write Voldemort in the restored-but-denied phase as physically returned, coldly strategic, secrecy-aware, and rebuilding power while much of the public world refuses to acknowledge him.",
+        "constraints": [
+          "Do not make ordinary institutions behave as if his return is publicly settled before separate public-belief lore permits it.",
+          "Do not reduce him to a rumor; he is active and dangerous even while denied.",
+          "Keep specific attacks, prophecy knowledge, and public reveal events modular.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write Year 5 Voldemort as either disembodied or openly ruling wizarding Britain."
+        ],
+        "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "voldemort",
+          "restored",
+          "year-5",
+          "present-character",
+          "adult-phase-baseline"
+        ],
+        "stateHints": {
+          "character": "Lord Voldemort",
+          "phase": "restored but publicly denied phase baseline, Year 5",
+          "schoolYears": [
+            5
+          ],
+          "baselineOnly": true,
+          "adultPhaseBaseline": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Order of the Phoenix",
+        "confidence": 0.84,
+        "notes": "Curated adult/phase present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "adult_phase_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-5-order-of-the-phoenix",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "adult_phase_umbridge_year_5_inquisitor_baseline",
+      "title": "Dolores Umbridge: Year 5 Inquisitor baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.sirius_trapped_at_grimmauld",
+        "validToAnchor": "hp.y5.prophecy_explained",
+        "sortKeyFrom": 9374,
+        "sortKeyTo": 9665,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 5",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Dolores Umbridge",
+          "Umbridge",
+          "Professor Umbridge"
+        ],
+        "locations": [
+          "Hogwarts",
+          "Defense Against the Dark Arts classroom"
+        ],
+        "factions": [
+          "Ministry of Magic",
+          "Hogwarts staff"
+        ],
+        "topics": [
+          "present character",
+          "adult phase baseline",
+          "behavior",
+          "personality",
+          "voice",
+          "role baseline",
+          "umbridge",
+          "inquisitor",
+          "ministry",
+          "year-5",
+          "present-character",
+          "adult-phase-baseline",
+          "Dolores Umbridge"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ],
+        "eras": [
+          "Year 5",
+          "Order of the Phoenix"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Dolores Umbridge",
+            "Umbridge",
+            "Professor Umbridge"
+          ],
+          "locationsAny": [
+            "Hogwarts",
+            "Defense Against the Dark Arts classroom"
+          ],
+          "topicsAny": [
+            "present character",
+            "adult phase baseline",
+            "behavior",
+            "personality",
+            "voice",
+            "role baseline",
+            "umbridge",
+            "inquisitor",
+            "ministry",
+            "year-5",
+            "present-character",
+            "adult-phase-baseline",
+            "Dolores Umbridge"
+          ],
+          "erasAny": [
+            "Year 5",
+            "Order of the Phoenix"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Year 5, Umbridge is sweet-voiced, bureaucratically cruel, image-conscious, authoritarian, and skilled at making abuse look procedural.",
+        "injection": "Write Umbridge in Year 5 as falsely sweet, bureaucratic, vindictive, authoritarian, and obsessed with procedure, obedience, and Ministry respectability.",
+        "constraints": [
+          "Her cruelty should usually be framed through rules, forms, inspections, detentions, and institutional language rather than open rage.",
+          "Do not make her secretly kind, broadly competent at Defense instruction, or morally conflicted unless the story has changed her.",
+          "Keep specific decrees, detentions, and removal outcomes in separate dated entries.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write Umbridge as a generic loud bully; her menace is polite, procedural, and punitive."
+        ],
+        "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "umbridge",
+          "inquisitor",
+          "ministry",
+          "year-5",
+          "present-character",
+          "adult-phase-baseline"
+        ],
+        "stateHints": {
+          "character": "Dolores Umbridge",
+          "phase": "Year 5 Inquisitor baseline",
+          "schoolYears": [
+            5
+          ],
+          "baselineOnly": true,
+          "adultPhaseBaseline": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Order of the Phoenix",
+        "confidence": 0.84,
+        "notes": "Curated adult/phase present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "adult_phase_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-5-order-of-the-phoenix",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "adult_phase_fudge_denial_minister_year_5_baseline",
+      "title": "Cornelius Fudge: denial-crisis Minister baseline, Year 5",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.privet_drive_isolation",
+        "validToAnchor": "hp.y5.prophecy_explained",
+        "sortKeyFrom": 9305,
+        "sortKeyTo": 9665,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Year 5",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Cornelius Fudge",
+          "Fudge",
+          "Minister Fudge"
+        ],
+        "locations": [
+          "Britain",
+          "Ministry of Magic",
+          "Hogwarts"
+        ],
+        "factions": [
+          "Ministry of Magic"
+        ],
+        "topics": [
+          "present character",
+          "adult phase baseline",
+          "behavior",
+          "personality",
+          "voice",
+          "role baseline",
+          "fudge",
+          "minister",
+          "denial",
+          "year-5",
+          "present-character",
+          "adult-phase-baseline",
+          "Cornelius Fudge"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ],
+        "eras": [
+          "Year 5",
+          "Order of the Phoenix"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Cornelius Fudge",
+            "Fudge",
+            "Minister Fudge"
+          ],
+          "locationsAny": [
+            "Britain",
+            "Ministry of Magic",
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "adult phase baseline",
+            "behavior",
+            "personality",
+            "voice",
+            "role baseline",
+            "fudge",
+            "minister",
+            "denial",
+            "year-5",
+            "present-character",
+            "adult-phase-baseline",
+            "Cornelius Fudge"
+          ],
+          "erasAny": [
+            "Year 5",
+            "Order of the Phoenix"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In the denial-crisis phase, Fudge is defensive, frightened of losing authority, suspicious of Dumbledore, and willing to use institutions to preserve a preferred public narrative.",
+        "injection": "Write Fudge during the denial crisis as defensive, status-panicked, institutionally coercive, and more concerned with preserving authority and public narrative than confronting danger.",
+        "constraints": [
+          "Do not make him calmly evidence-led or openly heroic in this phase.",
+          "His hostility should stem from insecurity, denial, and political self-preservation rather than battlefield fanaticism.",
+          "Keep specific hearings, decrees, and public acknowledgment events modular.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write Year 5 Fudge as the mildly bumbling but cooperative Minister of earlier years."
+        ],
+        "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "fudge",
+          "minister",
+          "denial",
+          "year-5",
+          "present-character",
+          "adult-phase-baseline"
+        ],
+        "stateHints": {
+          "character": "Cornelius Fudge",
+          "phase": "denial-crisis Minister baseline, Year 5",
+          "schoolYears": [
+            5
+          ],
+          "baselineOnly": true,
+          "adultPhaseBaseline": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Order of the Phoenix",
+        "confidence": 0.84,
+        "notes": "Curated adult/phase present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "adult_phase_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-5-order-of-the-phoenix",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

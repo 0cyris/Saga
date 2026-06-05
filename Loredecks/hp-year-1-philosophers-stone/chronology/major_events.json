@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "event_quirrell_stone_aftermath",
+      "title": "Quirrell and Stone incident resolved",
+      "kind": "event_anchor",
+      "gateType": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 65,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y1.stone_destroyed",
+        "validToAnchor": "hp.y1.train_home",
+        "sortKeyFrom": 8190,
+        "sortKeyTo": 8200,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Philosopher's Stone: Year 1",
+        "approximate": false
+      },
+      "scope": {
+        "topics": [
+          "timeline",
+          "canon state"
+        ],
+        "schoolYears": [
+          "1"
+        ],
+        "books": [
+          "Philosopher's Stone"
+        ],
+        "phases": [
+          "climax"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "topicsAny": [
+            "timeline",
+            "canon state"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Philosopher's Stone plot is resolved and Quirrell is dead.",
+        "injection": "The Philosopher's Stone plot is resolved and Quirrell is dead."
+      },
+      "effects": {
+        "addsTags": [
+          "timeline",
+          "year-1"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Philosopher's Stone",
+        "confidence": 0.85,
+        "notes": "Curated Context constraint seed entry."
+      },
+      "extensions": {
+        "temporalTightening": {
+          "method": "curated chronology point event: validFrom plus 10 days",
+          "notes": "End date narrowed so event-like lore does not remain active as an open-ended suggestion.",
+          "previousValidTo": "1998-08-31"
+        },
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-1-philosophers-stone",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

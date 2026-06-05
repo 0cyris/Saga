@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "spell_gate_riddikulus",
+      "title": "Riddikulus Boggart lesson gate",
+      "kind": "spell_gate",
+      "gateType": "spell_gate",
+      "category": "spell",
+      "relevance": "low",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 50,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y3.marge_arrives",
+        "validToAnchor": "hp.y3.grim_omen_pressure",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 8704,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Prisoner of Azkaban: Year 3",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Hermione Granger",
+          "Ron Weasley"
+        ],
+        "topics": [
+          "boggarts",
+          "defense"
+        ],
+        "spells": [
+          "Riddikulus"
+        ],
+        "schoolYears": [
+          "3"
+        ],
+        "books": [
+          "Prisoner of Azkaban"
+        ],
+        "phases": [
+          "term_start"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Hermione Granger",
+            "Ron Weasley"
+          ],
+          "topicsAny": [
+            "boggarts",
+            "defense",
+            "Riddikulus"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before Lupin's Year 3 Boggart lesson or a story-established equivalent, Riddikulus should not be routine student knowledge.",
+        "injection": "Do not let first- or second-year students casually know or use Riddikulus unless our story has established early Boggart instruction.",
+        "constraints": [
+          "Date-gate Boggart handling to Year 3 instruction unless our story establishes otherwise."
+        ],
+        "antiLore": [
+          "Do not spotlight Riddikulus in later years unless Boggarts or DADA lessons are actually relevant."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "spell-gate",
+          "defense",
+          "year-3"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Prisoner of Azkaban",
+        "confidence": 0.82,
+        "notes": "Expanded curated Context constraint entry."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "spells_skills",
+          "suggestionRole": "ability_gate",
+          "detailLevel": "detailed",
+          "suggestByDefault": true,
+          "activeUse": "blocks_early_spell_knowledge"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-3-prisoner-of-azkaban",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

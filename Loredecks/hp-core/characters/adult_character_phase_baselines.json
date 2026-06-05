@@ -1,0 +1,4538 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "adult_phase_dumbledore_early_headmaster_years_1_4_baseline",
+      "title": "Albus Dumbledore: early Headmaster phase baseline, Years 1-4",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 9373,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "Years 1-4",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Albus Dumbledore",
+          "Dumbledore",
+          "Professor Dumbledore"
+        ],
+        "locations": [
+          "Hogwarts",
+          "Headmaster's office"
+        ],
+        "factions": [
+          "Hogwarts staff",
+          "Order of the Phoenix"
+        ],
+        "topics": [
+          "present character",
+          "adult phase baseline",
+          "behavior",
+          "personality",
+          "voice",
+          "role baseline",
+          "dumbledore",
+          "headmaster",
+          "hogwarts-staff",
+          "present-character",
+          "adult-phase-baseline",
+          "Albus Dumbledore"
+        ],
+        "schoolYears": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "books": [
+          "Philosopher's Stone",
+          "Chamber of Secrets",
+          "Prisoner of Azkaban",
+          "Goblet of Fire"
+        ],
+        "eras": [
+          "Years 1-4",
+          "Philosopher's Stone",
+          "Chamber of Secrets",
+          "Prisoner of Azkaban",
+          "Goblet of Fire"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Albus Dumbledore",
+            "Dumbledore",
+            "Professor Dumbledore"
+          ],
+          "locationsAny": [
+            "Hogwarts",
+            "Headmaster's office"
+          ],
+          "topicsAny": [
+            "present character",
+            "adult phase baseline",
+            "behavior",
+            "personality",
+            "voice",
+            "role baseline",
+            "dumbledore",
+            "headmaster",
+            "hogwarts-staff",
+            "present-character",
+            "adult-phase-baseline",
+            "Albus Dumbledore"
+          ],
+          "erasAny": [
+            "Years 1-4",
+            "Philosopher's Stone",
+            "Chamber of Secrets",
+            "Prisoner of Azkaban",
+            "Goblet of Fire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Across Years 1-4, Dumbledore is the calm, eccentric, highly perceptive Headmaster: benevolent, indirect, morally serious, and usually several steps ahead without explaining everything.",
+        "injection": "Write Dumbledore in his early Headmaster phase: serene, eccentric, perceptive, warm but withholding, using indirect guidance rather than blunt command unless the situation demands authority.",
+        "constraints": [
+          "Keep him powerful and composed, but not omniscient; he may infer more than others, yet still leaves room for uncertainty and mistakes.",
+          "He should often guide through questions, hints, silence, and institutional authority rather than ordinary exposition.",
+          "Do not make him casually confessional about private plans, old guilt, Horcrux strategy, or endgame wartime calculations unless accepted story lore has established otherwise.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not import Year 5 political siege behavior or Year 6 physical decline into the Years 1-4 baseline."
+        ],
+        "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "dumbledore",
+          "headmaster",
+          "hogwarts-staff",
+          "present-character",
+          "adult-phase-baseline"
+        ],
+        "stateHints": {
+          "character": "Albus Dumbledore",
+          "phase": "early Headmaster phase baseline, Years 1-4",
+          "schoolYears": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "baselineOnly": true,
+          "adultPhaseBaseline": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "confidence": 0.84,
+        "notes": "Curated adult/phase present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "adult_phase_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "adult_phase_snape_potions_master_years_1_5_baseline",
+      "title": "Severus Snape: Potions master phase baseline, Years 1-5",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 9739,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "Years 1-5",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Severus Snape",
+          "Snape",
+          "Professor Snape"
+        ],
+        "locations": [
+          "Hogwarts",
+          "Potions classroom",
+          "Dungeons"
+        ],
+        "factions": [
+          "Hogwarts staff",
+          "Slytherin"
+        ],
+        "topics": [
+          "present character",
+          "adult phase baseline",
+          "behavior",
+          "personality",
+          "voice",
+          "role baseline",
+          "snape",
+          "potions",
+          "slytherin",
+          "hogwarts-staff",
+          "present-character",
+          "adult-phase-baseline",
+          "Severus Snape"
+        ],
+        "schoolYears": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "books": [
+          "Philosopher's Stone",
+          "Chamber of Secrets",
+          "Prisoner of Azkaban",
+          "Goblet of Fire",
+          "Order of the Phoenix"
+        ],
+        "eras": [
+          "Years 1-5",
+          "Philosopher's Stone",
+          "Chamber of Secrets",
+          "Prisoner of Azkaban",
+          "Goblet of Fire",
+          "Order of the Phoenix"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Severus Snape",
+            "Snape",
+            "Professor Snape"
+          ],
+          "locationsAny": [
+            "Hogwarts",
+            "Potions classroom",
+            "Dungeons"
+          ],
+          "topicsAny": [
+            "present character",
+            "adult phase baseline",
+            "behavior",
+            "personality",
+            "voice",
+            "role baseline",
+            "snape",
+            "potions",
+            "slytherin",
+            "hogwarts-staff",
+            "present-character",
+            "adult-phase-baseline",
+            "Severus Snape"
+          ],
+          "erasAny": [
+            "Years 1-5",
+            "Philosopher's Stone",
+            "Chamber of Secrets",
+            "Prisoner of Azkaban",
+            "Goblet of Fire",
+            "Order of the Phoenix"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Across Years 1-5, Snape is a severe Potions master: exacting, sarcastic, controlled, resentful, biased in class, and professionally dangerous when crossed.",
+        "injection": "Write Snape in his Years 1-5 Potions-master phase: cold, precise, cutting, controlled, impatient with weakness, and inclined to weaponize authority through sarcasm and grading rather than open emotional display.",
+        "constraints": [
+          "Keep his speech economical, acidic, and disciplined; avoid sentimental confession or obvious vulnerability.",
+          "He can be protective or strategically useful without becoming warm, approachable, or openly heroic.",
+          "Do not reveal full motives, loyalties, or late-canon emotional history unless a separate reveal gate allows it.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not import the fully explained tragic-hero reading of Snape into early-year public characterization."
+        ],
+        "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "snape",
+          "potions",
+          "slytherin",
+          "hogwarts-staff",
+          "present-character",
+          "adult-phase-baseline"
+        ],
+        "stateHints": {
+          "character": "Severus Snape",
+          "phase": "Potions master phase baseline, Years 1-5",
+          "schoolYears": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "baselineOnly": true,
+          "adultPhaseBaseline": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "confidence": 0.84,
+        "notes": "Curated adult/phase present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "adult_phase_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "adult_phase_hagrid_groundskeeper_years_1_2_baseline",
+      "title": "Rubeus Hagrid: groundskeeper phase baseline, Years 1-2",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 8643,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "Years 1-2",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Rubeus Hagrid",
+          "Hagrid"
+        ],
+        "locations": [
+          "Hogwarts",
+          "Hagrid's hut",
+          "Forbidden Forest"
+        ],
+        "factions": [
+          "Hogwarts staff"
+        ],
+        "topics": [
+          "present character",
+          "adult phase baseline",
+          "behavior",
+          "personality",
+          "voice",
+          "role baseline",
+          "hagrid",
+          "groundskeeper",
+          "hogwarts-staff",
+          "present-character",
+          "adult-phase-baseline",
+          "Rubeus Hagrid"
+        ],
+        "schoolYears": [
+          "1",
+          "2"
+        ],
+        "books": [
+          "Philosopher's Stone",
+          "Chamber of Secrets"
+        ],
+        "eras": [
+          "Years 1-2",
+          "Philosopher's Stone",
+          "Chamber of Secrets"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Rubeus Hagrid",
+            "Hagrid"
+          ],
+          "locationsAny": [
+            "Hogwarts",
+            "Hagrid's hut",
+            "Forbidden Forest"
+          ],
+          "topicsAny": [
+            "present character",
+            "adult phase baseline",
+            "behavior",
+            "personality",
+            "voice",
+            "role baseline",
+            "hagrid",
+            "groundskeeper",
+            "hogwarts-staff",
+            "present-character",
+            "adult-phase-baseline",
+            "Rubeus Hagrid"
+          ],
+          "erasAny": [
+            "Years 1-2",
+            "Philosopher's Stone",
+            "Chamber of Secrets"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Across Years 1-2, Hagrid is Hogwarts groundskeeper and informal ally to students: warm, impulsive, loyal, emotionally transparent, and often careless with sensitive information.",
+        "injection": "Write Hagrid in his early groundskeeper phase: large-hearted, blunt, protective, impulsive, rustic in speech, and prone to underestimating danger from creatures or secrets.",
+        "constraints": [
+          "Keep him emotionally direct and practically competent with grounds and creatures, but not academically polished.",
+          "He may be brave and loyal without becoming strategically subtle.",
+          "Keep event-specific creatures, arrests, punishments, and revelations modular.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write early Hagrid as a formal professor or tactician."
+        ],
+        "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "hagrid",
+          "groundskeeper",
+          "hogwarts-staff",
+          "present-character",
+          "adult-phase-baseline"
+        ],
+        "stateHints": {
+          "character": "Rubeus Hagrid",
+          "phase": "groundskeeper phase baseline, Years 1-2",
+          "schoolYears": [
+            1,
+            2
+          ],
+          "baselineOnly": true,
+          "adultPhaseBaseline": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "confidence": 0.84,
+        "notes": "Curated adult/phase present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "adult_phase_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "adult_phase_hagrid_comc_professor_years_3_6_baseline",
+      "title": "Rubeus Hagrid: Care of Magical Creatures professor phase baseline, Years 3-6",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 8644,
+        "sortKeyTo": 10104,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "Years 3-6",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Rubeus Hagrid",
+          "Hagrid",
+          "Professor Hagrid"
+        ],
+        "locations": [
+          "Hogwarts",
+          "Hagrid's hut",
+          "Forbidden Forest",
+          "Care of Magical Creatures class"
+        ],
+        "factions": [
+          "Hogwarts staff"
+        ],
+        "topics": [
+          "present character",
+          "adult phase baseline",
+          "behavior",
+          "personality",
+          "voice",
+          "role baseline",
+          "hagrid",
+          "care-of-magical-creatures",
+          "professor",
+          "present-character",
+          "adult-phase-baseline",
+          "Rubeus Hagrid"
+        ],
+        "schoolYears": [
+          "3",
+          "4",
+          "5",
+          "6"
+        ],
+        "books": [
+          "Prisoner of Azkaban",
+          "Goblet of Fire",
+          "Order of the Phoenix",
+          "Half-Blood Prince"
+        ],
+        "eras": [
+          "Years 3-6",
+          "Prisoner of Azkaban",
+          "Goblet of Fire",
+          "Order of the Phoenix",
+          "Half-Blood Prince"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Rubeus Hagrid",
+            "Hagrid",
+            "Professor Hagrid"
+          ],
+          "locationsAny": [
+            "Hogwarts",
+            "Hagrid's hut",
+            "Forbidden Forest",
+            "Care of Magical Creatures class"
+          ],
+          "topicsAny": [
+            "present character",
+            "adult phase baseline",
+            "behavior",
+            "personality",
+            "voice",
+            "role baseline",
+            "hagrid",
+            "care-of-magical-creatures",
+            "professor",
+            "present-character",
+            "adult-phase-baseline",
+            "Rubeus Hagrid"
+          ],
+          "erasAny": [
+            "Years 3-6",
+            "Prisoner of Azkaban",
+            "Goblet of Fire",
+            "Order of the Phoenix",
+            "Half-Blood Prince"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Across Years 3-6, Hagrid is both groundskeeper and Care of Magical Creatures professor: affectionate, insecure about teaching, creature-obsessed, brave, and easily wounded by ridicule.",
+        "injection": "Write Hagrid in his professor phase: kind, loyal, creature-obsessed, emotionally open, sometimes insecure about teaching, and prone to choosing hazardous lessons because he sees creatures more generously than others do.",
+        "constraints": [
+          "He should remain plainspoken and affectionate, not polished or bureaucratic.",
+          "His creature expertise should be real, but his risk assessment should often be poor by student or parent standards.",
+          "Keep individual class incidents, family revelations, and disciplinary outcomes in separate dated entries.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not make Hagrid an elegant lecturer, political operator, or detached professional instructor."
+        ],
+        "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "hagrid",
+          "care-of-magical-creatures",
+          "professor",
+          "present-character",
+          "adult-phase-baseline"
+        ],
+        "stateHints": {
+          "character": "Rubeus Hagrid",
+          "phase": "Care of Magical Creatures professor phase baseline, Years 3-6",
+          "schoolYears": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "baselineOnly": true,
+          "adultPhaseBaseline": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "confidence": 0.84,
+        "notes": "Curated adult/phase present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "adult_phase_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "adult_phase_mcgonagall_deputy_headmistress_years_1_6_baseline",
+      "title": "Minerva McGonagall: Deputy Headmistress phase baseline, Years 1-6",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 10104,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "Years 1-6",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Minerva McGonagall",
+          "McGonagall",
+          "Professor McGonagall"
+        ],
+        "locations": [
+          "Hogwarts",
+          "Transfiguration classroom"
+        ],
+        "factions": [
+          "Hogwarts staff",
+          "Gryffindor"
+        ],
+        "topics": [
+          "present character",
+          "adult phase baseline",
+          "behavior",
+          "personality",
+          "voice",
+          "role baseline",
+          "mcgonagall",
+          "transfiguration",
+          "gryffindor",
+          "hogwarts-staff",
+          "present-character",
+          "adult-phase-baseline",
+          "Minerva McGonagall"
+        ],
+        "schoolYears": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6"
+        ],
+        "books": [
+          "Philosopher's Stone",
+          "Chamber of Secrets",
+          "Prisoner of Azkaban",
+          "Goblet of Fire",
+          "Order of the Phoenix",
+          "Half-Blood Prince"
+        ],
+        "eras": [
+          "Years 1-6",
+          "Philosopher's Stone",
+          "Chamber of Secrets",
+          "Prisoner of Azkaban",
+          "Goblet of Fire",
+          "Order of the Phoenix",
+          "Half-Blood Prince"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Minerva McGonagall",
+            "McGonagall",
+            "Professor McGonagall"
+          ],
+          "locationsAny": [
+            "Hogwarts",
+            "Transfiguration classroom"
+          ],
+          "topicsAny": [
+            "present character",
+            "adult phase baseline",
+            "behavior",
+            "personality",
+            "voice",
+            "role baseline",
+            "mcgonagall",
+            "transfiguration",
+            "gryffindor",
+            "hogwarts-staff",
+            "present-character",
+            "adult-phase-baseline",
+            "Minerva McGonagall"
+          ],
+          "erasAny": [
+            "Years 1-6",
+            "Philosopher's Stone",
+            "Chamber of Secrets",
+            "Prisoner of Azkaban",
+            "Goblet of Fire",
+            "Order of the Phoenix",
+            "Half-Blood Prince"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Across Years 1-6, McGonagall is strict, fair, dry, disciplined, and deeply protective beneath a formal exterior.",
+        "injection": "Write McGonagall as Deputy Headmistress: crisp, exacting, dryly witty, rule-bound but morally courageous, with affection expressed through standards, protection, and practical action rather than sentimentality.",
+        "constraints": [
+          "She should be severe without being petty, and protective without becoming indulgent.",
+          "Her speech should be formal, clipped, and precise, especially with students.",
+          "Keep specific confrontations, injuries, and institutional changes in separate dated entries.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write McGonagall as either a soft grandmother figure or an arbitrary authoritarian."
+        ],
+        "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "mcgonagall",
+          "transfiguration",
+          "gryffindor",
+          "hogwarts-staff",
+          "present-character",
+          "adult-phase-baseline"
+        ],
+        "stateHints": {
+          "character": "Minerva McGonagall",
+          "phase": "Deputy Headmistress phase baseline, Years 1-6",
+          "schoolYears": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "baselineOnly": true,
+          "adultPhaseBaseline": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "confidence": 0.84,
+        "notes": "Curated adult/phase present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "adult_phase_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "adult_phase_lupin_order_member_years_5_7_baseline",
+      "title": "Remus Lupin: Order member phase baseline, Years 5-7",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 9374,
+        "sortKeyTo": 10348,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "Years 5-7",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Remus Lupin",
+          "Lupin",
+          "Remus"
+        ],
+        "locations": [
+          "Britain",
+          "Grimmauld Place"
+        ],
+        "factions": [
+          "Order of the Phoenix"
+        ],
+        "topics": [
+          "present character",
+          "adult phase baseline",
+          "behavior",
+          "personality",
+          "voice",
+          "role baseline",
+          "lupin",
+          "order-of-the-phoenix",
+          "years-5-7",
+          "present-character",
+          "adult-phase-baseline",
+          "Remus Lupin"
+        ],
+        "schoolYears": [
+          "5",
+          "6",
+          "7"
+        ],
+        "books": [
+          "Order of the Phoenix",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ],
+        "eras": [
+          "Years 5-7",
+          "Order of the Phoenix",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Remus Lupin",
+            "Lupin",
+            "Remus"
+          ],
+          "locationsAny": [
+            "Britain",
+            "Grimmauld Place"
+          ],
+          "topicsAny": [
+            "present character",
+            "adult phase baseline",
+            "behavior",
+            "personality",
+            "voice",
+            "role baseline",
+            "lupin",
+            "order-of-the-phoenix",
+            "years-5-7",
+            "present-character",
+            "adult-phase-baseline",
+            "Remus Lupin"
+          ],
+          "erasAny": [
+            "Years 5-7",
+            "Order of the Phoenix",
+            "Half-Blood Prince",
+            "Deathly Hallows"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Across Years 5-7, Lupin is a restrained Order member: kind, weary, ashamed, useful in dangerous work, and habitually self-denying.",
+        "injection": "Write Lupin in his Order phase: gentle, controlled, worn down by poverty and stigma, brave when needed, but prone to withdrawing or self-blame rather than demanding comfort.",
+        "constraints": [
+          "Do not make him casually secure, socially carefree, or rhetorically flamboyant.",
+          "His courage should be quiet and dutiful rather than swaggering.",
+          "Keep specific missions, romantic/family status, deaths, and reveal timing in separate dated entries.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write Order-era Lupin as emotionally uncomplicated or socially confident."
+        ],
+        "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "lupin",
+          "order-of-the-phoenix",
+          "years-5-7",
+          "present-character",
+          "adult-phase-baseline"
+        ],
+        "stateHints": {
+          "character": "Remus Lupin",
+          "phase": "Order member phase baseline, Years 5-7",
+          "schoolYears": [
+            5,
+            6,
+            7
+          ],
+          "baselineOnly": true,
+          "adultPhaseBaseline": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "confidence": 0.84,
+        "notes": "Curated adult/phase present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "adult_phase_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "adult_phase_voldemort_open_war_leader_years_6_7_baseline",
+      "title": "Voldemort: open-war leader phase baseline, Years 6-7",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 9665,
+        "sortKeyTo": 10348,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "Years 6-7",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Lord Voldemort",
+          "Voldemort",
+          "Tom Riddle",
+          "The Dark Lord"
+        ],
+        "locations": [
+          "Britain",
+          "Malfoy Manor"
+        ],
+        "factions": [
+          "Death Eaters"
+        ],
+        "topics": [
+          "present character",
+          "adult phase baseline",
+          "behavior",
+          "personality",
+          "voice",
+          "role baseline",
+          "voldemort",
+          "open-war",
+          "years-6-7",
+          "present-character",
+          "adult-phase-baseline",
+          "Lord Voldemort"
+        ],
+        "schoolYears": [
+          "6",
+          "7"
+        ],
+        "books": [
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ],
+        "eras": [
+          "Years 6-7",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Lord Voldemort",
+            "Voldemort",
+            "Tom Riddle",
+            "The Dark Lord"
+          ],
+          "locationsAny": [
+            "Britain",
+            "Malfoy Manor"
+          ],
+          "topicsAny": [
+            "present character",
+            "adult phase baseline",
+            "behavior",
+            "personality",
+            "voice",
+            "role baseline",
+            "voldemort",
+            "open-war",
+            "years-6-7",
+            "present-character",
+            "adult-phase-baseline",
+            "Lord Voldemort"
+          ],
+          "erasAny": [
+            "Years 6-7",
+            "Half-Blood Prince",
+            "Deathly Hallows"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Across Years 6-7 after public acknowledgment, Voldemort is an embodied war leader: controlled, sadistic, status-obsessed, paranoid about weakness, and increasingly dominant over followers.",
+        "injection": "Write Voldemort in the open-war phase as embodied, commanding, cruel, status-obsessed, magically supreme, and intolerant of failure; his calm should feel predatory rather than theatrical.",
+        "constraints": [
+          "Do not make him casually vulnerable, sentimental, or politically moderate.",
+          "He should command through fear, reward, humiliation, and ideology, not ordinary friendship or loyalty.",
+          "Keep Horcrux discovery, wand allegiance, battle outcomes, and death state governed by separate entries.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write open-war Voldemort as a generic battlefield commander detached from obsession, terror, and magical dominance."
+        ],
+        "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "voldemort",
+          "open-war",
+          "years-6-7",
+          "present-character",
+          "adult-phase-baseline"
+        ],
+        "stateHints": {
+          "character": "Lord Voldemort",
+          "phase": "open-war leader phase baseline, Years 6-7",
+          "schoolYears": [
+            6,
+            7
+          ],
+          "baselineOnly": true,
+          "adultPhaseBaseline": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "confidence": 0.84,
+        "notes": "Curated adult/phase present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "adult_phase_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "adult_phase_alastor_moody_order_veteran_years_5_7_baseline",
+      "title": "Alastor Moody: Order veteran phase baseline, Years 5-7",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 9305,
+        "sortKeyTo": 10069,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "Years 5-7",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Alastor Moody",
+          "Mad-Eye Moody",
+          "Moody"
+        ],
+        "locations": [
+          "Britain",
+          "Grimmauld Place"
+        ],
+        "factions": [
+          "Order of the Phoenix",
+          "Aurors"
+        ],
+        "topics": [
+          "present character",
+          "adult phase baseline",
+          "behavior",
+          "personality",
+          "voice",
+          "role baseline",
+          "moody",
+          "auror",
+          "order-of-the-phoenix",
+          "present-character",
+          "adult-phase-baseline",
+          "Alastor Moody"
+        ],
+        "schoolYears": [
+          "5",
+          "6",
+          "7"
+        ],
+        "books": [
+          "Order of the Phoenix",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ],
+        "eras": [
+          "Years 5-7",
+          "Order of the Phoenix",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Alastor Moody",
+            "Mad-Eye Moody",
+            "Moody"
+          ],
+          "locationsAny": [
+            "Britain",
+            "Grimmauld Place"
+          ],
+          "topicsAny": [
+            "present character",
+            "adult phase baseline",
+            "behavior",
+            "personality",
+            "voice",
+            "role baseline",
+            "moody",
+            "auror",
+            "order-of-the-phoenix",
+            "present-character",
+            "adult-phase-baseline",
+            "Alastor Moody"
+          ],
+          "erasAny": [
+            "Years 5-7",
+            "Order of the Phoenix",
+            "Half-Blood Prince",
+            "Deathly Hallows"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Year 4’s impostor exposure and before his death, the real Moody is a scarred, paranoid, practical Order veteran with extreme vigilance and little patience for softness.",
+        "injection": "Write real Moody as a battle-scarred veteran: paranoid, blunt, security-minded, gruffly protective, and practical about danger rather than emotionally reassuring.",
+        "constraints": [
+          "Do not confuse the real Moody with the Year 4 impostor persona unless the scene is explicitly about that deception.",
+          "His paranoia should be grounded in experience, not random comedy alone.",
+          "Keep death outcome and specific missions in separate dated entries.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write real Moody as a gentle mentor or relaxed comic eccentric."
+        ],
+        "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "moody",
+          "auror",
+          "order-of-the-phoenix",
+          "present-character",
+          "adult-phase-baseline"
+        ],
+        "stateHints": {
+          "character": "Alastor Moody",
+          "phase": "Order veteran phase baseline, Years 5-7",
+          "schoolYears": [
+            5,
+            6,
+            7
+          ],
+          "baselineOnly": true,
+          "adultPhaseBaseline": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "confidence": 0.84,
+        "notes": "Curated adult/phase present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "adult_phase_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "adult_phase_slughorn_potions_professor_years_6_7_baseline",
+      "title": "Horace Slughorn: Potions professor phase baseline, Years 6-7",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 9740,
+        "sortKeyTo": 10469,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "Years 6-7",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Horace Slughorn",
+          "Slughorn",
+          "Professor Slughorn"
+        ],
+        "locations": [
+          "Hogwarts",
+          "Potions classroom"
+        ],
+        "factions": [
+          "Hogwarts staff",
+          "Slytherin"
+        ],
+        "topics": [
+          "present character",
+          "adult phase baseline",
+          "behavior",
+          "personality",
+          "voice",
+          "role baseline",
+          "slughorn",
+          "potions",
+          "slytherin",
+          "years-6-7",
+          "present-character",
+          "adult-phase-baseline",
+          "Horace Slughorn"
+        ],
+        "schoolYears": [
+          "6",
+          "7"
+        ],
+        "books": [
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ],
+        "eras": [
+          "Years 6-7",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Horace Slughorn",
+            "Slughorn",
+            "Professor Slughorn"
+          ],
+          "locationsAny": [
+            "Hogwarts",
+            "Potions classroom"
+          ],
+          "topicsAny": [
+            "present character",
+            "adult phase baseline",
+            "behavior",
+            "personality",
+            "voice",
+            "role baseline",
+            "slughorn",
+            "potions",
+            "slytherin",
+            "years-6-7",
+            "present-character",
+            "adult-phase-baseline",
+            "Horace Slughorn"
+          ],
+          "erasAny": [
+            "Years 6-7",
+            "Half-Blood Prince",
+            "Deathly Hallows"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Across Years 6-7, Slughorn is sociable, self-protective, status-conscious, gifted at Potions, and eager to collect talented or well-connected students.",
+        "injection": "Write Slughorn as genial, evasive, status-conscious, indulgent toward promising students, genuinely skilled, and more cowardly or self-protective than malicious.",
+        "constraints": [
+          "He should flatter and network rather than dominate through intimidation.",
+          "Do not make him either transparently evil or purely benevolent; his vanity and avoidance matter.",
+          "Keep memory revelations, party events, and battle participation in separate dated entries.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write Slughorn as a second Snape or as a selfless saint."
+        ],
+        "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "slughorn",
+          "potions",
+          "slytherin",
+          "years-6-7",
+          "present-character",
+          "adult-phase-baseline"
+        ],
+        "stateHints": {
+          "character": "Horace Slughorn",
+          "phase": "Potions professor phase baseline, Years 6-7",
+          "schoolYears": [
+            6,
+            7
+          ],
+          "baselineOnly": true,
+          "adultPhaseBaseline": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "confidence": 0.84,
+        "notes": "Curated adult/phase present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "adult_phase_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "adult_phase_flitwick_stable_professor_baseline",
+      "title": "Filius Flitwick: stable professor baseline, Years 1-7",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 50,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 10469,
+        "precision": "date_window",
+        "windowKind": "series",
+        "label": "Years 1-7",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Filius Flitwick",
+          "Flitwick",
+          "Professor Flitwick"
+        ],
+        "locations": [
+          "Hogwarts",
+          "Charms classroom"
+        ],
+        "factions": [
+          "Hogwarts staff",
+          "Ravenclaw"
+        ],
+        "topics": [
+          "present character",
+          "adult phase baseline",
+          "behavior",
+          "personality",
+          "voice",
+          "role baseline",
+          "flitwick",
+          "charms",
+          "ravenclaw",
+          "present-character",
+          "adult-phase-baseline",
+          "Filius Flitwick"
+        ],
+        "schoolYears": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7"
+        ],
+        "books": [
+          "Philosopher's Stone",
+          "Chamber of Secrets",
+          "Prisoner of Azkaban",
+          "Goblet of Fire",
+          "Order of the Phoenix",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ],
+        "eras": [
+          "Years 1-7",
+          "Philosopher's Stone",
+          "Chamber of Secrets",
+          "Prisoner of Azkaban",
+          "Goblet of Fire",
+          "Order of the Phoenix",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Filius Flitwick",
+            "Flitwick",
+            "Professor Flitwick"
+          ],
+          "locationsAny": [
+            "Hogwarts",
+            "Charms classroom"
+          ],
+          "topicsAny": [
+            "present character",
+            "adult phase baseline",
+            "behavior",
+            "personality",
+            "voice",
+            "role baseline",
+            "flitwick",
+            "charms",
+            "ravenclaw",
+            "present-character",
+            "adult-phase-baseline",
+            "Filius Flitwick"
+          ],
+          "erasAny": [
+            "Years 1-7",
+            "Philosopher's Stone",
+            "Chamber of Secrets",
+            "Prisoner of Azkaban",
+            "Goblet of Fire",
+            "Order of the Phoenix",
+            "Half-Blood Prince",
+            "Deathly Hallows"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Across the school years, Flitwick is a small, precise, enthusiastic Charms professor: encouraging, academically exact, and more formidable than his cheerful manner suggests.",
+        "injection": "Write Flitwick as warm, precise, academically rigorous, encouraging, and quietly formidable; his small stature should not reduce his competence or authority.",
+        "constraints": [
+          "Do not make him a joke character or ineffectual merely because he is cheerful.",
+          "Keep specific duels, wartime actions, and institutional changes in separate dated entries.",
+          "His classroom demeanor should be lively but technically exacting.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write Flitwick as weak, childish, or unserious."
+        ],
+        "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "flitwick",
+          "charms",
+          "ravenclaw",
+          "present-character",
+          "adult-phase-baseline"
+        ],
+        "stateHints": {
+          "character": "Filius Flitwick",
+          "phase": "stable professor baseline, Years 1-7",
+          "schoolYears": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "baselineOnly": true,
+          "adultPhaseBaseline": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "confidence": 0.84,
+        "notes": "Curated adult/phase present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "adult_phase_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "adult_phase_sprout_stable_professor_baseline",
+      "title": "Pomona Sprout: stable professor baseline, Years 1-7",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 50,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 10469,
+        "precision": "date_window",
+        "windowKind": "series",
+        "label": "Years 1-7",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Pomona Sprout",
+          "Sprout",
+          "Professor Sprout"
+        ],
+        "locations": [
+          "Hogwarts",
+          "Greenhouses"
+        ],
+        "factions": [
+          "Hogwarts staff",
+          "Hufflepuff"
+        ],
+        "topics": [
+          "present character",
+          "adult phase baseline",
+          "behavior",
+          "personality",
+          "voice",
+          "role baseline",
+          "sprout",
+          "herbology",
+          "hufflepuff",
+          "present-character",
+          "adult-phase-baseline",
+          "Pomona Sprout"
+        ],
+        "schoolYears": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7"
+        ],
+        "books": [
+          "Philosopher's Stone",
+          "Chamber of Secrets",
+          "Prisoner of Azkaban",
+          "Goblet of Fire",
+          "Order of the Phoenix",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ],
+        "eras": [
+          "Years 1-7",
+          "Philosopher's Stone",
+          "Chamber of Secrets",
+          "Prisoner of Azkaban",
+          "Goblet of Fire",
+          "Order of the Phoenix",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Pomona Sprout",
+            "Sprout",
+            "Professor Sprout"
+          ],
+          "locationsAny": [
+            "Hogwarts",
+            "Greenhouses"
+          ],
+          "topicsAny": [
+            "present character",
+            "adult phase baseline",
+            "behavior",
+            "personality",
+            "voice",
+            "role baseline",
+            "sprout",
+            "herbology",
+            "hufflepuff",
+            "present-character",
+            "adult-phase-baseline",
+            "Pomona Sprout"
+          ],
+          "erasAny": [
+            "Years 1-7",
+            "Philosopher's Stone",
+            "Chamber of Secrets",
+            "Prisoner of Azkaban",
+            "Goblet of Fire",
+            "Order of the Phoenix",
+            "Half-Blood Prince",
+            "Deathly Hallows"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Across the school years, Sprout is practical, earthy, fair-minded, and sturdy: a teacher who values hard work, competence, and student care without theatrics.",
+        "injection": "Write Sprout as practical, good-humored, steady, earthy, and professionally competent; she should feel rooted in work, plants, and student welfare rather than drama.",
+        "constraints": [
+          "Do not make her helpless or ornamental; her competence is practical and durable.",
+          "Keep specific plant incidents and wartime actions in separate dated entries.",
+          "Her warmth should be grounded and no-nonsense.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write Sprout as a generic soft background teacher with no authority."
+        ],
+        "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "sprout",
+          "herbology",
+          "hufflepuff",
+          "present-character",
+          "adult-phase-baseline"
+        ],
+        "stateHints": {
+          "character": "Pomona Sprout",
+          "phase": "stable professor baseline, Years 1-7",
+          "schoolYears": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "baselineOnly": true,
+          "adultPhaseBaseline": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "confidence": 0.84,
+        "notes": "Curated adult/phase present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "adult_phase_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "adult_phase_pomfrey_stable_healer_baseline",
+      "title": "Poppy Pomfrey: stable healer baseline, Years 1-7",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 50,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 10469,
+        "precision": "date_window",
+        "windowKind": "series",
+        "label": "Years 1-7",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Poppy Pomfrey",
+          "Pomfrey",
+          "Madam Pomfrey"
+        ],
+        "locations": [
+          "Hogwarts",
+          "Hospital Wing"
+        ],
+        "factions": [
+          "Hogwarts staff"
+        ],
+        "topics": [
+          "present character",
+          "adult phase baseline",
+          "behavior",
+          "personality",
+          "voice",
+          "role baseline",
+          "pomfrey",
+          "hospital-wing",
+          "healer",
+          "present-character",
+          "adult-phase-baseline",
+          "Poppy Pomfrey"
+        ],
+        "schoolYears": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7"
+        ],
+        "books": [
+          "Philosopher's Stone",
+          "Chamber of Secrets",
+          "Prisoner of Azkaban",
+          "Goblet of Fire",
+          "Order of the Phoenix",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ],
+        "eras": [
+          "Years 1-7",
+          "Philosopher's Stone",
+          "Chamber of Secrets",
+          "Prisoner of Azkaban",
+          "Goblet of Fire",
+          "Order of the Phoenix",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Poppy Pomfrey",
+            "Pomfrey",
+            "Madam Pomfrey"
+          ],
+          "locationsAny": [
+            "Hogwarts",
+            "Hospital Wing"
+          ],
+          "topicsAny": [
+            "present character",
+            "adult phase baseline",
+            "behavior",
+            "personality",
+            "voice",
+            "role baseline",
+            "pomfrey",
+            "hospital-wing",
+            "healer",
+            "present-character",
+            "adult-phase-baseline",
+            "Poppy Pomfrey"
+          ],
+          "erasAny": [
+            "Years 1-7",
+            "Philosopher's Stone",
+            "Chamber of Secrets",
+            "Prisoner of Azkaban",
+            "Goblet of Fire",
+            "Order of the Phoenix",
+            "Half-Blood Prince",
+            "Deathly Hallows"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Across the school years, Madam Pomfrey is brisk, protective, professionally private, and highly competent, prioritizing patient care over curiosity or drama.",
+        "injection": "Write Madam Pomfrey as brisk, protective, medically competent, and intolerant of nonsense; she should guard patient privacy and recovery rather than indulge dramatic interruptions.",
+        "constraints": [
+          "Do not make her casually reveal patient details for convenience.",
+          "Her irritation should usually serve care, triage, and order rather than cruelty.",
+          "Keep specific injuries, recoveries, and medical secrets in separate dated entries.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write Madam Pomfrey as incompetent, gossipy, or medically indifferent."
+        ],
+        "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "pomfrey",
+          "hospital-wing",
+          "healer",
+          "present-character",
+          "adult-phase-baseline"
+        ],
+        "stateHints": {
+          "character": "Poppy Pomfrey",
+          "phase": "stable healer baseline, Years 1-7",
+          "schoolYears": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "baselineOnly": true,
+          "adultPhaseBaseline": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "confidence": 0.84,
+        "notes": "Curated adult/phase present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "adult_phase_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "adult_phase_filch_stable_caretaker_baseline",
+      "title": "Argus Filch: stable caretaker baseline, Years 1-7",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 50,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 10469,
+        "precision": "date_window",
+        "windowKind": "series",
+        "label": "Years 1-7",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Argus Filch",
+          "Filch"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Hogwarts staff"
+        ],
+        "topics": [
+          "present character",
+          "adult phase baseline",
+          "behavior",
+          "personality",
+          "voice",
+          "role baseline",
+          "filch",
+          "caretaker",
+          "hogwarts-staff",
+          "present-character",
+          "adult-phase-baseline",
+          "Argus Filch"
+        ],
+        "schoolYears": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7"
+        ],
+        "books": [
+          "Philosopher's Stone",
+          "Chamber of Secrets",
+          "Prisoner of Azkaban",
+          "Goblet of Fire",
+          "Order of the Phoenix",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ],
+        "eras": [
+          "Years 1-7",
+          "Philosopher's Stone",
+          "Chamber of Secrets",
+          "Prisoner of Azkaban",
+          "Goblet of Fire",
+          "Order of the Phoenix",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Argus Filch",
+            "Filch"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "present character",
+            "adult phase baseline",
+            "behavior",
+            "personality",
+            "voice",
+            "role baseline",
+            "filch",
+            "caretaker",
+            "hogwarts-staff",
+            "present-character",
+            "adult-phase-baseline",
+            "Argus Filch"
+          ],
+          "erasAny": [
+            "Years 1-7",
+            "Philosopher's Stone",
+            "Chamber of Secrets",
+            "Prisoner of Azkaban",
+            "Goblet of Fire",
+            "Order of the Phoenix",
+            "Half-Blood Prince",
+            "Deathly Hallows"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Across the school years, Filch is resentful, punitive, suspicious, and obsessive about rule-breaking, with a grievance-driven relationship to students and magic.",
+        "injection": "Write Filch as sour, watchful, punitive, rule-obsessed, and resentful; he should seek infractions and enjoy student discomfort more than ordinary teaching staff would.",
+        "constraints": [
+          "Do not make him magically competent unless story lore changes his status.",
+          "His cruelty should be petty and disciplinary rather than grand strategic villainy.",
+          "Keep specific alliances, decrees, and punishments modular.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write Filch as a kindly janitor or as a major magical antagonist."
+        ],
+        "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "filch",
+          "caretaker",
+          "hogwarts-staff",
+          "present-character",
+          "adult-phase-baseline"
+        ],
+        "stateHints": {
+          "character": "Argus Filch",
+          "phase": "stable caretaker baseline, Years 1-7",
+          "schoolYears": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "baselineOnly": true,
+          "adultPhaseBaseline": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "confidence": 0.84,
+        "notes": "Curated adult/phase present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "adult_phase_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "adult_phase_trelawney_professor_years_3_7_baseline",
+      "title": "Sybill Trelawney: Divination professor baseline, Years 3-7",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 50,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 8644,
+        "sortKeyTo": 10469,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "Years 3-7",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Sybill Trelawney",
+          "Trelawney",
+          "Professor Trelawney"
+        ],
+        "locations": [
+          "Hogwarts",
+          "Divination classroom"
+        ],
+        "factions": [
+          "Hogwarts staff"
+        ],
+        "topics": [
+          "present character",
+          "adult phase baseline",
+          "behavior",
+          "personality",
+          "voice",
+          "role baseline",
+          "trelawney",
+          "divination",
+          "hogwarts-staff",
+          "present-character",
+          "adult-phase-baseline",
+          "Sybill Trelawney"
+        ],
+        "schoolYears": [
+          "3",
+          "4",
+          "5",
+          "6",
+          "7"
+        ],
+        "books": [
+          "Prisoner of Azkaban",
+          "Goblet of Fire",
+          "Order of the Phoenix",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ],
+        "eras": [
+          "Years 3-7",
+          "Prisoner of Azkaban",
+          "Goblet of Fire",
+          "Order of the Phoenix",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Sybill Trelawney",
+            "Trelawney",
+            "Professor Trelawney"
+          ],
+          "locationsAny": [
+            "Hogwarts",
+            "Divination classroom"
+          ],
+          "topicsAny": [
+            "present character",
+            "adult phase baseline",
+            "behavior",
+            "personality",
+            "voice",
+            "role baseline",
+            "trelawney",
+            "divination",
+            "hogwarts-staff",
+            "present-character",
+            "adult-phase-baseline",
+            "Sybill Trelawney"
+          ],
+          "erasAny": [
+            "Years 3-7",
+            "Prisoner of Azkaban",
+            "Goblet of Fire",
+            "Order of the Phoenix",
+            "Half-Blood Prince",
+            "Deathly Hallows"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Across her active school years, Trelawney is theatrical, misty, insecure, doom-laden, and often ridiculous, with occasional moments of uncanny significance controlled by separate prophecy lore.",
+        "injection": "Write Trelawney as theatrical, tremulous, doom-haunted, self-important, and insecure; her ordinary manner should be performative rather than consistently reliable.",
+        "constraints": [
+          "Do not make every prediction accurate or consciously meaningful.",
+          "Do not reveal prophecy mechanics or rare genuine prophecy events unless separate lore permits it.",
+          "Her comedy should coexist with vulnerability, not erase it.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write Trelawney as a confident, consistently lucid seer in ordinary scenes."
+        ],
+        "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "trelawney",
+          "divination",
+          "hogwarts-staff",
+          "present-character",
+          "adult-phase-baseline"
+        ],
+        "stateHints": {
+          "character": "Sybill Trelawney",
+          "phase": "Divination professor baseline, Years 3-7",
+          "schoolYears": [
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "baselineOnly": true,
+          "adultPhaseBaseline": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "confidence": 0.84,
+        "notes": "Curated adult/phase present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "adult_phase_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "adult_phase_madam_hooch_stable_professor_baseline",
+      "title": "Madam Hooch: stable flying instructor baseline, Years 1-7",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 50,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 10469,
+        "precision": "date_window",
+        "windowKind": "series",
+        "label": "Years 1-7",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Rolanda Hooch",
+          "Madam Hooch",
+          "Hooch"
+        ],
+        "locations": [
+          "Hogwarts",
+          "Quidditch pitch"
+        ],
+        "factions": [
+          "Hogwarts staff"
+        ],
+        "topics": [
+          "present character",
+          "adult phase baseline",
+          "behavior",
+          "personality",
+          "voice",
+          "role baseline",
+          "hooch",
+          "flying",
+          "quidditch",
+          "present-character",
+          "adult-phase-baseline",
+          "Rolanda Hooch"
+        ],
+        "schoolYears": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7"
+        ],
+        "books": [
+          "Philosopher's Stone",
+          "Chamber of Secrets",
+          "Prisoner of Azkaban",
+          "Goblet of Fire",
+          "Order of the Phoenix",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ],
+        "eras": [
+          "Years 1-7",
+          "Philosopher's Stone",
+          "Chamber of Secrets",
+          "Prisoner of Azkaban",
+          "Goblet of Fire",
+          "Order of the Phoenix",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Rolanda Hooch",
+            "Madam Hooch",
+            "Hooch"
+          ],
+          "locationsAny": [
+            "Hogwarts",
+            "Quidditch pitch"
+          ],
+          "topicsAny": [
+            "present character",
+            "adult phase baseline",
+            "behavior",
+            "personality",
+            "voice",
+            "role baseline",
+            "hooch",
+            "flying",
+            "quidditch",
+            "present-character",
+            "adult-phase-baseline",
+            "Rolanda Hooch"
+          ],
+          "erasAny": [
+            "Years 1-7",
+            "Philosopher's Stone",
+            "Chamber of Secrets",
+            "Prisoner of Azkaban",
+            "Goblet of Fire",
+            "Order of the Phoenix",
+            "Half-Blood Prince",
+            "Deathly Hallows"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Across the school years, Madam Hooch is brisk, athletic, safety-conscious, and authoritative around flying and Quidditch.",
+        "injection": "Write Madam Hooch as clipped, athletic, safety-minded, and authoritative around brooms, flying lessons, and Quidditch procedure.",
+        "constraints": [
+          "Do not make her ornamental or passive in flying-related scenes.",
+          "Keep specific matches, injuries, and team politics in separate dated entries.",
+          "Her expertise should be practical and immediate.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write Madam Hooch as indifferent to flying safety or match discipline."
+        ],
+        "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "hooch",
+          "flying",
+          "quidditch",
+          "present-character",
+          "adult-phase-baseline"
+        ],
+        "stateHints": {
+          "character": "Rolanda Hooch",
+          "phase": "stable flying instructor baseline, Years 1-7",
+          "schoolYears": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "baselineOnly": true,
+          "adultPhaseBaseline": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "confidence": 0.84,
+        "notes": "Curated adult/phase present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "adult_phase_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "adult_phase_arthur_weasley_stable_parent_ministry_baseline",
+      "title": "Arthur Weasley: stable parent and Ministry worker baseline, Years 1-7",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 50,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 10469,
+        "precision": "date_window",
+        "windowKind": "series",
+        "label": "Years 1-7",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Arthur Weasley",
+          "Arthur",
+          "Mr. Weasley"
+        ],
+        "locations": [
+          "Britain",
+          "The Burrow",
+          "Ministry of Magic"
+        ],
+        "factions": [
+          "Weasley family",
+          "Ministry of Magic",
+          "Order of the Phoenix"
+        ],
+        "topics": [
+          "present character",
+          "adult phase baseline",
+          "behavior",
+          "personality",
+          "voice",
+          "role baseline",
+          "arthur-weasley",
+          "weasley-family",
+          "ministry",
+          "present-character",
+          "adult-phase-baseline",
+          "Arthur Weasley"
+        ],
+        "schoolYears": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7"
+        ],
+        "books": [
+          "Philosopher's Stone",
+          "Chamber of Secrets",
+          "Prisoner of Azkaban",
+          "Goblet of Fire",
+          "Order of the Phoenix",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ],
+        "eras": [
+          "Years 1-7",
+          "Philosopher's Stone",
+          "Chamber of Secrets",
+          "Prisoner of Azkaban",
+          "Goblet of Fire",
+          "Order of the Phoenix",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Arthur Weasley",
+            "Arthur",
+            "Mr. Weasley"
+          ],
+          "locationsAny": [
+            "Britain",
+            "The Burrow",
+            "Ministry of Magic"
+          ],
+          "topicsAny": [
+            "present character",
+            "adult phase baseline",
+            "behavior",
+            "personality",
+            "voice",
+            "role baseline",
+            "arthur-weasley",
+            "weasley-family",
+            "ministry",
+            "present-character",
+            "adult-phase-baseline",
+            "Arthur Weasley"
+          ],
+          "erasAny": [
+            "Years 1-7",
+            "Philosopher's Stone",
+            "Chamber of Secrets",
+            "Prisoner of Azkaban",
+            "Goblet of Fire",
+            "Order of the Phoenix",
+            "Half-Blood Prince",
+            "Deathly Hallows"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Across the school years, Arthur Weasley is kind, curious, principled, somewhat eccentric about Muggle artifacts, and quietly brave beneath a mild exterior.",
+        "injection": "Write Arthur Weasley as gentle, curious, principled, understated, and fascinated by Muggle objects; his courage is modest and practical rather than showy.",
+        "constraints": [
+          "Do not make him foolish merely because his Muggle fascination is comic.",
+          "Do not make him politically ruthless or socially grandiose.",
+          "Keep specific Ministry roles, injuries, and wartime incidents in separate dated entries.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write Arthur as a buffoon or as a hardened political operator."
+        ],
+        "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "arthur-weasley",
+          "weasley-family",
+          "ministry",
+          "present-character",
+          "adult-phase-baseline"
+        ],
+        "stateHints": {
+          "character": "Arthur Weasley",
+          "phase": "stable parent and Ministry worker baseline, Years 1-7",
+          "schoolYears": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "baselineOnly": true,
+          "adultPhaseBaseline": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "confidence": 0.84,
+        "notes": "Curated adult/phase present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "adult_phase_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "adult_phase_molly_weasley_stable_parent_baseline",
+      "title": "Molly Weasley: stable parent baseline, Years 1-7",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 50,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 10469,
+        "precision": "date_window",
+        "windowKind": "series",
+        "label": "Years 1-7",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Molly Weasley",
+          "Molly",
+          "Mrs. Weasley"
+        ],
+        "locations": [
+          "The Burrow",
+          "Grimmauld Place",
+          "Britain"
+        ],
+        "factions": [
+          "Weasley family",
+          "Order of the Phoenix"
+        ],
+        "topics": [
+          "present character",
+          "adult phase baseline",
+          "behavior",
+          "personality",
+          "voice",
+          "role baseline",
+          "molly-weasley",
+          "weasley-family",
+          "parent",
+          "present-character",
+          "adult-phase-baseline",
+          "Molly Weasley"
+        ],
+        "schoolYears": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7"
+        ],
+        "books": [
+          "Philosopher's Stone",
+          "Chamber of Secrets",
+          "Prisoner of Azkaban",
+          "Goblet of Fire",
+          "Order of the Phoenix",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ],
+        "eras": [
+          "Years 1-7",
+          "Philosopher's Stone",
+          "Chamber of Secrets",
+          "Prisoner of Azkaban",
+          "Goblet of Fire",
+          "Order of the Phoenix",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Molly Weasley",
+            "Molly",
+            "Mrs. Weasley"
+          ],
+          "locationsAny": [
+            "The Burrow",
+            "Grimmauld Place",
+            "Britain"
+          ],
+          "topicsAny": [
+            "present character",
+            "adult phase baseline",
+            "behavior",
+            "personality",
+            "voice",
+            "role baseline",
+            "molly-weasley",
+            "weasley-family",
+            "parent",
+            "present-character",
+            "adult-phase-baseline",
+            "Molly Weasley"
+          ],
+          "erasAny": [
+            "Years 1-7",
+            "Philosopher's Stone",
+            "Chamber of Secrets",
+            "Prisoner of Azkaban",
+            "Goblet of Fire",
+            "Order of the Phoenix",
+            "Half-Blood Prince",
+            "Deathly Hallows"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Across the school years, Molly Weasley is warm, forceful, anxious, practical, protective, and capable of sharp anger when family safety or standards are threatened.",
+        "injection": "Write Molly Weasley as nurturing but formidable: practical, anxious, protective, domestic in skill but not in passivity, and quick to scold when fear becomes anger.",
+        "constraints": [
+          "Do not reduce her to comic fussing; her protectiveness has moral weight and real force.",
+          "Do not make her casually permissive about danger to children.",
+          "Keep specific family conflicts, losses, and battle actions in separate dated entries.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write Molly as either harmlessly soft or uniformly overbearing without warmth."
+        ],
+        "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "molly-weasley",
+          "weasley-family",
+          "parent",
+          "present-character",
+          "adult-phase-baseline"
+        ],
+        "stateHints": {
+          "character": "Molly Weasley",
+          "phase": "stable parent baseline, Years 1-7",
+          "schoolYears": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "baselineOnly": true,
+          "adultPhaseBaseline": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "confidence": 0.84,
+        "notes": "Curated adult/phase present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "adult_phase_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "adult_phase_lucius_malfoy_public_patriarch_years_1_4_baseline",
+      "title": "Lucius Malfoy: public patriarch phase baseline, Years 1-4",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 9305,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "Years 1-4",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Lucius Malfoy",
+          "Lucius",
+          "Mr. Malfoy"
+        ],
+        "locations": [
+          "Britain",
+          "Malfoy Manor",
+          "Ministry of Magic"
+        ],
+        "factions": [
+          "Malfoy family",
+          "Slytherin",
+          "Death Eaters"
+        ],
+        "topics": [
+          "present character",
+          "adult phase baseline",
+          "behavior",
+          "personality",
+          "voice",
+          "role baseline",
+          "lucius-malfoy",
+          "malfoy-family",
+          "slytherin",
+          "present-character",
+          "adult-phase-baseline",
+          "Lucius Malfoy"
+        ],
+        "schoolYears": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "books": [
+          "Philosopher's Stone",
+          "Chamber of Secrets",
+          "Prisoner of Azkaban",
+          "Goblet of Fire"
+        ],
+        "eras": [
+          "Years 1-4",
+          "Philosopher's Stone",
+          "Chamber of Secrets",
+          "Prisoner of Azkaban",
+          "Goblet of Fire"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Lucius Malfoy",
+            "Lucius",
+            "Mr. Malfoy"
+          ],
+          "locationsAny": [
+            "Britain",
+            "Malfoy Manor",
+            "Ministry of Magic"
+          ],
+          "topicsAny": [
+            "present character",
+            "adult phase baseline",
+            "behavior",
+            "personality",
+            "voice",
+            "role baseline",
+            "lucius-malfoy",
+            "malfoy-family",
+            "slytherin",
+            "present-character",
+            "adult-phase-baseline",
+            "Lucius Malfoy"
+          ],
+          "erasAny": [
+            "Years 1-4",
+            "Philosopher's Stone",
+            "Chamber of Secrets",
+            "Prisoner of Azkaban",
+            "Goblet of Fire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Across Years 1-4, Lucius Malfoy is an elegant, contemptuous, politically connected patriarch who masks intimidation and prejudice behind wealth, manners, and influence.",
+        "injection": "Write Lucius Malfoy in his public-patriarch phase as polished, cold, class-conscious, politically connected, and threatening through implication more often than open violence.",
+        "constraints": [
+          "Do not make him crude or impulsive in public unless cornered; his menace is aristocratic and controlled.",
+          "Do not reveal illegal loyalties or hidden plans casually without separate lore support.",
+          "Keep specific schemes, artifacts, exposure, and legal consequences in separate dated entries.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write early Lucius as a battlefield fanatic or openly powerless dependant."
+        ],
+        "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "lucius-malfoy",
+          "malfoy-family",
+          "slytherin",
+          "present-character",
+          "adult-phase-baseline"
+        ],
+        "stateHints": {
+          "character": "Lucius Malfoy",
+          "phase": "public patriarch phase baseline, Years 1-4",
+          "schoolYears": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "baselineOnly": true,
+          "adultPhaseBaseline": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "confidence": 0.84,
+        "notes": "Curated adult/phase present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "adult_phase_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "adult_phase_lucius_malfoy_disgraced_death_eater_years_5_7_baseline",
+      "title": "Lucius Malfoy: disgraced Death Eater phase baseline, Years 5-7",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 9305,
+        "sortKeyTo": 10348,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "Years 5-7",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Lucius Malfoy",
+          "Lucius",
+          "Mr. Malfoy"
+        ],
+        "locations": [
+          "Britain",
+          "Malfoy Manor"
+        ],
+        "factions": [
+          "Malfoy family",
+          "Death Eaters"
+        ],
+        "topics": [
+          "present character",
+          "adult phase baseline",
+          "behavior",
+          "personality",
+          "voice",
+          "role baseline",
+          "lucius-malfoy",
+          "death-eater",
+          "malfoy-family",
+          "present-character",
+          "adult-phase-baseline",
+          "Lucius Malfoy"
+        ],
+        "schoolYears": [
+          "5",
+          "6",
+          "7"
+        ],
+        "books": [
+          "Order of the Phoenix",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ],
+        "eras": [
+          "Years 5-7",
+          "Order of the Phoenix",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Lucius Malfoy",
+            "Lucius",
+            "Mr. Malfoy"
+          ],
+          "locationsAny": [
+            "Britain",
+            "Malfoy Manor"
+          ],
+          "topicsAny": [
+            "present character",
+            "adult phase baseline",
+            "behavior",
+            "personality",
+            "voice",
+            "role baseline",
+            "lucius-malfoy",
+            "death-eater",
+            "malfoy-family",
+            "present-character",
+            "adult-phase-baseline",
+            "Lucius Malfoy"
+          ],
+          "erasAny": [
+            "Years 5-7",
+            "Order of the Phoenix",
+            "Half-Blood Prince",
+            "Deathly Hallows"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Across the later war period, Lucius Malfoy remains proud and prejudiced, but his authority is increasingly compromised by fear, failure, and dependence on Voldemort’s favor.",
+        "injection": "Write Lucius Malfoy in the later-war phase as still aristocratic and prejudiced, but more fearful, diminished, and dependent on the regime than his earlier public confidence suggested.",
+        "constraints": [
+          "Do not give him the effortless social dominance of early years if later-war disgrace or pressure is active.",
+          "Do not make him suddenly egalitarian or morally clear without explicit story divergence.",
+          "Keep imprisonment, release, family crises, and battle outcomes in separate dated entries.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write late-war Lucius as fully secure, unafraid, or independent of Voldemort."
+        ],
+        "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "lucius-malfoy",
+          "death-eater",
+          "malfoy-family",
+          "present-character",
+          "adult-phase-baseline"
+        ],
+        "stateHints": {
+          "character": "Lucius Malfoy",
+          "phase": "disgraced Death Eater phase baseline, Years 5-7",
+          "schoolYears": [
+            5,
+            6,
+            7
+          ],
+          "baselineOnly": true,
+          "adultPhaseBaseline": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "confidence": 0.84,
+        "notes": "Curated adult/phase present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "adult_phase_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "adult_phase_narcissa_malfoy_family_survival_baseline",
+      "title": "Narcissa Malfoy: family-survival baseline, Years 1-7",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 50,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 10469,
+        "precision": "date_window",
+        "windowKind": "series",
+        "label": "Years 1-7",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Narcissa Malfoy",
+          "Narcissa",
+          "Mrs. Malfoy"
+        ],
+        "locations": [
+          "Britain",
+          "Malfoy Manor"
+        ],
+        "factions": [
+          "Malfoy family",
+          "Black family"
+        ],
+        "topics": [
+          "present character",
+          "adult phase baseline",
+          "behavior",
+          "personality",
+          "voice",
+          "role baseline",
+          "narcissa-malfoy",
+          "malfoy-family",
+          "black-family",
+          "present-character",
+          "adult-phase-baseline",
+          "Narcissa Malfoy"
+        ],
+        "schoolYears": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7"
+        ],
+        "books": [
+          "Philosopher's Stone",
+          "Chamber of Secrets",
+          "Prisoner of Azkaban",
+          "Goblet of Fire",
+          "Order of the Phoenix",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ],
+        "eras": [
+          "Years 1-7",
+          "Philosopher's Stone",
+          "Chamber of Secrets",
+          "Prisoner of Azkaban",
+          "Goblet of Fire",
+          "Order of the Phoenix",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Narcissa Malfoy",
+            "Narcissa",
+            "Mrs. Malfoy"
+          ],
+          "locationsAny": [
+            "Britain",
+            "Malfoy Manor"
+          ],
+          "topicsAny": [
+            "present character",
+            "adult phase baseline",
+            "behavior",
+            "personality",
+            "voice",
+            "role baseline",
+            "narcissa-malfoy",
+            "malfoy-family",
+            "black-family",
+            "present-character",
+            "adult-phase-baseline",
+            "Narcissa Malfoy"
+          ],
+          "erasAny": [
+            "Years 1-7",
+            "Philosopher's Stone",
+            "Chamber of Secrets",
+            "Prisoner of Azkaban",
+            "Goblet of Fire",
+            "Order of the Phoenix",
+            "Half-Blood Prince",
+            "Deathly Hallows"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Across the canon years, Narcissa Malfoy is cold, aristocratic, socially controlled, and intensely family-centered, with self-preservation and family survival overriding abstract ideology when pressed.",
+        "injection": "Write Narcissa Malfoy as controlled, aristocratic, proud, emotionally guarded, and fiercely family-centered; her warmth is private and selective, not broadly charitable.",
+        "constraints": [
+          "Do not make her casually affectionate outside trusted family contexts.",
+          "Do not make her a generic cackling Death Eater; her priorities are narrower and more familial.",
+          "Keep specific vows, betrayals, and battle choices in separate dated entries.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write Narcissa as either openly soft-hearted to everyone or identical in temperament to Bellatrix."
+        ],
+        "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "narcissa-malfoy",
+          "malfoy-family",
+          "black-family",
+          "present-character",
+          "adult-phase-baseline"
+        ],
+        "stateHints": {
+          "character": "Narcissa Malfoy",
+          "phase": "family-survival baseline, Years 1-7",
+          "schoolYears": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "baselineOnly": true,
+          "adultPhaseBaseline": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "confidence": 0.84,
+        "notes": "Curated adult/phase present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "adult_phase_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "adult_phase_bellatrix_late_war_death_eater_baseline",
+      "title": "Bellatrix Lestrange: late-war Death Eater baseline, Years 5-7",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 9496,
+        "sortKeyTo": 10348,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "Years 5-7",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Bellatrix Lestrange",
+          "Bellatrix",
+          "Lestrange"
+        ],
+        "locations": [
+          "Britain",
+          "Malfoy Manor"
+        ],
+        "factions": [
+          "Death Eaters",
+          "Black family"
+        ],
+        "topics": [
+          "present character",
+          "adult phase baseline",
+          "behavior",
+          "personality",
+          "voice",
+          "role baseline",
+          "bellatrix-lestrange",
+          "death-eater",
+          "black-family",
+          "present-character",
+          "adult-phase-baseline",
+          "Bellatrix Lestrange"
+        ],
+        "schoolYears": [
+          "5",
+          "6",
+          "7"
+        ],
+        "books": [
+          "Order of the Phoenix",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ],
+        "eras": [
+          "Years 5-7",
+          "Order of the Phoenix",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Bellatrix Lestrange",
+            "Bellatrix",
+            "Lestrange"
+          ],
+          "locationsAny": [
+            "Britain",
+            "Malfoy Manor"
+          ],
+          "topicsAny": [
+            "present character",
+            "adult phase baseline",
+            "behavior",
+            "personality",
+            "voice",
+            "role baseline",
+            "bellatrix-lestrange",
+            "death-eater",
+            "black-family",
+            "present-character",
+            "adult-phase-baseline",
+            "Bellatrix Lestrange"
+          ],
+          "erasAny": [
+            "Years 5-7",
+            "Order of the Phoenix",
+            "Half-Blood Prince",
+            "Deathly Hallows"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After her return to active relevance in the later war period, Bellatrix is fanatical, sadistic, aristocratic, volatile, and devoted to Voldemort’s supremacy.",
+        "injection": "Write Bellatrix as fanatical, cruel, theatrical, aristocratic, and violently devoted to Voldemort; her instability should feel dangerous rather than merely comic.",
+        "constraints": [
+          "Do not make her moderate, maternal, or politically subtle without explicit AU change.",
+          "Her violence should be ideological, personal, and performative.",
+          "Keep specific prison escape details, torture scenes, vault events, and death outcome in separate dated entries.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write Bellatrix as interchangeable with Narcissa or as a generic henchwoman with no class-coded arrogance."
+        ],
+        "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "bellatrix-lestrange",
+          "death-eater",
+          "black-family",
+          "present-character",
+          "adult-phase-baseline"
+        ],
+        "stateHints": {
+          "character": "Bellatrix Lestrange",
+          "phase": "late-war Death Eater baseline, Years 5-7",
+          "schoolYears": [
+            5,
+            6,
+            7
+          ],
+          "baselineOnly": true,
+          "adultPhaseBaseline": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "confidence": 0.84,
+        "notes": "Curated adult/phase present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "adult_phase_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "adult_phase_kingsley_order_auror_baseline",
+      "title": "Kingsley Shacklebolt: Order Auror baseline, Years 5-7",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 9374,
+        "sortKeyTo": 10469,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "Years 5-7",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Kingsley Shacklebolt",
+          "Kingsley"
+        ],
+        "locations": [
+          "Britain",
+          "Ministry of Magic",
+          "Grimmauld Place"
+        ],
+        "factions": [
+          "Order of the Phoenix",
+          "Aurors",
+          "Ministry of Magic"
+        ],
+        "topics": [
+          "present character",
+          "adult phase baseline",
+          "behavior",
+          "personality",
+          "voice",
+          "role baseline",
+          "kingsley-shacklebolt",
+          "auror",
+          "order-of-the-phoenix",
+          "present-character",
+          "adult-phase-baseline",
+          "Kingsley Shacklebolt"
+        ],
+        "schoolYears": [
+          "5",
+          "6",
+          "7"
+        ],
+        "books": [
+          "Order of the Phoenix",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ],
+        "eras": [
+          "Years 5-7",
+          "Order of the Phoenix",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Kingsley Shacklebolt",
+            "Kingsley"
+          ],
+          "locationsAny": [
+            "Britain",
+            "Ministry of Magic",
+            "Grimmauld Place"
+          ],
+          "topicsAny": [
+            "present character",
+            "adult phase baseline",
+            "behavior",
+            "personality",
+            "voice",
+            "role baseline",
+            "kingsley-shacklebolt",
+            "auror",
+            "order-of-the-phoenix",
+            "present-character",
+            "adult-phase-baseline",
+            "Kingsley Shacklebolt"
+          ],
+          "erasAny": [
+            "Years 5-7",
+            "Order of the Phoenix",
+            "Half-Blood Prince",
+            "Deathly Hallows"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Across Years 5-7, Kingsley Shacklebolt is calm, professional, discreet, physically imposing, and politically aware, with competence expressed through restraint.",
+        "injection": "Write Kingsley as calm, deep-voiced, controlled, competent, discreet, and professionally formidable; he should project steadiness rather than melodrama.",
+        "constraints": [
+          "Do not make him reckless, chatty, or easily rattled.",
+          "Keep specific undercover roles, Ministry shifts, and political outcomes in separate dated entries.",
+          "His authority should be quiet and credible.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write Kingsley as a generic hotheaded fighter."
+        ],
+        "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "kingsley-shacklebolt",
+          "auror",
+          "order-of-the-phoenix",
+          "present-character",
+          "adult-phase-baseline"
+        ],
+        "stateHints": {
+          "character": "Kingsley Shacklebolt",
+          "phase": "Order Auror baseline, Years 5-7",
+          "schoolYears": [
+            5,
+            6,
+            7
+          ],
+          "baselineOnly": true,
+          "adultPhaseBaseline": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "confidence": 0.84,
+        "notes": "Curated adult/phase present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "adult_phase_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "adult_phase_tonks_order_auror_baseline",
+      "title": "Nymphadora Tonks: Order Auror baseline, Years 5-7",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 9374,
+        "sortKeyTo": 10348,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "Years 5-7",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Nymphadora Tonks",
+          "Tonks"
+        ],
+        "locations": [
+          "Britain",
+          "Grimmauld Place"
+        ],
+        "factions": [
+          "Order of the Phoenix",
+          "Aurors"
+        ],
+        "topics": [
+          "present character",
+          "adult phase baseline",
+          "behavior",
+          "personality",
+          "voice",
+          "role baseline",
+          "tonks",
+          "auror",
+          "order-of-the-phoenix",
+          "present-character",
+          "adult-phase-baseline",
+          "Nymphadora Tonks"
+        ],
+        "schoolYears": [
+          "5",
+          "6",
+          "7"
+        ],
+        "books": [
+          "Order of the Phoenix",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ],
+        "eras": [
+          "Years 5-7",
+          "Order of the Phoenix",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Nymphadora Tonks",
+            "Tonks"
+          ],
+          "locationsAny": [
+            "Britain",
+            "Grimmauld Place"
+          ],
+          "topicsAny": [
+            "present character",
+            "adult phase baseline",
+            "behavior",
+            "personality",
+            "voice",
+            "role baseline",
+            "tonks",
+            "auror",
+            "order-of-the-phoenix",
+            "present-character",
+            "adult-phase-baseline",
+            "Nymphadora Tonks"
+          ],
+          "erasAny": [
+            "Years 5-7",
+            "Order of the Phoenix",
+            "Half-Blood Prince",
+            "Deathly Hallows"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Across Years 5-7 before her death, Tonks is young, capable, informal, clumsy in ordinary movement, skilled as a Metamorphmagus and Auror, and emotionally more vulnerable than her jokes suggest.",
+        "injection": "Write Tonks as informal, funny, clumsy, capable, brave, and emotionally open beneath professional competence; she should feel younger and less guarded than older Order members.",
+        "constraints": [
+          "Do not make her incompetent because she is clumsy; her Auror skill and Metamorphmagus ability are real.",
+          "Do not reduce her to comic hair changes or romance status.",
+          "Keep relationship developments, pregnancy/family status, missions, and death outcome in separate dated entries.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write Tonks as a polished, aloof veteran or as merely a gag character."
+        ],
+        "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "tonks",
+          "auror",
+          "order-of-the-phoenix",
+          "present-character",
+          "adult-phase-baseline"
+        ],
+        "stateHints": {
+          "character": "Nymphadora Tonks",
+          "phase": "Order Auror baseline, Years 5-7",
+          "schoolYears": [
+            5,
+            6,
+            7
+          ],
+          "baselineOnly": true,
+          "adultPhaseBaseline": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "confidence": 0.84,
+        "notes": "Curated adult/phase present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "adult_phase_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "adult_phase_fudge_minister_pre_denial_years_1_4_baseline",
+      "title": "Cornelius Fudge: pre-denial Minister baseline, Years 1-4",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 9305,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "Years 1-4",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Cornelius Fudge",
+          "Fudge",
+          "Minister Fudge"
+        ],
+        "locations": [
+          "Britain",
+          "Ministry of Magic"
+        ],
+        "factions": [
+          "Ministry of Magic"
+        ],
+        "topics": [
+          "present character",
+          "adult phase baseline",
+          "behavior",
+          "personality",
+          "voice",
+          "role baseline",
+          "fudge",
+          "minister",
+          "ministry",
+          "present-character",
+          "adult-phase-baseline",
+          "Cornelius Fudge"
+        ],
+        "schoolYears": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "books": [
+          "Philosopher's Stone",
+          "Chamber of Secrets",
+          "Prisoner of Azkaban",
+          "Goblet of Fire"
+        ],
+        "eras": [
+          "Years 1-4",
+          "Philosopher's Stone",
+          "Chamber of Secrets",
+          "Prisoner of Azkaban",
+          "Goblet of Fire"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Cornelius Fudge",
+            "Fudge",
+            "Minister Fudge"
+          ],
+          "locationsAny": [
+            "Britain",
+            "Ministry of Magic"
+          ],
+          "topicsAny": [
+            "present character",
+            "adult phase baseline",
+            "behavior",
+            "personality",
+            "voice",
+            "role baseline",
+            "fudge",
+            "minister",
+            "ministry",
+            "present-character",
+            "adult-phase-baseline",
+            "Cornelius Fudge"
+          ],
+          "erasAny": [
+            "Years 1-4",
+            "Philosopher's Stone",
+            "Chamber of Secrets",
+            "Prisoner of Azkaban",
+            "Goblet of Fire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Across Years 1-4, Fudge is a status-conscious Minister who values reassurance, order, public confidence, and advice from stronger personalities.",
+        "injection": "Write Fudge before the denial crisis as genial, status-conscious, politically cautious, eager to appear competent, and reliant on authority signals from others.",
+        "constraints": [
+          "Do not make him a visionary leader or hardened wartime realist.",
+          "His friendliness should not erase insecurity or institutional self-protection.",
+          "Keep specific Ministry decisions, scandals, and public-belief shifts in separate dated entries.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write early Fudge as either purely malicious or unusually brave."
+        ],
+        "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "fudge",
+          "minister",
+          "ministry",
+          "present-character",
+          "adult-phase-baseline"
+        ],
+        "stateHints": {
+          "character": "Cornelius Fudge",
+          "phase": "pre-denial Minister baseline, Years 1-4",
+          "schoolYears": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "baselineOnly": true,
+          "adultPhaseBaseline": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "confidence": 0.84,
+        "notes": "Curated adult/phase present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "adult_phase_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "adult_phase_scrimgeour_wartime_minister_baseline",
+      "title": "Rufus Scrimgeour: wartime Minister baseline, Years 6-7",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 9665,
+        "sortKeyTo": 10074,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "Years 6-7",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Rufus Scrimgeour",
+          "Scrimgeour",
+          "Minister Scrimgeour"
+        ],
+        "locations": [
+          "Britain",
+          "Ministry of Magic"
+        ],
+        "factions": [
+          "Ministry of Magic",
+          "Aurors"
+        ],
+        "topics": [
+          "present character",
+          "adult phase baseline",
+          "behavior",
+          "personality",
+          "voice",
+          "role baseline",
+          "scrimgeour",
+          "minister",
+          "wartime-ministry",
+          "present-character",
+          "adult-phase-baseline",
+          "Rufus Scrimgeour"
+        ],
+        "schoolYears": [
+          "6",
+          "7"
+        ],
+        "books": [
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ],
+        "eras": [
+          "Years 6-7",
+          "Half-Blood Prince",
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Rufus Scrimgeour",
+            "Scrimgeour",
+            "Minister Scrimgeour"
+          ],
+          "locationsAny": [
+            "Britain",
+            "Ministry of Magic"
+          ],
+          "topicsAny": [
+            "present character",
+            "adult phase baseline",
+            "behavior",
+            "personality",
+            "voice",
+            "role baseline",
+            "scrimgeour",
+            "minister",
+            "wartime-ministry",
+            "present-character",
+            "adult-phase-baseline",
+            "Rufus Scrimgeour"
+          ],
+          "erasAny": [
+            "Years 6-7",
+            "Half-Blood Prince",
+            "Deathly Hallows"
+          ]
+        }
+      },
+      "content": {
+        "fact": "As wartime Minister, Scrimgeour is tougher and more realistic than Fudge, but still politically image-conscious, coercive, and focused on public morale and Ministry control.",
+        "injection": "Write Scrimgeour as a hard, scarred wartime bureaucrat: practical, suspicious, politically calculating, and willing to pressure symbols of resistance for public morale.",
+        "constraints": [
+          "Do not make him warm, transparent, or free of propaganda instincts.",
+          "Do not make him identical to Fudge; he is harsher, more competent, and more war-conscious.",
+          "Keep specific bequests, Ministry fall events, and death/outcome lore modular.",
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+        ],
+        "antiLore": [
+          "Do not write Scrimgeour as either a pure ally or a comic denialist."
+        ],
+        "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
+      },
+      "effects": {
+        "addsTags": [
+          "scrimgeour",
+          "minister",
+          "wartime-ministry",
+          "present-character",
+          "adult-phase-baseline"
+        ],
+        "stateHints": {
+          "character": "Rufus Scrimgeour",
+          "phase": "wartime Minister baseline, Years 6-7",
+          "schoolYears": [
+            6,
+            7
+          ],
+          "baselineOnly": true,
+          "adultPhaseBaseline": true
+        },
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true,
+          "preferAsConstraint": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "confidence": 0.84,
+        "notes": "Curated adult/phase present-character baseline. Event-specific, relationship-specific, and secret-knowledge changes are intentionally excluded."
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "adult_phase_character_baseline"
+        }
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

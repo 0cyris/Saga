@@ -67,15 +67,39 @@
   "registries": {
     "timeline": "timeline.json"
   },
-  "files": [],
+  "files": [
+    "behavior_gates/core_behaviors.json",
+    "characters/adult_character_phase_baselines.json",
+    "characters/present_character_baselines.json",
+    "chronology/major_events.json",
+    "chronology/school_years.json",
+    "events/school_year_windows.json",
+    "expanded_books/book_4_goblet_of_fire_expansion.json",
+    "future_guards/expanded_future_guards.json",
+    "knowledge_gates/expanded_knowledge_gates.json",
+    "lexicon_calendars/year_4_gof_calendar_anchors.json",
+    "skills/school_year_skill_bands.json",
+    "spell_gates/expanded_spell_gates.json",
+    "spell_gates/spell_gates.json"
+  ],
   "compatibility": {
     "sagaSchemaMin": 3,
     "sagaSchemaMax": 3
   },
   "stats": {
-    "entryCount": 0,
-    "categoryCounts": {},
+    "entryCount": 53,
+    "categoryCounts": {
+      "character": 17,
+      "event": 18,
+      "faction": 1,
+      "knowledge": 7,
+      "location": 2,
+      "relationship": 1,
+      "spell": 4,
+      "timeline": 3
+    },
     "timelineAnchorCount": 56,
     "timelineWindowCount": 9
-  }
+  },
+  "updatedAt": 1780617600000
 }

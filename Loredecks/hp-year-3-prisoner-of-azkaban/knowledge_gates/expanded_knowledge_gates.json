@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "knowledge_gate_sirius_truth_before_late_year3",
+      "title": "Sirius Innocence Hidden",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 90,
+      "status": "active",
+      "protected": true,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y3.marge_arrives",
+        "validToAnchor": "hp.y3.sirius_escapes",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 8921,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Prisoner of Azkaban: Year 3",
+        "approximate": false
+      },
+      "activation": {
+        "requiresMissingEvents": [
+          "sirius_truth_revealed"
+        ]
+      },
+      "expiration": {
+        "expiresWhenEventsHappen": [
+          "sirius_truth_revealed"
+        ],
+        "autoMuteOnExpire": true
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Hermione Granger",
+          "Ron Weasley"
+        ],
+        "topics": [
+          "Sirius Black",
+          "Peter Pettigrew",
+          "betrayal"
+        ],
+        "schoolYears": [
+          "3"
+        ],
+        "books": [
+          "Prisoner of Azkaban"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Hermione Granger",
+            "Ron Weasley"
+          ],
+          "topicsAny": [
+            "Sirius Black",
+            "Peter Pettigrew",
+            "betrayal"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before the Shrieking Shack truth is established, Harry should not know Sirius was innocent or that Peter betrayed his parents.",
+        "injection": "Before the Shrieking Shack truth is established, characters generally believe Sirius Black betrayed the Potters; Harry does not know Peter Pettigrew is the traitor.",
+        "constraints": [
+          "Block early revelation of Sirius innocence and Peter’s betrayal."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "knowledge-gate",
+          "Sirius",
+          "year-3"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Prisoner of Azkaban",
+        "confidence": 0.82,
+        "notes": "Expanded curated Context constraint entry."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-3-prisoner-of-azkaban",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,198 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "event_ministry_falls",
+      "title": "Ministry falls under Voldemort control",
+      "kind": "event_anchor",
+      "gateType": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 35,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y7.dumbledore_will_bequests",
+        "validToAnchor": "hp.y7.bill_fleur_wedding",
+        "sortKeyFrom": 10074,
+        "sortKeyTo": 10084,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Deathly Hallows: Year 7",
+        "approximate": false
+      },
+      "scope": {
+        "topics": [
+          "timeline",
+          "canon state"
+        ],
+        "schoolYears": [
+          "7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ],
+        "phases": [
+          "summer"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "topicsAny": [
+            "timeline",
+            "canon state"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Ministry is under Voldemort-aligned control.",
+        "injection": "The Ministry is under Voldemort-aligned control."
+      },
+      "effects": {
+        "addsTags": [
+          "timeline",
+          "year-7"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Deathly Hallows",
+        "confidence": 0.85,
+        "notes": "Curated Context constraint seed entry."
+      },
+      "extensions": {
+        "temporalTightening": {
+          "method": "curated chronology point event: validFrom plus 10 days",
+          "notes": "End date narrowed so event-like lore does not remain active as an open-ended suggestion.",
+          "previousValidTo": "1998-05-02"
+        },
+        "deathStateGatePass": {
+          "method": "removed positive requiresEvents from canon database entry",
+          "notes": "Canon database proposals are Context-gated references; they should not become Future solely because a story milestone flag is absent.",
+          "requiresEventsRemoved": [
+            "ministry_falls"
+          ]
+        },
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-7-deathly-hallows",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "event_battle_hogwarts_after",
+      "title": "Battle of Hogwarts aftermath",
+      "kind": "event_anchor",
+      "gateType": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 35,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y7.elder_wand_resolution",
+        "validToAnchor": "hp.y7.battle_aftermath",
+        "sortKeyFrom": 10348,
+        "sortKeyTo": 10358,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Deathly Hallows: Year 7",
+        "approximate": false
+      },
+      "scope": {
+        "topics": [
+          "timeline",
+          "canon state"
+        ],
+        "schoolYears": [
+          "7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ],
+        "phases": [
+          "battle"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "topicsAny": [
+            "timeline",
+            "canon state"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Voldemort is defeated and many war losses are known.",
+        "injection": "Voldemort is defeated and many war losses are known."
+      },
+      "effects": {
+        "addsTags": [
+          "timeline",
+          "year-7"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Deathly Hallows",
+        "confidence": 0.85,
+        "notes": "Curated Context constraint seed entry."
+      },
+      "extensions": {
+        "temporalTightening": {
+          "method": "curated chronology point event: validFrom plus 10 days",
+          "notes": "End date narrowed so event-like lore does not remain active as an open-ended suggestion.",
+          "previousValidTo": "1998-08-31"
+        },
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-7-deathly-hallows",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}

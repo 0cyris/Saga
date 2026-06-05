@@ -1,0 +1,1807 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "dh_seven_potters_flight_guard",
+      "title": "Seven Potters flight death-state guard",
+      "kind": "future_guard",
+      "gateType": "future_guard",
+      "category": "timeline",
+      "relevance": "normal",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "priority": 100,
+      "status": "active",
+      "protected": true,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y7.malfoy_manor_burbage_meeting",
+        "validToAnchor": "hp.y7.burrow_after_seven_potters",
+        "sortKeyFrom": 10043,
+        "sortKeyTo": 10069,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Deathly Hallows: Year 7",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Hedwig",
+          "Alastor Moody",
+          "Order of the Phoenix",
+          "Voldemort"
+        ],
+        "locations": [
+          "Privet Drive",
+          "safe houses"
+        ],
+        "topics": [
+          "Seven Potters",
+          "escape",
+          "death state",
+          "summer",
+          "year 7"
+        ],
+        "schoolYears": [
+          "7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ],
+        "phases": [
+          "summer"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Hedwig",
+            "Alastor Moody",
+            "Order of the Phoenix",
+            "Voldemort"
+          ],
+          "locationsAny": [
+            "Privet Drive",
+            "safe houses"
+          ],
+          "topicsAny": [
+            "Seven Potters",
+            "escape",
+            "death state",
+            "summer",
+            "year 7"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before the Seven Potters flight resolves, Hedwig and Moody's deaths and the full outcome of the escape should not be known.",
+        "injection": "Before the Seven Potters flight resolves, Hedwig and Moody's deaths and the full outcome of the escape should not be known.",
+        "constraints": [
+          "Keep Hedwig and Moody alive until the Seven Potters event resolves."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "Deathly Hallows",
+          "Year 7",
+          "summer",
+          "future_guard"
+        ]
+      },
+      "sourceInfo": {
+        "id": "saga-expanded-lore-v1",
+        "work": "Harry Potter canon summary",
+        "book": "Deathly Hallows",
+        "confidence": 0.86,
+        "notes": "Compact continuity entry for roleplay state management."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-7-deathly-hallows",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "dh_wedding_ministry_fall_transition",
+      "title": "Burrow wedding and Ministry fall transition",
+      "kind": "institution_state",
+      "gateType": "institution_state",
+      "category": "location",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 60,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 90,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y7.dumbledore_will_bequests",
+        "validToAnchor": "hp.y7.rab_discovered",
+        "sortKeyFrom": 10074,
+        "sortKeyTo": 10104,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Deathly Hallows: Year 7",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Hermione Granger",
+          "Ron Weasley",
+          "Bill Weasley",
+          "Fleur Delacour",
+          "Kingsley Shacklebolt"
+        ],
+        "locations": [
+          "The Burrow",
+          "Ministry of Magic"
+        ],
+        "factions": [
+          "Ministry of Magic",
+          "Death Eaters"
+        ],
+        "topics": [
+          "wedding",
+          "Ministry fall",
+          "fugitive transition",
+          "summer",
+          "year 7"
+        ],
+        "schoolYears": [
+          "7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ],
+        "phases": [
+          "summer"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Hermione Granger",
+            "Ron Weasley",
+            "Bill Weasley",
+            "Fleur Delacour",
+            "Kingsley Shacklebolt"
+          ],
+          "locationsAny": [
+            "The Burrow",
+            "Ministry of Magic"
+          ],
+          "topicsAny": [
+            "wedding",
+            "Ministry fall",
+            "fugitive transition",
+            "summer",
+            "year 7"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Burrow wedding is interrupted by news of the Ministry's fall, forcing Harry, Ron, and Hermione into fugitive status.",
+        "injection": "The Burrow wedding is interrupted by news of the Ministry's fall, forcing Harry, Ron, and Hermione into fugitive status."
+      },
+      "effects": {
+        "addsTags": [
+          "Deathly Hallows",
+          "Year 7",
+          "summer",
+          "institution_state",
+          "place"
+        ]
+      },
+      "sourceInfo": {
+        "id": "saga-expanded-lore-v1",
+        "work": "Harry Potter canon summary",
+        "book": "Deathly Hallows",
+        "confidence": 0.86,
+        "notes": "Compact continuity entry for roleplay state management."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-7-deathly-hallows",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "dh_camping_protections_locket_effects",
+      "title": "Camping protections and locket effects",
+      "kind": "artifact_state",
+      "gateType": "artifact_state",
+      "category": "item",
+      "relevance": "low",
+      "lorePurpose": "item_state",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y7.rab_discovered",
+        "validToAnchor": "hp.y7.battle_aftermath",
+        "sortKeyFrom": 10105,
+        "sortKeyTo": 10346,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Deathly Hallows: Year 7",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Hermione Granger",
+          "Ron Weasley"
+        ],
+        "locations": [
+          "campsites",
+          "British countryside"
+        ],
+        "topics": [
+          "camping",
+          "Horcrux influence",
+          "protective wards",
+          "road trip",
+          "year 7"
+        ],
+        "objects": [
+          "Slytherin locket"
+        ],
+        "spells": [
+          "protective enchantments"
+        ],
+        "schoolYears": [
+          "7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ],
+        "phases": [
+          "road_trip"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Hermione Granger",
+            "Ron Weasley"
+          ],
+          "locationsAny": [
+            "campsites",
+            "British countryside"
+          ],
+          "topicsAny": [
+            "camping",
+            "Horcrux influence",
+            "protective wards",
+            "road trip",
+            "year 7",
+            "Slytherin locket",
+            "protective enchantments"
+          ]
+        }
+      },
+      "content": {
+        "fact": "During the camping phase, protective enchantments and constant movement keep the trio hidden while the locket worsens fear, anger, and mistrust.",
+        "injection": "During the camping phase, protective enchantments and constant movement keep the trio hidden while the locket worsens fear, anger, and mistrust."
+      },
+      "effects": {
+        "addsTags": [
+          "Deathly Hallows",
+          "Year 7",
+          "road trip",
+          "artifact_state",
+          "artifact"
+        ]
+      },
+      "sourceInfo": {
+        "id": "saga-expanded-lore-v1",
+        "work": "Harry Potter canon summary",
+        "book": "Deathly Hallows",
+        "confidence": 0.86,
+        "notes": "Compact continuity entry for roleplay state management."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-7-deathly-hallows",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "dh_ron_leaves_returns_deluminator",
+      "title": "Ron leaves returns Deluminator Silver Doe",
+      "kind": "relationship_gate",
+      "gateType": "relationship_gate",
+      "category": "relationship",
+      "relevance": "normal",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 60,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y7.lovegood_betrayal_escape",
+        "validToAnchor": "hp.y7.diadem_found",
+        "sortKeyFrom": 10196,
+        "sortKeyTo": 10285,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Deathly Hallows: Year 7",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Hermione Granger",
+          "Ron Weasley"
+        ],
+        "locations": [
+          "Forest of Dean"
+        ],
+        "topics": [
+          "Ron departure",
+          "Silver Doe",
+          "locket destruction",
+          "winter",
+          "year 7"
+        ],
+        "objects": [
+          "Deluminator",
+          "Sword of Gryffindor",
+          "Slytherin locket"
+        ],
+        "schoolYears": [
+          "7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ],
+        "phases": [
+          "winter"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Hermione Granger",
+            "Ron Weasley"
+          ],
+          "locationsAny": [
+            "Forest of Dean"
+          ],
+          "topicsAny": [
+            "Ron departure",
+            "Silver Doe",
+            "locket destruction",
+            "winter",
+            "year 7",
+            "Deluminator",
+            "Sword of Gryffindor",
+            "Slytherin locket"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Ron leaves during the Horcrux hunt but later returns using the Deluminator, helps recover the sword, and destroys the locket.",
+        "injection": "Ron leaves during the Horcrux hunt but later returns using the Deluminator, helps recover the sword, and destroys the locket."
+      },
+      "effects": {
+        "addsTags": [
+          "Deathly Hallows",
+          "Year 7",
+          "winter",
+          "relationship_gate",
+          "relationship"
+        ]
+      },
+      "sourceInfo": {
+        "id": "saga-expanded-lore-v1",
+        "work": "Harry Potter canon summary",
+        "book": "Deathly Hallows",
+        "confidence": 0.86,
+        "notes": "Compact continuity entry for roleplay state management."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-7-deathly-hallows",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "dh_hallows_framework_xenophilius_guard",
+      "title": "Hallows framework reveal guard",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "priority": 100,
+      "status": "active",
+      "protected": true,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y7.dumbledore_will_bequests",
+        "validToAnchor": "hp.y7.room_of_requirement_reunion",
+        "sortKeyFrom": 10074,
+        "sortKeyTo": 10258,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Deathly Hallows: Year 7",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Hermione Granger",
+          "Ron Weasley",
+          "Xenophilius Lovegood",
+          "Luna Lovegood"
+        ],
+        "locations": [
+          "Lovegood home"
+        ],
+        "topics": [
+          "Deathly Hallows",
+          "Tale of Three Brothers",
+          "symbol",
+          "winter",
+          "year 7"
+        ],
+        "objects": [
+          "Deathly Hallows symbol"
+        ],
+        "schoolYears": [
+          "7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ],
+        "phases": [
+          "winter"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Hermione Granger",
+            "Ron Weasley",
+            "Xenophilius Lovegood",
+            "Luna Lovegood"
+          ],
+          "locationsAny": [
+            "Lovegood home"
+          ],
+          "topicsAny": [
+            "Deathly Hallows",
+            "Tale of Three Brothers",
+            "symbol",
+            "winter",
+            "year 7",
+            "Deathly Hallows symbol"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before the Xenophilius Lovegood visit, the trio does not have a coherent framework for the Deathly Hallows symbol or the three objects.",
+        "injection": "Before the Xenophilius Lovegood visit, the trio does not have a coherent framework for the Deathly Hallows symbol or the three objects.",
+        "constraints": [
+          "Do not explain the Hallows framework before the Lovegood visit."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "Deathly Hallows",
+          "Year 7",
+          "winter",
+          "knowledge_gate",
+          "knowledge"
+        ]
+      },
+      "sourceInfo": {
+        "id": "saga-expanded-lore-v1",
+        "work": "Harry Potter canon summary",
+        "book": "Deathly Hallows",
+        "confidence": 0.86,
+        "notes": "Compact continuity entry for roleplay state management."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-7-deathly-hallows",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "dh_malfoy_manor_dobby_wand_transfer_guard",
+      "title": "Pre-Malfoy Manor Secrets",
+      "kind": "future_guard",
+      "gateType": "future_guard",
+      "category": "timeline",
+      "relevance": "normal",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "priority": 100,
+      "status": "active",
+      "protected": true,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y7.rab_discovered",
+        "validToAnchor": "hp.y7.harry_surrenders",
+        "sortKeyFrom": 10105,
+        "sortKeyTo": 10315,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Deathly Hallows: Year 7",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Hermione Granger",
+          "Ron Weasley",
+          "Dobby",
+          "Draco Malfoy",
+          "Bellatrix Lestrange",
+          "Lucius Malfoy",
+          "Ollivander"
+        ],
+        "locations": [
+          "Malfoy Manor"
+        ],
+        "topics": [
+          "capture",
+          "Dobby death",
+          "wand allegiance",
+          "spring",
+          "year 7"
+        ],
+        "objects": [
+          "wands",
+          "Sword of Gryffindor"
+        ],
+        "schoolYears": [
+          "7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ],
+        "phases": [
+          "spring"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Hermione Granger",
+            "Ron Weasley",
+            "Dobby",
+            "Draco Malfoy",
+            "Bellatrix Lestrange",
+            "Lucius Malfoy",
+            "Ollivander"
+          ],
+          "locationsAny": [
+            "Malfoy Manor"
+          ],
+          "topicsAny": [
+            "capture",
+            "Dobby death",
+            "wand allegiance",
+            "spring",
+            "year 7",
+            "wands",
+            "Sword of Gryffindor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before the Malfoy Manor escape, Dobby’s death, Hermione’s torture, and the wand-allegiance transfer from Draco to Harry should remain unrevealed.",
+        "injection": "Before the Malfoy Manor escape, Dobby’s death, Hermione’s torture, and the wand-allegiance transfer from Draco to Harry should remain unrevealed.",
+        "constraints": [
+          "Keep Dobby alive and wand-transfer logic hidden before the Malfoy Manor escape."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "Deathly Hallows",
+          "Year 7",
+          "spring",
+          "future_guard"
+        ]
+      },
+      "sourceInfo": {
+        "id": "saga-expanded-lore-v1",
+        "work": "Harry Potter canon summary",
+        "book": "Deathly Hallows",
+        "confidence": 0.86,
+        "notes": "Compact continuity entry for roleplay state management."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-7-deathly-hallows",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "dh_gringotts_cup_dragon_escape",
+      "title": "Gringotts cup Horcrux and dragon escape",
+      "kind": "artifact_state",
+      "gateType": "artifact_state",
+      "category": "item",
+      "relevance": "normal",
+      "lorePurpose": "item_state",
+      "specificityScore": 60,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 100,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y7.elder_wand_resolution",
+        "validToAnchor": "hp.y7.battle_aftermath",
+        "sortKeyFrom": 10347,
+        "sortKeyTo": 10348,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Deathly Hallows: Year 7",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Hermione Granger",
+          "Ron Weasley",
+          "Griphook",
+          "Bellatrix Lestrange",
+          "Voldemort"
+        ],
+        "locations": [
+          "Gringotts"
+        ],
+        "topics": [
+          "Gringotts break-in",
+          "Horcrux",
+          "dragon escape",
+          "climax",
+          "year 7"
+        ],
+        "objects": [
+          "Hufflepuff cup",
+          "Sword of Gryffindor"
+        ],
+        "schoolYears": [
+          "7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ],
+        "phases": [
+          "climax"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Hermione Granger",
+            "Ron Weasley",
+            "Griphook",
+            "Bellatrix Lestrange",
+            "Voldemort"
+          ],
+          "locationsAny": [
+            "Gringotts"
+          ],
+          "topicsAny": [
+            "Gringotts break-in",
+            "Horcrux",
+            "dragon escape",
+            "climax",
+            "year 7",
+            "Hufflepuff cup",
+            "Sword of Gryffindor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Gringotts break-in obtains Hufflepuff's cup from Bellatrix's vault and ends with a dragon escape, exposing the Horcrux hunt to Voldemort.",
+        "injection": "The Gringotts break-in obtains Hufflepuff's cup from Bellatrix's vault and ends with a dragon escape, exposing the Horcrux hunt to Voldemort."
+      },
+      "effects": {
+        "addsTags": [
+          "Deathly Hallows",
+          "Year 7",
+          "climax",
+          "artifact_state",
+          "artifact"
+        ]
+      },
+      "sourceInfo": {
+        "id": "saga-expanded-lore-v1",
+        "work": "Harry Potter canon summary",
+        "book": "Deathly Hallows",
+        "confidence": 0.86,
+        "notes": "Compact continuity entry for roleplay state management."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-7-deathly-hallows",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "dh_hogsmeade_abeforth_hogwarts_return",
+      "title": "Hogsmeade Aberforth Hogwarts return",
+      "kind": "place_fact",
+      "gateType": "place_fact",
+      "category": "location",
+      "relevance": "normal",
+      "lorePurpose": "location_state",
+      "specificityScore": 60,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y7.elder_wand_resolution",
+        "validToAnchor": "hp.y7.battle_aftermath",
+        "sortKeyFrom": 10347,
+        "sortKeyTo": 10348,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Deathly Hallows: Year 7",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Hermione Granger",
+          "Ron Weasley",
+          "Aberforth Dumbledore",
+          "Neville Longbottom"
+        ],
+        "locations": [
+          "Hogsmeade",
+          "Hogwarts",
+          "Hog's Head"
+        ],
+        "factions": [
+          "Dumbledore's Army"
+        ],
+        "topics": [
+          "Hogwarts return",
+          "Aberforth",
+          "secret passage",
+          "climax",
+          "year 7"
+        ],
+        "schoolYears": [
+          "7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ],
+        "phases": [
+          "climax"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Hermione Granger",
+            "Ron Weasley",
+            "Aberforth Dumbledore",
+            "Neville Longbottom"
+          ],
+          "locationsAny": [
+            "Hogsmeade",
+            "Hogwarts",
+            "Hog's Head"
+          ],
+          "topicsAny": [
+            "Hogwarts return",
+            "Aberforth",
+            "secret passage",
+            "climax",
+            "year 7"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The return through Hogsmeade brings Harry to Aberforth and then into Hogwarts through DA-linked passageways for the final Horcrux search.",
+        "injection": "The return through Hogsmeade brings Harry to Aberforth and then into Hogwarts through DA-linked passageways for the final Horcrux search."
+      },
+      "effects": {
+        "addsTags": [
+          "Deathly Hallows",
+          "Year 7",
+          "climax",
+          "place_fact",
+          "place"
+        ]
+      },
+      "sourceInfo": {
+        "id": "saga-expanded-lore-v1",
+        "work": "Harry Potter canon summary",
+        "book": "Deathly Hallows",
+        "confidence": 0.86,
+        "notes": "Compact continuity entry for roleplay state management."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-7-deathly-hallows",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "dh_hogwarts_snape_carrows_resistance",
+      "title": "Hogwarts under Snape Carrows DA resistance",
+      "kind": "institution_state",
+      "gateType": "institution_state",
+      "category": "location",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 60,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 90,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y7.rab_discovered",
+        "validToAnchor": "hp.y7.battle_aftermath",
+        "sortKeyFrom": 10105,
+        "sortKeyTo": 10348,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Deathly Hallows: Year 7",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Severus Snape",
+          "Alecto Carrow",
+          "Amycus Carrow",
+          "Neville Longbottom",
+          "Ginny Weasley",
+          "Luna Lovegood"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "factions": [
+          "Dumbledore's Army",
+          "Death Eaters"
+        ],
+        "topics": [
+          "Carrows",
+          "resistance",
+          "occupied Hogwarts",
+          "road trip",
+          "year 7"
+        ],
+        "schoolYears": [
+          "7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ],
+        "phases": [
+          "road_trip"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Severus Snape",
+            "Alecto Carrow",
+            "Amycus Carrow",
+            "Neville Longbottom",
+            "Ginny Weasley",
+            "Luna Lovegood"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "Carrows",
+            "resistance",
+            "occupied Hogwarts",
+            "road trip",
+            "year 7"
+          ]
+        }
+      },
+      "content": {
+        "fact": "During Year 7, Hogwarts is controlled by Snape as headmaster and the Carrows as enforcers, while Neville, Ginny, Luna, and DA allies resist.",
+        "injection": "During Year 7, Hogwarts is controlled by Snape as headmaster and the Carrows as enforcers, while Neville, Ginny, Luna, and DA allies resist."
+      },
+      "effects": {
+        "addsTags": [
+          "Deathly Hallows",
+          "Year 7",
+          "road trip",
+          "institution_state",
+          "place"
+        ]
+      },
+      "sourceInfo": {
+        "id": "saga-expanded-lore-v1",
+        "work": "Harry Potter canon summary",
+        "book": "Deathly Hallows",
+        "confidence": 0.86,
+        "notes": "Compact continuity entry for roleplay state management."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-7-deathly-hallows",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "dh_ravenclaw_diadem_room_battle",
+      "title": "Ravenclaw diadem Room of Requirement battle",
+      "kind": "artifact_state",
+      "gateType": "artifact_state",
+      "category": "item",
+      "relevance": "normal",
+      "lorePurpose": "item_state",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 100,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y7.elder_wand_resolution",
+        "validToAnchor": "hp.y7.battle_aftermath",
+        "sortKeyFrom": 10348,
+        "sortKeyTo": 10349,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Deathly Hallows: Year 7",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Hermione Granger",
+          "Ron Weasley",
+          "Draco Malfoy",
+          "Crabbe",
+          "Goyle"
+        ],
+        "locations": [
+          "Room of Requirement",
+          "Hogwarts"
+        ],
+        "topics": [
+          "diadem Horcrux",
+          "Room battle",
+          "Fiendfyre",
+          "battle",
+          "year 7"
+        ],
+        "objects": [
+          "Ravenclaw diadem"
+        ],
+        "schoolYears": [
+          "7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ],
+        "phases": [
+          "battle"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Hermione Granger",
+            "Ron Weasley",
+            "Draco Malfoy",
+            "Crabbe",
+            "Goyle"
+          ],
+          "locationsAny": [
+            "Room of Requirement",
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "diadem Horcrux",
+            "Room battle",
+            "Fiendfyre",
+            "battle",
+            "year 7",
+            "Ravenclaw diadem"
+          ]
+        }
+      },
+      "content": {
+        "fact": "During the Battle of Hogwarts, the diadem Horcrux is located in the Room of Requirement and destroyed amid a deadly confrontation and cursed fire.",
+        "injection": "During the Battle of Hogwarts, the diadem Horcrux is located in the Room of Requirement and destroyed amid a deadly confrontation and cursed fire."
+      },
+      "effects": {
+        "addsTags": [
+          "Deathly Hallows",
+          "Year 7",
+          "battle",
+          "artifact_state",
+          "artifact"
+        ]
+      },
+      "sourceInfo": {
+        "id": "saga-expanded-lore-v1",
+        "work": "Harry Potter canon summary",
+        "book": "Deathly Hallows",
+        "confidence": 0.86,
+        "notes": "Compact continuity entry for roleplay state management."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-7-deathly-hallows",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "dh_battle_phase_death_state_guard",
+      "title": "Battle of Hogwarts death-state guard",
+      "kind": "future_guard",
+      "gateType": "future_guard",
+      "category": "timeline",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "priority": 100,
+      "status": "active",
+      "protected": true,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y7.rab_discovered",
+        "validToAnchor": "hp.y7.battle_aftermath",
+        "sortKeyFrom": 10105,
+        "sortKeyTo": 10348,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Deathly Hallows: Year 7",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Fred Weasley",
+          "Remus Lupin",
+          "Nymphadora Tonks",
+          "Severus Snape",
+          "Voldemort"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "topics": [
+          "Battle of Hogwarts",
+          "death states",
+          "final duel",
+          "battle",
+          "year 7"
+        ],
+        "schoolYears": [
+          "7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ],
+        "phases": [
+          "battle"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Fred Weasley",
+            "Remus Lupin",
+            "Nymphadora Tonks",
+            "Severus Snape",
+            "Voldemort"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "Battle of Hogwarts",
+            "death states",
+            "final duel",
+            "battle",
+            "year 7"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before the Battle of Hogwarts reaches its relevant phase, major deaths and survival outcomes must remain hidden, including Fred, Lupin, Tonks, Snape, and Voldemort.",
+        "injection": "Before the Battle of Hogwarts reaches its relevant phase, major deaths and survival outcomes must remain hidden, including Fred, Lupin, Tonks, Snape, and Voldemort.",
+        "constraints": [
+          "Do not reveal battle casualty outcomes before they occur in-scene."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "Deathly Hallows",
+          "Year 7",
+          "battle",
+          "future_guard"
+        ]
+      },
+      "sourceInfo": {
+        "id": "saga-expanded-lore-v1",
+        "work": "Harry Potter canon summary",
+        "book": "Deathly Hallows",
+        "confidence": 0.86,
+        "notes": "Compact continuity entry for roleplay state management."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-7-deathly-hallows",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "dh_snape_memories_loyalty_reveal",
+      "title": "Snape memories loyalty reveal activation",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "priority": 100,
+      "status": "active",
+      "protected": true,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y7.malfoy_manor_burbage_meeting",
+        "validToAnchor": "hp.y7.battle_aftermath",
+        "sortKeyFrom": 10043,
+        "sortKeyTo": 10348,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Deathly Hallows: Year 7",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Severus Snape",
+          "Harry Potter",
+          "Albus Dumbledore",
+          "Lily Potter"
+        ],
+        "locations": [
+          "Hogwarts",
+          "Pensieve"
+        ],
+        "topics": [
+          "Snape loyalty",
+          "memories",
+          "truth reveal",
+          "battle",
+          "year 7"
+        ],
+        "objects": [
+          "Snape memories"
+        ],
+        "schoolYears": [
+          "7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ],
+        "phases": [
+          "battle"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Severus Snape",
+            "Harry Potter",
+            "Albus Dumbledore",
+            "Lily Potter"
+          ],
+          "locationsAny": [
+            "Hogwarts",
+            "Pensieve"
+          ],
+          "topicsAny": [
+            "Snape loyalty",
+            "memories",
+            "truth reveal",
+            "battle",
+            "year 7",
+            "Snape memories"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Snape's memories reveal his long-term loyalty, his connection to Lily, and Dumbledore-related choices only after Harry receives and views them.",
+        "injection": "Snape's memories reveal his long-term loyalty, his connection to Lily, and Dumbledore-related choices only after Harry receives and views them.",
+        "constraints": [
+          "Keep Snape's loyalty hidden until memories are viewed."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "Deathly Hallows",
+          "Year 7",
+          "battle",
+          "knowledge_gate",
+          "knowledge"
+        ]
+      },
+      "sourceInfo": {
+        "id": "saga-expanded-lore-v1",
+        "work": "Harry Potter canon summary",
+        "book": "Deathly Hallows",
+        "confidence": 0.86,
+        "notes": "Compact continuity entry for roleplay state management."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-7-deathly-hallows",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "dh_elder_wand_allegiance_logic",
+      "title": "Elder Wand Allegiance",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 60,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "priority": 100,
+      "status": "active",
+      "protected": true,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y7.elder_wand_resolution",
+        "validToAnchor": "hp.y7.battle_aftermath",
+        "sortKeyFrom": 10348,
+        "sortKeyTo": 10349,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Deathly Hallows: Year 7",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Draco Malfoy",
+          "Voldemort",
+          "Albus Dumbledore"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "topics": [
+          "wand allegiance",
+          "mastery",
+          "final duel",
+          "battle",
+          "year 7"
+        ],
+        "objects": [
+          "Elder Wand"
+        ],
+        "schoolYears": [
+          "7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ],
+        "phases": [
+          "battle"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Draco Malfoy",
+            "Voldemort",
+            "Albus Dumbledore"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "wand allegiance",
+            "mastery",
+            "final duel",
+            "battle",
+            "year 7",
+            "Elder Wand"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Elder Wand’s allegiance follows defeat/disarmament logic, ending with Harry’s claim through Draco unless our story establishes a different chain.",
+        "injection": "The Elder Wand’s allegiance follows defeat/disarmament logic, ending with Harry’s claim through Draco unless our story establishes a different chain."
+      },
+      "effects": {
+        "addsTags": [
+          "Deathly Hallows",
+          "Year 7",
+          "battle",
+          "knowledge_gate",
+          "knowledge"
+        ]
+      },
+      "sourceInfo": {
+        "id": "saga-expanded-lore-v1",
+        "work": "Harry Potter canon summary",
+        "book": "Deathly Hallows",
+        "confidence": 0.86,
+        "notes": "Compact continuity entry for roleplay state management."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-7-deathly-hallows",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "dh_forest_walk_kings_cross_state",
+      "title": "Forest walk and King Cross liminal",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 60,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "priority": 100,
+      "status": "active",
+      "protected": true,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y7.elder_wand_resolution",
+        "validToAnchor": "hp.y7.battle_aftermath",
+        "sortKeyFrom": 10348,
+        "sortKeyTo": 10349,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Deathly Hallows: Year 7",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Voldemort",
+          "Albus Dumbledore"
+        ],
+        "locations": [
+          "Forbidden Forest",
+          "King's Cross-like liminal space"
+        ],
+        "topics": [
+          "forest walk",
+          "sacrifice",
+          "Horcrux fragment",
+          "battle",
+          "year 7"
+        ],
+        "schoolYears": [
+          "7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ],
+        "phases": [
+          "battle"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Voldemort",
+            "Albus Dumbledore"
+          ],
+          "locationsAny": [
+            "Forbidden Forest",
+            "King's Cross-like liminal space"
+          ],
+          "topicsAny": [
+            "forest walk",
+            "sacrifice",
+            "Horcrux fragment",
+            "battle",
+            "year 7"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Harry goes to the forest expecting death and experiences a liminal King's Cross-like encounter tied to the Horcrux fragment in him.",
+        "injection": "Harry goes to the forest expecting death and experiences a liminal King's Cross-like encounter tied to the Horcrux fragment in him."
+      },
+      "effects": {
+        "addsTags": [
+          "Deathly Hallows",
+          "Year 7",
+          "battle",
+          "knowledge_gate",
+          "knowledge"
+        ]
+      },
+      "sourceInfo": {
+        "id": "saga-expanded-lore-v1",
+        "work": "Harry Potter canon summary",
+        "book": "Deathly Hallows",
+        "confidence": 0.86,
+        "notes": "Compact continuity entry for roleplay state management."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-7-deathly-hallows",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "dh_final_duel_aftermath_state",
+      "title": "Final duel and immediate aftermath",
+      "kind": "event_anchor",
+      "gateType": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 100,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y7.elder_wand_resolution",
+        "validToAnchor": "hp.y7.battle_aftermath",
+        "sortKeyFrom": 10348,
+        "sortKeyTo": 10393,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Deathly Hallows: Year 7",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Voldemort",
+          "Hermione Granger",
+          "Ron Weasley"
+        ],
+        "locations": [
+          "Hogwarts"
+        ],
+        "topics": [
+          "final duel",
+          "postwar",
+          "Horcrux end",
+          "aftermath",
+          "year 7"
+        ],
+        "objects": [
+          "Elder Wand"
+        ],
+        "schoolYears": [
+          "7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ],
+        "phases": [
+          "aftermath"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Voldemort",
+            "Hermione Granger",
+            "Ron Weasley"
+          ],
+          "locationsAny": [
+            "Hogwarts"
+          ],
+          "topicsAny": [
+            "final duel",
+            "postwar",
+            "Horcrux end",
+            "aftermath",
+            "year 7",
+            "Elder Wand"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After the final duel, Voldemort is dead, Harry survives, the remaining Horcrux threat is ended, and the immediate postwar state begins at Hogwarts.",
+        "injection": "After the final duel, Voldemort is dead, Harry survives, the remaining Horcrux threat is ended, and the immediate postwar state begins at Hogwarts."
+      },
+      "effects": {
+        "addsTags": [
+          "Deathly Hallows",
+          "Year 7",
+          "aftermath",
+          "event_anchor",
+          "event"
+        ]
+      },
+      "sourceInfo": {
+        "id": "saga-expanded-lore-v1",
+        "work": "Harry Potter canon summary",
+        "book": "Deathly Hallows",
+        "confidence": 0.86,
+        "notes": "Compact continuity entry for roleplay state management."
+      },
+      "extensions": {
+        "temporalTightening": {
+          "method": "expanded book event cluster: approximate 45-day review window",
+          "notes": "End date narrowed so event-like lore does not remain active as an open-ended suggestion.",
+          "previousValidTo": "1998-08-31"
+        },
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-year-7-deathly-hallows",
+          "splitAt": "2026-06-05"
+        }
+      }
+    }
+  ]
+}
