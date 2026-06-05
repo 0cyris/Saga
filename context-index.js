@@ -5,6 +5,7 @@
 
 import { getState, getLoredeckLibraryRegistry } from './state-manager.js';
 import { fetchJson, loadLoredeckStackSources, mergeLoredeckTimelineRegistries } from './loredeck-loader.js';
+import { resolveLoredeckStackItems } from './loredeck-library-index.js';
 
 export const DEFAULT_CONTEXT_INDEX = Object.freeze({
     schemaVersion: 1,
@@ -187,19 +188,45 @@ function getTimelineRegistryRef(manifest = {}) {
 function getStackSignature(state = {}, registry = {}) {
     const stack = Array.isArray(state?.loredeckStack) ? state.loredeckStack : [];
     const packs = isPlainObject(registry?.packs) ? registry.packs : {};
-    return JSON.stringify(stack.map((item, index) => {
+    const resolved = resolveLoredeckStackItems(stack, registry, { packs }).stack || [];
+    const stackItems = stack.map((item, index) => ({
+        type: item?.type === 'folder' || item?.folderId ? 'folder' : 'deck',
+        packId: cleanString(item?.packId || item?.deckId, 160),
+        folderId: cleanString(item?.folderId, 160),
+        includeNested: item?.includeNested !== false,
+        enabled: item?.enabled !== false,
+        priority: Number.isFinite(Number(item?.priority)) ? Number(item.priority) : 0,
+        index,
+    }));
+    const folders = Array.isArray(registry?.folders)
+        ? registry.folders.map(folder => ({
+            id: cleanString(folder?.id, 160),
+            parentId: cleanString(folder?.parentId, 160),
+            sortOrder: Number.isFinite(Number(folder?.sortOrder)) ? Number(folder.sortOrder) : 0,
+            updatedAt: cleanString(folder?.updatedAt, 80),
+        }))
+        : [];
+    const placements = Array.isArray(registry?.deckPlacements)
+        ? registry.deckPlacements.map(placement => ({
+            deckId: cleanString(placement?.deckId || placement?.packId, 160),
+            folderId: cleanString(placement?.folderId, 160),
+            sortOrder: Number.isFinite(Number(placement?.sortOrder)) ? Number(placement.sortOrder) : 0,
+            updatedAt: cleanString(placement?.updatedAt, 80),
+        }))
+        : [];
+    const resolvedPacks = resolved.map((item, index) => {
         const packId = cleanString(item?.packId, 160);
         const record = packs[packId] || {};
         return {
             packId,
-            enabled: item?.enabled !== false,
             priority: Number.isFinite(Number(item?.priority)) ? Number(item.priority) : 0,
             index,
             manifest: cleanString(record.manifest, 400),
             version: cleanString(record.version, 80),
             updatedAt: cleanString(record.updatedAt || record.importedAt || record.addedAt, 80),
         };
-    }));
+    });
+    return JSON.stringify({ stackItems, folders, placements, resolvedPacks });
 }
 
 function createIssue(severity, code, message, extra = {}) {

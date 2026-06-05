@@ -77,7 +77,17 @@ function isPlainObject(value) {
     return value && typeof value === 'object' && !Array.isArray(value);
 }
 
-function getEnabledStack(state = {}) {
+function getEnabledStack(state = {}, index = null) {
+    if (Array.isArray(index?.packs) && index.packs.length) {
+        return index.packs
+            .map((pack, stackIndex) => ({
+                packId: cleanString(pack?.packId || pack?.id, 160),
+                enabled: true,
+                priority: Number.isFinite(Number(pack?.priority)) ? Number(pack.priority) : Math.max(1, 100 - stackIndex),
+                stackIndex,
+            }))
+            .filter(item => item.packId);
+    }
     const stack = Array.isArray(state?.loredeckStack) ? state.loredeckStack : [];
     return stack
         .map((item, index) => ({
@@ -681,7 +691,7 @@ function buildContextModelPrompt(context = {}, options = {}) {
     const state = options.state || {};
     const index = options.index || {};
     const targetPackIds = new Set((options.targetPackIds || []).map(packId => cleanString(packId, 160)).filter(Boolean));
-    const packs = getEnabledStack(state)
+    const packs = getEnabledStack(state, index)
         .filter(item => targetPackIds.has(item.packId))
         .map(item => {
             const packIndex = Array.isArray(index.packs) ? index.packs.find(pack => pack.packId === item.packId) : null;
@@ -818,7 +828,7 @@ export function resolveContextsFromModelResponse(responseText = '', context = {}
 export function resolveContextsFromContext(context = {}, options = {}) {
     const state = options.state || getState();
     const index = options.index || getContextIndexSync();
-    const stack = getEnabledStack(state);
+    const stack = getEnabledStack(state, index);
     const results = [];
 
     for (const item of stack) {

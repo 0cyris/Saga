@@ -83,6 +83,7 @@ import {
     getFolderPath,
     normalizeLoredeckLibraryIndex,
     normalizePackLibraryMetadata,
+    resolveLoredeckStackItems,
 } from './loredeck-library-index.js';
 import {
     captureLoreTimelineState,
@@ -1180,6 +1181,7 @@ let loredeckLibraryDetailsHeight = LOREDECK_LIBRARY_DETAILS_DEFAULT_HEIGHT;
 let loredeckLibraryCollapsedFolderIds = new Set();
 let loredeckStackDragState = null;
 let loredeckLibraryDeckDragState = null;
+let loredeckLibraryFolderDragState = null;
 let loredeckLibrarySelectedFolderId = 'all';
 let bundledLoredeckIndexCache = null;
 let bundledLoredeckIndexLoading = false;
@@ -2185,7 +2187,6 @@ function renderLoredecksTab(container, state) {
 
 function createLoredeckLibraryLaunchCard(state = getState(), canonDb = null, health = null) {
     const stack = getLoredeckStack(state);
-    const enabled = stack.filter(item => item.enabled);
     const library = getLoredeckLibrary(state);
     const stats = getLoredeckLibraryStackStats(stack, library, canonDb, health);
 
@@ -2204,7 +2205,7 @@ function createLoredeckLibraryLaunchCard(state = getState(), canonDb = null, hea
     const chips = document.createElement('div');
     chips.className = 'wandlight-loredeck-row-meta';
     chips.appendChild(createStatusPill(`${library.length} decks`, 'Total Loredecks available in the Library.'));
-    chips.appendChild(createStatusPill(`${enabled.length} active`, 'Enabled Loredecks currently participating in retrieval.'));
+    chips.appendChild(createStatusPill(`${stats.activeCount} active`, 'Enabled Loredecks currently participating in retrieval, including folder groups.'));
     chips.appendChild(createStatusPill(`${stats.entryCount} active Lorecards`, 'Approximate Lorecards from enabled stack decks.'));
     chips.appendChild(createStatusPill(`${stats.errorCount} errors`, 'Current stack Deck Health error count.'));
     chips.appendChild(createStatusPill(`${stats.warningCount} warnings`, 'Current stack Deck Health warning count.'));
@@ -2417,7 +2418,7 @@ function renderLoredeckLibraryOverlay(options = {}) {
     columns.className = 'wandlight-loredeck-library-columns';
     columns.appendChild(createLoredeckLibraryPane(filteredPacks, stack, canonDb, health, libraryIndex, library, scopedLibrary, activeViewId));
     columns.appendChild(createLoredeckLibraryTransferPane(selectedPack, filteredPacks, stack, selectedPacks));
-    columns.appendChild(createLoredeckActiveStackPane(stack, library, canonDb, health));
+    columns.appendChild(createLoredeckActiveStackPane(stack, library, canonDb, health, libraryIndex));
     body.appendChild(columns);
     body.appendChild(createLoredeckLibraryResizeHandle(detailsCollapsed));
     body.appendChild(createLoredeckLibraryDetailsPanel(selectedPack, stack, canonDb, health));
@@ -2681,7 +2682,9 @@ function getLoredeckLibraryFolderScopedPacks(library = [], libraryIndex = {}, fo
     } else if (!isLoredeckLibrarySpecialFolderId(id) && !(libraryIndex.folders || []).some(folder => folder.id === id)) {
         id = 'all';
     }
-    const activeIds = new Set((stack || []).map(item => item.packId).filter(Boolean));
+    const activeIds = new Set(resolveLoredeckStackItems((stack || []).filter(item => item.enabled !== false), libraryIndex, {
+        packs: getLoredeckLibraryPackMap(library),
+    }).stack.map(item => item.packId).filter(Boolean));
     if (id === 'all') return library;
     if (id === 'bundled') return library.filter(pack => pack.type === 'bundled');
     if (id === 'custom') return library.filter(pack => pack.type !== 'bundled');
@@ -2700,7 +2703,9 @@ function getLoredeckLibraryViewTitle(folderId = 'all', libraryIndex = {}) {
 
 function getLoredeckLibraryFolderStats(folderId = 'all', library = [], libraryIndex = {}, stack = [], canonDb = null, health = null) {
     const scoped = getLoredeckLibraryFolderScopedPacks(library, libraryIndex, folderId, stack);
-    const activeIds = new Set((stack || []).filter(item => item.enabled !== false).map(item => item.packId));
+    const activeIds = new Set(resolveLoredeckStackItems((stack || []).filter(item => item.enabled !== false), libraryIndex, {
+        packs: getLoredeckLibraryPackMap(library),
+    }).stack.map(item => item.packId).filter(Boolean));
     let warningCount = 0;
     let errorCount = 0;
     for (const pack of scoped) {
@@ -3001,7 +3006,9 @@ function createLoredeckLibraryInlineFolderRow(folder = {}, options = {}) {
     row.classList.add('wandlight-loredeck-library-folder-row-drop-enabled');
     row.style.setProperty('--wandlight-folder-depth', String(Math.max(0, Number(options.depth) || 0)));
     row.dataset.folderId = folderId;
+    row.dataset.folderParentId = String(folder.parentId || '').trim();
     row.dataset.folderDropTarget = 'true';
+    row.dataset.folderSpecial = options.special ? 'true' : 'false';
     row.tabIndex = 0;
     row.setAttribute('role', 'button');
     row.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
@@ -3032,6 +3039,13 @@ function createLoredeckLibraryInlineFolderRow(folder = {}, options = {}) {
     grip.className = 'wandlight-loredeck-library-stack-grip wandlight-loredeck-library-folder-grip';
     grip.setAttribute('aria-hidden', 'true');
     grip.innerHTML = '<span></span>';
+    grip.addEventListener('click', e => {
+        e.preventDefault();
+        e.stopPropagation();
+    });
+    grip.addEventListener('pointerdown', e => {
+        startLoredeckLibraryFolderDrag(e, folderId);
+    });
     row.appendChild(grip);
 
     const disclosure = document.createElement('button');
@@ -3239,11 +3253,15 @@ function createLoredeckLibraryTransferPane(selectedPack = null, filteredPacks = 
     const pane = document.createElement('div');
     pane.className = 'wandlight-loredeck-library-transfer-pane';
     const selectedId = selectedPack?.packId || '';
-    const selectedStackItem = selectedId ? stack.find(item => item.packId === selectedId) : null;
+    const library = getLoredeckLibrary(getState());
+    const libraryIndex = getLoredeckLibraryIndexForPacks(getState(), library);
+    const resolvedStackIds = new Set(resolveLoredeckStackItems(stack, libraryIndex, {
+        packs: getLoredeckLibraryPackMap(library),
+    }).stack.map(item => item.packId).filter(Boolean));
     const selectedIds = selectedPacks.map(pack => pack.packId).filter(Boolean);
     const actionIds = selectedIds.length ? selectedIds : (selectedId ? [selectedId] : []);
-    const selectedStackItems = actionIds.filter(packId => stack.some(item => item.packId === packId));
-    const inactiveMatches = filteredPacks.filter(pack => !stack.some(item => item.packId === pack.packId && item.enabled));
+    const selectedStackItems = actionIds.filter(packId => resolvedStackIds.has(packId));
+    const inactiveMatches = filteredPacks.filter(pack => !resolvedStackIds.has(pack.packId));
 
     const flow = document.createElement('div');
     flow.className = 'wandlight-loredeck-library-transfer-flow';
@@ -3253,7 +3271,7 @@ function createLoredeckLibraryTransferPane(selectedPack = null, filteredPacks = 
         addLoredecksToStack(actionIds);
         renderLoredeckLibraryOverlay();
     }, 'wandlight-primary-button wandlight-loredeck-library-transfer-button');
-    add.disabled = !actionIds.length || actionIds.every(packId => stack.some(item => item.packId === packId && item.enabled));
+    add.disabled = !actionIds.length || actionIds.every(packId => resolvedStackIds.has(packId));
     flow.appendChild(add);
 
     const remove = createButton(actionIds.length > 1 ? `< Remove Selected (${selectedStackItems.length})` : '< Remove from Stack', actionIds.length ? 'Remove selected Loredecks from the active stack.' : 'Select an active Loredeck before removing it.', () => {
@@ -3341,11 +3359,11 @@ function getLoredeckLibraryActionIconSvg(kind = 'duplicate') {
     `;
 }
 
-function createLoredeckActiveStackPane(stack = [], library = [], canonDb = null, health = null) {
+function createLoredeckActiveStackPane(stack = [], library = [], canonDb = null, health = null, libraryIndex = getLoredeckLibraryIndexForPacks(getState(), library)) {
     const pane = document.createElement('div');
     pane.className = 'wandlight-loredeck-library-pane wandlight-loredeck-library-pane-stack';
 
-    const stats = getLoredeckLibraryStackStats(stack, library, canonDb, health);
+    const stats = getLoredeckLibraryStackStats(stack, library, canonDb, health, libraryIndex);
     const head = document.createElement('div');
     head.className = 'wandlight-loredeck-library-pane-header wandlight-loredeck-library-stack-header';
     const titleWrap = document.createElement('div');
@@ -3371,10 +3389,18 @@ function createLoredeckActiveStackPane(stack = [], library = [], canonDb = null,
     if (!stack.length) {
         list.appendChild(createEmptyMessage('No active stack. Add decks from the Library to build this session loadout.'));
     } else {
-        const visibleStackPacks = stack.map(item => library.find(pack => pack.packId === item.packId) || { packId: item.packId, title: item.packId });
+        const visibleStackPacks = resolveLoredeckStackItems(stack, libraryIndex, {
+            packs: Object.fromEntries(library.map(pack => [pack.packId, pack])),
+            includeDisabled: true,
+        }).stack.map(item => library.find(pack => pack.packId === item.packId) || { packId: item.packId, title: item.packId });
         for (let index = 0; index < stack.length; index += 1) {
-            const pack = library.find(item => item.packId === stack[index].packId) || getLoredeckDefinition(stack[index].packId) || { packId: stack[index].packId, title: stack[index].packId };
-            list.appendChild(createLoredeckActiveStackCard(pack, stack[index], index, stack.length, canonDb, health, visibleStackPacks));
+            const stackItem = stack[index];
+            if (getLoredeckStackItemType(stackItem) === 'folder') {
+                list.appendChild(createLoredeckActiveStackFolderCard(stackItem, index, stack.length, library, libraryIndex, canonDb, health));
+            } else {
+                const pack = library.find(item => item.packId === stackItem.packId) || getLoredeckDefinition(stackItem.packId) || { packId: stackItem.packId, title: stackItem.packId };
+                list.appendChild(createLoredeckActiveStackCard(pack, stackItem, index, stack.length, canonDb, health, visibleStackPacks));
+            }
         }
     }
     pane.appendChild(list);
@@ -3463,9 +3489,11 @@ function createLoredeckActiveStackCard(pack, item, index, stackLength, canonDb =
     const selectedId = String(getState()?.lorePanel?.selectedLoredeckId || '').trim();
     const healthInfo = getLoredeckLibraryPackHealthInfo(pack, canonDb, health);
     const stats = getLoredeckLibraryDeckStats(pack, canonDb, healthInfo);
+    const stackKey = createLoredeckStackDeckKey(item.packId);
     const card = document.createElement('div');
     card.className = 'wandlight-loredeck-library-stack-card';
     card.dataset.packId = item.packId;
+    card.dataset.stackKey = stackKey;
     card.dataset.stackIndex = String(index);
     if (selectedId === item.packId) card.classList.add('wandlight-loredeck-library-stack-card-selected');
     if (loredeckLibraryBulkSelectedIds.has(item.packId)) card.classList.add('wandlight-loredeck-library-stack-card-bulk-selected');
@@ -3487,13 +3515,13 @@ function createLoredeckActiveStackCard(pack, item, index, stackLength, canonDb =
         e.stopPropagation();
     });
     grip.addEventListener('pointerdown', e => {
-        startLoredeckStackDrag(e, item.packId);
+        startLoredeckStackDrag(e, stackKey);
     });
     grip.addEventListener('keydown', e => {
         if (e.altKey && (e.key === 'ArrowUp' || e.key === 'ArrowDown')) {
             e.preventDefault();
             e.stopPropagation();
-            moveLoredeckInStack(item.packId, e.key === 'ArrowUp' ? -1 : 1);
+            moveLoredeckStackItem(stackKey, e.key === 'ArrowUp' ? -1 : 1);
         }
     });
     card.appendChild(grip);
@@ -3527,7 +3555,95 @@ function createLoredeckActiveStackCard(pack, item, index, stackLength, canonDb =
     addTooltip(toggle, item.enabled !== false ? 'Active. Click to disable this Loredeck without removing it.' : 'Disabled. Click to enable this Loredeck for retrieval.');
     toggle.addEventListener('click', e => {
         e.stopPropagation();
-        setLoredeckEnabled(item.packId, item.enabled === false);
+        setLoredeckStackItemEnabled(stackKey, item.enabled === false);
+        renderLoredeckLibraryOverlay();
+    });
+    controls.appendChild(toggle);
+    void stackLength;
+    card.appendChild(controls);
+    return card;
+}
+
+function createLoredeckActiveStackFolderCard(item, index, stackLength, library = [], libraryIndex = {}, canonDb = null, health = null) {
+    const folderId = String(item.folderId || '').trim();
+    const stackKey = createLoredeckStackFolderKey(folderId);
+    const folder = (libraryIndex.folders || []).find(candidate => candidate.id === folderId) || { id: folderId, title: folderId || 'Folder' };
+    const path = getFolderPath(folderId, libraryIndex);
+    const packs = getLoredeckLibraryFolderPacks(folderId, library, libraryIndex, { includeNested: item.includeNested !== false });
+    const stats = packs.reduce((acc, pack) => {
+        const healthInfo = getLoredeckLibraryPackHealthInfo(pack, canonDb, health);
+        const deckStats = getLoredeckLibraryDeckStats(pack, canonDb, healthInfo);
+        acc.entryCount += Number(deckStats.entryCount) || 0;
+        acc.warningCount += getLoredeckLibraryDisplayHealthTone(pack, healthInfo) === 'warning' ? 1 : 0;
+        acc.errorCount += getLoredeckLibraryDisplayHealthTone(pack, healthInfo) === 'error' ? 1 : 0;
+        return acc;
+    }, { entryCount: 0, warningCount: 0, errorCount: 0 });
+
+    const card = document.createElement('div');
+    card.className = 'wandlight-loredeck-library-stack-card wandlight-loredeck-library-stack-folder-card';
+    card.dataset.folderId = folderId;
+    card.dataset.stackKey = stackKey;
+    card.dataset.stackIndex = String(index);
+    if (!item.enabled) card.classList.add('wandlight-loredeck-library-stack-card-disabled');
+    addTooltip(card, `${path.join(' > ') || folder.title}. Folder group priority ${index + 1}.`);
+
+    const grip = document.createElement('button');
+    grip.type = 'button';
+    grip.className = 'wandlight-loredeck-library-stack-grip';
+    grip.setAttribute('aria-label', `Drag to reorder ${folder.title || folderId}. Current priority ${index + 1}.`);
+    grip.innerHTML = '<span></span>';
+    grip.addEventListener('click', e => {
+        e.preventDefault();
+        e.stopPropagation();
+    });
+    grip.addEventListener('pointerdown', e => {
+        startLoredeckStackDrag(e, stackKey);
+    });
+    grip.addEventListener('keydown', e => {
+        if (e.altKey && (e.key === 'ArrowUp' || e.key === 'ArrowDown')) {
+            e.preventDefault();
+            e.stopPropagation();
+            moveLoredeckStackItem(stackKey, e.key === 'ArrowUp' ? -1 : 1);
+        }
+    });
+    card.appendChild(grip);
+
+    const visual = document.createElement('div');
+    visual.className = 'wandlight-loredeck-library-monogram wandlight-loredeck-library-stack-folder-visual';
+    visual.appendChild(createLoredeckLibraryFolderCoverStrip(
+        getLoredeckLibraryFolderCoverPacks(folderId, library, libraryIndex),
+        packs.filter(pack => getLoredeckAssetRef(pack, 'cover')).length
+    ));
+    card.appendChild(visual);
+
+    const main = document.createElement('div');
+    main.className = 'wandlight-loredeck-library-stack-main';
+    const title = document.createElement('div');
+    title.className = 'wandlight-loredeck-library-deck-title';
+    title.textContent = folder.title || folderId || 'Folder';
+    main.appendChild(title);
+    const chips = document.createElement('div');
+    chips.className = 'wandlight-loredeck-row-meta';
+    chips.appendChild(createStatusPill(item.enabled ? 'Active Folder' : 'Disabled Folder', 'Folder groups load the Loredecks nested inside this Library folder.'));
+    chips.appendChild(createStatusPill(`Priority ${index + 1}`, 'Top stack items have higher priority.'));
+    main.appendChild(chips);
+    const statsLine = document.createElement('div');
+    statsLine.className = 'wandlight-loredeck-library-card-stats';
+    statsLine.textContent = `${packs.length} Loredecks | ${stats.entryCount} Lorecards`;
+    main.appendChild(statsLine);
+    card.appendChild(main);
+
+    const controls = document.createElement('div');
+    controls.className = 'wandlight-loredeck-library-stack-controls';
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = `wandlight-loredeck-library-stack-toggle-button ${item.enabled !== false ? 'wandlight-loredeck-library-stack-toggle-active' : 'wandlight-loredeck-library-stack-toggle-inactive'}`;
+    toggle.textContent = item.enabled !== false ? 'On' : 'Off';
+    toggle.setAttribute('aria-pressed', item.enabled !== false ? 'true' : 'false');
+    addTooltip(toggle, item.enabled !== false ? 'Active. Click to disable this folder group without removing it.' : 'Disabled. Click to enable this folder group for retrieval.');
+    toggle.addEventListener('click', e => {
+        e.stopPropagation();
+        setLoredeckStackItemEnabled(stackKey, item.enabled === false);
         renderLoredeckLibraryOverlay();
     });
     controls.appendChild(toggle);
@@ -3672,6 +3788,7 @@ function startLoredeckLibraryDeckDrag(event, packId, visiblePacks = []) {
         dropList: list,
         dropKind: 'library',
         dropFolderId: '',
+        reparentToRoot: false,
         onMove: null,
         onUp: null,
         onKeyDown: null,
@@ -3779,20 +3896,181 @@ function finishLoredeckLibraryDeckDrag(commit = true) {
     }
 }
 
-function startLoredeckStackDrag(event, packId) {
+function startLoredeckLibraryFolderDrag(event, folderId) {
+    if (event.button != null && event.button !== 0) return;
+    const id = String(folderId || '').trim();
+    const handle = event.currentTarget;
+    const row = handle?.closest?.('.wandlight-loredeck-library-inline-folder-row');
+    const list = row?.closest?.('.wandlight-loredeck-library-deck-list');
+    if (!id || id === 'unfiled' || row?.dataset?.folderSpecial === 'true' || !row || !list) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    const library = getLoredeckLibrary(getState());
+    const libraryIndex = getLoredeckLibraryIndexForPacks(getState(), library);
+    const folder = (libraryIndex.folders || []).find(item => item.id === id);
+    if (!folder) return;
+    const parentId = String(folder.parentId || '').trim();
+    const folderRows = [...list.querySelectorAll('.wandlight-loredeck-library-inline-folder-row[data-folder-special="false"]')];
+    const siblingRows = folderRows.filter(item => String(item.dataset.folderParentId || '').trim() === parentId);
+    const originalIndex = siblingRows.indexOf(row);
+    if (originalIndex < 0) return;
+
+    const rect = row.getBoundingClientRect();
+    const gap = parseFloat(getComputedStyle(list).rowGap || getComputedStyle(list).gap) || 7;
+    const ghost = row.cloneNode(true);
+    ghost.classList.add('wandlight-loredeck-library-stack-ghost', 'wandlight-loredeck-library-folder-ghost');
+    ghost.style.width = `${rect.width}px`;
+    ghost.style.height = `${rect.height}px`;
+    document.body.appendChild(ghost);
+
+    loredeckLibraryFolderDragState = {
+        folderId: id,
+        parentId,
+        libraryIndex,
+        pointerId: event.pointerId,
+        handle,
+        row,
+        list,
+        cards: folderRows,
+        siblingRows,
+        ghost,
+        originalIndex,
+        targetIndex: originalIndex,
+        offsetX: event.clientX - rect.left,
+        offsetY: event.clientY - rect.top,
+        shift: rect.height + gap,
+        lastX: event.clientX,
+        lastY: event.clientY,
+        dropList: list,
+        dropKind: 'library',
+        dropFolderId: '',
+        onMove: null,
+        onUp: null,
+        onKeyDown: null,
+        updatePosition: (x, y) => updateLoredeckLibraryFolderDrag(x, y),
+    };
+
+    document.body.classList.add('wandlight-loredeck-library-stack-dragging');
+    list.classList.add('wandlight-loredeck-library-stack-list-dragging');
+    row.classList.add('wandlight-loredeck-library-stack-card-dragging-source');
+    try {
+        handle.setPointerCapture?.(event.pointerId);
+    } catch (_) {
+        // Pointer capture may fail for synthetic or cancelled pointer streams.
+    }
+
+    loredeckLibraryFolderDragState.onMove = e => updateLoredeckLibraryFolderDrag(e.clientX, e.clientY);
+    loredeckLibraryFolderDragState.onUp = e => finishLoredeckLibraryFolderDrag(e.type !== 'pointercancel');
+    loredeckLibraryFolderDragState.onKeyDown = e => {
+        if (e.key !== 'Escape') return;
+        e.preventDefault();
+        finishLoredeckLibraryFolderDrag(false);
+    };
+    window.addEventListener('pointermove', loredeckLibraryFolderDragState.onMove);
+    window.addEventListener('pointerup', loredeckLibraryFolderDragState.onUp, { once: true });
+    window.addEventListener('pointercancel', loredeckLibraryFolderDragState.onUp, { once: true });
+    window.addEventListener('keydown', loredeckLibraryFolderDragState.onKeyDown);
+    updateLoredeckLibraryFolderDrag(event.clientX, event.clientY);
+}
+
+function getLoredeckLibraryFolderDragTargetIndex(clientY) {
+    const state = loredeckLibraryFolderDragState;
+    if (!state) return -1;
+    const originalIndex = state.originalIndex;
+    for (let index = 0; index < state.siblingRows.length; index += 1) {
+        const row = state.siblingRows[index];
+        if (index === originalIndex || row === state.row) continue;
+        const rect = row.getBoundingClientRect();
+        if (clientY < rect.top + rect.height / 2) {
+            return index > originalIndex ? Math.max(0, index - 1) : index;
+        }
+    }
+    return state.siblingRows.length - 1;
+}
+
+function updateLoredeckLibraryFolderDrag(clientX, clientY) {
+    const state = loredeckLibraryFolderDragState;
+    if (!state) return;
+    state.lastX = clientX;
+    state.lastY = clientY;
+    state.ghost.style.transform = `translate3d(${Math.round(clientX - state.offsetX)}px, ${Math.round(clientY - state.offsetY)}px, 0)`;
+    const dropList = getLoredeckLibraryDropList(clientX, clientY);
+    setLoredeckLibraryDragDropTarget(state, dropList || state.list);
+    updateLoredeckLibraryDragAutoScroll(state, clientX, clientY);
+
+    const listRect = state.list.getBoundingClientRect();
+    state.reparentToRoot = !!state.parentId && state.dropKind === 'library' && clientX < listRect.left + 48;
+    const canReorder = state.dropKind === 'library' && state.dropList === state.list;
+    const targetIndex = canReorder ? getLoredeckLibraryFolderDragTargetIndex(clientY) : state.originalIndex;
+    state.targetIndex = Number.isFinite(targetIndex) ? targetIndex : state.originalIndex;
+    for (let index = 0; index < state.siblingRows.length; index += 1) {
+        const row = state.siblingRows[index];
+        if (row === state.row) continue;
+        let offset = 0;
+        if (canReorder && state.targetIndex > state.originalIndex && index > state.originalIndex && index <= state.targetIndex) {
+            offset = -state.shift;
+        } else if (canReorder && state.targetIndex < state.originalIndex && index >= state.targetIndex && index < state.originalIndex) {
+            offset = state.shift;
+        }
+        row.style.transform = offset ? `translateY(${offset}px)` : '';
+        row.classList.toggle('wandlight-loredeck-library-stack-card-displaced', !!offset);
+    }
+}
+
+function finishLoredeckLibraryFolderDrag(commit = true) {
+    const state = loredeckLibraryFolderDragState;
+    if (!state) return;
+    window.removeEventListener('pointermove', state.onMove);
+    window.removeEventListener('pointerup', state.onUp);
+    window.removeEventListener('pointercancel', state.onUp);
+    window.removeEventListener('keydown', state.onKeyDown);
+    stopLoredeckLibraryDragAutoScroll(state);
+    clearLoredeckLibraryDragDropTargets();
+    try {
+        state.handle?.releasePointerCapture?.(state.pointerId);
+    } catch (_) {
+        // Pointer capture may already be released.
+    }
+    document.body.classList.remove('wandlight-loredeck-library-stack-dragging');
+    state.list.classList.remove('wandlight-loredeck-library-stack-list-dragging');
+    state.row.classList.remove('wandlight-loredeck-library-stack-card-dragging-source');
+    for (const row of state.siblingRows) {
+        row.style.transform = '';
+        row.classList.remove('wandlight-loredeck-library-stack-card-displaced');
+    }
+    state.ghost.remove();
+    const { folderId, parentId, originalIndex, targetIndex, dropKind, dropFolderId, libraryIndex, reparentToRoot } = state;
+    loredeckLibraryFolderDragState = null;
+    if (!commit) return;
+    if (dropKind === 'stack') {
+        addLoredeckFolderToStack(folderId, libraryIndex);
+        renderLoredeckLibraryOverlay();
+    } else if (dropKind === 'folder' && dropFolderId && dropFolderId !== folderId && dropFolderId !== 'unfiled') {
+        if (moveLoredeckLibraryFolder(folderId, dropFolderId, null, libraryIndex)) renderLoredeckLibraryOverlay();
+    } else if (dropKind === 'library' && (reparentToRoot || targetIndex !== originalIndex)) {
+        if (moveLoredeckLibraryFolder(folderId, reparentToRoot ? '' : parentId, reparentToRoot ? null : targetIndex, libraryIndex)) renderLoredeckLibraryOverlay();
+    }
+}
+
+function startLoredeckStackDrag(event, stackKey) {
     if (event.button != null && event.button !== 0) return;
     const handle = event.currentTarget;
     const card = handle?.closest?.('.wandlight-loredeck-library-stack-card');
     const list = card?.closest?.('.wandlight-loredeck-library-stack-list');
     if (!card || !list) return;
     const cards = [...list.querySelectorAll('.wandlight-loredeck-library-stack-card')];
-    if (cards.length < 2) return;
+    if (!cards.length) return;
 
     event.preventDefault();
     event.stopPropagation();
 
     const originalIndex = Number(card.dataset.stackIndex);
     if (!Number.isFinite(originalIndex)) return;
+    const key = String(stackKey || card.dataset.stackKey || '').trim();
+    if (!key) return;
+    const packId = key.startsWith('deck:') ? key.slice(5) : '';
 
     const rect = card.getBoundingClientRect();
     const gap = parseFloat(getComputedStyle(list).rowGap || getComputedStyle(list).gap) || 7;
@@ -3803,8 +4081,9 @@ function startLoredeckStackDrag(event, packId) {
     document.body.appendChild(ghost);
 
     loredeckStackDragState = {
-        packId: String(packId || '').trim(),
-        packIds: getLoredeckLibraryBulkSelectedIds().includes(packId) ? getLoredeckLibraryBulkSelectedIds() : [String(packId || '').trim()],
+        stackKey: key,
+        packId,
+        packIds: packId && getLoredeckLibraryBulkSelectedIds().includes(packId) ? getLoredeckLibraryBulkSelectedIds() : (packId ? [packId] : []),
         pointerId: event.pointerId,
         handle,
         list,
@@ -3914,15 +4193,20 @@ function finishLoredeckStackDrag(commit = true) {
         card.classList.remove('wandlight-loredeck-library-stack-card-displaced');
     }
     state.ghost.remove();
-    const { packId, packIds, originalIndex, targetIndex, dropKind, dropFolderId } = state;
+    const { stackKey, packId, packIds, originalIndex, targetIndex, dropKind, dropFolderId } = state;
     loredeckStackDragState = null;
     if (commit && dropKind === 'library') {
-        removeLoredecksFromStack(packIds);
+        if (packIds.length) removeLoredecksFromStack(packIds);
+        else removeLoredeckStackItem(stackKey);
         renderLoredeckLibraryOverlay();
     } else if (commit && dropKind === 'folder') {
-        if (moveLoredecksToLibraryFolder(packIds, dropFolderId)) renderLoredeckLibraryOverlay();
+        if (packIds.length) {
+            if (moveLoredecksToLibraryFolder(packIds, dropFolderId)) renderLoredeckLibraryOverlay();
+        } else if (removeLoredeckStackItem(stackKey)) {
+            renderLoredeckLibraryOverlay();
+        }
     } else if (commit && targetIndex !== originalIndex) {
-        reorderLoredeckInStack(packId, targetIndex);
+        reorderLoredeckStackItem(stackKey || createLoredeckStackDeckKey(packId), targetIndex);
     }
 }
 
@@ -4418,9 +4702,13 @@ function getLoredeckLibrarySelectedPack(state = getState(), library = getLoredec
     return library.find(pack => pack.packId === selectedId) || library[0] || null;
 }
 
-function getLoredeckLibraryStackStats(stack = [], library = [], canonDb = null, health = null) {
-    const enabled = stack.filter(item => item.enabled);
+function getLoredeckLibraryStackStats(stack = [], library = [], canonDb = null, health = null, libraryIndex = getLoredeckLibraryIndexForPacks(getState(), library)) {
+    const enabledItems = stack.filter(item => item.enabled);
     const packMap = new Map(library.map(pack => [pack.packId, pack]));
+    const resolved = resolveLoredeckStackItems(stack, libraryIndex, {
+        packs: Object.fromEntries(packMap.entries()),
+    });
+    const enabled = resolved.stack || [];
     let entryCount = 0;
     for (const item of enabled) {
         const pack = packMap.get(item.packId) || getLoredeckDefinition(item.packId) || { packId: item.packId };
@@ -4429,6 +4717,8 @@ function getLoredeckLibraryStackStats(stack = [], library = [], canonDb = null, 
     const summary = health?.summary || {};
     return {
         activeCount: enabled.length,
+        stackItemCount: enabledItems.length,
+        folderGroupCount: enabledItems.filter(item => getLoredeckStackItemType(item) === 'folder').length,
         entryCount,
         errorCount: Number(summary.errorCount) || 0,
         warningCount: Number(summary.warningCount) || 0,
@@ -4620,12 +4910,13 @@ function addLoredecksToStack(packIds = []) {
     if (!ids.length) return;
     const changed = commitLoredeckStackMutation(`Added ${ids.length} Loredeck${ids.length === 1 ? '' : 's'} to stack`, stack => {
         for (const packId of ids) {
-            const existing = stack.find(item => item.packId === packId);
+            const existing = stack.find(item => getLoredeckStackItemKey(item) === createLoredeckStackDeckKey(packId));
             if (existing) {
                 existing.enabled = true;
                 continue;
             }
             stack.push({
+                type: 'deck',
                 packId,
                 enabled: true,
                 priority: 1,
@@ -4755,6 +5046,67 @@ function moveLoredecksToLibraryFolder(packIds = [], folderId = '') {
     setLoredeckLibraryBulkSelection(validIds, validIds[0]);
     const targetTitle = targetFolderId ? getLoredeckLibraryViewTitle(targetFolderId, libraryIndex) : 'Unfiled';
     toast(`Moved ${validIds.length} Loredeck${validIds.length === 1 ? '' : 's'} to ${targetTitle}.`, 'success');
+    return true;
+}
+
+function saveLoredeckLibraryFolderRecords(folders = []) {
+    const settings = getSettings();
+    const registry = settings.loredeckLibrary && typeof settings.loredeckLibrary === 'object' && !Array.isArray(settings.loredeckLibrary)
+        ? settings.loredeckLibrary
+        : { schemaVersion: 1, packs: {} };
+    settings.loredeckLibrary = {
+        ...registry,
+        folders: folders.map(folder => ({ ...folder })),
+    };
+    saveSettings(settings);
+}
+
+function moveLoredeckLibraryFolder(folderId = '', targetParentId = '', targetIndex = null, libraryIndex = getLoredeckLibraryIndexForPacks()) {
+    const id = String(folderId || '').trim();
+    const parentId = String(targetParentId || '').trim();
+    if (!id || id === 'unfiled') return false;
+    const folders = (libraryIndex.folders || []).map(folder => ({ ...folder }));
+    const byId = new Map(folders.map(folder => [folder.id, folder]));
+    const moving = byId.get(id);
+    if (!moving) {
+        toast('That Library folder is no longer available.', 'warning');
+        return false;
+    }
+    if (parentId && !byId.has(parentId)) {
+        toast('Target folder is no longer available.', 'warning');
+        return false;
+    }
+    if (parentId === id || (parentId && isLoredeckLibraryFolderDescendant(parentId, id, libraryIndex))) {
+        toast('A folder cannot be moved inside itself or its own child folder.', 'warning');
+        return false;
+    }
+
+    const currentParentId = String(moving.parentId || '').trim();
+    const sameParent = currentParentId === parentId;
+    const siblings = folders
+        .filter(folder => folder.id !== id && String(folder.parentId || '').trim() === parentId)
+        .sort((a, b) => (Number(a.sortOrder) || 0) - (Number(b.sortOrder) || 0) || String(a.title || a.id).localeCompare(String(b.title || b.id)));
+    const insertIndex = Number.isFinite(Number(targetIndex))
+        ? Math.max(0, Math.min(siblings.length, Number(targetIndex)))
+        : siblings.length;
+    const now = Date.now();
+    const orderedSiblings = [...siblings];
+    orderedSiblings.splice(insertIndex, 0, {
+        ...moving,
+        parentId,
+        updatedAt: now,
+    });
+    orderedSiblings.forEach((folder, index) => {
+        const record = byId.get(folder.id);
+        if (!record) return;
+        record.parentId = parentId;
+        record.sortOrder = (index + 1) * 100;
+        if (folder.id === id || !sameParent) record.updatedAt = now;
+    });
+    saveLoredeckLibraryFolderRecords([...byId.values()]);
+    loredeckLibrarySelectedFolderId = id;
+    loredeckLibrarySort = 'manual';
+    toast(`${moving.title || id} folder ${sameParent ? 'reordered' : 'moved'}.`, 'success');
     return true;
 }
 
@@ -6452,7 +6804,7 @@ async function handleLoredeckCreatorEntryDraft(button = null, options = {}) {
 }
 
 function createLoredeckContextCard(state = getState(), contextIndex = getContextIndexSync()) {
-    const stack = getLoredeckStack(state).filter(item => item.enabled);
+    const stack = getContextWorkbenchStack(state);
     const card = document.createElement('div');
     card.className = 'wandlight-runtime-card wandlight-loredeck-context-card';
 
@@ -7256,9 +7608,12 @@ function refreshContextWorkbench() {
 }
 
 function getContextWorkbenchStack(state = getState()) {
-    return getLoredeckStack(state)
-        .filter(item => item.enabled !== false && item.packId)
-        .map((item, index) => ({ ...item, stackIndex: index }));
+    const stack = getLoredeckStack(state).filter(item => item.enabled !== false);
+    const library = getLoredeckLibrary(state);
+    const libraryIndex = getLoredeckLibraryIndexForPacks(state, library);
+    return resolveLoredeckStackItems(stack, libraryIndex, {
+        packs: getLoredeckLibraryPackMap(library),
+    }).stack.map((item, index) => ({ ...item, stackIndex: index }));
 }
 
 function getContextWorkbenchPack(state = getState()) {
@@ -10905,9 +11260,13 @@ function createLoredeckHealthIssueList(titleText, issues = [], severity = 'sugge
 
 function buildLoredeckHealthReport(state, canonDb = null, health = null) {
     const stack = getLoredeckStack(state);
-    const enabledIds = new Set(stack.filter(item => item.enabled).map(item => item.packId));
     const library = new Map(getLoredeckLibrary(state).map(pack => [pack.packId, pack]));
     const loadedPacks = Array.isArray(canonDb?.loredecks) ? canonDb.loredecks : [];
+    const enabledIds = new Set(loadedPacks.length
+        ? loadedPacks.map(pack => pack.id).filter(Boolean)
+        : resolveLoredeckStackItems(stack, getLoredeckLibraryIndexForPacks(state), {
+            packs: Object.fromEntries(library.entries()),
+        }).stack.map(item => item.packId).filter(Boolean));
     const packs = loadedPacks.map(loaded => {
         const libraryPack = library.get(loaded.id) || {};
         const overrideCount = libraryPack.entryOverrides && typeof libraryPack.entryOverrides === 'object' && !Array.isArray(libraryPack.entryOverrides)
@@ -10952,8 +11311,12 @@ function buildLoredeckHealthReport(state, canonDb = null, health = null) {
 }
 
 function getLoredeckStackHealthInsights(state, loadedPacks = []) {
-    const stack = getLoredeckStack(state).filter(item => item.enabled);
-    const library = new Map(getLoredeckLibrary(state).map(pack => [pack.packId, pack]));
+    const stackItems = getLoredeckStack(state).filter(item => item.enabled);
+    const libraryPacks = getLoredeckLibrary(state);
+    const library = new Map(libraryPacks.map(pack => [pack.packId, pack]));
+    const stack = resolveLoredeckStackItems(stackItems, getLoredeckLibraryIndexForPacks(state, libraryPacks), {
+        packs: Object.fromEntries(library.entries()),
+    }).stack;
     const loadedIds = new Set(loadedPacks.map(pack => pack.id));
     const issues = [];
 
@@ -18096,7 +18459,8 @@ async function deleteLoredeckLibraryPackWithConfirm(packOrId) {
         return false;
     }
     const title = pack.title || packId;
-    const inStack = getLoredeckStack(getState()).some(item => item.packId === packId);
+    const stackKey = createLoredeckStackDeckKey(packId);
+    const inStack = getLoredeckStack(getState()).some(item => getLoredeckStackItemKey(item) === stackKey);
     const proceed = await confirmAction(
         'Delete Loredeck?',
         `Delete "${title}" from your Loredeck Library?${inStack ? ' It will also be removed from the active stack.' : ''} This cannot be undone unless you import or create it again.`
@@ -18105,7 +18469,7 @@ async function deleteLoredeckLibraryPackWithConfirm(packOrId) {
 
     if (inStack) {
         commitLoredeckStackMutation(`Deleted Loredeck ${title} from active stack`, stack => {
-            const index = stack.findIndex(item => item.packId === packId);
+            const index = stack.findIndex(item => getLoredeckStackItemKey(item) === stackKey);
             if (index >= 0) stack.splice(index, 1);
         });
     }
@@ -18170,7 +18534,7 @@ async function deleteLoredeckLibraryPacksWithConfirm(packsOrIds = []) {
     }
 
     const stack = getLoredeckStack(getState());
-    const stackIds = new Set(stack.map(item => item.packId));
+    const stackIds = new Set(stack.map(item => getLoredeckStackItemPackId(item)).filter(Boolean));
     const inStack = deletable.filter(pack => stackIds.has(pack.packId));
     const actions = [
         `Delete ${deletable.length} Custom Loredeck${deletable.length === 1 ? '' : 's'} from your Library:`,
@@ -18198,7 +18562,7 @@ async function deleteLoredeckLibraryPacksWithConfirm(packsOrIds = []) {
     if (inStack.length) {
         commitLoredeckStackMutation(`Deleted ${inStack.length} Loredeck${inStack.length === 1 ? '' : 's'} from active stack`, stackItems => {
             for (let index = stackItems.length - 1; index >= 0; index -= 1) {
-                if (deletableIds.has(stackItems[index].packId)) stackItems.splice(index, 1);
+                if (deletableIds.has(getLoredeckStackItemPackId(stackItems[index]))) stackItems.splice(index, 1);
             }
         });
     }
@@ -18259,16 +18623,27 @@ function normalizeLoredeckStackPriority(stack = []) {
     const output = [];
     const seen = new Set();
     for (const item of stack) {
-        const packId = String(item?.packId || '').trim();
-        if (!packId || seen.has(packId)) continue;
-        seen.add(packId);
-        output.push({
-            packId,
+        const type = getLoredeckStackItemType(item);
+        const packId = String(item?.packId || item?.deckId || '').trim();
+        const folderId = String(item?.folderId || '').trim();
+        const key = getLoredeckStackItemKey({ type, packId, folderId });
+        if (!key || seen.has(key)) continue;
+        seen.add(key);
+        const normalized = {
+            type,
             enabled: item.enabled !== false,
             priority: Math.max(1, 100 - output.length),
             locked: item.locked === true,
             addedAt: Number.isFinite(Number(item.addedAt)) ? Number(item.addedAt) : Date.now(),
-        });
+        };
+        if (type === 'folder') {
+            normalized.folderId = folderId;
+            normalized.includeNested = item.includeNested !== false;
+            normalized.collapsed = item.collapsed === true;
+        } else {
+            normalized.packId = packId;
+        }
+        output.push(normalized);
     }
     return output;
 }
@@ -18276,12 +18651,13 @@ function normalizeLoredeckStackPriority(stack = []) {
 function addLoredeckToStack(packId) {
     const definition = getLoredeckDefinition(packId);
     const changed = commitLoredeckStackMutation(`Added Loredeck ${getLoredeckDisplayName(packId)}`, stack => {
-        const existing = stack.find(item => item.packId === packId);
+        const existing = stack.find(item => getLoredeckStackItemKey(item) === createLoredeckStackDeckKey(packId));
         if (existing) {
             existing.enabled = true;
             return;
         }
         stack.push({
+            type: 'deck',
             packId,
             enabled: true,
             priority: 1,
@@ -18292,18 +18668,62 @@ function addLoredeckToStack(packId) {
     if (changed) toast(`${definition?.title || packId} added to Loredeck stack.`, 'success');
 }
 
-function setLoredeckEnabled(packId, enabled) {
-    const changed = commitLoredeckStackMutation(`${enabled ? 'Enabled' : 'Disabled'} Loredeck ${getLoredeckDisplayName(packId)}`, stack => {
-        const item = stack.find(entry => entry.packId === packId);
-        if (item) item.enabled = enabled !== false;
+function addLoredeckFolderToStack(folderId, libraryIndex = getLoredeckLibraryIndexForPacks()) {
+    const id = String(folderId || '').trim();
+    if (!id || id === 'unfiled') {
+        toast('Only named Library folders can be added to the active stack.', 'warning');
+        return false;
+    }
+    const folder = (libraryIndex.folders || []).find(item => item.id === id);
+    if (!folder) {
+        toast('That Library folder is no longer available.', 'warning');
+        return false;
+    }
+    const changed = commitLoredeckStackMutation(`Added folder ${folder.title || id} to Loredeck stack`, stack => {
+        const key = createLoredeckStackFolderKey(id);
+        const existing = stack.find(item => getLoredeckStackItemKey(item) === key);
+        if (existing) {
+            existing.enabled = true;
+            existing.includeNested = true;
+            return;
+        }
+        stack.push({
+            type: 'folder',
+            folderId: id,
+            includeNested: true,
+            enabled: true,
+            priority: 1,
+            locked: false,
+            addedAt: Date.now(),
+        });
     });
+    if (changed) toast(`${folder.title || id} folder added to Loredeck stack.`, 'success');
+    return changed;
+}
+
+function setLoredeckEnabled(packId, enabled) {
+    const changed = setLoredeckStackItemEnabled(createLoredeckStackDeckKey(packId), enabled);
     if (changed) toast(`${getLoredeckDisplayName(packId)} ${enabled ? 'enabled' : 'disabled'}.`, 'success');
 }
 
+function setLoredeckStackItemEnabled(stackKey, enabled) {
+    const key = String(stackKey || '').trim();
+    const changed = commitLoredeckStackMutation(`${enabled ? 'Enabled' : 'Disabled'} Loredeck stack item`, stack => {
+        const item = stack.find(entry => getLoredeckStackItemKey(entry) === key);
+        if (item) item.enabled = enabled !== false;
+    });
+    return changed;
+}
+
 function moveLoredeckInStack(packId, direction) {
+    return moveLoredeckStackItem(createLoredeckStackDeckKey(packId), direction);
+}
+
+function moveLoredeckStackItem(stackKey, direction) {
+    const key = String(stackKey || '').trim();
     const step = Number(direction) < 0 ? -1 : 1;
-    const changed = commitLoredeckStackMutation(`Reordered Loredeck ${getLoredeckDisplayName(packId)}`, stack => {
-        const index = stack.findIndex(item => item.packId === packId);
+    const changed = commitLoredeckStackMutation('Reordered Loredeck stack', stack => {
+        const index = stack.findIndex(item => getLoredeckStackItemKey(item) === key);
         const nextIndex = index + step;
         if (index < 0 || nextIndex < 0 || nextIndex >= stack.length) return;
         const [item] = stack.splice(index, 1);
@@ -18313,8 +18733,13 @@ function moveLoredeckInStack(packId, direction) {
 }
 
 function reorderLoredeckInStack(packId, targetIndex) {
-    const changed = commitLoredeckStackMutation(`Reordered Loredeck ${getLoredeckDisplayName(packId)}`, stack => {
-        const index = stack.findIndex(item => item.packId === packId);
+    return reorderLoredeckStackItem(createLoredeckStackDeckKey(packId), targetIndex);
+}
+
+function reorderLoredeckStackItem(stackKey, targetIndex) {
+    const key = String(stackKey || '').trim();
+    const changed = commitLoredeckStackMutation('Reordered Loredeck stack', stack => {
+        const index = stack.findIndex(item => getLoredeckStackItemKey(item) === key);
         if (index < 0) return;
         const nextIndex = Math.max(0, Math.min(stack.length - 1, Number(targetIndex)));
         if (!Number.isFinite(nextIndex) || nextIndex === index) return;
@@ -18326,10 +18751,20 @@ function reorderLoredeckInStack(packId, targetIndex) {
 
 function removeLoredeckFromStack(packId) {
     const changed = commitLoredeckStackMutation(`Removed Loredeck ${getLoredeckDisplayName(packId)}`, stack => {
-        const index = stack.findIndex(item => item.packId === packId);
+        const index = stack.findIndex(item => getLoredeckStackItemKey(item) === createLoredeckStackDeckKey(packId));
         if (index >= 0) stack.splice(index, 1);
     });
     if (changed) toast(`${getLoredeckDisplayName(packId)} removed from Loredeck stack.`, 'success');
+}
+
+function removeLoredeckStackItem(stackKey) {
+    const key = String(stackKey || '').trim();
+    const changed = commitLoredeckStackMutation('Removed Loredeck stack item', stack => {
+        const index = stack.findIndex(item => getLoredeckStackItemKey(item) === key);
+        if (index >= 0) stack.splice(index, 1);
+    });
+    if (changed) toast('Removed item from the Loredeck stack.', 'success');
+    return changed;
 }
 
 function removeLoredecksFromStack(packIds = []) {
@@ -18337,7 +18772,7 @@ function removeLoredecksFromStack(packIds = []) {
     if (!ids.size) return;
     const changed = commitLoredeckStackMutation(`Removed ${ids.size} Loredeck${ids.size === 1 ? '' : 's'} from stack`, stack => {
         for (let index = stack.length - 1; index >= 0; index -= 1) {
-            if (ids.has(stack[index].packId)) stack.splice(index, 1);
+            if (ids.has(getLoredeckStackItemPackId(stack[index]))) stack.splice(index, 1);
         }
     });
     if (changed) toast(`Removed ${ids.size} Loredeck${ids.size === 1 ? '' : 's'} from the stack.`, 'success');
@@ -20170,18 +20605,69 @@ function getRailMetrics(state, settings = getSettings()) {
     };
 }
 
+function getLoredeckStackItemType(item = {}) {
+    return item?.type === 'folder' || item?.folderId ? 'folder' : 'deck';
+}
+
+function getLoredeckStackItemKey(item = {}) {
+    const type = getLoredeckStackItemType(item);
+    const id = type === 'folder'
+        ? String(item?.folderId || '').trim()
+        : String(item?.packId || item?.deckId || '').trim();
+    return id ? `${type}:${id}` : '';
+}
+
+function createLoredeckStackDeckKey(packId = '') {
+    const id = String(packId || '').trim();
+    return id ? `deck:${id}` : '';
+}
+
+function createLoredeckStackFolderKey(folderId = '') {
+    const id = String(folderId || '').trim();
+    return id ? `folder:${id}` : '';
+}
+
+function getLoredeckStackItemLabel(item = {}, libraryIndex = getLoredeckLibraryIndexForPacks()) {
+    if (getLoredeckStackItemType(item) === 'folder') {
+        const path = getFolderPath(item.folderId, libraryIndex);
+        return path.length ? path.join(' > ') : (item.folderId || 'Folder');
+    }
+    return getLoredeckDisplayName(item.packId || item.deckId || '');
+}
+
+function getLoredeckStackItemPackId(item = {}) {
+    return getLoredeckStackItemType(item) === 'deck' ? String(item?.packId || item?.deckId || '').trim() : '';
+}
+
+function getLoredeckStackItemFolderId(item = {}) {
+    return getLoredeckStackItemType(item) === 'folder' ? String(item?.folderId || '').trim() : '';
+}
+
 function getLoredeckStack(state = getState()) {
     const stack = Array.isArray(state?.loredeckStack) ? state.loredeckStack : [];
     return stack
         .filter(item => item && typeof item === 'object')
-        .map((item, index) => ({
-            packId: String(item.packId || '').trim(),
-            enabled: item.enabled !== false,
-            priority: Number.isFinite(Number(item.priority)) ? Number(item.priority) : Math.max(1, 100 - index),
-            locked: item.locked === true,
-            addedAt: Number.isFinite(Number(item.addedAt)) ? Number(item.addedAt) : 0,
-        }))
-        .filter(item => item.packId);
+        .map((item, index) => {
+            const type = getLoredeckStackItemType(item);
+            const packId = String(item.packId || item.deckId || '').trim();
+            const folderId = String(item.folderId || '').trim();
+            const normalized = {
+                type,
+                enabled: item.enabled !== false,
+                priority: Number.isFinite(Number(item.priority)) ? Number(item.priority) : Math.max(1, 100 - index),
+                locked: item.locked === true,
+                addedAt: Number.isFinite(Number(item.addedAt)) ? Number(item.addedAt) : 0,
+            };
+            if (type === 'folder') {
+                normalized.folderId = folderId;
+                normalized.includeNested = item.includeNested !== false;
+                normalized.collapsed = item.collapsed === true;
+            } else {
+                normalized.packId = packId;
+            }
+            return normalized;
+        })
+        .filter(item => getLoredeckStackItemKey(item));
 }
 
 function normalizeLoredeckLibraryPack(raw = {}) {

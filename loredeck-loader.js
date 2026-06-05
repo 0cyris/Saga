@@ -7,6 +7,7 @@
  */
 
 import { normalizeLoreEntry } from './lore-matrix.js';
+import { resolveLoredeckStackItems } from './loredeck-library-index.js';
 
 export const DEFAULT_LOREDECK_ID = 'hp-golden-trio';
 export const DEFAULT_LOREDECK_MANIFEST_URL = new URL('./Loredecks/hp-golden-trio/loredeck.json', import.meta.url);
@@ -1844,10 +1845,28 @@ export async function loadLoredeckSourceById(packId = DEFAULT_LOREDECK_ID, optio
     };
 }
 
-function normalizeLoredeckStackInput(stack) {
+function normalizeLoredeckStackInput(stack, options = {}) {
     const input = Array.isArray(stack) && stack.length
         ? stack
         : [{ packId: DEFAULT_LOREDECK_ID, enabled: true, priority: 100, addedAt: 0 }];
+    const registry = options.registry && typeof options.registry === 'object' && !Array.isArray(options.registry)
+        ? options.registry
+        : null;
+    if (registry && (Array.isArray(registry.folders) || Array.isArray(registry.deckPlacements))) {
+        const resolved = resolveLoredeckStackItems(input, registry, {
+            packs: registry.packs || {},
+        });
+        return (resolved.stack || [])
+            .map((item, index) => ({
+                packId: String(item?.packId || '').trim(),
+                enabled: item?.enabled !== false,
+                priority: Number.isFinite(Number(item?.priority)) ? Number(item.priority) : Math.max(1, 100 - index),
+                locked: item?.locked === true,
+                addedAt: Number.isFinite(Number(item?.addedAt)) ? Number(item.addedAt) : 0,
+                stackIndex: index,
+            }))
+            .filter(item => item.packId);
+    }
     return input
         .map((item, index) => ({
             packId: String(item?.packId || '').trim(),
@@ -1861,7 +1880,7 @@ function normalizeLoredeckStackInput(stack) {
 }
 
 export async function loadLoredeckStackSources(stack, options = {}) {
-    const normalized = normalizeLoredeckStackInput(stack).filter(item => item.enabled);
+    const normalized = normalizeLoredeckStackInput(stack, options).filter(item => item.enabled);
     const sources = [];
     for (let index = 0; index < normalized.length; index += 1) {
         const item = normalized[index];

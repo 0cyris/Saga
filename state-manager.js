@@ -150,6 +150,14 @@ function ensureTierCompressionStatus(state = {}) {
     }
 }
 
+function getLoredeckStackItemKey(item = {}) {
+    const type = item?.type === 'folder' || item?.folderId ? 'folder' : 'deck';
+    const id = type === 'folder'
+        ? String(item?.folderId || '').trim()
+        : String(item?.packId || item?.deckId || '').trim();
+    return id ? `${type}:${id}` : '';
+}
+
 function normalizeLoredeckStack(value) {
     const defaultStack = getDefaultState().loredeckStack;
     const input = Array.isArray(value) ? value : defaultStack;
@@ -158,17 +166,28 @@ function normalizeLoredeckStack(value) {
 
     for (const item of input) {
         if (!item || typeof item !== 'object') continue;
-        const packId = String(item.packId || '').trim();
-        if (!packId || seen.has(packId)) continue;
-        seen.add(packId);
+        const type = item.type === 'folder' || item.folderId ? 'folder' : 'deck';
+        const packId = String(item.packId || item.deckId || '').trim();
+        const folderId = String(item.folderId || '').trim();
+        const key = getLoredeckStackItemKey({ type, packId, folderId });
+        if (!key || seen.has(key)) continue;
+        seen.add(key);
         const priority = Number(item.priority);
-        output.push({
-            packId,
+        const normalized = {
+            type,
             enabled: item.enabled !== false,
             priority: Number.isFinite(priority) ? priority : Math.max(1, 100 - output.length),
             locked: item.locked === true,
             addedAt: Number.isFinite(Number(item.addedAt)) ? Number(item.addedAt) : 0,
-        });
+        };
+        if (type === 'folder') {
+            normalized.folderId = folderId;
+            normalized.includeNested = item.includeNested !== false;
+            normalized.collapsed = item.collapsed === true;
+        } else {
+            normalized.packId = packId;
+        }
+        output.push(normalized);
     }
 
     return output.length || Array.isArray(value) ? output : JSON.parse(JSON.stringify(defaultStack));
