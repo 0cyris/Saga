@@ -38,68 +38,101 @@ One Piece
 
 ## UX Principles
 
-- Keep the default view calm: users should see a compact folder tree, a focused current-folder list, and an active stack.
+- Keep the default view calm: users should see one hierarchical Library column, a compact action/transfer lane, and an active stack.
 - Avoid requiring drag and drop. Drag and drop should be fast and intuitive, but every action needs a button, menu, or keyboard path.
 - Preserve hierarchy in the Active Stack when a folder is added, but flatten deterministically at runtime.
 - Make folder health visible but not dominant. Health should summarize folder contents and open the Health Center only when needed.
 - Prefer disclosure and details-on-selection over always-visible dense controls.
 - Do not make folders into another Loredeck type. Folders organize and group; Loredecks contain lore.
+- Do not use a separate side-folder tree as the primary model. Folders should be first-class Library items, not a disconnected filter menu.
 
 ## Library Window Layout
 
-The Loredeck Library should evolve into a three-column layout with a bottom details panel:
+The Loredeck Library should keep the current Library/Stack workbench shape, but the Library column becomes a hierarchical deck-box list. Folders appear inline as expandable bars among Loredecks instead of living in a separate left-side tree.
 
 ```text
-+------------------+-------------------------------+----------------------+
-| Folder Tree      | Current Folder Contents        | Active Stack         |
-|                  |                               |                      |
-| All Loredecks    | Breadcrumb                    | Stack Groups / Decks |
-| Bundled          | Search / Filter / Sort         |                      |
-| Custom           | Folder cards first             |                      |
-| Unfiled          | Loredeck cards second          |                      |
-|                  |                               |                      |
-+------------------+-------------------------------+----------------------+
+Library                           Transfer / Actions      Active Stack
++-------------------------------+----------------------+----------------------+
+| Search / filters / sort       | Add to Stack         | Stack Groups / Decks |
+|                               | Remove from Stack    |                      |
+| v Harry Potter                | Add All Matching     | 1. HP Golden Trio    |
+|   v Golden Trio               | Clear Stack          |    8 decks           |
+|     Harry Potter: Core        | Duplicate / Delete   |                      |
+|     Year 1                    |                      | 2. Custom AU Folder  |
+|     Year 2                    |                      |                      |
+| > One Piece                   |                      |                      |
+| Unfiled                       |                      |                      |
++-------------------------------+----------------------+----------------------+
 | Selected Folder or Loredeck Details                                      |
 +-------------------------------------------------------------------------+
 ```
 
-### Folder Tree
+The old side-folder-tree approach is deprecated. It costs horizontal space, separates folder manipulation from deck manipulation, and makes folder-to-stack loading feel indirect.
 
-The left column should be a compact tree:
+### Inline Hierarchical Library Column
 
-- Disclosure arrows for expanding and collapsing folders.
-- Folder names with nested indentation.
-- Small count chips such as `12 decks`, `3 active`, or `2 warnings`.
-- Aggregated health status.
-- Special library views:
-  - `All Loredecks`
-  - `Bundled`
-  - `Custom`
-  - `Generated`
-  - `Unfiled`
-  - `Recently Imported`
+The Library column should show folders and Loredecks in one scrollable hierarchy:
 
-Special views should behave like filters, not actual folders. They cannot be moved or deleted.
+- Folder rows are compact horizontal bars with a disclosure arrow, drag handle, folder icon, title, and metadata chips.
+- Expanded folders reveal child folders and Loredecks with indentation.
+- Collapsed folders show only the folder bar and aggregate counts.
+- Loredeck cards keep the existing Library card visual language, but nest under folders.
+- Root-level Loredecks and root-level folders share the same list.
+- `Unfiled` can appear as a pinned root folder-like section for decks without placement, but it is a system section and cannot be renamed or removed.
+- Type filters such as `All`, `Bundled`, `Custom`, `Generated`, `Warnings`, and `Recently Imported` should live in filter chips, dropdowns, or saved views, not as folders.
 
-### Current Folder Contents
+Folder rows should show:
 
-The center column should show the selected folder or special view:
-
-- Breadcrumb path at top, for example `One Piece > East Blue Saga > Arlong Park`.
-- Search, filter, and sort controls scoped to the current view.
-- Folders first, then Loredecks.
-- Folder cards should be compact "deck box" cards.
-- Loredeck cards should reuse the existing Library card visual language.
-- Multi-select should work across folder and Loredeck cards.
-
-Folder cards should show:
-
+- Disclosure state.
 - Folder title.
+- Cover tile strip from representative child Loredecks.
 - Child folder count.
 - Loredeck count.
 - Active count.
 - Aggregated warning/error count.
-- Optional folder icon/color.
+- Optional folder icon/color after MVP.
+
+### Folder Cover Tile Strip
+
+Folder rows should use Loredeck covers as small overlapping tiles, like books or files visible inside a folder. This gives large fandom collections a stronger visual identity without requiring users to open every folder.
+
+Visual treatment:
+
+- Place the cover tile strip below the folder title and above or beside metadata chips, depending on available width.
+- Use 3-5 square cover tiles at most.
+- Overlap tiles left to right with a small offset, similar to a hand of cards or files in a folder.
+- Use the same beveled/clipped cover treatment as Loredeck preview images.
+- Add a final `+N` tile when the folder has more covered Loredecks than displayed.
+- Keep tiles decorative and compact; the folder title and chips remain the primary readable information.
+- On hover, the tile fan can spread by a few pixels if reduced-motion is not enabled.
+
+Representative cover selection:
+
+1. Use directly contained Loredecks first, ordered by folder sort order.
+2. If fewer than 3 covers exist directly, pull from nested child folders in deterministic folder order.
+3. Prefer Loredecks with `assets.cover.path`.
+4. If the folder is in the Active Stack, optionally bias active/loaded child Loredecks first.
+5. If no covers exist, fall back to a folder icon, monogram, or theme icon.
+
+Performance and accessibility:
+
+- Lazy-load cover images.
+- Do not load more than the displayed tile count plus one count tile.
+- Mark cover tiles as decorative with text alternatives handled by the folder title.
+- Respect reduced-motion settings for hover spread and expand/collapse animation.
+
+Selecting a folder should show folder details in the bottom details panel. Selecting a Loredeck should show Loredeck details.
+
+Folder details should include:
+
+- Path.
+- Total nested Loredecks.
+- Direct child folders.
+- Direct Loredecks.
+- Aggregated health.
+- Actions: add to stack, create subfolder, rename, remove folder.
+
+The Library column still needs filter and search controls above the hierarchy. Search results should preserve the hierarchy by showing matching branches rather than flattening all matches into a loose list.
 
 ### Active Stack
 
@@ -126,11 +159,13 @@ Folder actions for MVP:
 - Create subfolder.
 - Rename folder.
 - Move folder.
-- Delete folder.
+- Remove folder without deleting contained Loredecks.
 - Add folder to stack.
 - Expand or collapse folder.
 - Move selected Loredecks to folder.
 - Move selected folders to folder.
+
+These actions should be available through the selected-folder details panel and a compact folder row action menu. Drag and drop is the fast path, not the only path.
 
 Folder actions after MVP:
 
@@ -152,12 +187,12 @@ Loredeck actions should continue to live in the Library, but folder support adds
 - Bulk move selected Loredecks.
 - Bulk remove selected Loredecks from current folder.
 
-Deleting a folder should not delete Loredecks by default.
+Removing a folder should not delete Loredecks by default.
 
-Recommended delete prompt:
+Recommended remove prompt:
 
 ```text
-Delete folder "Arlong Park"?
+Remove folder "Arlong Park"?
 
 Choose what happens to its contents:
 
@@ -178,6 +213,8 @@ Drag and drop should support:
 - Drag folder out to parent.
 - Drag folder to Active Stack.
 - Drag selected folders and Loredecks to Active Stack.
+- Drag folder rows within the Library column to reorder folders.
+- Drag Loredeck cards within the Library column to reorder them inside their folder.
 - Drag Stack Group to reorder priority.
 - Drag individual Loredeck within Stack Group if the group has been converted to manual order.
 
@@ -187,11 +224,14 @@ Drag affordances:
 - Highlight valid drop targets.
 - Show invalid drop feedback for dropping a folder into itself or its own child.
 - Show a compact drop preview such as `Move 8 decks to Arlong Park`.
+- Auto-scroll the Library or Stack column when dragging near the top or bottom edge.
+- Animate folder expansion/collapse and reorder displacement smoothly.
 
 Accessibility fallback:
 
 - `Move To...` dialog.
 - `Add To Stack` button.
+- `Add Folder To Stack` action in the folder details panel.
 - keyboard reorder controls in the stack.
 - action menu on folders and selected cards.
 
@@ -199,18 +239,37 @@ Accessibility fallback:
 
 Adding a folder to the stack should not simply add all child Loredecks as loose deck cards. It should add the folder as a Stack Group with hierarchy intact.
 
+Users should be able to add a folder to the stack by:
+
+- Dragging the folder row from the Library column into the Active Stack column.
+- Selecting the folder and clicking `Add Folder To Stack` in the details panel.
+- Using a folder row action menu.
+
 Example:
 
 ```text
 Active Stack
-  1. Harry Potter: Core
-  2. Harry Potter Year 6: Half-Blood Prince
-  3. One Piece > East Blue Saga > Arlong Park
+  1. Harry Potter > Golden Trio
+     8 decks
+     - Harry Potter: Core
+     - Year 1: Philosopher's Stone
+     - Year 2: Chamber of Secrets
+
+  2. One Piece > East Blue Saga > Arlong Park
      - Arlong Park: Core
      - Arlong Park: Straw Hats
      - Arlong Park: Arlong Pirates
      - Arlong Park: Cocoyasi Village
 ```
+
+Stack Group cards should show:
+
+- Folder title and compact path.
+- Resolved nested Loredeck count.
+- Enabled/disabled state.
+- Duplicate suppression count when applicable.
+- Aggregated health.
+- Collapse/expand state.
 
 Runtime resolution:
 
@@ -302,6 +361,8 @@ The folder card should only show the most important summary:
 12 decks | 0 errors | 3 warnings
 ```
 
+The folder row should also show representative cover tiles, but missing cover art should not itself make a folder unhealthy. Missing cover art belongs in optional asset coverage details unless a Theme Pack or Loredeck explicitly declares the asset as required.
+
 The details panel can show more:
 
 - Health summary.
@@ -311,7 +372,15 @@ The details panel can show more:
 
 ## Search, Filters, And Tags
 
-Search should be global by default from the Library header, with an option to scope to the selected folder.
+Search should be global by default from the Library header, with an option to scope to the selected folder or branch.
+
+When search is active, Saga should preserve hierarchy:
+
+- If a nested Loredeck matches, show its parent folders.
+- Temporarily expand matching branches.
+- Add match chips such as `3 matches` to folder rows.
+- Hide nonmatching sibling branches unless they are needed to show the path.
+- Restore the user's prior expanded/collapsed state when search clears.
 
 Filters should include:
 
@@ -322,6 +391,8 @@ Filters should include:
 - Health status.
 - Active/inactive.
 - Tags.
+
+Filters should behave like list constraints, not folders. A `Bundled` filter can show bundled decks while still preserving their folder branches. A `Custom` filter can show custom decks without requiring a `Custom` folder.
 
 Tags should remain separate from folders. A Loredeck in:
 
@@ -366,9 +437,10 @@ One Piece > East Blue Saga > Arlong Park
 
 Initial migration should:
 
-1. Create default special views.
-2. Create folder paths from bundled Loredeck `library.suggestedPath` metadata.
-3. Place bundled HP split decks into:
+1. Create folder paths from bundled Loredeck `library.suggestedPath` metadata.
+2. Render those paths as inline expandable folder rows in the Library column.
+3. Keep special views as filters or saved views, not folders.
+4. Place bundled HP split decks into:
 
 ```text
 Harry Potter
@@ -384,8 +456,8 @@ Harry Potter
     Post-War Years & Epilogue
 ```
 
-4. Place Custom and Generated Loredecks without known paths into `Unfiled`.
-5. Preserve any existing active stack by converting deck IDs into top-level stack items.
+5. Place Custom and Generated Loredecks without known paths into `Unfiled`.
+6. Preserve any existing active stack by converting deck IDs into top-level stack items.
 
 ## MVP Scope
 
@@ -393,14 +465,16 @@ MVP folder system:
 
 1. Local library index with folders, deck placements, and active stack items.
 2. Suggested folder path support in Loredeck manifests.
-3. Folder tree in the Loredeck Library.
-4. Breadcrumb and current-folder contents view.
-5. Create, rename, move, and delete folders.
-6. Bulk move selected Loredecks.
-7. Add folder to Active Stack as a collapsible Stack Group.
-8. Runtime stack flattening.
-9. Duplicate suppression with visible summary.
-10. Tests for nesting, moving, deletion behavior, stack resolution, and duplicate suppression.
+3. Inline expandable folder rows inside the Loredeck Library column.
+4. Folder selection details in the bottom details panel.
+5. Representative folder cover tile strips using child Loredeck cover assets.
+6. Create, rename, move, and remove folders without deleting contained Loredecks.
+7. Bulk move selected Loredecks.
+8. Add folder to Active Stack as a collapsible Stack Group.
+9. Runtime stack flattening.
+10. Duplicate suppression with visible summary.
+11. Hierarchy-preserving search behavior.
+12. Tests for nesting, moving, removal behavior, folder cover selection, stack resolution, search branch display, and duplicate suppression.
 
 Out of MVP:
 
@@ -414,10 +488,12 @@ Out of MVP:
 ## Risks
 
 - Drag/drop can become fragile if it is the only interaction path. Every drag action needs a non-drag fallback.
-- Folder deletion can feel destructive if content handling is unclear. Never delete child Loredecks by default.
+- Folder removal can feel destructive if content handling is unclear. Never delete child Loredecks by default.
 - Duplicates can quietly corrupt context if not surfaced. Duplicate suppression must be visible.
-- Very deep folder trees can become slow or noisy. The tree should virtualize or lazily render if needed.
+- Very deep folder hierarchies can become slow or noisy. The Library hierarchy should virtualize or lazily render if needed.
 - Folder hierarchy and Tags can overlap conceptually. UI copy should keep folders as location and Tags as classification.
+- Inline hierarchy can become visually dense. Folder rows should stay compact, collapsed by default where appropriate, and rely on details-on-selection for deeper information.
+- Search can become confusing if it flattens results. Search should preserve matching branches and restore expansion state afterward.
 
 ## Implementation Status
 
@@ -427,12 +503,16 @@ Done:
 2. `Loredecks/index.json` registers the bundled HP split deck family.
 3. `loredeck-library-index.js` normalizes folders, deck placements, suggested paths, and folder stack resolution.
 4. Folder/index tests cover nested folders, suggested paths, stack flattening, and duplicate suppression.
-5. The Loredeck Library now loads the bundled index, derives folders from suggested paths, and renders a folder browser with special views and scoped deck lists.
+5. The Loredeck Library now loads the bundled index and derives folders from suggested paths.
+6. Deprecated/transitional: the current UI renders a separate folder browser with special views and scoped deck lists. This should be replaced by inline expandable folder rows inside the Library column.
 
 Recommended next slice:
 
-1. Add folder mutation controls: create folder, rename folder, delete folder, and move selected decks to folder.
-2. Add drag/drop from Library deck cards into folder rows, with the same auto-scroll behavior used by the deck and stack columns.
-3. Add folder Stack Groups to the Active Stack with collapsible hierarchy and visible duplicate suppression.
-4. Replace the remaining monolithic `hp-golden-trio` default stack/library references with the split HP deck family once entry migration is ready.
-5. Expand tests for folder mutation behavior, invalid moves, delete-content handling, and Library UI smoke selectors.
+1. Replace the side folder browser with inline expandable folder rows in the Library column.
+2. Render Loredecks nested under expanded folders, with compact indentation and smooth expand/collapse animation.
+3. Add folder row selection and folder details in the bottom details panel.
+4. Add folder mutation controls: create folder, create subfolder, rename folder, remove folder without deleting contained Loredecks, and move selected decks to folder.
+5. Add drag/drop for folder rows and Loredeck cards: reorder, move into folders, move out to parent/root, and drag folders to Active Stack.
+6. Add folder Stack Groups to the Active Stack with collapsible hierarchy and visible duplicate suppression.
+7. Replace the remaining monolithic `hp-golden-trio` default stack/library references with the split HP deck family once entry migration is ready.
+8. Expand tests for inline hierarchy rendering, folder mutation behavior, invalid moves, removal-content handling, stack groups, hierarchy-preserving search, and Library UI smoke selectors.
