@@ -11,9 +11,6 @@ import { LORE_RELEVANCE_TIERS, LORE_RELEVANCE_LABELS, normalizeLoreRelevance, LO
 import {
     getDefaultState,
     DEFAULT_SETTINGS,
-    WANDLIGHT_PRESET_NAME,
-    WANDLIGHT_PRESET_VERSION,
-    WANDLIGHT_PRESET_ASSET_PATH,
     WANDLIGHT_PROVIDER_PRESET_NAME,
     WANDLIGHT_PROVIDER_PRESET_VERSION,
     WANDLIGHT_PROVIDER_PRESET_ASSET_PATH,
@@ -104,19 +101,11 @@ const DEFAULT_RAIL_LEFT = 20;
 const DEFAULT_COMPACT_RAIL_HEIGHT_ESTIMATE = 420;
 const DEFAULT_EXPANDED_RAIL_HEIGHT_ESTIMATE = 420;
 const LAYOUT_VERSION = 2;
-const WANDLIGHT_PRESET_API_ID = 'openai';
-const LEGACY_WANDLIGHT_PRESET_NAMES = Object.freeze([
-    'Wandlight-1.0',
-    'Wandlight-1.1',
-    'Wandlight-1.2',
-    'Wandlight-1.3',
-]);
 const STORED_API_KEY_SETTING_PREFIXES = Object.freeze(['loreOpenAI', 'continuityOpenAI']);
 const STORED_API_KEY_SETTING_SUFFIXES = Object.freeze(['Encrypted', 'Salt', 'Iv', 'KeyEncrypted', 'KeySalt', 'KeyIv', 'KeySet']);
 const CONTEXT_DETECTION_SETTING_KEYS = Object.freeze([
     'contextDetectionMode',
     'contextDetectionAutoInterval',
-    'contextHeaderDetectionEnabled',
     'contextSourceMessageCount',
     'contextModelFallbackMinCharacters',
 ]);
@@ -218,7 +207,7 @@ const BUNDLED_LOREDECK_LIBRARY = Object.freeze([
         packId: 'hp-golden-trio',
         type: 'bundled',
         title: 'Harry Potter: Golden Trio',
-        description: 'Golden Trio era canon scaffolded from the current Wandlight lore database.',
+        description: 'Golden Trio era canon reference deck for Harry Potter school years one through seven.',
         entryCount: 417,
     },
 ]);
@@ -604,7 +593,6 @@ const THEME_COLOR_FIELDS = Object.freeze([
     ['Muted Text', 'themeMutedTextColor', 'mutedText'],
 ]);
 
-let bundledWandlightPresetCache = null;
 let bundledProviderPresetCache = null;
 const loredeckManifestPreviewCache = new Map();
 const loredeckEntryPreviewCache = new Map();
@@ -1056,13 +1044,13 @@ function buildThemeAccessibilityReport(colors = {}) {
 }
 
 const TAB_TOOLTIPS = {
-    loredecks: 'Load, order, inspect, and eventually edit Saga Loredecks.',
+    loredecks: 'Load, order, inspect, and edit Saga Loredecks.',
     session: 'Runtime overview, preset status, instructions, and destructive cleanup actions.',
     continuity: 'Scan, automatically track, view, and edit lightweight live continuity state: scene/timeline, active characters, key items, and active goals/threads.',
     context: 'Detect, automatically update, view, and edit context: scene date, canon reference point, branch, and source range.',
     lore: 'Generate pending Lorecards, review generated Lorecards, and manage accepted Lorecards with search, filters, tags, pinning, and muting.',
-    injection: 'Choose what Wandlight sends to the model: continuity state, lore entries, direct/compressed handling, and live split injection previews.',
-    settings: 'Configure providers, runtime appearance, and future Saga Themepacks.',
+    injection: 'Choose what Saga sends to the model: continuity state, lore entries, direct/compressed handling, and live split injection previews.',
+    settings: 'Configure providers, runtime appearance, and Saga Theme Packs.',
 };
 
 
@@ -1305,7 +1293,7 @@ function applyLoreRegistryStyle(el, field, value) {
 const AUTOMATION_MODES = {
     manual: {
         label: 'Manual',
-        description: 'No automatic extraction or lore generation. Use the buttons in this window when you want Wandlight to scan or generate.',
+        description: 'No automatic extraction or lore generation. Use the buttons in this window when you want Saga to scan or generate.',
         settings: {
             autoExtract: false,
             autoApplyDelta: false,
@@ -1362,16 +1350,12 @@ function freezeGuideSteps(steps) {
 
 const GUIDE_STEPS = Object.freeze({
     basic: freezeGuideSteps([
-        guideStep('active', 'Wandlight Active', 'The master runtime switch. Keep it on when you want Wandlight to select and inject accepted lore.', 'session', 'session.active', {
-            expected: 'When enabled, Wandlight can update prompt injection and run any manual tools you click.',
-            when: 'Turn it off only when you want the chat to ignore Wandlight without changing saved lore.',
-        }),
-        guideStep('preset', 'Wandlight Preset Status', 'Shows whether the bundled Wandlight chat preset is installed and current.', 'session', 'session.preset', {
-            expected: 'A current preset enables reply headers that make Context detection faster.',
-            when: 'Check this after installing Wandlight or updating the extension.',
+        guideStep('active', 'Saga Active', 'The master runtime switch. Keep it on when you want Saga to select and inject accepted lore.', 'session', 'session.active', {
+            expected: 'When enabled, Saga can update prompt injection and run any manual tools you click.',
+            when: 'Turn it off only when you want the chat to ignore Saga without changing saved lore.',
         }),
         guideStep('metrics', 'Session Metrics', 'Summarizes pending lore, accepted lore, selected injection entries, and estimated injected tokens.', 'session', 'session.metrics', {
-            expected: 'These numbers tell you whether Wandlight has lore to review and whether lore is being selected for injection.',
+            expected: 'These numbers tell you whether Saga has lore to review and whether lore is being selected for injection.',
             when: 'Use this as a quick health check when the model seems unaware of stored lore.',
         }),
         guideStep('context-detect', 'Detect Context', 'Reads recent chat and fills the scene date, canon boundary, and branch fields.', 'context', 'context.detect', {
@@ -1466,31 +1450,23 @@ const GUIDE_STEPS = Object.freeze({
             expected: 'Basic applies a simpler profile. Advanced restores detailed controls and backed-up settings.',
             when: 'Use Advanced when you need automation, continuity tuning, workbenches, timeline, or placement control.',
         }),
-        guideStep('automation-mode', 'Automation Mode', 'Chooses whether Wandlight stays manual, scans continuity automatically, or runs broader automation.', 'session', 'session.automation', {
+        guideStep('automation-mode', 'Automation Mode', 'Chooses whether Saga stays manual, scans continuity automatically, or runs broader automation.', 'session', 'session.automation', {
             expected: 'Manual only runs when clicked. Assisted tracks continuity. Automatic also runs context/lore automation.',
             when: 'Use Manual while configuring; use Assisted or Automatic once settings are stable.',
         }),
-        guideStep('active', 'Wandlight Active', 'The master runtime switch for Wandlight behavior.', 'session', 'session.active', {
+        guideStep('active', 'Saga Active', 'The master runtime switch for Saga behavior.', 'session', 'session.active', {
             expected: 'When enabled, prompt injection and configured automation can run.',
-            when: 'Use this to pause Wandlight without deleting state.',
-        }),
-        guideStep('preset', 'Wandlight Preset', 'Detects whether the bundled Wandlight preset is installed and current.', 'session', 'session.preset', {
-            expected: 'Install/update from here, then verify your SillyTavern connection profile if the preset changed it.',
-            when: 'Check this after extension updates or when fast context detection fails.',
+            when: 'Use this to pause Saga without deleting state.',
         }),
         guideStep('metrics', 'Session Metrics', 'Shows pending continuity, pending lore, accepted lore, selected injection count, and injection token estimate.', 'session', 'session.metrics', {
-            expected: 'These values help diagnose whether Wandlight has data and whether it is injecting data.',
+            expected: 'These values help diagnose whether Saga has data and whether it is injecting data.',
             when: 'Use this as a quick runtime status check.',
         }),
         guideStep('context-automation', 'Context Automation', 'Controls whether Context detection runs only on click or automatically after turns.', 'context', 'context.automation', {
-            expected: 'Automatic detection can keep dates current, especially with the Wandlight preset header format.',
+            expected: 'Automatic detection can keep Context current during active roleplay.',
             when: 'Use automatic detection if your story frequently moves scenes or dates.',
         }),
-        guideStep('fast-header', 'Fast Header Detection', 'Scans recent model reply headers for date/time/location/weather before using a model call.', 'context', 'context.fastHeader', {
-            expected: 'If a valid header is found, Wandlight updates Context locally and skips provider cost.',
-            when: 'Use this with the Wandlight preset.',
-        }),
-        guideStep('context-window', 'Context Source Messages', 'Controls how many recent chat messages are scanned for headers or sent to model fallback.', 'context', 'context.sourceMessages', {
+        guideStep('context-window', 'Context Source Messages', 'Controls how many recent chat messages are sent to Context detection.', 'context', 'context.sourceMessages', {
             expected: 'Larger windows improve detection but cost more time when model fallback is needed.',
             when: 'Increase it if context detection misses dates stated earlier in the scene.',
         }),
@@ -1504,7 +1480,7 @@ const GUIDE_STEPS = Object.freeze({
         }),
         guideStep('continuity-automation', 'Continuity Automation', 'Controls whether continuity state scanning is manual or turn-interval based.', 'continuity', 'continuity.automation', {
             expected: 'Automatic scans update lightweight scene state at the configured interval.',
-            when: 'Use this when you want Wandlight to maintain current-scene state in the background.',
+            when: 'Use this when you want Saga to maintain current-scene state in the background.',
         }),
         guideStep('continuity-scope', 'Continuity Scan Scope', 'Chooses recent, custom, or entire-chat scanning for continuity state.', 'continuity', 'continuity.scanScope', {
             expandSections: Object.freeze(['continuity.scanScope']),
@@ -1726,7 +1702,7 @@ const GUIDE_STEPS = Object.freeze({
             when: 'Use this to tune how strongly each prompt block influences the model.',
         }),
         guideStep('continuity-injection', 'Continuity Injection Preview', 'Shows the current continuity block and its direct/compressed handling controls.', 'injection', 'injection.preview.continuity', {
-            expected: 'This is the actual continuity text Wandlight plans to send.',
+            expected: 'This is the actual continuity text Saga plans to send.',
             when: 'Use this to verify current-scene state before prompting.',
         }),
         guideStep('high-injection', 'High-Relevance Lore Injection', 'Shows scene-critical accepted lore and direct/compressed handling.', 'injection', 'injection.preview.high', {
@@ -1753,15 +1729,15 @@ const GUIDE_CONTENT = Object.freeze({
     basic: Object.freeze({
         title: 'Getting Started',
         subtitle: 'first steps',
-        tooltip: 'A short guided setup for core Wandlight use.',
-        lede: 'Start with context, add reviewable lore, accept what matters, then check what Wandlight will send into the next prompt.',
-        note: 'The chat remains the source of truth. Wandlight keeps the useful details editable, searchable, and ready for injection.',
+        tooltip: 'A short guided setup for core Saga use.',
+        lede: 'Start with Context, add reviewable lore, accept what matters, then check what Saga will send into the next prompt.',
+        note: 'The chat remains the source of truth. Saga keeps the useful details editable, searchable, and ready for injection.',
         tourLabel: 'Start Walkthrough',
     }),
     advanced: Object.freeze({
-        title: 'Wandlight Guide',
+        title: 'Saga Guide',
         subtitle: 'workflow + tools',
-        tooltip: 'A guided map of Wandlight runtime tools and configuration areas.',
+        tooltip: 'A guided map of Saga runtime tools and configuration areas.',
         lede: 'Use this guide to move through automation, context, continuity, lore generation, review, timeline recovery, and injection controls.',
         note: '',
         tourLabel: 'Start Advanced Walkthrough',
@@ -1898,7 +1874,7 @@ function renderRail(state) {
     const drag = document.createElement('div');
     drag.className = 'wandlight-runtime-rail-drag';
     drag.addEventListener('mousedown', onDragStart);
-    addTooltip(drag, 'Drag to move the Wandlight rail. The drawer stays anchored to this rail.');
+    addTooltip(drag, 'Drag to move the Saga rail. The drawer stays anchored to this rail.');
 
     const mark = document.createElement('div');
     mark.className = 'wandlight-runtime-rail-mark';
@@ -1989,7 +1965,7 @@ function renderRail(state) {
 
     const close = createIconButton(
         'x',
-        'Close the Wandlight rail. Use /wandlight-lore-panel or the extension launcher to reopen it.',
+        'Close the Saga rail. Reopen it from the extension launcher.',
         'wandlight-runtime-rail-control wandlight-runtime-rail-close',
         (e) => {
             e.stopPropagation();
@@ -2069,8 +2045,8 @@ function renderDrawer(state, direction = 'right') {
     titleWrap.className = 'wandlight-lore-panel-title-wrap';
     const title = document.createElement('div');
     title.className = 'wandlight-lore-panel-title wandlight-runtime-drawer-title';
-    title.textContent = TAB_LABELS[activeTab] || 'Wandlight';
-    addTooltip(title, TAB_TOOLTIPS[activeTab] || 'Wandlight runtime drawer.');
+    title.textContent = TAB_LABELS[activeTab] || 'Saga';
+    addTooltip(title, TAB_TOOLTIPS[activeTab] || 'Saga runtime drawer.');
     titleWrap.appendChild(title);
 
     const status = document.createElement('div');
@@ -2118,8 +2094,8 @@ function refreshHeader() {
     status.innerHTML = '';
     status.appendChild(createStatusPill(`Experience: ${getExperienceLabel(settings)}`, getExperienceTooltip(settings)));
     status.appendChild(createStatusPill(`Automation: ${getAutomationLabel(settings)}`, getAutomationTooltip(settings)));
-    status.appendChild(createStatusPill(settings.enabled ? 'Active' : 'Paused', 'Master runtime toggle. When paused, Wandlight does not inject, scan, or generate.'));
-    status.appendChild(createStatusPill((settings.injectContinuity !== false && settings.injectMemo !== false) ? 'Continuity Injected' : 'Continuity Not Injected', 'Whether Wandlight includes structured continuity state in roleplay generation prompts.'));
+    status.appendChild(createStatusPill(settings.enabled ? 'Active' : 'Paused', 'Master runtime toggle. When paused, Saga does not inject, scan, or generate.'));
+    status.appendChild(createStatusPill((settings.injectContinuity !== false && settings.injectMemo !== false) ? 'Continuity Injected' : 'Continuity Not Injected', 'Whether Saga includes structured continuity state in roleplay generation prompts.'));
     if (pendingDelta + pendingLore > 0) {
         status.appendChild(createStatusPill(`Pending: ${pendingDelta + pendingLore}`, 'Pending generated lore entries plus any legacy continuity delta.'));
     }
@@ -2170,7 +2146,7 @@ function renderLoredecksTab(container, state) {
     if (!canonDb) {
         loadCanonLoreDatabase()
             .then(() => refreshLorePanel({ preserveScroll: true }))
-            .catch(e => console.warn('[Wandlight] Loredeck health load failed:', e));
+            .catch(e => console.warn('[Saga] Loredeck health load failed:', e));
     }
     const health = canonDb?.health || null;
 
@@ -2335,7 +2311,7 @@ function renderLoredeckLibraryOverlay() {
     if (!canonDb) {
         loadCanonLoreDatabase()
             .then(() => { if (loredeckLibraryOpen) renderLoredeckLibraryOverlay(); })
-            .catch(e => console.warn('[Wandlight] Loredeck Library health load failed:', e));
+            .catch(e => console.warn('[Saga] Loredeck Library health load failed:', e));
     }
 
     const overlay = document.createElement('div');
@@ -3416,7 +3392,7 @@ function createLoredeckImportExportCard(state) {
     card.appendChild(actions);
 
     const registry = getLoredeckLibraryRegistry(state);
-    card.appendChild(createKeyValue('Registered decks', String(Object.keys(registry.packs || {}).length), 'Global library decks plus legacy chat fallback records.'));
+    card.appendChild(createKeyValue('Registered decks', String(Object.keys(registry.packs || {}).length), 'Global Loredeck library records.'));
     return card;
 }
 
@@ -3617,11 +3593,11 @@ function createLoredeckCreatorBriefReview(brief = {}, cached = {}) {
     const grid = document.createElement('div');
     grid.className = 'wandlight-loredeck-detail-grid';
     grid.appendChild(createKeyValue('Title', brief.title || 'unset', 'Creator brief title.'));
-    grid.appendChild(createKeyValue('Deck ID', brief.packId || 'unset', 'Suggested generated Loredeck ID. Internal schema currently stores this as packId.'));
+    grid.appendChild(createKeyValue('Deck ID', brief.packId || 'unset', 'Stable generated Loredeck ID.'));
     grid.appendChild(createKeyValue('Fandom', brief.fandom || 'unset', 'Fandom or universe.'));
     grid.appendChild(createKeyValue('Scope', brief.scope || 'unset', 'Coverage range for this deck.'));
     grid.appendChild(createKeyValue('Coverage', brief.coverage || 'unset', 'What the deck should cover.'));
-    grid.appendChild(createKeyValue('Context', brief.contextApproach || 'unset', 'How timeline anchors/windows should likely be organized later.'));
+    grid.appendChild(createKeyValue('Context', brief.contextApproach || 'unset', 'How timeline anchors/windows are organized.'));
     grid.appendChild(createKeyValue('Next Stage', brief.nextStage || 'unset', 'Recommended next Creator stage.'));
     wrap.appendChild(grid);
 
@@ -5771,7 +5747,7 @@ function openContextWorkbench(packId = '') {
         .then(() => {
             if (contextWorkbenchOpen) renderContextWorkbench();
         })
-        .catch(e => console.warn('[Wandlight] Context Workbench index load failed:', e));
+        .catch(e => console.warn('[Saga] Context Workbench index load failed:', e));
 }
 
 function openContextWorkbenchForPack(packId = '', tab = 'context') {
@@ -8319,7 +8295,7 @@ function getLoredeckHealthStatusDescriptor(report = {}, health = null) {
             label: 'Usable with warnings',
             tone: 'warning',
             summary: 'This deck can run, but metadata cleanup is recommended.',
-            detail: 'Address the priority issues below to improve reliability and future-proof the lore.',
+            detail: 'Address the priority issues below to improve reliability.',
         };
     }
     if (raw === 'partial') {
@@ -10007,7 +9983,7 @@ async function exportSelectedLoredeckBundles(packs = [], button = null) {
         }
         if (failures.length) {
             toast(`Exported ${exported} Loredeck${exported === 1 ? '' : 's'}; ${failures.length} failed.`, exported ? 'warning' : 'error');
-            console.warn('[Wandlight] Loredeck export failures:', failures);
+            console.warn('[Saga] Loredeck export failures:', failures);
         } else {
             toast(`Exported ${exported} Loredeck${exported === 1 ? '' : 's'} as individual JSON bundle${exported === 1 ? '' : 's'}.`, 'success');
         }
@@ -10669,7 +10645,7 @@ async function commitLoredeckBulkInstallAsNewCopies(items = [], overlay = null, 
         }
         if (failures.length) {
             toast(`Installed ${installedCount} Loredeck${installedCount === 1 ? '' : 's'}; ${failures.length} failed.`, installedCount ? 'warning' : 'error');
-            console.warn('[Wandlight] Bulk Loredeck install failures:', failures);
+            console.warn('[Saga] Bulk Loredeck install failures:', failures);
         } else {
             toast(`Installed ${installedCount} Custom Loredeck${installedCount === 1 ? '' : 's'} as new ${installedCount === 1 ? 'copy' : 'copies'}.`, 'success');
         }
@@ -10848,7 +10824,7 @@ function createLoredeckDetailCard(state, canonDb = null, health = null) {
 
     const overview = document.createElement('div');
     overview.className = 'wandlight-loredeck-detail-grid';
-    overview.appendChild(createKeyValue('Deck ID', pack.packId, 'Stable Loredeck identifier used by the stack and registry. Internal schema currently stores this as packId.'));
+    overview.appendChild(createKeyValue('Deck ID', pack.packId, 'Stable Loredeck identifier used by the stack and registry.'));
     overview.appendChild(createKeyValue('Fandom', pack.fandom || 'unset', 'Fandom, canon, universe, or setting.'));
     overview.appendChild(createKeyValue('Era', pack.era || 'unset', 'Era, arc, continuity slice, adaptation, or scope.'));
     overview.appendChild(createKeyValue('Author', pack.author || 'unset', 'Deck author or publisher.'));
@@ -14774,7 +14750,7 @@ async function fetchLoredeckEntryFilesForEditor(pack, manifest = null, baseUrl =
                 schemaVersion: json?.schemaVersion || displayManifest.entrySchemaVersion || 2,
             });
         } catch (e) {
-            console.warn('[Wandlight] Loredeck entry file failed in editor:', filePath, e);
+            console.warn('[Saga] Loredeck entry file failed in editor:', filePath, e);
             entryFiles.push({
                 file: filePath,
                 url: null,
@@ -15090,7 +15066,7 @@ async function validateLoredeckForEditor(pack, button = null, options = {}) {
                     loadedAt: Date.now(),
                 });
             } catch (e) {
-                console.warn('[Wandlight] Loredeck timeline failed during editor validation:', e);
+                console.warn('[Saga] Loredeck timeline failed during editor validation:', e);
                 loredeckTimelineRegistryCache.set(workingPack.packId, {
                     sourceRegistry: normalizeLoredeckTimelineRegistry(null),
                     error: e?.message || 'timeline.json failed to load.',
@@ -17066,9 +17042,9 @@ function renderSettingsTab(container, state) {
     const identityTitle = document.createElement('h4');
     identityTitle.textContent = 'SAGA: Fandom Loresystem';
     identity.appendChild(identityTitle);
-    identity.appendChild(createKeyValue('Runtime', 'Wandlight compatibility mode', 'Saga is being developed from the existing Wandlight runtime.'));
+    identity.appendChild(createKeyValue('Runtime', 'Saga runtime', 'Core runtime controls for the current chat.'));
     identity.appendChild(createKeyValue('Loredecks', getLoredeckStackMetric(getState()), 'Enabled Loredecks in the current chat stack.'));
-    identity.appendChild(createKeyValue('Library decks', String(Object.keys(getLoredeckLibraryRegistry(getState()).packs || {}).length), 'Loredecks registered globally in extension settings, plus legacy chat fallback records.'));
+    identity.appendChild(createKeyValue('Library decks', String(Object.keys(getLoredeckLibraryRegistry(getState()).packs || {}).length), 'Loredecks registered in extension settings.'));
     identity.appendChild(createKeyValue('Theme', getThemePreset(settings.themePackId)?.title || 'Custom', 'Active Themepack preset.'));
     container.appendChild(identity);
 
@@ -17249,7 +17225,7 @@ function getNormalizedConnectionProfiles() {
     try {
         profiles = getAvailableConnectionProfiles() || [];
     } catch (e) {
-        console.warn('[Wandlight] Could not list connection profiles:', e);
+        console.warn('[Saga] Could not list connection profiles:', e);
     }
     const seen = new Set();
     const out = [];
@@ -17863,7 +17839,7 @@ async function installBundledProviderPreset() {
                 restored = true;
             }
         } catch (e) {
-            console.warn('[Wandlight] Could not restore previous preset after importing Provider preset:', e);
+            console.warn('[Saga] Could not restore previous preset after importing Provider preset:', e);
         }
     }
 
@@ -19190,15 +19166,15 @@ function renderSessionTab(container, state) {
 
     container.appendChild(createSectionHeader(
         'Session Controls',
-        'Set how Wandlight behaves during roleplay.'
+        'Set how Saga behaves during roleplay.'
     ));
 
     const toggles = document.createElement('div');
     toggles.className = 'wandlight-runtime-grid';
     toggles.appendChild(markTourTarget(createToggleCard(
-        'Wandlight Active',
+        'Saga Active',
         settings.enabled,
-        'Master switch for Wandlight runtime behavior. Pausing disables prompt injection, automatic extraction, and generation actions.',
+        'Master switch for Saga runtime behavior. Pausing disables prompt injection, automatic extraction, and generation actions.',
         (checked) => {
             const next = getSettings();
             next.enabled = checked;
@@ -19216,7 +19192,7 @@ function renderSessionTab(container, state) {
         const modeTitle = document.createElement('div');
         modeTitle.className = 'wandlight-runtime-card-title';
         modeTitle.textContent = 'Automation Mode';
-        addTooltip(modeTitle, 'Automation Mode controls whether Wandlight scans and generates only when clicked, or automatically after roleplay turns. Experience Mode lives on the shelf.');
+        addTooltip(modeTitle, 'Automation Mode controls whether Saga scans and generates only when clicked, or automatically after roleplay turns. Experience Mode lives on the shelf.');
         modeCard.appendChild(modeTitle);
 
         const modeButtons = document.createElement('div');
@@ -19246,8 +19222,6 @@ function renderSessionTab(container, state) {
         container.appendChild(markTourTarget(modeCard, 'session.automation'));
     }
 
-    container.appendChild(createWandlightPresetStatusCard());
-
     container.appendChild(createCollapsibleSection(
         `session.instructions.${guideMode}`,
         guide.title,
@@ -19267,7 +19241,7 @@ function renderSessionTab(container, state) {
     stats.appendChild(createKeyValue('Pending Lorecards', String((state?.pendingLoreEntries || []).length), 'Generated Lorecards waiting in the Lorecards tab Pending Lorecard Review section.'));
     stats.appendChild(createKeyValue('Accepted lore entries', String(counts.all - counts.pending), 'Lore entries currently stored in the accepted lore matrix.'));
     stats.appendChild(createKeyValue('High-relevance lore entries', String(counts.active), 'Accepted lore entries currently assigned to the High-Relevance injection tier.'));
-    stats.appendChild(createKeyValue('Lore selected for injection', String(selectedLoreCount), 'Accepted lore entries that Wandlight is currently selecting for Lore Injection after pin/mute rules, context activation, and fallback priority selection. There is no hidden entry cap; mute entries to exclude them.'));
+    stats.appendChild(createKeyValue('Lore selected for injection', String(selectedLoreCount), 'Accepted lore entries selected for Lore Injection after pin/mute rules, Context activation, and fallback priority selection. There is no hidden entry cap; mute entries to exclude them.'));
     stats.appendChild(createKeyValue('Injection token estimate', injectionStats.totalChars ? `${injectionStats.totalTokens} tokens` : 'empty', 'Approximate token count for the combined Continuity + Lore injection previews.'));
     stats.appendChild(createKeyValue('Total chars injected', `${injectionStats.totalChars} chars`, 'Combined character count of Continuity Injection plus Lore Injection using current Injection tab toggles and handling modes.'));
     container.appendChild(stats);
@@ -19292,7 +19266,7 @@ function createInstructionsCard(guideMode = normalizeExperienceMode(getSettings(
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-guide-actions';
-    actions.appendChild(createButton(guide.tourLabel || 'Start Walkthrough', 'Open a guided walkthrough that moves through the related Wandlight tabs and controls.', () => {
+    actions.appendChild(createButton(guide.tourLabel || 'Start Walkthrough', 'Open a guided walkthrough that moves through the related Saga tabs and controls.', () => {
         startWandlightTour(mode);
     }, 'wandlight-primary-button'));
     wrap.appendChild(actions);
@@ -19332,73 +19306,6 @@ function createInstructionsCard(guideMode = normalizeExperienceMode(getSettings(
     return wrap;
 }
 
-function createWandlightPresetStatusCard() {
-    const card = document.createElement('div');
-    card.className = 'wandlight-runtime-card wandlight-preset-status-card';
-    markTourTarget(card, 'session.preset');
-    card.textContent = 'Checking Wandlight preset...';
-    refreshWandlightPresetStatusCard(card);
-    return card;
-}
-
-async function refreshWandlightPresetStatusCard(card) {
-    if (!card) return;
-    card.textContent = '';
-
-    let status;
-    try {
-        status = await getWandlightPresetStatus();
-    } catch (e) {
-        status = {
-            state: 'error',
-            pill: 'Error',
-            message: e?.message || 'Could not check Wandlight preset.',
-            installedVersion: 'unknown',
-            bundledVersion: WANDLIGHT_PRESET_VERSION,
-            canInstall: false,
-        };
-    }
-
-    const header = document.createElement('div');
-    header.className = 'wandlight-preset-status-header';
-    const title = document.createElement('div');
-    title.className = 'wandlight-runtime-card-title';
-    title.textContent = 'Wandlight Preset';
-    addTooltip(title, 'The bundled Wandlight chat-completion preset enables reply headers used by fast Context detection.');
-    header.appendChild(title);
-    header.appendChild(createStatusPill(status.pill || 'Unknown', status.message || 'Wandlight preset status'));
-    card.appendChild(header);
-
-    const meta = document.createElement('div');
-    meta.className = 'wandlight-preset-status-meta';
-    meta.appendChild(createCompactPresetStat('Installed', status.installedVersion || 'not found'));
-    meta.appendChild(createCompactPresetStat('Bundled', status.bundledVersion || WANDLIGHT_PRESET_VERSION));
-    card.appendChild(meta);
-
-    const message = document.createElement('div');
-    message.className = 'wandlight-preset-status-message';
-    message.textContent = status.message || '';
-    card.appendChild(message);
-
-    const actions = document.createElement('div');
-    actions.className = 'wandlight-preset-status-actions';
-    if (status.actionLabel) {
-        actions.appendChild(createButton(status.actionLabel, status.actionTooltip || status.actionLabel, async (btn) => {
-            await handleInstallWandlightPreset(btn, card, status);
-        }, status.primaryAction ? 'wandlight-primary-button' : ''));
-    }
-    if (status.canDownload) {
-        actions.appendChild(createButton('Download JSON', 'Download the bundled Wandlight preset for manual import.', async (btn) => {
-            await runBusyAction(btn, 'Downloading...', async () => {
-                const preset = await loadBundledWandlightPreset();
-                downloadJson(preset, `${WANDLIGHT_PRESET_VERSION}.json`);
-                toast('Bundled Wandlight preset downloaded.', 'info');
-            });
-        }));
-    }
-    if (actions.childElementCount) card.appendChild(actions);
-}
-
 function createCompactPresetStat(label, value) {
     const row = document.createElement('div');
     row.className = 'wandlight-preset-status-stat';
@@ -19409,291 +19316,6 @@ function createCompactPresetStat(label, value) {
     row.appendChild(key);
     row.appendChild(val);
     return row;
-}
-
-async function getWandlightPresetStatus() {
-    const bundled = await loadBundledWandlightPreset();
-    const bundledMeta = getWandlightPresetMetadata(bundled, { fallbackVersion: WANDLIGHT_PRESET_VERSION });
-    const bundledVersion = bundledMeta.displayVersion || WANDLIGHT_PRESET_VERSION;
-    const pm = getWandlightPresetManager();
-
-    if (!pm) {
-        return {
-            state: 'unavailable',
-            pill: 'Manual',
-            message: 'Preset manager unavailable. Download the bundled JSON and import it manually.',
-            installedVersion: 'unknown',
-            bundledVersion,
-            canDownload: true,
-        };
-    }
-
-    const installed = getInstalledWandlightPreset(pm);
-    if (!installed.preset) {
-        return {
-            state: 'missing',
-            pill: 'Not Installed',
-            message: 'Install the bundled preset, then select it manually in SillyTavern when ready.',
-            installedVersion: 'not found',
-            bundledVersion,
-            actionLabel: 'Install',
-            actionTooltip: 'Import the bundled Wandlight preset into Chat Completion presets without intentionally switching to it.',
-            primaryAction: true,
-            canInstall: true,
-        };
-    }
-
-    const installedMeta = getWandlightPresetMetadata(installed.preset);
-    const installedVersion = installedMeta.displayVersion || 'unknown';
-    const comparison = compareWandlightPresetVersions(installedMeta.displayVersion, bundledVersion);
-    const legacyNameMessage = installed.legacyName
-        ? ` Legacy preset name "${installed.name}" was found; updating installs the stable "${WANDLIGHT_PRESET_NAME}" preset name, and the old named preset can be removed afterward.`
-        : '';
-
-    if (comparison === null) {
-        return {
-            state: 'unknown',
-            pill: 'Version Unknown',
-            message: `A Wandlight preset is installed, but its version metadata is missing or unreadable.${legacyNameMessage}`,
-            installedVersion,
-            bundledVersion,
-            actionLabel: 'Update',
-            actionTooltip: 'Replace the installed Wandlight preset with the bundled version.',
-            primaryAction: true,
-            canInstall: true,
-            installedName: installed.name,
-        };
-    }
-
-    if (comparison < 0) {
-        return {
-            state: 'behind',
-            pill: 'Update Available',
-            message: `The installed Wandlight preset is older than the bundled preset.${legacyNameMessage}`,
-            installedVersion,
-            bundledVersion,
-            actionLabel: 'Update',
-            actionTooltip: 'Update the installed Wandlight preset to the bundled version.',
-            primaryAction: true,
-            canInstall: true,
-            installedName: installed.name,
-        };
-    }
-
-    if (comparison > 0) {
-        if (installed.legacyName) {
-            return {
-                state: 'legacy-name',
-                pill: 'Legacy Name',
-                message: legacyNameMessage.trim(),
-                installedVersion,
-                bundledVersion,
-                actionLabel: 'Update',
-                actionTooltip: 'Install the bundled Wandlight preset under the stable preset name.',
-                primaryAction: true,
-                canInstall: true,
-                installedName: installed.name,
-            };
-        }
-        return {
-            state: 'ahead',
-            pill: 'Newer Installed',
-            message: 'The installed Wandlight preset appears newer than the bundled preset. No update needed.',
-            installedVersion,
-            bundledVersion,
-            installedName: installed.name,
-        };
-    }
-
-    if (installed.legacyName) {
-        return {
-            state: 'legacy-name',
-            pill: 'Legacy Name',
-            message: legacyNameMessage.trim(),
-            installedVersion,
-            bundledVersion,
-            actionLabel: 'Update',
-            actionTooltip: 'Install the bundled Wandlight preset under the stable preset name.',
-            primaryAction: true,
-            canInstall: true,
-            installedName: installed.name,
-        };
-    }
-
-    return {
-        state: 'current',
-        pill: 'Current',
-        message: 'The installed Wandlight preset matches the bundled version.',
-        installedVersion,
-        bundledVersion,
-        installedName: installed.name,
-        actionLabel: 'Reinstall',
-        actionTooltip: 'Reset the installed Wandlight preset to the bundled default values.',
-        canInstall: true,
-    };
-}
-
-function getWandlightPresetManager() {
-    try {
-        if (typeof SillyTavern === 'undefined' || typeof SillyTavern.getContext !== 'function') return null;
-        const ctx = SillyTavern.getContext();
-        if (!ctx || typeof ctx.getPresetManager !== 'function') return null;
-        return ctx.getPresetManager(WANDLIGHT_PRESET_API_ID) || null;
-    } catch (_) {
-        return null;
-    }
-}
-
-function getInstalledWandlightPreset(pm) {
-    const names = typeof pm?.getAllPresets === 'function' ? pm.getAllPresets() : [];
-    const candidates = [WANDLIGHT_PRESET_NAME, ...LEGACY_WANDLIGHT_PRESET_NAMES];
-    let installedName = '';
-    if (Array.isArray(names)) {
-        installedName = candidates
-            .map(candidate => names.find(name => String(name || '').trim().toLowerCase() === candidate.toLowerCase()) || '')
-            .find(Boolean) || '';
-    }
-    if (!installedName) {
-        installedName = candidates.find(candidate => getWandlightPresetByName(pm, candidate)) || '';
-    }
-    if (!installedName) return { name: '', preset: null, legacyName: false };
-
-    const preset = getWandlightPresetByName(pm, installedName) || {
-        extensions: {
-            wandlight: {
-                presetName: installedName,
-                presetVersion: installedName,
-            },
-        },
-    };
-    return {
-        name: installedName,
-        preset,
-        legacyName: installedName.toLowerCase() !== WANDLIGHT_PRESET_NAME.toLowerCase(),
-    };
-}
-
-function getWandlightPresetByName(pm, name) {
-    if (!name) return null;
-    let preset = null;
-    if (typeof pm?.getCompletionPresetByName === 'function') {
-        preset = pm.getCompletionPresetByName(name) || null;
-    }
-    if (!preset && typeof pm?.readPresetExtensionField === 'function') {
-        const wandlightMeta = pm.readPresetExtensionField({ name, path: 'wandlight' });
-        if (wandlightMeta) preset = { extensions: { wandlight: wandlightMeta } };
-    }
-    return preset;
-}
-
-async function loadBundledWandlightPreset() {
-    if (bundledWandlightPresetCache) return cloneJson(bundledWandlightPresetCache);
-    const response = await fetch(getLocalAssetSrc(WANDLIGHT_PRESET_ASSET_PATH), { cache: 'no-store' });
-    if (!response.ok) throw new Error('Bundled Wandlight preset could not be loaded.');
-    const preset = ensureWandlightPresetMetadata(await response.json());
-    bundledWandlightPresetCache = preset;
-    return cloneJson(preset);
-}
-
-function ensureWandlightPresetMetadata(preset) {
-    const next = cloneJson(preset || {});
-    next.extensions = isPlainObjectValue(next.extensions) ? next.extensions : {};
-    next.extensions.wandlight = {
-        ...(isPlainObjectValue(next.extensions.wandlight) ? next.extensions.wandlight : {}),
-        presetName: WANDLIGHT_PRESET_NAME,
-        presetVersion: WANDLIGHT_PRESET_VERSION,
-        version: formatComparablePresetVersion(WANDLIGHT_PRESET_VERSION) || '1.4',
-        supportsReplyHeaders: true,
-    };
-    return next;
-}
-
-function getWandlightPresetMetadata(preset, options = {}) {
-    const ext = isPlainObjectValue(preset?.extensions?.wandlight) ? preset.extensions.wandlight : {};
-    const notes = String(preset?.notes || '');
-    const explicit = ext.presetVersion || ext.version || '';
-    const noteMatch = notes.match(/\bWandlight[-\s]+v?(\d+(?:\.\d+){0,3})\b/i);
-    const rawVersion = explicit || (noteMatch ? noteMatch[1] : '') || options.fallbackVersion || '';
-    const comparable = formatComparablePresetVersion(rawVersion);
-    return {
-        displayVersion: comparable ? `Wandlight-${comparable}` : '',
-        comparable,
-        source: explicit ? 'metadata' : noteMatch ? 'notes' : '',
-    };
-}
-
-function formatComparablePresetVersion(value) {
-    const match = String(value || '').trim().match(/(?:Wandlight[-\s]*)?v?(\d+(?:\.\d+){0,3})/i);
-    return match?.[1] || '';
-}
-
-function compareWandlightPresetVersions(installed, bundled) {
-    const a = formatComparablePresetVersion(installed);
-    const b = formatComparablePresetVersion(bundled);
-    if (!a || !b) return null;
-    const left = a.split('.').map(v => Number(v) || 0);
-    const right = b.split('.').map(v => Number(v) || 0);
-    const length = Math.max(left.length, right.length, 3);
-    for (let i = 0; i < length; i += 1) {
-        const av = left[i] || 0;
-        const bv = right[i] || 0;
-        if (av < bv) return -1;
-        if (av > bv) return 1;
-    }
-    return 0;
-}
-
-async function handleInstallWandlightPreset(btn, card, status) {
-    const isReinstall = status.state === 'current';
-    const busyLabel = status.state === 'missing' ? 'Installing...' : isReinstall ? 'Reinstalling...' : 'Updating...';
-    await runBusyAction(btn, busyLabel, async () => {
-        if (status.state !== 'missing') {
-            const title = isReinstall ? 'Reinstall Wandlight preset?' : 'Update Wandlight preset?';
-            const message = isReinstall
-                ? "Are you sure you want to reset the Wandlight preset's values to the bundled defaults? This will overwrite any manual edits to that preset. It will not intentionally switch your active preset."
-                : 'This will replace the installed Wandlight preset with the bundled version. It will not intentionally switch your active preset.';
-            const proceed = await confirmAction(title, message);
-            if (!proceed) return;
-        }
-
-        const result = await installBundledWandlightPreset();
-        await refreshWandlightPresetStatusCard(card);
-        toast(status.state === 'missing' ? 'Wandlight preset installed.' : isReinstall ? 'Wandlight preset reinstalled.' : 'Wandlight preset updated.');
-        if (result?.selectionTouched) {
-            await showNoticePopup(
-                'Preset saved',
-                'SillyTavern may briefly change the active preset while importing. I restored the previous selection where possible; verify your active preset and connection profile before generating.'
-            );
-        }
-    });
-}
-
-async function installBundledWandlightPreset() {
-    const pm = getWandlightPresetManager();
-    if (!pm || typeof pm.savePreset !== 'function') {
-        throw new Error('SillyTavern preset manager is unavailable.');
-    }
-
-    const preset = await loadBundledWandlightPreset();
-    const previousValue = typeof pm.getSelectedPreset === 'function' ? pm.getSelectedPreset() : '';
-    const previousName = typeof pm.getSelectedPresetName === 'function' ? pm.getSelectedPresetName() : '';
-
-    await pm.savePreset(WANDLIGHT_PRESET_NAME, preset);
-
-    let restored = false;
-    if (previousValue && typeof pm.selectPreset === 'function') {
-        try {
-            const currentName = typeof pm.getSelectedPresetName === 'function' ? pm.getSelectedPresetName() : '';
-            if (currentName !== previousName) {
-                pm.selectPreset(previousValue);
-                restored = true;
-            }
-        } catch (e) {
-            console.warn('[Wandlight] Could not restore previous preset after importing Wandlight preset:', e);
-        }
-    }
-
-    return { selectionTouched: previousName !== WANDLIGHT_PRESET_NAME, restored };
 }
 
 function downloadJson(data, filename) {
@@ -19785,7 +19407,7 @@ function createDangerZoneCard(state) {
     const title = document.createElement('div');
     title.className = 'wandlight-runtime-card-title wandlight-danger-zone-title';
     title.textContent = 'Danger Zone';
-    addTooltip(title, 'Destructive cleanup actions for the current chat. Deleted accepted lore can be recovered through Lore Timeline when payloads are retained. Total Reset clears all Wandlight data.');
+    addTooltip(title, 'Destructive cleanup actions for the current chat. Deleted accepted lore can be recovered through Lore Timeline when payloads are retained. Total Reset clears all Saga data.');
     card.appendChild(title);
 
     card.appendChild(createKeyValue('Accepted lore', String((state?.loreMatrix || []).length), 'Lore entries currently stored in the accepted lore matrix.'));
@@ -19796,7 +19418,7 @@ function createDangerZoneCard(state) {
     actions.className = 'wandlight-primary-actions';
 
     actions.appendChild(createButton('Delete All Lore', 'Deletes accepted lore, pending lore, and pin/mute selections. Lightweight continuity state is left intact.', async () => {
-        const proceed = await confirmAction('Are you sure? Delete all Wandlight lore?', 'You are about to delete every accepted lore entry, every pending lore entry, and all pin/mute selections for this chat. Lightweight continuity state will remain. Accepted lore can be restored to Pending Review through Lore Timeline when retained. Continue?');
+        const proceed = await confirmAction('Are you sure? Delete all Saga lore?', 'You are about to delete every accepted lore entry, every pending lore entry, and all pin/mute selections for this chat. Lightweight continuity state will remain. Accepted lore can be restored to Pending Review through Lore Timeline when retained. Continue?');
         if (!proceed) return;
         const current = getState();
         const beforeTimeline = captureLoreTimelineState(current);
@@ -19843,17 +19465,17 @@ function createDangerZoneCard(state) {
         toast('Generation state reset.', 'info');
     }, 'wandlight-danger-button'));
 
-    actions.appendChild(createButton('Reset All Settings', 'Resets Wandlight preferences and provider settings to bundled defaults. Stored API keys are preserved.', async () => {
-        const proceed = await confirmAction('Are you sure? Reset all Wandlight settings?', 'You are about to reset Wandlight preferences, workflow settings, provider selections, generation settings, injection settings, and UI defaults. Stored API keys are preserved. Chat state, accepted lore, pending lore, and Lore Timeline are not changed. Continue?');
+    actions.appendChild(createButton('Reset All Settings', 'Resets Saga preferences and provider settings to bundled defaults. Stored API keys are preserved.', async () => {
+        const proceed = await confirmAction('Are you sure? Reset all Saga settings?', 'You are about to reset Saga preferences, workflow settings, provider selections, generation settings, injection settings, and UI defaults. Stored API keys are preserved. Chat state, accepted lore, pending lore, and Lore Timeline are not changed. Continue?');
         if (!proceed) return;
         resetAllSettingsToDefaults();
         refreshPanelBody({ preserveScroll: false });
         refreshHeader();
-        toast('Wandlight settings reset to defaults. Stored API keys were preserved.', 'info');
+        toast('Saga settings reset to defaults. Stored API keys were preserved.', 'info');
     }, 'wandlight-danger-button'));
 
-    actions.appendChild(createButton('Total Reset', 'Resets Wandlight continuity state for this chat to defaults and clears Lore Timeline. Panel size and position are preserved.', async () => {
-        const proceed = await confirmAction('Are you sure? Total reset?', 'You are about to reset all Wandlight data for this chat: lightweight continuity state, accepted lore, pending lore, generation state, and Lore Timeline. Window position and size are preserved. Because recovery data will also be cleared, this action cannot be undone. Continue?');
+    actions.appendChild(createButton('Total Reset', 'Resets Saga continuity state for this chat to defaults and clears Lore Timeline. Panel size and position are preserved.', async () => {
+        const proceed = await confirmAction('Are you sure? Total reset?', 'You are about to reset all Saga data for this chat: lightweight continuity state, accepted lore, pending lore, generation state, and Lore Timeline. Window position and size are preserved. Because recovery data will also be cleared, this action cannot be undone. Continue?');
         if (!proceed) return;
         const current = getState();
         const defaults = getDefaultState();
@@ -19873,7 +19495,7 @@ function createDangerZoneCard(state) {
         saveState(defaults);
         refreshPanelBody({ preserveScroll: false });
         refreshHeader();
-        toast('Wandlight state reset. Lore Timeline cleared.', 'info');
+        toast('Saga state reset. Lore Timeline cleared.', 'info');
     }, 'wandlight-danger-button'));
 
     card.appendChild(actions);
@@ -19906,7 +19528,7 @@ function renderContextTab(container, state) {
     if (!contextIndex) {
         loadContextIndex()
             .then(() => refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true }))
-            .catch(e => console.warn('[Wandlight] Context index load failed:', e));
+            .catch(e => console.warn('[Saga] Context index load failed:', e));
     }
 
     container.appendChild(createSectionHeader(
@@ -19937,33 +19559,18 @@ function createContextDetectionCard(state) {
             'contextDetectionMode',
             'contextDetectionAutoInterval',
             'Only runs when you click Detect Context.',
-            'Runs automatically after roleplay turns on this interval. When fast header detection is enabled, it scans reply headers first and only uses the Reasoning provider if no header is found.',
+            'Runs automatically after roleplay turns on this interval, using recent messages and loaded Loredeck Context candidates.',
             'Automatic Context detection interval in completed model turns.'
         );
         markTourTarget(automationCard, 'context.automation');
         card.appendChild(automationCard);
-
-        const fastGrid = document.createElement('div');
-        fastGrid.className = 'wandlight-runtime-grid';
-        markTourTarget(fastGrid, 'context.fastHeader');
-        fastGrid.appendChild(createToggleCard(
-            'Fast reply-header detection',
-            settings.contextHeaderDetectionEnabled !== false,
-            'Scans recent model replies for the Wandlight date/time/location/weather header. If a valid header is found, Context is set locally and the model call is skipped.',
-            (checked) => {
-                const next = getSettings();
-                next.contextHeaderDetectionEnabled = checked;
-                saveSettings(next);
-            }
-        ));
-        card.appendChild(fastGrid);
 
         const sourceRow = document.createElement('label');
         sourceRow.className = 'wandlight-slider-row wandlight-compact-slider-row';
         markTourTarget(sourceRow, 'context.sourceMessages');
         const sourceText = document.createElement('span');
         sourceText.textContent = `Context source messages: ${settings.contextSourceMessageCount || 20}`;
-        addTooltip(sourceText, 'How many recent chat messages are scanned for reply headers or sent to model Context detection. This is separate from the Lore generation source window.');
+        addTooltip(sourceText, 'How many recent chat messages are sent to Context detection. This is separate from the Lore generation source window.');
         const sourceInput = document.createElement('input');
         sourceInput.type = 'range';
         sourceInput.min = '4';
@@ -20726,7 +20333,7 @@ function createLoreScanQualitySettingsContent() {
     grid.appendChild(createToggleCard(
         'Replacement Guard',
         settings.loreReplacementGuard !== false,
-        'When enabled, Wandlight asks before replacing an unresolved pending lore batch.',
+        'When enabled, Saga asks before replacing an unresolved pending lore batch.',
         (checked) => {
             const next = getSettings();
             next.loreReplacementGuard = checked;
@@ -21148,7 +20755,7 @@ function createCanonLoreDatabaseCard(state) {
     const title = document.createElement('div');
     title.className = 'wandlight-runtime-card-title';
     title.textContent = 'Local Canon Lore Database';
-    addTooltip(title, 'After Context detection finds a parseable canon date, Wandlight locally queries files under the extension Lore folder and proposes relevant canon entries into Pending Lore Review. This does not call the model.');
+    addTooltip(title, 'After Context detection finds a parseable canon date, Saga locally queries active Loredecks and proposes relevant canon entries into Pending Lore Review. This does not call the model.');
     card.appendChild(title);
 
     const db = state?.canonLoreDatabase || {};
@@ -21507,7 +21114,7 @@ function formatGenerationStatus(result) {
         if (result.droppedDuplicateCount) {
             return `Scan in ${modeText} produced ${result.normalizedEntryCount || result.rawEntryCount || 0} normalized entries, but all were duplicate/similar (${result.droppedDuplicateCount} filtered). Try disabling Duplicate Guard or broadening Source Messages.`;
         }
-        return `Scan in ${modeText} returned ${result.rawEntryCount || 0} raw entries, but none matched the Wandlight lore schema after normalization.${targetText}`;
+        return `Scan in ${modeText} returned ${result.rawEntryCount || 0} raw entries, but none matched the Saga lore schema after normalization.${targetText}`;
     }
     if (result.status === 'failed_parse') return 'Story lore scan returned malformed JSON that could not be repaired.';
     if (result.status === 'failed_no_response') return result.chunkCount ? `Story lore scan in ${modeText} returned no usable responses across ${result.chunkCount} chunk(s). Check provider connection, model output format, max tokens, or reduce chunk size.${targetText}` : 'Story lore scan returned an empty response from the selected model/provider.';
@@ -21711,7 +21318,7 @@ function createContinuityScanCard(state) {
         'continuityTrackingMode',
         'continuityAutoInterval',
         'Continuity scans only run when you click Scan Continuity State.',
-        'Wandlight automatically scans recent continuity state every configured number of turns using the Utility provider.',
+        'Saga automatically scans recent continuity state every configured number of turns using the Utility provider.',
         'Automatic continuity scan interval in completed model turns.'
     );
     markTourTarget(automationCard, 'continuity.automation');
@@ -21800,7 +21407,7 @@ function createContinuityScanCard(state) {
 function renderContinuityTab(container, state) {
     container.appendChild(createSectionHeader(
         'Continuity State',
-        'Edit the lightweight live roleplay state Wandlight tracks for the next scene. Durable memory such as knowledge, secrets, milestones, and relationships belongs in Story Lore.'
+        'Edit the lightweight live roleplay state Saga tracks for the next scene. Durable memory such as knowledge, secrets, milestones, and relationships belongs in Story Lore.'
     ));
 
     container.appendChild(createContinuityScanCard(state));
@@ -22291,7 +21898,7 @@ function renderBasicInjectionTab(container, state, settings = getSettings()) {
 
     container.appendChild(createSectionHeader(
         'Injection',
-        'Choose which accepted lore tiers Wandlight sends into the next roleplay prompt.'
+        'Choose which accepted lore tiers Saga sends into the next roleplay prompt.'
     ));
 
     const toggles = document.createElement('div');
@@ -22431,7 +22038,7 @@ function renderInjectionTab(container, state) {
     toggles.appendChild(createToggleCard(
         'Inject Lore',
         settings.injectLore !== false,
-        'Injects accepted, unmuted Lore entries through relevance-tiered prompt groups. Turn this off if you want Wandlight to track/edit lore without sending lore to the roleplay model.',
+        'Injects accepted, unmuted Lore entries through relevance-tiered prompt groups. Turn this off if you want Saga to track/edit lore without sending lore to the roleplay model.',
         (checked) => {
             const next = getSettings();
             next.injectLore = checked;
@@ -22648,7 +22255,7 @@ function createCompressionPromptTextarea(labelText, settingKey, defaultValue) {
         saveSettings(next);
         toast(`${labelText} saved.`);
     }, 'wandlight-primary-button'));
-    actions.appendChild(createButton('Reset Default', `Restore Wandlight's default ${labelText}.`, () => {
+    actions.appendChild(createButton('Reset Default', `Restore Saga's default ${labelText}.`, () => {
         const next = getSettings();
         next[settingKey] = defaultValue;
         saveSettings(next);
@@ -22743,7 +22350,7 @@ function createInjectionPlacementCard(settings) {
     const title = document.createElement('div');
     title.className = 'wandlight-runtime-card-title';
     title.textContent = 'Prompt Placement';
-    addTooltip(title, 'Controls how Wandlight injects Continuity and Lore into SillyTavern prompts. Extension Prompt mode uses SillyTavern role/depth injection; Legacy mode prepends a combined block to the last user message.');
+    addTooltip(title, 'Controls how Saga injects Continuity and Lore into SillyTavern prompts. Extension Prompt mode uses SillyTavern role/depth injection; Interceptor mode prepends a combined block to the last user message.');
     card.appendChild(title);
 
     const help = document.createElement('div');
@@ -22761,7 +22368,7 @@ function createInjectionPlacementCard(settings) {
     methodRow.appendChild(createPlacementSelect('Injection method', 'injectionTransport', settings.injectionTransport || 'extension_prompt', [
         ['extension_prompt', 'Extension Prompt'],
         ['interceptor', 'Legacy prepend'],
-    ], 'Extension Prompt uses SillyTavern setExtensionPrompt and supports role/depth. Legacy mode has no true depth and appears as part of the last user message.', 'wandlight-placement-method'));
+    ], 'Extension Prompt uses SillyTavern setExtensionPrompt and supports role/depth. Interceptor mode appears as part of the last user message.', 'wandlight-placement-method'));
     placement.appendChild(methodRow);
 
     placement.appendChild(createPromptPlacementLine('Continuity', [
@@ -22802,7 +22409,7 @@ function createInjectionPlacementCard(settings) {
     const statusText = status
         ? `${status.transport || 'unknown'} | continuity ${status.continuityChars || 0} chars | high ${status.loreHighChars || 0} chars | normal ${status.loreNormalChars || 0} chars | low ${status.loreLowChars || 0} chars`
         : 'Prompt sync status unavailable until extension initialization completes.';
-    card.appendChild(createKeyValue('Current sync', statusText, 'Shows the last Wandlight prompt sync result.'));
+    card.appendChild(createKeyValue('Current sync', statusText, 'Shows the last Saga prompt sync result.'));
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
@@ -22811,7 +22418,7 @@ function createInjectionPlacementCard(settings) {
             const info = globalThis.wandlightSyncPromptInjection();
             toast(`Synced injection: ${info.transport}, continuity ${info.continuityChars || 0} chars, lore ${info.loreChars || 0} chars.`, 'info');
         } else {
-            toast('Wandlight prompt sync function is not available.', 'error');
+            toast('Saga prompt sync function is not available.', 'error');
         }
     }));
     card.appendChild(actions);
@@ -23036,7 +22643,7 @@ async function runModelCompression(kind = 'lore', btn = null) {
         const budget = estimateTokenBudgetForCompression(directText, level);
         const compressionPrompt = buildCompressionPrompt(kind, level, context, directText, budget);
         const compressed = await sendLoreRequest(
-            'You are Wandlight Compression. Compress the source into a shorter visible plain-text injection block. Output only that block. Do not use markdown fences, JSON, reasoning, or commentary.',
+            'You are Saga Compression. Compress the source into a shorter visible plain-text injection block. Output only that block. Do not use markdown fences, JSON, reasoning, or commentary.',
             compressionPrompt,
             {
                 providerKind,
@@ -23052,7 +22659,7 @@ async function runModelCompression(kind = 'lore', btn = null) {
         if (!validationResult.ok && shouldRetryCompression(validationResult, directText, level)) {
             const retryPrompt = buildCompressionRetryPrompt(kind, level, context, directText, cleaned, budget, validationResult.message);
             const retry = await sendLoreRequest(
-                'You are Wandlight Compression. Your previous visible output was too long or insufficiently compressed. Output only the corrected shorter plain-text injection block. No markdown, JSON, reasoning, or commentary.',
+                'You are Saga Compression. Your previous visible output was too long or insufficiently compressed. Output only the corrected shorter plain-text injection block. No markdown, JSON, reasoning, or commentary.',
                 retryPrompt,
                 {
                     providerKind,
@@ -23163,7 +22770,7 @@ function shouldRetryCompression(result, directText, level) {
 function buildCompressionRetryPrompt(kind, level, context, directText, previousOutput, budget, reason) {
     const parsedKind = parseLoreCompressionKind(kind);
     const kindLabel = parsedKind.base === 'continuity' ? 'Continuity State' : parsedKind.tier ? `${RELEVANCE_META[parsedKind.tier]?.label || parsedKind.tier} Relevance Lorecards` : 'Lorecards';
-    return `Compress the Wandlight ${kindLabel} injection again. The previous output failed validation: ${reason}
+    return `Compress the Saga ${kindLabel} injection again. The previous output failed validation: ${reason}
 
 Required visible-output limits:
 - Source: about ${budget.directTokens} tokens / ${budget.directCharacters} characters.
@@ -26212,7 +25819,7 @@ function createAutoRelevanceCard(state) {
     });
     modelToggle.appendChild(modelCb);
     modelToggle.appendChild(document.createTextNode(' Use Utility Provider adjudication'));
-    addTooltip(modelToggle, 'Optional second-stage model review. Wandlight still scores locally first and sends only the candidate cap subset.');
+    addTooltip(modelToggle, 'Optional second-stage model review. Saga still scores locally first and sends only the candidate cap subset.');
     modelRow.appendChild(modelToggle);
     modelRow.appendChild(createNumberSettingMini('Model candidate cap', 'autoRelevanceModelCandidateCap', settings.autoRelevanceModelCandidateCap || 30, 1, 80));
     modelRow.appendChild(createNumberSettingMini('Model max tokens', 'autoRelevanceModelMaxTokens', settings.autoRelevanceModelMaxTokens || 2048, 512, 4096));
@@ -26870,7 +26477,7 @@ function createEditablePriorityBadge(entry) {
 function createLorePurposeBadge(entry) {
     const purpose = normalizeLorePurpose(entry?.lorePurpose || entry?.purpose, entry) || 'unspecified';
     const label = LORE_PURPOSE_LABELS[purpose] || String(purpose || 'unspecified').replace(/[_-]+/g, ' ').replace(/\b\w/g, ch => ch.toUpperCase());
-    return createBadge(`Purpose: ${label}`, 'Lore purpose explains why this is specific Wandlight lore rather than a generic reference fact.');
+    return createBadge(`Purpose: ${label}`, 'Lore purpose explains why this is specific Saga lore rather than a generic reference fact.');
 }
 
 function createSpellMetadataBadges(entry) {
@@ -27674,7 +27281,7 @@ export function resetLorePanelLayout(options = {}) {
     schedule(() => centerRuntimeRailInViewport({ forceLeft: true, persist: true }));
 
     if (typeof toastr !== 'undefined' && options.silent !== true) {
-        toastr.success('Wandlight window layout reset.');
+        toastr.success('Saga window layout reset.');
     }
 }
 
@@ -28075,7 +27682,7 @@ function renderWandlightTourPopover(step, target) {
 
     const title = document.createElement('div');
     title.className = 'wandlight-tour-title';
-    title.textContent = step.title || 'Wandlight';
+    title.textContent = step.title || 'Saga';
     popover.appendChild(title);
 
     const body = document.createElement('div');
@@ -28433,7 +28040,7 @@ async function runBusyAction(btn, busyText, action) {
     try {
         await action();
     } catch (e) {
-        console.error('[Wandlight] Runtime action failed:', e);
+        console.error('[Saga] Runtime action failed:', e);
         toast(e?.message ? `Action failed: ${e.message}` : 'Action failed.', 'error');
     } finally {
         btn.disabled = false;
@@ -28568,8 +28175,8 @@ function getExperienceLabel(settings) {
 
 function getExperienceTooltip(settings) {
     return normalizeExperienceMode(settings?.experienceMode) === 'advanced'
-        ? 'Advanced Experience gives you detailed control over Wandlight behavior.'
-        : 'Basic Experience keeps Wandlight focused on the main roleplay workflow.';
+        ? 'Advanced Experience gives you detailed control over Saga behavior.'
+        : 'Basic Experience keeps Saga focused on the main roleplay workflow.';
 }
 
 function getCategoryCount(cat, entries, counts) {

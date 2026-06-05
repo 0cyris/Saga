@@ -400,133 +400,6 @@ function getRecentMessages(count = 8) {
     return formatted || '(No messages available)';
 }
 
-const DATE_WITH_OPTIONAL_WEEKDAY_PATTERN = String.raw`(?:(?:Mon(?:day)?|Tue(?:sday)?|Wed(?:nesday)?|Thu(?:rsday)?|Fri(?:day)?|Sat(?:urday)?|Sun(?:day)?)\.?\s*,?\s*)?(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t)?(?:ember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\.?\s+\d{1,2}(?:st|nd|rd|th)?\s*,?\s*\d{4}`;
-const WANDLIGHT_REPLY_HEADER_RE = new RegExp(String.raw`^[*_]{0,3}\s*(${DATE_WITH_OPTIONAL_WEEKDAY_PATTERN})\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|\s*(.+?)\s*[*_]{0,3}\s*$`, 'i');
-
-function stripHeaderMarkdown(value) {
-    return String(value || '').trim().replace(/^[*_]{1,3}\s*/, '').replace(/\s*[*_]{1,3}$/, '').trim();
-}
-
-function extractWandlightReplyHeader(text) {
-    const lines = String(text || '').split(/\r?\n/).slice(0, 12);
-    for (const rawLine of lines) {
-        const line = String(rawLine || '').trim();
-        if (!line || line.startsWith('>')) continue;
-        const match = line.match(WANDLIGHT_REPLY_HEADER_RE);
-        if (!match) continue;
-
-        const sceneDate = stripHeaderMarkdown(match[1]);
-        if (!parseSceneDateParts(sceneDate)) continue;
-        const timeOfDay = stripHeaderMarkdown(match[2]);
-        const location = stripHeaderMarkdown(match[3]);
-        const weather = stripHeaderMarkdown(match[4]);
-        if (!timeOfDay || !location || !weather) continue;
-
-        return {
-            sceneDate,
-            timeOfDay,
-            location,
-            weather,
-            rawHeader: line,
-        };
-    }
-    return null;
-}
-
-function inferStoryContextFromReplyHeaders(messages = [], state = getState()) {
-    if (!Array.isArray(messages) || !messages.length) return null;
-
-    const newestFirst = messages.map((message, index) => ({ message, index })).reverse();
-    const searchOrder = newestFirst.filter(({ message }) => !message?.is_user && !message?.is_system);
-    if (!searchOrder.length) return null;
-
-    for (const { message } of searchOrder) {
-        const text = String(message?.mes || message?.content || '').trim();
-        const header = extractWandlightReplyHeader(text);
-        if (!header) continue;
-
-        const context = correctHarryPotterCanonContext({
-            sceneDate: header.sceneDate,
-            subjectiveDate: state?.loreContext?.subjectiveDate || '',
-            canonBoundary: inferHarryPotterCanonBoundary(header.sceneDate) || state?.loreContext?.canonBoundary || state?.canon?.canonBoundary || '',
-            branchId: state?.loreContext?.branchId || 'main',
-            timeTravelMode: state?.loreContext?.timeTravelMode || 'none',
-            summary: `Context detected from Wandlight reply header: ${header.timeOfDay} at ${header.location}; ${header.weather}.`,
-        });
-        return { ...context, _header: header };
-    }
-
-    return null;
-}
-
-
-function parseSceneDateParts(value) {
-    const text = String(value || '');
-    const monthMap = {
-        jan: 0, january: 0,
-        feb: 1, february: 1,
-        mar: 2, march: 2,
-        apr: 3, april: 3,
-        may: 4,
-        jun: 5, june: 5,
-        jul: 6, july: 6,
-        aug: 7, august: 7,
-        sep: 8, sept: 8, september: 8,
-        oct: 9, october: 9,
-        nov: 10, november: 10,
-        dec: 11, december: 11,
-    };
-
-    let match = text.match(/\b(?:Mon(?:day)?|Tue(?:sday)?|Wed(?:nesday)?|Thu(?:rsday)?|Fri(?:day)?|Sat(?:urday)?|Sun(?:day)?)?\.?\s*,?\s*(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t)?(?:ember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\.?\s+(\d{1,2})(?:st|nd|rd|th)?\s*,?\s*(\d{4})\b/i);
-    if (match) {
-        return { month: monthMap[match[1].toLowerCase().replace('.', '')], day: Number(match[2]), year: Number(match[3]) };
-    }
-
-    match = text.match(/\b(\d{1,2})\/(\d{1,2})\/(\d{2,4})\b/);
-    if (match) {
-        const year = Number(match[3].length === 2 ? `19${match[3]}` : match[3]);
-        return { month: Number(match[1]) - 1, day: Number(match[2]), year };
-    }
-
-    return null;
-}
-
-function inferHarryPotterCanonBoundary(sceneDate) {
-    const parts = parseSceneDateParts(sceneDate);
-    if (!parts || !Number.isFinite(parts.year) || !Number.isFinite(parts.month)) return '';
-
-    const schoolYear = parts.month >= 8 ? parts.year : parts.year - 1;
-    const map = {
-        1991: "Philosopher's/Sorcerer's Stone era, Year 1",
-        1992: 'Chamber of Secrets era, Year 2',
-        1993: 'Prisoner of Azkaban era, Year 3',
-        1994: 'Goblet of Fire era, Year 4',
-        1995: 'Order of the Phoenix era, Year 5',
-        1996: 'Half-Blood Prince era, Year 6',
-        1997: 'Deathly Hallows era, Year 7',
-    };
-    return map[schoolYear] || '';
-}
-
-function correctHarryPotterCanonContext(context) {
-    const normalized = normalizeLoreContext(context || {});
-    const inferred = inferHarryPotterCanonBoundary(normalized.sceneDate || normalized.subjectiveDate || '');
-    if (!inferred) return normalized;
-
-    const current = String(normalized.canonBoundary || '');
-    const hasKnownWrongHpYear = /\b(OotP|Order of the Phoenix|Half[- ]?Blood Prince|HBP|Deathly Hallows|Goblet of Fire|Prisoner of Azkaban|Chamber of Secrets|Year\s+[1-7])\b/i.test(current)
-        && current.toLowerCase() !== inferred.toLowerCase();
-
-    if (!current || hasKnownWrongHpYear) {
-        normalized.canonBoundary = inferred;
-        normalized.summary = normalized.summary
-            ? `${normalized.summary} Canon boundary normalized from scene date.`
-            : `Canon boundary inferred from scene date: ${inferred}.`;
-    }
-
-    return normalized;
-}
-
 function inferContextLocallyFromMessages(messages, state = getState()) {
     const text = String(messages || '');
     const result = {
@@ -567,8 +440,8 @@ function inferContextLocallyFromMessages(messages, state = getState()) {
         result.timeTravelMode = /future/i.test(tt[0]) ? 'visitor_from_future' : 'alternate_branch';
     }
 
-    const corrected = correctHarryPotterCanonContext(result);
-    return corrected.sceneDate || corrected.canonBoundary || corrected.branchId !== 'main' ? corrected : null;
+    const normalized = normalizeLoreContext(result);
+    return normalized.sceneDate || normalized.canonBoundary || normalized.branchId !== 'main' ? normalized : null;
 }
 
 
@@ -710,29 +583,6 @@ export async function runLoreContextDetection(options = {}) {
         const messageCount = settings.contextSourceMessageCount || settings.loreSourceMessageCount || 20;
         const messageObjects = getRecentMessageObjects(messageCount);
 
-        if (settings.contextHeaderDetectionEnabled !== false) {
-            progress?.('Scanning recent reply headers...', 20);
-            const headerContext = inferStoryContextFromReplyHeaders(messageObjects, state);
-            if (headerContext) {
-                const normalized = correctHarryPotterCanonContext({ ...headerContext, lastDetectedAt: Date.now() });
-                setLoreContext(normalized);
-                const positionResult = await maybeResolveContextsFromContext(normalized, {
-                    contextSource: 'header',
-                    sourceText: headerContext?._header?.rawHeader || '',
-                    progress,
-                });
-                const canonResult = await maybeProposeCanonLoreFromContext(normalized, progress);
-                progress?.(`Context detected from recent Wandlight reply header.${formatContextResolutionSuffix(positionResult)}${formatCanonProposalSuffix(canonResult)}`, 100);
-
-                if (settings.debugMode) {
-                    console.log(`${LOG_PREFIX} Lore context detected from reply header:`, normalized);
-                }
-
-                return normalized;
-            }
-            progress?.('No recent reply header found; using model detection...', 30);
-        }
-
         const validation = validateLoreProviderConfiguration();
         if (!validation.ok) {
             progress?.(`API/model settings incomplete: ${validation.message}`, 100);
@@ -793,7 +643,7 @@ export async function runLoreContextDetection(options = {}) {
             return null;
         }
 
-        const normalized = correctHarryPotterCanonContext({ ...parsed, lastDetectedAt: Date.now() });
+        const normalized = normalizeLoreContext({ ...parsed, lastDetectedAt: Date.now() });
         setLoreContext(normalized);
         const positionResult = await maybeResolveContextsFromContext(normalized, {
             contextSource: 'model',
@@ -1064,7 +914,7 @@ function buildEffectiveBulkSettings(baseSettings = getSettings(), options = {}) 
 
 function buildBulkCandidateSystemPrompt(settings = getSettings(), profile = {}) {
     const factsPerChunk = clampInt(settings.loreBulkFactsPerChunk, 4, 30, 14);
-    return `You are Wandlight's bulk story-lore extractor.
+    return `You are Saga's bulk story-lore extractor.
 
 Task:
 - Extract compact, durable story-specific lore operations from a message interval.
@@ -1105,7 +955,7 @@ Target total entries for this scan: ${profile.targetTotal || 40}.`;
 }
 
 function buildBulkCandidateUserMessage({ stateSummary, loreIndex, chunk, plan, profile }) {
-    return `Current Wandlight state summary:
+    return `Current Saga state summary:
 ${stateSummary}
 
 Accepted/pending lore index for duplicate/update routing:
@@ -2006,10 +1856,6 @@ export const __bulkLoreTestHooks = {
     classifyGeneratedLoreValue,
     applyGeneratedLoreQualityRouting,
     buildCompactLoreIndexForGeneration,
-    extractWandlightReplyHeader,
-    inferStoryContextFromReplyHeaders,
-    inferHarryPotterCanonBoundary,
-    parseSceneDateParts,
     runWithConcurrency,
 };
 

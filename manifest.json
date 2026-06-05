@@ -2,11 +2,11 @@
     "display_name": "SAGA",
     "version": "1.0.0",
     "author": "MentallyQuill",
-    "key": "wandlight",
+    "key": "saga",
     "js": "index.js",
     "css": "style.css",
     "loading_order": 21,
-    "generate_interceptor": "wandlightInterceptor",
-    "homePage": "https://github.com/MentallyQuill/ST-Wandlight",
+    "generate_interceptor": "sagaInterceptor",
+    "homePage": "https://github.com/MentallyQuill/Saga",
     "auto_update": false
 }

@@ -614,7 +614,7 @@ Step 4 adds a local, non-model resolver:
 - Context detection now runs the local resolver after header/model/local Context detection.
 - The current Context tab owns loaded-Loredeck Context review, local resolution, Reasoner fallback launch, manual locks, quick anchors, and the fullscreen Context Browser launch.
 
-This keeps the common path cheap: a structured reply header, exact date, direct anchor label, or clear Context note can update pack-specific Context without a model call.
+This keeps the common path cheap: an exact date, direct anchor label, selected browser waypoint, or clear Context note can update pack-specific Context without a model call.
 
 ### Reasoner Context Resolver
 
@@ -1660,7 +1660,7 @@ The initial Loredeck foundation is implemented: `hp-golden-trio` is scaffolded, 
 
 Recent production completed **Context-native Loredeck retrieval, HP reference-deck conformance, and the first full-screen Saga workflow surfaces**.
 
-Legacy cleanup checkpoint: the Wandlight compatibility posture has changed. Saga should not ship the full Wandlight chat preset in MVP, and fast reply-header Context detection should leave scope with it. The current removal plan is captured in [SAGA_LEGACY_REMOVAL_AUDIT.md](SAGA_LEGACY_REMOVAL_AUDIT.md).
+Legacy cleanup checkpoint: the Wandlight compatibility posture has changed. Saga should not ship the full Wandlight chat preset in MVP, and fast reply-header Context detection has been removed with it. The current removal plan is captured in [SAGA_LEGACY_REMOVAL_AUDIT.md](SAGA_LEGACY_REMOVAL_AUDIT.md).
 
 1. Done: normalize entry-level `context` metadata in the Lorecard pipeline.
 2. Done: evaluate entry Context gates against each loaded Loredeck's `loredeckContexts`.
@@ -1714,4 +1714,5 @@ Legacy cleanup checkpoint: the Wandlight compatibility posture has changed. Saga
 50. Done: upgrade Reasoner-backed Context resolution. Automatic Context detection now runs local/structured resolution first, then stores bounded Reasoner Context proposals only after the existing message-count cadence and the configured recent-message character threshold. Manual `Ask Reasoner` ignores the threshold, asks for bounded anchor/window candidates, and requires user review before applying patches.
 51. Done: revise timeline densification policy around candidate quality, not alias sprawl. Deck Health now surfaces advisory sparse-candidate, concentrated-anchor, and missing-window suggestions while keeping these findings non-blocking. Durable anchors/windows should be added for high-value recurring story moments, missing registry coverage, Creator output, or accepted user/model suggestions; the Reasoner handles casual phrasing.
 52. Done: audit Wandlight legacy features for removal. The audit marks the full Wandlight chat preset, fast reply-header Context detection, HP-specific global Context inference, root `Lore/` fallback loading, slash/prompt/state namespaces, Provider preset naming, and legacy schema aliases by removal priority.
-53. Next: remove the full Wandlight chat preset product path and fast reply-header Context detection before deeper asset/bundle work. Then resume durable asset/bundle handling for Custom Loredecks, Theme Packs, Icon Sets, and deck covers.
+53. Done: remove the full Wandlight chat preset product path and fast reply-header Context detection. The Session preset card, bundled Wandlight chat preset, header toggle, header resolver helpers, HP-specific global correction path, deleted header test, and visible UI/model prompt copy now point at Saga's Context workflow instead.
+54. Next: remove the root `Lore/` fallback and make `Loredecks/hp-golden-trio` the only bundled HP reference source, with loader/health/test coverage strong enough to fail loudly if the bundled deck breaks.

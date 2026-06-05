@@ -215,7 +215,7 @@ async function installBundledProviderPreset() {
             const currentName = typeof pm.getSelectedPresetName === 'function' ? pm.getSelectedPresetName() : '';
             if (currentName !== previousName) pm.selectPreset(previousValue);
         } catch (e) {
-            console.warn('[Wandlight] Could not restore previous preset after importing provider preset:', e);
+            console.warn('[Saga] Could not restore previous preset after importing provider preset:', e);
         }
     }
 }
@@ -337,7 +337,7 @@ function setupProviderControls(container, kind, label) {
     }
 
     function getProfileWarningText() {
-        return `${label} connection profiles include a settings preset. For Wandlight provider tasks, use a SillyTavern profile saved with ${WANDLIGHT_PROVIDER_PRESET_NAME}, then test the profile.`;
+        return `${label} connection profiles include a settings preset. For Saga provider tasks, use a SillyTavern profile saved with ${WANDLIGHT_PROVIDER_PRESET_NAME}, then test the profile.`;
     }
 
     function showProfileWarning() {
@@ -537,7 +537,7 @@ function setupProviderControls(container, kind, label) {
             const key = await loadApiKey(kind);
             if (key) {
                 if (info.compatibilityStorage) {
-                    openaiKeyStatus.textContent = 'Key stored (compatibility storage; use HTTPS/localhost for browser encryption)';
+                    openaiKeyStatus.textContent = 'Key stored with fallback encryption; use HTTPS/localhost for browser encryption';
                     openaiKeyStatus.style.color = '#d6b35a';
                 } else {
                     openaiKeyStatus.textContent = 'Key stored (encrypted at rest)';
@@ -546,7 +546,7 @@ function setupProviderControls(container, kind, label) {
             } else if (info.isStored) {
                 openaiKeyStatus.textContent = info.webCryptoAvailable
                     ? 'Stored key could not be read; store it again'
-                    : 'Stored key needs browser encryption support; store it again to use compatibility storage';
+                    : 'Stored key needs browser encryption support; store it again to use fallback storage';
                 openaiKeyStatus.style.color = '#cc8888';
             } else {
                 openaiKeyStatus.textContent = 'No key stored';
@@ -571,7 +571,7 @@ function setupProviderControls(container, kind, label) {
                 openaiKey.value = '';
                 if (typeof toastr !== 'undefined') {
                     if (result?.encryptedAtRest === false) {
-                        toastr.warning(`${label} API key stored. Browser encryption is unavailable in this context, so Wandlight used compatibility storage.`);
+                        toastr.warning(`${label} API key stored. Browser encryption is unavailable in this context, so Saga used fallback storage.`);
                     } else {
                         toastr.success(`${label} API key encrypted and stored.`);
                     }
@@ -655,6 +655,6 @@ function saveLoreProviderSettings(settings) {
     try {
         saveSettings(settings);
     } catch (e) {
-        console.warn('[Wandlight] Failed to save model provider role settings:', e);
+        console.warn('[Saga] Failed to save model provider role settings:', e);
     }
 }

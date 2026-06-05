@@ -1,6 +1,6 @@
 /**
- * prompt-injector.js — Wandlight
- * Registers Wandlight prompt injection.
+ * prompt-injector.js — Saga
+ * Registers Saga prompt injection.
  *
  * Preferred path: SillyTavern setExtensionPrompt(), which supports role/depth.
  * Legacy fallback: generate_interceptor that prepends the combined memo to the
@@ -14,7 +14,7 @@ import { getSettings, getState } from './state-manager.js';
 import { buildMemo, buildContinuityMemo, buildLoreMemo } from './memo-builder.js';
 import { buildLoreInjectionAudit, recordLoreInjectionAudit } from './retrieval-audit.js';
 
-const COMBINED_MARKER = '[WANDLIGHT CONTINUITY STATE]';
+const COMBINED_MARKER = '[SAGA CONTINUITY STATE]';
 const CONTINUITY_PROMPT_KEY = 'wandlight_continuity_state';
 const LORE_PROMPT_KEY = 'wandlight_lore_entries'; // legacy aggregate key, cleared for compatibility
 const LORE_HIGH_PROMPT_KEY = 'wandlight_lore_high_relevance';
@@ -75,6 +75,11 @@ let lastSyncInfo = {
  * Called once from index.js on jQuery document ready.
  */
 export function installInterceptor() {
+    globalThis.sagaInterceptor = wandlightInterceptor;
+    globalThis.sagaSyncPromptInjection = syncPromptInjection;
+    globalThis.sagaClearPromptInjection = clearExtensionPrompts;
+    globalThis.sagaGetInjectionStatus = () => ({ ...lastSyncInfo });
+
     globalThis.wandlightInterceptor = wandlightInterceptor;
     globalThis.wandlightContinuityInterceptor = wandlightInterceptor; // legacy alias
     globalThis.wandlightSyncPromptInjection = syncPromptInjection;
@@ -83,7 +88,7 @@ export function installInterceptor() {
 
     syncPromptInjection();
 
-    if (typeof globalThis.wandlightInterceptor === 'function') {
+    if (typeof globalThis.sagaInterceptor === 'function') {
         console.log(`${LOG_PREFIX} prompt injection registered`);
     } else {
         console.error(`${LOG_PREFIX} Failed to register generate_interceptor`);
@@ -274,13 +279,13 @@ function normalizeDepth(value) {
 function wrapContinuityPrompt(text) {
     const body = String(text || '').trim();
     if (!body) return '';
-    return `[WANDLIGHT CONTINUITY]\n${body}\n[/WANDLIGHT CONTINUITY]`;
+    return `[SAGA CONTINUITY]\n${body}\n[/SAGA CONTINUITY]`;
 }
 
 function wrapLorePrompt(text, label = 'LORE') {
     const body = String(text || '').trim();
     if (!body) return '';
-    return `[WANDLIGHT ${label}]\n${body}\n[/WANDLIGHT ${label}]`;
+    return `[SAGA ${label}]\n${body}\n[/SAGA ${label}]`;
 }
 
 /**

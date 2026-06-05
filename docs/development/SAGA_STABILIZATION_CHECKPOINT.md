@@ -32,7 +32,6 @@ Passed:
 - `node --check canon-lore-db.js`
 - `node --check index.js`
 - `node scripts\test-lore-timeline.mjs`
-- `node scripts\test-context-header-detection.mjs`
 - `node scripts\test-generated-lore-overhaul.mjs`
 - `node scripts\scan-secrets.mjs`
 - Direct Loredeck loader smoke: `hp-golden-trio` loads 417 entries.

@@ -744,7 +744,7 @@ function buildObservationSystemPrompt(settings, stateProjection) {
     if (cfg.appearance !== false) characterBits.push('currently visible appearance/clothing');
     if (cfg.emotionalState !== false) characterBits.push('currently observed emotional state');
     const currentContinuityText = ['scene/timeline', ...characterBits, 'immediate unresolved threads'].join(', ');
-    return `You are Wandlight's continuity observation extractor.\n\nTask:\n- Read one interval of roleplay messages.\n- Extract compact observations that may change the live continuity state.\n- Do not output a final WandlightDelta. Do not modify state directly.\n- Output ONLY valid JSON.\n\nOutput schema:
+    return `You are Saga's continuity observation extractor.\n\nTask:\n- Read one interval of roleplay messages.\n- Extract compact observations that may change the live continuity state.\n- Do not output a final continuity delta. Do not modify state directly.\n- Output ONLY valid JSON.\n\nOutput schema:
 {
   "chunkSummary": "short summary",
   "sceneSnapshot": {
@@ -792,7 +792,7 @@ function buildReducerSystemPrompt(settings, group, stateProjection) {
         const text = getSectionPromptText(settings, section, stateProjection);
         return text ? `- ${section}: ${text}` : '';
     }).filter(Boolean).join('\n');
-    return `You are Wandlight's ${group.label} reducer.\n\nTask:\n- Convert compact continuity observations into ONE valid WandlightDelta partial.\n- Only modify these sections: ${group.sections.join(', ')}.\n- Resolve observations in chronological order using messageRefs.\n- Do not invent facts not supported by observations.\n- If nothing should change for these sections, output {"summary":"No ${group.label} changes","changes":{}}.\n\nReturn ONLY visible valid JSON in WandlightDelta shape.\n\nReducer-specific guidance:\n${prompts || '(none)'}\n\nCurrent compact continuity projection:\n${safeJson(stateProjection)}`;
+    return `You are Saga's ${group.label} reducer.\n\nTask:\n- Convert compact continuity observations into ONE valid continuity delta partial.\n- Only modify these sections: ${group.sections.join(', ')}.\n- Resolve observations in chronological order using messageRefs.\n- Do not invent facts not supported by observations.\n- If nothing should change for these sections, output {"summary":"No ${group.label} changes","changes":{}}.\n\nReturn ONLY visible valid JSON in continuity delta shape.\n\nReducer-specific guidance:\n${prompts || '(none)'}\n\nCurrent compact continuity projection:\n${safeJson(stateProjection)}`;
 }
 
 function buildObservationUserPrompt(chunk, plan) {
@@ -801,7 +801,7 @@ function buildObservationUserPrompt(chunk, plan) {
 
 function buildReducerUserPrompt(group, observations, plan) {
     const relevant = observations.filter(o => group.sections.includes(o.section));
-    return `Full scan range: messages ${plan.startIndex}-${plan.endIndex}.\nReducer group: ${group.label}.\nAllowed sections: ${group.sections.join(', ')}.\n\nObservations, already extracted from message chunks:\n${safeJson(relevant)}\n\nReturn one WandlightDelta partial for this reducer group. JSON only.`;
+    return `Full scan range: messages ${plan.startIndex}-${plan.endIndex}.\nReducer group: ${group.label}.\nAllowed sections: ${group.sections.join(', ')}.\n\nObservations, already extracted from message chunks:\n${safeJson(relevant)}\n\nReturn one continuity delta partial for this reducer group. JSON only.`;
 }
 
 async function extractChunkObservations({ chunk, plan, batchId, settings, stateProjection, signal }) {
@@ -898,7 +898,7 @@ async function reduceObservationGroup({ group, observations, plan, settings, sta
             expectedOutput: 'json',
         });
         const parsedDelta = parseDeltaResponse(response);
-        if (!parsedDelta) return { status: 'failed_parse', group, delta: null, error: 'Reducer returned no valid WandlightDelta.' };
+        if (!parsedDelta) return { status: 'failed_parse', group, delta: null, error: 'Reducer returned no valid continuity delta.' };
         const delta = restrictDeltaToGroup(parsedDelta, group);
         const validation = validateDelta(delta);
         if (!validation.valid) return { status: 'failed_parse', group, delta: null, error: validation.errors.join('; ') };
@@ -990,11 +990,11 @@ function buildContinuityDeltaSystemPrompt({ settings, stateProjection, enabledSe
     const emphasis = mode === 'fast'
         ? 'Use one compact pass. Prioritize Scene and Timeline, Active Characters, Key Items, and Active Goals/Threads, but evaluate every enabled section.'
         : 'This is a grouped continuity reducer pass. Update only the allowed sections and evaluate each allowed section explicitly.';
-    return `You are Wandlight's ${mode === 'fast' ? 'fast continuity delta scanner' : 'hybrid continuity section scanner'}.
+    return `You are Saga's ${mode === 'fast' ? 'fast continuity delta scanner' : 'hybrid continuity section scanner'}.
 
 Task:
 - Read the supplied roleplay messages and current compact state.
-- Return one valid JSON object with section decisions and a WandlightDelta.
+- Return one valid JSON object with section decisions and a continuity delta.
 - Scene and Timeline must always be evaluated when enabled. Do not skip them merely because the change seems minor.
 - Use only facts grounded in the supplied messages and local prepass hints.
 - Do not include reasoning, markdown, or prose outside JSON.
@@ -1074,7 +1074,7 @@ async function requestContinuityDelta(systemPrompt, userPrompt, settings, option
             });
             const delta = parseDeltaResponse(response);
             if (delta) return delta;
-            lastError = 'Model returned no valid WandlightDelta.';
+            lastError = 'Model returned no valid continuity delta.';
         } catch (e) {
             lastError = e?.message || String(e || 'Continuity delta request failed.');
         }

@@ -4,11 +4,13 @@ Date: 2026-06-05
 
 This audit marks Wandlight-era features and assumptions that should be removed, renamed, or isolated before Saga's public-facing MVP hardens. The goal is not broad cosmetic churn for its own sake. The goal is to stop shipping Wandlight-specific product behavior as if it were Saga architecture.
 
+Implementation status: the full Wandlight chat preset product path and fast reply-header Context detection have been removed from runtime scope. Remaining high-priority cleanup starts with the root `Lore/` fallback and then moves to slash/prompt/state namespace migration.
+
 ## Current Direction
 
 Saga should not include the full Wandlight chat-completion preset in MVP. That preset was a Harry Potter/Wandlight workflow artifact, not a general Loredeck framework feature.
 
-Because the preset is out of scope, fast reply-header Context detection should also leave MVP scope. Context should be determined by the Context tab, Context Browser, manual Context locks, local structured/date resolution, and bounded Reasoner Provider proposals against known Loredeck candidates.
+Because the preset is out of scope, fast reply-header Context detection has also left MVP scope. Context should be determined by the Context tab, Context Browser, manual Context locks, local structured/date resolution, and bounded Reasoner Provider proposals against known Loredeck candidates.
 
 ## Removal Priority
 
@@ -147,10 +149,10 @@ These are broad internal implementation names. Changing them now is high-churn a
 
 ## Suggested Removal Sequence
 
-1. Remove the full Wandlight preset UI and file.
-2. Remove fast reply-header Context detection and its tests.
-3. Replace the HP-specific Context system prompt with a Saga Context resolver prompt that uses loaded Loredeck candidates.
-4. Remove the root `Lore/` fallback and update canon/health copy to refer to loaded Loredecks.
+1. Done: remove the full Wandlight preset UI and file.
+2. Done: remove fast reply-header Context detection and its tests.
+3. Done: replace the HP-specific Context system prompt with a Saga Context resolver prompt.
+4. Next: remove the root `Lore/` fallback and update canon/health copy to refer to loaded Loredecks.
 5. Add Saga slash commands and Saga prompt/global names, then remove Wandlight aliases.
 6. Decide Provider preset fate: remove entirely or rename as a Saga utility preset.
 7. Rename `MODULE_KEY` and persisted state only in a dedicated migration slice.

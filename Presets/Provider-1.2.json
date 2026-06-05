@@ -19,7 +19,7 @@
       "marker": false,
       "name": "Provider Contract",
       "role": "system",
-      "content": "You are handling a Wandlight background provider request. Follow the supplied system and user instructions exactly. Return only the requested output format. Do not add roleplay prose, markdown fences, or commentary."
+      "content": "You are handling a Saga background provider request. Follow the supplied system and user instructions exactly. Return only the requested output format. Do not add roleplay prose, markdown fences, or commentary."
     },
     {
       "identifier": "chatHistory",
@@ -90,5 +90,5 @@
       "bias": []
     }
   ],
-  "notes": "Provider 1.2 - Thin utility/reasoning preset for Wandlight background model calls through SillyTavern Connection Profiles. This preset intentionally excludes provider-specific model defaults and normal-chat prompt scaffolding; the Connection Profile should own provider, model, server URL, and key."
+  "notes": "Provider 1.2 - Thin utility/reasoning preset for Saga background model calls through SillyTavern Connection Profiles. This preset intentionally excludes provider-specific model defaults and normal-chat prompt scaffolding; the Connection Profile should own provider, model, server URL, and key."
 }

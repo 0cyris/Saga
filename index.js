@@ -39,7 +39,7 @@ import { getLastLoreInjectionAudit, getLastLoredeckRetrievalAudit, searchAccepte
 $(document).ready(async () => {
     'use strict';
 
-    console.log(`${LOG_PREFIX} Wandlight extension initializing...`);
+    console.log(`${LOG_PREFIX} Saga extension initializing...`);
 
     // ── Defensive API guard ──────────────────────────────────────────────────
     if (typeof SillyTavern === 'undefined' || !SillyTavern.getContext) {
@@ -87,7 +87,7 @@ function wireEvents(ctx) {
             try {
                 syncPromptInjection();
             } catch (e) {
-                console.error(`${LOG_PREFIX} Error syncing Wandlight prompt injection before prompt assembly:`, e);
+                console.error(`${LOG_PREFIX} Error syncing Saga prompt injection before prompt assembly:`, e);
             }
         };
 
@@ -176,7 +176,7 @@ function registerSlashCommands(ctx) {
     // ── /wandlight-extract ───────────────────────────────────────────────────
     register('wandlight-extract', async () => {
         await onExtractionTriggered({ force: true });
-    }, undefined, '\uD83D\uDC41\uFE0F Manually run continuity state extraction', 'Wandlight');
+    }, undefined, '\uD83D\uDC41\uFE0F Manually run continuity state extraction', 'Saga');
 
     // ── /wandlight-memo ─────────────────────────────────────────────────────
     register('wandlight-memo', async () => {
@@ -188,10 +188,10 @@ function registerSlashCommands(ctx) {
             navigator.clipboard.writeText(memo).then(() => {
                 if (typeof toastr !== 'undefined') toastr.success('Continuity memo copied to clipboard');
             }).catch(() => {
-                if (typeof toastr !== 'undefined') toastr.info(`[Wandlight State]\n${memo}`);
+                if (typeof toastr !== 'undefined') toastr.info(`[Saga State]\n${memo}`);
             });
         }
-    }, undefined, '\uD83D\uDCCB Copy continuity memo to clipboard', 'Wandlight');
+    }, undefined, '\uD83D\uDCCB Copy continuity memo to clipboard', 'Saga');
 
     // ── /wandlight-state ────────────────────────────────────────────────────
     register('wandlight-state', async () => {
@@ -202,7 +202,7 @@ function registerSlashCommands(ctx) {
         }).catch(() => {
             if (typeof toastr !== 'undefined') toastr.info(`State JSON (${json.length} chars) ready; clipboard unavailable`);
         });
-    }, undefined, '\uD83D\uDCC4 Export full continuity state as JSON', 'Wandlight');
+    }, undefined, '\uD83D\uDCC4 Export full continuity state as JSON', 'Saga');
 
     // ── Lore slash commands ──────────────────────────────────────────────────
 
@@ -216,7 +216,7 @@ function registerSlashCommands(ctx) {
             console.error(`${LOG_PREFIX} Lore detection failed:`, e);
             if (typeof toastr !== 'undefined') toastr.error(`Lore detection failed: ${e.message}`);
         }
-    }, undefined, '\uD83D\uDD0D Re-run lore context detection', 'Wandlight Lore');
+    }, undefined, '\uD83D\uDD0D Re-run Context detection', 'Saga Lorecards');
 
     const runManualLoreScanCommand = async () => {
         try {
@@ -231,10 +231,10 @@ function registerSlashCommands(ctx) {
     };
 
     // /wandlight-lore-scan — scan story lore with the bulk scan engine
-    register('wandlight-lore-scan', runManualLoreScanCommand, undefined, '\u2728 Scan story lore entries', 'Wandlight Lore');
+    register('wandlight-lore-scan', runManualLoreScanCommand, undefined, '\u2728 Scan story lorecards', 'Saga Lorecards');
 
     // /wandlight-lore-generate — deprecated alias retained for user macros/workflows
-    register('wandlight-lore-generate', runManualLoreScanCommand, undefined, '\u2728 Scan story lore entries', 'Wandlight Lore');
+    register('wandlight-lore-generate', runManualLoreScanCommand, undefined, '\u2728 Scan story lorecards', 'Saga Lorecards');
 
     // /wandlight-lore-accept — accept all pending lore entries
     register('wandlight-lore-accept', async () => {
@@ -248,7 +248,7 @@ function registerSlashCommands(ctx) {
             console.error(`${LOG_PREFIX} Accept lore failed:`, e);
             if (typeof toastr !== 'undefined') toastr.error(`Accept lore failed: ${e.message}`);
         }
-    }, undefined, '\u2705 Accept all pending lore entries', 'Wandlight Lore');
+    }, undefined, '\u2705 Accept all pending lorecards', 'Saga Lorecards');
 
     // /wandlight-lore-reject — reject all pending lore entries
     register('wandlight-lore-reject', async () => {
@@ -262,7 +262,7 @@ function registerSlashCommands(ctx) {
             console.error(`${LOG_PREFIX} Reject lore failed:`, e);
             if (typeof toastr !== 'undefined') toastr.error(`Reject lore failed: ${e.message}`);
         }
-    }, undefined, '\u274C Reject all pending lore entries', 'Wandlight Lore');
+    }, undefined, '\u274C Reject all pending lorecards', 'Saga Lorecards');
 
     // /wandlight-lore-panel — toggle the floating lore panel
     register('wandlight-lore-panel', async () => {
@@ -280,7 +280,7 @@ function registerSlashCommands(ctx) {
             console.error(`${LOG_PREFIX} Toggle lore panel failed:`, e);
             if (typeof toastr !== 'undefined') toastr.error(`Toggle lore panel failed: ${e.message}`);
         }
-    }, undefined, '\uD83D\uDCD6 Toggle the floating lore matrix panel', 'Wandlight Lore');
+    }, undefined, '\uD83D\uDCD6 Toggle the Saga runtime panel', 'Saga Lorecards');
 
     console.log(`${LOG_PREFIX} Slash commands registered`);
 }
@@ -420,7 +420,7 @@ function normalizeSettingsPanelBranding(container) {
 
     for (const paragraph of container.querySelectorAll('p')) {
         const text = String(paragraph.textContent || '');
-        if (!/Wandlight window|runtime window|roleplay/i.test(text)) continue;
+        if (!/Saga window|runtime window|roleplay/i.test(text)) continue;
         paragraph.textContent = 'SAGA: Fandom Loresystem. During roleplay, use the runtime window for mode, injection toggles, scanning, generation, review, lore editing, provider setup, and theme settings.';
         break;
     }

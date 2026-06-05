@@ -26,7 +26,7 @@ export function buildMemo(state, settingsOverride = {}) {
     }
 
     if (!chunks.length) return '';
-    return '[WANDLIGHT CONTINUITY STATE]\n' + chunks.join('\n\n') + '\n[/WANDLIGHT CONTINUITY STATE]';
+    return '[SAGA CONTINUITY STATE]\n' + chunks.join('\n\n') + '\n[/SAGA CONTINUITY STATE]';
 }
 
 function parseCompressionKind(kind = 'lore') {

@@ -7,9 +7,6 @@
 // ── Module key ──────────────────────────────────────────────────────────────────
 export const MODULE_KEY = 'wandlight';
 export const LEGACY_MODULE_KEYS = Object.freeze(['wandlight_continuity']);
-export const WANDLIGHT_PRESET_NAME = 'Wandlight';
-export const WANDLIGHT_PRESET_VERSION = 'Wandlight-1.4';
-export const WANDLIGHT_PRESET_ASSET_PATH = './Presets/Wandlight-1.4.json';
 export const WANDLIGHT_PROVIDER_PRESET_NAME = 'Provider';
 export const WANDLIGHT_PROVIDER_PRESET_VERSION = 'Provider-1.2';
 export const WANDLIGHT_PROVIDER_PRESET_ASSET_PATH = './Presets/Provider-1.2.json';
@@ -48,7 +45,7 @@ export function detectExtensionFolder(fallback = EXTENSION_FOLDER) {
 }
 
 // ── Logging prefix ──────────────────────────────────────────────────────────────
-export const LOG_PREFIX = '[Wandlight]';
+export const LOG_PREFIX = '[Saga]';
 
 // ── Schema version ──────────────────────────────────────────────────────────────
 export const SCHEMA_VERSION = 21;
@@ -66,7 +63,6 @@ export const BASIC_EXPERIENCE_SETTINGS = Object.freeze({
     continuityTrackingMode: 'manual',
     contextDetectionMode: 'manual',
     loreGenerationMode: 'manual',
-    contextHeaderDetectionEnabled: true,
     contextSourceMessageCount: 20,
     contextModelFallbackMinCharacters: 1200,
     canonLoreDatabaseEnabled: true,
@@ -157,7 +153,7 @@ export const DEFAULT_SETTINGS = {
                 packId: 'hp-golden-trio',
                 type: 'bundled',
                 title: 'Harry Potter: Golden Trio',
-                description: 'Golden Trio era canon scaffolded from the current Wandlight lore database.',
+                description: 'Golden Trio era canon reference deck for Harry Potter school years one through seven.',
                 fandom: 'Harry Potter',
                 era: 'Golden Trio',
                 author: 'Saga',
@@ -188,7 +184,6 @@ export const DEFAULT_SETTINGS = {
     continuityAutoInterval: 10, // turns between automatic continuity scans
     contextDetectionMode: 'manual', // 'manual' | 'automatic'
     contextDetectionAutoInterval: 5,
-    contextHeaderDetectionEnabled: true,
     contextModelFallbackMinCharacters: 1200,
     loreGenerationMode: 'manual', // 'manual' | 'automatic'
     loreGenerationAutoInterval: 50,
@@ -339,7 +334,7 @@ export const DEFAULT_SETTINGS = {
     // {{compressionLabel}}, {{directTokens}}, {{targetTokens}}, {{hardTokenLimit}},
     // {{directCharacters}}, {{targetCharacters}}, {{hardCharacterLimit}},
     // {{storyContext}}, {{directText}}.
-    continuityCompressionPromptTemplate: `Compress the following Wandlight {{kind}} injection block for a Harry Potter roleplay.
+    continuityCompressionPromptTemplate: `Compress the following Saga {{kind}} injection block for a fandom roleplay.
 
 Context:
 {{storyContext}}
@@ -359,7 +354,7 @@ Rules:
 
 Direct injection block:
 {{directText}}`,
-    loreCompressionPromptTemplate: `Compress the following Wandlight {{kind}} injection block for a Harry Potter roleplay.
+    loreCompressionPromptTemplate: `Compress the following Saga {{kind}} injection block for a fandom roleplay.
 
 Context:
 {{storyContext}}
@@ -438,7 +433,7 @@ Direct injection block:
     continuityOpenAIKeySalt: '',
     continuityOpenAIKeyIv: '',
     continuityOpenAIKeySet: false,
-    // Deprecated compatibility flags. Wandlight now uses plain direct
+    // Deprecated compatibility flags. Saga now uses plain direct
     // OpenAI-compatible calls for this provider path.
     continuityOpenAIUseJsonMode: false,
     continuityOpenAIUseSTProxy: false,
@@ -459,7 +454,7 @@ Direct injection block:
     loreOpenAIKeySalt: '',
     loreOpenAIKeyIv: '',
     loreOpenAIKeySet: false,
-    // Deprecated compatibility flags. Wandlight now relies on JSON-focused
+    // Deprecated compatibility flags. Saga now relies on JSON-focused
     // prompts and repair rather than forcing provider-specific JSON mode.
     loreOpenAIUseJsonMode: false,
     loreOpenAIUseSTProxy: false,
@@ -551,7 +546,7 @@ export function getDefaultState() {
                     packId: 'hp-golden-trio',
                     type: 'bundled',
                     title: 'Harry Potter: Golden Trio',
-                    description: 'Golden Trio era canon scaffolded from the current Wandlight lore database.',
+                    description: 'Golden Trio era canon reference deck for Harry Potter school years one through seven.',
                     fandom: 'Harry Potter',
                     era: 'Golden Trio',
                     author: 'Saga',
@@ -697,7 +692,7 @@ export function getDefaultState() {
         },
 
         // Runtime rail + drawer UI state (schema v16). Legacy x/y/width/height
-        // remain as migration aliases for older saved Wandlight panels.
+        // remain as migration aliases for older saved Saga panels.
         lorePanel: {
             isOpen: true,
             collapsed: true,
@@ -754,9 +749,9 @@ export function getDefaultState() {
 }
 
 // ── Lore Context Detection prompt ───────────────────────────────────────────────
-export const LORE_CONTEXT_DETECTION_SYSTEM_PROMPT = `You are the Wandlight Lore Context Detector for a Harry Potter / Hogwarts roleplay.
+export const LORE_CONTEXT_DETECTION_SYSTEM_PROMPT = `You are Saga's Context Detector for long-form fandom roleplay.
 
-Read the current continuity state and recent messages. Infer only the story's current lore context.
+Read the current continuity state and recent messages. Infer only the story's current Context.
 
 Output ONLY valid JSON:
 {
@@ -770,8 +765,7 @@ Output ONLY valid JSON:
 
 Rules:
 - Do not invent a precise date if only an era is known.
-- Recognize Harry Potter school-year mapping: Sep 1991-Aug 1992 = Philosopher/Sorcerer's Stone Year 1; Sep 1992-Aug 1993 = Chamber of Secrets Year 2; Sep 1993-Aug 1994 = Prisoner of Azkaban Year 3; Sep 1994-Aug 1995 = Goblet of Fire Year 4; Sep 1995-Aug 1996 = Order of the Phoenix Year 5; Sep 1996-Aug 1997 = Half-Blood Prince Year 6; Sep 1997-Aug 1998 = Deathly Hallows Year 7.
-- Prefer canon boundary phrases when precise dates are unclear.
+- Prefer story-position phrases when precise dates are unclear.
 - If time travel is implied, separate sceneDate from subjectiveDate.
 - Output JSON only.`;
 

@@ -65,7 +65,7 @@ function summarizeEntryForModel(item) {
 function buildModelAdjudicationPrompts({ state, settings, candidates, recentText }) {
     const scene = state?.scene || {};
     const context = state?.loreContext || {};
-    const system = `You are Wandlight's Auto-Relevance adjudicator.
+    const system = `You are Saga's Auto-Relevance adjudicator.
 
 Task:
 - Review a compact candidate set of accepted lore entries.
@@ -327,7 +327,7 @@ async function runAutoRelevanceInternal(options = {}) {
     try {
         adjudicated = await adjudicateCandidatesWithModel(candidates, state, settings, recentText);
     } catch (e) {
-        console.warn('[Wandlight Auto-Relevance] Model adjudication failed; using local relevance only.', e);
+        console.warn('[Saga Auto-Relevance] Model adjudication failed; using local relevance only.', e);
         adjudicated = { changes: [], status: 'model_failed', error: e?.message || String(e || '') };
     }
 
@@ -420,6 +420,6 @@ export function onGenerationEndedAutoRelevance() {
     if (turnCounter < every) return { status: 'waiting', turnCounter, every };
     if (autoRelevanceRunning) return { status: 'skipped_running' };
     turnCounter = 0;
-    runAutoRelevance().catch(e => console.error('[Wandlight Auto-Relevance] failed:', e));
+    runAutoRelevance().catch(e => console.error('[Saga Auto-Relevance] failed:', e));
     return { status: 'scheduled' };
 }
