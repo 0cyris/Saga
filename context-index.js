@@ -265,6 +265,7 @@ async function loadTimelineForSource(source = {}) {
         type: cleanString(source?.pack?.type || source?.manifest?.type || 'custom', 80),
         stackPriority,
         stackIndex,
+        stackSource: source?.pack?.stackSource || null,
         timelineRef,
         hasIndex: false,
         timelineMode: '',

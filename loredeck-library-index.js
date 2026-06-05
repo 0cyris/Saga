@@ -391,7 +391,7 @@ export function resolveLoredeckStackItems(stack = [], libraryIndex = {}, options
   for (const stackItem of normalizedStack) {
     if (stackItem.enabled === false && options.includeDisabled !== true) continue;
     if (stackItem.type === 'deck') {
-      addDeck(stackItem.packId, { type: 'deck', stackItemId: stackItem.id }, stackItem);
+      addDeck(stackItem.packId, { type: 'deck', stackItemId: stackItem.id, packId: stackItem.packId }, stackItem);
       continue;
     }
     const folderDeckIds = collectFolderDecks(stackItem.folderId, libraryIndex, packs, {

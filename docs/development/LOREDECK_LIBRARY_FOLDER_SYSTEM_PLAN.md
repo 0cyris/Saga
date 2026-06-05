@@ -99,12 +99,12 @@ Folder rows should use Loredeck covers as small overlapping tiles, like books or
 Visual treatment:
 
 - Place the cover tile strip below the folder title and above or beside metadata chips, depending on available width.
-- Use 3-5 square cover tiles at most.
+- Show up to 20 square cover tiles when space allows.
 - Overlap tiles left to right with a small offset, similar to a hand of cards or files in a folder.
 - Use the same beveled/clipped cover treatment as Loredeck preview images.
 - Add a final `+N` tile when the folder has more covered Loredecks than displayed.
 - Keep tiles decorative and compact; the folder title and chips remain the primary readable information.
-- On hover, the tile fan can spread by a few pixels if reduced-motion is not enabled.
+- On hover, the tile fan can expand into a compact carousel if reduced-motion is not enabled. Titles should remain tooltip-only; do not add visible micro-title pills above the covers.
 
 Representative cover selection:
 
@@ -117,7 +117,7 @@ Representative cover selection:
 Performance and accessibility:
 
 - Lazy-load cover images.
-- Do not load more than the displayed tile count plus one count tile.
+- Do not display more covers than the current row width can safely hold; reduce visible covers and increase the `+N` overflow tile when the Library window narrows.
 - Mark cover tiles as decorative with text alternatives handled by the folder title.
 - Respect reduced-motion settings for hover spread and expand/collapse animation.
 
@@ -130,7 +130,10 @@ Folder details should include:
 - Direct child folders.
 - Direct Loredecks.
 - Aggregated health.
-- Actions: add to stack, create subfolder, rename, remove folder.
+- Scrollable contained-Loredeck list with entry-count bars and health-at-a-glance.
+- Actions: create subfolder, rename, and move selected Loredecks here.
+
+Destructive and large-scope actions should not be duplicated inside the details panel. Duplicate and delete belong to the central Library action buttons and should operate on the current selection, whether that selection is a folder, one Loredeck, or many Loredecks.
 
 The Library column still needs filter and search controls above the hierarchy. Search results should preserve the hierarchy by showing matching branches rather than flattening all matches into a loose list.
 
@@ -166,6 +169,8 @@ Folder actions for MVP:
 - Move selected folders to folder.
 
 These actions should be available through the selected-folder details panel and a compact folder row action menu. Drag and drop is the fast path, not the only path.
+
+Current UI direction: details-panel actions should stay non-destructive and contextual. Destructive folder deletion and broad duplication should remain in the central square action buttons so users learn one place for duplicate/delete across folders and Loredecks.
 
 Folder actions after MVP:
 
@@ -270,6 +275,7 @@ Stack Group cards should show:
 - Duplicate suppression count when applicable.
 - Aggregated health.
 - Collapse/expand state.
+- Expanded hierarchy preview of child folders and Loredecks.
 
 Runtime resolution:
 
@@ -476,6 +482,16 @@ MVP folder system:
 11. Hierarchy-preserving search behavior.
 12. Tests for nesting, moving, removal behavior, folder cover selection, stack resolution, search branch display, and duplicate suppression.
 
+Current MVP status:
+
+- Items 1-5 are implemented.
+- Item 6 is implemented for the current single-folder selection model: create, create subfolder, rename, drag-move, selected-folder move controls, and safe folder deletion exist.
+- Item 7 is implemented for moving selected Loredecks into folders.
+- Items 8-9 are implemented through folder Stack Groups and shared stack flattening.
+- Item 10 is implemented with resolver suppression, Active Stack header summaries, suppressed direct-deck card state, Stack Group suppression chips, and kept-source details.
+- Item 11 is partially implemented and needs a focused search/hierarchy polish pass.
+- Item 12 has foundation tests and smoke selectors, but needs broader UI and edge-case coverage.
+
 Out of MVP:
 
 - Smart folders.
@@ -509,13 +525,29 @@ Done:
 8. Folder row drag/drop can reorder folders among siblings, move folders into other folders, move nested folders back to the root by dragging left into the Library list, and add folders to the Active Stack.
 9. Active Stack supports folder Stack Group items with folder cards, enable/disable state, drag reorder, drag-out removal, and runtime flattening through the shared Loredeck stack resolver.
 10. Context index loading, Context Workbench pack selection, and Deck Health stack insights resolve folder Stack Groups into real Loredecks rather than reading only raw deck stack entries.
+11. Folder selection details exist in the bottom details panel, including path, sub-folder count, nested Loredeck count, total Lorecard count, contained Loredeck list, normalized entry-count bars, and health-at-a-glance.
+12. Folder mutation controls exist for creating folders, creating subfolders, renaming folders, moving selected Loredecks into a folder, and deleting folders with a contents-preserving strategy prompt.
+13. Central duplicate/delete buttons now operate on folders, single Loredecks, or selected Loredecks instead of duplicating destructive buttons inside details panels.
+14. Folder duplication can duplicate a folder, nested folders, and contained Loredecks as Custom copies.
+15. Stack Groups have collapsible hierarchy previews with child folders and Loredecks.
+16. Folder cover strips show deck-local covers, use consistent overlap, support up to 20 covers, collapse into `+N` overflow when width is tight, and keep visible titles out of the cover fan.
+17. Details expand/collapse and Loredeck selection avoid full Library overlay rerenders on the main hot paths.
+18. Selected-folder details include non-drag controls for moving the folder to root or another valid parent folder, excluding self/descendant targets.
+19. Selected-folder details include a non-drag `Add Folder to Stack` action so Stack Groups are available without drag/drop.
+20. Drag/drop feedback now distinguishes folder-to-root moves, Stack Group removal, invalid self/child folder drops, and invalid Stack Group-to-folder drops with clearer ghost copy and target styling.
+21. Stack Groups now surface duplicate suppression on the group card, in the stats line, and inside expanded hierarchy previews with `Kept:` chips showing the higher-priority stack source.
+22. Obsolete side-tree/current-view summary code has been removed from the Library pane. The active filter dropdown remains, but folders now live only as inline hierarchy rows and selection-driven details.
+23. Folder-system tests now cover path normalization, Unfiled and invalid folder destinations, duplicate-name move rejection, non-empty deletion guardrails, empty deletion, direct-only Stack Groups, invalid Unfiled folder drops, and smoke selectors for import/duplicate placement hooks.
+24. Step 8 Stack Group hardening now covers persisted folder `activeStack` normalization, missing-folder rejection, direct-only folder groups, empty-folder stack reporting, and smoke selectors for the non-drag `Add Folder to Stack` path.
+25. Step 9 runtime stack flattening now preserves Stack Group source metadata through `loadLoredeckStackSources`, Context indexing, and canon database pack metadata so runtime audits can tell whether a Loredeck loaded directly or from a folder group.
+26. Step 10 duplicate suppression is now visible at the Active Stack level: duplicate counts appear in the stack header, a compact stack summary explains priority behavior, direct deck cards show `Suppressed` when a higher-priority folder group already loads them, and resolver tests cover direct-deck suppression metadata.
 
-Recommended next slice:
+Remaining finish work:
 
-1. Add folder row selection details in the bottom details panel.
-2. Add folder mutation controls: create folder, create subfolder, rename folder, remove folder without deleting contained Loredecks, move selected decks to folder, and provide non-drag fallbacks for folder moves.
-3. Upgrade Stack Groups from compact folder cards to collapsible hierarchy previews with visible duplicate suppression.
-4. Add richer drag/drop feedback: invalid move state for self/child drops, compact drop preview copy, and clearer root-drop affordance.
-5. Remove obsolete side-folder-tree helper/style code after the inline path has passed live SillyTavern feedback.
-6. Replace the remaining monolithic `hp-golden-trio` default stack/library references with the split HP deck family once entry migration is ready.
-7. Expand tests for inline hierarchy rendering, folder mutation behavior, invalid moves, removal-content handling, stack groups, hierarchy-preserving search, and Library UI smoke selectors.
+1. Decide whether multi-folder bulk selection is worth adding, or keep folders single-select for alpha.
+2. Finish hierarchy-preserving search polish: preserve parent branches, show match context, restore prior collapsed state when search clears, and avoid scroll snapping on selection.
+3. Finish import/create destination handling: choose existing folder, create folder path, use suggested path, or place in Unfiled.
+4. Run a scale performance pass with dozens of folders and hundreds of decks; virtualize or lazily render hierarchy branches if SillyTavern remains laggy.
+5. Add keyboard/accessibility fallbacks for reorder, move to folder, add/remove stack, expand/collapse, duplicate, delete, and range selection.
+6. Replace remaining monolithic `hp-golden-trio` default stack/library references with the split HP deck family once entry migration is ready.
+7. Add a later browser-level Library regression pass for actual DOM hierarchy rendering, folder drag animation, search branch display, and import/create destination UI once those flows stabilize.

@@ -84,6 +84,51 @@ assert.equal(customIndex.summary.anchorCount, 2);
 assert.equal(customIndex.summary.windowCount, 1);
 assert.equal(customIndex.anchors[0].id, 'custom.story.start');
 
+const folderContextRegistry = {
+  schemaVersion: 1,
+  folders: [
+    { id: 'folder_custom_context', title: 'Custom Context', sortOrder: 100 },
+  ],
+  deckPlacements: [
+    { deckId: 'custom-folder-pack', folderId: 'folder_custom_context', sortOrder: 100 },
+  ],
+  packs: {
+    'custom-folder-pack': {
+      packId: 'custom-folder-pack',
+      type: 'custom',
+      title: 'Custom Folder Pack',
+      manifestData: {
+        id: 'custom-folder-pack',
+        type: 'custom',
+        title: 'Custom Folder Pack',
+        files: [],
+      },
+      timelineRegistry: {
+        anchors: [
+          { id: 'custom.folder.start', label: 'Custom Folder Start', sortKey: 1, aliases: ['folder beginning'] },
+        ],
+        windows: [
+          { id: 'custom.folder.full', label: 'Custom Folder Full Window', anchorFrom: 'custom.folder.start', sortKeyFrom: 1, sortKeyTo: 2 },
+        ],
+      },
+    },
+  },
+};
+const folderStackIndex = await loadContextIndexForState({
+  loredeckStack: [
+    { type: 'folder', folderId: 'folder_custom_context', enabled: true, priority: 100, addedAt: 0 },
+  ],
+}, {
+  registry: folderContextRegistry,
+  force: true,
+});
+assert.equal(folderStackIndex.summary.packCount, 1);
+assert.equal(folderStackIndex.packs[0].packId, 'custom-folder-pack');
+assert.equal(folderStackIndex.packs[0].stackSource.type, 'folder');
+assert.equal(folderStackIndex.packs[0].stackSource.folderId, 'folder_custom_context');
+assert.deepEqual(folderStackIndex.packs[0].stackSource.folderPath, ['Custom Context']);
+assert.equal(folderStackIndex.anchors[0].id, 'custom.folder.start');
+
 const dateResolution = resolveContextsFromContext({
   sceneDate: 'Saturday, Jan 25, 1997',
   canonBoundary: 'Half-Blood Prince era, Year 6',

@@ -283,6 +283,12 @@ export function applyLoredeckLibraryFolderRemovalPlan({ folderId = '', strategy 
 
   const freshPlan = getLoredeckLibraryFolderRemovalPlan(id, libraryIndex);
   const parentId = String(freshPlan.parentId || '').trim();
+  if (strategy === 'empty' && (freshPlan.directChildFolders.length || freshPlan.containedDeckIds.length)) {
+    return {
+      ok: false,
+      error: 'Folder is not empty. Choose a contents-preserving deletion strategy.',
+    };
+  }
   const placementById = getPlacementMap(getRegistryPlacements(registry));
   const indexedPlacementById = getPlacementMap(libraryIndex.deckPlacements || []);
   const now = Date.now();
@@ -389,6 +395,9 @@ export function moveLoredeckLibraryFolderRecord(folderId = '', targetParentId = 
   if (parentId && !byId.has(parentId)) return { ok: false, error: 'Target folder is no longer available.' };
   if (parentId === id || (parentId && isLoredeckLibraryFolderDescendant(parentId, id, libraryIndex))) {
     return { ok: false, error: 'A folder cannot be moved inside itself or its own child folder.' };
+  }
+  if (hasLoredeckLibraryFolderSiblingTitle(parentId, moving.title, folders, id)) {
+    return { ok: false, error: 'A sibling folder already uses that name.' };
   }
 
   const currentParentId = String(moving.parentId || '').trim();

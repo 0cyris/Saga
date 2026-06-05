@@ -1441,8 +1441,25 @@ function analyzeEntries(health, entryFiles = [], manifest = {}, tagIndex = creat
     analyzeManifestStatsHealth(health, manifest);
 }
 
-function buildLoredeckMeta(manifest = {}, stackPriority = 100, stackIndex = 0) {
+function sanitizeStackSource(value = {}) {
+    const input = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+    const type = input.type === 'folder' ? 'folder' : (input.type === 'deck' ? 'deck' : '');
+    if (!type) return null;
+    const output = { type };
+    const stackItemId = String(input.stackItemId || '').trim();
+    if (stackItemId) output.stackItemId = stackItemId;
+    const folderId = String(input.folderId || '').trim();
+    if (folderId) output.folderId = folderId;
+    if (Array.isArray(input.folderPath)) {
+        const folderPath = input.folderPath.map(item => String(item || '').trim()).filter(Boolean).slice(0, 12);
+        if (folderPath.length) output.folderPath = folderPath;
+    }
+    return output;
+}
+
+function buildLoredeckMeta(manifest = {}, stackPriority = 100, stackIndex = 0, stackSource = null) {
     const id = manifest.id || DEFAULT_LOREDECK_ID;
+    const sourceInfo = sanitizeStackSource(stackSource);
     return {
         id,
         type: manifest.type || 'bundled',
@@ -1451,6 +1468,7 @@ function buildLoredeckMeta(manifest = {}, stackPriority = 100, stackIndex = 0) {
         disabledEntryIds: Array.isArray(manifest.disabledEntryIds) ? manifest.disabledEntryIds.map(id => String(id || '').trim()).filter(Boolean) : [],
         stackPriority,
         stackIndex,
+        ...(sourceInfo ? { stackSource: sourceInfo } : {}),
     };
 }
 
@@ -1679,8 +1697,9 @@ function getRegistryRecord(registry, packId) {
     return packs[String(packId || '').trim()] || null;
 }
 
-function buildMissingPackMeta(packId, registryRecord, stackPriority, stackIndex) {
+function buildMissingPackMeta(packId, registryRecord, stackPriority, stackIndex, stackSource = null) {
     const id = String(packId || registryRecord?.packId || '').trim();
+    const sourceInfo = sanitizeStackSource(stackSource);
     return {
         id,
         type: registryRecord?.type || 'custom',
@@ -1688,6 +1707,7 @@ function buildMissingPackMeta(packId, registryRecord, stackPriority, stackIndex)
         stackPriority,
         stackIndex,
         source: registryRecord?.source || {},
+        ...(sourceInfo ? { stackSource: sourceInfo } : {}),
     };
 }
 
@@ -1737,6 +1757,7 @@ export async function loadLoredeckSourceById(packId = DEFAULT_LOREDECK_ID, optio
     const manifestUrl = generatedWithoutManifest ? null : getLoredeckManifestUrl(packId, registryRecord);
     const stackPriority = Number.isFinite(Number(options.stackPriority)) ? Number(options.stackPriority) : 100;
     const stackIndex = Number.isFinite(Number(options.stackIndex)) ? Number(options.stackIndex) : 0;
+    const stackSource = sanitizeStackSource(options.stackSource);
     const embeddedManifest = buildEmbeddedManifest(registryRecord, packId);
     if (embeddedManifest) {
         if (!manifestUrl) {
@@ -1756,7 +1777,7 @@ export async function loadLoredeckSourceById(packId = DEFAULT_LOREDECK_ID, optio
                     sourceKind: isGeneratedRegistryRecord(registryRecord) ? 'generated_virtual' : 'custom_virtual',
                     registryRecord,
                     pack: {
-                        ...buildLoredeckMeta(embeddedManifest, stackPriority, stackIndex),
+                        ...buildLoredeckMeta(embeddedManifest, stackPriority, stackIndex, stackSource),
                         source: embeddedManifest.source || registryRecord?.source || {},
                     },
                     health,
@@ -1772,7 +1793,7 @@ export async function loadLoredeckSourceById(packId = DEFAULT_LOREDECK_ID, optio
                 baseUrl: null,
                 sourceKind: 'virtual',
                 registryRecord,
-                pack: buildLoredeckMeta(embeddedManifest, stackPriority, stackIndex),
+                pack: buildLoredeckMeta(embeddedManifest, stackPriority, stackIndex, stackSource),
                 health: finalizeHealth(health),
                 entryFiles: [],
             };
@@ -1785,7 +1806,7 @@ export async function loadLoredeckSourceById(packId = DEFAULT_LOREDECK_ID, optio
             sourceKind: 'virtual',
             registryRecord,
             pack: {
-                ...buildLoredeckMeta(embeddedManifest, stackPriority, stackIndex),
+                ...buildLoredeckMeta(embeddedManifest, stackPriority, stackIndex, stackSource),
                 source: embeddedManifest.source || registryRecord?.source || {},
             },
             health: finalizeHealth(health),
@@ -1800,7 +1821,7 @@ export async function loadLoredeckSourceById(packId = DEFAULT_LOREDECK_ID, optio
             baseUrl: null,
             sourceKind: 'missing',
             registryRecord,
-            pack: buildMissingPackMeta(packId, registryRecord, stackPriority, stackIndex),
+            pack: buildMissingPackMeta(packId, registryRecord, stackPriority, stackIndex, stackSource),
             health: finalizeHealth(health),
             entryFiles: [],
         };
@@ -1813,7 +1834,7 @@ export async function loadLoredeckSourceById(packId = DEFAULT_LOREDECK_ID, optio
             ...(loredeckResult.json || {}),
         };
         const pack = {
-            ...buildLoredeckMeta(manifest, stackPriority, stackIndex),
+            ...buildLoredeckMeta(manifest, stackPriority, stackIndex, stackSource),
             source: manifest.source || registryRecord?.source || {},
         };
         const health = createHealth(pack.id);
@@ -1840,7 +1861,7 @@ export async function loadLoredeckSourceById(packId = DEFAULT_LOREDECK_ID, optio
         baseUrl: manifestUrl,
         sourceKind: 'missing',
         registryRecord,
-        pack: buildMissingPackMeta(packId, registryRecord, stackPriority, stackIndex),
+        pack: buildMissingPackMeta(packId, registryRecord, stackPriority, stackIndex, stackSource),
         health: finalizeHealth(health),
         entryFiles: [],
     };
@@ -1865,6 +1886,7 @@ function normalizeLoredeckStackInput(stack, options = {}) {
                 locked: item?.locked === true,
                 addedAt: Number.isFinite(Number(item?.addedAt)) ? Number(item.addedAt) : 0,
                 stackIndex: index,
+                source: sanitizeStackSource(item?.source),
             }))
             .filter(item => item.packId);
     }
@@ -1876,6 +1898,7 @@ function normalizeLoredeckStackInput(stack, options = {}) {
             locked: item?.locked === true,
             addedAt: Number.isFinite(Number(item?.addedAt)) ? Number(item.addedAt) : 0,
             stackIndex: index,
+            source: sanitizeStackSource(item?.source),
         }))
         .filter(item => item.packId);
 }
@@ -1891,6 +1914,7 @@ export async function loadLoredeckStackSources(stack, options = {}) {
             registryRecord,
             stackPriority: item.priority,
             stackIndex: index,
+            stackSource: item.source,
         }));
     }
     return sources;

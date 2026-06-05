@@ -26,10 +26,19 @@ import {
   renameLoredeckLibraryFolderRecord,
   reorderLoredeckLibraryPlacements,
 } from '../loredeck-library-service.js';
+import { loadLoredeckStackSources } from '../loredeck-loader.js';
 
 assert.deepEqual(
   normalizeLibrarySuggestedPath('One Piece > East Blue Saga > Arlong Park'),
   ['One Piece', 'East Blue Saga', 'Arlong Park']
+);
+assert.deepEqual(
+  normalizeLibrarySuggestedPath('One Piece > East Blue Saga / Arlong Park \\ Cocoyasi Village'),
+  ['One Piece', 'East Blue Saga', 'Arlong Park', 'Cocoyasi Village']
+);
+assert.deepEqual(
+  normalizeLibrarySuggestedPath(['Saga', 'Arc', 'Arc', 'Scene'], 3),
+  ['Saga', 'Arc', 'Scene']
 );
 assert.deepEqual(
   normalizePackLibraryMetadata({ suggestedPath: ['One Piece', '', 'Arlong Park'], familyOrder: '30' }),
@@ -91,13 +100,41 @@ assert.deepEqual(resolved.stack.map(item => item.packId), [
 ]);
 assert.equal(resolved.duplicates.length, 1);
 assert.equal(resolved.duplicates[0].packId, 'onepiece-arlong-villains');
+assert.equal(resolved.duplicates[0].source.type, 'folder');
 assert.equal(resolved.summary.resolvedDeckCount, 4);
+
+const directDeckSuppression = resolveLoredeckStackItems([
+  { type: 'folder', folderId: eastBlueId, priority: 100, sortOrder: 10 },
+  { type: 'deck', packId: 'onepiece-east-blue-core', priority: 90, sortOrder: 20 },
+], index, { packs });
+assert.equal(directDeckSuppression.summary.duplicateCount, 1);
+assert.equal(directDeckSuppression.duplicates[0].packId, 'onepiece-east-blue-core');
+assert.equal(directDeckSuppression.duplicates[0].source.type, 'deck');
+assert.equal(directDeckSuppression.duplicates[0].source.packId, 'onepiece-east-blue-core');
+assert.equal(directDeckSuppression.stack[directDeckSuppression.duplicates[0].keptAt].source.type, 'folder');
 
 const missingResolved = resolveLoredeckStackItems([
   { type: 'deck', packId: 'missing-pack', sortOrder: 10 },
 ], index, { packs });
 assert.equal(missingResolved.summary.missingCount, 1);
 assert.equal(missingResolved.missing[0].packId, 'missing-pack');
+
+const persistedStackIndex = normalizeLoredeckLibraryIndex({
+  activeStack: [
+    { type: 'folder', folderId: eastBlueId, includeNested: false, collapsed: true, sortOrder: 20 },
+    { type: 'folder', folderId: 'missing-folder', sortOrder: 5 },
+    { type: 'deck', packId: 'onepiece-arlong-core', enabled: false, sortOrder: 10 },
+  ],
+}, { packs });
+assert.deepEqual(persistedStackIndex.activeStack.map(item => item.type), ['deck', 'folder']);
+assert.equal(persistedStackIndex.activeStack[0].packId, 'onepiece-arlong-core');
+assert.equal(persistedStackIndex.activeStack[0].enabled, false);
+assert.equal(persistedStackIndex.activeStack[1].folderId, eastBlueId);
+assert.equal(persistedStackIndex.activeStack[1].includeNested, false);
+assert.equal(persistedStackIndex.activeStack[1].collapsed, true);
+const persistedStackResolved = resolveLoredeckStackItems(persistedStackIndex.activeStack, persistedStackIndex, { packs });
+assert.deepEqual(persistedStackResolved.stack.map(item => item.packId), ['onepiece-east-blue-core']);
+assert.equal(persistedStackResolved.summary.stackItemCount, 2);
 
 const cycleIndex = normalizeLoredeckLibraryIndex({
   folders: [
@@ -122,6 +159,28 @@ assert.equal(movedDeck.ok, true);
 assert.equal(movedDeck.validIds[0], 'onepiece-east-blue-core');
 assert.equal(movedDeck.deckPlacements.find(item => item.deckId === 'onepiece-east-blue-core')?.folderId, arlongId);
 
+const movedToUnfiled = moveLoredecksToLibraryFolderPlacement({
+  packIds: ['onepiece-arlong-core', 'missing-pack'],
+  folderId: 'unfiled',
+  library,
+  libraryIndex: index,
+  registry,
+});
+assert.equal(movedToUnfiled.ok, true);
+assert.deepEqual(movedToUnfiled.validIds, ['onepiece-arlong-core']);
+assert.equal(movedToUnfiled.targetFolderId, '');
+assert.equal(movedToUnfiled.deckPlacements.find(item => item.deckId === 'onepiece-arlong-core')?.folderId, '');
+
+const invalidDestination = moveLoredecksToLibraryFolderPlacement({
+  packIds: ['onepiece-arlong-core'],
+  folderId: 'missing-folder',
+  library,
+  libraryIndex: index,
+  registry,
+});
+assert.equal(invalidDestination.ok, false);
+assert.equal(invalidDestination.error, 'That Library folder is no longer available.');
+
 const reorderedDeck = reorderLoredeckLibraryPlacements({
   packId: 'onepiece-arlong-villains',
   targetIndex: 0,
@@ -144,12 +203,22 @@ const movedFolder = moveLoredeckLibraryFolderRecord(createdFolder.folder.id, eas
 assert.equal(movedFolder.ok, true);
 assert.equal(movedFolder.folders.find(folder => folder.id === createdFolder.folder.id)?.parentId, eastBlueId);
 assert.equal(moveLoredeckLibraryFolderRecord(onePieceId, arlongId, null, index).ok, false);
+const movedFolderToRoot = moveLoredeckLibraryFolderRecord(createdFolder.folder.id, '', null, { ...index, folders: movedFolder.folders });
+assert.equal(movedFolderToRoot.ok, true);
+assert.equal(movedFolderToRoot.folders.find(folder => folder.id === createdFolder.folder.id)?.parentId, '');
+
+const sourceDuplicateName = createLoredeckLibraryFolderRecord(onePieceId, 'Duplicate Name', index);
+const targetDuplicateName = createLoredeckLibraryFolderRecord(eastBlueId, 'Duplicate Name', { ...index, folders: sourceDuplicateName.folders });
+const duplicateNameMove = moveLoredeckLibraryFolderRecord(sourceDuplicateName.folder.id, eastBlueId, null, { ...index, folders: targetDuplicateName.folders });
+assert.equal(duplicateNameMove.ok, false);
+assert.equal(duplicateNameMove.error, 'A sibling folder already uses that name.');
 
 const removalIndex = normalizeLoredeckLibraryIndex({
   folders: [
     { id: 'folder_series', title: 'Series', sortOrder: 100 },
     { id: 'folder_series__arc', title: 'Arc', parentId: 'folder_series', sortOrder: 100 },
     { id: 'folder_series__arc__scene', title: 'Scene', parentId: 'folder_series__arc', sortOrder: 100 },
+    { id: 'folder_series__empty', title: 'Empty', parentId: 'folder_series', sortOrder: 200 },
   ],
   deckPlacements: [
     { deckId: 'deck-root', folderId: 'folder_series', sortOrder: 100 },
@@ -167,6 +236,24 @@ const removalIndex = normalizeLoredeckLibraryIndex({
 const removalPlan = getLoredeckLibraryFolderRemovalPlan('folder_series__arc', removalIndex);
 assert.equal(removalPlan.directChildFolders[0].id, 'folder_series__arc__scene');
 assert.deepEqual(removalPlan.containedDeckIds.sort(), ['deck-direct', 'deck-nested']);
+
+const blockedEmptyRemoval = applyLoredeckLibraryFolderRemovalPlan({
+  folderId: 'folder_series__arc',
+  strategy: 'empty',
+  libraryIndex: removalIndex,
+  registry: { schemaVersion: 1, packs: {}, deckPlacements: [] },
+});
+assert.equal(blockedEmptyRemoval.ok, false);
+assert.equal(blockedEmptyRemoval.error, 'Folder is not empty. Choose a contents-preserving deletion strategy.');
+
+const emptyRemoval = applyLoredeckLibraryFolderRemovalPlan({
+  folderId: 'folder_series__empty',
+  strategy: 'empty',
+  libraryIndex: removalIndex,
+  registry: { schemaVersion: 1, packs: {}, deckPlacements: [] },
+});
+assert.equal(emptyRemoval.ok, true);
+assert.equal(emptyRemoval.folders.some(folder => folder.id === 'folder_series__empty'), false);
 
 const movedUpRemoval = applyLoredeckLibraryFolderRemovalPlan({
   folderId: 'folder_series__arc',
@@ -191,6 +278,59 @@ assert.equal(unfiledRemoval.folders.some(folder => folder.id === 'folder_series_
 assert.equal(unfiledRemoval.deckPlacements.find(item => item.deckId === 'deck-direct')?.folderId, '');
 assert.equal(unfiledRemoval.deckPlacements.find(item => item.deckId === 'deck-nested')?.folderId, '');
 
+const directOnlyStack = resolveLoredeckStackItems([
+  { type: 'folder', folderId: eastBlueId, includeNested: false, sortOrder: 10 },
+], index, { packs });
+assert.deepEqual(directOnlyStack.stack.map(item => item.packId), ['onepiece-east-blue-core']);
+assert.equal(directOnlyStack.summary.duplicateCount, 0);
+
+const emptyFolderStack = resolveLoredeckStackItems([
+  { type: 'folder', folderId: 'folder_series__empty', sortOrder: 10 },
+], removalIndex, { packs: { 'deck-root': {}, 'deck-direct': {}, 'deck-nested': {} } });
+assert.equal(emptyFolderStack.summary.missingCount, 1);
+assert.equal(emptyFolderStack.missing[0].folderId, 'folder_series__empty');
+
+const runtimePacks = Object.fromEntries(Object.entries(packs).map(([packId, pack]) => [packId, {
+  packId,
+  type: 'custom',
+  title: pack.title,
+  library: pack.library,
+  manifestData: {
+    id: packId,
+    type: 'custom',
+    title: pack.title,
+    files: [],
+  },
+  entryOverrides: {
+    [`${packId}.runtime-entry`]: {
+      id: `${packId}.runtime-entry`,
+      title: `${pack.title} Runtime Entry`,
+      category: 'event',
+      content: { fact: `${pack.title} loaded from a flattened folder stack.` },
+    },
+  },
+}]));
+
+const folderRuntimeSources = await loadLoredeckStackSources([
+  { type: 'folder', folderId: eastBlueId, enabled: true, priority: 100, sortOrder: 10 },
+], {
+  registry: {
+    schemaVersion: 1,
+    packs: runtimePacks,
+    folders: index.folders,
+    deckPlacements: index.deckPlacements,
+  },
+});
+assert.deepEqual(folderRuntimeSources.map(source => source.pack.id), [
+  'onepiece-east-blue-core',
+  'onepiece-arlong-core',
+  'onepiece-arlong-villains',
+]);
+assert.equal(folderRuntimeSources[0].pack.stackSource.type, 'folder');
+assert.equal(folderRuntimeSources[0].pack.stackSource.folderId, eastBlueId);
+assert.deepEqual(folderRuntimeSources[0].pack.stackSource.folderPath, ['One Piece', 'East Blue Saga']);
+assert.equal(folderRuntimeSources[0].entryFiles[0].entries.length, 1);
+
 assert.deepEqual(resolveLoredeckLibraryDragFeedback({
   dragType: 'library-deck',
   packIds: ['onepiece-arlong-core', 'onepiece-arlong-villains'],
@@ -199,17 +339,48 @@ assert.deepEqual(resolveLoredeckLibraryDragFeedback({
   libraryIndex: index,
 }), {
   valid: true,
+  action: 'move-folder',
   text: 'Move 2 Loredecks to One Piece > East Blue Saga > Arlong Park',
 });
 
-assert.equal(resolveLoredeckLibraryDragFeedback({
+assert.deepEqual(resolveLoredeckLibraryDragFeedback({
   dragType: 'library-folder',
   folderId: onePieceId,
   folderTitle: 'One Piece',
   dropKind: 'folder',
   dropFolderId: arlongId,
   libraryIndex: index,
-}).valid, false);
+}), {
+  valid: false,
+  action: 'invalid-child',
+  text: 'Cannot move One Piece into its own child folder',
+});
+
+assert.deepEqual(resolveLoredeckLibraryDragFeedback({
+  dragType: 'library-folder',
+  folderId: arlongId,
+  folderTitle: 'Arlong Park',
+  dropKind: 'folder',
+  dropFolderId: arlongId,
+  libraryIndex: index,
+}), {
+  valid: false,
+  action: 'invalid-self',
+  text: 'Cannot move Arlong Park into itself',
+});
+
+assert.deepEqual(resolveLoredeckLibraryDragFeedback({
+  dragType: 'library-folder',
+  folderId: arlongId,
+  folderTitle: 'Arlong Park',
+  dropKind: 'folder',
+  dropFolderId: 'unfiled',
+  libraryIndex: index,
+}), {
+  valid: false,
+  action: 'invalid-unfiled',
+  text: 'Folders cannot be placed inside Unfiled',
+});
 
 assert.deepEqual(resolveLoredeckLibraryDragFeedback({
   dragType: 'library-folder',
@@ -220,17 +391,36 @@ assert.deepEqual(resolveLoredeckLibraryDragFeedback({
   libraryIndex: index,
 }), {
   valid: true,
+  action: 'move-root',
   text: 'Move Arlong Park to Library root',
+  badge: 'Move to Library root',
   root: true,
 });
 
-assert.equal(resolveLoredeckLibraryDragFeedback({
+assert.deepEqual(resolveLoredeckLibraryDragFeedback({
   dragType: 'stack-item',
   stackKey: `folder:${arlongId}`,
   dropKind: 'folder',
   dropFolderId: eastBlueId,
   libraryIndex: index,
-}).text, 'Folder groups cannot be dropped into Library folders');
+}), {
+  valid: false,
+  action: 'invalid-stack-folder',
+  text: 'Stack Groups cannot be filed into Library folders; drag to Library to remove from Stack',
+});
+
+assert.deepEqual(resolveLoredeckLibraryDragFeedback({
+  dragType: 'stack-item',
+  stackKey: `folder:${arlongId}`,
+  dropKind: 'library',
+  libraryIndex: index,
+}), {
+  valid: true,
+  action: 'remove-stack',
+  text: 'Remove folder group from Active Stack',
+  badge: 'Remove from Active Stack',
+  remove: true,
+});
 
 const sortPacks = [
   { packId: 'custom-b', title: 'Custom B', type: 'custom', library: { familyOrder: 500 }, updatedAt: 2000, stats: { entryCount: 8 } },

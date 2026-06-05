@@ -1915,17 +1915,6 @@
     cursor: copy;
 }
 
-.wandlight-loredeck-library-folder-row-active {
-    border-color: rgba(255, 207, 105, 0.92);
-    background:
-        radial-gradient(circle at 0% 50%, rgba(255, 207, 105, 0.24), transparent 50%),
-        radial-gradient(circle at 100% 0%, rgba(245, 196, 91, 0.12), transparent 36%),
-        linear-gradient(180deg, rgba(104, 34, 42, 0.58), rgba(42, 18, 24, 0.64));
-    box-shadow:
-        0 0 0 1px rgba(255, 207, 105, 0.28) inset,
-        0 0 16px rgba(245, 196, 91, 0.16);
-}
-
 .wandlight-loredeck-library-folder-label {
     min-width: 0;
     overflow: hidden;
@@ -1992,6 +1981,22 @@
     background:
         radial-gradient(circle at 8% 0%, rgba(215, 181, 109, 0.08), transparent 38%),
         linear-gradient(180deg, rgba(18, 17, 20, 0.7), rgba(8, 10, 14, 0.82));
+}
+
+.wandlight-loredeck-library-inline-folder-row.wandlight-loredeck-library-folder-row-active {
+    border-color: rgba(255, 207, 105, 0.98);
+    background:
+        radial-gradient(circle at 0% 50%, rgba(255, 207, 105, 0.28), transparent 52%),
+        radial-gradient(circle at 100% 0%, rgba(245, 196, 91, 0.16), transparent 38%),
+        linear-gradient(180deg, rgba(111, 39, 45, 0.66), rgba(43, 18, 24, 0.72));
+    box-shadow:
+        0 0 0 1px rgba(255, 207, 105, 0.34) inset,
+        3px 0 0 rgba(255, 207, 105, 0.82) inset,
+        0 0 22px rgba(245, 196, 91, 0.22);
+}
+
+.wandlight-loredeck-library-inline-folder-row.wandlight-loredeck-library-folder-row-active .wandlight-loredeck-library-folder-label {
+    color: #ffe1a2;
 }
 
 .wandlight-loredeck-library-folder-grip {
@@ -2158,23 +2163,6 @@
     line-height: 1;
 }
 
-.wandlight-loredeck-library-current-view {
-    flex: 0 0 auto;
-    border: 1px solid rgba(185, 139, 54, 0.14);
-    border-radius: 7px;
-    background: rgba(0, 0, 0, 0.13);
-    padding: 6px 7px;
-}
-
-.wandlight-loredeck-library-current-title {
-    min-width: 0;
-    color: var(--wandlight-text, #f1ead8);
-    font-size: 0.86em;
-    font-weight: 780;
-    line-height: 1.25;
-    overflow-wrap: anywhere;
-}
-
 .wandlight-loredeck-library-selection-summary {
     flex: 1 1 110px;
     min-width: 0;
@@ -2183,8 +2171,6 @@
     line-height: 1.25;
 }
 
-.wandlight-loredeck-library-filter,
-.wandlight-loredeck-library-filter-active,
 .wandlight-loredeck-library-small-button {
     min-width: 0;
     padding: 4px 8px;
@@ -2272,6 +2258,18 @@
     background:
         radial-gradient(circle at 90% 10%, rgba(76, 138, 78, 0.14), transparent 28%),
         linear-gradient(180deg, rgba(18, 24, 18, 0.74), rgba(8, 10, 14, 0.82));
+}
+
+.wandlight-loredeck-library-deck-card.wandlight-loredeck-library-deck-selected {
+    border-color: rgba(255, 207, 105, 0.98);
+    background:
+        radial-gradient(circle at 10% 0%, rgba(255, 207, 105, 0.18), transparent 34%),
+        radial-gradient(circle at 100% 20%, rgba(104, 34, 42, 0.26), transparent 44%),
+        linear-gradient(180deg, rgba(36, 25, 23, 0.9), rgba(11, 10, 13, 0.92));
+    box-shadow:
+        0 0 0 1px rgba(255, 207, 105, 0.28) inset,
+        3px 0 0 rgba(255, 207, 105, 0.78) inset,
+        0 0 22px rgba(245, 196, 91, 0.18);
 }
 
 .wandlight-loredeck-library-deck-warning {
@@ -2488,6 +2486,14 @@
     opacity: 0.68;
 }
 
+.wandlight-loredeck-library-stack-card-suppressed {
+    border-color: rgba(226, 177, 98, 0.42);
+    background:
+        radial-gradient(circle at 12% 0%, rgba(226, 177, 98, 0.12), transparent 34%),
+        linear-gradient(180deg, rgba(24, 18, 17, 0.82), rgba(8, 10, 14, 0.88));
+    box-shadow: 0 0 0 1px rgba(226, 177, 98, 0.08) inset;
+}
+
 .wandlight-loredeck-library-stack-folder-card {
     background:
         radial-gradient(circle at 12% 10%, rgba(215, 181, 109, 0.12), transparent 34%),
@@ -2496,6 +2502,36 @@
 
 .wandlight-loredeck-library-stack-folder-card-expanded {
     align-items: start;
+}
+
+.wandlight-loredeck-library-stack-folder-card-has-suppressed {
+    border-color: rgba(226, 177, 98, 0.36);
+    box-shadow: 0 0 0 1px rgba(226, 177, 98, 0.09) inset;
+}
+
+.wandlight-loredeck-library-stack-duplicate-summary {
+    margin: -2px 0 6px;
+    padding: 7px 10px;
+    border: 1px solid rgba(226, 177, 98, 0.32);
+    border-radius: 6px;
+    background:
+        linear-gradient(90deg, rgba(226, 177, 98, 0.12), rgba(104, 34, 42, 0.08)),
+        rgba(8, 10, 14, 0.56);
+    color: var(--wandlight-gold-bright, #f0cf8a);
+    font-size: 0.78rem;
+    line-height: 1.35;
+}
+
+.wandlight-loredeck-library-stack-card.wandlight-loredeck-library-stack-card-selected {
+    border-color: rgba(255, 207, 105, 0.98);
+    background:
+        radial-gradient(circle at 10% 0%, rgba(255, 207, 105, 0.18), transparent 36%),
+        radial-gradient(circle at 100% 18%, rgba(104, 34, 42, 0.24), transparent 44%),
+        linear-gradient(180deg, rgba(36, 25, 23, 0.9), rgba(11, 10, 13, 0.92));
+    box-shadow:
+        0 0 0 1px rgba(255, 207, 105, 0.28) inset,
+        3px 0 0 rgba(255, 207, 105, 0.78) inset,
+        0 0 22px rgba(245, 196, 91, 0.18);
 }
 
 .wandlight-loredeck-library-stack-folder-visual {
@@ -2608,7 +2644,8 @@
     cursor: no-drop !important;
 }
 
-.wandlight-loredeck-library-deck-list.wandlight-loredeck-library-root-drop-active {
+.wandlight-loredeck-library-deck-list.wandlight-loredeck-library-root-drop-active,
+.wandlight-loredeck-library-deck-list.wandlight-loredeck-library-stack-remove-active {
     position: relative;
     outline: 1px solid rgba(245, 196, 91, 0.78);
     outline-offset: -4px;
@@ -2617,8 +2654,16 @@
         rgba(8, 10, 14, 0.18);
 }
 
-.wandlight-loredeck-library-deck-list.wandlight-loredeck-library-root-drop-active::before {
-    content: "Move to Library root";
+.wandlight-loredeck-library-deck-list.wandlight-loredeck-library-stack-remove-active {
+    outline-color: rgba(219, 105, 105, 0.82);
+    background:
+        radial-gradient(circle at 2% 10%, rgba(219, 105, 105, 0.16), transparent 22%),
+        rgba(40, 10, 16, 0.22);
+}
+
+.wandlight-loredeck-library-deck-list.wandlight-loredeck-library-root-drop-active::before,
+.wandlight-loredeck-library-deck-list.wandlight-loredeck-library-stack-remove-active::before {
+    content: attr(data-drag-drop-label);
     position: absolute;
     top: 4px;
     left: 6px;
@@ -2637,6 +2682,12 @@
     line-height: 1;
     pointer-events: none;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.28);
+}
+
+.wandlight-loredeck-library-deck-list.wandlight-loredeck-library-stack-remove-active::before {
+    border-color: rgba(219, 105, 105, 0.62);
+    background: rgba(42, 12, 18, 0.94);
+    color: #ffb3aa;
 }
 
 .wandlight-loredeck-library-stack-ghost {
@@ -2690,6 +2741,12 @@
     color: var(--wandlight-gold, #d7b56d);
 }
 
+.wandlight-loredeck-library-drag-copy-remove {
+    border-color: rgba(219, 105, 105, 0.62);
+    background: rgba(42, 12, 18, 0.95);
+    color: #ffb3aa;
+}
+
 @media (prefers-reduced-motion: reduce) {
     .wandlight-loredeck-library-deck-card,
     .wandlight-loredeck-library-stack-card,
@@ -2697,6 +2754,7 @@
     .wandlight-loredeck-library-deck-list,
     .wandlight-loredeck-library-stack-list,
     .wandlight-loredeck-library-drag-drop-target,
+    .wandlight-loredeck-library-stack-remove-active,
     .wandlight-loredeck-library-drag-copy {
         transition: none;
     }
@@ -2761,7 +2819,7 @@
     min-width: 0;
     min-height: 24px;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto auto;
+    grid-template-columns: minmax(0, 1fr) auto auto auto;
     gap: 5px;
     align-items: center;
     border: 1px solid rgba(185, 139, 54, 0.12);
@@ -2825,6 +2883,14 @@
 .wandlight-loredeck-library-stack-folder-preview-chip-suppressed,
 .wandlight-loredeck-library-stack-folder-preview-chip-disabled {
     color: rgba(241, 234, 216, 0.66);
+}
+
+.wandlight-loredeck-library-stack-folder-preview-chip-kept {
+    max-width: 150px;
+    color: #ffd58a;
+    border-color: rgba(226, 177, 98, 0.42);
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .wandlight-loredeck-library-stack-folder-preview-health-chip-warning {
@@ -2979,6 +3045,24 @@
     overflow-wrap: anywhere;
 }
 
+.wandlight-loredeck-library-detail-kicker {
+    width: fit-content;
+    max-width: 100%;
+    border: 1px solid rgba(255, 207, 105, 0.28);
+    border-radius: 6px;
+    background: rgba(255, 207, 105, 0.1);
+    color: #ffe1a2;
+    padding: 1px 6px;
+    font-size: 0.66em;
+    font-weight: 800;
+    line-height: 1.45;
+    letter-spacing: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+}
+
 .wandlight-loredeck-library-detail-content {
     min-width: 0;
     min-height: 0;
@@ -3046,6 +3130,19 @@
     margin-top: 2px;
     gap: 5px;
     justify-content: flex-start;
+}
+
+.wandlight-loredeck-library-folder-parent-control {
+    flex: 1 1 230px;
+    min-width: 190px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.wandlight-loredeck-library-folder-parent-select {
+    flex: 1 1 150px;
+    max-width: none;
 }
 
 .wandlight-loredeck-library-folder-summary-grid {
