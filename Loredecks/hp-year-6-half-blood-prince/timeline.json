@@ -1,0 +1,1959 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "date-derived-day",
+  "summary": "Harry Potter Year 6: Half-Blood Prince Context anchors and phase windows for Saga's Harry Potter Golden Trio deck family.",
+  "axes": [
+    {
+      "id": "calendar",
+      "type": "calendar",
+      "label": "Calendar Date"
+    },
+    {
+      "id": "book",
+      "type": "anchor",
+      "label": "Book"
+    },
+    {
+      "id": "schoolYear",
+      "type": "phase",
+      "label": "School Year"
+    },
+    {
+      "id": "arc",
+      "type": "arc",
+      "label": "Story Arc"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "hp.y6.privet_summer_after_sirius",
+      "label": "Privet Summer After Sirius",
+      "contextType": "story_anchor",
+      "sortKey": 9692,
+      "dateRange": {
+        "from": "1996-07-15",
+        "to": "1996-07-15",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Privet Summer After Sirius",
+        "privet_summer_after_sirius",
+        "Year 6 Privet Summer After Sirius",
+        "Privet Summer After Sirius Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.dumbledore_collects_harry",
+      "label": "Dumbledore Collects Harry",
+      "contextType": "story_anchor",
+      "sortKey": 9698,
+      "dateRange": {
+        "from": "1996-07-21",
+        "to": "1996-07-21",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Dumbledore Collects Harry",
+        "dumbledore_collects_harry",
+        "Year 6 Dumbledore Collects Harry",
+        "Dumbledore Collects Harry Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.slughorn_recruited",
+      "label": "Slughorn Recruited",
+      "contextType": "story_anchor",
+      "sortKey": 9704,
+      "dateRange": {
+        "from": "1996-07-27",
+        "to": "1996-07-27",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Slughorn Recruited",
+        "slughorn_recruited",
+        "Year 6 Slughorn Recruited",
+        "Slughorn Recruited Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.burrow_summer",
+      "label": "Burrow Summer",
+      "contextType": "story_anchor",
+      "sortKey": 9710,
+      "dateRange": {
+        "from": "1996-08-02",
+        "to": "1996-08-02",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Burrow Summer",
+        "burrow_summer",
+        "Year 6 Burrow Summer",
+        "Burrow Summer Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.owl_results_arrive",
+      "label": "OWL Results Arrive",
+      "contextType": "story_anchor",
+      "sortKey": 9717,
+      "dateRange": {
+        "from": "1996-08-09",
+        "to": "1996-08-09",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "OWL Results Arrive",
+        "owl_results_arrive",
+        "Year 6 OWL Results Arrive",
+        "OWL Results Arrive Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.sixth_year_course_access_set",
+      "label": "Sixth Year Course Access Set",
+      "contextType": "story_anchor",
+      "sortKey": 9723,
+      "dateRange": {
+        "from": "1996-08-15",
+        "to": "1996-08-15",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Sixth Year Course Access Set",
+        "sixth_year_course_access_set",
+        "Year 6 Sixth Year Course Access Set",
+        "Sixth Year Course Access Set Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.diagon_alley_visit",
+      "label": "Diagon Alley Visit",
+      "contextType": "story_anchor",
+      "sortKey": 9729,
+      "dateRange": {
+        "from": "1996-08-21",
+        "to": "1996-08-21",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Diagon Alley Visit",
+        "diagon_alley_visit",
+        "Year 6 Diagon Alley Visit",
+        "Diagon Alley Visit Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.draco_borgin_burkes_suspicion",
+      "label": "Draco Borgin Burkes Suspicion",
+      "contextType": "story_anchor",
+      "sortKey": 9735,
+      "dateRange": {
+        "from": "1996-08-27",
+        "to": "1996-08-27",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Draco Borgin Burkes Suspicion",
+        "draco_borgin_burkes_suspicion",
+        "Year 6 Draco Borgin Burkes Suspicion",
+        "Draco Borgin Burkes Suspicion Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.hogwarts_express_slug_club",
+      "label": "Hogwarts Express Slug Club",
+      "contextType": "story_anchor",
+      "sortKey": 9742,
+      "dateRange": {
+        "from": "1996-09-03",
+        "to": "1996-09-03",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Hogwarts Express Slug Club",
+        "hogwarts_express_slug_club",
+        "Year 6 Hogwarts Express Slug Club",
+        "Hogwarts Express Slug Club Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.draco_stomps_harry",
+      "label": "Draco Stomps Harry",
+      "contextType": "story_anchor",
+      "sortKey": 9748,
+      "dateRange": {
+        "from": "1996-09-09",
+        "to": "1996-09-09",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Draco Stomps Harry",
+        "draco_stomps_harry",
+        "Year 6 Draco Stomps Harry",
+        "Draco Stomps Harry Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.tonks_rescues_harry",
+      "label": "Tonks Rescues Harry",
+      "contextType": "story_anchor",
+      "sortKey": 9754,
+      "dateRange": {
+        "from": "1996-09-15",
+        "to": "1996-09-15",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Tonks Rescues Harry",
+        "tonks_rescues_harry",
+        "Year 6 Tonks Rescues Harry",
+        "Tonks Rescues Harry Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.term_arrival_security_context",
+      "label": "Term Arrival Security Context",
+      "contextType": "story_anchor",
+      "sortKey": 9760,
+      "dateRange": {
+        "from": "1996-09-21",
+        "to": "1996-09-21",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Term Arrival Security Context",
+        "term_arrival_security_context",
+        "Year 6 Term Arrival Security Context",
+        "Term Arrival Security Context Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.snape_dada_first_class",
+      "label": "Snape Dada First Class",
+      "contextType": "story_anchor",
+      "sortKey": 9767,
+      "dateRange": {
+        "from": "1996-09-28",
+        "to": "1996-09-28",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Snape Dada First Class",
+        "snape_dada_first_class",
+        "Year 6 Snape Dada First Class",
+        "Snape Dada First Class Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.slughorn_potions_first_class",
+      "label": "Slughorn Potions First Class",
+      "contextType": "story_anchor",
+      "sortKey": 9773,
+      "dateRange": {
+        "from": "1996-10-04",
+        "to": "1996-10-04",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Slughorn Potions First Class",
+        "slughorn_potions_first_class",
+        "Year 6 Slughorn Potions First Class",
+        "Slughorn Potions First Class Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.half_blood_prince_book",
+      "label": "Half Blood Prince Book",
+      "contextType": "story_anchor",
+      "sortKey": 9779,
+      "dateRange": {
+        "from": "1996-10-10",
+        "to": "1996-10-10",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Half Blood Prince Book",
+        "half_blood_prince_book",
+        "Year 6 Half Blood Prince Book",
+        "Half Blood Prince Book Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.felix_felicis_won",
+      "label": "Felix Felicis Won",
+      "contextType": "story_anchor",
+      "sortKey": 9785,
+      "dateRange": {
+        "from": "1996-10-16",
+        "to": "1996-10-16",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Felix Felicis Won",
+        "felix_felicis_won",
+        "Year 6 Felix Felicis Won",
+        "Felix Felicis Won Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.nonverbal_magic_pressure",
+      "label": "Nonverbal Magic Pressure",
+      "contextType": "story_anchor",
+      "sortKey": 9792,
+      "dateRange": {
+        "from": "1996-10-23",
+        "to": "1996-10-23",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Nonverbal Magic Pressure",
+        "nonverbal_magic_pressure",
+        "Year 6 Nonverbal Magic Pressure",
+        "Nonverbal Magic Pressure Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.first_memory_lesson_gaunts",
+      "label": "First Memory Lesson Gaunts",
+      "contextType": "story_anchor",
+      "sortKey": 9798,
+      "dateRange": {
+        "from": "1996-10-29",
+        "to": "1996-10-29",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "First Memory Lesson Gaunts",
+        "first_memory_lesson_gaunts",
+        "Year 6 First Memory Lesson Gaunts",
+        "First Memory Lesson Gaunts Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.quidditch_tryouts",
+      "label": "Quidditch Tryouts",
+      "contextType": "story_anchor",
+      "sortKey": 9804,
+      "dateRange": {
+        "from": "1996-11-04",
+        "to": "1996-11-04",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Quidditch Tryouts",
+        "quidditch_tryouts",
+        "Year 6 Quidditch Tryouts",
+        "Quidditch Tryouts Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.keeper_selection",
+      "label": "Keeper Selection",
+      "contextType": "story_anchor",
+      "sortKey": 9810,
+      "dateRange": {
+        "from": "1996-11-10",
+        "to": "1996-11-10",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Keeper Selection",
+        "keeper_selection",
+        "Year 6 Keeper Selection",
+        "Keeper Selection Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.first_slug_club_dinner",
+      "label": "First Slug Club Dinner",
+      "contextType": "story_anchor",
+      "sortKey": 9817,
+      "dateRange": {
+        "from": "1996-11-17",
+        "to": "1996-11-17",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "First Slug Club Dinner",
+        "first_slug_club_dinner",
+        "Year 6 First Slug Club Dinner",
+        "First Slug Club Dinner Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.katie_bell_necklace_attack",
+      "label": "Katie Bell Necklace Attack",
+      "contextType": "story_anchor",
+      "sortKey": 9823,
+      "dateRange": {
+        "from": "1996-11-23",
+        "to": "1996-11-23",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Katie Bell Necklace Attack",
+        "katie_bell_necklace_attack",
+        "Year 6 Katie Bell Necklace Attack",
+        "Katie Bell Necklace Attack Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.hogsmeade_security_tightens",
+      "label": "Hogsmeade Security Tightens",
+      "contextType": "story_anchor",
+      "sortKey": 9829,
+      "dateRange": {
+        "from": "1996-11-29",
+        "to": "1996-11-29",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Hogsmeade Security Tightens",
+        "hogsmeade_security_tightens",
+        "Year 6 Hogsmeade Security Tightens",
+        "Hogsmeade Security Tightens Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.draco_suspicion_after_katie",
+      "label": "Draco Suspicion After Katie",
+      "contextType": "story_anchor",
+      "sortKey": 9835,
+      "dateRange": {
+        "from": "1996-12-05",
+        "to": "1996-12-05",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Draco Suspicion After Katie",
+        "draco_suspicion_after_katie",
+        "Year 6 Draco Suspicion After Katie",
+        "Draco Suspicion After Katie Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.ron_quidditch_win",
+      "label": "Ron Quidditch Win",
+      "contextType": "story_anchor",
+      "sortKey": 9842,
+      "dateRange": {
+        "from": "1996-12-12",
+        "to": "1996-12-12",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Ron Quidditch Win",
+        "ron_quidditch_win",
+        "Year 6 Ron Quidditch Win",
+        "Ron Quidditch Win Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.ron_lavender_start",
+      "label": "Ron Lavender Start",
+      "contextType": "story_anchor",
+      "sortKey": 9848,
+      "dateRange": {
+        "from": "1996-12-18",
+        "to": "1996-12-18",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Ron Lavender Start",
+        "ron_lavender_start",
+        "Year 6 Ron Lavender Start",
+        "Ron Lavender Start Year 6",
+        "Ron starts dating Lavender",
+        "Ron and Lavender start",
+        "Ron dates the blonde girl"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.hermione_jealousy_spike",
+      "label": "Hermione Jealousy Spike",
+      "contextType": "story_anchor",
+      "sortKey": 9854,
+      "dateRange": {
+        "from": "1996-12-24",
+        "to": "1996-12-24",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Hermione Jealousy Spike",
+        "hermione_jealousy_spike",
+        "Year 6 Hermione Jealousy Spike",
+        "Hermione Jealousy Spike Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.slughorn_christmas_party",
+      "label": "Slughorn Christmas Party",
+      "contextType": "story_anchor",
+      "sortKey": 9850,
+      "dateRange": {
+        "from": "1996-12-20",
+        "to": "1996-12-20",
+        "precision": "known_or_curated"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Slughorn Christmas Party",
+        "slughorn_christmas_party",
+        "Year 6 Slughorn Christmas Party",
+        "Slughorn Christmas Party Year 6",
+        "Slughorn Christmas party",
+        "Christmas party Year 6",
+        "Harry brings Luna to Slughorn party"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.snape_draco_overheard",
+      "label": "Snape Draco Overheard",
+      "contextType": "story_anchor",
+      "sortKey": 9850,
+      "dateRange": {
+        "from": "1996-12-20",
+        "to": "1996-12-20",
+        "precision": "known_or_curated"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Snape Draco Overheard",
+        "snape_draco_overheard",
+        "Year 6 Snape Draco Overheard",
+        "Snape Draco Overheard Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.christmas_break_burrow",
+      "label": "Christmas Break Burrow",
+      "contextType": "story_anchor",
+      "sortKey": 9851,
+      "dateRange": {
+        "from": "1996-12-21",
+        "to": "1996-12-21",
+        "precision": "known_or_curated"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Christmas Break Burrow",
+        "christmas_break_burrow",
+        "Year 6 Christmas Break Burrow",
+        "Christmas Break Burrow Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.post_christmas_return",
+      "label": "Post Christmas Return",
+      "contextType": "story_anchor",
+      "sortKey": 9868,
+      "dateRange": {
+        "from": "1997-01-07",
+        "to": "1997-01-07",
+        "precision": "known_or_curated"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Post Christmas Return",
+        "post_christmas_return",
+        "Year 6 Post Christmas Return",
+        "Post Christmas Return Year 6",
+        "after Christmas in sixth year",
+        "January sixth year",
+        "post-Christmas Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.horcrux_memory_task_assigned",
+      "label": "Horcrux Memory Task Assigned",
+      "contextType": "story_anchor",
+      "sortKey": 9871,
+      "dateRange": {
+        "from": "1997-01-10",
+        "to": "1997-01-10",
+        "precision": "known_or_curated"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Horcrux Memory Task Assigned",
+        "horcrux_memory_task_assigned",
+        "Year 6 Horcrux Memory Task Assigned",
+        "Horcrux Memory Task Assigned Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.apparition_lessons_announced",
+      "label": "Apparition Lessons Announced",
+      "contextType": "story_anchor",
+      "sortKey": 9881,
+      "dateRange": {
+        "from": "1997-01-20",
+        "to": "1997-01-20",
+        "precision": "known_or_curated"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Apparition Lessons Announced",
+        "apparition_lessons_announced",
+        "Year 6 Apparition Lessons Announced",
+        "Apparition Lessons Announced Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.apparition_lessons_begin",
+      "label": "Apparition Lessons Begin",
+      "contextType": "story_anchor",
+      "sortKey": 9893,
+      "dateRange": {
+        "from": "1997-02-01",
+        "to": "1997-02-01",
+        "precision": "known_or_curated"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Apparition Lessons Begin",
+        "apparition_lessons_begin",
+        "Year 6 Apparition Lessons Begin",
+        "Apparition Lessons Begin Year 6",
+        "Apparition lessons begin",
+        "before Apparition lessons",
+        "when Apparition lessons start"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.susan_bones_splinched",
+      "label": "Susan Bones Splinched",
+      "contextType": "story_anchor",
+      "sortKey": 9893,
+      "dateRange": {
+        "from": "1997-02-01",
+        "to": "1997-02-01",
+        "precision": "known_or_curated"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Susan Bones Splinched",
+        "susan_bones_splinched",
+        "Year 6 Susan Bones Splinched",
+        "Susan Bones Splinched Year 6",
+        "Susan Bones splinched",
+        "Susan Bones loses a leg",
+        "Apparition lesson splinching"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.ron_love_potion",
+      "label": "Ron Love Potion",
+      "contextType": "story_anchor",
+      "sortKey": 9921,
+      "dateRange": {
+        "from": "1997-03-01",
+        "to": "1997-03-01",
+        "precision": "known_or_curated"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Ron Love Potion",
+        "ron_love_potion",
+        "Year 6 Ron Love Potion",
+        "Ron Love Potion Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.ron_poisoned",
+      "label": "Ron Poisoned",
+      "contextType": "story_anchor",
+      "sortKey": 9921,
+      "dateRange": {
+        "from": "1997-03-01",
+        "to": "1997-03-01",
+        "precision": "known_or_curated"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Ron Poisoned",
+        "ron_poisoned",
+        "Year 6 Ron Poisoned",
+        "Ron Poisoned Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.harry_bezoar_save",
+      "label": "Harry Bezoar Save",
+      "contextType": "story_anchor",
+      "sortKey": 9921,
+      "dateRange": {
+        "from": "1997-03-01",
+        "to": "1997-03-01",
+        "precision": "known_or_curated"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Harry Bezoar Save",
+        "harry_bezoar_save",
+        "Year 6 Harry Bezoar Save",
+        "Harry Bezoar Save Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.ron_hospital_phase",
+      "label": "Ron Hospital Phase",
+      "contextType": "story_anchor",
+      "sortKey": 9922,
+      "dateRange": {
+        "from": "1997-03-02",
+        "to": "1997-03-02",
+        "precision": "known_or_curated"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Ron Hospital Phase",
+        "ron_hospital_phase",
+        "Year 6 Ron Hospital Phase",
+        "Ron Hospital Phase Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.draco_myrtle_clue",
+      "label": "Draco Myrtle Clue",
+      "contextType": "story_anchor",
+      "sortKey": 9935,
+      "dateRange": {
+        "from": "1997-03-15",
+        "to": "1997-03-15",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Draco Myrtle Clue",
+        "draco_myrtle_clue",
+        "Year 6 Draco Myrtle Clue",
+        "Draco Myrtle Clue Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.felix_felicis_used",
+      "label": "Felix Felicis Used",
+      "contextType": "story_anchor",
+      "sortKey": 9971,
+      "dateRange": {
+        "from": "1997-04-20",
+        "to": "1997-04-20",
+        "precision": "known_or_curated"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Felix Felicis Used",
+        "felix_felicis_used",
+        "Year 6 Felix Felicis Used",
+        "Felix Felicis Used Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.aragog_burial",
+      "label": "Aragog Burial",
+      "contextType": "story_anchor",
+      "sortKey": 9971,
+      "dateRange": {
+        "from": "1997-04-20",
+        "to": "1997-04-20",
+        "precision": "known_or_curated"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Aragog Burial",
+        "aragog_burial",
+        "Year 6 Aragog Burial",
+        "Aragog Burial Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.true_slughorn_memory_obtained",
+      "label": "True Slughorn Memory Obtained",
+      "contextType": "story_anchor",
+      "sortKey": 9971,
+      "dateRange": {
+        "from": "1997-04-20",
+        "to": "1997-04-20",
+        "precision": "known_or_curated"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "True Slughorn Memory Obtained",
+        "true_slughorn_memory_obtained",
+        "Year 6 True Slughorn Memory Obtained",
+        "True Slughorn Memory Obtained Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.horcrux_truth_revealed",
+      "label": "Horcrux Truth Revealed",
+      "contextType": "story_anchor",
+      "sortKey": 9972,
+      "dateRange": {
+        "from": "1997-04-21",
+        "to": "1997-04-21",
+        "precision": "known_or_curated"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Horcrux Truth Revealed",
+        "horcrux_truth_revealed",
+        "Year 6 Horcrux Truth Revealed",
+        "Horcrux Truth Revealed Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.sectumsempra_attack",
+      "label": "Sectumsempra Attack",
+      "contextType": "story_anchor",
+      "sortKey": 9996,
+      "dateRange": {
+        "from": "1997-05-15",
+        "to": "1997-05-15",
+        "precision": "known_or_curated"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Sectumsempra Attack",
+        "sectumsempra_attack",
+        "Year 6 Sectumsempra Attack",
+        "Sectumsempra Attack Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.snape_heals_draco",
+      "label": "Snape Heals Draco",
+      "contextType": "story_anchor",
+      "sortKey": 9973,
+      "dateRange": {
+        "from": "1997-04-22",
+        "to": "1997-04-22",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Snape Heals Draco",
+        "snape_heals_draco",
+        "Year 6 Snape Heals Draco",
+        "Snape Heals Draco Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.detention_and_prince_book_hidden",
+      "label": "Detention and Prince Book Hidden",
+      "contextType": "story_anchor",
+      "sortKey": 9979,
+      "dateRange": {
+        "from": "1997-04-28",
+        "to": "1997-04-28",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Detention and Prince Book Hidden",
+        "detention_and_prince_book_hidden",
+        "Year 6 Detention and Prince Book Hidden",
+        "Detention and Prince Book Hidden Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.harry_ginny_start",
+      "label": "Harry Ginny Start",
+      "contextType": "story_anchor",
+      "sortKey": 10001,
+      "dateRange": {
+        "from": "1997-05-20",
+        "to": "1997-05-20",
+        "precision": "known_or_curated"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Harry Ginny Start",
+        "harry_ginny_start",
+        "Year 6 Harry Ginny Start",
+        "Harry Ginny Start Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.dumbledore_cave_mission",
+      "label": "Dumbledore Cave Mission",
+      "contextType": "story_anchor",
+      "sortKey": 10018,
+      "dateRange": {
+        "from": "1997-06-06",
+        "to": "1997-06-06",
+        "precision": "known_or_curated"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Dumbledore Cave Mission",
+        "dumbledore_cave_mission",
+        "Year 6 Dumbledore Cave Mission",
+        "Dumbledore Cave Mission Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.locket_fake_revealed",
+      "label": "Locket Fake Revealed",
+      "contextType": "story_anchor",
+      "sortKey": 9998,
+      "dateRange": {
+        "from": "1997-05-17",
+        "to": "1997-05-17",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Locket Fake Revealed",
+        "locket_fake_revealed",
+        "Year 6 Locket Fake Revealed",
+        "Locket Fake Revealed Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.astronomy_tower_crisis",
+      "label": "Astronomy Tower Crisis",
+      "contextType": "story_anchor",
+      "sortKey": 10019,
+      "dateRange": {
+        "from": "1997-06-07",
+        "to": "1997-06-07",
+        "precision": "known_or_curated"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Astronomy Tower Crisis",
+        "astronomy_tower_crisis",
+        "Year 6 Astronomy Tower Crisis",
+        "Astronomy Tower Crisis Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.dumbledore_killed",
+      "label": "Dumbledore Killed",
+      "contextType": "story_anchor",
+      "sortKey": 10019,
+      "dateRange": {
+        "from": "1997-06-07",
+        "to": "1997-06-07",
+        "precision": "known_or_curated"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Dumbledore Killed",
+        "dumbledore_killed",
+        "Year 6 Dumbledore Killed",
+        "Dumbledore Killed Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.snape_half_blood_prince_reveal",
+      "label": "Snape Half Blood Prince Reveal",
+      "contextType": "story_anchor",
+      "sortKey": 10017,
+      "dateRange": {
+        "from": "1997-06-05",
+        "to": "1997-06-05",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Snape Half Blood Prince Reveal",
+        "snape_half_blood_prince_reveal",
+        "Year 6 Snape Half Blood Prince Reveal",
+        "Snape Half Blood Prince Reveal Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.fight_and_flight_aftermath",
+      "label": "Fight and Flight Aftermath",
+      "contextType": "story_anchor",
+      "sortKey": 10023,
+      "dateRange": {
+        "from": "1997-06-11",
+        "to": "1997-06-11",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Fight and Flight Aftermath",
+        "fight_and_flight_aftermath",
+        "Year 6 Fight and Flight Aftermath",
+        "Fight and Flight Aftermath Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.funeral",
+      "label": "Funeral",
+      "contextType": "story_anchor",
+      "sortKey": 10042,
+      "dateRange": {
+        "from": "1997-06-30",
+        "to": "1997-06-30",
+        "precision": "known_or_curated"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Funeral",
+        "funeral",
+        "Year 6 Funeral",
+        "Funeral Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.harry_ginny_breakup",
+      "label": "Harry Ginny Breakup",
+      "contextType": "story_anchor",
+      "sortKey": 10035,
+      "dateRange": {
+        "from": "1997-06-23",
+        "to": "1997-06-23",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Harry Ginny Breakup",
+        "harry_ginny_breakup",
+        "Year 6 Harry Ginny Breakup",
+        "Harry Ginny Breakup Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    },
+    {
+      "id": "hp.y6.horcrux_hunt_decision",
+      "label": "Horcrux Hunt Decision",
+      "contextType": "story_anchor",
+      "sortKey": 10042,
+      "dateRange": {
+        "from": "1997-06-30",
+        "to": "1997-06-30",
+        "precision": "approximate"
+      },
+      "book": "Half-Blood Prince",
+      "schoolYear": "6",
+      "arc": "Year 6: Half-Blood Prince",
+      "aliases": [
+        "Horcrux Hunt Decision",
+        "horcrux_hunt_decision",
+        "Year 6 Horcrux Hunt Decision",
+        "Horcrux Hunt Decision Year 6"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6",
+        "book:half-blood-prince"
+      ]
+    }
+  ],
+  "windows": [
+    {
+      "id": "hp.y6.window.summer_slughorn_recruitment",
+      "label": "Window Summer Slughorn Recruitment",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y6.privet_summer_after_sirius",
+      "validToAnchor": "hp.y6.burrow_summer",
+      "sortKeyFrom": 9692,
+      "sortKeyTo": 9710,
+      "aliases": [
+        "Window Summer Slughorn Recruitment",
+        "window summer_slughorn_recruitment"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6"
+      ]
+    },
+    {
+      "id": "hp.y6.window.course_access_and_diagon",
+      "label": "Window Course Access and Diagon",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y6.owl_results_arrive",
+      "validToAnchor": "hp.y6.draco_borgin_burkes_suspicion",
+      "sortKeyFrom": 9717,
+      "sortKeyTo": 9735,
+      "aliases": [
+        "Window Course Access and Diagon",
+        "window course_access_and_diagon"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6"
+      ]
+    },
+    {
+      "id": "hp.y6.window.arrival_to_prince_book",
+      "label": "Window Arrival to Prince Book",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y6.hogwarts_express_slug_club",
+      "validToAnchor": "hp.y6.term_arrival_security_context",
+      "sortKeyFrom": 9742,
+      "sortKeyTo": 9760,
+      "aliases": [
+        "Window Arrival to Prince Book",
+        "window arrival_to_prince_book"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6"
+      ]
+    },
+    {
+      "id": "hp.y6.window.dumbledore_lessons_early",
+      "label": "Window Dumbledore Lessons Early",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y6.snape_dada_first_class",
+      "validToAnchor": "hp.y6.felix_felicis_won",
+      "sortKeyFrom": 9767,
+      "sortKeyTo": 9785,
+      "aliases": [
+        "Window Dumbledore Lessons Early",
+        "window dumbledore_lessons_early"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6"
+      ]
+    },
+    {
+      "id": "hp.y6.window.katie_attack_to_christmas",
+      "label": "Window Katie Attack to Christmas",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y6.nonverbal_magic_pressure",
+      "validToAnchor": "hp.y6.keeper_selection",
+      "sortKeyFrom": 9792,
+      "sortKeyTo": 9810,
+      "aliases": [
+        "Window Katie Attack to Christmas",
+        "window katie_attack_to_christmas"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6"
+      ]
+    },
+    {
+      "id": "hp.y6.window.ron_lavender_active",
+      "label": "Window Ron Lavender Active",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y6.ron_lavender_start",
+      "validToAnchor": "hp.y6.ron_love_potion",
+      "sortKeyFrom": 9848,
+      "sortKeyTo": 9921,
+      "aliases": [
+        "Window Ron Lavender Active",
+        "window ron_lavender_active"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6"
+      ]
+    },
+    {
+      "id": "hp.y6.window.christmas_party_and_break",
+      "label": "Window Christmas Party and Break",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y6.slughorn_christmas_party",
+      "validToAnchor": "hp.y6.post_christmas_return",
+      "sortKeyFrom": 9850,
+      "sortKeyTo": 9868,
+      "aliases": [
+        "Window Christmas Party and Break",
+        "window christmas_party_and_break"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6"
+      ]
+    },
+    {
+      "id": "hp.y6.window.post_christmas_before_apparition",
+      "label": "Window Post Christmas Before Apparition",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y6.post_christmas_return",
+      "validToAnchor": "hp.y6.apparition_lessons_begin",
+      "sortKeyFrom": 9868,
+      "sortKeyTo": 9893,
+      "aliases": [
+        "Window Post Christmas Before Apparition",
+        "window post_christmas_before_apparition"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6"
+      ]
+    },
+    {
+      "id": "hp.y6.window.apparition_lessons",
+      "label": "Window Apparition Lessons",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y6.apparition_lessons_begin",
+      "validToAnchor": "hp.y6.susan_bones_splinched",
+      "sortKeyFrom": 9893,
+      "sortKeyTo": 9893,
+      "aliases": [
+        "Window Apparition Lessons",
+        "window apparition_lessons"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6"
+      ]
+    },
+    {
+      "id": "hp.y6.window.ron_poisoning_aftermath",
+      "label": "Window Ron Poisoning Aftermath",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y6.ron_poisoned",
+      "validToAnchor": "hp.y6.draco_myrtle_clue",
+      "sortKeyFrom": 9921,
+      "sortKeyTo": 9935,
+      "aliases": [
+        "Window Ron Poisoning Aftermath",
+        "window ron_poisoning_aftermath"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6"
+      ]
+    },
+    {
+      "id": "hp.y6.window.slughorn_memory_hunt",
+      "label": "Window Slughorn Memory Hunt",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y6.felix_felicis_used",
+      "validToAnchor": "hp.y6.horcrux_truth_revealed",
+      "sortKeyFrom": 9971,
+      "sortKeyTo": 9972,
+      "aliases": [
+        "Window Slughorn Memory Hunt",
+        "window slughorn_memory_hunt"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6"
+      ]
+    },
+    {
+      "id": "hp.y6.window.sectumsempra_aftermath",
+      "label": "Window Sectumsempra Aftermath",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y6.sectumsempra_attack",
+      "validToAnchor": "hp.y6.harry_ginny_start",
+      "sortKeyFrom": 9996,
+      "sortKeyTo": 10001,
+      "aliases": [
+        "Window Sectumsempra Aftermath",
+        "window sectumsempra_aftermath"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6"
+      ]
+    },
+    {
+      "id": "hp.y6.window.harry_ginny_relationship",
+      "label": "Window Harry Ginny Relationship",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y6.dumbledore_cave_mission",
+      "validToAnchor": "hp.y6.dumbledore_killed",
+      "sortKeyFrom": 10018,
+      "sortKeyTo": 10019,
+      "aliases": [
+        "Window Harry Ginny Relationship",
+        "window harry_ginny_relationship"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6"
+      ]
+    },
+    {
+      "id": "hp.y6.window.cave_and_tower",
+      "label": "Window Cave and Tower",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y6.snape_half_blood_prince_reveal",
+      "validToAnchor": "hp.y6.harry_ginny_breakup",
+      "sortKeyFrom": 10017,
+      "sortKeyTo": 10035,
+      "aliases": [
+        "Window Cave and Tower",
+        "window cave_and_tower"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6"
+      ]
+    },
+    {
+      "id": "hp.y6.window.funeral_and_horcrux_decision",
+      "label": "Window Funeral and Horcrux Decision",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y6.horcrux_hunt_decision",
+      "validToAnchor": "hp.y6.horcrux_hunt_decision",
+      "sortKeyFrom": 10042,
+      "sortKeyTo": 10042,
+      "aliases": [
+        "Window Funeral and Horcrux Decision",
+        "window funeral_and_horcrux_decision"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:6"
+      ]
+    }
+  ]
+}

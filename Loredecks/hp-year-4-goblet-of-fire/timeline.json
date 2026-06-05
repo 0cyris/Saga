@@ -1,0 +1,1796 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "date-derived-day",
+  "summary": "Harry Potter Year 4: Goblet of Fire Context anchors and phase windows for Saga's Harry Potter Golden Trio deck family.",
+  "axes": [
+    {
+      "id": "calendar",
+      "type": "calendar",
+      "label": "Calendar Date"
+    },
+    {
+      "id": "book",
+      "type": "anchor",
+      "label": "Book"
+    },
+    {
+      "id": "schoolYear",
+      "type": "phase",
+      "label": "School Year"
+    },
+    {
+      "id": "arc",
+      "type": "arc",
+      "label": "Story Arc"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "hp.y4.frank_bryce_murder",
+      "label": "Frank Bryce Murder",
+      "contextType": "story_anchor",
+      "sortKey": 8992,
+      "dateRange": {
+        "from": "1994-08-15",
+        "to": "1994-08-15",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Frank Bryce Murder",
+        "frank_bryce_murder",
+        "Year 4 Frank Bryce Murder",
+        "Frank Bryce Murder Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.harry_voldemort_dream",
+      "label": "Harry Voldemort Dream",
+      "contextType": "story_anchor",
+      "sortKey": 8997,
+      "dateRange": {
+        "from": "1994-08-20",
+        "to": "1994-08-20",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Harry Voldemort Dream",
+        "harry_voldemort_dream",
+        "Year 4 Harry Voldemort Dream",
+        "Harry Voldemort Dream Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.weasley_world_cup_pickup",
+      "label": "Weasley World Cup Pickup",
+      "contextType": "story_anchor",
+      "sortKey": 9003,
+      "dateRange": {
+        "from": "1994-08-26",
+        "to": "1994-08-26",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Weasley World Cup Pickup",
+        "weasley_world_cup_pickup",
+        "Year 4 Weasley World Cup Pickup",
+        "Weasley World Cup Pickup Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.world_cup_campsite",
+      "label": "World Cup Campsite",
+      "contextType": "story_anchor",
+      "sortKey": 9009,
+      "dateRange": {
+        "from": "1994-09-01",
+        "to": "1994-09-01",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "World Cup Campsite",
+        "world_cup_campsite",
+        "Year 4 World Cup Campsite",
+        "World Cup Campsite Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.winky_crouch_house_elf_pressure",
+      "label": "Winky Crouch House Elf Pressure",
+      "contextType": "story_anchor",
+      "sortKey": 9014,
+      "dateRange": {
+        "from": "1994-09-06",
+        "to": "1994-09-06",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Winky Crouch House Elf Pressure",
+        "winky_crouch_house_elf_pressure",
+        "Year 4 Winky Crouch House Elf Pressure",
+        "Winky Crouch House Elf Pressure Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.world_cup_final",
+      "label": "World Cup Final",
+      "contextType": "story_anchor",
+      "sortKey": 9020,
+      "dateRange": {
+        "from": "1994-09-12",
+        "to": "1994-09-12",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "World Cup Final",
+        "world_cup_final",
+        "Year 4 World Cup Final",
+        "World Cup Final Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.death_eater_riot",
+      "label": "Death Eater Riot",
+      "contextType": "story_anchor",
+      "sortKey": 9026,
+      "dateRange": {
+        "from": "1994-09-18",
+        "to": "1994-09-18",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Death Eater Riot",
+        "death_eater_riot",
+        "Year 4 Death Eater Riot",
+        "Death Eater Riot Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.dark_mark_cast",
+      "label": "Dark Mark Cast",
+      "contextType": "story_anchor",
+      "sortKey": 9031,
+      "dateRange": {
+        "from": "1994-09-23",
+        "to": "1994-09-23",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Dark Mark Cast",
+        "dark_mark_cast",
+        "Year 4 Dark Mark Cast",
+        "Dark Mark Cast Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.winky_accused",
+      "label": "Winky Accused",
+      "contextType": "story_anchor",
+      "sortKey": 9037,
+      "dateRange": {
+        "from": "1994-09-29",
+        "to": "1994-09-29",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Winky Accused",
+        "winky_accused",
+        "Year 4 Winky Accused",
+        "Winky Accused Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.real_moody_kidnapped",
+      "label": "Real Moody Kidnapped",
+      "contextType": "story_anchor",
+      "sortKey": 9043,
+      "dateRange": {
+        "from": "1994-10-05",
+        "to": "1994-10-05",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Real Moody Kidnapped",
+        "real_moody_kidnapped",
+        "Year 4 Real Moody Kidnapped",
+        "Real Moody Kidnapped Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.term_arrival_tournament_announced",
+      "label": "Term Arrival Tournament Announced",
+      "contextType": "story_anchor",
+      "sortKey": 9049,
+      "dateRange": {
+        "from": "1994-10-11",
+        "to": "1994-10-11",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Term Arrival Tournament Announced",
+        "term_arrival_tournament_announced",
+        "Year 4 Term Arrival Tournament Announced",
+        "Term Arrival Tournament Announced Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.age_line_announced",
+      "label": "Age Line Announced",
+      "contextType": "story_anchor",
+      "sortKey": 9054,
+      "dateRange": {
+        "from": "1994-10-16",
+        "to": "1994-10-16",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Age Line Announced",
+        "age_line_announced",
+        "Year 4 Age Line Announced",
+        "Age Line Announced Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.weasley_twins_age_line_attempt",
+      "label": "Weasley Twins Age Line Attempt",
+      "contextType": "story_anchor",
+      "sortKey": 9060,
+      "dateRange": {
+        "from": "1994-10-22",
+        "to": "1994-10-22",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Weasley Twins Age Line Attempt",
+        "weasley_twins_age_line_attempt",
+        "Year 4 Weasley Twins Age Line Attempt",
+        "Weasley Twins Age Line Attempt Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.moody_unforgivables_lesson",
+      "label": "Moody Unforgivables Lesson",
+      "contextType": "story_anchor",
+      "sortKey": 9066,
+      "dateRange": {
+        "from": "1994-10-28",
+        "to": "1994-10-28",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Moody Unforgivables Lesson",
+        "moody_unforgivables_lesson",
+        "Year 4 Moody Unforgivables Lesson",
+        "Moody Unforgivables Lesson Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.neville_cruciatus_reaction",
+      "label": "Neville Cruciatus Reaction",
+      "contextType": "story_anchor",
+      "sortKey": 9071,
+      "dateRange": {
+        "from": "1994-11-02",
+        "to": "1994-11-02",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Neville Cruciatus Reaction",
+        "neville_cruciatus_reaction",
+        "Year 4 Neville Cruciatus Reaction",
+        "Neville Cruciatus Reaction Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.summoning_charms_training",
+      "label": "Summoning Charms Training",
+      "contextType": "story_anchor",
+      "sortKey": 9077,
+      "dateRange": {
+        "from": "1994-11-08",
+        "to": "1994-11-08",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Summoning Charms Training",
+        "summoning_charms_training",
+        "Year 4 Summoning Charms Training",
+        "Summoning Charms Training Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.beauxbatons_durmstrang_arrive",
+      "label": "Beauxbatons Durmstrang Arrive",
+      "contextType": "story_anchor",
+      "sortKey": 9083,
+      "dateRange": {
+        "from": "1994-11-14",
+        "to": "1994-11-14",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Beauxbatons Durmstrang Arrive",
+        "beauxbatons_durmstrang_arrive",
+        "Year 4 Beauxbatons Durmstrang Arrive",
+        "Beauxbatons Durmstrang Arrive Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.gobletof_fire_entries",
+      "label": "Gobletof Fire Entries",
+      "contextType": "story_anchor",
+      "sortKey": 9089,
+      "dateRange": {
+        "from": "1994-11-20",
+        "to": "1994-11-20",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Gobletof Fire Entries",
+        "gobletof_fire_entries",
+        "Year 4 Gobletof Fire Entries",
+        "Gobletof Fire Entries Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.harry_selected_fourth_champion",
+      "label": "Harry Selected Fourth Champion",
+      "contextType": "story_anchor",
+      "sortKey": 9094,
+      "dateRange": {
+        "from": "1994-11-25",
+        "to": "1994-11-25",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Harry Selected Fourth Champion",
+        "harry_selected_fourth_champion",
+        "Year 4 Harry Selected Fourth Champion",
+        "Harry Selected Fourth Champion Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.champion_contract_pressure",
+      "label": "Champion Contract Pressure",
+      "contextType": "story_anchor",
+      "sortKey": 9100,
+      "dateRange": {
+        "from": "1994-12-01",
+        "to": "1994-12-01",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Champion Contract Pressure",
+        "champion_contract_pressure",
+        "Year 4 Champion Contract Pressure",
+        "Champion Contract Pressure Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.school_hostility_badges",
+      "label": "School Hostility Badges",
+      "contextType": "story_anchor",
+      "sortKey": 9106,
+      "dateRange": {
+        "from": "1994-12-07",
+        "to": "1994-12-07",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "School Hostility Badges",
+        "school_hostility_badges",
+        "Year 4 School Hostility Badges",
+        "School Hostility Badges Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.ron_harry_fallout_begins",
+      "label": "Ron Harry Fallout Begins",
+      "contextType": "story_anchor",
+      "sortKey": 9111,
+      "dateRange": {
+        "from": "1994-12-12",
+        "to": "1994-12-12",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Ron Harry Fallout Begins",
+        "ron_harry_fallout_begins",
+        "Year 4 Ron Harry Fallout Begins",
+        "Ron Harry Fallout Begins Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.wand_weighing",
+      "label": "Wand Weighing",
+      "contextType": "story_anchor",
+      "sortKey": 9117,
+      "dateRange": {
+        "from": "1994-12-18",
+        "to": "1994-12-18",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Wand Weighing",
+        "wand_weighing",
+        "Year 4 Wand Weighing",
+        "Wand Weighing Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.rita_skeeter_harry_profile",
+      "label": "Rita Skeeter Harry Profile",
+      "contextType": "story_anchor",
+      "sortKey": 9123,
+      "dateRange": {
+        "from": "1994-12-24",
+        "to": "1994-12-24",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Rita Skeeter Harry Profile",
+        "rita_skeeter_harry_profile",
+        "Year 4 Rita Skeeter Harry Profile",
+        "Rita Skeeter Harry Profile Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.dragons_revealed",
+      "label": "Dragons Revealed",
+      "contextType": "story_anchor",
+      "sortKey": 9129,
+      "dateRange": {
+        "from": "1994-12-30",
+        "to": "1994-12-30",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Dragons Revealed",
+        "dragons_revealed",
+        "Year 4 Dragons Revealed",
+        "Dragons Revealed Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.hermione_supports_harry",
+      "label": "Hermione Supports Harry",
+      "contextType": "story_anchor",
+      "sortKey": 9134,
+      "dateRange": {
+        "from": "1995-01-04",
+        "to": "1995-01-04",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Hermione Supports Harry",
+        "hermione_supports_harry",
+        "Year 4 Hermione Supports Harry",
+        "Hermione Supports Harry Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.sirius_fire_advice",
+      "label": "Sirius Fire Advice",
+      "contextType": "story_anchor",
+      "sortKey": 9140,
+      "dateRange": {
+        "from": "1995-01-10",
+        "to": "1995-01-10",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Sirius Fire Advice",
+        "sirius_fire_advice",
+        "Year 4 Sirius Fire Advice",
+        "Sirius Fire Advice Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.first_task_dragon",
+      "label": "First Task Dragon",
+      "contextType": "story_anchor",
+      "sortKey": 9146,
+      "dateRange": {
+        "from": "1995-01-16",
+        "to": "1995-01-16",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "First Task Dragon",
+        "first_task_dragon",
+        "Year 4 First Task Dragon",
+        "First Task Dragon Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.ron_harry_reconcile",
+      "label": "Ron Harry Reconcile",
+      "contextType": "story_anchor",
+      "sortKey": 9151,
+      "dateRange": {
+        "from": "1995-01-21",
+        "to": "1995-01-21",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Ron Harry Reconcile",
+        "ron_harry_reconcile",
+        "Year 4 Ron Harry Reconcile",
+        "Ron Harry Reconcile Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.yule_ball_partner_pressure",
+      "label": "Yule Ball Partner Pressure",
+      "contextType": "story_anchor",
+      "sortKey": 9157,
+      "dateRange": {
+        "from": "1995-01-27",
+        "to": "1995-01-27",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Yule Ball Partner Pressure",
+        "yule_ball_partner_pressure",
+        "Year 4 Yule Ball Partner Pressure",
+        "Yule Ball Partner Pressure Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.yule_ball",
+      "label": "Yule Ball",
+      "contextType": "story_anchor",
+      "sortKey": 9163,
+      "dateRange": {
+        "from": "1995-02-02",
+        "to": "1995-02-02",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Yule Ball",
+        "yule_ball",
+        "Year 4 Yule Ball",
+        "Yule Ball Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.hermione_krum_reveal",
+      "label": "Hermione Krum Reveal",
+      "contextType": "story_anchor",
+      "sortKey": 9168,
+      "dateRange": {
+        "from": "1995-02-07",
+        "to": "1995-02-07",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Hermione Krum Reveal",
+        "hermione_krum_reveal",
+        "Year 4 Hermione Krum Reveal",
+        "Hermione Krum Reveal Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.yule_ball_social_fallout",
+      "label": "Yule Ball Social Fallout",
+      "contextType": "story_anchor",
+      "sortKey": 9174,
+      "dateRange": {
+        "from": "1995-02-13",
+        "to": "1995-02-13",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Yule Ball Social Fallout",
+        "yule_ball_social_fallout",
+        "Year 4 Yule Ball Social Fallout",
+        "Yule Ball Social Fallout Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.egg_clue_bath",
+      "label": "Egg Clue Bath",
+      "contextType": "story_anchor",
+      "sortKey": 9180,
+      "dateRange": {
+        "from": "1995-02-19",
+        "to": "1995-02-19",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Egg Clue Bath",
+        "egg_clue_bath",
+        "Year 4 Egg Clue Bath",
+        "Egg Clue Bath Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.moody_guides_harry_to_gillyweed",
+      "label": "Moody Guides Harry to Gillyweed",
+      "contextType": "story_anchor",
+      "sortKey": 9186,
+      "dateRange": {
+        "from": "1995-02-25",
+        "to": "1995-02-25",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Moody Guides Harry to Gillyweed",
+        "moody_guides_harry_to_gillyweed",
+        "Year 4 Moody Guides Harry to Gillyweed",
+        "Moody Guides Harry to Gillyweed Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.second_task_hostages_taken",
+      "label": "Second Task Hostages Taken",
+      "contextType": "story_anchor",
+      "sortKey": 9191,
+      "dateRange": {
+        "from": "1995-03-02",
+        "to": "1995-03-02",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Second Task Hostages Taken",
+        "second_task_hostages_taken",
+        "Year 4 Second Task Hostages Taken",
+        "Second Task Hostages Taken Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.second_task_lake",
+      "label": "Second Task Lake",
+      "contextType": "story_anchor",
+      "sortKey": 9197,
+      "dateRange": {
+        "from": "1995-03-08",
+        "to": "1995-03-08",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Second Task Lake",
+        "second_task_lake",
+        "Year 4 Second Task Lake",
+        "Second Task Lake Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.barty_crouch_sr_missing_pressure",
+      "label": "Barty Crouch Sr Missing Pressure",
+      "contextType": "story_anchor",
+      "sortKey": 9203,
+      "dateRange": {
+        "from": "1995-03-14",
+        "to": "1995-03-14",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Barty Crouch Sr Missing Pressure",
+        "barty_crouch_sr_missing_pressure",
+        "Year 4 Barty Crouch Sr Missing Pressure",
+        "Barty Crouch Sr Missing Pressure Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.karkaroff_snape_suspicion",
+      "label": "Karkaroff Snape Suspicion",
+      "contextType": "story_anchor",
+      "sortKey": 9208,
+      "dateRange": {
+        "from": "1995-03-19",
+        "to": "1995-03-19",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Karkaroff Snape Suspicion",
+        "karkaroff_snape_suspicion",
+        "Year 4 Karkaroff Snape Suspicion",
+        "Karkaroff Snape Suspicion Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.sirius_cave_meeting",
+      "label": "Sirius Cave Meeting",
+      "contextType": "story_anchor",
+      "sortKey": 9214,
+      "dateRange": {
+        "from": "1995-03-25",
+        "to": "1995-03-25",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Sirius Cave Meeting",
+        "sirius_cave_meeting",
+        "Year 4 Sirius Cave Meeting",
+        "Sirius Cave Meeting Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.pensieve_crouch_trial",
+      "label": "Pensieve Crouch Trial",
+      "contextType": "story_anchor",
+      "sortKey": 9220,
+      "dateRange": {
+        "from": "1995-03-31",
+        "to": "1995-03-31",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Pensieve Crouch Trial",
+        "pensieve_crouch_trial",
+        "Year 4 Pensieve Crouch Trial",
+        "Pensieve Crouch Trial Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.bagman_goblin_debt_pressure",
+      "label": "Bagman Goblin Debt Pressure",
+      "contextType": "story_anchor",
+      "sortKey": 9226,
+      "dateRange": {
+        "from": "1995-04-06",
+        "to": "1995-04-06",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Bagman Goblin Debt Pressure",
+        "bagman_goblin_debt_pressure",
+        "Year 4 Bagman Goblin Debt Pressure",
+        "Bagman Goblin Debt Pressure Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.crouch_sr_appears",
+      "label": "Crouch Sr Appears",
+      "contextType": "story_anchor",
+      "sortKey": 9231,
+      "dateRange": {
+        "from": "1995-04-11",
+        "to": "1995-04-11",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Crouch Sr Appears",
+        "crouch_sr_appears",
+        "Year 4 Crouch Sr Appears",
+        "Crouch Sr Appears Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.crouch_sr_disappears",
+      "label": "Crouch Sr Disappears",
+      "contextType": "story_anchor",
+      "sortKey": 9237,
+      "dateRange": {
+        "from": "1995-04-17",
+        "to": "1995-04-17",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Crouch Sr Disappears",
+        "crouch_sr_disappears",
+        "Year 4 Crouch Sr Disappears",
+        "Crouch Sr Disappears Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.third_task_maze_begins",
+      "label": "Third Task Maze Begins",
+      "contextType": "story_anchor",
+      "sortKey": 9243,
+      "dateRange": {
+        "from": "1995-04-23",
+        "to": "1995-04-23",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Third Task Maze Begins",
+        "third_task_maze_begins",
+        "Year 4 Third Task Maze Begins",
+        "Third Task Maze Begins Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.maze_imperius_krum",
+      "label": "Maze Imperius Krum",
+      "contextType": "story_anchor",
+      "sortKey": 9248,
+      "dateRange": {
+        "from": "1995-04-28",
+        "to": "1995-04-28",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Maze Imperius Krum",
+        "maze_imperius_krum",
+        "Year 4 Maze Imperius Krum",
+        "Maze Imperius Krum Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.maze_acromantula",
+      "label": "Maze Acromantula",
+      "contextType": "story_anchor",
+      "sortKey": 9254,
+      "dateRange": {
+        "from": "1995-05-04",
+        "to": "1995-05-04",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Maze Acromantula",
+        "maze_acromantula",
+        "Year 4 Maze Acromantula",
+        "Maze Acromantula Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.portkey_graveyard",
+      "label": "Portkey Graveyard",
+      "contextType": "story_anchor",
+      "sortKey": 9260,
+      "dateRange": {
+        "from": "1995-05-10",
+        "to": "1995-05-10",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Portkey Graveyard",
+        "portkey_graveyard",
+        "Year 4 Portkey Graveyard",
+        "Portkey Graveyard Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.cedric_killed",
+      "label": "Cedric Killed",
+      "contextType": "story_anchor",
+      "sortKey": 9266,
+      "dateRange": {
+        "from": "1995-05-16",
+        "to": "1995-05-16",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Cedric Killed",
+        "cedric_killed",
+        "Year 4 Cedric Killed",
+        "Cedric Killed Year 4",
+        "Cedric dies",
+        "Cedric Diggory dies",
+        "when Cedric dies"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.voldemort_reborn",
+      "label": "Voldemort Reborn",
+      "contextType": "story_anchor",
+      "sortKey": 9271,
+      "dateRange": {
+        "from": "1995-05-21",
+        "to": "1995-05-21",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Voldemort Reborn",
+        "voldemort_reborn",
+        "Year 4 Voldemort Reborn",
+        "Voldemort Reborn Year 4",
+        "Voldemort comes back",
+        "Voldemort returns",
+        "Voldemort reborn"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.priori_incantatem_escape",
+      "label": "Priori Incantatem Escape",
+      "contextType": "story_anchor",
+      "sortKey": 9277,
+      "dateRange": {
+        "from": "1995-05-27",
+        "to": "1995-05-27",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Priori Incantatem Escape",
+        "priori_incantatem_escape",
+        "Year 4 Priori Incantatem Escape",
+        "Priori Incantatem Escape Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.fake_moody_revealed",
+      "label": "Fake Moody Revealed",
+      "contextType": "story_anchor",
+      "sortKey": 9283,
+      "dateRange": {
+        "from": "1995-06-02",
+        "to": "1995-06-02",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Fake Moody Revealed",
+        "fake_moody_revealed",
+        "Year 4 Fake Moody Revealed",
+        "Fake Moody Revealed Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.barty_crouch_jr_confession",
+      "label": "Barty Crouch Jr Confession",
+      "contextType": "story_anchor",
+      "sortKey": 9288,
+      "dateRange": {
+        "from": "1995-06-07",
+        "to": "1995-06-07",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Barty Crouch Jr Confession",
+        "barty_crouch_jr_confession",
+        "Year 4 Barty Crouch Jr Confession",
+        "Barty Crouch Jr Confession Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.ministry_denial_begins",
+      "label": "Ministry Denial Begins",
+      "contextType": "story_anchor",
+      "sortKey": 9294,
+      "dateRange": {
+        "from": "1995-06-13",
+        "to": "1995-06-13",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Ministry Denial Begins",
+        "ministry_denial_begins",
+        "Year 4 Ministry Denial Begins",
+        "Ministry Denial Begins Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.dumbledore_reactivates_order",
+      "label": "Dumbledore Reactivates Order",
+      "contextType": "story_anchor",
+      "sortKey": 9300,
+      "dateRange": {
+        "from": "1995-06-19",
+        "to": "1995-06-19",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Dumbledore Reactivates Order",
+        "dumbledore_reactivates_order",
+        "Year 4 Dumbledore Reactivates Order",
+        "Dumbledore Reactivates Order Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    },
+    {
+      "id": "hp.y4.train_home_after_cedric",
+      "label": "Train Home After Cedric",
+      "contextType": "story_anchor",
+      "sortKey": 9306,
+      "dateRange": {
+        "from": "1995-06-25",
+        "to": "1995-06-25",
+        "precision": "approximate"
+      },
+      "book": "Goblet of Fire",
+      "schoolYear": "4",
+      "arc": "Year 4: Goblet of Fire",
+      "aliases": [
+        "Train Home After Cedric",
+        "train_home_after_cedric",
+        "Year 4 Train Home After Cedric",
+        "Train Home After Cedric Year 4"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4",
+        "book:goblet-of-fire"
+      ]
+    }
+  ],
+  "windows": [
+    {
+      "id": "hp.y4.window.world_cup",
+      "label": "Window World Cup",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y4.frank_bryce_murder",
+      "validToAnchor": "hp.y4.death_eater_riot",
+      "sortKeyFrom": 8992,
+      "sortKeyTo": 9026,
+      "aliases": [
+        "Window World Cup",
+        "window world_cup"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4"
+      ]
+    },
+    {
+      "id": "hp.y4.window.pre_selection_school",
+      "label": "Window Pre Selection School",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y4.dark_mark_cast",
+      "validToAnchor": "hp.y4.moody_unforgivables_lesson",
+      "sortKeyFrom": 9031,
+      "sortKeyTo": 9066,
+      "aliases": [
+        "Window Pre Selection School",
+        "window pre_selection_school"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4"
+      ]
+    },
+    {
+      "id": "hp.y4.window.fourth_champion_fallout",
+      "label": "Window Fourth Champion Fallout",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y4.neville_cruciatus_reaction",
+      "validToAnchor": "hp.y4.school_hostility_badges",
+      "sortKeyFrom": 9071,
+      "sortKeyTo": 9106,
+      "aliases": [
+        "Window Fourth Champion Fallout",
+        "window fourth_champion_fallout"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4"
+      ]
+    },
+    {
+      "id": "hp.y4.window.first_task_preparation",
+      "label": "Window First Task Preparation",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y4.ron_harry_fallout_begins",
+      "validToAnchor": "hp.y4.first_task_dragon",
+      "sortKeyFrom": 9111,
+      "sortKeyTo": 9146,
+      "aliases": [
+        "Window First Task Preparation",
+        "window first_task_preparation"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4"
+      ]
+    },
+    {
+      "id": "hp.y4.window.yule_ball",
+      "label": "Window Yule Ball",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y4.ron_harry_reconcile",
+      "validToAnchor": "hp.y4.moody_guides_harry_to_gillyweed",
+      "sortKeyFrom": 9151,
+      "sortKeyTo": 9186,
+      "aliases": [
+        "Window Yule Ball",
+        "window yule_ball"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4"
+      ]
+    },
+    {
+      "id": "hp.y4.window.second_task_preparation",
+      "label": "Window Second Task Preparation",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y4.second_task_hostages_taken",
+      "validToAnchor": "hp.y4.bagman_goblin_debt_pressure",
+      "sortKeyFrom": 9191,
+      "sortKeyTo": 9226,
+      "aliases": [
+        "Window Second Task Preparation",
+        "window second_task_preparation"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4"
+      ]
+    },
+    {
+      "id": "hp.y4.window.crouch_mystery",
+      "label": "Window Crouch Mystery",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y4.crouch_sr_appears",
+      "validToAnchor": "hp.y4.cedric_killed",
+      "sortKeyFrom": 9231,
+      "sortKeyTo": 9266,
+      "aliases": [
+        "Window Crouch Mystery",
+        "window crouch_mystery"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4"
+      ]
+    },
+    {
+      "id": "hp.y4.window.third_task_and_graveyard",
+      "label": "Window Third Task and Graveyard",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y4.voldemort_reborn",
+      "validToAnchor": "hp.y4.train_home_after_cedric",
+      "sortKeyFrom": 9271,
+      "sortKeyTo": 9306,
+      "aliases": [
+        "Window Third Task and Graveyard",
+        "window third_task_and_graveyard"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4"
+      ]
+    },
+    {
+      "id": "hp.y4.window.voldemort_return_aftermath",
+      "label": "Window Voldemort Return Aftermath",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y4.train_home_after_cedric",
+      "validToAnchor": "hp.y4.train_home_after_cedric",
+      "sortKeyFrom": 9306,
+      "sortKeyTo": 9306,
+      "aliases": [
+        "Window Voldemort Return Aftermath",
+        "window voldemort_return_aftermath"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:4"
+      ]
+    }
+  ]
+}

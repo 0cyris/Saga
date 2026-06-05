@@ -1,0 +1,2371 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "date-derived-day",
+  "summary": "Harry Potter Year 7: Deathly Hallows Context anchors and phase windows for Saga's Harry Potter Golden Trio deck family.",
+  "axes": [
+    {
+      "id": "calendar",
+      "type": "calendar",
+      "label": "Calendar Date"
+    },
+    {
+      "id": "book",
+      "type": "anchor",
+      "label": "Book"
+    },
+    {
+      "id": "schoolYear",
+      "type": "phase",
+      "label": "School Year"
+    },
+    {
+      "id": "arc",
+      "type": "arc",
+      "label": "Story Arc"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "hp.y7.malfoy_manor_burbage_meeting",
+      "label": "Malfoy Manor Burbage Meeting",
+      "contextType": "story_anchor",
+      "sortKey": 10043,
+      "dateRange": {
+        "from": "1997-07-01",
+        "to": "1997-07-01",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Malfoy Manor Burbage Meeting",
+        "malfoy_manor_burbage_meeting",
+        "Year 7 Malfoy Manor Burbage Meeting",
+        "Malfoy Manor Burbage Meeting Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.snape_voldemort_strategy_context",
+      "label": "Snape Voldemort Strategy Context",
+      "contextType": "story_anchor",
+      "sortKey": 10047,
+      "dateRange": {
+        "from": "1997-07-05",
+        "to": "1997-07-05",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Snape Voldemort Strategy Context",
+        "snape_voldemort_strategy_context",
+        "Year 7 Snape Voldemort Strategy Context",
+        "Snape Voldemort Strategy Context Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.privet_departure_preparation",
+      "label": "Privet Departure Preparation",
+      "contextType": "story_anchor",
+      "sortKey": 10051,
+      "dateRange": {
+        "from": "1997-07-09",
+        "to": "1997-07-09",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Privet Departure Preparation",
+        "privet_departure_preparation",
+        "Year 7 Privet Departure Preparation",
+        "Privet Departure Preparation Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.seven_potters_operation",
+      "label": "Seven Potters Operation",
+      "contextType": "story_anchor",
+      "sortKey": 10056,
+      "dateRange": {
+        "from": "1997-07-14",
+        "to": "1997-07-14",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Seven Potters Operation",
+        "seven_potters_operation",
+        "Year 7 Seven Potters Operation",
+        "Seven Potters Operation Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.moody_killed",
+      "label": "Moody Killed",
+      "contextType": "story_anchor",
+      "sortKey": 10060,
+      "dateRange": {
+        "from": "1997-07-18",
+        "to": "1997-07-18",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Moody Killed",
+        "moody_killed",
+        "Year 7 Moody Killed",
+        "Moody Killed Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.george_loses_ear",
+      "label": "George Loses Ear",
+      "contextType": "story_anchor",
+      "sortKey": 10065,
+      "dateRange": {
+        "from": "1997-07-23",
+        "to": "1997-07-23",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "George Loses Ear",
+        "george_loses_ear",
+        "Year 7 George Loses Ear",
+        "George Loses Ear Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.burrow_after_seven_potters",
+      "label": "Burrow After Seven Potters",
+      "contextType": "story_anchor",
+      "sortKey": 10069,
+      "dateRange": {
+        "from": "1997-07-27",
+        "to": "1997-07-27",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Burrow After Seven Potters",
+        "burrow_after_seven_potters",
+        "Year 7 Burrow After Seven Potters",
+        "Burrow After Seven Potters Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.dumbledore_will_bequests",
+      "label": "Dumbledore Will Bequests",
+      "contextType": "story_anchor",
+      "sortKey": 10074,
+      "dateRange": {
+        "from": "1997-08-01",
+        "to": "1997-08-01",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Dumbledore Will Bequests",
+        "dumbledore_will_bequests",
+        "Year 7 Dumbledore Will Bequests",
+        "Dumbledore Will Bequests Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.harry_birthday",
+      "label": "Harry Birthday",
+      "contextType": "story_anchor",
+      "sortKey": 10078,
+      "dateRange": {
+        "from": "1997-08-05",
+        "to": "1997-08-05",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Harry Birthday",
+        "harry_birthday",
+        "Year 7 Harry Birthday",
+        "Harry Birthday Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.wedding_preparations",
+      "label": "Wedding Preparations",
+      "contextType": "story_anchor",
+      "sortKey": 10082,
+      "dateRange": {
+        "from": "1997-08-09",
+        "to": "1997-08-09",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Wedding Preparations",
+        "wedding_preparations",
+        "Year 7 Wedding Preparations",
+        "Wedding Preparations Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.bill_fleur_wedding",
+      "label": "Bill Fleur Wedding",
+      "contextType": "story_anchor",
+      "sortKey": 10087,
+      "dateRange": {
+        "from": "1997-08-14",
+        "to": "1997-08-14",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Bill Fleur Wedding",
+        "bill_fleur_wedding",
+        "Year 7 Bill Fleur Wedding",
+        "Bill Fleur Wedding Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.ministry_falls",
+      "label": "Ministry Falls",
+      "contextType": "story_anchor",
+      "sortKey": 10091,
+      "dateRange": {
+        "from": "1997-08-18",
+        "to": "1997-08-18",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Ministry Falls",
+        "ministry_falls",
+        "Year 7 Ministry Falls",
+        "Ministry Falls Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.wedding_ambush",
+      "label": "Wedding Ambush",
+      "contextType": "story_anchor",
+      "sortKey": 10096,
+      "dateRange": {
+        "from": "1997-08-23",
+        "to": "1997-08-23",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Wedding Ambush",
+        "wedding_ambush",
+        "Year 7 Wedding Ambush",
+        "Wedding Ambush Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.grimmauld_place_hideout",
+      "label": "Grimmauld Place Hideout",
+      "contextType": "story_anchor",
+      "sortKey": 10100,
+      "dateRange": {
+        "from": "1997-08-27",
+        "to": "1997-08-27",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Grimmauld Place Hideout",
+        "grimmauld_place_hideout",
+        "Year 7 Grimmauld Place Hideout",
+        "Grimmauld Place Hideout Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.rab_discovered",
+      "label": "RAB Discovered",
+      "contextType": "story_anchor",
+      "sortKey": 10105,
+      "dateRange": {
+        "from": "1997-09-01",
+        "to": "1997-09-01",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "RAB Discovered",
+        "rab_discovered",
+        "Year 7 RAB Discovered",
+        "RAB Discovered Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.kreacher_locket_story",
+      "label": "Kreacher Locket Story",
+      "contextType": "story_anchor",
+      "sortKey": 10109,
+      "dateRange": {
+        "from": "1997-09-05",
+        "to": "1997-09-05",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Kreacher Locket Story",
+        "kreacher_locket_story",
+        "Year 7 Kreacher Locket Story",
+        "Kreacher Locket Story Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.kreacher_alliance_shift",
+      "label": "Kreacher Alliance Shift",
+      "contextType": "story_anchor",
+      "sortKey": 10113,
+      "dateRange": {
+        "from": "1997-09-09",
+        "to": "1997-09-09",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Kreacher Alliance Shift",
+        "kreacher_alliance_shift",
+        "Year 7 Kreacher Alliance Shift",
+        "Kreacher Alliance Shift Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.ministry_infiltration_planned",
+      "label": "Ministry Infiltration Planned",
+      "contextType": "story_anchor",
+      "sortKey": 10118,
+      "dateRange": {
+        "from": "1997-09-14",
+        "to": "1997-09-14",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Ministry Infiltration Planned",
+        "ministry_infiltration_planned",
+        "Year 7 Ministry Infiltration Planned",
+        "Ministry Infiltration Planned Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.ministry_infiltration",
+      "label": "Ministry Infiltration",
+      "contextType": "story_anchor",
+      "sortKey": 10122,
+      "dateRange": {
+        "from": "1997-09-18",
+        "to": "1997-09-18",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Ministry Infiltration",
+        "ministry_infiltration",
+        "Year 7 Ministry Infiltration",
+        "Ministry Infiltration Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.umbridge_locket_taken",
+      "label": "Umbridge Locket Taken",
+      "contextType": "story_anchor",
+      "sortKey": 10127,
+      "dateRange": {
+        "from": "1997-09-23",
+        "to": "1997-09-23",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Umbridge Locket Taken",
+        "umbridge_locket_taken",
+        "Year 7 Umbridge Locket Taken",
+        "Umbridge Locket Taken Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.yaxley_grimmauld_compromised",
+      "label": "Yaxley Grimmauld Compromised",
+      "contextType": "story_anchor",
+      "sortKey": 10131,
+      "dateRange": {
+        "from": "1997-09-27",
+        "to": "1997-09-27",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Yaxley Grimmauld Compromised",
+        "yaxley_grimmauld_compromised",
+        "Year 7 Yaxley Grimmauld Compromised",
+        "Yaxley Grimmauld Compromised Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.camping_phase_begins",
+      "label": "Camping Phase Begins",
+      "contextType": "story_anchor",
+      "sortKey": 10136,
+      "dateRange": {
+        "from": "1997-10-02",
+        "to": "1997-10-02",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Camping Phase Begins",
+        "camping_phase_begins",
+        "Year 7 Camping Phase Begins",
+        "Camping Phase Begins Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.locket_wearing_strain",
+      "label": "Locket Wearing Strain",
+      "contextType": "story_anchor",
+      "sortKey": 10140,
+      "dateRange": {
+        "from": "1997-10-06",
+        "to": "1997-10-06",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Locket Wearing Strain",
+        "locket_wearing_strain",
+        "Year 7 Locket Wearing Strain",
+        "Locket Wearing Strain Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.phineas_portrait_information",
+      "label": "Phineas Portrait Information",
+      "contextType": "story_anchor",
+      "sortKey": 10145,
+      "dateRange": {
+        "from": "1997-10-11",
+        "to": "1997-10-11",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Phineas Portrait Information",
+        "phineas_portrait_information",
+        "Year 7 Phineas Portrait Information",
+        "Phineas Portrait Information Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.ron_leaves",
+      "label": "Ron Leaves",
+      "contextType": "story_anchor",
+      "sortKey": 10149,
+      "dateRange": {
+        "from": "1997-10-15",
+        "to": "1997-10-15",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Ron Leaves",
+        "ron_leaves",
+        "Year 7 Ron Leaves",
+        "Ron Leaves Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.harry_hermione_alone",
+      "label": "Harry Hermione Alone",
+      "contextType": "story_anchor",
+      "sortKey": 10153,
+      "dateRange": {
+        "from": "1997-10-19",
+        "to": "1997-10-19",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Harry Hermione Alone",
+        "harry_hermione_alone",
+        "Year 7 Harry Hermione Alone",
+        "Harry Hermione Alone Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.godrics_hollow_visit",
+      "label": "Godrics Hollow Visit",
+      "contextType": "story_anchor",
+      "sortKey": 10158,
+      "dateRange": {
+        "from": "1997-10-24",
+        "to": "1997-10-24",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Godrics Hollow Visit",
+        "godrics_hollow_visit",
+        "Year 7 Godrics Hollow Visit",
+        "Godrics Hollow Visit Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.bathilda_nagini_trap",
+      "label": "Bathilda Nagini Trap",
+      "contextType": "story_anchor",
+      "sortKey": 10162,
+      "dateRange": {
+        "from": "1997-10-28",
+        "to": "1997-10-28",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Bathilda Nagini Trap",
+        "bathilda_nagini_trap",
+        "Year 7 Bathilda Nagini Trap",
+        "Bathilda Nagini Trap Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.harry_wand_broken",
+      "label": "Harry Wand Broken",
+      "contextType": "story_anchor",
+      "sortKey": 10167,
+      "dateRange": {
+        "from": "1997-11-02",
+        "to": "1997-11-02",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Harry Wand Broken",
+        "harry_wand_broken",
+        "Year 7 Harry Wand Broken",
+        "Harry Wand Broken Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.silver_doe_appears",
+      "label": "Silver Doe Appears",
+      "contextType": "story_anchor",
+      "sortKey": 10171,
+      "dateRange": {
+        "from": "1997-11-06",
+        "to": "1997-11-06",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Silver Doe Appears",
+        "silver_doe_appears",
+        "Year 7 Silver Doe Appears",
+        "Silver Doe Appears Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.ron_returns",
+      "label": "Ron Returns",
+      "contextType": "story_anchor",
+      "sortKey": 10176,
+      "dateRange": {
+        "from": "1997-11-11",
+        "to": "1997-11-11",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Ron Returns",
+        "ron_returns",
+        "Year 7 Ron Returns",
+        "Ron Returns Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.locket_destroyed",
+      "label": "Locket Destroyed",
+      "contextType": "story_anchor",
+      "sortKey": 10180,
+      "dateRange": {
+        "from": "1997-11-15",
+        "to": "1997-11-15",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Locket Destroyed",
+        "locket_destroyed",
+        "Year 7 Locket Destroyed",
+        "Locket Destroyed Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.lovegood_visit",
+      "label": "Lovegood Visit",
+      "contextType": "story_anchor",
+      "sortKey": 10184,
+      "dateRange": {
+        "from": "1997-11-19",
+        "to": "1997-11-19",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Lovegood Visit",
+        "lovegood_visit",
+        "Year 7 Lovegood Visit",
+        "Lovegood Visit Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.deathly_hallows_explained",
+      "label": "Deathly Hallows Explained",
+      "contextType": "story_anchor",
+      "sortKey": 10189,
+      "dateRange": {
+        "from": "1997-11-24",
+        "to": "1997-11-24",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Deathly Hallows Explained",
+        "deathly_hallows_explained",
+        "Year 7 Deathly Hallows Explained",
+        "Deathly Hallows Explained Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.lovegood_betrayal_escape",
+      "label": "Lovegood Betrayal Escape",
+      "contextType": "story_anchor",
+      "sortKey": 10193,
+      "dateRange": {
+        "from": "1997-11-28",
+        "to": "1997-11-28",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Lovegood Betrayal Escape",
+        "lovegood_betrayal_escape",
+        "Year 7 Lovegood Betrayal Escape",
+        "Lovegood Betrayal Escape Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.taboo_snatchers_capture",
+      "label": "Taboo Snatchers Capture",
+      "contextType": "story_anchor",
+      "sortKey": 10198,
+      "dateRange": {
+        "from": "1997-12-03",
+        "to": "1997-12-03",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Taboo Snatchers Capture",
+        "taboo_snatchers_capture",
+        "Year 7 Taboo Snatchers Capture",
+        "Taboo Snatchers Capture Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.malfoy_manor_capture",
+      "label": "Malfoy Manor Capture",
+      "contextType": "story_anchor",
+      "sortKey": 10202,
+      "dateRange": {
+        "from": "1997-12-07",
+        "to": "1997-12-07",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Malfoy Manor Capture",
+        "malfoy_manor_capture",
+        "Year 7 Malfoy Manor Capture",
+        "Malfoy Manor Capture Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.hermione_tortured",
+      "label": "Hermione Tortured",
+      "contextType": "story_anchor",
+      "sortKey": 10207,
+      "dateRange": {
+        "from": "1997-12-12",
+        "to": "1997-12-12",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Hermione Tortured",
+        "hermione_tortured",
+        "Year 7 Hermione Tortured",
+        "Hermione Tortured Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.dobby_rescue",
+      "label": "Dobby Rescue",
+      "contextType": "story_anchor",
+      "sortKey": 10211,
+      "dateRange": {
+        "from": "1997-12-16",
+        "to": "1997-12-16",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Dobby Rescue",
+        "dobby_rescue",
+        "Year 7 Dobby Rescue",
+        "Dobby Rescue Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.dobby_dies",
+      "label": "Dobby Dies",
+      "contextType": "story_anchor",
+      "sortKey": 10215,
+      "dateRange": {
+        "from": "1997-12-20",
+        "to": "1997-12-20",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Dobby Dies",
+        "dobby_dies",
+        "Year 7 Dobby Dies",
+        "Dobby Dies Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.shell_cottage_refuge",
+      "label": "Shell Cottage Refuge",
+      "contextType": "story_anchor",
+      "sortKey": 10220,
+      "dateRange": {
+        "from": "1997-12-25",
+        "to": "1997-12-25",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Shell Cottage Refuge",
+        "shell_cottage_refuge",
+        "Year 7 Shell Cottage Refuge",
+        "Shell Cottage Refuge Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.ollivander_wandlore",
+      "label": "Ollivander Wandlore",
+      "contextType": "story_anchor",
+      "sortKey": 10224,
+      "dateRange": {
+        "from": "1997-12-29",
+        "to": "1997-12-29",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Ollivander Wandlore",
+        "ollivander_wandlore",
+        "Year 7 Ollivander Wandlore",
+        "Ollivander Wandlore Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.griphook_negotiation",
+      "label": "Griphook Negotiation",
+      "contextType": "story_anchor",
+      "sortKey": 10229,
+      "dateRange": {
+        "from": "1998-01-03",
+        "to": "1998-01-03",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Griphook Negotiation",
+        "griphook_negotiation",
+        "Year 7 Griphook Negotiation",
+        "Griphook Negotiation Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.teddy_birth",
+      "label": "Teddy Birth",
+      "contextType": "story_anchor",
+      "sortKey": 10233,
+      "dateRange": {
+        "from": "1998-01-07",
+        "to": "1998-01-07",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Teddy Birth",
+        "teddy_birth",
+        "Year 7 Teddy Birth",
+        "Teddy Birth Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.gringotts_breakin",
+      "label": "Gringotts Breakin",
+      "contextType": "story_anchor",
+      "sortKey": 10238,
+      "dateRange": {
+        "from": "1998-01-12",
+        "to": "1998-01-12",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Gringotts Breakin",
+        "gringotts_breakin",
+        "Year 7 Gringotts Breakin",
+        "Gringotts Breakin Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.cup_horcrux_taken",
+      "label": "Cup Horcrux Taken",
+      "contextType": "story_anchor",
+      "sortKey": 10242,
+      "dateRange": {
+        "from": "1998-01-16",
+        "to": "1998-01-16",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Cup Horcrux Taken",
+        "cup_horcrux_taken",
+        "Year 7 Cup Horcrux Taken",
+        "Cup Horcrux Taken Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.dragon_escape",
+      "label": "Dragon Escape",
+      "contextType": "story_anchor",
+      "sortKey": 10247,
+      "dateRange": {
+        "from": "1998-01-21",
+        "to": "1998-01-21",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Dragon Escape",
+        "dragon_escape",
+        "Year 7 Dragon Escape",
+        "Dragon Escape Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.hogwarts_return_plan",
+      "label": "Hogwarts Return Plan",
+      "contextType": "story_anchor",
+      "sortKey": 10251,
+      "dateRange": {
+        "from": "1998-01-25",
+        "to": "1998-01-25",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Hogwarts Return Plan",
+        "hogwarts_return_plan",
+        "Year 7 Hogwarts Return Plan",
+        "Hogwarts Return Plan Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.aberforth_contact",
+      "label": "Aberforth Contact",
+      "contextType": "story_anchor",
+      "sortKey": 10255,
+      "dateRange": {
+        "from": "1998-01-29",
+        "to": "1998-01-29",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Aberforth Contact",
+        "aberforth_contact",
+        "Year 7 Aberforth Contact",
+        "Aberforth Contact Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.room_of_requirement_reunion",
+      "label": "Room of Requirement Reunion",
+      "contextType": "story_anchor",
+      "sortKey": 10260,
+      "dateRange": {
+        "from": "1998-02-03",
+        "to": "1998-02-03",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Room of Requirement Reunion",
+        "room_of_requirement_reunion",
+        "Year 7 Room of Requirement Reunion",
+        "Room of Requirement Reunion Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.ravenclaw_diadem_search",
+      "label": "Ravenclaw Diadem Search",
+      "contextType": "story_anchor",
+      "sortKey": 10264,
+      "dateRange": {
+        "from": "1998-02-07",
+        "to": "1998-02-07",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Ravenclaw Diadem Search",
+        "ravenclaw_diadem_search",
+        "Year 7 Ravenclaw Diadem Search",
+        "Ravenclaw Diadem Search Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.carrows_and_hogwarts_resistance",
+      "label": "Carrows and Hogwarts Resistance",
+      "contextType": "story_anchor",
+      "sortKey": 10269,
+      "dateRange": {
+        "from": "1998-02-12",
+        "to": "1998-02-12",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Carrows and Hogwarts Resistance",
+        "carrows_and_hogwarts_resistance",
+        "Year 7 Carrows and Hogwarts Resistance",
+        "Carrows and Hogwarts Resistance Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.battle_hogwarts_begins",
+      "label": "Battle Hogwarts Begins",
+      "contextType": "story_anchor",
+      "sortKey": 10273,
+      "dateRange": {
+        "from": "1998-02-16",
+        "to": "1998-02-16",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Battle Hogwarts Begins",
+        "battle_hogwarts_begins",
+        "Year 7 Battle Hogwarts Begins",
+        "Battle Hogwarts Begins Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.chamber_basilisk_fangs",
+      "label": "Chamber Basilisk Fangs",
+      "contextType": "story_anchor",
+      "sortKey": 10278,
+      "dateRange": {
+        "from": "1998-02-21",
+        "to": "1998-02-21",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Chamber Basilisk Fangs",
+        "chamber_basilisk_fangs",
+        "Year 7 Chamber Basilisk Fangs",
+        "Chamber Basilisk Fangs Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.cup_destroyed",
+      "label": "Cup Destroyed",
+      "contextType": "story_anchor",
+      "sortKey": 10282,
+      "dateRange": {
+        "from": "1998-02-25",
+        "to": "1998-02-25",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Cup Destroyed",
+        "cup_destroyed",
+        "Year 7 Cup Destroyed",
+        "Cup Destroyed Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.diadem_found",
+      "label": "Diadem Found",
+      "contextType": "story_anchor",
+      "sortKey": 10286,
+      "dateRange": {
+        "from": "1998-03-01",
+        "to": "1998-03-01",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Diadem Found",
+        "diadem_found",
+        "Year 7 Diadem Found",
+        "Diadem Found Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.fiendfyre_diadem_destroyed",
+      "label": "Fiendfyre Diadem Destroyed",
+      "contextType": "story_anchor",
+      "sortKey": 10291,
+      "dateRange": {
+        "from": "1998-03-06",
+        "to": "1998-03-06",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Fiendfyre Diadem Destroyed",
+        "fiendfyre_diadem_destroyed",
+        "Year 7 Fiendfyre Diadem Destroyed",
+        "Fiendfyre Diadem Destroyed Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.fred_killed",
+      "label": "Fred Killed",
+      "contextType": "story_anchor",
+      "sortKey": 10295,
+      "dateRange": {
+        "from": "1998-03-10",
+        "to": "1998-03-10",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Fred Killed",
+        "fred_killed",
+        "Year 7 Fred Killed",
+        "Fred Killed Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.snape_killed",
+      "label": "Snape Killed",
+      "contextType": "story_anchor",
+      "sortKey": 10300,
+      "dateRange": {
+        "from": "1998-03-15",
+        "to": "1998-03-15",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Snape Killed",
+        "snape_killed",
+        "Year 7 Snape Killed",
+        "Snape Killed Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.snape_memories",
+      "label": "Snape Memories",
+      "contextType": "story_anchor",
+      "sortKey": 10304,
+      "dateRange": {
+        "from": "1998-03-19",
+        "to": "1998-03-19",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Snape Memories",
+        "snape_memories",
+        "Year 7 Snape Memories",
+        "Snape Memories Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.harry_horcrux_truth",
+      "label": "Harry Horcrux Truth",
+      "contextType": "story_anchor",
+      "sortKey": 10309,
+      "dateRange": {
+        "from": "1998-03-24",
+        "to": "1998-03-24",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Harry Horcrux Truth",
+        "harry_horcrux_truth",
+        "Year 7 Harry Horcrux Truth",
+        "Harry Horcrux Truth Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.forest_walk",
+      "label": "Forest Walk",
+      "contextType": "story_anchor",
+      "sortKey": 10313,
+      "dateRange": {
+        "from": "1998-03-28",
+        "to": "1998-03-28",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Forest Walk",
+        "forest_walk",
+        "Year 7 Forest Walk",
+        "Forest Walk Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.harry_surrenders",
+      "label": "Harry Surrenders",
+      "contextType": "story_anchor",
+      "sortKey": 10317,
+      "dateRange": {
+        "from": "1998-04-01",
+        "to": "1998-04-01",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Harry Surrenders",
+        "harry_surrenders",
+        "Year 7 Harry Surrenders",
+        "Harry Surrenders Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.kings_cross_vision",
+      "label": "Kings Cross Vision",
+      "contextType": "story_anchor",
+      "sortKey": 10322,
+      "dateRange": {
+        "from": "1998-04-06",
+        "to": "1998-04-06",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Kings Cross Vision",
+        "kings_cross_vision",
+        "Year 7 Kings Cross Vision",
+        "Kings Cross Vision Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.narcissa_lies",
+      "label": "Narcissa Lies",
+      "contextType": "story_anchor",
+      "sortKey": 10326,
+      "dateRange": {
+        "from": "1998-04-10",
+        "to": "1998-04-10",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Narcissa Lies",
+        "narcissa_lies",
+        "Year 7 Narcissa Lies",
+        "Narcissa Lies Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.final_battle_resumes",
+      "label": "Final Battle Resumes",
+      "contextType": "story_anchor",
+      "sortKey": 10331,
+      "dateRange": {
+        "from": "1998-04-15",
+        "to": "1998-04-15",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Final Battle Resumes",
+        "final_battle_resumes",
+        "Year 7 Final Battle Resumes",
+        "Final Battle Resumes Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.neville_kills_nagini",
+      "label": "Neville Kills Nagini",
+      "contextType": "story_anchor",
+      "sortKey": 10335,
+      "dateRange": {
+        "from": "1998-04-19",
+        "to": "1998-04-19",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Neville Kills Nagini",
+        "neville_kills_nagini",
+        "Year 7 Neville Kills Nagini",
+        "Neville Kills Nagini Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.voldemort_defeated",
+      "label": "Voldemort Defeated",
+      "contextType": "story_anchor",
+      "sortKey": 10340,
+      "dateRange": {
+        "from": "1998-04-24",
+        "to": "1998-04-24",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Voldemort Defeated",
+        "voldemort_defeated",
+        "Year 7 Voldemort Defeated",
+        "Voldemort Defeated Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.elder_wand_resolution",
+      "label": "Elder Wand Resolution",
+      "contextType": "story_anchor",
+      "sortKey": 10344,
+      "dateRange": {
+        "from": "1998-04-28",
+        "to": "1998-04-28",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Elder Wand Resolution",
+        "elder_wand_resolution",
+        "Year 7 Elder Wand Resolution",
+        "Elder Wand Resolution Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    },
+    {
+      "id": "hp.y7.battle_aftermath",
+      "label": "Battle Aftermath",
+      "contextType": "story_anchor",
+      "sortKey": 10349,
+      "dateRange": {
+        "from": "1998-05-03",
+        "to": "1998-05-03",
+        "precision": "approximate"
+      },
+      "book": "Deathly Hallows",
+      "schoolYear": "7",
+      "arc": "Year 7: Deathly Hallows",
+      "aliases": [
+        "Battle Aftermath",
+        "battle_aftermath",
+        "Year 7 Battle Aftermath",
+        "Battle Aftermath Year 7"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7",
+        "book:deathly-hallows"
+      ]
+    }
+  ],
+  "windows": [
+    {
+      "id": "hp.y7.window.malfoy_manor_opening",
+      "label": "Window Malfoy Manor Opening",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y7.malfoy_manor_burbage_meeting",
+      "validToAnchor": "hp.y7.seven_potters_operation",
+      "sortKeyFrom": 10043,
+      "sortKeyTo": 10056,
+      "aliases": [
+        "Window Malfoy Manor Opening",
+        "window malfoy_manor_opening"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7"
+      ]
+    },
+    {
+      "id": "hp.y7.window.seven_potters_and_burrow",
+      "label": "Window Seven Potters and Burrow",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y7.moody_killed",
+      "validToAnchor": "hp.y7.dumbledore_will_bequests",
+      "sortKeyFrom": 10060,
+      "sortKeyTo": 10074,
+      "aliases": [
+        "Window Seven Potters and Burrow",
+        "window seven_potters_and_burrow"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7"
+      ]
+    },
+    {
+      "id": "hp.y7.window.wedding_to_ministry_fall",
+      "label": "Window Wedding to Ministry Fall",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y7.harry_birthday",
+      "validToAnchor": "hp.y7.ministry_falls",
+      "sortKeyFrom": 10078,
+      "sortKeyTo": 10091,
+      "aliases": [
+        "Window Wedding to Ministry Fall",
+        "window wedding_to_ministry_fall"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7"
+      ]
+    },
+    {
+      "id": "hp.y7.window.grimmauld_and_kreacher",
+      "label": "Window Grimmauld and Kreacher",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y7.wedding_ambush",
+      "validToAnchor": "hp.y7.kreacher_locket_story",
+      "sortKeyFrom": 10096,
+      "sortKeyTo": 10109,
+      "aliases": [
+        "Window Grimmauld and Kreacher",
+        "window grimmauld_and_kreacher"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7"
+      ]
+    },
+    {
+      "id": "hp.y7.window.ministry_infiltration",
+      "label": "Window Ministry Infiltration",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y7.kreacher_alliance_shift",
+      "validToAnchor": "hp.y7.umbridge_locket_taken",
+      "sortKeyFrom": 10113,
+      "sortKeyTo": 10127,
+      "aliases": [
+        "Window Ministry Infiltration",
+        "window ministry_infiltration"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7"
+      ]
+    },
+    {
+      "id": "hp.y7.window.camping_with_ron",
+      "label": "Window Camping with Ron",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y7.yaxley_grimmauld_compromised",
+      "validToAnchor": "hp.y7.phineas_portrait_information",
+      "sortKeyFrom": 10131,
+      "sortKeyTo": 10145,
+      "aliases": [
+        "Window Camping with Ron",
+        "window camping_with_ron"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7"
+      ]
+    },
+    {
+      "id": "hp.y7.window.ron_absent",
+      "label": "Window Ron Absent",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y7.ron_leaves",
+      "validToAnchor": "hp.y7.bathilda_nagini_trap",
+      "sortKeyFrom": 10149,
+      "sortKeyTo": 10162,
+      "aliases": [
+        "Window Ron Absent",
+        "window ron_absent"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7"
+      ]
+    },
+    {
+      "id": "hp.y7.window.godrics_hollow",
+      "label": "Window Godrics Hollow",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y7.harry_wand_broken",
+      "validToAnchor": "hp.y7.locket_destroyed",
+      "sortKeyFrom": 10167,
+      "sortKeyTo": 10180,
+      "aliases": [
+        "Window Godrics Hollow",
+        "window godrics_hollow"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7"
+      ]
+    },
+    {
+      "id": "hp.y7.window.ron_return_to_hallows",
+      "label": "Window Ron Return to Hallows",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y7.lovegood_visit",
+      "validToAnchor": "hp.y7.taboo_snatchers_capture",
+      "sortKeyFrom": 10184,
+      "sortKeyTo": 10198,
+      "aliases": [
+        "Window Ron Return to Hallows",
+        "window ron_return_to_hallows"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7"
+      ]
+    },
+    {
+      "id": "hp.y7.window.lovegood_to_snatchers",
+      "label": "Window Lovegood to Snatchers",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y7.malfoy_manor_capture",
+      "validToAnchor": "hp.y7.dobby_dies",
+      "sortKeyFrom": 10202,
+      "sortKeyTo": 10215,
+      "aliases": [
+        "Window Lovegood to Snatchers",
+        "window lovegood_to_snatchers"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7"
+      ]
+    },
+    {
+      "id": "hp.y7.window.malfoy_manor",
+      "label": "Window Malfoy Manor",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y7.shell_cottage_refuge",
+      "validToAnchor": "hp.y7.teddy_birth",
+      "sortKeyFrom": 10220,
+      "sortKeyTo": 10233,
+      "aliases": [
+        "Window Malfoy Manor",
+        "window malfoy_manor"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7"
+      ]
+    },
+    {
+      "id": "hp.y7.window.shell_cottage",
+      "label": "Window Shell Cottage",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y7.shell_cottage_refuge",
+      "validToAnchor": "hp.y7.gringotts_breakin",
+      "sortKeyFrom": 10220,
+      "sortKeyTo": 10238,
+      "aliases": [
+        "Window Shell Cottage",
+        "window shell_cottage"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7"
+      ]
+    },
+    {
+      "id": "hp.y7.window.gringotts",
+      "label": "Window Gringotts",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y7.gringotts_breakin",
+      "validToAnchor": "hp.y7.dragon_escape",
+      "sortKeyFrom": 10238,
+      "sortKeyTo": 10247,
+      "aliases": [
+        "Window Gringotts",
+        "window gringotts"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7"
+      ]
+    },
+    {
+      "id": "hp.y7.window.hogwarts_return",
+      "label": "Window Hogwarts Return",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y7.hogwarts_return_plan",
+      "validToAnchor": "hp.y7.battle_hogwarts_begins",
+      "sortKeyFrom": 10251,
+      "sortKeyTo": 10273,
+      "aliases": [
+        "Window Hogwarts Return",
+        "window hogwarts_return"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7"
+      ]
+    },
+    {
+      "id": "hp.y7.window.battle_first_phase",
+      "label": "Window Battle First Phase",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y7.fiendfyre_diadem_destroyed",
+      "validToAnchor": "hp.y7.snape_memories",
+      "sortKeyFrom": 10291,
+      "sortKeyTo": 10304,
+      "aliases": [
+        "Window Battle First Phase",
+        "window battle_first_phase"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7"
+      ]
+    },
+    {
+      "id": "hp.y7.window.snape_memories_to_forest",
+      "label": "Window Snape Memories to Forest",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y7.harry_horcrux_truth",
+      "validToAnchor": "hp.y7.kings_cross_vision",
+      "sortKeyFrom": 10309,
+      "sortKeyTo": 10322,
+      "aliases": [
+        "Window Snape Memories to Forest",
+        "window snape_memories_to_forest"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7"
+      ]
+    },
+    {
+      "id": "hp.y7.window.final_duel",
+      "label": "Window Final Duel",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y7.narcissa_lies",
+      "validToAnchor": "hp.y7.voldemort_defeated",
+      "sortKeyFrom": 10326,
+      "sortKeyTo": 10340,
+      "aliases": [
+        "Window Final Duel",
+        "window final_duel"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7"
+      ]
+    },
+    {
+      "id": "hp.y7.window.battle_aftermath",
+      "label": "Window Battle Aftermath",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y7.elder_wand_resolution",
+      "validToAnchor": "hp.y7.battle_aftermath",
+      "sortKeyFrom": 10344,
+      "sortKeyTo": 10349,
+      "aliases": [
+        "Window Battle Aftermath",
+        "window battle_aftermath"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:7"
+      ]
+    }
+  ]
+}

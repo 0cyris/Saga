@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "entrySchemaVersion": 3,
+  "id": "hp-year-3-prisoner-of-azkaban",
+  "type": "bundled",
+  "title": "Harry Potter Year 3: Prisoner of Azkaban",
+  "description": "Year 3 Golden Trio Loredeck for Sirius, Dementors, Hogsmeade, Patronus training, Buckbeak, and the Time-Turner rescue.",
+  "fandom": "Harry Potter",
+  "era": "Year 3: Prisoner of Azkaban",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "0.1.0",
+  "defaultLocale": "en",
+  "generatedAt": "2026-06-05",
+  "databaseId": "saga.hp-year-3-prisoner-of-azkaban",
+  "deckFamilyId": "hp-golden-trio",
+  "family": {
+    "id": "hp-golden-trio",
+    "title": "Harry Potter: Golden Trio",
+    "role": "year",
+    "recommendedCoreDeckId": "hp-core"
+  },
+  "recommendedStack": [
+    "hp-core",
+    "hp-year-3-prisoner-of-azkaban"
+  ],
+  "tags": [
+    "fandom:harry-potter",
+    "era:golden-trio",
+    "structure:split-loredeck",
+    "quality:human-vetted",
+    "school-year:3"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": ""
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "continuity": {
+    "continuityId": "hp-books",
+    "canonTier": "primary",
+    "adaptation": "book",
+    "sourceBoundary": "Year 3: Prisoner of Azkaban"
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "registries": {
+    "timeline": "timeline.json"
+  },
+  "files": [],
+  "compatibility": {
+    "sagaSchemaMin": 3,
+    "sagaSchemaMax": 3
+  },
+  "stats": {
+    "entryCount": 0,
+    "categoryCounts": {},
+    "timelineAnchorCount": 55,
+    "timelineWindowCount": 9
+  }
+}

@@ -1,0 +1,94 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+
+const root = process.cwd();
+const decks = [
+  ['hp-core', 20, 6],
+  ['hp-year-1-philosophers-stone', 55, 8],
+  ['hp-year-2-chamber-of-secrets', 55, 8],
+  ['hp-year-3-prisoner-of-azkaban', 55, 8],
+  ['hp-year-4-goblet-of-fire', 55, 8],
+  ['hp-year-5-order-of-the-phoenix', 55, 9],
+  ['hp-year-6-half-blood-prince', 55, 12],
+  ['hp-year-7-deathly-hallows', 60, 12],
+];
+
+function readJson(relativePath) {
+  return JSON.parse(fs.readFileSync(path.join(root, relativePath), 'utf8'));
+}
+
+function toDay(date) {
+  return Math.floor(new Date(`${date}T00:00:00Z`).getTime() / 86400000);
+}
+
+function timelineSpanDays(timeline) {
+  const datedAnchors = timeline.anchors
+    .filter(anchor => anchor.dateRange?.from)
+    .map(anchor => toDay(anchor.dateRange.from))
+    .sort((a, b) => a - b);
+  return datedAnchors.at(-1) - datedAnchors[0];
+}
+
+for (const [deckId, minAnchors, minWindows] of decks) {
+  const manifest = readJson(path.join('Loredecks', deckId, 'loredeck.json'));
+  const timeline = readJson(path.join('Loredecks', deckId, 'timeline.json'));
+  assert.equal(manifest.id, deckId, `${deckId} manifest ID should match folder.`);
+  assert.equal(manifest.deckFamilyId, 'hp-golden-trio', `${deckId} should declare the HP deck family.`);
+  assert.equal(manifest.registries.timeline, 'timeline.json', `${deckId} should expose a first-class timeline registry.`);
+  assert.ok(Array.isArray(timeline.anchors) && timeline.anchors.length >= minAnchors, `${deckId} should have dense anchors.`);
+  assert.ok(Array.isArray(timeline.windows) && timeline.windows.length >= minWindows, `${deckId} should have curated windows.`);
+  assert.equal(new Set(timeline.anchors.map(anchor => anchor.id)).size, timeline.anchors.length, `${deckId} anchor IDs should be unique.`);
+  assert.equal(new Set(timeline.windows.map(windowDef => windowDef.id)).size, timeline.windows.length, `${deckId} window IDs should be unique.`);
+  for (const anchor of timeline.anchors) {
+    assert.ok(anchor.sortKey !== undefined && Number.isFinite(Number(anchor.sortKey)), `${deckId}:${anchor.id} needs numeric sortKey.`);
+    assert.ok(anchor.label, `${deckId}:${anchor.id} needs a label.`);
+  }
+}
+
+const year6 = readJson(path.join('Loredecks', 'hp-year-6-half-blood-prince', 'timeline.json'));
+const y6AnchorIds = new Set(year6.anchors.map(anchor => anchor.id));
+for (const id of [
+  'hp.y6.slughorn_christmas_party',
+  'hp.y6.post_christmas_return',
+  'hp.y6.apparition_lessons_begin',
+  'hp.y6.susan_bones_splinched',
+]) {
+  assert.ok(y6AnchorIds.has(id), `Year 6 timeline should include ${id}.`);
+}
+const postChristmas = year6.anchors.find(anchor => anchor.id === 'hp.y6.post_christmas_return');
+const apparition = year6.anchors.find(anchor => anchor.id === 'hp.y6.apparition_lessons_begin');
+const susan = year6.anchors.find(anchor => anchor.id === 'hp.y6.susan_bones_splinched');
+assert.equal(postChristmas.dateRange.from, '1997-01-07');
+assert.equal(apparition.dateRange.from, '1997-02-01');
+assert.equal(susan.dateRange.from, '1997-02-01');
+assert.ok(susan.aliases.includes('Susan Bones loses a leg'), 'Year 6 Susan Bones anchor should include casual phrase alias.');
+const postChristmasWindow = year6.windows.find(windowDef => windowDef.id === 'hp.y6.window.post_christmas_before_apparition');
+assert.equal(postChristmasWindow.validFromAnchor, 'hp.y6.post_christmas_return');
+assert.equal(postChristmasWindow.validToAnchor, 'hp.y6.apparition_lessons_begin');
+
+const yearDeckIds = decks
+  .map(([deckId]) => deckId)
+  .filter(deckId => deckId.startsWith('hp-year-'));
+const yearAnchorCounts = yearDeckIds.map(deckId => readJson(path.join('Loredecks', deckId, 'timeline.json')).anchors.length);
+assert.ok(
+  Math.max(...yearAnchorCounts) - Math.min(...yearAnchorCounts) <= 15,
+  `HP year deck anchors should stay balanced. Counts: ${yearAnchorCounts.join(', ')}.`
+);
+
+const year7 = readJson(path.join('Loredecks', 'hp-year-7-deathly-hallows', 'timeline.json'));
+assert.ok(!year7.anchors.some(anchor => anchor.id === 'hp.y7.epilogue_optional'), 'Year 7 active timeline should not include the optional epilogue anchor.');
+assert.ok(timelineSpanDays(year7) <= 400, 'Year 7 active timeline should stay within the main Deathly Hallows story span.');
+for (const id of [
+  'hp.y7.seven_potters_operation',
+  'hp.y7.ministry_infiltration',
+  'hp.y7.malfoy_manor_capture',
+  'hp.y7.shell_cottage_refuge',
+  'hp.y7.gringotts_breakin',
+  'hp.y7.battle_hogwarts_begins',
+  'hp.y7.voldemort_defeated',
+]) {
+  assert.ok(year7.anchors.some(anchor => anchor.id === id), `Year 7 timeline should include ${id}.`);
+}
+
+console.log('HP Loredeck family scaffold tests passed.');

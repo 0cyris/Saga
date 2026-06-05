@@ -1,0 +1,1762 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "date-derived-day",
+  "summary": "Harry Potter Year 3: Prisoner of Azkaban Context anchors and phase windows for Saga's Harry Potter Golden Trio deck family.",
+  "axes": [
+    {
+      "id": "calendar",
+      "type": "calendar",
+      "label": "Calendar Date"
+    },
+    {
+      "id": "book",
+      "type": "anchor",
+      "label": "Book"
+    },
+    {
+      "id": "schoolYear",
+      "type": "phase",
+      "label": "School Year"
+    },
+    {
+      "id": "arc",
+      "type": "arc",
+      "label": "Story Arc"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "hp.y3.marge_arrives",
+      "label": "Marge Arrives",
+      "contextType": "story_anchor",
+      "sortKey": 8612,
+      "dateRange": {
+        "from": "1993-07-31",
+        "to": "1993-07-31",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Marge Arrives",
+        "marge_arrives",
+        "Year 3 Marge Arrives",
+        "Marge Arrives Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.marge_inflated",
+      "label": "Marge Inflated",
+      "contextType": "story_anchor",
+      "sortKey": 8618,
+      "dateRange": {
+        "from": "1993-08-06",
+        "to": "1993-08-06",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Marge Inflated",
+        "marge_inflated",
+        "Year 3 Marge Inflated",
+        "Marge Inflated Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.knight_bus",
+      "label": "Knight Bus",
+      "contextType": "story_anchor",
+      "sortKey": 8624,
+      "dateRange": {
+        "from": "1993-08-12",
+        "to": "1993-08-12",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Knight Bus",
+        "knight_bus",
+        "Year 3 Knight Bus",
+        "Knight Bus Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.leaky_cauldron_wait",
+      "label": "Leaky Cauldron Wait",
+      "contextType": "story_anchor",
+      "sortKey": 8630,
+      "dateRange": {
+        "from": "1993-08-18",
+        "to": "1993-08-18",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Leaky Cauldron Wait",
+        "leaky_cauldron_wait",
+        "Year 3 Leaky Cauldron Wait",
+        "Leaky Cauldron Wait Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.fudge_warning",
+      "label": "Fudge Warning",
+      "contextType": "story_anchor",
+      "sortKey": 8636,
+      "dateRange": {
+        "from": "1993-08-24",
+        "to": "1993-08-24",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Fudge Warning",
+        "fudge_warning",
+        "Year 3 Fudge Warning",
+        "Fudge Warning Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.sirius_news_context",
+      "label": "Sirius News Context",
+      "contextType": "story_anchor",
+      "sortKey": 8642,
+      "dateRange": {
+        "from": "1993-08-30",
+        "to": "1993-08-30",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Sirius News Context",
+        "sirius_news_context",
+        "Year 3 Sirius News Context",
+        "Sirius News Context Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.diagon_alley_free_summer",
+      "label": "Diagon Alley Free Summer",
+      "contextType": "story_anchor",
+      "sortKey": 8648,
+      "dateRange": {
+        "from": "1993-09-05",
+        "to": "1993-09-05",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Diagon Alley Free Summer",
+        "diagon_alley_free_summer",
+        "Year 3 Diagon Alley Free Summer",
+        "Diagon Alley Free Summer Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.ice_cream_diagon_routine",
+      "label": "Ice Cream Diagon Routine",
+      "contextType": "story_anchor",
+      "sortKey": 8654,
+      "dateRange": {
+        "from": "1993-09-11",
+        "to": "1993-09-11",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Ice Cream Diagon Routine",
+        "ice_cream_diagon_routine",
+        "Year 3 Ice Cream Diagon Routine",
+        "Ice Cream Diagon Routine Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.crookshanks_bought",
+      "label": "Crookshanks Bought",
+      "contextType": "story_anchor",
+      "sortKey": 8660,
+      "dateRange": {
+        "from": "1993-09-17",
+        "to": "1993-09-17",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Crookshanks Bought",
+        "crookshanks_bought",
+        "Year 3 Crookshanks Bought",
+        "Crookshanks Bought Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.firebolt_display_seen",
+      "label": "Firebolt Display Seen",
+      "contextType": "story_anchor",
+      "sortKey": 8666,
+      "dateRange": {
+        "from": "1993-09-23",
+        "to": "1993-09-23",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Firebolt Display Seen",
+        "firebolt_display_seen",
+        "Year 3 Firebolt Display Seen",
+        "Firebolt Display Seen Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.dementor_train_search",
+      "label": "Dementor Train Search",
+      "contextType": "story_anchor",
+      "sortKey": 8672,
+      "dateRange": {
+        "from": "1993-09-29",
+        "to": "1993-09-29",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Dementor Train Search",
+        "dementor_train_search",
+        "Year 3 Dementor Train Search",
+        "Dementor Train Search Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.harry_hears_mother_scream",
+      "label": "Harry Hears Mother Scream",
+      "contextType": "story_anchor",
+      "sortKey": 8678,
+      "dateRange": {
+        "from": "1993-10-05",
+        "to": "1993-10-05",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Harry Hears Mother Scream",
+        "harry_hears_mother_scream",
+        "Year 3 Harry Hears Mother Scream",
+        "Harry Hears Mother Scream Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.lupin_intervenes",
+      "label": "Lupin Intervenes",
+      "contextType": "story_anchor",
+      "sortKey": 8684,
+      "dateRange": {
+        "from": "1993-10-11",
+        "to": "1993-10-11",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Lupin Intervenes",
+        "lupin_intervenes",
+        "Year 3 Lupin Intervenes",
+        "Lupin Intervenes Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.arrival_dementor_rules",
+      "label": "Arrival Dementor Rules",
+      "contextType": "story_anchor",
+      "sortKey": 8690,
+      "dateRange": {
+        "from": "1993-10-17",
+        "to": "1993-10-17",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Arrival Dementor Rules",
+        "arrival_dementor_rules",
+        "Year 3 Arrival Dementor Rules",
+        "Arrival Dementor Rules Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.divination_begins",
+      "label": "Divination Begins",
+      "contextType": "story_anchor",
+      "sortKey": 8696,
+      "dateRange": {
+        "from": "1993-10-23",
+        "to": "1993-10-23",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Divination Begins",
+        "divination_begins",
+        "Year 3 Divination Begins",
+        "Divination Begins Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.care_magical_creatures_first_lesson",
+      "label": "Care Magical Creatures First Lesson",
+      "contextType": "story_anchor",
+      "sortKey": 8702,
+      "dateRange": {
+        "from": "1993-10-29",
+        "to": "1993-10-29",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Care Magical Creatures First Lesson",
+        "care_magical_creatures_first_lesson",
+        "Year 3 Care Magical Creatures First Lesson",
+        "Care Magical Creatures First Lesson Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.grim_omen_pressure",
+      "label": "Grim Omen Pressure",
+      "contextType": "story_anchor",
+      "sortKey": 8708,
+      "dateRange": {
+        "from": "1993-11-04",
+        "to": "1993-11-04",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Grim Omen Pressure",
+        "grim_omen_pressure",
+        "Year 3 Grim Omen Pressure",
+        "Grim Omen Pressure Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.buckbeak_injures_draco",
+      "label": "Buckbeak Injures Draco",
+      "contextType": "story_anchor",
+      "sortKey": 8714,
+      "dateRange": {
+        "from": "1993-11-10",
+        "to": "1993-11-10",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Buckbeak Injures Draco",
+        "buckbeak_injures_draco",
+        "Year 3 Buckbeak Injures Draco",
+        "Buckbeak Injures Draco Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.boggart_lesson",
+      "label": "Boggart Lesson",
+      "contextType": "story_anchor",
+      "sortKey": 8720,
+      "dateRange": {
+        "from": "1993-11-16",
+        "to": "1993-11-16",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Boggart Lesson",
+        "boggart_lesson",
+        "Year 3 Boggart Lesson",
+        "Boggart Lesson Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.lupin_withholds_harry_boggart",
+      "label": "Lupin Withholds Harry Boggart",
+      "contextType": "story_anchor",
+      "sortKey": 8726,
+      "dateRange": {
+        "from": "1993-11-22",
+        "to": "1993-11-22",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Lupin Withholds Harry Boggart",
+        "lupin_withholds_harry_boggart",
+        "Year 3 Lupin Withholds Harry Boggart",
+        "Lupin Withholds Harry Boggart Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.snape_lupin_tension_visible",
+      "label": "Snape Lupin Tension Visible",
+      "contextType": "story_anchor",
+      "sortKey": 8732,
+      "dateRange": {
+        "from": "1993-11-28",
+        "to": "1993-11-28",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Snape Lupin Tension Visible",
+        "snape_lupin_tension_visible",
+        "Year 3 Snape Lupin Tension Visible",
+        "Snape Lupin Tension Visible Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.fat_lady_attack",
+      "label": "Fat Lady Attack",
+      "contextType": "story_anchor",
+      "sortKey": 8738,
+      "dateRange": {
+        "from": "1993-12-04",
+        "to": "1993-12-04",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Fat Lady Attack",
+        "fat_lady_attack",
+        "Year 3 Fat Lady Attack",
+        "Fat Lady Attack Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.security_lockdown",
+      "label": "Security Lockdown",
+      "contextType": "story_anchor",
+      "sortKey": 8744,
+      "dateRange": {
+        "from": "1993-12-10",
+        "to": "1993-12-10",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Security Lockdown",
+        "security_lockdown",
+        "Year 3 Security Lockdown",
+        "Security Lockdown Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.sleeping_in_great_hall",
+      "label": "Sleeping in Great Hall",
+      "contextType": "story_anchor",
+      "sortKey": 8750,
+      "dateRange": {
+        "from": "1993-12-16",
+        "to": "1993-12-16",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Sleeping in Great Hall",
+        "sleeping_in_great_hall",
+        "Year 3 Sleeping in Great Hall",
+        "Sleeping in Great Hall Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.dementor_quidditch_collapse",
+      "label": "Dementor Quidditch Collapse",
+      "contextType": "story_anchor",
+      "sortKey": 8756,
+      "dateRange": {
+        "from": "1993-12-22",
+        "to": "1993-12-22",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Dementor Quidditch Collapse",
+        "dementor_quidditch_collapse",
+        "Year 3 Dementor Quidditch Collapse",
+        "Dementor Quidditch Collapse Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.harry_loses_match",
+      "label": "Harry Loses Match",
+      "contextType": "story_anchor",
+      "sortKey": 8762,
+      "dateRange": {
+        "from": "1993-12-28",
+        "to": "1993-12-28",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Harry Loses Match",
+        "harry_loses_match",
+        "Year 3 Harry Loses Match",
+        "Harry Loses Match Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.marauders_map_given",
+      "label": "Marauders Map Given",
+      "contextType": "story_anchor",
+      "sortKey": 8768,
+      "dateRange": {
+        "from": "1994-01-03",
+        "to": "1994-01-03",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Marauders Map Given",
+        "marauders_map_given",
+        "Year 3 Marauders Map Given",
+        "Marauders Map Given Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.secret_hogsmeade_first",
+      "label": "Secret Hogsmeade First",
+      "contextType": "story_anchor",
+      "sortKey": 8774,
+      "dateRange": {
+        "from": "1994-01-09",
+        "to": "1994-01-09",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Secret Hogsmeade First",
+        "secret_hogsmeade_first",
+        "Year 3 Secret Hogsmeade First",
+        "Secret Hogsmeade First Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.honeydukes_passage_revealed",
+      "label": "Honeydukes Passage Revealed",
+      "contextType": "story_anchor",
+      "sortKey": 8780,
+      "dateRange": {
+        "from": "1994-01-15",
+        "to": "1994-01-15",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Honeydukes Passage Revealed",
+        "honeydukes_passage_revealed",
+        "Year 3 Honeydukes Passage Revealed",
+        "Honeydukes Passage Revealed Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.three_broomsticks_sirius_story",
+      "label": "Three Broomsticks Sirius Story",
+      "contextType": "story_anchor",
+      "sortKey": 8786,
+      "dateRange": {
+        "from": "1994-01-21",
+        "to": "1994-01-21",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Three Broomsticks Sirius Story",
+        "three_broomsticks_sirius_story",
+        "Year 3 Three Broomsticks Sirius Story",
+        "Three Broomsticks Sirius Story Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.firebolt_arrives",
+      "label": "Firebolt Arrives",
+      "contextType": "story_anchor",
+      "sortKey": 8792,
+      "dateRange": {
+        "from": "1994-01-27",
+        "to": "1994-01-27",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Firebolt Arrives",
+        "firebolt_arrives",
+        "Year 3 Firebolt Arrives",
+        "Firebolt Arrives Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.firebolt_confiscated",
+      "label": "Firebolt Confiscated",
+      "contextType": "story_anchor",
+      "sortKey": 8798,
+      "dateRange": {
+        "from": "1994-02-02",
+        "to": "1994-02-02",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Firebolt Confiscated",
+        "firebolt_confiscated",
+        "Year 3 Firebolt Confiscated",
+        "Firebolt Confiscated Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.hermione_crookshanks_ron_fight",
+      "label": "Hermione Crookshanks Ron Fight",
+      "contextType": "story_anchor",
+      "sortKey": 8804,
+      "dateRange": {
+        "from": "1994-02-08",
+        "to": "1994-02-08",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Hermione Crookshanks Ron Fight",
+        "hermione_crookshanks_ron_fight",
+        "Year 3 Hermione Crookshanks Ron Fight",
+        "Hermione Crookshanks Ron Fight Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.patronus_lessons_begin",
+      "label": "Patronus Lessons Begin",
+      "contextType": "story_anchor",
+      "sortKey": 8810,
+      "dateRange": {
+        "from": "1994-02-14",
+        "to": "1994-02-14",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Patronus Lessons Begin",
+        "patronus_lessons_begin",
+        "Year 3 Patronus Lessons Begin",
+        "Patronus Lessons Begin Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.dementor_memory_training",
+      "label": "Dementor Memory Training",
+      "contextType": "story_anchor",
+      "sortKey": 8816,
+      "dateRange": {
+        "from": "1994-02-20",
+        "to": "1994-02-20",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Dementor Memory Training",
+        "dementor_memory_training",
+        "Year 3 Dementor Memory Training",
+        "Dementor Memory Training Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.ron_curtains_sirius",
+      "label": "Ron Curtains Sirius",
+      "contextType": "story_anchor",
+      "sortKey": 8822,
+      "dateRange": {
+        "from": "1994-02-26",
+        "to": "1994-02-26",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Ron Curtains Sirius",
+        "ron_curtains_sirius",
+        "Year 3 Ron Curtains Sirius",
+        "Ron Curtains Sirius Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.scabbers_disappears",
+      "label": "Scabbers Disappears",
+      "contextType": "story_anchor",
+      "sortKey": 8828,
+      "dateRange": {
+        "from": "1994-03-04",
+        "to": "1994-03-04",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Scabbers Disappears",
+        "scabbers_disappears",
+        "Year 3 Scabbers Disappears",
+        "Scabbers Disappears Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.hermione_stress_time_turner_clues",
+      "label": "Hermione Stress Time Turner Clues",
+      "contextType": "story_anchor",
+      "sortKey": 8834,
+      "dateRange": {
+        "from": "1994-03-10",
+        "to": "1994-03-10",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Hermione Stress Time Turner Clues",
+        "hermione_stress_time_turner_clues",
+        "Year 3 Hermione Stress Time Turner Clues",
+        "Hermione Stress Time Turner Clues Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.firebolt_returned",
+      "label": "Firebolt Returned",
+      "contextType": "story_anchor",
+      "sortKey": 8840,
+      "dateRange": {
+        "from": "1994-03-16",
+        "to": "1994-03-16",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Firebolt Returned",
+        "firebolt_returned",
+        "Year 3 Firebolt Returned",
+        "Firebolt Returned Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.patronus_improves",
+      "label": "Patronus Improves",
+      "contextType": "story_anchor",
+      "sortKey": 8846,
+      "dateRange": {
+        "from": "1994-03-22",
+        "to": "1994-03-22",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Patronus Improves",
+        "patronus_improves",
+        "Year 3 Patronus Improves",
+        "Patronus Improves Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.quidditch_cup_won",
+      "label": "Quidditch Cup Won",
+      "contextType": "story_anchor",
+      "sortKey": 8852,
+      "dateRange": {
+        "from": "1994-03-28",
+        "to": "1994-03-28",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Quidditch Cup Won",
+        "quidditch_cup_won",
+        "Year 3 Quidditch Cup Won",
+        "Quidditch Cup Won Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.buckbeak_execution_notice",
+      "label": "Buckbeak Execution Notice",
+      "contextType": "story_anchor",
+      "sortKey": 8858,
+      "dateRange": {
+        "from": "1994-04-03",
+        "to": "1994-04-03",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Buckbeak Execution Notice",
+        "buckbeak_execution_notice",
+        "Year 3 Buckbeak Execution Notice",
+        "Buckbeak Execution Notice Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.divination_exam_prophecy",
+      "label": "Divination Exam Prophecy",
+      "contextType": "story_anchor",
+      "sortKey": 8864,
+      "dateRange": {
+        "from": "1994-04-09",
+        "to": "1994-04-09",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Divination Exam Prophecy",
+        "divination_exam_prophecy",
+        "Year 3 Divination Exam Prophecy",
+        "Divination Exam Prophecy Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.scabbers_revealed_alive",
+      "label": "Scabbers Revealed Alive",
+      "contextType": "story_anchor",
+      "sortKey": 8870,
+      "dateRange": {
+        "from": "1994-04-15",
+        "to": "1994-04-15",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Scabbers Revealed Alive",
+        "scabbers_revealed_alive",
+        "Year 3 Scabbers Revealed Alive",
+        "Scabbers Revealed Alive Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.shrieking_shack_reveal",
+      "label": "Shrieking Shack Reveal",
+      "contextType": "story_anchor",
+      "sortKey": 8876,
+      "dateRange": {
+        "from": "1994-04-21",
+        "to": "1994-04-21",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Shrieking Shack Reveal",
+        "shrieking_shack_reveal",
+        "Year 3 Shrieking Shack Reveal",
+        "Shrieking Shack Reveal Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.pettigrew_exposed",
+      "label": "Pettigrew Exposed",
+      "contextType": "story_anchor",
+      "sortKey": 8882,
+      "dateRange": {
+        "from": "1994-04-27",
+        "to": "1994-04-27",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Pettigrew Exposed",
+        "pettigrew_exposed",
+        "Year 3 Pettigrew Exposed",
+        "Pettigrew Exposed Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.sirius_offers_harry_home",
+      "label": "Sirius Offers Harry Home",
+      "contextType": "story_anchor",
+      "sortKey": 8888,
+      "dateRange": {
+        "from": "1994-05-03",
+        "to": "1994-05-03",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Sirius Offers Harry Home",
+        "sirius_offers_harry_home",
+        "Year 3 Sirius Offers Harry Home",
+        "Sirius Offers Harry Home Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.lupin_werewolf_transformation",
+      "label": "Lupin Werewolf Transformation",
+      "contextType": "story_anchor",
+      "sortKey": 8894,
+      "dateRange": {
+        "from": "1994-05-09",
+        "to": "1994-05-09",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Lupin Werewolf Transformation",
+        "lupin_werewolf_transformation",
+        "Year 3 Lupin Werewolf Transformation",
+        "Lupin Werewolf Transformation Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.lake_dementors",
+      "label": "Lake Dementors",
+      "contextType": "story_anchor",
+      "sortKey": 8900,
+      "dateRange": {
+        "from": "1994-05-15",
+        "to": "1994-05-15",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Lake Dementors",
+        "lake_dementors",
+        "Year 3 Lake Dementors",
+        "Lake Dementors Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.harry_casts_full_patronus",
+      "label": "Harry Casts Full Patronus",
+      "contextType": "story_anchor",
+      "sortKey": 8906,
+      "dateRange": {
+        "from": "1994-05-21",
+        "to": "1994-05-21",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Harry Casts Full Patronus",
+        "harry_casts_full_patronus",
+        "Year 3 Harry Casts Full Patronus",
+        "Harry Casts Full Patronus Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.time_turner_revealed",
+      "label": "Time Turner Revealed",
+      "contextType": "story_anchor",
+      "sortKey": 8912,
+      "dateRange": {
+        "from": "1994-05-27",
+        "to": "1994-05-27",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Time Turner Revealed",
+        "time_turner_revealed",
+        "Year 3 Time Turner Revealed",
+        "Time Turner Revealed Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.buckbeak_saved",
+      "label": "Buckbeak Saved",
+      "contextType": "story_anchor",
+      "sortKey": 8918,
+      "dateRange": {
+        "from": "1994-06-02",
+        "to": "1994-06-02",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Buckbeak Saved",
+        "buckbeak_saved",
+        "Year 3 Buckbeak Saved",
+        "Buckbeak Saved Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.sirius_escapes",
+      "label": "Sirius Escapes",
+      "contextType": "story_anchor",
+      "sortKey": 8924,
+      "dateRange": {
+        "from": "1994-06-08",
+        "to": "1994-06-08",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Sirius Escapes",
+        "sirius_escapes",
+        "Year 3 Sirius Escapes",
+        "Sirius Escapes Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.lupin_resigns",
+      "label": "Lupin Resigns",
+      "contextType": "story_anchor",
+      "sortKey": 8930,
+      "dateRange": {
+        "from": "1994-06-14",
+        "to": "1994-06-14",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Lupin Resigns",
+        "lupin_resigns",
+        "Year 3 Lupin Resigns",
+        "Lupin Resigns Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    },
+    {
+      "id": "hp.y3.firebolt_gift_from_sirius",
+      "label": "Firebolt Gift from Sirius",
+      "contextType": "story_anchor",
+      "sortKey": 8936,
+      "dateRange": {
+        "from": "1994-06-20",
+        "to": "1994-06-20",
+        "precision": "approximate"
+      },
+      "book": "Prisoner of Azkaban",
+      "schoolYear": "3",
+      "arc": "Year 3: Prisoner of Azkaban",
+      "aliases": [
+        "Firebolt Gift from Sirius",
+        "firebolt_gift_from_sirius",
+        "Year 3 Firebolt Gift from Sirius",
+        "Firebolt Gift from Sirius Year 3"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3",
+        "book:prisoner-of-azkaban"
+      ]
+    }
+  ],
+  "windows": [
+    {
+      "id": "hp.y3.window.pre_hogwarts_fugitive_summer",
+      "label": "Window Pre Hogwarts Fugitive Summer",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y3.marge_arrives",
+      "validToAnchor": "hp.y3.diagon_alley_free_summer",
+      "sortKeyFrom": 8612,
+      "sortKeyTo": 8648,
+      "aliases": [
+        "Window Pre Hogwarts Fugitive Summer",
+        "window pre_hogwarts_fugitive_summer"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3"
+      ]
+    },
+    {
+      "id": "hp.y3.window.dementor_security",
+      "label": "Window Dementor Security",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y3.ice_cream_diagon_routine",
+      "validToAnchor": "hp.y3.arrival_dementor_rules",
+      "sortKeyFrom": 8654,
+      "sortKeyTo": 8690,
+      "aliases": [
+        "Window Dementor Security",
+        "window dementor_security"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3"
+      ]
+    },
+    {
+      "id": "hp.y3.window.hogsmeade_restricted",
+      "label": "Window Hogsmeade Restricted",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y3.divination_begins",
+      "validToAnchor": "hp.y3.snape_lupin_tension_visible",
+      "sortKeyFrom": 8696,
+      "sortKeyTo": 8732,
+      "aliases": [
+        "Window Hogsmeade Restricted",
+        "window hogsmeade_restricted"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3"
+      ]
+    },
+    {
+      "id": "hp.y3.window.map_and_secret_hogsmeade",
+      "label": "Window Map and Secret Hogsmeade",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y3.fat_lady_attack",
+      "validToAnchor": "hp.y3.secret_hogsmeade_first",
+      "sortKeyFrom": 8738,
+      "sortKeyTo": 8774,
+      "aliases": [
+        "Window Map and Secret Hogsmeade",
+        "window map_and_secret_hogsmeade"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3"
+      ]
+    },
+    {
+      "id": "hp.y3.window.patronus_training",
+      "label": "Window Patronus Training",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y3.honeydukes_passage_revealed",
+      "validToAnchor": "hp.y3.dementor_memory_training",
+      "sortKeyFrom": 8780,
+      "sortKeyTo": 8816,
+      "aliases": [
+        "Window Patronus Training",
+        "window patronus_training"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3"
+      ]
+    },
+    {
+      "id": "hp.y3.window.buckbeak_appeal",
+      "label": "Window Buckbeak Appeal",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y3.ron_curtains_sirius",
+      "validToAnchor": "hp.y3.buckbeak_execution_notice",
+      "sortKeyFrom": 8822,
+      "sortKeyTo": 8858,
+      "aliases": [
+        "Window Buckbeak Appeal",
+        "window buckbeak_appeal"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3"
+      ]
+    },
+    {
+      "id": "hp.y3.window.shrieking_shack_night",
+      "label": "Window Shrieking Shack Night",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y3.divination_exam_prophecy",
+      "validToAnchor": "hp.y3.lake_dementors",
+      "sortKeyFrom": 8864,
+      "sortKeyTo": 8900,
+      "aliases": [
+        "Window Shrieking Shack Night",
+        "window shrieking_shack_night"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3"
+      ]
+    },
+    {
+      "id": "hp.y3.window.time_turner_rescue",
+      "label": "Window Time Turner Rescue",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y3.harry_casts_full_patronus",
+      "validToAnchor": "hp.y3.firebolt_gift_from_sirius",
+      "sortKeyFrom": 8906,
+      "sortKeyTo": 8936,
+      "aliases": [
+        "Window Time Turner Rescue",
+        "window time_turner_rescue"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3"
+      ]
+    },
+    {
+      "id": "hp.y3.window.aftermath",
+      "label": "Window Aftermath",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y3.firebolt_gift_from_sirius",
+      "validToAnchor": "hp.y3.firebolt_gift_from_sirius",
+      "sortKeyFrom": 8936,
+      "sortKeyTo": 8936,
+      "aliases": [
+        "Window Aftermath",
+        "window aftermath"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:3"
+      ]
+    }
+  ]
+}

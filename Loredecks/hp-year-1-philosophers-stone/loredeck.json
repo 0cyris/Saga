@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "entrySchemaVersion": 3,
+  "id": "hp-year-1-philosophers-stone",
+  "type": "bundled",
+  "title": "Harry Potter Year 1: Philosopher's Stone",
+  "description": "Year 1 Golden Trio Loredeck for Philosopher's Stone, from pre-Hogwarts discovery through the Stone incident aftermath.",
+  "fandom": "Harry Potter",
+  "era": "Year 1: Philosopher's Stone",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "0.1.0",
+  "defaultLocale": "en",
+  "generatedAt": "2026-06-05",
+  "databaseId": "saga.hp-year-1-philosophers-stone",
+  "deckFamilyId": "hp-golden-trio",
+  "family": {
+    "id": "hp-golden-trio",
+    "title": "Harry Potter: Golden Trio",
+    "role": "year",
+    "recommendedCoreDeckId": "hp-core"
+  },
+  "recommendedStack": [
+    "hp-core",
+    "hp-year-1-philosophers-stone"
+  ],
+  "tags": [
+    "fandom:harry-potter",
+    "era:golden-trio",
+    "structure:split-loredeck",
+    "quality:human-vetted",
+    "school-year:1"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": ""
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "continuity": {
+    "continuityId": "hp-books",
+    "canonTier": "primary",
+    "adaptation": "book",
+    "sourceBoundary": "Year 1: Philosopher's Stone"
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "registries": {
+    "timeline": "timeline.json"
+  },
+  "files": [],
+  "compatibility": {
+    "sagaSchemaMin": 3,
+    "sagaSchemaMax": 3
+  },
+  "stats": {
+    "entryCount": 0,
+    "categoryCounts": {},
+    "timelineAnchorCount": 55,
+    "timelineWindowCount": 9
+  }
+}

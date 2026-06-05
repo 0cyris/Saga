@@ -1,0 +1,1762 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "date-derived-day",
+  "summary": "Harry Potter Year 2: Chamber of Secrets Context anchors and phase windows for Saga's Harry Potter Golden Trio deck family.",
+  "axes": [
+    {
+      "id": "calendar",
+      "type": "calendar",
+      "label": "Calendar Date"
+    },
+    {
+      "id": "book",
+      "type": "anchor",
+      "label": "Book"
+    },
+    {
+      "id": "schoolYear",
+      "type": "phase",
+      "label": "School Year"
+    },
+    {
+      "id": "arc",
+      "type": "arc",
+      "label": "Story Arc"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "hp.y2.privet_drive_summer",
+      "label": "Privet Drive Summer",
+      "contextType": "story_anchor",
+      "sortKey": 8247,
+      "dateRange": {
+        "from": "1992-07-31",
+        "to": "1992-07-31",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Privet Drive Summer",
+        "privet_drive_summer",
+        "Year 2 Privet Drive Summer",
+        "Privet Drive Summer Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.dobby_warning",
+      "label": "Dobby Warning",
+      "contextType": "story_anchor",
+      "sortKey": 8253,
+      "dateRange": {
+        "from": "1992-08-06",
+        "to": "1992-08-06",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Dobby Warning",
+        "dobby_warning",
+        "Year 2 Dobby Warning",
+        "Dobby Warning Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.mason_dinner_ruined",
+      "label": "Mason Dinner Ruined",
+      "contextType": "story_anchor",
+      "sortKey": 8259,
+      "dateRange": {
+        "from": "1992-08-12",
+        "to": "1992-08-12",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Mason Dinner Ruined",
+        "mason_dinner_ruined",
+        "Year 2 Mason Dinner Ruined",
+        "Mason Dinner Ruined Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.bars_on_window",
+      "label": "Bars On Window",
+      "contextType": "story_anchor",
+      "sortKey": 8265,
+      "dateRange": {
+        "from": "1992-08-18",
+        "to": "1992-08-18",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Bars On Window",
+        "bars_on_window",
+        "Year 2 Bars On Window",
+        "Bars On Window Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.flying_car_rescue",
+      "label": "Flying Car Rescue",
+      "contextType": "story_anchor",
+      "sortKey": 8271,
+      "dateRange": {
+        "from": "1992-08-24",
+        "to": "1992-08-24",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Flying Car Rescue",
+        "flying_car_rescue",
+        "Year 2 Flying Car Rescue",
+        "Flying Car Rescue Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.burrow_arrival",
+      "label": "Burrow Arrival",
+      "contextType": "story_anchor",
+      "sortKey": 8277,
+      "dateRange": {
+        "from": "1992-08-30",
+        "to": "1992-08-30",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Burrow Arrival",
+        "burrow_arrival",
+        "Year 2 Burrow Arrival",
+        "Burrow Arrival Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.burrow_family_baseline",
+      "label": "Burrow Family Baseline",
+      "contextType": "story_anchor",
+      "sortKey": 8283,
+      "dateRange": {
+        "from": "1992-09-05",
+        "to": "1992-09-05",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Burrow Family Baseline",
+        "burrow_family_baseline",
+        "Year 2 Burrow Family Baseline",
+        "Burrow Family Baseline Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.degnoming_and_weasley_home",
+      "label": "Degnoming and Weasley Home",
+      "contextType": "story_anchor",
+      "sortKey": 8289,
+      "dateRange": {
+        "from": "1992-09-11",
+        "to": "1992-09-11",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Degnoming and Weasley Home",
+        "degnoming_and_weasley_home",
+        "Year 2 Degnoming and Weasley Home",
+        "Degnoming and Weasley Home Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.floo_knockturn_mishap",
+      "label": "Floo Knockturn Mishap",
+      "contextType": "story_anchor",
+      "sortKey": 8295,
+      "dateRange": {
+        "from": "1992-09-17",
+        "to": "1992-09-17",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Floo Knockturn Mishap",
+        "floo_knockturn_mishap",
+        "Year 2 Floo Knockturn Mishap",
+        "Floo Knockturn Mishap Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.borgin_burkes_draco_clue",
+      "label": "Borgin Burkes Draco Clue",
+      "contextType": "story_anchor",
+      "sortKey": 8301,
+      "dateRange": {
+        "from": "1992-09-23",
+        "to": "1992-09-23",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Borgin Burkes Draco Clue",
+        "borgin_burkes_draco_clue",
+        "Year 2 Borgin Burkes Draco Clue",
+        "Borgin Burkes Draco Clue Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.lockhart_signing",
+      "label": "Lockhart Signing",
+      "contextType": "story_anchor",
+      "sortKey": 8307,
+      "dateRange": {
+        "from": "1992-09-29",
+        "to": "1992-09-29",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Lockhart Signing",
+        "lockhart_signing",
+        "Year 2 Lockhart Signing",
+        "Lockhart Signing Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.lucius_malfoy_diary_plant",
+      "label": "Lucius Malfoy Diary Plant",
+      "contextType": "story_anchor",
+      "sortKey": 8313,
+      "dateRange": {
+        "from": "1992-10-05",
+        "to": "1992-10-05",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Lucius Malfoy Diary Plant",
+        "lucius_malfoy_diary_plant",
+        "Year 2 Lucius Malfoy Diary Plant",
+        "Lucius Malfoy Diary Plant Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.platform_barrier_closed",
+      "label": "Platform Barrier Closed",
+      "contextType": "story_anchor",
+      "sortKey": 8319,
+      "dateRange": {
+        "from": "1992-10-11",
+        "to": "1992-10-11",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Platform Barrier Closed",
+        "platform_barrier_closed",
+        "Year 2 Platform Barrier Closed",
+        "Platform Barrier Closed Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.flying_car_to_hogwarts",
+      "label": "Flying Car to Hogwarts",
+      "contextType": "story_anchor",
+      "sortKey": 8325,
+      "dateRange": {
+        "from": "1992-10-17",
+        "to": "1992-10-17",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Flying Car to Hogwarts",
+        "flying_car_to_hogwarts",
+        "Year 2 Flying Car to Hogwarts",
+        "Flying Car to Hogwarts Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.whomping_willow_crash",
+      "label": "Whomping Willow Crash",
+      "contextType": "story_anchor",
+      "sortKey": 8331,
+      "dateRange": {
+        "from": "1992-10-23",
+        "to": "1992-10-23",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Whomping Willow Crash",
+        "whomping_willow_crash",
+        "Year 2 Whomping Willow Crash",
+        "Whomping Willow Crash Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.filch_kwikspell_revealed",
+      "label": "Filch Kwikspell Revealed",
+      "contextType": "story_anchor",
+      "sortKey": 8337,
+      "dateRange": {
+        "from": "1992-10-29",
+        "to": "1992-10-29",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Filch Kwikspell Revealed",
+        "filch_kwikspell_revealed",
+        "Year 2 Filch Kwikspell Revealed",
+        "Filch Kwikspell Revealed Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.ginny_sorted",
+      "label": "Ginny Sorted",
+      "contextType": "story_anchor",
+      "sortKey": 8343,
+      "dateRange": {
+        "from": "1992-11-04",
+        "to": "1992-11-04",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Ginny Sorted",
+        "ginny_sorted",
+        "Year 2 Ginny Sorted",
+        "Ginny Sorted Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.mandrakes_introduced",
+      "label": "Mandrakes Introduced",
+      "contextType": "story_anchor",
+      "sortKey": 8349,
+      "dateRange": {
+        "from": "1992-11-10",
+        "to": "1992-11-10",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Mandrakes Introduced",
+        "mandrakes_introduced",
+        "Year 2 Mandrakes Introduced",
+        "Mandrakes Introduced Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.herbology_restoration_rule",
+      "label": "Herbology Restoration Rule",
+      "contextType": "story_anchor",
+      "sortKey": 8355,
+      "dateRange": {
+        "from": "1992-11-16",
+        "to": "1992-11-16",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Herbology Restoration Rule",
+        "herbology_restoration_rule",
+        "Year 2 Herbology Restoration Rule",
+        "Herbology Restoration Rule Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.lockhart_pixies",
+      "label": "Lockhart Pixies",
+      "contextType": "story_anchor",
+      "sortKey": 8361,
+      "dateRange": {
+        "from": "1992-11-22",
+        "to": "1992-11-22",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Lockhart Pixies",
+        "lockhart_pixies",
+        "Year 2 Lockhart Pixies",
+        "Lockhart Pixies Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.basilisk_voice_first",
+      "label": "Basilisk Voice First",
+      "contextType": "story_anchor",
+      "sortKey": 8367,
+      "dateRange": {
+        "from": "1992-11-28",
+        "to": "1992-11-28",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Basilisk Voice First",
+        "basilisk_voice_first",
+        "Year 2 Basilisk Voice First",
+        "Basilisk Voice First Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.blood_message_first",
+      "label": "Blood Message First",
+      "contextType": "story_anchor",
+      "sortKey": 8373,
+      "dateRange": {
+        "from": "1992-12-04",
+        "to": "1992-12-04",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Blood Message First",
+        "blood_message_first",
+        "Year 2 Blood Message First",
+        "Blood Message First Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.deathday_party",
+      "label": "Deathday Party",
+      "contextType": "story_anchor",
+      "sortKey": 8379,
+      "dateRange": {
+        "from": "1992-12-10",
+        "to": "1992-12-10",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Deathday Party",
+        "deathday_party",
+        "Year 2 Deathday Party",
+        "Deathday Party Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.mrs_norris_petrified",
+      "label": "Mrs Norris Petrified",
+      "contextType": "story_anchor",
+      "sortKey": 8385,
+      "dateRange": {
+        "from": "1992-12-16",
+        "to": "1992-12-16",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Mrs Norris Petrified",
+        "mrs_norris_petrified",
+        "Year 2 Mrs Norris Petrified",
+        "Mrs Norris Petrified Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.chamber_legend_researched",
+      "label": "Chamber Legend Researched",
+      "contextType": "story_anchor",
+      "sortKey": 8391,
+      "dateRange": {
+        "from": "1992-12-22",
+        "to": "1992-12-22",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Chamber Legend Researched",
+        "chamber_legend_researched",
+        "Year 2 Chamber Legend Researched",
+        "Chamber Legend Researched Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.moaning_myrtle_bathroom_base",
+      "label": "Moaning Myrtle Bathroom Base",
+      "contextType": "story_anchor",
+      "sortKey": 8397,
+      "dateRange": {
+        "from": "1992-12-28",
+        "to": "1992-12-28",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Moaning Myrtle Bathroom Base",
+        "moaning_myrtle_bathroom_base",
+        "Year 2 Moaning Myrtle Bathroom Base",
+        "Moaning Myrtle Bathroom Base Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.rogue_bludger",
+      "label": "Rogue Bludger",
+      "contextType": "story_anchor",
+      "sortKey": 8403,
+      "dateRange": {
+        "from": "1993-01-03",
+        "to": "1993-01-03",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Rogue Bludger",
+        "rogue_bludger",
+        "Year 2 Rogue Bludger",
+        "Rogue Bludger Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.colin_petrified",
+      "label": "Colin Petrified",
+      "contextType": "story_anchor",
+      "sortKey": 8409,
+      "dateRange": {
+        "from": "1993-01-09",
+        "to": "1993-01-09",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Colin Petrified",
+        "colin_petrified",
+        "Year 2 Colin Petrified",
+        "Colin Petrified Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.dueling_club",
+      "label": "Dueling Club",
+      "contextType": "story_anchor",
+      "sortKey": 8415,
+      "dateRange": {
+        "from": "1993-01-15",
+        "to": "1993-01-15",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Dueling Club",
+        "dueling_club",
+        "Year 2 Dueling Club",
+        "Dueling Club Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.parseltongue_exposed",
+      "label": "Parseltongue Exposed",
+      "contextType": "story_anchor",
+      "sortKey": 8421,
+      "dateRange": {
+        "from": "1993-01-21",
+        "to": "1993-01-21",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Parseltongue Exposed",
+        "parseltongue_exposed",
+        "Year 2 Parseltongue Exposed",
+        "Parseltongue Exposed Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.harry_suspected_heir",
+      "label": "Harry Suspected Heir",
+      "contextType": "story_anchor",
+      "sortKey": 8427,
+      "dateRange": {
+        "from": "1993-01-27",
+        "to": "1993-01-27",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Harry Suspected Heir",
+        "harry_suspected_heir",
+        "Year 2 Harry Suspected Heir",
+        "Harry Suspected Heir Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.polyjuice_brew_begins",
+      "label": "Polyjuice Brew Begins",
+      "contextType": "story_anchor",
+      "sortKey": 8433,
+      "dateRange": {
+        "from": "1993-02-02",
+        "to": "1993-02-02",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Polyjuice Brew Begins",
+        "polyjuice_brew_begins",
+        "Year 2 Polyjuice Brew Begins",
+        "Polyjuice Brew Begins Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.crabbe_goyle_hair_plan",
+      "label": "Crabbe Goyle Hair Plan",
+      "contextType": "story_anchor",
+      "sortKey": 8439,
+      "dateRange": {
+        "from": "1993-02-08",
+        "to": "1993-02-08",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Crabbe Goyle Hair Plan",
+        "crabbe_goyle_hair_plan",
+        "Year 2 Crabbe Goyle Hair Plan",
+        "Crabbe Goyle Hair Plan Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.christmas_polyjuice_infiltration",
+      "label": "Christmas Polyjuice Infiltration",
+      "contextType": "story_anchor",
+      "sortKey": 8445,
+      "dateRange": {
+        "from": "1993-02-14",
+        "to": "1993-02-14",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Christmas Polyjuice Infiltration",
+        "christmas_polyjuice_infiltration",
+        "Year 2 Christmas Polyjuice Infiltration",
+        "Christmas Polyjuice Infiltration Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.slytherin_common_room_interrogation",
+      "label": "Slytherin Common Room Interrogation",
+      "contextType": "story_anchor",
+      "sortKey": 8451,
+      "dateRange": {
+        "from": "1993-02-20",
+        "to": "1993-02-20",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Slytherin Common Room Interrogation",
+        "slytherin_common_room_interrogation",
+        "Year 2 Slytherin Common Room Interrogation",
+        "Slytherin Common Room Interrogation Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.hermione_cat_mishap",
+      "label": "Hermione Cat Mishap",
+      "contextType": "story_anchor",
+      "sortKey": 8457,
+      "dateRange": {
+        "from": "1993-02-26",
+        "to": "1993-02-26",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Hermione Cat Mishap",
+        "hermione_cat_mishap",
+        "Year 2 Hermione Cat Mishap",
+        "Hermione Cat Mishap Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.diary_found",
+      "label": "Diary Found",
+      "contextType": "story_anchor",
+      "sortKey": 8463,
+      "dateRange": {
+        "from": "1993-03-04",
+        "to": "1993-03-04",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Diary Found",
+        "diary_found",
+        "Year 2 Diary Found",
+        "Diary Found Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.tom_riddle_memory",
+      "label": "Tom Riddle Memory",
+      "contextType": "story_anchor",
+      "sortKey": 8469,
+      "dateRange": {
+        "from": "1993-03-10",
+        "to": "1993-03-10",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Tom Riddle Memory",
+        "tom_riddle_memory",
+        "Year 2 Tom Riddle Memory",
+        "Tom Riddle Memory Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.diary_possession_pressure",
+      "label": "Diary Possession Pressure",
+      "contextType": "story_anchor",
+      "sortKey": 8475,
+      "dateRange": {
+        "from": "1993-03-16",
+        "to": "1993-03-16",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Diary Possession Pressure",
+        "diary_possession_pressure",
+        "Year 2 Diary Possession Pressure",
+        "Diary Possession Pressure Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.hagrid_framed_memory",
+      "label": "Hagrid Framed Memory",
+      "contextType": "story_anchor",
+      "sortKey": 8481,
+      "dateRange": {
+        "from": "1993-03-22",
+        "to": "1993-03-22",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Hagrid Framed Memory",
+        "hagrid_framed_memory",
+        "Year 2 Hagrid Framed Memory",
+        "Hagrid Framed Memory Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.valentine_dwarf_and_diary_pressure",
+      "label": "Valentine Dwarf and Diary Pressure",
+      "contextType": "story_anchor",
+      "sortKey": 8487,
+      "dateRange": {
+        "from": "1993-03-28",
+        "to": "1993-03-28",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Valentine Dwarf and Diary Pressure",
+        "valentine_dwarf_and_diary_pressure",
+        "Year 2 Valentine Dwarf and Diary Pressure",
+        "Valentine Dwarf and Diary Pressure Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.hermione_penelope_petrified",
+      "label": "Hermione Penelope Petrified",
+      "contextType": "story_anchor",
+      "sortKey": 8493,
+      "dateRange": {
+        "from": "1993-04-03",
+        "to": "1993-04-03",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Hermione Penelope Petrified",
+        "hermione_penelope_petrified",
+        "Year 2 Hermione Penelope Petrified",
+        "Hermione Penelope Petrified Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.dumbledore_removed",
+      "label": "Dumbledore Removed",
+      "contextType": "story_anchor",
+      "sortKey": 8499,
+      "dateRange": {
+        "from": "1993-04-09",
+        "to": "1993-04-09",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Dumbledore Removed",
+        "dumbledore_removed",
+        "Year 2 Dumbledore Removed",
+        "Dumbledore Removed Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.spiders_followed",
+      "label": "Spiders Followed",
+      "contextType": "story_anchor",
+      "sortKey": 8505,
+      "dateRange": {
+        "from": "1993-04-15",
+        "to": "1993-04-15",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Spiders Followed",
+        "spiders_followed",
+        "Year 2 Spiders Followed",
+        "Spiders Followed Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.aragog_clue",
+      "label": "Aragog Clue",
+      "contextType": "story_anchor",
+      "sortKey": 8511,
+      "dateRange": {
+        "from": "1993-04-21",
+        "to": "1993-04-21",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Aragog Clue",
+        "aragog_clue",
+        "Year 2 Aragog Clue",
+        "Aragog Clue Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.basilisk_pipes_deduction",
+      "label": "Basilisk Pipes Deduction",
+      "contextType": "story_anchor",
+      "sortKey": 8517,
+      "dateRange": {
+        "from": "1993-04-27",
+        "to": "1993-04-27",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Basilisk Pipes Deduction",
+        "basilisk_pipes_deduction",
+        "Year 2 Basilisk Pipes Deduction",
+        "Basilisk Pipes Deduction Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.ginny_taken",
+      "label": "Ginny Taken",
+      "contextType": "story_anchor",
+      "sortKey": 8523,
+      "dateRange": {
+        "from": "1993-05-03",
+        "to": "1993-05-03",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Ginny Taken",
+        "ginny_taken",
+        "Year 2 Ginny Taken",
+        "Ginny Taken Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.lockhart_exposed",
+      "label": "Lockhart Exposed",
+      "contextType": "story_anchor",
+      "sortKey": 8529,
+      "dateRange": {
+        "from": "1993-05-09",
+        "to": "1993-05-09",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Lockhart Exposed",
+        "lockhart_exposed",
+        "Year 2 Lockhart Exposed",
+        "Lockhart Exposed Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.chamber_opened",
+      "label": "Chamber Opened",
+      "contextType": "story_anchor",
+      "sortKey": 8535,
+      "dateRange": {
+        "from": "1993-05-15",
+        "to": "1993-05-15",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Chamber Opened",
+        "chamber_opened",
+        "Year 2 Chamber Opened",
+        "Chamber Opened Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.fawkes_sorting_hat_sword",
+      "label": "Fawkes Sorting Hat Sword",
+      "contextType": "story_anchor",
+      "sortKey": 8541,
+      "dateRange": {
+        "from": "1993-05-21",
+        "to": "1993-05-21",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Fawkes Sorting Hat Sword",
+        "fawkes_sorting_hat_sword",
+        "Year 2 Fawkes Sorting Hat Sword",
+        "Fawkes Sorting Hat Sword Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.basilisk_confrontation",
+      "label": "Basilisk Confrontation",
+      "contextType": "story_anchor",
+      "sortKey": 8547,
+      "dateRange": {
+        "from": "1993-05-27",
+        "to": "1993-05-27",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Basilisk Confrontation",
+        "basilisk_confrontation",
+        "Year 2 Basilisk Confrontation",
+        "Basilisk Confrontation Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.diary_destroyed",
+      "label": "Diary Destroyed",
+      "contextType": "story_anchor",
+      "sortKey": 8553,
+      "dateRange": {
+        "from": "1993-06-02",
+        "to": "1993-06-02",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Diary Destroyed",
+        "diary_destroyed",
+        "Year 2 Diary Destroyed",
+        "Diary Destroyed Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.ginny_rescued",
+      "label": "Ginny Rescued",
+      "contextType": "story_anchor",
+      "sortKey": 8559,
+      "dateRange": {
+        "from": "1993-06-08",
+        "to": "1993-06-08",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Ginny Rescued",
+        "ginny_rescued",
+        "Year 2 Ginny Rescued",
+        "Ginny Rescued Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.dobby_freed",
+      "label": "Dobby Freed",
+      "contextType": "story_anchor",
+      "sortKey": 8565,
+      "dateRange": {
+        "from": "1993-06-14",
+        "to": "1993-06-14",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Dobby Freed",
+        "dobby_freed",
+        "Year 2 Dobby Freed",
+        "Dobby Freed Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    },
+    {
+      "id": "hp.y2.hagrid_returns",
+      "label": "Hagrid Returns",
+      "contextType": "story_anchor",
+      "sortKey": 8571,
+      "dateRange": {
+        "from": "1993-06-20",
+        "to": "1993-06-20",
+        "precision": "approximate"
+      },
+      "book": "Chamber of Secrets",
+      "schoolYear": "2",
+      "arc": "Year 2: Chamber of Secrets",
+      "aliases": [
+        "Hagrid Returns",
+        "hagrid_returns",
+        "Year 2 Hagrid Returns",
+        "Hagrid Returns Year 2"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2",
+        "book:chamber-of-secrets"
+      ]
+    }
+  ],
+  "windows": [
+    {
+      "id": "hp.y2.window.dobby_and_burrow",
+      "label": "Window Dobby and Burrow",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y2.privet_drive_summer",
+      "validToAnchor": "hp.y2.burrow_family_baseline",
+      "sortKeyFrom": 8247,
+      "sortKeyTo": 8283,
+      "aliases": [
+        "Window Dobby and Burrow",
+        "window dobby_and_burrow"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2"
+      ]
+    },
+    {
+      "id": "hp.y2.window.arrival_to_first_attack",
+      "label": "Window Arrival to First Attack",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y2.degnoming_and_weasley_home",
+      "validToAnchor": "hp.y2.flying_car_to_hogwarts",
+      "sortKeyFrom": 8289,
+      "sortKeyTo": 8325,
+      "aliases": [
+        "Window Arrival to First Attack",
+        "window arrival_to_first_attack"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2"
+      ]
+    },
+    {
+      "id": "hp.y2.window.chamber_suspicion",
+      "label": "Window Chamber Suspicion",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y2.whomping_willow_crash",
+      "validToAnchor": "hp.y2.basilisk_voice_first",
+      "sortKeyFrom": 8331,
+      "sortKeyTo": 8367,
+      "aliases": [
+        "Window Chamber Suspicion",
+        "window chamber_suspicion"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2"
+      ]
+    },
+    {
+      "id": "hp.y2.window.parseltongue_suspicion",
+      "label": "Window Parseltongue Suspicion",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y2.blood_message_first",
+      "validToAnchor": "hp.y2.colin_petrified",
+      "sortKeyFrom": 8373,
+      "sortKeyTo": 8409,
+      "aliases": [
+        "Window Parseltongue Suspicion",
+        "window parseltongue_suspicion"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2"
+      ]
+    },
+    {
+      "id": "hp.y2.window.polyjuice_investigation",
+      "label": "Window Polyjuice Investigation",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y2.dueling_club",
+      "validToAnchor": "hp.y2.slytherin_common_room_interrogation",
+      "sortKeyFrom": 8415,
+      "sortKeyTo": 8451,
+      "aliases": [
+        "Window Polyjuice Investigation",
+        "window polyjuice_investigation"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2"
+      ]
+    },
+    {
+      "id": "hp.y2.window.diary_and_riddle",
+      "label": "Window Diary and Riddle",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y2.hermione_cat_mishap",
+      "validToAnchor": "hp.y2.hermione_penelope_petrified",
+      "sortKeyFrom": 8457,
+      "sortKeyTo": 8493,
+      "aliases": [
+        "Window Diary and Riddle",
+        "window diary_and_riddle"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2"
+      ]
+    },
+    {
+      "id": "hp.y2.window.dumbledore_absent",
+      "label": "Window Dumbledore Absent",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y2.dumbledore_removed",
+      "validToAnchor": "hp.y2.chamber_opened",
+      "sortKeyFrom": 8499,
+      "sortKeyTo": 8535,
+      "aliases": [
+        "Window Dumbledore Absent",
+        "window dumbledore_absent"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2"
+      ]
+    },
+    {
+      "id": "hp.y2.window.chamber_climax",
+      "label": "Window Chamber Climax",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y2.fawkes_sorting_hat_sword",
+      "validToAnchor": "hp.y2.hagrid_returns",
+      "sortKeyFrom": 8541,
+      "sortKeyTo": 8571,
+      "aliases": [
+        "Window Chamber Climax",
+        "window chamber_climax"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2"
+      ]
+    },
+    {
+      "id": "hp.y2.window.aftermath",
+      "label": "Window Aftermath",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y2.hagrid_returns",
+      "validToAnchor": "hp.y2.hagrid_returns",
+      "sortKeyFrom": 8571,
+      "sortKeyTo": 8571,
+      "aliases": [
+        "Window Aftermath",
+        "window aftermath"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:2"
+      ]
+    }
+  ]
+}

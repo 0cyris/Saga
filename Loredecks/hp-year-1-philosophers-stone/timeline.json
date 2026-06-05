@@ -1,0 +1,1762 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "date-derived-day",
+  "summary": "Harry Potter Year 1: Philosopher's Stone Context anchors and phase windows for Saga's Harry Potter Golden Trio deck family.",
+  "axes": [
+    {
+      "id": "calendar",
+      "type": "calendar",
+      "label": "Calendar Date"
+    },
+    {
+      "id": "book",
+      "type": "anchor",
+      "label": "Book"
+    },
+    {
+      "id": "schoolYear",
+      "type": "phase",
+      "label": "School Year"
+    },
+    {
+      "id": "arc",
+      "type": "arc",
+      "label": "Story Arc"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "hp.y1.dursley_baseline",
+      "label": "Dursley Baseline",
+      "contextType": "story_anchor",
+      "sortKey": 7843,
+      "dateRange": {
+        "from": "1991-06-23",
+        "to": "1991-06-23",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Dursley Baseline",
+        "dursley_baseline",
+        "Year 1 Dursley Baseline",
+        "Dursley Baseline Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.zoo_glass_incident",
+      "label": "Zoo Glass Incident",
+      "contextType": "story_anchor",
+      "sortKey": 7849,
+      "dateRange": {
+        "from": "1991-06-29",
+        "to": "1991-06-29",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Zoo Glass Incident",
+        "zoo_glass_incident",
+        "Year 1 Zoo Glass Incident",
+        "Zoo Glass Incident Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.cupboard_punishment",
+      "label": "Cupboard Punishment",
+      "contextType": "story_anchor",
+      "sortKey": 7856,
+      "dateRange": {
+        "from": "1991-07-06",
+        "to": "1991-07-06",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Cupboard Punishment",
+        "cupboard_punishment",
+        "Year 1 Cupboard Punishment",
+        "Cupboard Punishment Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.letters_begin",
+      "label": "Letters Begin",
+      "contextType": "story_anchor",
+      "sortKey": 7863,
+      "dateRange": {
+        "from": "1991-07-13",
+        "to": "1991-07-13",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Letters Begin",
+        "letters_begin",
+        "Year 1 Letters Begin",
+        "Letters Begin Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.bedroom_move",
+      "label": "Bedroom Move",
+      "contextType": "story_anchor",
+      "sortKey": 7869,
+      "dateRange": {
+        "from": "1991-07-19",
+        "to": "1991-07-19",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Bedroom Move",
+        "bedroom_move",
+        "Year 1 Bedroom Move",
+        "Bedroom Move Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.letters_escalate",
+      "label": "Letters Escalate",
+      "contextType": "story_anchor",
+      "sortKey": 7876,
+      "dateRange": {
+        "from": "1991-07-26",
+        "to": "1991-07-26",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Letters Escalate",
+        "letters_escalate",
+        "Year 1 Letters Escalate",
+        "Letters Escalate Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.hut_on_rock",
+      "label": "Hut On Rock",
+      "contextType": "story_anchor",
+      "sortKey": 7883,
+      "dateRange": {
+        "from": "1991-08-02",
+        "to": "1991-08-02",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Hut On Rock",
+        "hut_on_rock",
+        "Year 1 Hut On Rock",
+        "Hut On Rock Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.hagrid_reveals_harry",
+      "label": "Hagrid Reveals Harry",
+      "contextType": "story_anchor",
+      "sortKey": 7890,
+      "dateRange": {
+        "from": "1991-08-09",
+        "to": "1991-08-09",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Hagrid Reveals Harry",
+        "hagrid_reveals_harry",
+        "Year 1 Hagrid Reveals Harry",
+        "Hagrid Reveals Harry Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.hagrid_explains_parents",
+      "label": "Hagrid Explains Parents",
+      "contextType": "story_anchor",
+      "sortKey": 7896,
+      "dateRange": {
+        "from": "1991-08-15",
+        "to": "1991-08-15",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Hagrid Explains Parents",
+        "hagrid_explains_parents",
+        "Year 1 Hagrid Explains Parents",
+        "Hagrid Explains Parents Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.hagrid_delivers_hogwarts_letter",
+      "label": "Hagrid Delivers Hogwarts Letter",
+      "contextType": "story_anchor",
+      "sortKey": 7903,
+      "dateRange": {
+        "from": "1991-08-22",
+        "to": "1991-08-22",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Hagrid Delivers Hogwarts Letter",
+        "hagrid_delivers_hogwarts_letter",
+        "Year 1 Hagrid Delivers Hogwarts Letter",
+        "Hagrid Delivers Hogwarts Letter Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.diagon_alley_first_visit",
+      "label": "Diagon Alley First Visit",
+      "contextType": "story_anchor",
+      "sortKey": 7910,
+      "dateRange": {
+        "from": "1991-08-29",
+        "to": "1991-08-29",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Diagon Alley First Visit",
+        "diagon_alley_first_visit",
+        "Year 1 Diagon Alley First Visit",
+        "Diagon Alley First Visit Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.cauldron_and_school_supplies",
+      "label": "Cauldron and School Supplies",
+      "contextType": "story_anchor",
+      "sortKey": 7916,
+      "dateRange": {
+        "from": "1991-09-04",
+        "to": "1991-09-04",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Cauldron and School Supplies",
+        "cauldron_and_school_supplies",
+        "Year 1 Cauldron and School Supplies",
+        "Cauldron and School Supplies Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.harry_meets_quirrell",
+      "label": "Harry Meets Quirrell",
+      "contextType": "story_anchor",
+      "sortKey": 7923,
+      "dateRange": {
+        "from": "1991-09-11",
+        "to": "1991-09-11",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Harry Meets Quirrell",
+        "harry_meets_quirrell",
+        "Year 1 Harry Meets Quirrell",
+        "Harry Meets Quirrell Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.gringotts_vault_visit",
+      "label": "Gringotts Vault Visit",
+      "contextType": "story_anchor",
+      "sortKey": 7930,
+      "dateRange": {
+        "from": "1991-09-18",
+        "to": "1991-09-18",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Gringotts Vault Visit",
+        "gringotts_vault_visit",
+        "Year 1 Gringotts Vault Visit",
+        "Gringotts Vault Visit Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.ollivander_wand",
+      "label": "Ollivander Wand",
+      "contextType": "story_anchor",
+      "sortKey": 7937,
+      "dateRange": {
+        "from": "1991-09-25",
+        "to": "1991-09-25",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Ollivander Wand",
+        "ollivander_wand",
+        "Year 1 Ollivander Wand",
+        "Ollivander Wand Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.stone_removed_from_gringotts",
+      "label": "Stone Removed from Gringotts",
+      "contextType": "story_anchor",
+      "sortKey": 7943,
+      "dateRange": {
+        "from": "1991-10-01",
+        "to": "1991-10-01",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Stone Removed from Gringotts",
+        "stone_removed_from_gringotts",
+        "Year 1 Stone Removed from Gringotts",
+        "Stone Removed from Gringotts Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.platform_nine_three_quarters",
+      "label": "Platform Nine Three Quarters",
+      "contextType": "story_anchor",
+      "sortKey": 7950,
+      "dateRange": {
+        "from": "1991-10-08",
+        "to": "1991-10-08",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Platform Nine Three Quarters",
+        "platform_nine_three_quarters",
+        "Year 1 Platform Nine Three Quarters",
+        "Platform Nine Three Quarters Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.hogwarts_express_ron_meeting",
+      "label": "Hogwarts Express Ron Meeting",
+      "contextType": "story_anchor",
+      "sortKey": 7957,
+      "dateRange": {
+        "from": "1991-10-15",
+        "to": "1991-10-15",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Hogwarts Express Ron Meeting",
+        "hogwarts_express_ron_meeting",
+        "Year 1 Hogwarts Express Ron Meeting",
+        "Hogwarts Express Ron Meeting Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.chocolate_frog_and_wizarding_world",
+      "label": "Chocolate Frog and Wizarding World",
+      "contextType": "story_anchor",
+      "sortKey": 7964,
+      "dateRange": {
+        "from": "1991-10-22",
+        "to": "1991-10-22",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Chocolate Frog and Wizarding World",
+        "chocolate_frog_and_wizarding_world",
+        "Year 1 Chocolate Frog and Wizarding World",
+        "Chocolate Frog and Wizarding World Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.hermione_train_intro",
+      "label": "Hermione Train Intro",
+      "contextType": "story_anchor",
+      "sortKey": 7970,
+      "dateRange": {
+        "from": "1991-10-28",
+        "to": "1991-10-28",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Hermione Train Intro",
+        "hermione_train_intro",
+        "Year 1 Hermione Train Intro",
+        "Hermione Train Intro Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.draco_train_rivalry",
+      "label": "Draco Train Rivalry",
+      "contextType": "story_anchor",
+      "sortKey": 7977,
+      "dateRange": {
+        "from": "1991-11-04",
+        "to": "1991-11-04",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Draco Train Rivalry",
+        "draco_train_rivalry",
+        "Year 1 Draco Train Rivalry",
+        "Draco Train Rivalry Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.arrival_and_sorting",
+      "label": "Arrival and Sorting",
+      "contextType": "story_anchor",
+      "sortKey": 7984,
+      "dateRange": {
+        "from": "1991-11-11",
+        "to": "1991-11-11",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Arrival and Sorting",
+        "arrival_and_sorting",
+        "Year 1 Arrival and Sorting",
+        "Arrival and Sorting Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.common_room_first_night",
+      "label": "Common Room First Night",
+      "contextType": "story_anchor",
+      "sortKey": 7990,
+      "dateRange": {
+        "from": "1991-11-17",
+        "to": "1991-11-17",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Common Room First Night",
+        "common_room_first_night",
+        "Year 1 Common Room First Night",
+        "Common Room First Night Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.class_schedule_established",
+      "label": "Class Schedule Established",
+      "contextType": "story_anchor",
+      "sortKey": 7997,
+      "dateRange": {
+        "from": "1991-11-24",
+        "to": "1991-11-24",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Class Schedule Established",
+        "class_schedule_established",
+        "Year 1 Class Schedule Established",
+        "Class Schedule Established Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.first_classes_begin",
+      "label": "First Classes Begin",
+      "contextType": "story_anchor",
+      "sortKey": 8004,
+      "dateRange": {
+        "from": "1991-12-01",
+        "to": "1991-12-01",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "First Classes Begin",
+        "first_classes_begin",
+        "Year 1 First Classes Begin",
+        "First Classes Begin Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.snape_first_potions",
+      "label": "Snape First Potions",
+      "contextType": "story_anchor",
+      "sortKey": 8011,
+      "dateRange": {
+        "from": "1991-12-08",
+        "to": "1991-12-08",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Snape First Potions",
+        "snape_first_potions",
+        "Year 1 Snape First Potions",
+        "Snape First Potions Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.hermione_classroom_reputation",
+      "label": "Hermione Classroom Reputation",
+      "contextType": "story_anchor",
+      "sortKey": 8017,
+      "dateRange": {
+        "from": "1991-12-14",
+        "to": "1991-12-14",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Hermione Classroom Reputation",
+        "hermione_classroom_reputation",
+        "Year 1 Hermione Classroom Reputation",
+        "Hermione Classroom Reputation Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.malfoy_midnight_duel_challenge",
+      "label": "Malfoy Midnight Duel Challenge",
+      "contextType": "story_anchor",
+      "sortKey": 8024,
+      "dateRange": {
+        "from": "1991-12-21",
+        "to": "1991-12-21",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Malfoy Midnight Duel Challenge",
+        "malfoy_midnight_duel_challenge",
+        "Year 1 Malfoy Midnight Duel Challenge",
+        "Malfoy Midnight Duel Challenge Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.fluffy_discovery",
+      "label": "Fluffy Discovery",
+      "contextType": "story_anchor",
+      "sortKey": 8031,
+      "dateRange": {
+        "from": "1991-12-28",
+        "to": "1991-12-28",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Fluffy Discovery",
+        "fluffy_discovery",
+        "Year 1 Fluffy Discovery",
+        "Fluffy Discovery Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.fluffy_trapdoor_theory",
+      "label": "Fluffy Trapdoor Theory",
+      "contextType": "story_anchor",
+      "sortKey": 8037,
+      "dateRange": {
+        "from": "1992-01-03",
+        "to": "1992-01-03",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Fluffy Trapdoor Theory",
+        "fluffy_trapdoor_theory",
+        "Year 1 Fluffy Trapdoor Theory",
+        "Fluffy Trapdoor Theory Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.flying_lesson",
+      "label": "Flying Lesson",
+      "contextType": "story_anchor",
+      "sortKey": 8044,
+      "dateRange": {
+        "from": "1992-01-10",
+        "to": "1992-01-10",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Flying Lesson",
+        "flying_lesson",
+        "Year 1 Flying Lesson",
+        "Flying Lesson Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.harry_made_seeker",
+      "label": "Harry Made Seeker",
+      "contextType": "story_anchor",
+      "sortKey": 8051,
+      "dateRange": {
+        "from": "1992-01-17",
+        "to": "1992-01-17",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Harry Made Seeker",
+        "harry_made_seeker",
+        "Year 1 Harry Made Seeker",
+        "Harry Made Seeker Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.nimbus_arrives",
+      "label": "Nimbus Arrives",
+      "contextType": "story_anchor",
+      "sortKey": 8058,
+      "dateRange": {
+        "from": "1992-01-24",
+        "to": "1992-01-24",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Nimbus Arrives",
+        "nimbus_arrives",
+        "Year 1 Nimbus Arrives",
+        "Nimbus Arrives Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.halloween_troll",
+      "label": "Halloween Troll",
+      "contextType": "story_anchor",
+      "sortKey": 8064,
+      "dateRange": {
+        "from": "1992-01-30",
+        "to": "1992-01-30",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Halloween Troll",
+        "halloween_troll",
+        "Year 1 Halloween Troll",
+        "Halloween Troll Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.trio_friendship_forms",
+      "label": "Trio Friendship Forms",
+      "contextType": "story_anchor",
+      "sortKey": 8071,
+      "dateRange": {
+        "from": "1992-02-06",
+        "to": "1992-02-06",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Trio Friendship Forms",
+        "trio_friendship_forms",
+        "Year 1 Trio Friendship Forms",
+        "Trio Friendship Forms Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.first_quidditch_match",
+      "label": "First Quidditch Match",
+      "contextType": "story_anchor",
+      "sortKey": 8078,
+      "dateRange": {
+        "from": "1992-02-13",
+        "to": "1992-02-13",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "First Quidditch Match",
+        "first_quidditch_match",
+        "Year 1 First Quidditch Match",
+        "First Quidditch Match Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.counterjinx_suspicion",
+      "label": "Counterjinx Suspicion",
+      "contextType": "story_anchor",
+      "sortKey": 8085,
+      "dateRange": {
+        "from": "1992-02-20",
+        "to": "1992-02-20",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Counterjinx Suspicion",
+        "counterjinx_suspicion",
+        "Year 1 Counterjinx Suspicion",
+        "Counterjinx Suspicion Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.christmas_cloak",
+      "label": "Christmas Cloak",
+      "contextType": "story_anchor",
+      "sortKey": 8091,
+      "dateRange": {
+        "from": "1992-02-26",
+        "to": "1992-02-26",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Christmas Cloak",
+        "christmas_cloak",
+        "Year 1 Christmas Cloak",
+        "Christmas Cloak Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.mirror_of_erised_first",
+      "label": "Mirror of Erised First",
+      "contextType": "story_anchor",
+      "sortKey": 8098,
+      "dateRange": {
+        "from": "1992-03-04",
+        "to": "1992-03-04",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Mirror of Erised First",
+        "mirror_of_erised_first",
+        "Year 1 Mirror of Erised First",
+        "Mirror of Erised First Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.dumbledore_mirror_warning",
+      "label": "Dumbledore Mirror Warning",
+      "contextType": "story_anchor",
+      "sortKey": 8105,
+      "dateRange": {
+        "from": "1992-03-11",
+        "to": "1992-03-11",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Dumbledore Mirror Warning",
+        "dumbledore_mirror_warning",
+        "Year 1 Dumbledore Mirror Warning",
+        "Dumbledore Mirror Warning Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.nicolas_flamel_identified",
+      "label": "Nicolas Flamel Identified",
+      "contextType": "story_anchor",
+      "sortKey": 8111,
+      "dateRange": {
+        "from": "1992-03-17",
+        "to": "1992-03-17",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Nicolas Flamel Identified",
+        "nicolas_flamel_identified",
+        "Year 1 Nicolas Flamel Identified",
+        "Nicolas Flamel Identified Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.stone_mystery_confirmed",
+      "label": "Stone Mystery Confirmed",
+      "contextType": "story_anchor",
+      "sortKey": 8118,
+      "dateRange": {
+        "from": "1992-03-24",
+        "to": "1992-03-24",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Stone Mystery Confirmed",
+        "stone_mystery_confirmed",
+        "Year 1 Stone Mystery Confirmed",
+        "Stone Mystery Confirmed Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.norbert_hatches",
+      "label": "Norbert Hatches",
+      "contextType": "story_anchor",
+      "sortKey": 8125,
+      "dateRange": {
+        "from": "1992-03-31",
+        "to": "1992-03-31",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Norbert Hatches",
+        "norbert_hatches",
+        "Year 1 Norbert Hatches",
+        "Norbert Hatches Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.norbert_removed",
+      "label": "Norbert Removed",
+      "contextType": "story_anchor",
+      "sortKey": 8132,
+      "dateRange": {
+        "from": "1992-04-07",
+        "to": "1992-04-07",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Norbert Removed",
+        "norbert_removed",
+        "Year 1 Norbert Removed",
+        "Norbert Removed Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.points_loss_and_detention",
+      "label": "Points Loss and Detention",
+      "contextType": "story_anchor",
+      "sortKey": 8138,
+      "dateRange": {
+        "from": "1992-04-13",
+        "to": "1992-04-13",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Points Loss and Detention",
+        "points_loss_and_detention",
+        "Year 1 Points Loss and Detention",
+        "Points Loss and Detention Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.forest_unicorn",
+      "label": "Forest Unicorn",
+      "contextType": "story_anchor",
+      "sortKey": 8145,
+      "dateRange": {
+        "from": "1992-04-20",
+        "to": "1992-04-20",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Forest Unicorn",
+        "forest_unicorn",
+        "Year 1 Forest Unicorn",
+        "Forest Unicorn Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.voldemort_unicorn_blood_clue",
+      "label": "Voldemort Unicorn Blood Clue",
+      "contextType": "story_anchor",
+      "sortKey": 8152,
+      "dateRange": {
+        "from": "1992-04-27",
+        "to": "1992-04-27",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Voldemort Unicorn Blood Clue",
+        "voldemort_unicorn_blood_clue",
+        "Year 1 Voldemort Unicorn Blood Clue",
+        "Voldemort Unicorn Blood Clue Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.exams_end",
+      "label": "Exams End",
+      "contextType": "story_anchor",
+      "sortKey": 8158,
+      "dateRange": {
+        "from": "1992-05-03",
+        "to": "1992-05-03",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Exams End",
+        "exams_end",
+        "Year 1 Exams End",
+        "Exams End Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.trapdoor_trials_begin",
+      "label": "Trapdoor Trials Begin",
+      "contextType": "story_anchor",
+      "sortKey": 8165,
+      "dateRange": {
+        "from": "1992-05-10",
+        "to": "1992-05-10",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Trapdoor Trials Begin",
+        "trapdoor_trials_begin",
+        "Year 1 Trapdoor Trials Begin",
+        "Trapdoor Trials Begin Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.chess_trial_ron_sacrifice",
+      "label": "Chess Trial Ron Sacrifice",
+      "contextType": "story_anchor",
+      "sortKey": 8172,
+      "dateRange": {
+        "from": "1992-05-17",
+        "to": "1992-05-17",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Chess Trial Ron Sacrifice",
+        "chess_trial_ron_sacrifice",
+        "Year 1 Chess Trial Ron Sacrifice",
+        "Chess Trial Ron Sacrifice Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.quirrell_voldemort_reveal",
+      "label": "Quirrell Voldemort Reveal",
+      "contextType": "story_anchor",
+      "sortKey": 8179,
+      "dateRange": {
+        "from": "1992-05-24",
+        "to": "1992-05-24",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Quirrell Voldemort Reveal",
+        "quirrell_voldemort_reveal",
+        "Year 1 Quirrell Voldemort Reveal",
+        "Quirrell Voldemort Reveal Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.stone_destroyed",
+      "label": "Stone Destroyed",
+      "contextType": "story_anchor",
+      "sortKey": 8185,
+      "dateRange": {
+        "from": "1992-05-30",
+        "to": "1992-05-30",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Stone Destroyed",
+        "stone_destroyed",
+        "Year 1 Stone Destroyed",
+        "Stone Destroyed Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.hospital_aftermath",
+      "label": "Hospital Aftermath",
+      "contextType": "story_anchor",
+      "sortKey": 8192,
+      "dateRange": {
+        "from": "1992-06-06",
+        "to": "1992-06-06",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Hospital Aftermath",
+        "hospital_aftermath",
+        "Year 1 Hospital Aftermath",
+        "Hospital Aftermath Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.house_cup_shift",
+      "label": "House Cup Shift",
+      "contextType": "story_anchor",
+      "sortKey": 8199,
+      "dateRange": {
+        "from": "1992-06-13",
+        "to": "1992-06-13",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "House Cup Shift",
+        "house_cup_shift",
+        "Year 1 House Cup Shift",
+        "House Cup Shift Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    },
+    {
+      "id": "hp.y1.train_home",
+      "label": "Train Home",
+      "contextType": "story_anchor",
+      "sortKey": 8206,
+      "dateRange": {
+        "from": "1992-06-20",
+        "to": "1992-06-20",
+        "precision": "approximate"
+      },
+      "book": "Philosopher's Stone",
+      "schoolYear": "1",
+      "arc": "Year 1: Philosopher's Stone",
+      "aliases": [
+        "Train Home",
+        "train_home",
+        "Year 1 Train Home",
+        "Train Home Year 1"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1",
+        "book:philosopher-s-stone"
+      ]
+    }
+  ],
+  "windows": [
+    {
+      "id": "hp.y1.window.pre_hogwarts_letters",
+      "label": "Window Pre Hogwarts Letters",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y1.dursley_baseline",
+      "validToAnchor": "hp.y1.hut_on_rock",
+      "sortKeyFrom": 7843,
+      "sortKeyTo": 7883,
+      "aliases": [
+        "Window Pre Hogwarts Letters",
+        "window pre_hogwarts_letters"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1"
+      ]
+    },
+    {
+      "id": "hp.y1.window.magical_world_discovery",
+      "label": "Window Magical World Discovery",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y1.hagrid_reveals_harry",
+      "validToAnchor": "hp.y1.gringotts_vault_visit",
+      "sortKeyFrom": 7890,
+      "sortKeyTo": 7930,
+      "aliases": [
+        "Window Magical World Discovery",
+        "window magical_world_discovery"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1"
+      ]
+    },
+    {
+      "id": "hp.y1.window.first_term_before_trio",
+      "label": "Window First Term Before Trio",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y1.ollivander_wand",
+      "validToAnchor": "hp.y1.draco_train_rivalry",
+      "sortKeyFrom": 7937,
+      "sortKeyTo": 7977,
+      "aliases": [
+        "Window First Term Before Trio",
+        "window first_term_before_trio"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1"
+      ]
+    },
+    {
+      "id": "hp.y1.window.post_troll_trio",
+      "label": "Window Post Troll Trio",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y1.arrival_and_sorting",
+      "validToAnchor": "hp.y1.malfoy_midnight_duel_challenge",
+      "sortKeyFrom": 7984,
+      "sortKeyTo": 8024,
+      "aliases": [
+        "Window Post Troll Trio",
+        "window post_troll_trio"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1"
+      ]
+    },
+    {
+      "id": "hp.y1.window.stone_mystery",
+      "label": "Window Stone Mystery",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y1.fluffy_discovery",
+      "validToAnchor": "hp.y1.trio_friendship_forms",
+      "sortKeyFrom": 8031,
+      "sortKeyTo": 8071,
+      "aliases": [
+        "Window Stone Mystery",
+        "window stone_mystery"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1"
+      ]
+    },
+    {
+      "id": "hp.y1.window.christmas_mirror",
+      "label": "Window Christmas Mirror",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y1.first_quidditch_match",
+      "validToAnchor": "hp.y1.stone_mystery_confirmed",
+      "sortKeyFrom": 8078,
+      "sortKeyTo": 8118,
+      "aliases": [
+        "Window Christmas Mirror",
+        "window christmas_mirror"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1"
+      ]
+    },
+    {
+      "id": "hp.y1.window.dragon_and_detention",
+      "label": "Window Dragon and Detention",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y1.norbert_hatches",
+      "validToAnchor": "hp.y1.trapdoor_trials_begin",
+      "sortKeyFrom": 8125,
+      "sortKeyTo": 8165,
+      "aliases": [
+        "Window Dragon and Detention",
+        "window dragon_and_detention"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1"
+      ]
+    },
+    {
+      "id": "hp.y1.window.final_trials",
+      "label": "Window Final Trials",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y1.chess_trial_ron_sacrifice",
+      "validToAnchor": "hp.y1.train_home",
+      "sortKeyFrom": 8172,
+      "sortKeyTo": 8206,
+      "aliases": [
+        "Window Final Trials",
+        "window final_trials"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1"
+      ]
+    },
+    {
+      "id": "hp.y1.window.aftermath",
+      "label": "Window Aftermath",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y1.train_home",
+      "validToAnchor": "hp.y1.train_home",
+      "sortKeyFrom": 8206,
+      "sortKeyTo": 8206,
+      "aliases": [
+        "Window Aftermath",
+        "window aftermath"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:1"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 2,
+  "entrySchemaVersion": 3,
+  "id": "hp-year-4-goblet-of-fire",
+  "type": "bundled",
+  "title": "Harry Potter Year 4: Goblet of Fire",
+  "description": "Year 4 Golden Trio Loredeck for the Quidditch World Cup, Triwizard Tournament, graveyard return, and Voldemort aftermath.",
+  "fandom": "Harry Potter",
+  "era": "Year 4: Goblet of Fire",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "0.1.0",
+  "defaultLocale": "en",
+  "generatedAt": "2026-06-05",
+  "databaseId": "saga.hp-year-4-goblet-of-fire",
+  "deckFamilyId": "hp-golden-trio",
+  "family": {
+    "id": "hp-golden-trio",
+    "title": "Harry Potter: Golden Trio",
+    "role": "year",
+    "recommendedCoreDeckId": "hp-core"
+  },
+  "recommendedStack": [
+    "hp-core",
+    "hp-year-4-goblet-of-fire"
+  ],
+  "tags": [
+    "fandom:harry-potter",
+    "era:golden-trio",
+    "structure:split-loredeck",
+    "quality:human-vetted",
+    "school-year:4"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": ""
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "continuity": {
+    "continuityId": "hp-books",
+    "canonTier": "primary",
+    "adaptation": "book",
+    "sourceBoundary": "Year 4: Goblet of Fire"
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "registries": {
+    "timeline": "timeline.json"
+  },
+  "files": [],
+  "compatibility": {
+    "sagaSchemaMin": 3,
+    "sagaSchemaMax": 3
+  },
+  "stats": {
+    "entryCount": 0,
+    "categoryCounts": {},
+    "timelineAnchorCount": 56,
+    "timelineWindowCount": 9
+  }
+}

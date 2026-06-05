@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "entrySchemaVersion": 3,
+  "id": "hp-year-7-deathly-hallows",
+  "type": "bundled",
+  "title": "Harry Potter Year 7: Deathly Hallows",
+  "description": "Year 7 Golden Trio Loredeck for the Seven Potters, Horcrux hunt, Hallows, Malfoy Manor, Shell Cottage, Gringotts, Hogwarts return, and Battle of Hogwarts.",
+  "fandom": "Harry Potter",
+  "era": "Year 7: Deathly Hallows",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "0.1.0",
+  "defaultLocale": "en",
+  "generatedAt": "2026-06-05",
+  "databaseId": "saga.hp-year-7-deathly-hallows",
+  "deckFamilyId": "hp-golden-trio",
+  "family": {
+    "id": "hp-golden-trio",
+    "title": "Harry Potter: Golden Trio",
+    "role": "year",
+    "recommendedCoreDeckId": "hp-core"
+  },
+  "recommendedStack": [
+    "hp-core",
+    "hp-year-7-deathly-hallows"
+  ],
+  "tags": [
+    "fandom:harry-potter",
+    "era:golden-trio",
+    "structure:split-loredeck",
+    "quality:human-vetted",
+    "school-year:7"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": ""
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "continuity": {
+    "continuityId": "hp-books",
+    "canonTier": "primary",
+    "adaptation": "book",
+    "sourceBoundary": "Year 7: Deathly Hallows"
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "registries": {
+    "timeline": "timeline.json"
+  },
+  "files": [],
+  "compatibility": {
+    "sagaSchemaMin": 3,
+    "sagaSchemaMax": 3
+  },
+  "stats": {
+    "entryCount": 0,
+    "categoryCounts": {},
+    "timelineAnchorCount": 70,
+    "timelineWindowCount": 18
+  }
+}

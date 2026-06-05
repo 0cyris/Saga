@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "entrySchemaVersion": 3,
+  "id": "hp-core",
+  "type": "bundled",
+  "title": "Harry Potter: Core",
+  "description": "Reusable Hogwarts, magical Britain, school-cycle, and world-rule scaffolding for Harry Potter Golden Trio Loredecks.",
+  "fandom": "Harry Potter",
+  "era": "Golden Trio Core",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "0.1.0",
+  "defaultLocale": "en",
+  "generatedAt": "2026-06-05",
+  "databaseId": "saga.hp-core",
+  "deckFamilyId": "hp-golden-trio",
+  "family": {
+    "id": "hp-golden-trio",
+    "title": "Harry Potter: Golden Trio",
+    "role": "core",
+    "recommendedCoreDeckId": ""
+  },
+  "recommendedStack": [],
+  "tags": [
+    "fandom:harry-potter",
+    "era:golden-trio",
+    "structure:split-loredeck",
+    "quality:human-vetted",
+    "scope:core"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": ""
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "continuity": {
+    "continuityId": "hp-books",
+    "canonTier": "primary",
+    "adaptation": "book",
+    "sourceBoundary": "Golden Trio Core"
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "registries": {
+    "timeline": "timeline.json"
+  },
+  "files": [],
+  "compatibility": {
+    "sagaSchemaMin": 3,
+    "sagaSchemaMax": 3
+  },
+  "stats": {
+    "entryCount": 0,
+    "categoryCounts": {},
+    "timelineAnchorCount": 22,
+    "timelineWindowCount": 6
+  }
+}

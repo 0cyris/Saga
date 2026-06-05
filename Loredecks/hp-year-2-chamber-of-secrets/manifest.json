@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 2,
+  "entrySchemaVersion": 3,
+  "id": "hp-year-2-chamber-of-secrets",
+  "type": "bundled",
+  "title": "Harry Potter Year 2: Chamber of Secrets",
+  "description": "Year 2 Golden Trio Loredeck for Dobby, the Chamber attacks, Polyjuice investigation, and the basilisk climax.",
+  "fandom": "Harry Potter",
+  "era": "Year 2: Chamber of Secrets",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "0.1.0",
+  "defaultLocale": "en",
+  "generatedAt": "2026-06-05",
+  "databaseId": "saga.hp-year-2-chamber-of-secrets",
+  "deckFamilyId": "hp-golden-trio",
+  "family": {
+    "id": "hp-golden-trio",
+    "title": "Harry Potter: Golden Trio",
+    "role": "year",
+    "recommendedCoreDeckId": "hp-core"
+  },
+  "recommendedStack": [
+    "hp-core",
+    "hp-year-2-chamber-of-secrets"
+  ],
+  "tags": [
+    "fandom:harry-potter",
+    "era:golden-trio",
+    "structure:split-loredeck",
+    "quality:human-vetted",
+    "school-year:2"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": ""
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "continuity": {
+    "continuityId": "hp-books",
+    "canonTier": "primary",
+    "adaptation": "book",
+    "sourceBoundary": "Year 2: Chamber of Secrets"
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "registries": {
+    "timeline": "timeline.json"
+  },
+  "files": [],
+  "compatibility": {
+    "sagaSchemaMin": 3,
+    "sagaSchemaMax": 3
+  },
+  "stats": {
+    "entryCount": 0,
+    "categoryCounts": {},
+    "timelineAnchorCount": 55,
+    "timelineWindowCount": 9
+  }
+}

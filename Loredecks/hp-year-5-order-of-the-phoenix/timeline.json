@@ -1,0 +1,1783 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "date-derived-day",
+  "summary": "Harry Potter Year 5: Order of the Phoenix Context anchors and phase windows for Saga's Harry Potter Golden Trio deck family.",
+  "axes": [
+    {
+      "id": "calendar",
+      "type": "calendar",
+      "label": "Calendar Date"
+    },
+    {
+      "id": "book",
+      "type": "anchor",
+      "label": "Book"
+    },
+    {
+      "id": "schoolYear",
+      "type": "phase",
+      "label": "School Year"
+    },
+    {
+      "id": "arc",
+      "type": "arc",
+      "label": "Story Arc"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "hp.y5.privet_drive_isolation",
+      "label": "Privet Drive Isolation",
+      "contextType": "story_anchor",
+      "sortKey": 9344,
+      "dateRange": {
+        "from": "1995-08-02",
+        "to": "1995-08-02",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Privet Drive Isolation",
+        "privet_drive_isolation",
+        "Year 5 Privet Drive Isolation",
+        "Privet Drive Isolation Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.dementor_attack_little_whinging",
+      "label": "Dementor Attack Little Whinging",
+      "contextType": "story_anchor",
+      "sortKey": 9350,
+      "dateRange": {
+        "from": "1995-08-08",
+        "to": "1995-08-08",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Dementor Attack Little Whinging",
+        "dementor_attack_little_whinging",
+        "Year 5 Dementor Attack Little Whinging",
+        "Dementor Attack Little Whinging Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.patronus_underage_magic_charge",
+      "label": "Patronus Underage Magic Charge",
+      "contextType": "story_anchor",
+      "sortKey": 9356,
+      "dateRange": {
+        "from": "1995-08-14",
+        "to": "1995-08-14",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Patronus Underage Magic Charge",
+        "patronus_underage_magic_charge",
+        "Year 5 Patronus Underage Magic Charge",
+        "Patronus Underage Magic Charge Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.order_rescue",
+      "label": "Order Rescue",
+      "contextType": "story_anchor",
+      "sortKey": 9362,
+      "dateRange": {
+        "from": "1995-08-20",
+        "to": "1995-08-20",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Order Rescue",
+        "order_rescue",
+        "Year 5 Order Rescue",
+        "Order Rescue Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.grimmauld_arrival",
+      "label": "Grimmauld Arrival",
+      "contextType": "story_anchor",
+      "sortKey": 9368,
+      "dateRange": {
+        "from": "1995-08-26",
+        "to": "1995-08-26",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Grimmauld Arrival",
+        "grimmauld_arrival",
+        "Year 5 Grimmauld Arrival",
+        "Grimmauld Arrival Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.sirius_trapped_at_grimmauld",
+      "label": "Sirius Trapped at Grimmauld",
+      "contextType": "story_anchor",
+      "sortKey": 9374,
+      "dateRange": {
+        "from": "1995-09-01",
+        "to": "1995-09-01",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Sirius Trapped at Grimmauld",
+        "sirius_trapped_at_grimmauld",
+        "Year 5 Sirius Trapped at Grimmauld",
+        "Sirius Trapped at Grimmauld Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.order_headquarters_context",
+      "label": "Order Headquarters Context",
+      "contextType": "story_anchor",
+      "sortKey": 9380,
+      "dateRange": {
+        "from": "1995-09-07",
+        "to": "1995-09-07",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Order Headquarters Context",
+        "order_headquarters_context",
+        "Year 5 Order Headquarters Context",
+        "Order Headquarters Context Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.housecleaning_phase",
+      "label": "Housecleaning Phase",
+      "contextType": "story_anchor",
+      "sortKey": 9386,
+      "dateRange": {
+        "from": "1995-09-13",
+        "to": "1995-09-13",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Housecleaning Phase",
+        "housecleaning_phase",
+        "Year 5 Housecleaning Phase",
+        "Housecleaning Phase Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.ministry_hearing",
+      "label": "Ministry Hearing",
+      "contextType": "story_anchor",
+      "sortKey": 9392,
+      "dateRange": {
+        "from": "1995-09-19",
+        "to": "1995-09-19",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Ministry Hearing",
+        "ministry_hearing",
+        "Year 5 Ministry Hearing",
+        "Ministry Hearing Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.hearing_acquittal",
+      "label": "Hearing Acquittal",
+      "contextType": "story_anchor",
+      "sortKey": 9398,
+      "dateRange": {
+        "from": "1995-09-25",
+        "to": "1995-09-25",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Hearing Acquittal",
+        "hearing_acquittal",
+        "Year 5 Hearing Acquittal",
+        "Hearing Acquittal Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.prefect_badges",
+      "label": "Prefect Badges",
+      "contextType": "story_anchor",
+      "sortKey": 9404,
+      "dateRange": {
+        "from": "1995-10-01",
+        "to": "1995-10-01",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Prefect Badges",
+        "prefect_badges",
+        "Year 5 Prefect Badges",
+        "Prefect Badges Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.decree_22_umbridge_defense",
+      "label": "Decree 22 Umbridge Defense",
+      "contextType": "story_anchor",
+      "sortKey": 9410,
+      "dateRange": {
+        "from": "1995-10-07",
+        "to": "1995-10-07",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Decree 22 Umbridge Defense",
+        "decree_22_umbridge_defense",
+        "Year 5 Decree 22 Umbridge Defense",
+        "Decree 22 Umbridge Defense Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.term_arrival_ministry_denial",
+      "label": "Term Arrival Ministry Denial",
+      "contextType": "story_anchor",
+      "sortKey": 9416,
+      "dateRange": {
+        "from": "1995-10-13",
+        "to": "1995-10-13",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Term Arrival Ministry Denial",
+        "term_arrival_ministry_denial",
+        "Year 5 Term Arrival Ministry Denial",
+        "Term Arrival Ministry Denial Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.thestrals_visible_to_harry",
+      "label": "Thestrals Visible to Harry",
+      "contextType": "story_anchor",
+      "sortKey": 9422,
+      "dateRange": {
+        "from": "1995-10-19",
+        "to": "1995-10-19",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Thestrals Visible to Harry",
+        "thestrals_visible_to_harry",
+        "Year 5 Thestrals Visible to Harry",
+        "Thestrals Visible to Harry Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.umbridge_first_class",
+      "label": "Umbridge First Class",
+      "contextType": "story_anchor",
+      "sortKey": 9429,
+      "dateRange": {
+        "from": "1995-10-26",
+        "to": "1995-10-26",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Umbridge First Class",
+        "umbridge_first_class",
+        "Year 5 Umbridge First Class",
+        "Umbridge First Class Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.blood_quill_detention_begins",
+      "label": "Blood Quill Detention Begins",
+      "contextType": "story_anchor",
+      "sortKey": 9435,
+      "dateRange": {
+        "from": "1995-11-01",
+        "to": "1995-11-01",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Blood Quill Detention Begins",
+        "blood_quill_detention_begins",
+        "Year 5 Blood Quill Detention Begins",
+        "Blood Quill Detention Begins Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.harry_hides_detention_scars",
+      "label": "Harry Hides Detention Scars",
+      "contextType": "story_anchor",
+      "sortKey": 9441,
+      "dateRange": {
+        "from": "1995-11-07",
+        "to": "1995-11-07",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Harry Hides Detention Scars",
+        "harry_hides_detention_scars",
+        "Year 5 Harry Hides Detention Scars",
+        "Harry Hides Detention Scars Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.high_inquisitor_decree_23",
+      "label": "High Inquisitor Decree 23",
+      "contextType": "story_anchor",
+      "sortKey": 9447,
+      "dateRange": {
+        "from": "1995-11-13",
+        "to": "1995-11-13",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "High Inquisitor Decree 23",
+        "high_inquisitor_decree_23",
+        "Year 5 High Inquisitor Decree 23",
+        "High Inquisitor Decree 23 Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.teacher_inspections_begin",
+      "label": "Teacher Inspections Begin",
+      "contextType": "story_anchor",
+      "sortKey": 9453,
+      "dateRange": {
+        "from": "1995-11-19",
+        "to": "1995-11-19",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Teacher Inspections Begin",
+        "teacher_inspections_begin",
+        "Year 5 Teacher Inspections Begin",
+        "Teacher Inspections Begin Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.da_need_crystallizes",
+      "label": "DA Need Crystallizes",
+      "contextType": "story_anchor",
+      "sortKey": 9459,
+      "dateRange": {
+        "from": "1995-11-25",
+        "to": "1995-11-25",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "DA Need Crystallizes",
+        "da_need_crystallizes",
+        "Year 5 DA Need Crystallizes",
+        "DA Need Crystallizes Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.hogs_head_da_recruitment",
+      "label": "Hogs Head DA Recruitment",
+      "contextType": "story_anchor",
+      "sortKey": 9465,
+      "dateRange": {
+        "from": "1995-12-01",
+        "to": "1995-12-01",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Hogs Head DA Recruitment",
+        "hogs_head_da_recruitment",
+        "Year 5 Hogs Head DA Recruitment",
+        "Hogs Head DA Recruitment Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.room_of_requirement_training_begins",
+      "label": "Room of Requirement Training Begins",
+      "contextType": "story_anchor",
+      "sortKey": 9471,
+      "dateRange": {
+        "from": "1995-12-07",
+        "to": "1995-12-07",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Room of Requirement Training Begins",
+        "room_of_requirement_training_begins",
+        "Year 5 Room of Requirement Training Begins",
+        "Room of Requirement Training Begins Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.da_progress_patronus_training",
+      "label": "DA Progress Patronus Training",
+      "contextType": "story_anchor",
+      "sortKey": 9477,
+      "dateRange": {
+        "from": "1995-12-13",
+        "to": "1995-12-13",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "DA Progress Patronus Training",
+        "da_progress_patronus_training",
+        "Year 5 DA Progress Patronus Training",
+        "DA Progress Patronus Training Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.hagrid_returns",
+      "label": "Hagrid Returns",
+      "contextType": "story_anchor",
+      "sortKey": 9483,
+      "dateRange": {
+        "from": "1995-12-19",
+        "to": "1995-12-19",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Hagrid Returns",
+        "hagrid_returns",
+        "Year 5 Hagrid Returns",
+        "Hagrid Returns Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.quidditch_match_and_bans",
+      "label": "Quidditch Match and Bans",
+      "contextType": "story_anchor",
+      "sortKey": 9489,
+      "dateRange": {
+        "from": "1995-12-25",
+        "to": "1995-12-25",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Quidditch Match and Bans",
+        "quidditch_match_and_bans",
+        "Year 5 Quidditch Match and Bans",
+        "Quidditch Match and Bans Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.arthur_attack_vision",
+      "label": "Arthur Attack Vision",
+      "contextType": "story_anchor",
+      "sortKey": 9495,
+      "dateRange": {
+        "from": "1995-12-31",
+        "to": "1995-12-31",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Arthur Attack Vision",
+        "arthur_attack_vision",
+        "Year 5 Arthur Attack Vision",
+        "Arthur Attack Vision Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.st_mungos_visit",
+      "label": "St Mungos Visit",
+      "contextType": "story_anchor",
+      "sortKey": 9501,
+      "dateRange": {
+        "from": "1996-01-06",
+        "to": "1996-01-06",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "St Mungos Visit",
+        "st_mungos_visit",
+        "Year 5 St Mungos Visit",
+        "St Mungos Visit Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.neville_parents_revealed",
+      "label": "Neville Parents Revealed",
+      "contextType": "story_anchor",
+      "sortKey": 9508,
+      "dateRange": {
+        "from": "1996-01-13",
+        "to": "1996-01-13",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Neville Parents Revealed",
+        "neville_parents_revealed",
+        "Year 5 Neville Parents Revealed",
+        "Neville Parents Revealed Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.occlumency_lessons_begin",
+      "label": "Occlumency Lessons Begin",
+      "contextType": "story_anchor",
+      "sortKey": 9514,
+      "dateRange": {
+        "from": "1996-01-19",
+        "to": "1996-01-19",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Occlumency Lessons Begin",
+        "occlumency_lessons_begin",
+        "Year 5 Occlumency Lessons Begin",
+        "Occlumency Lessons Begin Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.snape_memory_exposure",
+      "label": "Snape Memory Exposure",
+      "contextType": "story_anchor",
+      "sortKey": 9520,
+      "dateRange": {
+        "from": "1996-01-25",
+        "to": "1996-01-25",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Snape Memory Exposure",
+        "snape_memory_exposure",
+        "Year 5 Snape Memory Exposure",
+        "Snape Memory Exposure Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.azkaban_escape_public",
+      "label": "Azkaban Escape Public",
+      "contextType": "story_anchor",
+      "sortKey": 9526,
+      "dateRange": {
+        "from": "1996-01-31",
+        "to": "1996-01-31",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Azkaban Escape Public",
+        "azkaban_escape_public",
+        "Year 5 Azkaban Escape Public",
+        "Azkaban Escape Public Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.quibbler_interview",
+      "label": "Quibbler Interview",
+      "contextType": "story_anchor",
+      "sortKey": 9532,
+      "dateRange": {
+        "from": "1996-02-06",
+        "to": "1996-02-06",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Quibbler Interview",
+        "quibbler_interview",
+        "Year 5 Quibbler Interview",
+        "Quibbler Interview Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.decree_27_quibbler_ban",
+      "label": "Decree 27 Quibbler Ban",
+      "contextType": "story_anchor",
+      "sortKey": 9538,
+      "dateRange": {
+        "from": "1996-02-12",
+        "to": "1996-02-12",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Decree 27 Quibbler Ban",
+        "decree_27_quibbler_ban",
+        "Year 5 Decree 27 Quibbler Ban",
+        "Decree 27 Quibbler Ban Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.trelawney_sacked",
+      "label": "Trelawney Sacked",
+      "contextType": "story_anchor",
+      "sortKey": 9544,
+      "dateRange": {
+        "from": "1996-02-18",
+        "to": "1996-02-18",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Trelawney Sacked",
+        "trelawney_sacked",
+        "Year 5 Trelawney Sacked",
+        "Trelawney Sacked Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.firenze_hired",
+      "label": "Firenze Hired",
+      "contextType": "story_anchor",
+      "sortKey": 9550,
+      "dateRange": {
+        "from": "1996-02-24",
+        "to": "1996-02-24",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Firenze Hired",
+        "firenze_hired",
+        "Year 5 Firenze Hired",
+        "Firenze Hired Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.da_caught",
+      "label": "DA Caught",
+      "contextType": "story_anchor",
+      "sortKey": 9556,
+      "dateRange": {
+        "from": "1996-03-01",
+        "to": "1996-03-01",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "DA Caught",
+        "da_caught",
+        "Year 5 DA Caught",
+        "DA Caught Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.marietta_betrayal",
+      "label": "Marietta Betrayal",
+      "contextType": "story_anchor",
+      "sortKey": 9562,
+      "dateRange": {
+        "from": "1996-03-07",
+        "to": "1996-03-07",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Marietta Betrayal",
+        "marietta_betrayal",
+        "Year 5 Marietta Betrayal",
+        "Marietta Betrayal Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.dumbledore_takes_blame",
+      "label": "Dumbledore Takes Blame",
+      "contextType": "story_anchor",
+      "sortKey": 9568,
+      "dateRange": {
+        "from": "1996-03-13",
+        "to": "1996-03-13",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Dumbledore Takes Blame",
+        "dumbledore_takes_blame",
+        "Year 5 Dumbledore Takes Blame",
+        "Dumbledore Takes Blame Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.dumbledore_flees",
+      "label": "Dumbledore Flees",
+      "contextType": "story_anchor",
+      "sortKey": 9574,
+      "dateRange": {
+        "from": "1996-03-19",
+        "to": "1996-03-19",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Dumbledore Flees",
+        "dumbledore_flees",
+        "Year 5 Dumbledore Flees",
+        "Dumbledore Flees Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.umbridge_headmistress",
+      "label": "Umbridge Headmistress",
+      "contextType": "story_anchor",
+      "sortKey": 9580,
+      "dateRange": {
+        "from": "1996-03-25",
+        "to": "1996-03-25",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Umbridge Headmistress",
+        "umbridge_headmistress",
+        "Year 5 Umbridge Headmistress",
+        "Umbridge Headmistress Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.twins_fireworks_phase",
+      "label": "Twins Fireworks Phase",
+      "contextType": "story_anchor",
+      "sortKey": 9586,
+      "dateRange": {
+        "from": "1996-03-31",
+        "to": "1996-03-31",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Twins Fireworks Phase",
+        "twins_fireworks_phase",
+        "Year 5 Twins Fireworks Phase",
+        "Twins Fireworks Phase Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.twins_leave_hogwarts",
+      "label": "Twins Leave Hogwarts",
+      "contextType": "story_anchor",
+      "sortKey": 9593,
+      "dateRange": {
+        "from": "1996-04-07",
+        "to": "1996-04-07",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Twins Leave Hogwarts",
+        "twins_leave_hogwarts",
+        "Year 5 Twins Leave Hogwarts",
+        "Twins Leave Hogwarts Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.owls_begin",
+      "label": "Owls Begin",
+      "contextType": "story_anchor",
+      "sortKey": 9599,
+      "dateRange": {
+        "from": "1996-04-13",
+        "to": "1996-04-13",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Owls Begin",
+        "owls_begin",
+        "Year 5 Owls Begin",
+        "Owls Begin Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.hagrid_removal_attempt",
+      "label": "Hagrid Removal Attempt",
+      "contextType": "story_anchor",
+      "sortKey": 9605,
+      "dateRange": {
+        "from": "1996-04-19",
+        "to": "1996-04-19",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Hagrid Removal Attempt",
+        "hagrid_removal_attempt",
+        "Year 5 Hagrid Removal Attempt",
+        "Hagrid Removal Attempt Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.mcgonagall_stunned",
+      "label": "Mcgonagall Stunned",
+      "contextType": "story_anchor",
+      "sortKey": 9611,
+      "dateRange": {
+        "from": "1996-04-25",
+        "to": "1996-04-25",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Mcgonagall Stunned",
+        "mcgonagall_stunned",
+        "Year 5 Mcgonagall Stunned",
+        "Mcgonagall Stunned Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.sirius_torture_vision",
+      "label": "Sirius Torture Vision",
+      "contextType": "story_anchor",
+      "sortKey": 9617,
+      "dateRange": {
+        "from": "1996-05-01",
+        "to": "1996-05-01",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Sirius Torture Vision",
+        "sirius_torture_vision",
+        "Year 5 Sirius Torture Vision",
+        "Sirius Torture Vision Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.umbridge_forest",
+      "label": "Umbridge Forest",
+      "contextType": "story_anchor",
+      "sortKey": 9623,
+      "dateRange": {
+        "from": "1996-05-07",
+        "to": "1996-05-07",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Umbridge Forest",
+        "umbridge_forest",
+        "Year 5 Umbridge Forest",
+        "Umbridge Forest Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.thestral_flight_to_ministry",
+      "label": "Thestral Flight to Ministry",
+      "contextType": "story_anchor",
+      "sortKey": 9629,
+      "dateRange": {
+        "from": "1996-05-13",
+        "to": "1996-05-13",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Thestral Flight to Ministry",
+        "thestral_flight_to_ministry",
+        "Year 5 Thestral Flight to Ministry",
+        "Thestral Flight to Ministry Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.department_mysteries_battle",
+      "label": "Department Mysteries Battle",
+      "contextType": "story_anchor",
+      "sortKey": 9635,
+      "dateRange": {
+        "from": "1996-05-19",
+        "to": "1996-05-19",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Department Mysteries Battle",
+        "department_mysteries_battle",
+        "Year 5 Department Mysteries Battle",
+        "Department Mysteries Battle Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.sirius_dies",
+      "label": "Sirius Dies",
+      "contextType": "story_anchor",
+      "sortKey": 9641,
+      "dateRange": {
+        "from": "1996-05-25",
+        "to": "1996-05-25",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Sirius Dies",
+        "sirius_dies",
+        "Year 5 Sirius Dies",
+        "Sirius Dies Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.harry_bellatrix_chase",
+      "label": "Harry Bellatrix Chase",
+      "contextType": "story_anchor",
+      "sortKey": 9647,
+      "dateRange": {
+        "from": "1996-05-31",
+        "to": "1996-05-31",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Harry Bellatrix Chase",
+        "harry_bellatrix_chase",
+        "Year 5 Harry Bellatrix Chase",
+        "Harry Bellatrix Chase Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.dumbledore_voldemort_duel",
+      "label": "Dumbledore Voldemort Duel",
+      "contextType": "story_anchor",
+      "sortKey": 9653,
+      "dateRange": {
+        "from": "1996-06-06",
+        "to": "1996-06-06",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Dumbledore Voldemort Duel",
+        "dumbledore_voldemort_duel",
+        "Year 5 Dumbledore Voldemort Duel",
+        "Dumbledore Voldemort Duel Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.voldemort_publicly_seen",
+      "label": "Voldemort Publicly Seen",
+      "contextType": "story_anchor",
+      "sortKey": 9659,
+      "dateRange": {
+        "from": "1996-06-12",
+        "to": "1996-06-12",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Voldemort Publicly Seen",
+        "voldemort_publicly_seen",
+        "Year 5 Voldemort Publicly Seen",
+        "Voldemort Publicly Seen Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.prophecy_explained",
+      "label": "Prophecy Explained",
+      "contextType": "story_anchor",
+      "sortKey": 9665,
+      "dateRange": {
+        "from": "1996-06-18",
+        "to": "1996-06-18",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Prophecy Explained",
+        "prophecy_explained",
+        "Year 5 Prophecy Explained",
+        "Prophecy Explained Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    },
+    {
+      "id": "hp.y5.grief_and_train_home",
+      "label": "Grief and Train Home",
+      "contextType": "story_anchor",
+      "sortKey": 9672,
+      "dateRange": {
+        "from": "1996-06-25",
+        "to": "1996-06-25",
+        "precision": "approximate"
+      },
+      "book": "Order of the Phoenix",
+      "schoolYear": "5",
+      "arc": "Year 5: Order of the Phoenix",
+      "aliases": [
+        "Grief and Train Home",
+        "grief_and_train_home",
+        "Year 5 Grief and Train Home",
+        "Grief and Train Home Year 5"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5",
+        "book:order-of-the-phoenix"
+      ]
+    }
+  ],
+  "windows": [
+    {
+      "id": "hp.y5.window.privet_and_order_rescue",
+      "label": "Window Privet and Order Rescue",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y5.privet_drive_isolation",
+      "validToAnchor": "hp.y5.sirius_trapped_at_grimmauld",
+      "sortKeyFrom": 9344,
+      "sortKeyTo": 9374,
+      "aliases": [
+        "Window Privet and Order Rescue",
+        "window privet_and_order_rescue"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5"
+      ]
+    },
+    {
+      "id": "hp.y5.window.grimmauld_before_school",
+      "label": "Window Grimmauld Before School",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y5.order_headquarters_context",
+      "validToAnchor": "hp.y5.decree_22_umbridge_defense",
+      "sortKeyFrom": 9380,
+      "sortKeyTo": 9410,
+      "aliases": [
+        "Window Grimmauld Before School",
+        "window grimmauld_before_school"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5"
+      ]
+    },
+    {
+      "id": "hp.y5.window.umbridge_early_control",
+      "label": "Window Umbridge Early Control",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y5.term_arrival_ministry_denial",
+      "validToAnchor": "hp.y5.high_inquisitor_decree_23",
+      "sortKeyFrom": 9416,
+      "sortKeyTo": 9447,
+      "aliases": [
+        "Window Umbridge Early Control",
+        "window umbridge_early_control"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5"
+      ]
+    },
+    {
+      "id": "hp.y5.window.da_secret_training",
+      "label": "Window DA Secret Training",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y5.teacher_inspections_begin",
+      "validToAnchor": "hp.y5.hagrid_returns",
+      "sortKeyFrom": 9453,
+      "sortKeyTo": 9483,
+      "aliases": [
+        "Window DA Secret Training",
+        "window da_secret_training"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5"
+      ]
+    },
+    {
+      "id": "hp.y5.window.st_mungos_and_occlumency",
+      "label": "Window St Mungos and Occlumency",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y5.quidditch_match_and_bans",
+      "validToAnchor": "hp.y5.snape_memory_exposure",
+      "sortKeyFrom": 9489,
+      "sortKeyTo": 9520,
+      "aliases": [
+        "Window St Mungos and Occlumency",
+        "window st_mungos_and_occlumency"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5"
+      ]
+    },
+    {
+      "id": "hp.y5.window.ministry_crackdown",
+      "label": "Window Ministry Crackdown",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y5.azkaban_escape_public",
+      "validToAnchor": "hp.y5.da_caught",
+      "sortKeyFrom": 9526,
+      "sortKeyTo": 9556,
+      "aliases": [
+        "Window Ministry Crackdown",
+        "window ministry_crackdown"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5"
+      ]
+    },
+    {
+      "id": "hp.y5.window.dumbledore_absent_umbridge_headmistress",
+      "label": "Window Dumbledore Absent Umbridge Headmistress",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y5.marietta_betrayal",
+      "validToAnchor": "hp.y5.twins_leave_hogwarts",
+      "sortKeyFrom": 9562,
+      "sortKeyTo": 9593,
+      "aliases": [
+        "Window Dumbledore Absent Umbridge Headmistress",
+        "window dumbledore_absent_umbridge_headmistress"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5"
+      ]
+    },
+    {
+      "id": "hp.y5.window.owls_and_removal_attempt",
+      "label": "Window Owls and Removal Attempt",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y5.owls_begin",
+      "validToAnchor": "hp.y5.thestral_flight_to_ministry",
+      "sortKeyFrom": 9599,
+      "sortKeyTo": 9629,
+      "aliases": [
+        "Window Owls and Removal Attempt",
+        "window owls_and_removal_attempt"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5"
+      ]
+    },
+    {
+      "id": "hp.y5.window.department_mysteries",
+      "label": "Window Department Mysteries",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y5.department_mysteries_battle",
+      "validToAnchor": "hp.y5.prophecy_explained",
+      "sortKeyFrom": 9635,
+      "sortKeyTo": 9665,
+      "aliases": [
+        "Window Department Mysteries",
+        "window department_mysteries"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5"
+      ]
+    },
+    {
+      "id": "hp.y5.window.public_return_aftermath",
+      "label": "Window Public Return Aftermath",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "validFromAnchor": "hp.y5.grief_and_train_home",
+      "validToAnchor": "hp.y5.grief_and_train_home",
+      "sortKeyFrom": 9672,
+      "sortKeyTo": 9672,
+      "aliases": [
+        "Window Public Return Aftermath",
+        "window public_return_aftermath"
+      ],
+      "tags": [
+        "fandom:harry-potter",
+        "era:golden-trio",
+        "structure:split-loredeck",
+        "quality:human-vetted",
+        "school-year:5"
+      ]
+    }
+  ]
+}
