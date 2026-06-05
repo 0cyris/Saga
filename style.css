@@ -2168,17 +2168,10 @@
 }
 
 .wandlight-loredeck-library-visual {
+    position: relative;
     overflow: hidden;
-    clip-path: polygon(
-        8px 0,
-        calc(100% - 8px) 0,
-        100% 8px,
-        100% calc(100% - 8px),
-        calc(100% - 8px) 100%,
-        8px 100%,
-        0 calc(100% - 8px),
-        0 8px
-    );
+    border-radius: 6px;
+    isolation: isolate;
 }
 
 .wandlight-loredeck-library-visual img {
@@ -2187,10 +2180,23 @@
     display: block;
     object-fit: cover;
     object-position: center;
+    border-radius: inherit;
 }
 
 .wandlight-loredeck-library-visual-cover {
     padding: 0;
+}
+
+.wandlight-loredeck-library-visual-cover::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    box-shadow:
+        0 0 0 1px rgba(215, 181, 109, 0.22) inset,
+        0 1px 0 rgba(255, 237, 181, 0.16) inset,
+        0 -1px 0 rgba(0, 0, 0, 0.34) inset;
 }
 
 .wandlight-loredeck-library-visual-fallback {

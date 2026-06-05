@@ -163,7 +163,8 @@ for (const token of [
     'wandlight-theme-iconset-strip',
     'wandlight-theme-icon-grid',
     'wandlight-loredeck-library-visual-cover',
-    'clip-path: polygon',
+    'wandlight-loredeck-library-visual-cover::after',
+    'border-radius: inherit',
     'scrollbar-gutter: stable',
 ]) {
     assert(style.includes(token), `Stylesheet is missing expected smoke selector: ${token}`);
