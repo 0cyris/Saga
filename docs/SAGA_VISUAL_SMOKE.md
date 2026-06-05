@@ -1,6 +1,6 @@
 # Saga Visual Smoke Runbook
 
-This runbook covers the first visual smoke pass for Saga's runtime shelf and Loredeck workflows.
+This runbook covers repeatable visual smoke passes for Saga's runtime shelf, Loredeck workflows, Deck Health, Creator, Theme Pack, and import/update surfaces.
 
 ## Local Harness
 
@@ -39,6 +39,29 @@ node scripts\serve-visual-smoke.mjs --check --port 0
 
 These checks do not replace a browser screenshot pass. They only verify that the harness, fixture, source hooks, and CSS hooks are still wired.
 
+## Live ST Screenshot Helper
+
+After syncing the current workspace into the active SillyTavern extension directory, run the dependency-free CDP helper:
+
+```powershell
+node scripts\smoke-live-st-cdp.mjs
+```
+
+In restricted desktop contexts, headless Chromium may crash. Use visible Chrome mode instead:
+
+```powershell
+$env:SAGA_SMOKE_HEADLESS='0'
+node scripts\smoke-live-st-cdp.mjs
+```
+
+The helper writes `live-st-*.png` screenshots to:
+
+```text
+Images/documentation/renders/saga-smoke/
+```
+
+The helper safely clicks Custom `Delete Deck`, verifies the Saga-owned confirmation modal, captures `live-st-03-delete-confirm.png`, and clicks `Cancel`. Native browser confirmation dialogs should not appear in this flow.
+
 ## Harness Checklist
 
 Use a desktop-width browser first, then repeat at a narrow/mobile-ish width.
@@ -51,15 +74,33 @@ Use a desktop-width browser first, then repeat at a narrow/mobile-ish width.
 - The Settings tab is present after the other runtime tabs.
 - No rail button text, icon, metric, or status chip overlaps.
 
-2. Loredecks
+2. Loredecks Runtime Tab
 
 - The drawer title reads `Loredecks`.
 - `Active Stack` shows at least two loaded decks.
 - `Smoke Test: Arlong Park` is the selected Custom deck.
+- The tab shows the Library launcher card, not a second inline `Loredeck Library` dropdown/list.
 - The deck detail panel shows Custom/editable controls.
 - `Check Updates`, `Save Metadata`, `Sync From Manifest`, `Repair Safe Issues`, and export controls fit cleanly.
+- Collapsible sections have visible dropdown arrows.
+- `Reset Window` from the SillyTavern extension menu restores the expected default open/closed section state, default tab, shelf mode, and safe position/size.
 
-3. Update Preview
+3. Fullscreen Loredeck Library
+
+- Click `Open Loredeck Library`.
+- The Library opens as a fullscreen two-column workbench.
+- Left side shows searchable/filterable available Loredecks.
+- Right side shows Active Stack with priority order, enable toggles, up/down controls, and remove controls.
+- Selected deck details update when a Library card or stack card is clicked.
+- Click selects one deck, Ctrl/Cmd-click toggles decks, and Shift-click selects a visible range.
+- Selected count, Select Visible, Clear, and Export Selected controls are visible and fit the Library pane.
+- Export Selected downloads one `.saga-lorepack.json` file per selected deck rather than one whole-library file.
+- Selecting multiple local JSON files from Import Deck opens the bulk install preview and installs checked files only as new Custom copies.
+- Custom/Generated decks expose `Delete Deck`; Bundled decks are protected from deletion.
+- Create/import/duplicate/delete actions refresh the Library without requiring a manual `Refresh Library` click.
+- Controls, chips, titles, and buttons match the runtime style and do not look oversized.
+
+4. Update Preview
 
 - Click `Check Updates`.
 - The modal title reads `Loredeck Update Preview`.
@@ -68,27 +109,44 @@ Use a desktop-width browser first, then repeat at a narrow/mobile-ish width.
 - `Update This Deck`, `Install As New Copy`, and `Cancel` are visible and not clipped.
 - Cancel closes the modal cleanly.
 
-4. Pending Review
+5. Pending Review
 
 - The Custom deck detail panel shows `Pending Review Queue`.
 - The seeded pending proposal is visible.
 - Quality/risk/health-impact chips do not overlap.
 - Accept/reject controls are visible and scoped to the pending change.
 
-5. Creator
+6. Deck Health Center
+
+- Click `Open Health Center` or `Health Report`.
+- The fullscreen Deck Health Center opens without a layout jump.
+- Malformed tag issue details show `Queue Tag ID Repair` for Custom/Generated decks and `Duplicate as Custom` for Bundled decks.
+- Overview, Issues, Coverage, Files, and Advanced behave like tabs.
+- Severity cards show errors, warnings, suggestions, and checked counts.
+- Priority issues use metadata chips for passive metadata and button styling for actions.
+- Health categories and details remain scrollable without clipping.
+- Bundled-deck repair guidance points users toward duplication or Custom repair paths.
+
+7. Creator
 
 - `Loredeck Creator` is visible on the Loredecks tab.
-- Fandom, Scope, Granularity, and Notes controls fit within the card.
-- The action row is usable at desktop and narrow widths.
+- `Open Creator Wizard` opens the fullscreen Creator surface.
+- Fandom, Scope, Granularity, and Notes controls fit within the wizard.
+- Granularity copy updates when the dropdown changes.
+- Buttons, inputs, sliders, and tabs use the same runtime visual scale.
 
-6. Settings
+8. Settings And Theme Packs
 
 - Open the Settings tab from the rail.
 - Provider/API settings are in the runtime drawer, not only the old dropdown panel.
-- Theme controls and Theme Pack surfaces render without clipped labels.
+- Theme Pack surfaces render without clipped labels.
+- Installed Theme Packs scroll when there are many bundled presets.
+- Live Preview shows rail, card, buttons, inputs, status states, and focus ring.
+- Accessibility ratios are visible and advisory.
+- Icon Set preview shows loaded/missing icon state.
 - Color controls remain readable against the active theme.
 
-7. Injection
+9. Injection
 
 - Open the Injection tab.
 - Continuity and Lore injection controls render.
@@ -99,26 +157,42 @@ Use a desktop-width browser first, then repeat at a narrow/mobile-ish width.
 
 After the harness pass, install or load the extension in SillyTavern and repeat the same workflow against the live extension.
 
+Before treating a live pass as current-code validation, verify SillyTavern is serving the current workspace build:
+
+- The served `/scripts/extensions/third-party/Saga/lore-panel.js` contains current workflow markers such as `refreshLorepackSurfaces` and `Delete Deck`.
+- The installed extension menu is reduced to the runtime handoff and `Reset Window`; the old API/model settings dropdown is absent.
+- If those markers are missing, sync or reinstall the extension into the active SillyTavern user extension directory before capturing screenshots.
+- If the direct `settings.html` endpoint is current but the extension menu still shows old copy, restart SillyTavern or clear the extension template cache before treating branding text as validated.
+
 Additional live checks:
 
 - The extension initializes without console errors.
 - The shelf launcher opens the runtime shelf.
+- The runtime banner and minimized Saga mark fit their containers.
 - API/provider settings retain saved values after reload.
+- The old extension-menu API/model dropdown is absent.
 - `hp-golden-trio` loads from `Lorepacks/hp-golden-trio/lorepack.json`.
 - Canon preview/suggestion still routes through the active Loredeck stack.
 - Prompt injection sync runs without throwing.
 - Chat reload preserves the active Loredeck stack and Story Position state.
+- Fullscreen windows render correctly with SillyTavern fonts, not just harness/browser defaults.
+- No Loredeck Library, Health Center, Creator, Theme Pack, import/update, or delete action snaps the runtime drawer unexpectedly to the top.
 
 ## Screenshot Targets
 
 Capture at least:
 
 - Expanded shelf with Loredecks drawer.
-- Loredeck detail for the seeded Custom deck.
+- Fullscreen Loredeck Library with selected Custom deck details.
+- Active Stack controls inside the Library.
+- Custom Loredeck delete confirmation modal after clicking `Delete Deck`, canceled before deletion.
+- Deck Health Center overview.
+- Deck Health Center issue details.
 - Update preview modal after `Check Updates`.
 - Pending Review Queue.
-- Loredeck Creator card.
-- Settings tab with provider and theme controls.
+- Fullscreen Loredeck Creator wizard.
+- Settings tab with provider controls.
+- Theme Pack section with Live Preview and Installed Theme Packs.
 - Injection tab with lore preview sections.
 - Narrow-width Loredecks drawer.
 

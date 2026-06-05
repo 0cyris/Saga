@@ -409,6 +409,31 @@ function installExtensionsMenuButton() {
     menu.appendChild(btn);
 }
 
+function normalizeSettingsPanelBranding(container) {
+    if (!container) return;
+
+    const rootTitle = container.querySelector(':scope > .inline-drawer > .inline-drawer-toggle b, :scope > .inline-drawer > .inline-drawer-header b');
+    if (rootTitle) rootTitle.textContent = 'SAGA';
+
+    for (const paragraph of container.querySelectorAll('p')) {
+        const text = String(paragraph.textContent || '');
+        if (!/Wandlight window|runtime window|roleplay/i.test(text)) continue;
+        paragraph.textContent = 'SAGA: Fandom Loresystem. During roleplay, use the runtime window for mode, injection toggles, scanning, generation, review, lore editing, provider setup, and theme settings.';
+        break;
+    }
+
+    const openWindowBtn = container.querySelector('#wandlight_open_window');
+    if (openWindowBtn) {
+        openWindowBtn.title = 'Open the SAGA runtime window.';
+        openWindowBtn.innerHTML = '<i class="fa-solid fa-up-right-from-square"></i> Open SAGA Window';
+    }
+
+    const resetWindowBtn = container.querySelector('#wandlight_reset_window');
+    if (resetWindowBtn) {
+        resetWindowBtn.title = 'Reset the SAGA runtime window to its safe default position, size, tab, shelf state, and section dropdown defaults.';
+    }
+}
+
 /**
  * Wires the settings panel form controls (save, buttons, lore).
  * Called after the settings HTML is rendered into the DOM.
@@ -419,6 +444,7 @@ function wireSettingsPanel(container) {
 
     const settings = getSettings();
 
+    normalizeSettingsPanelBranding(container);
 
     // Open runtime window button in settings panel
     const openWindowBtn = container.querySelector('#wandlight_open_window');

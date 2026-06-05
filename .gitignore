@@ -5,6 +5,7 @@ readme.wandlight
 
 # Local documentation render harness and temporary browser fixtures.
 .wandlight-doc-renderer/
+.tmp/
 
 # Local developer secrets and scratch config.
 # Keep the extension keyring/client files tracked; these patterns are only for

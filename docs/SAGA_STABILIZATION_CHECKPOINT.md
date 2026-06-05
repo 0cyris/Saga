@@ -42,11 +42,13 @@ Passed:
 - Local visual smoke harness contract: validates the harness, seeded Custom Loredeck, update fixture, runtime panel strings, and CSS hooks.
 - Local visual smoke server self-check: serves the harness and update fixture without external dependencies.
 - First SillyTavern smoke pass: the extension loads without console errors, the shelf opens correctly, and the Loredecks tab renders well enough for focused UX feedback.
+- Targeted current-code visual smoke harness pass: runtime shelf, fullscreen Loredeck Library, Active Stack, Deck Health Center, Creator wizard, update preview, Settings/Theme Packs, and Injection preview render without browser console errors.
+- Live SillyTavern screenshot pass after syncing the current workspace into `data/default-user/extensions/Saga`: saved `live-st-01-initial.png`, `live-st-02-loredecks.png`, `live-st-03-library.png`, `live-st-03-delete-confirm.png`, `live-st-04-health.png`, `live-st-05-creator.png`, `live-st-07-theme-pack.png`, and `live-st-08-injection.png` under `Images/documentation/renders/saga-smoke/`; the final pass reported no findings, no browser console errors, and no native dialog events.
 
 ## Known Non-Blockers
 
 - `scripts\audit-canon-preview.mjs --json` reports 417 entries and 296 entries missing `ui.preview` metadata. This is existing lore-quality cleanup work, not a Story Position blocker.
-- Formal screenshot capture is still pending after the first SillyTavern smoke pass. The local harness, runbook, and server checks are ready for repeatable before/after comparison.
+- Update-preview live validation still needs a seeded imported/custom deck with an update URL or an explicit fixture path. Bundled decks are not expected to expose `Check Updates`.
 - The current Saga foundation is still uncommitted in the working tree.
 
 ## Next Production Slice
@@ -86,8 +88,10 @@ Position-aware Loredeck retrieval:
 - Done: complete the first real SillyTavern smoke pass and capture focused Loredecks UX feedback.
 - Done: apply the first low-risk Loredecks feedback fixes: collapsible Loredeck sections with reset defaults, stricter tag ID normalization, HP reference-deck tag cleanup, Lorecard-aligned metadata chips and titles, fullscreen Creator launcher, Saga-styled granularity labels/blurbs, stack arrow controls, individual-deck install focus, and Saga banner/minimized branding assets.
 - Done: start the Deck Health redesign with a fullscreen Deck Health Center for readiness, severity cards, grouped priority issues, health categories, deck inventory, files, coverage, and advanced diagnostics.
-- Next: run a targeted visual smoke pass in SillyTavern against these fixes, including collapsed-section defaults, Reset Window behavior, Loredeck chip/title styling, HP Deck Health malformed namespace warnings, Creator wizard launch, granularity copy, stack arrows, runtime header branding, and the new Health Center.
-- Next: expand Deck Health remediation with deterministic Custom-deck fixes, bundled duplicate-to-edit flow, ignore/resolve states, and assistant repair handoff from grouped issues.
-- Next: design individual Loredeck bulk export/import from selected Loredecks, producing one JSON file per deck and avoiding whole-library import/export.
+- Done: resolve the live-ST smoke findings around Theme Pack responsiveness, Deck Health unscanned/readiness copy, extension-menu branding cache, and automation-safe delete confirmation.
+- Done: implement selected-Loredeck bulk import/export in the fullscreen Library, including click/Ctrl/Shift selection, selected-count actions, one JSON bundle per selected deck, and safe multi-file local import as new Custom copies.
+- In progress: expand Deck Health remediation. Malformed tag ID groups can now queue deterministic Custom/Generated repair proposals for Pending Review, while Bundled decks route users to Duplicate as Custom before repairs.
+- Next: add a seeded imported/custom update-source fixture to live-ST validation so `Check Updates` can be exercised end to end outside the local harness.
+- Next: finish Deck Health remediation with ignore/resolve states, grouped-issue assistant handoff from the Health Center, and clearer post-repair rerun guidance.
 - Next: audit Loredecks actions that still trigger full panel refreshes or scroll snap-to-top behavior.
 - Next: run UX/UI studies before major implementation for the fullscreen Loredeck Library + Stack Loader workbench and the Story Position editor.

@@ -38,7 +38,7 @@ export function renderSettingsPanel(container) {
 function removeLegacyProviderSettingsDrawer(container) {
     for (const header of container.querySelectorAll('.inline-drawer-header')) {
         const text = String(header.textContent || '').trim();
-        if (!/Provider Settings|API and Model|API\/Model/i.test(text)) continue;
+        if (!/Provider Settings|API\s*(?:and|&|\+|\/)\s*Model|API\/Model/i.test(text)) continue;
         header.closest('.inline-drawer')?.remove();
     }
     for (const el of container.querySelectorAll('[id^="wandlight_continuity_provider"], [id^="wandlight_lore_provider"], [id*="_openai_"], [id*="_fetch_models"], [id*="_test_connection"]')) {
