@@ -86,6 +86,16 @@ import {
     resolveLoredeckStackItems,
 } from './loredeck-library-index.js';
 import {
+    applyLoredeckLibraryFolderRemovalPlan,
+    createLoredeckLibraryFolderRecord,
+    getLoredeckLibraryFolderRemovalPlan,
+    getLoredeckLibraryFolderSiblingRecords,
+    moveLoredeckLibraryFolderRecord,
+    moveLoredecksToLibraryFolderPlacement,
+    renameLoredeckLibraryFolderRecord,
+    reorderLoredeckLibraryPlacements,
+} from './loredeck-library-service.js';
+import {
     captureLoreTimelineState,
     recordLoreTimelineEvent,
     getLoreTimelineEvents,
@@ -2288,8 +2298,6 @@ function ensureBundledLoredeckIndexLoaded() {
 }
 
 const LOREDECK_LIBRARY_SCROLL_SELECTORS = Object.freeze({
-    folderTree: '.wandlight-loredeck-library-folder-tree',
-    folderList: '.wandlight-loredeck-library-folder-list',
     libraryList: '.wandlight-loredeck-library-deck-list',
     stackList: '.wandlight-loredeck-library-stack-list',
     details: '.wandlight-loredeck-library-details',
@@ -3316,89 +3324,6 @@ function updateLoredeckLibraryFolderCoverStrip(strip = null) {
     }
 }
 
-function createLoredeckLibraryFolderTree(libraryIndex = {}, library = [], stack = [], canonDb = null, health = null) {
-    const tree = document.createElement('div');
-    tree.className = 'wandlight-loredeck-library-folder-tree';
-    const title = document.createElement('div');
-    title.className = 'wandlight-loredeck-library-folder-title';
-    title.textContent = 'Folders';
-    tree.appendChild(title);
-
-    const specials = document.createElement('div');
-    specials.className = 'wandlight-loredeck-library-folder-specials';
-    for (const view of LOREDECK_LIBRARY_SPECIAL_VIEWS) {
-        specials.appendChild(createLoredeckLibraryFolderRow({
-            id: view.id,
-            title: view.title,
-            depth: 0,
-            tooltip: view.tooltip,
-            stats: getLoredeckLibraryFolderStats(view.id, library, libraryIndex, stack, canonDb, health),
-            special: true,
-        }));
-    }
-    tree.appendChild(specials);
-
-    const list = document.createElement('div');
-    list.className = 'wandlight-loredeck-library-folder-list';
-    const folders = buildFolderTree(libraryIndex);
-    if (!folders.length) {
-        list.appendChild(createEmptyMessage('No folders yet.'));
-    } else {
-        const appendFolder = (folder, depth = 0) => {
-            list.appendChild(createLoredeckLibraryFolderRow({
-                id: folder.id,
-                title: folder.title,
-                depth,
-                tooltip: getFolderPath(folder.id, libraryIndex).join(' > ') || folder.title,
-                stats: getLoredeckLibraryFolderStats(folder.id, library, libraryIndex, stack, canonDb, health),
-            }));
-            for (const child of folder.children || []) appendFolder(child, depth + 1);
-        };
-        for (const folder of folders) appendFolder(folder, 0);
-    }
-    tree.appendChild(list);
-    return tree;
-}
-
-function createLoredeckLibraryFolderRow(options = {}) {
-    const row = document.createElement('button');
-    row.type = 'button';
-    row.className = `wandlight-loredeck-library-folder-row${loredeckLibrarySelectedFolderId === options.id ? ' wandlight-loredeck-library-folder-row-active' : ''}${options.special ? ' wandlight-loredeck-library-folder-row-special' : ''}`;
-    row.style.setProperty('--wandlight-folder-depth', String(Math.max(0, Number(options.depth) || 0)));
-    row.dataset.folderId = options.id || '';
-    const dropEnabled = !options.special || options.id === 'unfiled';
-    row.dataset.folderDropTarget = dropEnabled ? 'true' : 'false';
-    if (dropEnabled) row.classList.add('wandlight-loredeck-library-folder-row-drop-enabled');
-    addTooltip(row, options.tooltip || options.title || 'Open this Library view.');
-    row.addEventListener('click', e => {
-        e.stopPropagation();
-        loredeckLibrarySelectedFolderId = options.id || 'all';
-        setLoredeckLibraryBulkSelection([], '');
-        renderLoredeckLibraryOverlay();
-    });
-
-    const label = document.createElement('span');
-    label.className = 'wandlight-loredeck-library-folder-label';
-    label.textContent = options.title || options.id || 'Folder';
-    row.appendChild(label);
-
-    const stats = options.stats || {};
-    const chip = document.createElement('span');
-    chip.className = 'wandlight-loredeck-library-folder-count';
-    chip.textContent = String(stats.deckCount || 0);
-    addTooltip(chip, `${stats.deckCount || 0} Loredeck${(stats.deckCount || 0) === 1 ? '' : 's'} in this view.`);
-    row.appendChild(chip);
-
-    if (stats.errorCount || stats.warningCount) {
-        const health = document.createElement('span');
-        health.className = stats.errorCount ? 'wandlight-loredeck-library-folder-health-error' : 'wandlight-loredeck-library-folder-health-warning';
-        health.textContent = stats.errorCount ? `${stats.errorCount}!` : `${stats.warningCount}!`;
-        addTooltip(health, stats.errorCount ? `${stats.errorCount} Loredeck health error group${stats.errorCount === 1 ? '' : 's'} in this view.` : `${stats.warningCount} Loredeck health warning group${stats.warningCount === 1 ? '' : 's'} in this view.`);
-        row.appendChild(health);
-    }
-    return row;
-}
-
 function createLoredeckLibrarySelectionToolbar(visiblePacks = [], libraryIndex = getLoredeckLibraryIndexForPacks()) {
     const toolbar = document.createElement('div');
     toolbar.className = 'wandlight-loredeck-library-selection-toolbar';
@@ -4070,7 +3995,7 @@ function createLoredeckStackFolderPreviewDeckRow(summary = {}, depth = 0) {
 
 function getLoredeckLibraryDropList(clientX, clientY) {
     const element = document.elementFromPoint(clientX, clientY);
-    const folder = element?.closest?.('.wandlight-loredeck-library-folder-row[data-folder-drop-target="true"], .wandlight-loredeck-library-inline-folder-row[data-folder-drop-target="true"]');
+    const folder = element?.closest?.('.wandlight-loredeck-library-inline-folder-row[data-folder-drop-target="true"]');
     if (folder) return folder;
     const direct = element?.closest?.('.wandlight-loredeck-library-deck-list, .wandlight-loredeck-library-stack-list');
     if (direct) return direct;
@@ -4083,7 +4008,7 @@ function getLoredeckLibraryDropList(clientX, clientY) {
 
 function getLoredeckLibraryDropKind(list) {
     if (!list) return '';
-    if (list.classList.contains('wandlight-loredeck-library-folder-row') || list.classList.contains('wandlight-loredeck-library-inline-folder-row')) return 'folder';
+    if (list.classList.contains('wandlight-loredeck-library-inline-folder-row')) return 'folder';
     if (list.classList.contains('wandlight-loredeck-library-stack-list')) return 'stack';
     if (list.classList.contains('wandlight-loredeck-library-deck-list')) return 'library';
     return '';
@@ -4091,12 +4016,6 @@ function getLoredeckLibraryDropKind(list) {
 
 function getLoredeckLibraryDropScrollElement(target = null) {
     if (!target) return null;
-    if (target.classList?.contains('wandlight-loredeck-library-folder-row')) {
-        return target.closest('.wandlight-loredeck-library-folder-list')
-            || target.closest('.wandlight-loredeck-library-folder-tree')
-            || target.closest('.wandlight-loredeck-library-deck-list')
-            || null;
-    }
     if (target.classList?.contains('wandlight-loredeck-library-inline-folder-row')) {
         return target.closest('.wandlight-loredeck-library-deck-list')
             || null;
@@ -5648,42 +5567,19 @@ function clearLoredeckStack() {
     if (changed) toast('Loredeck stack cleared.', 'success');
 }
 
-function reorderLoredeckInLibrary(packId, targetIndex, visiblePacks = []) {
-    const id = String(packId || '').trim();
-    const visibleIds = (visiblePacks || []).map(pack => pack.packId).filter(Boolean);
-    const currentIndex = visibleIds.indexOf(id);
-    const nextIndex = Math.max(0, Math.min(visibleIds.length - 1, Number(targetIndex)));
-    if (!id || currentIndex < 0 || !Number.isFinite(nextIndex) || currentIndex === nextIndex) return false;
-
-    const ordered = [...visibleIds];
-    const [moved] = ordered.splice(currentIndex, 1);
-    ordered.splice(nextIndex, 0, moved);
-
+function getMutableLoredeckLibraryRegistry() {
     const settings = getSettings();
     const registry = settings.loredeckLibrary && typeof settings.loredeckLibrary === 'object' && !Array.isArray(settings.loredeckLibrary)
         ? settings.loredeckLibrary
         : { schemaVersion: 1, packs: {} };
-    const placements = Array.isArray(registry.deckPlacements)
-        ? registry.deckPlacements.map(item => ({ ...item }))
-        : [];
-    const byId = new Map();
-    for (const placement of placements) {
-        const deckId = String(placement.deckId || placement.packId || '').trim();
-        if (deckId) byId.set(deckId, { ...placement, deckId });
-    }
-    ordered.forEach((deckId, index) => {
-        const existing = byId.get(deckId) || { deckId, folderId: '' };
-        byId.set(deckId, {
-            ...existing,
-            deckId,
-            sortOrder: (index + 1) * 100,
-            updatedAt: Date.now(),
-        });
-    });
-    settings.loredeckLibrary = {
-        ...registry,
-        deckPlacements: [...byId.values()],
-    };
+    return { settings, registry };
+}
+
+function reorderLoredeckInLibrary(packId, targetIndex, visiblePacks = []) {
+    const { settings, registry } = getMutableLoredeckLibraryRegistry();
+    const result = reorderLoredeckLibraryPlacements({ packId, targetIndex, visiblePacks, registry });
+    if (!result.ok) return false;
+    settings.loredeckLibrary = result.registry;
     saveSettings(settings);
     loredeckLibrarySort = 'manual';
     toast('Loredeck Library order updated.', 'success');
@@ -5691,102 +5587,32 @@ function reorderLoredeckInLibrary(packId, targetIndex, visiblePacks = []) {
 }
 
 function moveLoredecksToLibraryFolder(packIds = [], folderId = '') {
-    const ids = Array.from(new Set((packIds || []).map(id => String(id || '').trim()).filter(Boolean)));
-    if (!ids.length) return false;
-
     const state = getState();
     const library = getLoredeckLibrary(state);
-    const libraryById = new Map(library.map(pack => [pack.packId, pack]));
-    const validIds = ids.filter(id => libraryById.has(id));
-    if (!validIds.length) {
-        toast('No selected Loredecks are available in the Library.', 'warning');
-        return false;
-    }
-
     const libraryIndex = getLoredeckLibraryIndexForPacks(state, library);
-    const rawFolderId = String(folderId || '').trim();
-    const targetFolderId = rawFolderId === 'unfiled' ? '' : rawFolderId;
-    if (targetFolderId && !(libraryIndex.folders || []).some(folder => folder.id === targetFolderId)) {
-        toast('That Library folder is no longer available.', 'warning');
+    const { settings, registry } = getMutableLoredeckLibraryRegistry();
+    const result = moveLoredecksToLibraryFolderPlacement({ packIds, folderId, library, libraryIndex, registry });
+    if (!result.ok) {
+        if (result.error) toast(result.error, 'warning');
         return false;
     }
-
-    const settings = getSettings();
-    const registry = settings.loredeckLibrary && typeof settings.loredeckLibrary === 'object' && !Array.isArray(settings.loredeckLibrary)
-        ? settings.loredeckLibrary
-        : { schemaVersion: 1, packs: {} };
-    const placements = Array.isArray(registry.deckPlacements)
-        ? registry.deckPlacements.map(item => ({ ...item }))
-        : [];
-    const byId = new Map();
-    for (const placement of placements) {
-        const deckId = String(placement.deckId || placement.packId || '').trim();
-        if (deckId) byId.set(deckId, { ...placement, deckId });
-    }
-
-    const moving = new Set(validIds);
-    let maxSortOrder = 0;
-    for (const placement of libraryIndex.deckPlacements || []) {
-        const deckId = String(placement.deckId || placement.packId || '').trim();
-        if (moving.has(deckId)) continue;
-        if (String(placement.folderId || '').trim() === targetFolderId) {
-            maxSortOrder = Math.max(maxSortOrder, Number(placement.sortOrder) || 0);
-        }
-    }
-
-    let nextSortOrder = Math.max(100, Math.ceil(maxSortOrder / 100) * 100 + 100);
-    const now = Date.now();
-    for (const deckId of validIds) {
-        const existing = byId.get(deckId) || { deckId };
-        byId.set(deckId, {
-            ...existing,
-            deckId,
-            folderId: targetFolderId,
-            sortOrder: nextSortOrder,
-            updatedAt: now,
-        });
-        nextSortOrder += 100;
-    }
-
-    settings.loredeckLibrary = {
-        ...registry,
-        deckPlacements: [...byId.values()],
-    };
+    settings.loredeckLibrary = result.registry;
     saveSettings(settings);
-    loredeckLibrarySelectedFolderId = targetFolderId || 'unfiled';
+    loredeckLibrarySelectedFolderId = result.targetFolderId || 'unfiled';
     loredeckLibrarySort = 'manual';
-    selectLoredeckForDetails(validIds[0], { refresh: false });
-    setLoredeckLibraryBulkSelection(validIds, validIds[0]);
-    const targetTitle = targetFolderId ? getLoredeckLibraryViewTitle(targetFolderId, libraryIndex) : 'Unfiled';
-    toast(`Moved ${validIds.length} Loredeck${validIds.length === 1 ? '' : 's'} to ${targetTitle}.`, 'success');
+    selectLoredeckForDetails(result.validIds[0], { refresh: false });
+    setLoredeckLibraryBulkSelection(result.validIds, result.validIds[0]);
+    const targetTitle = result.targetFolderId ? getLoredeckLibraryViewTitle(result.targetFolderId, libraryIndex) : 'Unfiled';
+    toast(`Moved ${result.validIds.length} Loredeck${result.validIds.length === 1 ? '' : 's'} to ${targetTitle}.`, 'success');
     return true;
 }
 
 function saveLoredeckLibraryFolderRecords(folders = []) {
-    const settings = getSettings();
-    const registry = settings.loredeckLibrary && typeof settings.loredeckLibrary === 'object' && !Array.isArray(settings.loredeckLibrary)
-        ? settings.loredeckLibrary
-        : { schemaVersion: 1, packs: {} };
+    const { settings, registry } = getMutableLoredeckLibraryRegistry();
     settings.loredeckLibrary = {
         ...registry,
         folders: folders.map(folder => ({ ...folder })),
     };
-    saveSettings(settings);
-}
-
-function saveLoredeckLibraryOrganizationRecords(folders = [], deckPlacements = null) {
-    const settings = getSettings();
-    const registry = settings.loredeckLibrary && typeof settings.loredeckLibrary === 'object' && !Array.isArray(settings.loredeckLibrary)
-        ? settings.loredeckLibrary
-        : { schemaVersion: 1, packs: {} };
-    const next = {
-        ...registry,
-        folders: folders.map(folder => ({ ...folder })),
-    };
-    if (Array.isArray(deckPlacements)) {
-        next.deckPlacements = deckPlacements.map(placement => ({ ...placement }));
-    }
-    settings.loredeckLibrary = next;
     saveSettings(settings);
 }
 
@@ -5794,36 +5620,6 @@ function getLoredeckLibraryWorkingIndex() {
     const state = getState();
     const library = getLoredeckLibrary(state);
     return getLoredeckLibraryIndexForPacks(state, library);
-}
-
-function cleanLoredeckLibraryFolderTitle(value) {
-    return String(value || '').trim().replace(/\s+/g, ' ').slice(0, 120);
-}
-
-function getLoredeckLibraryFolderSiblingRecords(parentId = '', folders = []) {
-    const id = String(parentId || '').trim();
-    return (folders || [])
-        .filter(folder => String(folder.parentId || '').trim() === id)
-        .sort((a, b) => (Number(a.sortOrder) || 0) - (Number(b.sortOrder) || 0) || String(a.title || a.id).localeCompare(String(b.title || b.id)));
-}
-
-function hasLoredeckLibraryFolderSiblingTitle(parentId = '', title = '', folders = [], excludeId = '') {
-    const normalized = cleanLoredeckLibraryFolderTitle(title).toLowerCase();
-    const ignored = String(excludeId || '').trim();
-    return getLoredeckLibraryFolderSiblingRecords(parentId, folders)
-        .some(folder => folder.id !== ignored && cleanLoredeckLibraryFolderTitle(folder.title).toLowerCase() === normalized);
-}
-
-function createUniqueLoredeckLibraryFolderId(parentId = '', title = '', folders = []) {
-    const parentPath = parentId ? getFolderPath(parentId, { folders }) : [];
-    const base = createFolderIdFromPath([...parentPath, title]) || createFolderIdFromPath([title]);
-    const existing = new Set((folders || []).map(folder => folder.id));
-    if (!existing.has(base)) return base;
-    for (let index = 2; index < 1000; index += 1) {
-        const candidate = `${base}__${index}`.slice(0, 180);
-        if (!existing.has(candidate)) return candidate;
-    }
-    return `${base || 'folder'}__${Date.now()}`.slice(0, 180);
 }
 
 async function promptCreateLoredeckLibraryFolder(parentId = '') {
@@ -5847,35 +5643,14 @@ async function promptCreateLoredeckLibraryFolder(parentId = '') {
 }
 
 function createLoredeckLibraryFolder(parentId = '', title = '', libraryIndex = getLoredeckLibraryWorkingIndex()) {
-    const cleanTitle = cleanLoredeckLibraryFolderTitle(title);
-    if (!cleanTitle) {
-        toast('Folder name is required.', 'warning');
-        return null;
-    }
     const targetParentId = String(parentId || '').trim();
-    const folders = (libraryIndex.folders || []).map(folder => ({ ...folder }));
-    if (targetParentId && !folders.some(folder => folder.id === targetParentId)) {
-        toast('Parent folder is no longer available.', 'warning');
+    const result = createLoredeckLibraryFolderRecord(targetParentId, title, libraryIndex);
+    if (!result.ok) {
+        if (result.error) toast(result.error, 'warning');
         return null;
     }
-    if (hasLoredeckLibraryFolderSiblingTitle(targetParentId, cleanTitle, folders)) {
-        toast('A sibling folder already uses that name.', 'warning');
-        return null;
-    }
-    const siblings = getLoredeckLibraryFolderSiblingRecords(targetParentId, folders);
-    const now = Date.now();
-    const folder = {
-        id: createUniqueLoredeckLibraryFolderId(targetParentId, cleanTitle, folders),
-        parentId: targetParentId,
-        title: cleanTitle,
-        sortOrder: Math.max(0, ...siblings.map(item => Number(item.sortOrder) || 0)) + 100,
-        icon: '',
-        color: '',
-        collapsed: false,
-        createdAt: now,
-        updatedAt: now,
-    };
-    saveLoredeckLibraryFolderRecords([...folders, folder]);
+    const folder = result.folder;
+    saveLoredeckLibraryFolderRecords(result.folders);
     if (targetParentId) loredeckLibraryCollapsedFolderIds.delete(targetParentId);
     loredeckLibrarySelectedFolderId = folder.id;
     loredeckLibrarySelectedFolderDetailsId = folder.id;
@@ -5907,29 +5682,15 @@ async function promptRenameLoredeckLibraryFolder(folderId = '') {
 
 function renameLoredeckLibraryFolder(folderId = '', title = '', libraryIndex = getLoredeckLibraryWorkingIndex()) {
     const id = String(folderId || '').trim();
-    const cleanTitle = cleanLoredeckLibraryFolderTitle(title);
-    if (!id || id === 'unfiled' || !cleanTitle) {
-        toast('Folder name is required.', 'warning');
+    const result = renameLoredeckLibraryFolderRecord(id, title, libraryIndex);
+    if (!result.ok) {
+        if (result.error) toast(result.error, 'warning');
         return false;
     }
-    const folders = (libraryIndex.folders || []).map(folder => ({ ...folder }));
-    const folder = folders.find(item => item.id === id);
-    if (!folder) {
-        toast('That Library folder is no longer available.', 'warning');
-        return false;
-    }
-    const parentId = String(folder.parentId || '').trim();
-    if (hasLoredeckLibraryFolderSiblingTitle(parentId, cleanTitle, folders, id)) {
-        toast('A sibling folder already uses that name.', 'warning');
-        return false;
-    }
-    if (folder.title === cleanTitle) return false;
-    folder.title = cleanTitle;
-    folder.updatedAt = Date.now();
-    saveLoredeckLibraryFolderRecords(folders);
+    saveLoredeckLibraryFolderRecords(result.folders);
     loredeckLibrarySelectedFolderId = id;
     loredeckLibrarySelectedFolderDetailsId = id;
-    toast(`${cleanTitle} folder renamed.`, 'success');
+    toast(`${result.folder.title} folder renamed.`, 'success');
     return true;
 }
 
@@ -5960,33 +5721,6 @@ async function deleteLoredeckLibraryFolderWithConfirm(folderId = '') {
     }
 
     return applyLoredeckLibraryFolderRemoval(plan, strategy);
-}
-
-function getLoredeckLibraryFolderRemovalPlan(folderId = '', libraryIndex = getLoredeckLibraryWorkingIndex()) {
-    const id = String(folderId || '').trim();
-    const folders = (libraryIndex.folders || []).map(folder => ({ ...folder }));
-    const folder = folders.find(item => item.id === id) || null;
-    const directChildFolders = folders
-        .filter(item => String(item.parentId || '').trim() === id)
-        .sort((a, b) => (Number(a.sortOrder) || 0) - (Number(b.sortOrder) || 0) || String(a.title || a.id).localeCompare(String(b.title || b.id)));
-    const descendantFolders = folders
-        .filter(item => item.id !== id && isLoredeckLibraryFolderDescendant(item.id, id, libraryIndex))
-        .sort((a, b) => (Number(a.sortOrder) || 0) - (Number(b.sortOrder) || 0) || String(a.title || a.id).localeCompare(String(b.title || b.id)));
-    const directDeckIds = [];
-    for (const placement of libraryIndex.deckPlacements || []) {
-        const deckId = String(placement.deckId || placement.packId || '').trim();
-        if (deckId && String(placement.folderId || '').trim() === id) directDeckIds.push(deckId);
-    }
-    const containedDeckIds = getLoredeckLibraryFolderDeckIds(id, libraryIndex, { includeNested: true });
-    return {
-        folder,
-        folderId: id,
-        parentId: String(folder?.parentId || '').trim(),
-        directChildFolders,
-        descendantFolders,
-        directDeckIds,
-        containedDeckIds,
-    };
 }
 
 function formatLoredeckLibraryFolderRemovalMessage(plan = {}, inStack = false) {
@@ -6030,169 +5764,44 @@ function applyLoredeckLibraryFolderRemoval(plan = {}, strategy = 'empty') {
     const folderId = String(plan.folderId || '').trim();
     if (!folderId || !plan.folder) return false;
     const libraryIndex = getLoredeckLibraryWorkingIndex();
-    const folder = (libraryIndex.folders || []).find(item => item.id === folderId);
-    if (!folder) {
-        toast('That Library folder is no longer available.', 'warning');
+    const { settings, registry } = getMutableLoredeckLibraryRegistry();
+    const result = applyLoredeckLibraryFolderRemovalPlan({ folderId, strategy, libraryIndex, registry });
+    if (!result.ok) {
+        if (result.error) toast(result.error, 'warning');
         return false;
     }
-    const freshPlan = getLoredeckLibraryFolderRemovalPlan(folderId, libraryIndex);
-    const parentId = String(freshPlan.parentId || '').trim();
-    const settings = getSettings();
-    const registry = settings.loredeckLibrary && typeof settings.loredeckLibrary === 'object' && !Array.isArray(settings.loredeckLibrary)
-        ? settings.loredeckLibrary
-        : { schemaVersion: 1, packs: {} };
-    const placementById = new Map();
-    for (const placement of Array.isArray(registry.deckPlacements) ? registry.deckPlacements : []) {
-        const deckId = String(placement.deckId || placement.packId || '').trim();
-        if (deckId) placementById.set(deckId, { ...placement, deckId });
-    }
-    const indexedPlacementById = new Map();
-    for (const placement of libraryIndex.deckPlacements || []) {
-        const deckId = String(placement.deckId || placement.packId || '').trim();
-        if (deckId) indexedPlacementById.set(deckId, { ...placement, deckId });
-    }
-    const updatePlacement = (deckId, targetFolderId, sortOrder = null) => {
-        const id = String(deckId || '').trim();
-        if (!id) return;
-        const existing = placementById.get(id) || indexedPlacementById.get(id) || { deckId: id };
-        placementById.set(id, {
-            ...existing,
-            deckId: id,
-            folderId: String(targetFolderId || '').trim(),
-            sortOrder: Number.isFinite(Number(sortOrder))
-                ? Number(sortOrder)
-                : (Number.isFinite(Number(existing.sortOrder)) ? Number(existing.sortOrder) : 0),
-            updatedAt: Date.now(),
-        });
-    };
-
-    let folders = (libraryIndex.folders || []).map(item => ({ ...item }));
-    let removedFolderIds = [folderId];
-    let selectedFolderId = parentId || 'all';
-    let selectedDeckIds = [];
-
-    if (strategy === 'move_to_parent') {
-        const conflicts = freshPlan.directChildFolders.filter(child => hasLoredeckLibraryFolderSiblingTitle(parentId, child.title, folders, child.id));
-        if (conflicts.length) {
-            toast(`Cannot move contents up: ${conflicts[0].title || conflicts[0].id} already exists in the parent folder.`, 'warning');
-            return false;
-        }
-        folders = folders.filter(item => item.id !== folderId);
-        const siblingMax = Math.max(0, ...getLoredeckLibraryFolderSiblingRecords(parentId, folders)
-            .filter(item => !freshPlan.directChildFolders.some(child => child.id === item.id))
-            .map(item => Number(item.sortOrder) || 0));
-        let nextFolderOrder = Math.max(100, Math.ceil(siblingMax / 100) * 100 + 100);
-        for (const child of freshPlan.directChildFolders) {
-            const record = folders.find(item => item.id === child.id);
-            if (!record) continue;
-            record.parentId = parentId;
-            record.sortOrder = nextFolderOrder;
-            record.updatedAt = Date.now();
-            nextFolderOrder += 100;
-        }
-
-        let targetMaxOrder = Math.max(0, ...(libraryIndex.deckPlacements || [])
-            .filter(placement => String(placement.folderId || '').trim() === parentId && !freshPlan.directDeckIds.includes(String(placement.deckId || placement.packId || '').trim()))
-            .map(placement => Number(placement.sortOrder) || 0));
-        let nextDeckOrder = Math.max(100, Math.ceil(targetMaxOrder / 100) * 100 + 100);
-        for (const deckId of freshPlan.containedDeckIds) {
-            const current = indexedPlacementById.get(deckId) || {};
-            const currentFolderId = String(current.folderId || '').trim();
-            if (currentFolderId === folderId) {
-                updatePlacement(deckId, parentId, nextDeckOrder);
-                nextDeckOrder += 100;
-                selectedDeckIds.push(deckId);
-            } else {
-                updatePlacement(deckId, currentFolderId, current.sortOrder);
-            }
-        }
-        selectedFolderId = parentId || 'all';
-    } else if (strategy === 'move_decks_to_unfiled') {
-        removedFolderIds = [folderId, ...freshPlan.descendantFolders.map(item => item.id)];
-        const removedSet = new Set(removedFolderIds);
-        folders = folders.filter(item => !removedSet.has(item.id));
-        let targetMaxOrder = Math.max(0, ...(libraryIndex.deckPlacements || [])
-            .filter(placement => !removedSet.has(String(placement.folderId || '').trim()))
-            .filter(placement => !freshPlan.containedDeckIds.includes(String(placement.deckId || placement.packId || '').trim()))
-            .filter(placement => !String(placement.folderId || '').trim())
-            .map(placement => Number(placement.sortOrder) || 0));
-        let nextDeckOrder = Math.max(100, Math.ceil(targetMaxOrder / 100) * 100 + 100);
-        for (const deckId of freshPlan.containedDeckIds) {
-            updatePlacement(deckId, '', nextDeckOrder);
-            nextDeckOrder += 100;
-        }
-        selectedFolderId = 'unfiled';
-        selectedDeckIds = freshPlan.containedDeckIds;
-    } else {
-        folders = folders.filter(item => item.id !== folderId);
-    }
-
-    saveLoredeckLibraryOrganizationRecords(folders, [...placementById.values()]);
-    const removedKeys = new Set(removedFolderIds.map(createLoredeckStackFolderKey));
+    settings.loredeckLibrary = result.registry;
+    saveSettings(settings);
+    const removedKeys = new Set(result.removedFolderIds.map(createLoredeckStackFolderKey));
     if (removedKeys.size) {
-        commitLoredeckStackMutation(`Deleted Library folder ${freshPlan.folder?.title || folderId}`, stack => {
+        commitLoredeckStackMutation(`Deleted Library folder ${result.plan?.folder?.title || folderId}`, stack => {
             for (let index = stack.length - 1; index >= 0; index -= 1) {
                 if (removedKeys.has(getLoredeckStackItemKey(stack[index]))) stack.splice(index, 1);
             }
         });
     }
-    for (const id of removedFolderIds) loredeckLibraryCollapsedFolderIds.delete(id);
-    loredeckLibrarySelectedFolderId = selectedFolderId;
+    for (const id of result.removedFolderIds) loredeckLibraryCollapsedFolderIds.delete(id);
+    loredeckLibrarySelectedFolderId = result.selectedFolderId;
     loredeckLibrarySelectedFolderDetailsId = '';
-    if (selectedDeckIds.length) setLoredeckLibraryBulkSelection(selectedDeckIds, selectedDeckIds[0]);
+    if (result.selectedDeckIds.length) setLoredeckLibraryBulkSelection(result.selectedDeckIds, result.selectedDeckIds[0]);
     else setLoredeckLibraryBulkSelection([], '');
     loredeckLibrarySort = 'manual';
     renderLoredeckLibraryOverlay();
-    toast(`${freshPlan.folder?.title || folderId} folder deleted.`, 'info');
+    toast(`${result.plan?.folder?.title || folderId} folder deleted.`, 'info');
     return true;
 }
 
 function moveLoredeckLibraryFolder(folderId = '', targetParentId = '', targetIndex = null, libraryIndex = getLoredeckLibraryIndexForPacks()) {
     const id = String(folderId || '').trim();
-    const parentId = String(targetParentId || '').trim();
-    if (!id || id === 'unfiled') return false;
-    const folders = (libraryIndex.folders || []).map(folder => ({ ...folder }));
-    const byId = new Map(folders.map(folder => [folder.id, folder]));
-    const moving = byId.get(id);
-    if (!moving) {
-        toast('That Library folder is no longer available.', 'warning');
+    const result = moveLoredeckLibraryFolderRecord(id, targetParentId, targetIndex, libraryIndex);
+    if (!result.ok) {
+        if (result.error) toast(result.error, 'warning');
         return false;
     }
-    if (parentId && !byId.has(parentId)) {
-        toast('Target folder is no longer available.', 'warning');
-        return false;
-    }
-    if (parentId === id || (parentId && isLoredeckLibraryFolderDescendant(parentId, id, libraryIndex))) {
-        toast('A folder cannot be moved inside itself or its own child folder.', 'warning');
-        return false;
-    }
-
-    const currentParentId = String(moving.parentId || '').trim();
-    const sameParent = currentParentId === parentId;
-    const siblings = folders
-        .filter(folder => folder.id !== id && String(folder.parentId || '').trim() === parentId)
-        .sort((a, b) => (Number(a.sortOrder) || 0) - (Number(b.sortOrder) || 0) || String(a.title || a.id).localeCompare(String(b.title || b.id)));
-    const insertIndex = Number.isFinite(Number(targetIndex))
-        ? Math.max(0, Math.min(siblings.length, Number(targetIndex)))
-        : siblings.length;
-    const now = Date.now();
-    const orderedSiblings = [...siblings];
-    orderedSiblings.splice(insertIndex, 0, {
-        ...moving,
-        parentId,
-        updatedAt: now,
-    });
-    orderedSiblings.forEach((folder, index) => {
-        const record = byId.get(folder.id);
-        if (!record) return;
-        record.parentId = parentId;
-        record.sortOrder = (index + 1) * 100;
-        if (folder.id === id || !sameParent) record.updatedAt = now;
-    });
-    saveLoredeckLibraryFolderRecords([...byId.values()]);
+    saveLoredeckLibraryFolderRecords(result.folders);
     loredeckLibrarySelectedFolderId = id;
     loredeckLibrarySort = 'manual';
-    toast(`${moving.title || id} folder ${sameParent ? 'reordered' : 'moved'}.`, 'success');
+    toast(`${result.folder.title || id} folder ${result.sameParent ? 'reordered' : 'moved'}.`, 'success');
     return true;
 }
 
