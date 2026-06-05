@@ -409,29 +409,68 @@ function getAnchorSearchText(anchor = {}) {
         anchor.gameStage,
         ...(anchor.aliases || []),
         ...(anchor.tags || []),
-    ].filter(Boolean).join(' ').toLowerCase();
+    ].filter(Boolean).join(' ');
 }
 
 const STORY_POSITION_SEARCH_STOPWORDS = Object.freeze(new Set([
     'a',
+    'about',
     'an',
     'and',
+    'are',
+    'around',
     'as',
     'at',
+    'back',
+    'be',
+    'been',
+    'being',
     'by',
     'for',
     'from',
+    'go',
+    'goes',
+    'going',
+    'gone',
+    'had',
+    'has',
+    'have',
+    'he',
+    'her',
+    'here',
+    'him',
+    'his',
     'in',
     'into',
     'is',
     'it',
+    'just',
     'of',
     'on',
     'or',
+    'right',
+    'she',
+    'that',
     'the',
+    'their',
+    'them',
+    'then',
+    'there',
+    'these',
+    'they',
     'this',
+    'those',
+    'time',
     'to',
+    'was',
+    'we',
+    'went',
+    'were',
+    'when',
+    'where',
+    'while',
     'with',
+    'you',
 ]));
 
 const STORY_POSITION_DIRECTION_WORDS = Object.freeze(new Set([
@@ -445,8 +484,141 @@ const STORY_POSITION_DIRECTION_WORDS = Object.freeze(new Set([
     'prior',
 ]));
 
+const STORY_POSITION_ORDINAL_WORDS = Object.freeze(new Map([
+    ['first', 'first'],
+    ['second', '2'],
+    ['third', '3'],
+    ['fourth', '4'],
+    ['fifth', '5'],
+    ['sixth', '6'],
+    ['seventh', '7'],
+    ['eighth', '8'],
+    ['ninth', '9'],
+    ['tenth', '10'],
+]));
+
+const STORY_POSITION_TOKEN_NORMALIZATIONS = Object.freeze(new Map([
+    ['began', 'start'],
+    ['begin', 'start'],
+    ['begins', 'start'],
+    ['begun', 'start'],
+    ['came', 'return'],
+    ['cedrick', 'cedric'],
+    ['comeback', 'return'],
+    ['come', 'return'],
+    ['comes', 'return'],
+    ['coming', 'return'],
+    ['date', 'date'],
+    ['dated', 'date'],
+    ['dates', 'date'],
+    ['dating', 'date'],
+    ['dead', 'death'],
+    ['died', 'death'],
+    ['dies', 'death'],
+    ['die', 'death'],
+    ['killed', 'death'],
+    ['killing', 'death'],
+    ['kills', 'death'],
+    ['met', 'meet'],
+    ['meets', 'meet'],
+    ['returned', 'return'],
+    ['returns', 'return'],
+    ['started', 'start'],
+    ['starting', 'start'],
+    ['starts', 'start'],
+]));
+
+const STORY_POSITION_TOKEN_VARIANTS = Object.freeze(new Map([
+    ['date', ['date', 'dated', 'dates', 'dating', 'relationship', 'romance', 'girlfriend', 'boyfriend', 'kiss', 'kisses']],
+    ['death', ['death', 'dead', 'died', 'dies', 'die', 'kill', 'killed', 'killing']],
+    ['meet', ['meet', 'meets', 'met', 'encounter', 'confront', 'confrontation']],
+    ['return', ['return', 'returns', 'returned', 'comeback', 'comes back', 'came back', 'come back', 'regains a body', 'restored']],
+    ['start', ['start', 'starts', 'started', 'starting', 'begin', 'begins', 'began']],
+]));
+
+export function normalizeStoryPositionSearchText(value = '') {
+    return String(value || '')
+        .normalize('NFKD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[’‘]/g, "'")
+        .toLowerCase()
+        .replace(/[^a-z0-9._:'-]+/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+}
+
 function cleanSearchToken(value = '') {
-    return String(value || '').trim().toLowerCase();
+    let token = normalizeStoryPositionSearchText(value)
+        .replace(/^[._:'-]+|[._:'-]+$/g, '');
+    if (token.endsWith("'s")) token = token.slice(0, -2);
+    return token;
+}
+
+function normalizeStoryPositionQueryTerm(value = '') {
+    const token = cleanSearchToken(value);
+    if (!token) return '';
+    const numericOrdinal = token.match(/^(\d+)(?:st|nd|rd|th)$/);
+    if (numericOrdinal) return numericOrdinal[1];
+    return STORY_POSITION_TOKEN_NORMALIZATIONS.get(token)
+        || STORY_POSITION_ORDINAL_WORDS.get(token)
+        || token;
+}
+
+function getStoryPositionTermVariants(term = '') {
+    const cleanTerm = normalizeStoryPositionQueryTerm(term);
+    if (!cleanTerm) return [];
+    const output = [cleanTerm, ...(STORY_POSITION_TOKEN_VARIANTS.get(cleanTerm) || [])];
+    const seen = new Set();
+    return output
+        .map(item => normalizeStoryPositionSearchText(item).replace(/^[._:'-]+|[._:'-]+$/g, ''))
+        .filter(item => {
+            if (!item || seen.has(item)) return false;
+            seen.add(item);
+            return true;
+        });
+}
+
+function isEditDistanceAtMostOne(a = '', b = '') {
+    if (a === b) return true;
+    if (Math.abs(a.length - b.length) > 1) return false;
+    let i = 0;
+    let j = 0;
+    let edits = 0;
+    while (i < a.length && j < b.length) {
+        if (a[i] === b[j]) {
+            i += 1;
+            j += 1;
+            continue;
+        }
+        edits += 1;
+        if (edits > 1) return false;
+        if (a.length > b.length) {
+            i += 1;
+        } else if (b.length > a.length) {
+            j += 1;
+        } else {
+            i += 1;
+            j += 1;
+        }
+    }
+    return edits + (i < a.length ? 1 : 0) + (j < b.length ? 1 : 0) <= 1;
+}
+
+export function storyPositionTextIncludesTerm(text = '', term = '') {
+    const haystack = normalizeStoryPositionSearchText(text);
+    if (!haystack) return false;
+    const variants = getStoryPositionTermVariants(term);
+    if (variants.some(variant => haystack.includes(variant))) return true;
+    const compactHaystack = haystack.replace(/[^a-z0-9]+/g, '');
+    if (variants.some(variant => variant.includes(' ') && compactHaystack.includes(variant.replace(/[^a-z0-9]+/g, '')))) {
+        return true;
+    }
+    const words = haystack.split(/[^a-z0-9]+/).filter(Boolean);
+    return variants.some(variant => (
+        variant.length >= 6
+        && !variant.includes(' ')
+        && words.some(word => word.length >= 5 && isEditDistanceAtMostOne(word, variant))
+    ));
 }
 
 export function analyzeStoryPositionQuery(query = '') {
@@ -459,7 +631,8 @@ export function analyzeStoryPositionQuery(query = '') {
     const ignoredTerms = [];
     const directionTerms = [];
     const seen = new Set();
-    for (const term of rawTerms) {
+    for (const rawTerm of rawTerms) {
+        const term = normalizeStoryPositionQueryTerm(rawTerm);
         const isShortNoise = term.length <= 1 && !/\d/.test(term);
         const isStopword = STORY_POSITION_SEARCH_STOPWORDS.has(term);
         const isDirection = STORY_POSITION_DIRECTION_WORDS.has(term);
@@ -474,7 +647,7 @@ export function analyzeStoryPositionQuery(query = '') {
         if (terms.length >= 24) break;
     }
     return {
-        query: cleanSearchToken(query),
+        query: normalizeStoryPositionSearchText(query),
         terms,
         termPhrase: terms.join(' '),
         ignoredTerms,
@@ -489,17 +662,17 @@ function tokenizeAnchorSearchQuery(query = '') {
 function addMatchReason(reasons, matchedTerms, type, label, score, detail = '') {
     if (!label) return;
     reasons.push({ type, label, score, detail });
-    const text = `${label} ${detail}`.toLowerCase();
+    const text = `${label} ${detail}`;
     for (const term of matchedTerms.queryTerms || []) {
-        if (text.includes(term)) matchedTerms.terms.add(term);
+        if (storyPositionTextIncludesTerm(text, term)) matchedTerms.terms.add(term);
     }
 }
 
 function markMatchedTermsFromText(matchedTerms, text = '') {
-    const haystack = String(text || '').toLowerCase();
+    const haystack = String(text || '');
     if (!haystack) return;
     for (const term of matchedTerms.queryTerms || []) {
-        if (haystack.includes(term)) matchedTerms.terms.add(term);
+        if (storyPositionTextIncludesTerm(haystack, term)) matchedTerms.terms.add(term);
     }
 }
 
@@ -508,10 +681,10 @@ function scoreAnchorMatch(anchor = {}, analysis = analyzeStoryPositionQuery(''))
     const query = Array.isArray(analysis) ? '' : (analysis.query || '');
     const termPhrase = Array.isArray(analysis) ? terms.join(' ') : (analysis.termPhrase || terms.join(' '));
     if (!terms.length) return { score: 0, reasons: [], matchedTerms: [], missingTerms: [] };
-    const label = String(anchor.label || '').toLowerCase();
-    const id = String(anchor.id || '').toLowerCase();
-    const aliases = (anchor.aliases || []).map(alias => String(alias || '').toLowerCase());
-    const tags = (anchor.tags || []).map(tag => String(tag || '').toLowerCase());
+    const label = normalizeStoryPositionSearchText(anchor.label);
+    const id = normalizeStoryPositionSearchText(anchor.id);
+    const aliases = (anchor.aliases || []).map(alias => normalizeStoryPositionSearchText(alias));
+    const tags = (anchor.tags || []).map(tag => normalizeStoryPositionSearchText(tag));
     const searchText = getAnchorSearchText(anchor);
     const reasons = [];
     const matchedTerms = { queryTerms: terms, terms: new Set() };
@@ -558,25 +731,25 @@ function scoreAnchorMatch(anchor = {}, analysis = analyzeStoryPositionQuery(''))
     }
     for (const term of terms) {
         if (!term) continue;
-        if (label.includes(term)) {
+        if (storyPositionTextIncludesTerm(label, term)) {
             score += 12;
             addMatchReason(reasons, matchedTerms, 'label_term', `Label term: ${term}`, 12, anchor.label);
         }
-        if (id.includes(term)) {
+        if (storyPositionTextIncludesTerm(id, term)) {
             score += 8;
             addMatchReason(reasons, matchedTerms, 'id_term', `ID term: ${term}`, 8, anchor.id);
         }
-        const alias = aliases.find(item => item.includes(term));
+        const alias = aliases.find(item => storyPositionTextIncludesTerm(item, term));
         if (alias) {
             score += 10;
             addMatchReason(reasons, matchedTerms, 'alias_term', `Alias term: ${term}`, 10, alias);
         }
-        const tag = tags.find(item => item.includes(term));
+        const tag = tags.find(item => storyPositionTextIncludesTerm(item, term));
         if (tag) {
             score += 5;
             addMatchReason(reasons, matchedTerms, 'tag_term', `Tag term: ${term}`, 5, tag);
         }
-        if (searchText.includes(term)) {
+        if (storyPositionTextIncludesTerm(searchText, term)) {
             score += 2;
             markMatchedTermsFromText(matchedTerms, searchText);
             addMatchReason(reasons, matchedTerms, 'coordinate_term', `Coordinate term: ${term}`, 2, '');

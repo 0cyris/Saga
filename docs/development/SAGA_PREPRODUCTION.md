@@ -319,33 +319,35 @@ The loader applies these before Deck Health and canon database normalization, so
 
 Pending changes are not applied by the loader. They become runtime-active only after the user accepts them in the Pending Review Queue.
 
-## Story Position And Loredeck Context
+## Context And Story Position
 
-Wandlight currently centers on a story date. Saga needs a more general primitive: Story Position.
+Clarified product language: **Context is Saga's user-facing Story Position system**.
 
-Story Position answers:
+Context answers:
 
 ```text
 Where is this chat located inside this Loredeck's canon or story structure?
 ```
 
-For Harry Potter, that may be a calendar date and school year.
+The internal structured object may still be called `storyPosition` in code and schema, but users should experience this as **Context**: the canon-relative location of the current scene.
 
-For MCU, that may be "after Age of Ultron, before Civil War."
+For Harry Potter, Context may be a calendar date and school year.
 
-For My Hero Academia, that may be a school arc or anime/manga arc.
+For MCU, Context may be "after Age of Ultron, before Civil War."
 
-For Star Trek, that may be a season, episode range, stardate, or Dominion War phase.
+For My Hero Academia, Context may be a school arc or anime/manga arc.
 
-For Star Wars, that may be BBY/ABY, era, conflict, book series, or before/after a major event.
+For Star Trek, Context may be a season, episode range, stardate, or Dominion War phase.
 
-Coverage determines what a Loredeck contains. Story Position determines what Saga is allowed to inject from that pack at runtime.
+For Star Wars, Context may be BBY/ABY, era, conflict, book series, or before/after a major event.
 
-This distinction matters for large and modular fandom packs. A Loredeck can contain future canon as long as its entries are position-native and properly gated. Saga should prevent future canon leakage through Story Position eligibility, exclusionary lore, retrieval scoring, and manual locks, not through a pack-level spoiler boundary.
+Coverage determines what a Loredeck contains. Context determines what Saga is allowed to inject from that pack at runtime.
+
+This distinction matters for large and modular fandom packs. A Loredeck can contain future canon as long as its entries are position-native and properly gated. Saga should prevent future canon leakage through Context eligibility, exclusionary lore, retrieval scoring, and manual locks, not through a pack-level spoiler boundary.
 
 ### Loredeck Context
 
-Each loaded Loredeck can have its own context slot.
+Each loaded Loredeck can have its own Context slot.
 
 ```json
 {
@@ -408,16 +410,43 @@ Each loaded Loredeck can have its own context slot.
 
 Manual locks are important. If a user chooses "before Civil War", Saga should not overwrite that just because later chat text mentions Civil War in dialogue or comparison.
 
-### Story Position v1 Implementation
+### Context v1 Implementation
 
 The first production implementation is manual-first:
 
 - `lorepackContexts` is normalized during state migration.
-- Every loaded Loredeck receives a Story Position slot.
-- The Loredecks tab exposes a manual editor for date, label, branch, arc, phase, season, episode, chapter, issue, quest, game stage, anchors, alias, notes, source, confidence, and manual lock.
+- Every loaded Loredeck receives a Context slot.
+- The current implementation exposes manual Context editing from the Loredecks/Story Position workbench.
 - Manual field edits set `source: "manual"`, `manualLock: true`, and high confidence by default.
-- The editor can seed a pack position from the legacy Story Context fields while Saga transitions from one global date to per-deck positions.
+- The editor can seed a pack Context from the legacy Story Context fields while Saga transitions from one global date to per-deck Context.
 - Automated alias/model resolvers should respect `manualLock` in later slices.
+
+Target migration:
+
+- The **Context tab** should own runtime Context selection, browsing, resolving, locking, and drift checks.
+- The **Loredeck tab** should own deck library, stack loading, source Lorecard editing, Deck Health, Creator, and timeline registry authoring.
+- Any user-facing runtime "Story Position" sections currently in the Loredeck tab should migrate into the Context tab.
+- The Loredeck tab may keep timeline registry tools because creators need to edit the map that Context uses.
+- User-facing labels should prefer `Context`, `Choose Starting Context`, `Context Browser`, and `Resolve Context`. Use `Story Position` only where schema/dev precision is helpful.
+
+### Context Browser
+
+At the start of a story, Saga should offer a **Context Browser** when one or more loaded Loredecks have unset Context.
+
+Primary job:
+
+- Let the user choose where their story starts without needing to write a resolver phrase.
+
+Required behavior:
+
+- Show loaded Loredecks and their current Context state: set, unset, locked, low-confidence, floating, or no timeline.
+- Browse/search anchors, windows, arcs, books, chapters, episodes, quests, dates, and important Lorecard-derived event positions.
+- Support `Start Here`, `Before`, `After`, and `Between` choices where the data supports it.
+- Show a short explanation of what the selected Context will allow/prevent.
+- Let users lock the chosen Context.
+- Let users resolve a plain-language phrase through the Reasoner Provider when browsing is inconvenient.
+
+For crossovers, the browser should let users set Context per Loredeck independently. A Custom crossover/AU Loredeck may be floating or may define its own Context if it has a timeline.
 
 ### Timeline Modes
 
@@ -566,31 +595,59 @@ The first concrete registry is `Lorepacks/hp-golden-trio/timeline.json`. It incl
 
 Design constraint: missing timeline registries are allowed. Saga should treat timeline support as a Deck Health/advisory dimension, not as a hard validity gate, because some Custom Loredecks may be scenario-first, keyword-first, or still under construction.
 
-### Local Resolver v1 Implementation
+### Local Context Resolver v1 Implementation
 
 Step 4 adds a local, non-model resolver:
 
-- `story-position-resolver.js` resolves unlocked loaded Loredecks from current Story Context.
+- `story-position-resolver.js` resolves unlocked loaded Loredecks from current Context.
 - Date matching compares `sceneDate` / `subjectiveDate` against pack-local anchor date ranges.
 - Alias matching searches anchor labels, aliases, tags, books, arcs, phases, and other timeline fields.
 - Manual locks are respected unless a future caller explicitly forces overwrite.
-- Context detection now runs the local Story Position resolver after header/model/local Story Context detection.
-- The Loredecks tab can manually run `Resolve From Context`.
+- Context detection now runs the local resolver after header/model/local Context detection.
+- The current Loredecks workbench can manually run `Resolve From Context`; this should migrate into the Context tab.
 
-This keeps the common path free: a structured reply header or clear context note can update pack-specific Story Position without a model call.
+This keeps the common path cheap: a structured reply header, exact date, direct anchor label, or clear Context note can update pack-specific Context without a model call.
 
-### Model Fallback Resolver v1 Implementation
+### Reasoner Context Resolver
 
-Step 5 adds a controlled model fallback:
+Natural-language Context resolution should not depend on hand-authored aliases for every fandom phrase.
 
-- The Loredecks tab exposes `Model Fallback`.
-- The action first applies confident local matches, then sends only unresolved unlocked Loredecks to the Reasoning Provider.
-- The prompt includes only known timeline anchors from the active Story Position Index.
-- Model output is accepted only when it references a known anchor ID for that pack.
-- Low-confidence and invented-anchor results are rejected as unresolved.
-- Manual locks remain protected.
+The Reasoner Provider should be the main path for casual phrasing such as:
 
-The model fallback is intentionally explicit rather than automatic. It is for ambiguous fandom phrasing, arc names, user notes, and non-date-heavy settings where local matching is not enough.
+- `after Christmas in sixth year`
+- `when Ron starts dating the blonde girl`
+- `after Nami asks Luffy for help`
+- `post-Shibuya`
+- `before Marineford`
+
+The local resolver should remain a fast prefilter and candidate generator. It should handle exact dates, exact labels, IDs, direct aliases, dropdown/browser selection, and cheap candidate narrowing. It should not become a fragile synonym/alias engine for every fandom.
+
+Reasoner behavior:
+
+- Run only when Context is unset, the user asks to resolve a phrase, a thresholded Context check detects a likely timeline jump, or the user clicks `Resolve Context`.
+- Use the existing cadence from Wandlight-style Context detection: resolve locally first, then use a backup model call every configured message count only after the character-count threshold is met.
+- Send the active Loredeck stack, current Context, manual lock state, relevant timeline anchors/windows, and a bounded shortlist of candidate Lorecards/entry-derived positions.
+- Ask the model to choose from known candidates or return `needs_clarification` / `unresolved`.
+- Accept model output only when it references a known anchor/window/Lorecard-derived candidate for that Loredeck.
+- Treat invented anchors as suggestions for the Timeline Registry Editor, not as active Context.
+- Do not silently overwrite locked or high-confidence manual Context.
+- For likely jumps, ask for confirmation unless the user has enabled automatic Context updates.
+
+Expected structured result:
+
+```json
+{
+  "deckId": "hp-golden-trio",
+  "status": "resolved",
+  "targetType": "entry_position",
+  "targetId": "gof_graveyard_voldemort_return_state",
+  "direction": "after",
+  "confidence": 0.91,
+  "reason": "The user misspelled Cedric and described the immediate aftermath of his death."
+}
+```
+
+Accepted model resolutions may optionally be cached as user/deck-specific learned shortcuts. This cache is a convenience layer, not a requirement for Loredeck authors to pre-author exhaustive aliases.
 
 ### Entry Gating Draft
 
@@ -646,26 +703,28 @@ Saga v3 entries should not use entry-local date gates. Calendar dates belong in 
 }
 ```
 
-### Story Position Resolution
+### Context Resolution
 
 Resolution should happen in three layers:
 
 1. Manual user selection.
-2. Local alias/header matching.
-3. Model fallback using Loredeck resolver instructions.
+2. Local exact/header/date/candidate matching.
+3. Reasoner Provider resolution against bounded candidates.
 
-Manual selection should be the preferred and most trusted path. Users should be able to search anchors, choose before/after windows, set approximate eras, and lock the result.
+Manual selection through the Context Browser should be the preferred and most trusted path. Users should be able to search anchors, choose before/after windows, set approximate eras, and lock the result.
 
-Local alias matching should use:
+Local matching should use:
 
 - Structured headers.
 - User notes.
-- Loredeck anchor aliases.
+- Loredeck anchor/window labels and direct aliases.
 - Tags.
 - Known date formats.
 - Known arc/film/book/season labels.
 
-Model fallback should only run when local resolution is insufficient or the user requests it.
+Reasoner resolution should run when local matching is insufficient, Context is unset, a thresholded Context check suspects a jump, or the user requests it.
+
+Do not build Saga around exhaustive manual aliases. For large fandoms like One Piece, Naruto, Marvel, DC, or Genshin, exhaustive casual phrase coverage would become unmaintainable. The timeline registry should define stable story structure; the Reasoner should translate messy human phrasing into that structure.
 
 ### Resolver Registry Draft
 
@@ -1617,6 +1676,10 @@ Recent production completed **position-native Loredeck retrieval, HP reference-d
 43. Done: resolve the live-ST smoke findings before deeper feature work. Theme Pack now stacks responsively inside the real ST drawer, Deck Health keeps unscanned reports coherent with `Not checked` categories and no stack-only priority issue leakage, the extension-menu handoff normalizes stale Wandlight copy at mount time, legacy API/model drawer cleanup catches punctuation variants, Custom delete uses a Saga-owned confirmation modal, and the live smoke helper now verifies delete-cancel without native dialogs. The final live-ST pass produced no findings, no browser console errors, and no native dialog events.
 44. Done: implement selected-Loredeck bulk import/export. The fullscreen Library now supports click, Ctrl/Cmd-click, and Shift-click selection; exposes selected counts, Select Visible, Clear, and Export Selected actions; exports one `.saga-lorepack.json` bundle per selected Loredeck without whole-library export/import; supports multi-file local JSON import through a safe bulk preview that installs checked decks as new Custom copies; and keeps single-file URL/GitHub/update flows on the existing previewed update/reinstall path that protects locally modified decks.
 45. Done: expand Deck Health remediation from diagnosis into action. Editable Custom/Generated Loredecks can queue deterministic malformed tag ID repairs as Pending Review proposals, mark grouped issues ignored or resolved with persisted advisory state, send a grouped Health Center issue directly to the Lore Assistant for repair drafting, preserve health-impact stale marking through Pending Review acceptance, and route Bundled decks to Duplicate-as-Custom before repair.
-46. Done: redesign the Story Position editor into a fullscreen Story Position Workbench. The compact runtime card now launches the workbench; the workbench includes Position, Timeline, Aliases, and Validation tabs; spreadsheet-style anchor/window tables; selected-deck manual editing; timeline row inspection; local phrase resolver testing; and resolver explanations for matched, missing, and ignored terms.
-47. Next: improve Story Position data density and coverage. The HP reference deck currently has event-like Lorecards, such as Yule Ball material, that are position-native but not exposed as first-class timeline anchors in `timeline.json`. Decide whether Saga should promote selected entry-level position gates into resolver-visible timeline anchors, require denser source `timeline.json` registries, or provide assistant-driven anchor densification proposals.
-48. Next: implement durable asset/bundle handling for Custom Loredecks, Theme Packs, Icon Sets, and deck covers. Decide zip versus SillyTavern-managed storage, validate allowed image types, block executable content, preserve deck-cover paths, and make imported visual assets survive browser sessions.
+46. Done: redesign the Story Position editor into a fullscreen Story Position Workbench. The compact runtime card now launches the workbench; the workbench includes Position, Timeline, Aliases, and Validation tabs; spreadsheet-style anchor/window tables; selected-deck manual editing; timeline row inspection; local phrase resolver testing; and resolver explanations for matched, missing, and ignored terms. Clarified direction: this workbench is a stepping stone. Runtime position selection should migrate to the Context tab, while Loredeck-side tools should become timeline registry authoring/validation tools.
+47. Done: improve local resolver data coverage without making runtime indexing heavier. The Workbench Phrase Resolver can load Lorecards and include entry-derived Context candidates when `timeline.json` lacks a first-class anchor. Clarified direction: this should feed candidate generation for the Reasoner Provider, not become an exhaustive alias-matching system.
+48. Next: build the Context Browser in the Context tab. It should let users choose starting Context for each loaded Loredeck from searchable anchors/windows/Lorecard-derived positions, support before/after/between choices, show current/locked/unset states, and make manual Context selection the primary trusted workflow.
+49. Next: migrate runtime Story Position controls out of the Loredeck tab. Keep Loredeck-side timeline registry editing, Deck Health validation, and Creator tooling, but move current-context browsing, resolving, locking, and drift checks into the Context tab.
+50. Next: upgrade Reasoner-backed Context resolution. Reuse the existing context-detection cadence: local/structured resolution first, then a backup Reasoner call only after the configured message-count and character-count thresholds or explicit user request. The Reasoner should choose from bounded candidates and return structured, confirmable Context patches.
+51. Next: revise timeline densification policy around candidate quality, not alias sprawl. Durable timeline anchors should be added for high-value recurring story moments, missing registry coverage, Creator output, or accepted user/model suggestions. Deck Health can surface sparse coverage, but the Reasoner handles casual phrasing.
+52. Next: implement durable asset/bundle handling for Custom Loredecks, Theme Packs, Icon Sets, and deck covers. Decide zip versus SillyTavern-managed storage, validate allowed image types, block executable content, preserve deck-cover paths, and make imported visual assets survive browser sessions.

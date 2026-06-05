@@ -1378,37 +1378,40 @@ Timeline registries are not Lorecard files. They are compact resolver/index data
 }
 ```
 
-### Resolution Order
+### Context Resolution Order
 
-Saga should resolve Story Position in this order:
+Saga should resolve Context in this order:
 
 1. Manual user selection.
-2. Local alias/header matching.
-3. Model fallback.
+2. Local exact/header/date/candidate matching.
+3. Reasoner Provider resolution against bounded candidates.
 
 Manual locks should prevent automatic overwrites.
 
-### Model Fallback Contract
+### Reasoner Resolver Contract
 
-Model fallback should be bounded by the active Story Position Index.
+Reasoner resolution should be bounded by the active Story Position Index and a shortlist of known Lorecard-derived position candidates.
 
 Saga should send the model:
 
 - Current Story Context.
 - Optional supporting user/header text.
 - Target Loredeck IDs.
-- Known timeline anchors for those packs.
+- Known timeline anchors/windows for those packs.
+- Bounded entry-derived position candidates when useful.
 
-The model should return only known anchor IDs or mark a pack unresolved.
+The model should return only known target IDs, request clarification, or mark a pack unresolved.
 
 Saga should reject:
 
-- Anchor IDs that do not exist in the target pack.
+- Anchor/window/Lorecard target IDs that do not exist in the target pack candidate set.
 - Results below the confidence threshold.
 - Results for locked packs.
-- Invented dates, arcs, phases, or labels that do not map to known anchors.
+- Invented dates, arcs, phases, or labels that do not map to known candidates.
 
 This makes the model a resolver, not an authority. The Loredeck remains the source of timeline truth.
+
+Local aliases remain useful for exact shortcuts, but Loredeck authors should not be expected to encode every casual phrase a fandom user might type. Large-fandom natural language belongs to the Reasoner path.
 
 ## taxonomy.json
 

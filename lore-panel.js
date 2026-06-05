@@ -77,7 +77,7 @@ import {
     buildLorepackCreatorEntrySystemPrompt,
     buildLorepackCreatorEntryUserPrompt,
 } from './lorepack-assistant.js';
-import { analyzeStoryPositionQuery, clearStoryPositionIndexCache, findStoryPositionAnchors, getStoryPositionIndexSync, loadStoryPositionIndex, rankStoryPositionAnchors } from './story-position-index.js';
+import { analyzeStoryPositionQuery, clearStoryPositionIndexCache, findStoryPositionAnchors, getStoryPositionIndexSync, loadStoryPositionIndex, normalizeStoryPositionSearchText, rankStoryPositionAnchors, storyPositionTextIncludesTerm } from './story-position-index.js';
 import { resolveAndApplyStoryPositionsFromContext, resolveStoryPositionsWithModel } from './story-position-resolver.js';
 import { runAutoRelevance, applyAutoRelevanceSuggestions, clearAutoRelevanceSuggestions, rejectAutoRelevanceSuggestions } from './auto-relevance.js';
 import {
@@ -5996,6 +5996,13 @@ function createStoryPositionWorkbenchResolverTester(pack, context = {}, position
         storyPositionWorkbenchResolverQuery = '';
         renderStoryPositionWorkbench();
     }));
+    const cachedEntries = lorepackEntryPreviewCache.get(pack?.packId);
+    const loadEntriesButton = createButton(cachedEntries?.loadedAt ? 'Reload Lorecards' : 'Load Lorecards', 'Load this Loredeck\'s Lorecards so the resolver can include entry-derived Story Position candidates.', async (btn) => {
+        await loadLorepackEntriesForEditor(pack, btn);
+        renderStoryPositionWorkbench();
+    });
+    loadEntriesButton.disabled = !canValidateLorepackInEditor(pack);
+    top.appendChild(loadEntriesButton);
     wrap.appendChild(top);
 
     const meta = document.createElement('div');
@@ -6003,6 +6010,11 @@ function createStoryPositionWorkbenchResolverTester(pack, context = {}, position
     const packIndex = getStoryPositionPackSummary(positionIndex, pack?.packId);
     meta.appendChild(createStatusPill('Local match', 'This test does not call a model.'));
     meta.appendChild(createStatusPill(packIndex?.hasIndex ? `${packIndex.anchorCount || 0} anchors` : 'No index', 'Anchor count available to the local resolver.'));
+    if (cachedEntries?.loadedAt) {
+        meta.appendChild(createStatusPill(`${cachedEntries.entries?.length || 0} Lorecards loaded`, 'Loaded Lorecards are included as entry-derived Story Position candidates.'));
+    } else {
+        meta.appendChild(createStatusPill('Lorecards not loaded', 'Click Load Lorecards to include event-level entry positions in resolver testing.'));
+    }
     if (storyPositionWorkbenchResolverQuery) {
         meta.appendChild(createStatusPill(`Query: ${truncateText(storyPositionWorkbenchResolverQuery, 42)}`, 'Current resolver test phrase.'));
     }
@@ -6037,7 +6049,8 @@ function createStoryPositionWorkbenchResolverTester(pack, context = {}, position
         ));
     } else {
         const matches = rankStoryPositionAnchors(query, { packId: pack.packId, limit: 8, index: positionIndex });
-        if (!matches.length) {
+        const entryMatches = getStoryPositionEntryResolverMatches(pack, analysis, { limit: 6 });
+        if (!matches.length && !entryMatches.length) {
             list.appendChild(createStoryPositionResolverDiagnosticCard(
                 'No local anchor match',
                 getStoryPositionResolverMissReasons(pack, analysis, packIndex),
@@ -6059,6 +6072,27 @@ function createStoryPositionWorkbenchResolverTester(pack, context = {}, position
                 list.appendChild(createStoryPositionWorkbenchResolverResult(pack, match, currentAnchorId));
             }
         }
+        if (entryMatches.length) {
+            list.appendChild(createStoryPositionResolverDiagnosticCard(
+                'Lorecard-derived candidates',
+                [
+                    'These candidates come from loaded Lorecard Story Position gates, not from first-class timeline anchors.',
+                    pack.type === 'bundled'
+                        ? 'Apply one for this chat, or duplicate the bundled deck as Custom before promoting it into the timeline registry.'
+                        : 'Apply one for this chat, or queue it as a real timeline anchor for Pending Review.',
+                ],
+                'suggestion'
+            ));
+            for (const match of entryMatches) {
+                list.appendChild(createStoryPositionWorkbenchEntryResolverResult(pack, match));
+            }
+        } else if (!cachedEntries?.loadedAt) {
+            list.appendChild(createStoryPositionResolverDiagnosticCard(
+                'Lorecards not included',
+                ['Click Load Lorecards to also search entry-level Story Position gates for event-like phrases.'],
+                'suggestion'
+            ));
+        }
     }
     wrap.appendChild(list);
 
@@ -6075,6 +6109,11 @@ function getStoryPositionResolverMissReasons(pack, analysis = {}, packIndex = nu
     }
     if (analysis.directionTerms?.length) {
         lines.push(`Direction word${analysis.directionTerms.length === 1 ? '' : 's'} ignored: ${analysis.directionTerms.join(', ')}.`);
+    }
+    const cachedEntries = lorepackEntryPreviewCache.get(pack?.packId);
+    if (!cachedEntries?.loadedAt) {
+        lines.push('Lorecards are not loaded in this workbench yet, so entry-level Story Position gates were not searched.');
+        return lines;
     }
     const entryHint = getStoryPositionResolverEntryCoverageHint(pack, terms);
     if (entryHint?.count) {
@@ -6097,7 +6136,7 @@ function getStoryPositionResolverEntryCoverageHint(pack, terms = []) {
     for (const row of rows) {
         const entry = row.entry || {};
         const text = getStoryPositionResolverEntrySearchText(entry);
-        if (!terms.every(term => text.includes(term))) continue;
+        if (!terms.every(term => storyPositionTextIncludesTerm(text, term))) continue;
         hits.push(entry.title || entry.id || row.id || 'Untitled Lorecard');
         if (hits.length >= 4) break;
     }
@@ -6109,6 +6148,7 @@ function getStoryPositionResolverEntrySearchText(entry = {}) {
     const retrieval = entry.retrieval || {};
     const triggers = retrieval.triggers || {};
     const content = entry.content || {};
+    const resolverAliases = entry.extensions?.storyPositionResolver?.aliases || entry.storyPositionAliases || entry.resolverAliases || triggers.resolverAliases;
     return [
         entry.id,
         entry.title,
@@ -6121,6 +6161,9 @@ function getStoryPositionResolverEntrySearchText(entry = {}) {
         content.fact,
         content.injection,
         ...(Array.isArray(content.constraints) ? content.constraints : []),
+        ...(Array.isArray(resolverAliases) ? resolverAliases : []),
+        ...(Array.isArray(entry.aliases) ? entry.aliases : []),
+        ...(Array.isArray(positionAliasesFromEntry(entry)) ? positionAliasesFromEntry(entry) : []),
         ...(Array.isArray(scope.characters) ? scope.characters : []),
         ...(Array.isArray(scope.locations) ? scope.locations : []),
         ...(Array.isArray(scope.topics) ? scope.topics : []),
@@ -6130,7 +6173,168 @@ function getStoryPositionResolverEntrySearchText(entry = {}) {
         ...(Array.isArray(triggers.charactersAny) ? triggers.charactersAny : []),
         ...(Array.isArray(triggers.locationsAny) ? triggers.locationsAny : []),
         ...(Array.isArray(entry.effects?.addsTags) ? entry.effects.addsTags : []),
-    ].filter(Boolean).join(' ').toLowerCase();
+    ].filter(Boolean).join(' ');
+}
+
+function positionAliasesFromEntry(entry = {}) {
+    const position = entry.position && typeof entry.position === 'object' && !Array.isArray(entry.position) ? entry.position : {};
+    return Array.isArray(position.aliases) ? position.aliases : [];
+}
+
+function getStoryPositionEntryResolverMatches(pack, analysis = {}, options = {}) {
+    const cachedEntries = lorepackEntryPreviewCache.get(pack?.packId);
+    if (!cachedEntries?.loadedAt || !Array.isArray(cachedEntries.entries)) return [];
+    const terms = Array.isArray(analysis.terms) ? analysis.terms : [];
+    if (!terms.length) return [];
+    const limit = Math.max(1, Math.min(20, Number(options.limit) || 6));
+    return getStoryPositionWorkbenchEntryRows(pack)
+        .filter(row => row?.id && !row.disabled)
+        .map(row => buildStoryPositionEntryResolverMatch(pack, row, analysis))
+        .filter(match => match && match.score > 0 && !match.missingTerms.length)
+        .sort((a, b) => b.score - a.score || String(a.entry.title || a.row.id).localeCompare(String(b.entry.title || b.row.id)))
+        .slice(0, limit);
+}
+
+function buildStoryPositionEntryResolverMatch(pack, row = {}, analysis = {}) {
+    const entry = row.entry || {};
+    const position = entry.position && typeof entry.position === 'object' && !Array.isArray(entry.position) ? entry.position : {};
+    const sortKeyFrom = normalizeLorepackTimelineNumber(position.sortKeyFrom);
+    const sortKeyTo = normalizeLorepackTimelineNumber(position.sortKeyTo);
+    if (sortKeyFrom === null && sortKeyTo === null) return null;
+
+    const terms = Array.isArray(analysis.terms) ? analysis.terms : [];
+    const termPhrase = String(analysis.termPhrase || terms.join(' ')).trim().toLowerCase();
+    const reasons = [];
+    const matched = new Set();
+    let score = 0;
+
+    const addGroup = (label, text, termScore, phraseScore = 0) => {
+        const haystack = normalizeStoryPositionSearchText(text);
+        if (!haystack) return;
+        if (termPhrase && haystack.includes(termPhrase)) {
+            score += phraseScore || termScore * Math.max(2, terms.length);
+            reasons.push({ type: 'entry_phrase', label: `${label} contains phrase`, score: phraseScore || termScore * 2, detail: text });
+            for (const term of terms) {
+                if (storyPositionTextIncludesTerm(haystack, term)) matched.add(term);
+            }
+        }
+        for (const term of terms) {
+            if (!term || !storyPositionTextIncludesTerm(haystack, term)) continue;
+            matched.add(term);
+            score += termScore;
+            reasons.push({ type: 'entry_term', label: `${label} term: ${term}`, score: termScore, detail: text });
+        }
+    };
+
+    const scope = entry.scope || {};
+    const retrieval = entry.retrieval || {};
+    const triggers = retrieval.triggers || {};
+    const content = entry.content || {};
+    const resolverAliases = entry.extensions?.storyPositionResolver?.aliases || entry.storyPositionAliases || entry.resolverAliases || triggers.resolverAliases;
+    addGroup('Title', entry.title, 18, 72);
+    addGroup('ID', row.id || entry.id, 8, 24);
+    addGroup('Position label', position.label, 10, 32);
+    addGroup('Aliases', [
+        ...(Array.isArray(entry.aliases) ? entry.aliases : []),
+        ...(Array.isArray(position.aliases) ? position.aliases : []),
+        ...(Array.isArray(resolverAliases) ? resolverAliases : []),
+    ].join(' '), 20, 80);
+    addGroup('Topics', [
+        ...(Array.isArray(scope.topics) ? scope.topics : []),
+        ...(Array.isArray(triggers.topicsAny) ? triggers.topicsAny : []),
+        ...(Array.isArray(entry.effects?.addsTags) ? entry.effects.addsTags : []),
+    ].join(' '), 14, 56);
+    addGroup('Entities', [
+        ...(Array.isArray(scope.characters) ? scope.characters : []),
+        ...(Array.isArray(scope.locations) ? scope.locations : []),
+    ].join(' '), 8, 24);
+    addGroup('Book/phase', [
+        ...(Array.isArray(scope.books) ? scope.books : []),
+        ...(Array.isArray(scope.phases) ? scope.phases : []),
+        entry.sourceInfo?.book,
+    ].join(' '), 8, 24);
+    addGroup('Content', [
+        content.fact,
+        content.injection,
+        ...(Array.isArray(content.constraints) ? content.constraints : []),
+    ].join(' '), 4, 16);
+
+    const matchedTerms = [...matched];
+    const missingTerms = terms.filter(term => !matched.has(term));
+    if (!matchedTerms.length) return null;
+    const anchorDefinition = buildStoryPositionEntryDerivedAnchor(pack, row, analysis);
+    if (!anchorDefinition) return null;
+    return {
+        source: 'entry',
+        row,
+        entry,
+        position,
+        anchorDefinition,
+        score,
+        reasons: reasons.sort((a, b) => (b.score || 0) - (a.score || 0)).slice(0, 8),
+        matchedTerms,
+        missingTerms,
+        queryTerms: terms,
+        ignoredTerms: analysis.ignoredTerms || [],
+        directionTerms: analysis.directionTerms || [],
+        query: analysis.query || '',
+    };
+}
+
+function buildStoryPositionEntryDerivedAnchor(pack, row = {}, analysis = {}) {
+    const entry = row.entry || {};
+    const position = entry.position && typeof entry.position === 'object' && !Array.isArray(entry.position) ? entry.position : {};
+    const sortKeyFrom = normalizeLorepackTimelineNumber(position.sortKeyFrom);
+    const sortKeyTo = normalizeLorepackTimelineNumber(position.sortKeyTo);
+    const sortKey = sortKeyFrom ?? sortKeyTo;
+    if (sortKey === null) return null;
+    const scope = entry.scope || {};
+    const retrieval = entry.retrieval || {};
+    const triggers = retrieval.triggers || {};
+    const content = entry.content || {};
+    const resolverAliases = entry.extensions?.storyPositionResolver?.aliases || entry.storyPositionAliases || entry.resolverAliases || triggers.resolverAliases;
+    const id = normalizeLorepackTimelineId(`${pack?.packId || 'pack'}.${row.id || entry.id || entry.title || 'entry_anchor'}`);
+    if (!id) return null;
+    const aliases = uniqueStrings([
+        entry.title,
+        row.id,
+        analysis.termPhrase,
+        analysis.query,
+        ...(Array.isArray(entry.aliases) ? entry.aliases : []),
+        ...(Array.isArray(position.aliases) ? position.aliases : []),
+        ...(Array.isArray(resolverAliases) ? resolverAliases : []),
+        ...(Array.isArray(scope.topics) ? scope.topics : []),
+        ...(Array.isArray(triggers.topicsAny) ? triggers.topicsAny : []),
+        ...(Array.isArray(entry.effects?.addsTags) ? entry.effects.addsTags : []),
+    ]).slice(0, 24);
+    const tags = normalizeLorepackTimelineTextList([
+        'source:lorecard-derived',
+        entry.category ? `category:${entry.category}` : '',
+        entry.lorePurpose ? `purpose:${entry.lorePurpose}` : '',
+        ...(Array.isArray(entry.effects?.addsTags) ? entry.effects.addsTags : []),
+    ], 64);
+    return normalizeLorepackTimelineAnchor({
+        id,
+        label: entry.title || position.label || row.id || id,
+        positionType: position.scope === 'anchor' ? 'anchor' : 'anchor_window',
+        sortKey,
+        book: entry.sourceInfo?.book || scope.books?.[0] || '',
+        arc: position.arc || '',
+        phase: position.phase || scope.phases?.[0] || '',
+        season: position.season || '',
+        episode: position.episode || '',
+        chapter: position.chapter || '',
+        issue: position.issue || '',
+        quest: position.quest || '',
+        gameStage: position.gameStage || '',
+        aliases,
+        tags,
+        notes: [
+            `Entry-derived candidate from Lorecard ${row.id || entry.id || 'unknown'}.`,
+            position.label ? `Entry position label: ${position.label}.` : '',
+            content.notes ? `Entry notes: ${truncateText(content.notes, 240)}` : '',
+        ].filter(Boolean).join(' '),
+    }, id);
 }
 
 function createStoryPositionResolverDiagnosticCard(titleText = 'Resolver note', lines = [], severity = 'suggestion') {
@@ -6237,6 +6441,126 @@ function createStoryPositionWorkbenchResolverResult(pack, match = {}, currentAnc
     }));
     row.appendChild(actions);
     return row;
+}
+
+function createStoryPositionWorkbenchEntryResolverResult(pack, match = {}) {
+    const entry = match.entry || {};
+    const row = document.createElement('div');
+    row.className = 'wandlight-story-position-workbench-resolver-row wandlight-story-position-workbench-resolver-row-entry';
+
+    const main = document.createElement('div');
+    main.className = 'wandlight-story-position-workbench-position-picker-main';
+    const title = document.createElement('div');
+    title.className = 'wandlight-story-position-workbench-position-picker-title';
+    title.textContent = entry.title || match.row?.id || 'Lorecard candidate';
+    main.appendChild(title);
+
+    const meta = document.createElement('div');
+    meta.className = 'wandlight-story-position-workbench-position-picker-meta';
+    meta.textContent = [
+        'Lorecard-derived',
+        match.row?.id,
+        getStoryPositionResolverConfidenceLabel(match.score),
+        getStoryPositionEntryCandidatePositionText(match),
+        entry.category,
+        entry.lorePurpose,
+    ].filter(Boolean).join(' | ');
+    main.appendChild(meta);
+
+    const reason = document.createElement('div');
+    reason.className = 'wandlight-story-position-workbench-resolver-reason';
+    reason.textContent = formatStoryPositionResolverReasonText(match);
+    main.appendChild(reason);
+    row.appendChild(main);
+
+    const score = document.createElement('div');
+    score.className = 'wandlight-story-position-workbench-resolver-score';
+    score.textContent = String(Math.round(Number(match.score) || 0));
+    addTooltip(score, 'Entry-derived resolver match score. Higher is better; this is not model confidence.');
+    row.appendChild(score);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-story-position-workbench-row-actions';
+    actions.appendChild(createButton('Apply', 'Apply this Lorecard-derived position to the current chat.', () => {
+        applyStoryPositionEntryCandidate(pack.packId, match);
+    }, 'wandlight-primary-button'));
+    if (pack.type === 'bundled') {
+        actions.appendChild(createButton('Duplicate as Custom', 'Create an editable Custom Loredeck before promoting entry-derived anchors.', () => {
+            openDuplicateLorepackDialog(pack);
+        }));
+    } else {
+        actions.appendChild(createButton('Queue Anchor', 'Queue this Lorecard-derived candidate as a real timeline anchor for Pending Review.', () => {
+            queueStoryPositionEntryCandidateTimelineAnchor(pack, match);
+        }));
+    }
+    actions.appendChild(createButton('Find Lorecard', 'Open the Loredeck editor filtered to this Lorecard.', () => {
+        lorepackEntryOverrideQuery = match.row?.id || entry.title || '';
+        selectLorepackForDetails(pack.packId);
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        toast('Loredeck editor filtered to the resolver candidate Lorecard.', 'info');
+    }));
+    row.appendChild(actions);
+    return row;
+}
+
+function getStoryPositionEntryCandidatePositionText(match = {}) {
+    const position = match.position || {};
+    const bounds = [
+        normalizeLorepackTimelineNumber(position.sortKeyFrom),
+        normalizeLorepackTimelineNumber(position.sortKeyTo),
+    ].filter(value => value !== null && value !== undefined).join(' -> ');
+    return [
+        position.scope,
+        bounds,
+        position.validFromAnchor || position.anchorFrom,
+        position.validToAnchor || position.anchorTo,
+        position.label,
+    ].filter(Boolean).join(' | ');
+}
+
+function applyStoryPositionEntryCandidate(packId, match = {}) {
+    const entry = match.entry || {};
+    const position = match.position || {};
+    const anchorId = normalizeLorepackTimelineId(position.anchorId || '');
+    const anchorFrom = normalizeLorepackTimelineId(position.validFromAnchor || position.anchorFrom || '');
+    const anchorTo = normalizeLorepackTimelineId(position.validToAnchor || position.anchorTo || '');
+    const sortKeyFrom = normalizeLorepackTimelineNumber(position.sortKeyFrom);
+    const sortKeyTo = normalizeLorepackTimelineNumber(position.sortKeyTo);
+    const title = entry.title || match.row?.id || position.label || 'Lorecard-derived position';
+    commitLorepackStoryPositionPatch(packId, {
+        positionType: anchorId ? 'anchor' : 'anchor_window',
+        anchorId,
+        anchorFrom: anchorId ? '' : anchorFrom,
+        anchorTo: anchorId ? '' : anchorTo,
+        label: title,
+        sceneDate: '',
+        positionSortKey: sortKeyFrom ?? sortKeyTo,
+        arc: position.arc || '',
+        phase: position.phase || '',
+        season: position.season || '',
+        episode: position.episode || '',
+        chapter: position.chapter || '',
+        issue: position.issue || '',
+        quest: position.quest || '',
+        gameStage: position.gameStage || '',
+        alias: match.query || title,
+        source: 'manual',
+        confidence: Math.max(0.55, Math.min(0.95, (Number(match.score) || 0) / 180)),
+        notes: `Applied from Lorecard-derived resolver candidate: ${match.row?.id || entry.id || title}.`,
+    }, `Set Story Position from Lorecard: ${getLorepackDisplayName(packId)}`);
+}
+
+function queueStoryPositionEntryCandidateTimelineAnchor(pack, match = {}) {
+    if (pack?.type === 'bundled') {
+        toast('Bundled Loredeck timelines are read-only. Duplicate as Custom first.', 'warning');
+        return false;
+    }
+    const anchor = match.anchorDefinition;
+    if (!anchor?.id) {
+        toast('Could not build a timeline anchor from this Lorecard candidate.', 'error');
+        return false;
+    }
+    return saveLorepackTimelineAnchorDefinition(pack, anchor, `Queued Lorecard-derived timeline anchor ${anchor.id}.`);
 }
 
 function formatStoryPositionResolverReasonText(match = {}) {

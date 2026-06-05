@@ -1,47 +1,60 @@
-# Story Position Editor Design Workshop
+# Context Browser And Timeline Registry Workshop
 
-Saga's Story Position system answers a simple runtime question:
+This document began as the Story Position Editor workshop. Clarified direction: **Context is the user-facing Story Position system**. The internal structured object may remain `storyPosition`, but users should browse, resolve, lock, and monitor **Context**.
+
+Saga's Context system answers a simple runtime question:
 
 > Where is this chat inside each loaded Loredeck's story?
 
-The editor exists to make that answer precise enough to prevent future canon leakage, flexible enough for many fandom structures, and usable enough that casual users do not need to hand-build a thousand-row timeline before playing.
+The browser/workbench exists to make that answer precise enough to prevent future canon leakage, flexible enough for many fandom structures, and usable enough that casual users do not need to hand-build a thousand-row timeline before playing.
 
 ## Product Goal
 
-The Story Position Editor should let users and creators:
+Saga needs two related surfaces:
+
+- **Context Browser** in the Context tab for runtime play.
+- **Timeline Registry Workbench** in the Loredeck tab for deck creation/editing.
+
+Together they should let users and creators:
 
 - Set the current chat position for each loaded Loredeck.
 - Search and select known story anchors, windows, dates, arcs, chapters, episodes, quests, issues, routes, and AU branches.
 - Edit a Loredeck's timeline registry through reviewable Custom overlays.
-- Test how user phrasing resolves into Story Position.
+- Resolve user phrasing into Context through local candidates and the Reasoner Provider.
 - See which Lorecards attach to each anchor/window.
-- Fix timeline gaps, bad aliases, broken windows, and unmatchable gates.
+- Fix timeline gaps, sparse coverage, broken windows, and unmatchable gates.
 - Use AI assistance to draft or revise timeline structure without silently mutating accepted data.
 
 This is not primarily a lore trivia editor. It is the map that allows Saga to decide which Lorecards are eligible at a given point in a story.
 
-## Window Or Dropdown
+## Runtime Location
 
-The full editor should be its own fullscreen workbench.
+Runtime Context selection should live in the **Context tab**, not permanently in the Loredeck tab.
 
-The existing `Story Position` dropdown should remain as a compact runtime surface for quick review and basic manual selection. It should show the current position for loaded Loredecks and launch the workbench. It should not attempt to carry timeline registry editing, bulk operations, resolver tests, validation, or assistant workflows.
+The existing Loredeck-side Story Position workbench can remain during transition, but the migration target is:
+
+- Context tab: choose starting Context, browse Context, resolve from chat/phrase, lock/unlock, review suspected jumps.
+- Loredeck tab: edit source timeline registries, inspect attached Lorecards, validate coverage, queue timeline patches.
+
+The full Context Browser should be a fullscreen workbench launched from the Context tab. The compact Context panel should show current Context for loaded Loredecks and open the browser. It should not carry timeline registry editing, bulk registry operations, or deck-authoring workflows.
 
 Reasons the workbench needs its own window:
 
 - Large registries can contain hundreds or thousands of anchors/windows.
-- Spreadsheet-style editing needs horizontal and vertical room.
-- Resolver testing needs side-by-side input, candidate matches, and explanations.
+- Runtime Context browsing needs search, filters, candidate explanation, and per-deck state.
+- Spreadsheet-style editing still needs horizontal and vertical room in the Timeline Registry Workbench.
+- Reasoner resolution needs side-by-side input, candidate matches, explanations, and confirmation.
 - Bulk edits and Pending Review need enough space to be inspected safely.
-- Users need to compare source timeline data, Custom overlays, and attached Lorecards.
+- Users and creators need to compare source timeline data, Custom overlays, and attached Lorecards.
 - The UI should match Loredeck Library and Deck Health Center as a serious Saga workbench.
 
-## Two Modes In One Workbench
+## Two Modes, Two Homes
 
-The Story Position workbench should have two related but distinct jobs.
+The original Story Position workbench mixed two related but distinct jobs. The clarified plan separates their homes.
 
-### 1. Position Selector
+### 1. Context Browser
 
-This is for runtime play. It sets the current chat's `lorepackContexts` for loaded Loredecks.
+This is for runtime play. It sets the current chat's `lorepackContexts` for loaded Loredecks from the Context tab.
 
 Examples:
 
@@ -50,11 +63,11 @@ Examples:
 - `MCU` -> after Civil War, before Infinity War.
 - `Jujutsu Kaisen` -> post-Shibuya.
 
-The selector should support manual locks, because user intent should outrank automatic resolver guesses.
+The browser should support manual locks, because user intent should outrank automatic resolver guesses.
 
 ### 2. Timeline Registry Workbench
 
-This is for Loredeck creation/editing. It edits the timeline registry that makes position selection possible.
+This is for Loredeck creation/editing. It stays in the Loredeck tab and edits the timeline registry that makes Context selection possible.
 
 It should edit accepted Custom overlays, not bundled source files directly. Saves should go through Pending Review.
 
@@ -110,7 +123,7 @@ Common axes:
 
 ### Alias
 
-Natural-language resolver input.
+Optional local resolver input.
 
 Examples:
 
@@ -120,7 +133,7 @@ Examples:
 - `post Sokovia`
 - `before the Battle of Hogwarts`
 
-Aliases help casual users and model resolvers map messy human phrasing to stable IDs.
+Aliases help exact/local matching, but Saga should not rely on exhaustive aliases to understand casual fandom phrasing. For large fandoms, hand-authoring every phrase a user might type would be unmaintainable. The Reasoner Provider should translate messy human phrasing into bounded known candidates.
 
 ## Fandom Flexibility
 
@@ -146,13 +159,29 @@ The UI language should stay generic: `Position`, `Anchor`, `Window`, `Coordinate
 ## UX Principles
 
 - Manual user selection is the most trusted path.
-- Local resolver matching is second.
-- Model fallback is explicit and bounded by known anchors.
+- Local resolver matching is a cheap candidate generator.
+- Reasoner Provider resolution is the main natural-language path and must be bounded by known anchors/windows/Lorecard-derived candidates.
 - Missing timeline registries are allowed; Deck Health should advise, not block.
 - Large registries are expected, so search, filters, virtualization, and bulk edit matter.
 - AI assistance drafts patches; it does not silently apply them.
 - Pending Review remains the acceptance boundary.
 - The workbench should be dense, practical, and consistent with Saga's fullscreen tools.
+
+## Reasoner-Backed Context Resolution
+
+The Context Browser should not attempt to solve every casual phrase locally.
+
+Expected flow:
+
+1. User chooses manually, or enters a phrase such as `after Christmas in sixth year`.
+2. Saga runs a cheap local pass for exact dates, direct labels, direct aliases, and candidate narrowing.
+3. If local resolution is weak or ambiguous, Saga sends a bounded candidate set to the Reasoner Provider.
+4. The Reasoner returns a structured Context patch, a clarification question, or `unresolved`.
+5. Saga shows the proposed Context and asks the user to apply it unless automatic updates are explicitly enabled.
+
+The Reasoner should choose from known candidates, not invent active Context. Invented anchors may become Timeline Registry suggestions through Pending Review.
+
+The existing Context-detection cadence still applies: local/structured resolution can run often, while Reasoner calls should happen only when Context is unset, the user asks, or a thresholded message/character-count check suggests a real timeline shift.
 
 ## Layout
 
@@ -408,13 +437,16 @@ All output must become structured Pending Review proposals.
 
 ## Data And Persistence
 
-The workbench should edit:
+The Context Browser should edit:
 
 - `lorepackContexts` for current runtime position.
+
+The Timeline Registry Workbench should edit:
+
 - `timelineRegistry` overlays on Custom/Generated Loredeck records.
 - Pending Review record patches for accepted/queued edits.
 
-It should read:
+Both surfaces should read:
 
 - Source `timeline.json`.
 - Accepted Custom `timelineRegistry` overlays.
@@ -431,12 +463,12 @@ Resolution priority:
 
 1. Manual selection.
 2. Structured context/header data.
-3. Local alias/date/coordinate matching.
-4. Explicit model fallback using only known anchors/windows.
+3. Local exact/date/coordinate matching and candidate generation.
+4. Reasoner Provider resolution using bounded known anchors/windows/Lorecard-derived candidates.
 
-Model fallback must reject invented anchors. The Loredeck registry remains the source of truth.
+The Reasoner must reject invented active Context. Invented anchors may be returned as Timeline Registry suggestions for review, but the Loredeck registry remains the source of truth.
 
-## MVP Build Path
+## Original MVP Build Path
 
 1. Build fullscreen workbench shell.
 2. Move the current manual Story Position controls into the `Position` tab.
@@ -449,6 +481,19 @@ Model fallback must reject invented anchors. The Loredeck registry remains the s
 9. Add assistant draft handoff for selected rows and validation issues.
 10. Add visual smoke coverage for opening, selecting, editing, queuing, and resolver testing.
 
+## Revised MVP Build Path
+
+1. Build fullscreen Context Browser shell from the Context tab.
+2. Reuse loaded Loredeck stack state and current `lorepackContexts`.
+3. Reuse the Story Position Index as Context Browser data.
+4. Add browse/search for anchors, windows, dates, arcs, books, chapters, episodes, quests, and entry-derived candidate positions.
+5. Add `Start Here`, `Before`, `After`, `Between`, lock, and apply controls.
+6. Move runtime manual position controls and local phrase testing from the Loredeck tab into the Context Browser.
+7. Add Reasoner-backed `Resolve Context` using bounded candidates.
+8. Add suspected-jump review using the existing message-count and character-count threshold cadence.
+9. Leave Timeline Registry editing, alias inspection, validation, and Pending Review timeline patches in the Loredeck tab.
+10. Add visual smoke coverage for startup Context selection, manual apply, Reasoner proposal, apply/reject, and locked Context behavior.
+
 ## Open Design Questions
 
 - Should the workbench initially edit only one Loredeck at a time, or allow a stack-wide compare mode?
@@ -460,9 +505,9 @@ Model fallback must reject invented anchors. The Loredeck registry remains the s
 
 ## Initial Decision
 
-Build this as a fullscreen workbench. Keep the dropdown only as a compact quick selector and launcher.
+Build Context as a fullscreen browser/workbench launched from the Context tab. Keep compact Context UI only as a quick status surface and launcher.
 
-The MVP should focus on `Position`, `Timeline`, `Aliases`, and `Validation`. Coordinates can start as fields on anchors/windows and become their own richer tab once the table model is stable.
+The Loredeck-side workbench should focus on `Timeline`, `Aliases`, and `Validation` as deck-authoring tools. Coordinates can start as fields on anchors/windows and become their own richer tab once the table model is stable.
 
 ## Current Implementation Notes
 
@@ -475,4 +520,8 @@ The first fullscreen Story Position Workbench is implemented with these MVP surf
 
 The Phrase Resolver now explains cleaned terms, ignored direction words, match reasons, missing terms, weak matches, and no-match coverage gaps.
 
-The next design/development slice should focus on data density rather than more shell UI. The Harry Potter reference deck demonstrates the issue: event-like Lorecards such as Yule Ball are Story Position-native, but the active resolver only sees source `timeline.json` anchors. Saga needs a deliberate rule for whether creator tools should densify `timeline.json`, whether entry-level position gates can be promoted into resolver-visible anchors, or whether Deck Health/Assistant should propose missing anchors for review.
+The Phrase Resolver can also load Lorecards and include entry-derived Story Position candidates. This lets event-level prompts such as `after yule ball` resolve from a Lorecard's position gate even when the active `timeline.json` is sparse. These rows are visually marked as Lorecard-derived, can be applied to the current chat position, and can become real timeline anchors through Pending Review on editable decks. Bundled decks remain protected and route users to duplicate as Custom first.
+
+This is a bridge, not the final Context UX. The clarified next development slice is to move runtime position selection into a Context Browser and use the existing local resolver as candidate generation for Reasoner-backed Context resolution.
+
+Do not expand this into an exhaustive local alias system. The long-term registry policy should add durable anchors for high-value recurring story moments, Creator output, accepted suggestions, and sparse coverage warnings. Casual phrasing should be handled by the Reasoner Provider selecting from bounded known candidates.

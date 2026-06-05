@@ -8771,7 +8771,7 @@
 }
 
 .wandlight-story-position-workbench-resolver-top {
-    grid-template-columns: auto minmax(200px, 1fr) auto auto auto;
+    grid-template-columns: auto minmax(200px, 1fr) auto auto auto auto;
 }
 
 .wandlight-story-position-workbench-position-picker-list {
@@ -8806,6 +8806,11 @@
 
 .wandlight-story-position-workbench-resolver-row {
     grid-template-columns: minmax(0, 1fr) 44px auto;
+}
+
+.wandlight-story-position-workbench-resolver-row-entry {
+    border-color: rgba(151, 159, 230, 0.30);
+    background: linear-gradient(90deg, rgba(151, 159, 230, 0.10), rgba(10, 12, 16, 0.28) 42%);
 }
 
 .wandlight-story-position-workbench-resolver-score {
