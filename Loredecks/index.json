@@ -2,11 +2,130 @@
   "schemaVersion": 1,
   "bundled": [
     {
-      "packId": "hp-golden-trio",
-      "manifest": "hp-golden-trio/loredeck.json",
+      "packId": "hp-core",
+      "manifest": "hp-core/loredeck.json",
       "type": "bundled",
-      "title": "Harry Potter: Golden Trio",
-      "description": "Golden Trio era canon reference deck for Harry Potter school years one through seven."
+      "title": "Harry Potter: Core",
+      "description": "Reusable Hogwarts, magical Britain, school-cycle, and world-rule scaffolding for Harry Potter Golden Trio Loredecks.",
+      "library": {
+        "suggestedPath": [
+          "Harry Potter",
+          "Golden Trio"
+        ],
+        "familyOrder": 10
+      }
+    },
+    {
+      "packId": "hp-year-1-philosophers-stone",
+      "manifest": "hp-year-1-philosophers-stone/loredeck.json",
+      "type": "bundled",
+      "title": "Harry Potter Year 1: Philosopher's Stone",
+      "description": "Year 1 Golden Trio Loredeck for Philosopher's Stone, from pre-Hogwarts discovery through the Stone incident aftermath.",
+      "library": {
+        "suggestedPath": [
+          "Harry Potter",
+          "Golden Trio"
+        ],
+        "familyOrder": 20
+      }
+    },
+    {
+      "packId": "hp-year-2-chamber-of-secrets",
+      "manifest": "hp-year-2-chamber-of-secrets/loredeck.json",
+      "type": "bundled",
+      "title": "Harry Potter Year 2: Chamber of Secrets",
+      "description": "Year 2 Golden Trio Loredeck for Dobby, the Chamber attacks, Polyjuice investigation, and the basilisk climax.",
+      "library": {
+        "suggestedPath": [
+          "Harry Potter",
+          "Golden Trio"
+        ],
+        "familyOrder": 30
+      }
+    },
+    {
+      "packId": "hp-year-3-prisoner-of-azkaban",
+      "manifest": "hp-year-3-prisoner-of-azkaban/loredeck.json",
+      "type": "bundled",
+      "title": "Harry Potter Year 3: Prisoner of Azkaban",
+      "description": "Year 3 Golden Trio Loredeck for Sirius, Dementors, Hogsmeade, Patronus training, Buckbeak, and the Time-Turner rescue.",
+      "library": {
+        "suggestedPath": [
+          "Harry Potter",
+          "Golden Trio"
+        ],
+        "familyOrder": 40
+      }
+    },
+    {
+      "packId": "hp-year-4-goblet-of-fire",
+      "manifest": "hp-year-4-goblet-of-fire/loredeck.json",
+      "type": "bundled",
+      "title": "Harry Potter Year 4: Goblet of Fire",
+      "description": "Year 4 Golden Trio Loredeck for the Quidditch World Cup, Triwizard Tournament, graveyard return, and Voldemort aftermath.",
+      "library": {
+        "suggestedPath": [
+          "Harry Potter",
+          "Golden Trio"
+        ],
+        "familyOrder": 50
+      }
+    },
+    {
+      "packId": "hp-year-5-order-of-the-phoenix",
+      "manifest": "hp-year-5-order-of-the-phoenix/loredeck.json",
+      "type": "bundled",
+      "title": "Harry Potter Year 5: Order of the Phoenix",
+      "description": "Year 5 Golden Trio Loredeck for Ministry denial, Umbridge, Dumbledore’s Army, Occlumency, OWLs, and the Department of Mysteries.",
+      "library": {
+        "suggestedPath": [
+          "Harry Potter",
+          "Golden Trio"
+        ],
+        "familyOrder": 60
+      }
+    },
+    {
+      "packId": "hp-year-6-half-blood-prince",
+      "manifest": "hp-year-6-half-blood-prince/loredeck.json",
+      "type": "bundled",
+      "title": "Harry Potter Year 6: Half-Blood Prince",
+      "description": "Year 6 Golden Trio Loredeck for Slughorn, the Prince book, Draco suspicion, Apparition lessons, Horcrux memory, Sectumsempra, and the Tower crisis.",
+      "library": {
+        "suggestedPath": [
+          "Harry Potter",
+          "Golden Trio"
+        ],
+        "familyOrder": 70
+      }
+    },
+    {
+      "packId": "hp-year-7-deathly-hallows",
+      "manifest": "hp-year-7-deathly-hallows/loredeck.json",
+      "type": "bundled",
+      "title": "Harry Potter Year 7: Deathly Hallows",
+      "description": "Year 7 Golden Trio Loredeck for the Seven Potters, Horcrux hunt, Hallows, Malfoy Manor, Shell Cottage, Gringotts, Hogwarts return, and Battle of Hogwarts.",
+      "library": {
+        "suggestedPath": [
+          "Harry Potter",
+          "Golden Trio"
+        ],
+        "familyOrder": 80
+      }
+    },
+    {
+      "packId": "hp-epilogue-post-war",
+      "manifest": "hp-epilogue-post-war/loredeck.json",
+      "type": "bundled",
+      "title": "Harry Potter: Post-War Years & Epilogue",
+      "description": "Post-war Golden Trio Loredeck for wizarding reconstruction, Ministry reforms, Harry as an Auror, the 2014 Quidditch World Cup, and the 2017 new-generation platform scene.",
+      "library": {
+        "suggestedPath": [
+          "Harry Potter",
+          "Golden Trio"
+        ],
+        "familyOrder": 90
+      }
     }
   ]
 }

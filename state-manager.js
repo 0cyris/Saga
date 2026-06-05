@@ -23,6 +23,7 @@ import { normalizeLoreContext, normalizeLoreMatrix, mergeLoreEntries, normalizeL
 import { normalizeLoreRelevance, normalizeLoreCanon, normalizeLoreCategory, computeLocalLoreRelevance, normalizeLorePurpose, computeSpecificityScore } from './lore-relevance.js';
 import { preprocessPendingLoreEntries } from './pending-lore-preprocessor.js';
 import { normalizeLoreTimeline, captureLoreTimelineState, recordLoreTimelineEvent, restoreTimelineEntriesToPending } from './lore-timeline.js';
+import { normalizeLoredeckLibraryIndex, normalizePackLibraryMetadata } from './loredeck-library-index.js';
 
 const MAX_CHAT_STATE_BYTES_BEFORE_AUTO_PERSIST = 200000;
 const migratedStateRefs = new WeakSet();
@@ -686,6 +687,8 @@ function normalizeLoredeckRegistry(value, defaults = getDefaultState().loredeckR
         if (derivedFrom) pack.derivedFrom = derivedFrom;
         const manifestData = normalizeEmbeddedLoredeckManifest(raw.manifestData);
         if (manifestData) pack.manifestData = manifestData;
+        const library = normalizePackLibraryMetadata(raw.library || manifestData?.library || {});
+        if (Object.keys(library).length) pack.library = library;
         pack.entryOverrides = normalizeLoredeckEntryOverrides(raw.entryOverrides);
         pack.disabledEntryIds = normalizeLoredeckDisabledEntryIds(raw.disabledEntryIds);
         const tagRegistry = normalizeLoredeckTagRegistry(raw.tagRegistry);
@@ -698,10 +701,14 @@ function normalizeLoredeckRegistry(value, defaults = getDefaultState().loredeckR
         if (Object.keys(healthIssueStates).length) pack.healthIssueStates = healthIssueStates;
         packs[id] = pack;
     }
+    const libraryIndex = normalizeLoredeckLibraryIndex(input, { defaults, packs });
 
     return {
         schemaVersion: 1,
         packs,
+        folders: libraryIndex.folders,
+        deckPlacements: libraryIndex.deckPlacements,
+        activeStack: libraryIndex.activeStack,
     };
 }
 
@@ -864,13 +871,16 @@ export function getLoredeckLibraryRegistry(state = null) {
         state?.loredeckRegistry,
         { schemaVersion: 1, packs: {} }
     );
-    return {
+    return normalizeLoredeckRegistry({
         schemaVersion: 1,
         packs: {
             ...(chatRegistry.packs || {}),
             ...(globalLibrary.packs || {}),
         },
-    };
+        folders: globalLibrary.folders || [],
+        deckPlacements: globalLibrary.deckPlacements || [],
+        activeStack: globalLibrary.activeStack || [],
+    }, DEFAULT_SETTINGS.loredeckLibrary);
 }
 
 export function upsertLoredeckLibraryPack(packRecord = {}) {
@@ -895,9 +905,9 @@ export function upsertLoredeckLibraryPack(packRecord = {}) {
         installedAt: library.packs[packId]?.installedAt || pack.installedAt || Date.now(),
         updatedAt: Date.now(),
     };
-    settings.loredeckLibrary = library;
+    settings.loredeckLibrary = normalizeLoredeckRegistry(library, DEFAULT_SETTINGS.loredeckLibrary);
     saveSettings(settings);
-    return { ok: true, pack: library.packs[packId], library };
+    return { ok: true, pack: settings.loredeckLibrary.packs[packId], library: settings.loredeckLibrary };
 }
 
 export function removeLoredeckLibraryPack(packId, options = {}) {
@@ -953,6 +963,17 @@ export function importLoredeckLibraryRegistry(registry = {}, options = {}) {
         };
         importedCount += 1;
     }
+    current.folders = [
+        ...(current.folders || []),
+        ...(incoming.folders || []),
+    ];
+    current.deckPlacements = [
+        ...(current.deckPlacements || []),
+        ...(incoming.deckPlacements || []),
+    ];
+    current.activeStack = (incoming.activeStack || []).length
+        ? incoming.activeStack
+        : (current.activeStack || []);
 
     settings.loredeckLibrary = normalizeLoredeckRegistry(current, DEFAULT_SETTINGS.loredeckLibrary);
     saveSettings(settings);

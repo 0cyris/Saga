@@ -24,6 +24,13 @@
     "hp-core",
     "hp-year-1-philosophers-stone"
   ],
+  "library": {
+    "suggestedPath": [
+      "Harry Potter",
+      "Golden Trio"
+    ],
+    "familyOrder": 20
+  },
   "tags": [
     "fandom:harry-potter",
     "era:golden-trio",

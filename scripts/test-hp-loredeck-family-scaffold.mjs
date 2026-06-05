@@ -14,6 +14,7 @@ const decks = [
   ['hp-year-7-deathly-hallows', 60, 12],
   ['hp-epilogue-post-war', 25, 7],
 ];
+const hpFolderPath = ['Harry Potter', 'Golden Trio'];
 
 function readJson(relativePath) {
   return JSON.parse(fs.readFileSync(path.join(root, relativePath), 'utf8'));
@@ -36,6 +37,7 @@ for (const [deckId, minAnchors, minWindows] of decks) {
   const timeline = readJson(path.join('Loredecks', deckId, 'timeline.json'));
   assert.equal(manifest.id, deckId, `${deckId} manifest ID should match folder.`);
   assert.equal(manifest.deckFamilyId, 'hp-golden-trio', `${deckId} should declare the HP deck family.`);
+  assert.deepEqual(manifest.library?.suggestedPath, hpFolderPath, `${deckId} should declare the HP Golden Trio library folder path.`);
   assert.equal(manifest.registries.timeline, 'timeline.json', `${deckId} should expose a first-class timeline registry.`);
   assert.ok(Array.isArray(timeline.anchors) && timeline.anchors.length >= minAnchors, `${deckId} should have dense anchors.`);
   assert.ok(Array.isArray(timeline.windows) && timeline.windows.length >= minWindows, `${deckId} should have curated windows.`);
@@ -113,5 +115,13 @@ const azkaban = epilogue.anchors.find(anchor => anchor.id === 'hp.postwar.dement
 assert.equal(epilogueStart.dateRange.from, '1998-05-02');
 assert.equal(kingsCross.dateRange.from, '2017-09-01');
 assert.equal(azkaban.dateRange.precision, 'decade');
+
+const loredeckIndex = readJson(path.join('Loredecks', 'index.json'));
+const indexedIds = new Set((loredeckIndex.bundled || []).map(record => record.packId));
+for (const [deckId] of decks) {
+  assert.ok(indexedIds.has(deckId), `Loredecks/index.json should include ${deckId}.`);
+}
+const indexedEpilogue = (loredeckIndex.bundled || []).find(record => record.packId === 'hp-epilogue-post-war');
+assert.deepEqual(indexedEpilogue?.library?.suggestedPath, hpFolderPath, 'Indexed Epilogue deck should declare the HP Golden Trio folder path.');
 
 console.log('HP Loredeck family scaffold tests passed.');

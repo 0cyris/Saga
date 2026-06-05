@@ -77,6 +77,7 @@ import {
 import { analyzeContextQuery, clearContextIndexCache, findContextAnchors, getContextIndexSync, loadContextIndex, normalizeContextSearchText, rankContextAnchors, contextTextIncludesTerm } from './context-index.js';
 import { applyContextResolutionResults, resolveAndApplyContextsFromContext, resolveContextsWithModel } from './context-resolver.js';
 import { runAutoRelevance, applyAutoRelevanceSuggestions, clearAutoRelevanceSuggestions, rejectAutoRelevanceSuggestions } from './auto-relevance.js';
+import { normalizePackLibraryMetadata } from './loredeck-library-index.js';
 import {
     captureLoreTimelineState,
     recordLoreTimelineEvent,
@@ -19029,6 +19030,7 @@ function normalizeLoredeckLibraryPack(raw = {}) {
     const stats = raw.stats && typeof raw.stats === 'object' && !Array.isArray(raw.stats) ? raw.stats : {};
     const derivedFrom = raw.derivedFrom && typeof raw.derivedFrom === 'object' && !Array.isArray(raw.derivedFrom) ? raw.derivedFrom : null;
     const manifestData = raw.manifestData && typeof raw.manifestData === 'object' && !Array.isArray(raw.manifestData) ? raw.manifestData : null;
+    const library = normalizePackLibraryMetadata(raw.library || manifestData?.library || {});
     const entryOverrides = raw.entryOverrides && typeof raw.entryOverrides === 'object' && !Array.isArray(raw.entryOverrides) ? raw.entryOverrides : {};
     const disabledEntryIds = Array.isArray(raw.disabledEntryIds) ? raw.disabledEntryIds.map(id => String(id || '').trim()).filter(Boolean) : [];
     const timelineRegistry = normalizeLoredeckTimelineRegistry(raw.timelineRegistry);
@@ -19054,6 +19056,7 @@ function normalizeLoredeckLibraryPack(raw = {}) {
         localModified: raw.localModified === true,
         derivedFrom,
         manifestData,
+        ...(Object.keys(library).length ? { library } : {}),
         entryOverrides,
         disabledEntryIds,
         ...(getLoredeckTimelineRegistryCount(timelineRegistry) ? { timelineRegistry } : {}),

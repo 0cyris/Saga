@@ -24,6 +24,13 @@
     "hp-core",
     "hp-year-4-goblet-of-fire"
   ],
+  "library": {
+    "suggestedPath": [
+      "Harry Potter",
+      "Golden Trio"
+    ],
+    "familyOrder": 50
+  },
   "tags": [
     "fandom:harry-potter",
     "era:golden-trio",

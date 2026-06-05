@@ -24,6 +24,13 @@
     "hp-core",
     "hp-year-2-chamber-of-secrets"
   ],
+  "library": {
+    "suggestedPath": [
+      "Harry Potter",
+      "Golden Trio"
+    ],
+    "familyOrder": 30
+  },
   "tags": [
     "fandom:harry-potter",
     "era:golden-trio",

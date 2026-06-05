@@ -322,6 +322,17 @@ function tagsForDeck(deck) {
   return tags;
 }
 
+function libraryMetadataForDeck(deck) {
+  const yearOrder = Number.isFinite(Number(deck.schoolYear)) ? Number(deck.schoolYear) + 1 : 0;
+  const familyOrder = deck.id === 'hp-core'
+    ? 10
+    : ((deck.role || '') === 'epilogue' ? 90 : yearOrder * 10);
+  return {
+    suggestedPath: ['Harry Potter', 'Golden Trio'],
+    familyOrder,
+  };
+}
+
 function buildAnchor(deck, id, index, total) {
   const dateRange = dateRangeForAnchor(deck, id, index, total);
   const label = labelFromId(id);
@@ -414,6 +425,7 @@ function buildLoredeck(deck, timeline) {
       recommendedCoreDeckId: deck.id === 'hp-core' ? '' : 'hp-core',
     },
     recommendedStack: deck.id === 'hp-core' ? [] : ['hp-core', deck.id],
+    library: libraryMetadataForDeck(deck),
     tags: tagsForDeck(deck),
     source: { kind: 'bundled', url: deck.sourceUrl || '' },
     update: { checkForUpdates: false, url: '', lastCheckedAt: 0 },
@@ -457,6 +469,7 @@ async function writeJson(file, value) {
 async function main() {
   const plan = await fs.readFile(planPath, 'utf8');
   const report = [];
+  const indexRecords = [];
   for (const deck of decks) {
     const section = getSection(plan, deck.section);
     const prefix = deck.anchorPrefix || (deck.id === 'hp-core' ? 'hp.core.' : `hp.y${deck.schoolYear}.`);
@@ -478,7 +491,19 @@ async function main() {
       anchors: timeline.anchors.length,
       windows: timeline.windows.length,
     });
+    indexRecords.push({
+      packId: deck.id,
+      manifest: `${deck.id}/loredeck.json`,
+      type: 'bundled',
+      title: deck.title,
+      description: deck.description,
+      library: libraryMetadataForDeck(deck),
+    });
   }
+  await writeJson(path.join(loredeckRoot, 'index.json'), {
+    schemaVersion: 1,
+    bundled: indexRecords,
+  });
   console.log(JSON.stringify({ generated: report }, null, 2));
 }
 

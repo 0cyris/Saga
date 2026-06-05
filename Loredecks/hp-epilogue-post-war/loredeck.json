@@ -24,6 +24,13 @@
     "hp-core",
     "hp-epilogue-post-war"
   ],
+  "library": {
+    "suggestedPath": [
+      "Harry Potter",
+      "Golden Trio"
+    ],
+    "familyOrder": 90
+  },
   "tags": [
     "fandom:harry-potter",
     "era:golden-trio",

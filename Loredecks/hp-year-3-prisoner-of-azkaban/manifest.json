@@ -24,6 +24,13 @@
     "hp-core",
     "hp-year-3-prisoner-of-azkaban"
   ],
+  "library": {
+    "suggestedPath": [
+      "Harry Potter",
+      "Golden Trio"
+    ],
+    "familyOrder": 40
+  },
   "tags": [
     "fandom:harry-potter",
     "era:golden-trio",

@@ -24,6 +24,13 @@
     "hp-core",
     "hp-year-5-order-of-the-phoenix"
   ],
+  "library": {
+    "suggestedPath": [
+      "Harry Potter",
+      "Golden Trio"
+    ],
+    "familyOrder": 60
+  },
   "tags": [
     "fandom:harry-potter",
     "era:golden-trio",

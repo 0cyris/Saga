@@ -21,6 +21,13 @@
     "recommendedCoreDeckId": ""
   },
   "recommendedStack": [],
+  "library": {
+    "suggestedPath": [
+      "Harry Potter",
+      "Golden Trio"
+    ],
+    "familyOrder": 10
+  },
   "tags": [
     "fandom:harry-potter",
     "era:golden-trio",

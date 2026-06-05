@@ -24,6 +24,13 @@
     "hp-core",
     "hp-year-6-half-blood-prince"
   ],
+  "library": {
+    "suggestedPath": [
+      "Harry Potter",
+      "Golden Trio"
+    ],
+    "familyOrder": 70
+  },
   "tags": [
     "fandom:harry-potter",
     "era:golden-trio",
