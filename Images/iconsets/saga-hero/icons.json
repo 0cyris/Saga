@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "type": "saga_iconset",
+  "id": "saga-hero",
+  "title": "Saga Hero",
+  "description": "Heroic Saga runtime shelf icons with fuller illustrated tab emblems.",
+  "author": "Saga",
+  "version": "1.0.0",
+  "preferredSize": 256,
+  "icons": {
+    "tab.loredecks": "saga-tab-loredecks-256.png",
+    "tab.session": "saga-tab-session-256.png",
+    "tab.context": "saga-tab-context-256.png",
+    "tab.continuity": "saga-tab-continuity-256.png",
+    "tab.lore": "saga-tab-lorecards-256.png",
+    "tab.injection": "saga-tab-injection-256.png",
+    "tab.settings": "saga-tab-settings-256.png"
+  },
+  "variants": {
+    "64": "saga-tab-{target}-64.png",
+    "128": "saga-tab-{target}-128.png",
+    "256": "saga-tab-{target}-256.png",
+    "512": "saga-tab-{target}-512.png"
+  },
+  "tags": [
+    "iconset:runtime",
+    "style:saga-hero",
+    "quality:bundled"
+  ]
+}

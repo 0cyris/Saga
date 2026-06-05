@@ -752,7 +752,7 @@ function normalizeThemePackRegistry(value, defaults = DEFAULT_SETTINGS.themePack
         const isBundledDefault = defaultPacks[id]?.type === 'bundled' || BUNDLED_THEME_PACK_IDS.includes(id);
         const type = raw.type === 'bundled' && isBundledDefault ? 'bundled' : 'custom';
         const source = raw.source && typeof raw.source === 'object' && !Array.isArray(raw.source) ? raw.source : {};
-        const iconPackId = String(raw.iconPackId || raw.icons?.packId || DEFAULT_SETTINGS.themeIconPackId || 'saga-gold').trim();
+        const iconPackId = String(raw.iconPackId || raw.icons?.packId || DEFAULT_SETTINGS.themeIconPackId || 'saga-hero').trim();
         const pack = {
             id,
             type,
@@ -1073,6 +1073,14 @@ export function getSettings() {
     if (merged.experienceMode === 'basic'
         && Number(stored.basicExperienceProfileVersion || 0) < BASIC_EXPERIENCE_PROFILE_VERSION) {
         applyBasicExperienceProfile(merged);
+    }
+
+    if (stored.themeIconPackMigrated20260605 !== true) {
+        const storedIconPack = String(stored.themeIconPackId || '').trim();
+        if (!storedIconPack || storedIconPack === 'saga-gold') {
+            merged.themeIconPackId = DEFAULT_SETTINGS.themeIconPackId || 'saga-hero';
+        }
+        merged.themeIconPackMigrated20260605 = true;
     }
 
     // One-time upgrade from the old conservative story-lore generation defaults.

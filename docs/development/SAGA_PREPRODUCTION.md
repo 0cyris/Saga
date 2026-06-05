@@ -125,7 +125,7 @@ Themepacks should be pure data, like Loredecks. They should not contain executab
   "title": "Saga Archive",
   "type": "bundled",
   "description": "Bundled dark archive theme for SAGA: Fandom Loresystem.",
-  "iconPackId": "saga-gold",
+  "iconPackId": "saga-hero",
   "colors": {
     "background": "#120c12",
     "backgroundAlt": "#241018",
@@ -165,18 +165,18 @@ Icon Sets should also be pure data. Theme Packs select an Icon Set with `iconPac
 {
   "schemaVersion": 1,
   "type": "saga_iconset",
-  "id": "saga-gold",
-  "title": "Saga Gold",
-  "description": "Golden Saga runtime shelf icons.",
+  "id": "saga-hero",
+  "title": "Saga Hero",
+  "description": "Heroic Saga runtime shelf icons.",
   "preferredSize": 256,
   "icons": {
-    "tab.loredecks": "./Images/iconsets/saga-gold/256/loredecks.png",
-    "tab.session": "./Images/iconsets/saga-gold/256/session.png",
-    "tab.context": "./Images/iconsets/saga-gold/256/context.png",
-    "tab.continuity": "./Images/iconsets/saga-gold/256/continuity.png",
-    "tab.lore": "./Images/iconsets/saga-gold/256/lorecards.png",
-    "tab.injection": "./Images/iconsets/saga-gold/256/injection.png",
-    "tab.settings": "./Images/iconsets/saga-gold/256/settings.png"
+    "tab.loredecks": "./Images/iconsets/saga-hero/saga-tab-loredecks-256.png",
+    "tab.session": "./Images/iconsets/saga-hero/saga-tab-session-256.png",
+    "tab.context": "./Images/iconsets/saga-hero/saga-tab-context-256.png",
+    "tab.continuity": "./Images/iconsets/saga-hero/saga-tab-continuity-256.png",
+    "tab.lore": "./Images/iconsets/saga-hero/saga-tab-lorecards-256.png",
+    "tab.injection": "./Images/iconsets/saga-hero/saga-tab-injection-256.png",
+    "tab.settings": "./Images/iconsets/saga-hero/saga-tab-settings-256.png"
   }
 }
 ```
@@ -192,7 +192,7 @@ Reasonable first-wave color tokens:
 
 Icon mappings are keyed by UI target, such as `brand.compact`, `brand.expanded`, `tab.loredecks`, `tab.context`, or `tab.settings`. Values must be passive image paths, data image URLs, or fetchable image URLs. They do not grant code execution.
 
-Imported Icon Sets should eventually live in their own registry instead of being smuggled through Theme Pack overrides. The current bundled foundation uses `saga-gold` as the bundled default/fallback Icon Set; custom Icon Set storage should come with the zip/folder bundle importer.
+Imported Icon Sets should eventually live in their own registry instead of being smuggled through Theme Pack overrides. The current bundled foundation uses `saga-hero` as the bundled default Icon Set, keeps `saga-gold` as a bundled selectable fallback, and exposes a Settings selector for swapping bundled icon libraries without changing theme colors. Custom Icon Set storage should come with the zip/folder bundle importer.
 
 Installed Custom Theme Packs should be importable from a single Theme Pack JSON file or a Theme Pack Library JSON file. Custom imports must not overwrite Bundled Theme Pack IDs.
 
@@ -1688,6 +1688,6 @@ Recent production completed **Context-native Loredeck retrieval, HP reference-de
 47. Done: improve local resolver data coverage without making runtime indexing heavier. The Workbench Phrase Resolver can load Lorecards and include Lorecard-derived Context candidates when `timeline.json` lacks a first-class anchor. Clarified direction: this should feed candidate generation for the Reasoner Provider, not become an exhaustive alias-matching system.
 48. Done: build the first Context Browser slice in the Context tab. `Browse Story Waypoints` lets users search first-class timeline anchors/windows, load Lorecards on demand as Lorecard-derived event waypoints, choose `Start Here`, or create a window with `After` and `Before`. Manual Context selection remains the primary trusted workflow.
 49. Done: migrate runtime Context controls out of the Loredeck tab. The Context tab now owns loaded-Loredeck Context review, current-context resolving, Reasoner fallback launch, quick anchor selection, manual locks, reset actions, and fullscreen Context Browser access. The Loredeck tab remains focused on library/stack handling, Deck Health, import/export, Creator, and deck detail authoring.
-50. Next: upgrade Reasoner-backed Context resolution. Reuse the existing context-detection cadence: local/structured resolution first, then a backup Reasoner call only after the configured message-count and character-count thresholds or explicit user request. The Reasoner should choose from bounded candidates and return structured, confirmable Context patches.
+50. Done: upgrade Reasoner-backed Context resolution. Automatic Context detection now runs local/structured resolution first, then stores bounded Reasoner Context proposals only after the existing message-count cadence and the configured recent-message character threshold. Manual `Ask Reasoner` ignores the threshold, asks for bounded anchor/window candidates, and requires user review before applying patches.
 51. Next: revise timeline densification policy around candidate quality, not alias sprawl. Durable timeline anchors should be added for high-value recurring story moments, missing registry coverage, Creator output, or accepted user/model suggestions. Deck Health can surface sparse coverage, but the Reasoner handles casual phrasing.
 52. Next: implement durable asset/bundle handling for Custom Loredecks, Theme Packs, Icon Sets, and deck covers. Decide zip versus SillyTavern-managed storage, validate allowed image types, block executable content, preserve deck-cover paths, and make imported visual assets survive browser sessions.

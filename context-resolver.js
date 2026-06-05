@@ -17,11 +17,11 @@ import { sendLoreRequest } from './lore-llm-client.js';
 
 const MIN_ALIAS_SCORE = 22;
 const MIN_MODEL_CONFIDENCE = 0.55;
-const MODEL_ANCHOR_CAP_PER_PACK = 60;
+const MODEL_CANDIDATE_CAP_PER_PACK = 24;
 const CONTEXT_MODEL_SYSTEM_PROMPT = `You are the Saga Context Resolver.
 
-Resolve each target Loredeck to one known timeline anchor using only the anchor IDs provided.
-Do not invent anchors, dates, arcs, phases, episodes, or canon facts.
+Resolve each target Loredeck to one known timeline candidate using only the candidate IDs provided.
+Do not invent anchors, windows, dates, arcs, phases, episodes, or canon facts.
 If the context is too ambiguous for a pack, mark it unresolved.
 Return only valid JSON with this shape:
 {
@@ -29,7 +29,10 @@ Return only valid JSON with this shape:
     {
       "packId": "string",
       "status": "resolved|unresolved",
+      "candidateId": "string",
+      "candidateType": "anchor|window",
       "anchorId": "string",
+      "windowId": "string",
       "label": "string",
       "contextType": "calendar|anchor|anchor_window|arc|phase|season_episode|stardate|relative|hybrid|custom",
       "sceneDate": "string",
@@ -179,6 +182,13 @@ function getPackAnchors(index = {}, packId = '') {
         : [];
 }
 
+function getPackWindows(index = {}, packId = '') {
+    const id = cleanString(packId, 160);
+    return Array.isArray(index?.windows)
+        ? index.windows.filter(windowDef => windowDef?.packId === id)
+        : [];
+}
+
 function buildResolverText(context = {}, options = {}) {
     const parts = [
         context.label,
@@ -255,6 +265,39 @@ export function buildContextPatchFromAnchor(anchor = {}, options = {}) {
     };
 }
 
+export function buildContextPatchFromWindow(windowDef = {}, options = {}) {
+    const firstDate = cleanString(windowDef.dateRange?.from || windowDef.dateRange?.to, 80);
+    const firstDateSortKey = getDateContextSortKey(parseDateLike(firstDate, 'exact'));
+    const fromSortKey = Number.isFinite(Number(windowDef.sortKeyFrom)) ? Number(windowDef.sortKeyFrom) : null;
+    const toSortKey = Number.isFinite(Number(windowDef.sortKeyTo)) ? Number(windowDef.sortKeyTo) : null;
+    const resolvedSortKey = Number.isFinite(Number(options.contextSortKey))
+        ? Number(options.contextSortKey)
+        : (firstDateSortKey ?? fromSortKey ?? toSortKey);
+    return {
+        contextType: windowDef.contextType || 'anchor_window',
+        anchorId: '',
+        anchorFrom: windowDef.anchorFrom || '',
+        anchorTo: windowDef.anchorTo || '',
+        label: windowDef.label || windowDef.id || '',
+        sceneDate: firstDate,
+        contextSortKey: resolvedSortKey,
+        contextSortKeyFrom: fromSortKey ?? resolvedSortKey,
+        contextSortKeyTo: toSortKey ?? resolvedSortKey,
+        arc: windowDef.arc || '',
+        phase: windowDef.phase || '',
+        season: windowDef.season || '',
+        episode: windowDef.episode || '',
+        chapter: windowDef.chapter || '',
+        issue: windowDef.issue || '',
+        quest: windowDef.quest || '',
+        gameStage: windowDef.gameStage || '',
+        alias: windowDef.aliases?.[0] || windowDef.label || windowDef.id || '',
+        source: mapResolverSource(options.contextSource),
+        confidence: Number.isFinite(Number(options.confidence)) ? Number(options.confidence) : 0.66,
+        manualLock: false,
+    };
+}
+
 function buildResolutionFromMatch(packId, match, context = {}, options = {}) {
     const patch = buildContextPatchFromAnchor(match.anchor, {
         contextSource: options.contextSource,
@@ -309,6 +352,160 @@ function chooseBestMatch(dateMatch = null, aliasMatch = null) {
     if (dateMatch.anchor?.id && dateMatch.anchor.id === aliasMatch.anchor?.id) return dateMatch;
     if (aliasMatch.score >= 80 && aliasMatch.score >= dateMatch.score - 8) return aliasMatch;
     return dateMatch;
+}
+
+function getTimelineCandidateId(candidate = {}) {
+    const type = candidate.type === 'window' ? 'window' : 'anchor';
+    const id = cleanString(candidate.id, 180);
+    return id ? `${type}:${id}` : '';
+}
+
+function getWindowSearchText(windowDef = {}) {
+    return [
+        windowDef.id,
+        windowDef.label,
+        windowDef.anchorFrom,
+        windowDef.anchorTo,
+        windowDef.arc,
+        windowDef.phase,
+        windowDef.season,
+        windowDef.episode,
+        windowDef.chapter,
+        windowDef.issue,
+        windowDef.quest,
+        windowDef.gameStage,
+        ...(windowDef.aliases || []),
+        ...(windowDef.tags || []),
+    ].filter(Boolean).join(' ');
+}
+
+function scoreWindowCandidate(windowDef = {}, resolverText = '', context = {}) {
+    const text = cleanString(resolverText, 4000).toLowerCase();
+    const haystack = getWindowSearchText(windowDef).toLowerCase();
+    let score = 0;
+    if (text && haystack) {
+        const label = cleanString(windowDef.label, 240).toLowerCase();
+        const id = cleanString(windowDef.id, 180).toLowerCase();
+        if (label && text.includes(label)) score += 90;
+        if (id && text.includes(id)) score += 80;
+        for (const alias of windowDef.aliases || []) {
+            const cleanAlias = cleanString(alias, 160).toLowerCase();
+            if (cleanAlias && text.includes(cleanAlias)) score += 65;
+        }
+        for (const term of text.split(/[^a-z0-9._:-]+/).filter(Boolean)) {
+            if (term.length < 3) continue;
+            if (haystack.includes(term)) score += 3;
+        }
+    }
+    const contextDate = parseContextDate(context);
+    const range = parseAnchorRange(windowDef);
+    if (contextDate && range?.from && range?.to && contextDate.epoch >= range.from.epoch && contextDate.epoch <= range.to.epoch) {
+        score += 70;
+    }
+    return score;
+}
+
+function makeAnchorCandidate(anchor = {}, score = 0, reason = '') {
+    return {
+        type: 'anchor',
+        id: anchor.id,
+        candidateId: `anchor:${anchor.id}`,
+        score,
+        reason,
+        def: anchor,
+    };
+}
+
+function makeWindowCandidate(windowDef = {}, score = 0, reason = '') {
+    return {
+        type: 'window',
+        id: windowDef.id,
+        candidateId: `window:${windowDef.id}`,
+        score,
+        reason,
+        def: windowDef,
+    };
+}
+
+function serializeContextCandidate(candidate = {}) {
+    const def = candidate.def || {};
+    const base = {
+        candidateId: candidate.candidateId || getTimelineCandidateId(candidate),
+        type: candidate.type === 'window' ? 'window' : 'anchor',
+        id: def.id || candidate.id || '',
+        label: def.label || def.id || candidate.id || '',
+        contextType: def.contextType || (candidate.type === 'window' ? 'anchor_window' : 'anchor'),
+        score: Math.round(Number(candidate.score) || 0),
+        reason: cleanString(candidate.reason, 120),
+        dateRange: def.dateRange,
+        arc: def.arc,
+        phase: def.phase,
+        season: def.season,
+        episode: def.episode,
+        chapter: def.chapter,
+        issue: def.issue,
+        quest: def.quest,
+        gameStage: def.gameStage,
+        aliases: (def.aliases || []).slice(0, 8),
+        tags: (def.tags || []).slice(0, 10),
+    };
+    if (candidate.type === 'window') {
+        base.anchorFrom = def.anchorFrom || '';
+        base.anchorTo = def.anchorTo || '';
+        base.sortKeyFrom = Number.isFinite(Number(def.sortKeyFrom)) ? Number(def.sortKeyFrom) : null;
+        base.sortKeyTo = Number.isFinite(Number(def.sortKeyTo)) ? Number(def.sortKeyTo) : null;
+    } else {
+        base.book = def.book;
+        base.work = def.work;
+        base.sortKey = Number.isFinite(Number(def.sortKey)) ? Number(def.sortKey) : null;
+    }
+    return base;
+}
+
+export function buildContextModelCandidatesForPack(packId = '', context = {}, options = {}) {
+    const index = options.index || getContextIndexSync();
+    const resolverText = buildResolverText(context, options);
+    const limit = Math.max(4, Math.min(60, Number(options.candidateLimit) || MODEL_CANDIDATE_CAP_PER_PACK));
+    const candidates = [];
+    const seen = new Set();
+    const addCandidate = (candidate) => {
+        const key = candidate?.candidateId || getTimelineCandidateId(candidate);
+        if (!key || seen.has(key)) return;
+        seen.add(key);
+        candidates.push(candidate);
+    };
+
+    const dateMatch = getBestDateMatch(packId, context, index);
+    if (dateMatch?.anchor) addCandidate(makeAnchorCandidate(dateMatch.anchor, dateMatch.score, 'date_match'));
+
+    for (const ranked of rankContextAnchors(resolverText, { packId, index, limit: limit * 2 }) || []) {
+        addCandidate(makeAnchorCandidate(ranked.anchor, ranked.score, 'ranked_anchor'));
+    }
+
+    for (const windowDef of getPackWindows(index, packId)) {
+        const score = scoreWindowCandidate(windowDef, resolverText, context);
+        if (score > 0) addCandidate(makeWindowCandidate(windowDef, score, 'ranked_window'));
+    }
+
+    if (!candidates.length) {
+        for (const anchor of getPackAnchors(index, packId).slice(0, Math.ceil(limit / 2))) {
+            addCandidate(makeAnchorCandidate(anchor, 0, 'fallback_anchor'));
+        }
+        for (const windowDef of getPackWindows(index, packId).slice(0, Math.floor(limit / 2))) {
+            addCandidate(makeWindowCandidate(windowDef, 0, 'fallback_window'));
+        }
+    }
+
+    return candidates
+        .sort((a, b) => {
+            if ((b.score || 0) !== (a.score || 0)) return (b.score || 0) - (a.score || 0);
+            const aDef = a.def || {};
+            const bDef = b.def || {};
+            const aSort = Number.isFinite(Number(aDef.sortKey ?? aDef.sortKeyFrom)) ? Number(aDef.sortKey ?? aDef.sortKeyFrom) : 0;
+            const bSort = Number.isFinite(Number(bDef.sortKey ?? bDef.sortKeyFrom)) ? Number(bDef.sortKey ?? bDef.sortKeyFrom) : 0;
+            return aSort - bSort;
+        })
+        .slice(0, limit);
 }
 
 function currentContextForPack(state = {}, packId = '') {
@@ -414,18 +611,58 @@ function getAnchorById(index = {}, packId = '', anchorId = '') {
     return index.anchors.find(anchor => anchor.packId === pack && anchor.id === id) || null;
 }
 
-function resolveAnchorForModelChoice(choice = {}, index = {}) {
-    const packId = cleanString(choice.packId, 160);
-    let anchor = getAnchorById(index, packId, choice.anchorId);
-    if (anchor) return anchor;
-    const label = cleanString(choice.label || choice.alias || choice.reason, 240);
-    if (!label) return null;
-    return rankContextAnchors(label, { packId, index, limit: 1 })[0]?.anchor || null;
+function getWindowById(index = {}, packId = '', windowId = '') {
+    const id = cleanString(windowId, 180);
+    const pack = cleanString(packId, 160);
+    if (!id || !pack || !Array.isArray(index?.windows)) return null;
+    return index.windows.find(windowDef => windowDef.packId === pack && windowDef.id === id) || null;
 }
 
-function buildContextPatchFromModelChoice(choice = {}, anchor = {}, context = {}) {
+function getModelChoiceCandidateId(choice = {}) {
+    const explicit = cleanString(choice.candidateId || choice.timelineId, 220);
+    if (explicit) return explicit.includes(':') ? explicit : `${choice.candidateType === 'window' ? 'window' : 'anchor'}:${explicit}`;
+    const windowId = cleanString(choice.windowId, 180);
+    if (windowId) return `window:${windowId}`;
+    const anchorId = cleanString(choice.anchorId, 180);
+    if (anchorId) return `anchor:${anchorId}`;
+    return '';
+}
+
+function resolveTimelineCandidateForModelChoice(choice = {}, index = {}, options = {}) {
+    const packId = cleanString(choice.packId, 160);
+    const allowed = new Set((options.candidatesByPack?.[packId] || []).map(candidate => candidate.candidateId).filter(Boolean));
+    const candidateId = getModelChoiceCandidateId(choice);
+    if (candidateId && allowed.size && !allowed.has(candidateId)) return null;
+    if (candidateId.startsWith('window:')) {
+        const windowDef = getWindowById(index, packId, candidateId.slice('window:'.length));
+        return windowDef ? makeWindowCandidate(windowDef, 0, 'model_choice') : null;
+    }
+    if (candidateId.startsWith('anchor:')) {
+        const anchor = getAnchorById(index, packId, candidateId.slice('anchor:'.length));
+        return anchor ? makeAnchorCandidate(anchor, 0, 'model_choice') : null;
+    }
+    let anchor = getAnchorById(index, packId, choice.anchorId);
+    if (anchor) {
+        const candidate = makeAnchorCandidate(anchor, 0, 'model_choice_anchor_id');
+        return !allowed.size || allowed.has(candidate.candidateId) ? candidate : null;
+    }
+    const label = cleanString(choice.label || choice.alias || choice.reason, 240);
+    if (!label) return null;
+    anchor = rankContextAnchors(label, { packId, index, limit: 1 })[0]?.anchor || null;
+    if (!anchor) return null;
+    const candidate = makeAnchorCandidate(anchor, 0, 'model_choice_label_rank');
+    return !allowed.size || allowed.has(candidate.candidateId) ? candidate : null;
+}
+
+function buildContextPatchFromModelChoice(choice = {}, candidate = {}, context = {}) {
     const confidence = clampConfidence(choice.confidence, 0.6);
-    const patch = buildContextPatchFromAnchor(anchor, {
+    const def = candidate.def || candidate;
+    const patch = candidate.type === 'window'
+        ? buildContextPatchFromWindow(def, {
+            contextSource: 'model',
+            confidence,
+        })
+        : buildContextPatchFromAnchor(def, {
         contextSource: 'model',
         confidence,
     });
@@ -448,29 +685,23 @@ function buildContextModelPrompt(context = {}, options = {}) {
         .filter(item => targetPackIds.has(item.packId))
         .map(item => {
             const packIndex = Array.isArray(index.packs) ? index.packs.find(pack => pack.packId === item.packId) : null;
-            const anchors = getPackAnchors(index, item.packId)
-                .slice(0, MODEL_ANCHOR_CAP_PER_PACK)
-                .map(anchor => ({
-                    id: anchor.id,
-                    label: anchor.label,
-                    contextType: anchor.contextType,
-                    dateRange: anchor.dateRange,
-                    book: anchor.book,
-                    arc: anchor.arc,
-                    phase: anchor.phase,
-                    aliases: (anchor.aliases || []).slice(0, 8),
-                    tags: (anchor.tags || []).slice(0, 10),
-                }));
+            const rawCandidates = options.candidatesByPack?.[item.packId]
+                || buildContextModelCandidatesForPack(item.packId, context, {
+                    ...options,
+                    state,
+                    index,
+                });
+            const candidates = rawCandidates.map(serializeContextCandidate);
             return {
                 packId: item.packId,
                 title: packIndex?.title || item.packId,
                 timelineMode: packIndex?.timelineMode || '',
-                anchors,
+                candidates,
             };
         });
 
     return JSON.stringify({
-        task: 'Resolve Context for target Loredecks using only listed anchors.',
+        task: 'Resolve Context for target Loredecks using only listed bounded candidates.',
         currentStoryContext: {
             sceneDate: context.sceneDate || '',
             subjectiveDate: context.subjectiveDate || '',
@@ -481,11 +712,13 @@ function buildContextModelPrompt(context = {}, options = {}) {
         },
         supportingText: cleanString(options.sourceText, 3000),
         rules: [
-            'Use only anchor IDs listed under each pack.',
+            'Use only candidateId values listed under each pack.',
             'Prefer unresolved over guessing.',
             'Do not output locked packs; locked packs are omitted from targets.',
-            'If a date clearly falls within an anchor dateRange, choose that anchor.',
-            'If user wording says before/after but no exact anchor is listed, choose the nearest listed anchor only when confidence is at least 0.55.',
+            'If a date clearly falls within a candidate dateRange, choose that candidate.',
+            'If user wording describes a broad before/after range and a window candidate fits, prefer the window.',
+            'If wording says before/after but no exact candidate fits, choose the nearest listed candidate only when confidence is at least 0.55.',
+            'Return candidateId and candidateType for resolved packs.',
         ],
         targetPacks: packs,
     }, null, 2);
@@ -496,6 +729,14 @@ export function resolveContextsFromModelResponse(responseText = '', context = {}
     const index = options.index || getContextIndexSync();
     const targetPackIds = new Set((options.targetPackIds || []).map(packId => cleanString(packId, 160)).filter(Boolean));
     const minConfidence = clampConfidence(options.minConfidence, MIN_MODEL_CONFIDENCE);
+    const candidatesByPack = options.candidatesByPack || Object.fromEntries([...targetPackIds].map(packId => [
+        packId,
+        buildContextModelCandidatesForPack(packId, context, {
+            ...options,
+            state,
+            index,
+        }),
+    ]));
     const parsed = parseContextModelResponse(responseText);
     const results = [];
 
@@ -503,6 +744,13 @@ export function resolveContextsFromModelResponse(responseText = '', context = {}
         if (!isPlainObject(rawChoice)) continue;
         const packId = cleanString(rawChoice.packId, 160);
         if (!packId || (targetPackIds.size && !targetPackIds.has(packId))) continue;
+        if (!Array.isArray(candidatesByPack[packId])) {
+            candidatesByPack[packId] = buildContextModelCandidatesForPack(packId, context, {
+                ...options,
+                state,
+                index,
+            });
+        }
         const current = currentContextForPack(state, packId);
         if (current?.manualLock === true && options.force !== true) {
             results.push({ packId, status: 'skipped', reason: 'manual_lock' });
@@ -518,22 +766,36 @@ export function resolveContextsFromModelResponse(responseText = '', context = {}
             results.push({ packId, status: 'unresolved', reason: 'model_low_confidence', confidence });
             continue;
         }
-        const anchor = resolveAnchorForModelChoice(rawChoice, index);
-        if (!anchor) {
-            results.push({ packId, status: 'unresolved', reason: 'model_anchor_not_found' });
+        const candidate = resolveTimelineCandidateForModelChoice(rawChoice, index, { candidatesByPack });
+        if (!candidate) {
+            results.push({ packId, status: 'unresolved', reason: 'model_candidate_not_found' });
             continue;
         }
-        const patch = buildContextPatchFromModelChoice(rawChoice, anchor, context);
+        const patch = buildContextPatchFromModelChoice(rawChoice, candidate, context);
+        const serializedCandidate = serializeContextCandidate(candidate);
+        const reason = cleanString(rawChoice.reason, 300);
+        const changed = patchChangesContext(current, patch);
         results.push({
             packId,
             status: 'resolved',
             matchType: 'model',
             score: confidence * 100,
             confidence,
-            anchor,
+            anchor: candidate.type === 'anchor' ? candidate.def : null,
+            window: candidate.type === 'window' ? candidate.def : null,
+            candidate: serializedCandidate,
             patch,
-            changed: patchChangesContext(current, patch),
-            reason: cleanString(rawChoice.reason, 300),
+            changed,
+            reason,
+            proposal: {
+                packId,
+                candidateId: serializedCandidate.candidateId,
+                candidateType: serializedCandidate.type,
+                label: patch.label || serializedCandidate.label,
+                summary: reason || `Reasoner selected ${serializedCandidate.label || serializedCandidate.id}.`,
+                confidence,
+                patch,
+            },
         });
     }
 
@@ -548,6 +810,7 @@ export function resolveContextsFromModelResponse(responseText = '', context = {}
         changedCount: results.filter(result => result.status === 'resolved' && result.changed).length,
         skippedCount: results.filter(result => result.status === 'skipped').length,
         unresolvedCount: results.filter(result => result.status === 'unresolved').length,
+        proposals: results.filter(result => result.status === 'resolved' && result.changed && result.proposal).map(result => result.proposal),
         results,
     };
 }
@@ -631,6 +894,19 @@ export async function resolveAndApplyContextsFromContext(context = {}, options =
     };
 }
 
+export function applyContextResolutionResults(results = []) {
+    let appliedCount = 0;
+    for (const result of results || []) {
+        if (result.status !== 'resolved' || !result.changed || !result.patch) continue;
+        setLoredeckContext(result.packId, {
+            ...result.patch,
+            updatedAt: Date.now(),
+        });
+        appliedCount += 1;
+    }
+    return appliedCount;
+}
+
 export async function resolveContextsWithModel(context = {}, options = {}) {
     const index = options.index || getContextIndexSync() || await loadContextIndex();
     const state = options.state || getState();
@@ -639,15 +915,7 @@ export async function resolveContextsWithModel(context = {}, options = {}) {
         state,
         index,
     });
-    let localAppliedCount = 0;
-    for (const result of local.results || []) {
-        if (result.status !== 'resolved' || !result.changed || !result.patch) continue;
-        setLoredeckContext(result.packId, {
-            ...result.patch,
-            updatedAt: Date.now(),
-        });
-        localAppliedCount += 1;
-    }
+    const localAppliedCount = options.applyLocal === false ? 0 : applyContextResolutionResults(local.results);
     const targetPackIds = (local.results || [])
         .filter(result => result.status === 'unresolved')
         .map(result => result.packId)
@@ -661,16 +929,29 @@ export async function resolveContextsWithModel(context = {}, options = {}) {
             appliedCount: localAppliedCount,
             localAppliedCount,
             modelAppliedCount: 0,
+            resolvedCount: local.resolvedCount || 0,
+            changedCount: local.changedCount || 0,
+            skippedCount: local.skippedCount || 0,
+            unresolvedCount: local.unresolvedCount || 0,
             targetPackIds,
             indexSummary: index?.summary || null,
         };
     }
 
+    const candidatesByPack = Object.fromEntries(targetPackIds.map(packId => [
+        packId,
+        buildContextModelCandidatesForPack(packId, context, {
+            ...options,
+            state,
+            index,
+        }),
+    ]));
     const userPrompt = buildContextModelPrompt(context, {
         ...options,
         state,
         index,
         targetPackIds,
+        candidatesByPack,
     });
     const responseText = await sendLoreRequest(CONTEXT_MODEL_SYSTEM_PROMPT, userPrompt, {
         providerKind: 'lore',
@@ -683,25 +964,24 @@ export async function resolveContextsWithModel(context = {}, options = {}) {
         state,
         index,
         targetPackIds,
+        candidatesByPack,
     });
 
-    let modelAppliedCount = 0;
-    for (const result of model.results || []) {
-        if (result.status !== 'resolved' || !result.changed || !result.patch) continue;
-        setLoredeckContext(result.packId, {
-            ...result.patch,
-            updatedAt: Date.now(),
-        });
-        modelAppliedCount += 1;
-    }
+    const modelAppliedCount = options.applyModel === true ? applyContextResolutionResults(model.results) : 0;
 
     return {
-        status: model.resolvedCount ? 'resolved' : 'unresolved',
+        status: modelAppliedCount ? 'resolved' : (model.proposals?.length ? 'proposed' : (model.resolvedCount ? 'resolved_unapplied' : 'unresolved')),
         local,
         model,
         appliedCount: localAppliedCount + modelAppliedCount,
         localAppliedCount,
         modelAppliedCount,
+        proposalCount: model.proposals?.length || 0,
+        proposals: model.proposals || [],
+        resolvedCount: (local.resolvedCount || 0) + (model.resolvedCount || 0),
+        changedCount: (local.changedCount || 0) + (model.changedCount || 0),
+        skippedCount: (local.skippedCount || 0) + (model.skippedCount || 0),
+        unresolvedCount: model.unresolvedCount || 0,
         targetPackIds,
         indexSummary: index?.summary || null,
     };

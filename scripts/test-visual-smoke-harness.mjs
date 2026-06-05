@@ -7,6 +7,8 @@ const fixturePath = path.join(root, 'tests', 'fixtures', 'arlong-park-update.sag
 const panelPath = path.join(root, 'lore-panel.js');
 const stylePath = path.join(root, 'style.css');
 const settingsTemplatePath = path.join(root, 'settings.html');
+const sagaHeroIconPath = path.join(root, 'Images', 'iconsets', 'saga-hero', 'saga-tab-loredecks-256.png');
+const sagaHeroManifestPath = path.join(root, 'Images', 'iconsets', 'saga-hero', 'icons.json');
 const sagaGoldIconPath = path.join(root, 'Images', 'iconsets', 'saga-gold', '256', 'loredecks.png');
 const sagaGoldManifestPath = path.join(root, 'Images', 'iconsets', 'saga-gold', 'icons.json');
 
@@ -27,6 +29,8 @@ const style = read(stylePath);
 const settingsTemplate = read(settingsTemplatePath);
 
 assert(harness.includes("import { showLorePanel } from '../lore-panel.js';"), 'Harness must import the real runtime panel.');
+assert(fs.existsSync(sagaHeroIconPath), 'Bundled Saga Hero Loredecks icon must exist.');
+assert(JSON.parse(read(sagaHeroManifestPath)).id === 'saga-hero', 'Bundled Saga Hero Icon Set manifest must exist.');
 assert(fs.existsSync(sagaGoldIconPath), 'Bundled Saga Gold Loredecks icon must exist.');
 assert(JSON.parse(read(sagaGoldManifestPath)).id === 'saga-gold', 'Bundled Saga Gold Icon Set manifest must exist.');
 assert(harness.includes('window.SillyTavern'), 'Harness must stub SillyTavern before importing modules.');
@@ -74,8 +78,12 @@ for (const token of [
     'renderSettingsTab',
     'ICONSET_SCHEMA_VERSION',
     'BUNDLED_ICONSET_PRESETS',
+    'saga-hero',
+    'Images/iconsets/saga-hero/saga-tab-loredecks-256.png',
     'saga-gold',
     'Images/iconsets/saga-gold/256/loredecks.png',
+    'createThemeIconSetSelector',
+    'applyThemeIconSet',
     'createLoredeckDeckVisual',
     'assets.cover',
     'Theme Pack',
@@ -109,6 +117,8 @@ for (const token of [
     'wandlight-loredeck-health-severity-card',
     'wandlight-theme-top-grid',
     'wandlight-theme-gallery',
+    'wandlight-theme-iconset-selector',
+    'wandlight-theme-iconset-strip',
     'wandlight-theme-icon-grid',
     'wandlight-theme-preview-surface',
     'wandlight-loredeck-library-visual-cover',

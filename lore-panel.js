@@ -78,7 +78,7 @@ import {
     buildLoredeckCreatorEntryUserPrompt,
 } from './loredeck-assistant.js';
 import { analyzeContextQuery, clearContextIndexCache, findContextAnchors, getContextIndexSync, loadContextIndex, normalizeContextSearchText, rankContextAnchors, contextTextIncludesTerm } from './context-index.js';
-import { resolveAndApplyContextsFromContext, resolveContextsWithModel } from './context-resolver.js';
+import { applyContextResolutionResults, resolveAndApplyContextsFromContext, resolveContextsWithModel } from './context-resolver.js';
 import { runAutoRelevance, applyAutoRelevanceSuggestions, clearAutoRelevanceSuggestions, rejectAutoRelevanceSuggestions } from './auto-relevance.js';
 import {
     captureLoreTimelineState,
@@ -118,6 +118,7 @@ const CONTEXT_DETECTION_SETTING_KEYS = Object.freeze([
     'contextDetectionAutoInterval',
     'contextHeaderDetectionEnabled',
     'contextSourceMessageCount',
+    'contextModelFallbackMinCharacters',
 ]);
 const STORY_LORE_SCAN_SCOPE_SETTING_KEYS = Object.freeze([
     'loreBulkScanMode',
@@ -244,6 +245,9 @@ const CONTEXT_SOURCE_OPTIONS = Object.freeze([
     ['unknown', 'Unknown'],
 ]);
 
+const DEFAULT_ICONSET_ID = 'saga-hero';
+const LEGACY_ICONSET_ID = 'saga-gold';
+
 const THEMEPACK_PRESETS = Object.freeze([
     {
         id: 'wandlight-default',
@@ -252,7 +256,7 @@ const THEMEPACK_PRESETS = Object.freeze([
         description: 'Dark archive shelves, gold trim, parchment highlights, and polished fantasy UI.',
         author: 'Saga',
         version: '1.0.0',
-        iconPackId: 'saga-gold',
+        iconPackId: DEFAULT_ICONSET_ID,
         colors: {
             background: '#120c12',
             backgroundAlt: '#241018',
@@ -285,7 +289,7 @@ const THEMEPACK_PRESETS = Object.freeze([
         description: 'High fantasy court records with royal blue panels, ivory text, wine shadows, and antique gold.',
         author: 'Saga',
         version: '1.0.0',
-        iconPackId: 'saga-gold',
+        iconPackId: DEFAULT_ICONSET_ID,
         colors: {
             background: '#0b1020',
             backgroundAlt: '#1d1024',
@@ -318,7 +322,7 @@ const THEMEPACK_PRESETS = Object.freeze([
         description: 'Forbidden texts, occult ink, ember-lit sigils, and dark supernatural atmosphere.',
         author: 'Saga',
         version: '1.0.0',
-        iconPackId: 'saga-gold',
+        iconPackId: DEFAULT_ICONSET_ID,
         colors: {
             background: '#10090d',
             backgroundAlt: '#241015',
@@ -351,7 +355,7 @@ const THEMEPACK_PRESETS = Object.freeze([
         description: 'Clean star maps, tactical blue-white lines, restrained command-console glow, and signal amber.',
         author: 'Saga',
         version: '1.0.0',
-        iconPackId: 'saga-gold',
+        iconPackId: DEFAULT_ICONSET_ID,
         colors: {
             background: '#07111f',
             backgroundAlt: '#102235',
@@ -384,7 +388,7 @@ const THEMEPACK_PRESETS = Object.freeze([
         description: 'Anime cybercity styling with cyan lanes, magenta shadows, electric yellow alerts, and concrete darks.',
         author: 'Saga',
         version: '1.0.0',
-        iconPackId: 'saga-gold',
+        iconPackId: DEFAULT_ICONSET_ID,
         colors: {
             background: '#090912',
             backgroundAlt: '#171021',
@@ -417,7 +421,7 @@ const THEMEPACK_PRESETS = Object.freeze([
         description: 'Bright shonen academy energy with varsity accents, training-board structure, and notebook clarity.',
         author: 'Saga',
         version: '1.0.0',
-        iconPackId: 'saga-gold',
+        iconPackId: DEFAULT_ICONSET_ID,
         colors: {
             background: '#0b1425',
             backgroundAlt: '#17203a',
@@ -450,7 +454,7 @@ const THEMEPACK_PRESETS = Object.freeze([
         description: 'Adventure-map warmth with deep ocean panels, sunlit gold, coral danger, and dark ink readability.',
         author: 'Saga',
         version: '1.0.0',
-        iconPackId: 'saga-gold',
+        iconPackId: DEFAULT_ICONSET_ID,
         colors: {
             background: '#071925',
             backgroundAlt: '#0f3140',
@@ -483,7 +487,7 @@ const THEMEPACK_PRESETS = Object.freeze([
         description: 'Creature encyclopedia and field-guide styling with forest panels, clay warmth, and taxonomy cues.',
         author: 'Saga',
         version: '1.0.0',
-        iconPackId: 'saga-gold',
+        iconPackId: DEFAULT_ICONSET_ID,
         colors: {
             background: '#08170f',
             backgroundAlt: '#13271b',
@@ -516,7 +520,7 @@ const THEMEPACK_PRESETS = Object.freeze([
         description: 'Luminous anime space-fantasy panels with champagne gold, aqua rails, and astral violet depth.',
         author: 'Saga',
         version: '1.0.0',
-        iconPackId: 'saga-gold',
+        iconPackId: DEFAULT_ICONSET_ID,
         colors: {
             background: '#0b0a18',
             backgroundAlt: '#17162f',
@@ -549,7 +553,7 @@ const THEMEPACK_PRESETS = Object.freeze([
         description: 'Investigation-board tension with case-file neutrals, desaturated greens, amber warnings, and rust-red danger.',
         author: 'Saga',
         version: '1.0.0',
-        iconPackId: 'saga-gold',
+        iconPackId: DEFAULT_ICONSET_ID,
         colors: {
             background: '#090d0c',
             backgroundAlt: '#131a17',
@@ -671,13 +675,13 @@ const TAB_ICONS = {
 };
 
 const TAB_ICON_PATHS = {
-    loredecks: './Images/iconsets/saga-gold/256/loredecks.png',
-    session: './Images/iconsets/saga-gold/256/session.png',
-    context: './Images/iconsets/saga-gold/256/context.png',
-    continuity: './Images/iconsets/saga-gold/256/continuity.png',
-    lore: './Images/iconsets/saga-gold/256/lorecards.png',
-    injection: './Images/iconsets/saga-gold/256/injection.png',
-    settings: './Images/iconsets/saga-gold/256/settings.png',
+    loredecks: './Images/iconsets/saga-hero/saga-tab-loredecks-256.png',
+    session: './Images/iconsets/saga-hero/saga-tab-session-256.png',
+    context: './Images/iconsets/saga-hero/saga-tab-context-256.png',
+    continuity: './Images/iconsets/saga-hero/saga-tab-continuity-256.png',
+    lore: './Images/iconsets/saga-hero/saga-tab-lorecards-256.png',
+    injection: './Images/iconsets/saga-hero/saga-tab-injection-256.png',
+    settings: './Images/iconsets/saga-hero/saga-tab-settings-256.png',
 };
 
 const BRAND_LOGO_PATHS = {
@@ -704,7 +708,29 @@ const ICONSET_TARGET_ALIASES = Object.freeze({
 const BUNDLED_ICONSET_PRESETS = Object.freeze([
     {
         schemaVersion: ICONSET_SCHEMA_VERSION,
-        id: 'saga-gold',
+        id: DEFAULT_ICONSET_ID,
+        type: 'bundled',
+        title: 'Saga Hero',
+        description: 'Heroic Saga runtime shelf icons with fuller illustrated tab emblems.',
+        author: 'Saga',
+        version: '1.0.0',
+        preferredSize: 256,
+        icons: {
+            'tab.loredecks': './Images/iconsets/saga-hero/saga-tab-loredecks-256.png',
+            'tab.session': './Images/iconsets/saga-hero/saga-tab-session-256.png',
+            'tab.context': './Images/iconsets/saga-hero/saga-tab-context-256.png',
+            'tab.continuity': './Images/iconsets/saga-hero/saga-tab-continuity-256.png',
+            'tab.lore': './Images/iconsets/saga-hero/saga-tab-lorecards-256.png',
+            'tab.injection': './Images/iconsets/saga-hero/saga-tab-injection-256.png',
+            'tab.settings': './Images/iconsets/saga-hero/saga-tab-settings-256.png',
+            'brand.compact': BRAND_LOGO_PATHS.compact,
+            'brand.expanded': BRAND_LOGO_PATHS.expanded,
+        },
+        tags: ['iconset:runtime', 'style:saga-hero', 'quality:bundled'],
+    },
+    {
+        schemaVersion: ICONSET_SCHEMA_VERSION,
+        id: LEGACY_ICONSET_ID,
         type: 'bundled',
         title: 'Saga Gold',
         description: 'Golden Saga runtime shelf icons for Loredecks, Lorecards, session tools, and settings.',
@@ -794,6 +820,10 @@ function getIconSetPreset(iconPackId = '') {
     return BUNDLED_ICONSET_PRESETS.find(pack => pack.id === id) || BUNDLED_ICONSET_PRESETS[0];
 }
 
+function getIconSetLibrary() {
+    return [...BUNDLED_ICONSET_PRESETS];
+}
+
 function getIconMapValue(icons = {}, iconKey = '') {
     const canonical = normalizeIconTargetKey(iconKey);
     if (!canonical || !icons || typeof icons !== 'object') return '';
@@ -811,10 +841,13 @@ function resolveThemeIconPath(iconKey, preset = getThemePreset(getSettings().the
     const themeIcons = preset?.icons && typeof preset.icons === 'object' ? preset.icons : {};
     const explicit = getIconMapValue(themeIcons, iconKey);
     if (explicit) return explicit;
-    const iconSet = getIconSetPreset(preset?.iconPackId || settings.themeIconPackId || 'saga-gold');
+    const iconSet = getIconSetPreset(settings.themeIconPackId || preset?.iconPackId || DEFAULT_ICONSET_ID);
     const iconSetPath = getIconMapValue(iconSet.icons, iconKey);
     if (iconSetPath) return iconSetPath;
-    const fallbackSet = getIconSetPreset('saga-gold');
+    const defaultSet = getIconSetPreset(DEFAULT_ICONSET_ID);
+    const defaultPath = getIconMapValue(defaultSet.icons, iconKey);
+    if (defaultPath) return defaultPath;
+    const fallbackSet = getIconSetPreset(LEGACY_ICONSET_ID);
     return getIconMapValue(fallbackSet.icons, iconKey);
 }
 
@@ -4939,6 +4972,7 @@ function createLoredeckContextCard(state = getState(), contextIndex = getContext
         await handleModelResolveContexts(btn);
     }));
     card.appendChild(resolveActions);
+    card.appendChild(createContextResolutionProposalPanel(state));
 
     const list = document.createElement('div');
     list.className = 'wandlight-loredeck-context-list';
@@ -4947,6 +4981,117 @@ function createLoredeckContextCard(state = getState(), contextIndex = getContext
     }
     card.appendChild(list);
     return card;
+}
+
+function getContextResolutionProposals(state = getState()) {
+    return Array.isArray(state?.lorePanel?.contextResolutionProposals)
+        ? state.lorePanel.contextResolutionProposals.filter(proposal => proposal?.packId && proposal?.patch && typeof proposal.patch === 'object')
+        : [];
+}
+
+function clearContextResolutionProposals() {
+    const state = getState();
+    if (!state?.lorePanel) return;
+    state.lorePanel.contextResolutionProposals = [];
+    state.lorePanel.contextResolutionProposalMeta = null;
+    saveState(state, { syncPrompt: false });
+}
+
+function storeContextResolutionProposalsFromResult(result = null, context = {}) {
+    const proposals = Array.isArray(result?.proposals) ? result.proposals : [];
+    const state = getState();
+    if (!state?.lorePanel) return 0;
+    state.lorePanel.contextResolutionProposals = proposals.map(proposal => ({
+        packId: String(proposal.packId || '').trim(),
+        candidateId: String(proposal.candidateId || '').trim(),
+        candidateType: String(proposal.candidateType || '').trim(),
+        label: String(proposal.label || '').trim().slice(0, 240),
+        summary: String(proposal.summary || '').trim().slice(0, 500),
+        confidence: Number.isFinite(Number(proposal.confidence)) ? Math.max(0, Math.min(1, Number(proposal.confidence))) : 0,
+        patch: proposal.patch && typeof proposal.patch === 'object' && !Array.isArray(proposal.patch) ? { ...proposal.patch } : {},
+    })).filter(proposal => proposal.packId && Object.keys(proposal.patch || {}).length);
+    state.lorePanel.contextResolutionProposalMeta = proposals.length
+        ? {
+            createdAt: Date.now(),
+            source: 'manual_reasoner',
+            contextLabel: context.label || context.canonBoundary || context.sceneDate || '',
+        }
+        : null;
+    saveState(state, { syncPrompt: false });
+    return state.lorePanel.contextResolutionProposals.length;
+}
+
+function createContextResolutionProposalPanel(state = getState()) {
+    const proposals = getContextResolutionProposals(state);
+    if (!proposals.length) return document.createDocumentFragment();
+    const wrap = document.createElement('div');
+    wrap.className = 'wandlight-loredeck-context-quick';
+
+    const header = document.createElement('div');
+    header.className = 'wandlight-loredeck-context-quick-header';
+    const title = document.createElement('div');
+    title.className = 'wandlight-runtime-card-title';
+    title.textContent = 'Reasoner Proposals';
+    addTooltip(title, 'Reasoner-backed Context proposals are bounded to known timeline candidates and require review before application.');
+    header.appendChild(title);
+
+    const meta = state?.lorePanel?.contextResolutionProposalMeta || {};
+    const chips = document.createElement('div');
+    chips.className = 'wandlight-loredeck-row-meta';
+    chips.appendChild(createStatusPill(`${proposals.length} proposal${proposals.length === 1 ? '' : 's'}`, 'Pending Context proposals from the Reasoning Provider.'));
+    if (meta.createdAt) chips.appendChild(createStatusPill(`Drafted ${new Date(meta.createdAt).toLocaleTimeString()}`, 'When these Context proposals were drafted.'));
+    header.appendChild(chips);
+    wrap.appendChild(header);
+
+    const list = document.createElement('div');
+    list.className = 'wandlight-context-workbench-mini-list';
+    for (const proposal of proposals.slice(0, 6)) {
+        const item = document.createElement('div');
+        item.className = 'wandlight-context-workbench-mini-item';
+        const label = document.createElement('strong');
+        label.textContent = `${getLoredeckDisplayName(proposal.packId)}: ${proposal.label || proposal.candidateId || 'Context proposal'}`;
+        item.appendChild(label);
+        const detail = document.createElement('span');
+        const confidence = Number.isFinite(Number(proposal.confidence)) ? ` (${Math.round(Number(proposal.confidence) * 100)}%)` : '';
+        detail.textContent = `${proposal.summary || 'Reasoner selected a bounded timeline candidate.'}${confidence}`;
+        item.appendChild(detail);
+        list.appendChild(item);
+    }
+    if (proposals.length > 6) {
+        const more = document.createElement('div');
+        more.className = 'wandlight-runtime-help wandlight-compact-help';
+        more.textContent = `Showing 6 of ${proposals.length} proposals.`;
+        list.appendChild(more);
+    }
+    wrap.appendChild(list);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    actions.appendChild(createButton('Apply Proposals', 'Apply every listed Context proposal to its loaded Loredeck Context.', async () => {
+        const ok = await confirmAction('Apply Context proposals?', `Apply ${proposals.length} Reasoner Context proposal${proposals.length === 1 ? '' : 's'}?`);
+        if (!ok) return;
+        const current = getState();
+        pushStateSnapshot(current, `Apply ${proposals.length} Context proposal${proposals.length === 1 ? '' : 's'}`, getSettings().maxSnapshots);
+        const applied = applyContextResolutionResults(proposals.map(proposal => ({
+            packId: proposal.packId,
+            status: 'resolved',
+            changed: true,
+            patch: proposal.patch,
+        })));
+        clearContextResolutionProposals();
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        refreshHeader();
+        refreshContextWorkbench();
+        toast(`Applied ${applied} Context proposal${applied === 1 ? '' : 's'}.`, 'success');
+    }, 'wandlight-primary-button'));
+    actions.appendChild(createButton('Dismiss', 'Discard these Context proposals without changing loaded Loredeck Contexts.', () => {
+        clearContextResolutionProposals();
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        refreshHeader();
+        toast('Context proposals dismissed.', 'info');
+    }));
+    wrap.appendChild(actions);
+    return wrap;
 }
 
 function createLoredeckContextRow(item, state = getState(), contextIndex = getContextIndexSync()) {
@@ -5369,6 +5514,8 @@ async function handleModelResolveContexts(btn = null) {
         const state = getState();
         const context = state?.loreContext || {};
         const result = await resolveContextsWithModel(context, {
+            explicit: true,
+            applyModel: false,
             sourceText: [
                 context.sceneDate,
                 context.subjectiveDate,
@@ -5377,10 +5524,16 @@ async function handleModelResolveContexts(btn = null) {
                 context.timeTravelMode,
             ].filter(Boolean).join(' | '),
         });
+        const proposalCount = storeContextResolutionProposalsFromResult(result, context);
         refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
         refreshHeader();
-        if (result.appliedCount > 0) {
-            toast(`Model resolved Context for ${result.appliedCount} Loredeck${result.appliedCount === 1 ? '' : 's'}.`, 'success');
+        if (proposalCount > 0) {
+            const localText = result.localAppliedCount ? ` Local resolver also updated ${result.localAppliedCount} Loredeck${result.localAppliedCount === 1 ? '' : 's'}.` : '';
+            toast(`Reasoner drafted ${proposalCount} Context proposal${proposalCount === 1 ? '' : 's'} for review.${localText}`, 'success');
+            return;
+        }
+        if (result.localAppliedCount > 0) {
+            toast(`Local resolver updated ${result.localAppliedCount} Loredeck${result.localAppliedCount === 1 ? '' : 's'} before model fallback.`, 'success');
             return;
         }
         if (result.status === 'resolved_locally') {
@@ -5391,7 +5544,7 @@ async function handleModelResolveContexts(btn = null) {
             toast('No unlocked unresolved Loredecks need model fallback.', 'info');
             return;
         }
-        toast('Model fallback did not find a confident anchor match.', 'warning');
+        toast('Reasoner fallback did not find a confident bounded Context candidate.', 'warning');
     });
 }
 
@@ -17752,8 +17905,8 @@ function createActiveThemePanel(activePreset, settings, colors) {
     summary.appendChild(createKeyValue('Theme ID', activePreset?.id || 'wandlight-default', 'Stable Theme Pack identifier.'));
     summary.appendChild(createKeyValue('Version', activePreset?.version || 'unset', 'Theme Pack version metadata.'));
     summary.appendChild(createKeyValue('Source', activePreset?.type === 'custom' ? getThemeSourceLabel(activePreset) : 'Bundled', 'Where this Theme Pack came from.'));
-    const activeIconSet = getIconSetPreset(activePreset?.iconPackId || settings.themeIconPackId || 'saga-gold');
-    summary.appendChild(createKeyValue('Icon Set', activeIconSet.title || activeIconSet.id, 'Reusable runtime icon set selected by the active Theme Pack.'));
+    const activeIconSet = getIconSetPreset(settings.themeIconPackId || activePreset?.iconPackId || DEFAULT_ICONSET_ID);
+    summary.appendChild(createKeyValue('Icon Set', activeIconSet.title || activeIconSet.id, 'Reusable runtime icon set selected for the active Theme Pack.'));
     summary.appendChild(createKeyValue('Color overrides', settings.themeCustomEnabled === true ? 'On' : 'Off', 'Overrides are user changes layered over the selected Theme Pack.'));
     summary.appendChild(createKeyValue('Icon overrides', Object.keys(activePreset?.icons || {}).length ? 'On' : 'Off', 'Theme Pack icon path overrides such as tab.loredecks or brand.expanded.'));
     main.appendChild(summary);
@@ -17967,7 +18120,7 @@ function createThemeImportTile() {
 function createThemeIconSetPanel(activePreset, settings) {
     const panel = document.createElement('div');
     panel.className = 'wandlight-theme-panel wandlight-theme-icon-panel';
-    const iconSet = getIconSetPreset(activePreset?.iconPackId || settings.themeIconPackId || 'saga-gold');
+    const iconSet = getIconSetPreset(settings.themeIconPackId || activePreset?.iconPackId || DEFAULT_ICONSET_ID);
     const coverage = getThemeIconCoverage(activePreset);
     const header = document.createElement('div');
     header.className = 'wandlight-theme-panel-header';
@@ -17982,6 +18135,8 @@ function createThemeIconSetPanel(activePreset, settings) {
     status.className = 'wandlight-theme-icon-status';
     status.textContent = `${coverage.loaded} / ${coverage.total} icon paths available | ${coverage.missing} using text fallback | ${coverage.invalid} invalid paths`;
     panel.appendChild(status);
+
+    panel.appendChild(createThemeIconSetSelector(iconSet));
 
     const grid = document.createElement('div');
     grid.className = 'wandlight-theme-icon-grid';
@@ -18017,11 +18172,11 @@ function createThemeIconSetPanel(activePreset, settings) {
     actions.appendChild(createButton('Import Icon Set', 'Import icon mappings as a Custom Theme Pack that inherits the active colors.', () => {
         importThemeIconSetFromFile();
     }));
-    actions.appendChild(createButton('Reset to Theme Icons', 'Reapply the active Theme Pack icon metadata.', () => {
-        applyThemePreset(activePreset.id);
+    actions.appendChild(createButton('Reset to Theme Icons', 'Reapply the active Theme Pack default Icon Set.', () => {
+        applyThemeIconSet(activePreset?.iconPackId || DEFAULT_ICONSET_ID);
     }));
-    actions.appendChild(createButton('Reset to Default', 'Switch to the bundled SAGA Archive Theme Pack icon set.', () => {
-        applyThemePreset(THEMEPACK_PRESETS[0].id);
+    actions.appendChild(createButton('Reset to Default', 'Switch to the bundled Saga Hero Icon Set.', () => {
+        applyThemeIconSet(DEFAULT_ICONSET_ID);
     }));
     panel.appendChild(actions);
 
@@ -18038,6 +18193,74 @@ function createThemeIconSetPanel(activePreset, settings) {
     mapping.appendChild(rows);
     panel.appendChild(mapping);
     return panel;
+}
+
+function createThemeIconSetSelector(activeIconSet = getIconSetPreset(DEFAULT_ICONSET_ID)) {
+    const shell = document.createElement('div');
+    shell.className = 'wandlight-theme-iconset-selector';
+
+    const row = document.createElement('label');
+    row.className = 'wandlight-theme-iconset-select-row';
+    const label = document.createElement('span');
+    label.textContent = 'Icon Set';
+    addTooltip(label, 'Switch the runtime shelf tab icon library without changing colors or the active Theme Pack.');
+    row.appendChild(label);
+
+    const select = document.createElement('select');
+    select.className = 'wandlight-lore-workbench-select wandlight-theme-iconset-select';
+    for (const iconSet of getIconSetLibrary()) {
+        const option = document.createElement('option');
+        option.value = iconSet.id;
+        option.textContent = iconSet.title || iconSet.id;
+        if (iconSet.id === activeIconSet.id) option.selected = true;
+        select.appendChild(option);
+    }
+    select.addEventListener('change', () => applyThemeIconSet(select.value));
+    row.appendChild(select);
+    shell.appendChild(row);
+
+    const strip = document.createElement('div');
+    strip.className = 'wandlight-theme-iconset-strip';
+    for (const iconSet of getIconSetLibrary()) {
+        const active = iconSet.id === activeIconSet.id;
+        const card = document.createElement('button');
+        card.type = 'button';
+        card.className = `wandlight-theme-iconset-card${active ? ' wandlight-theme-iconset-card-active' : ''}`;
+        card.disabled = active;
+        addTooltip(card, active ? `${iconSet.title} is active.` : `Switch to ${iconSet.title}.`);
+        card.addEventListener('click', () => applyThemeIconSet(iconSet.id));
+
+        const preview = document.createElement('div');
+        preview.className = 'wandlight-theme-iconset-preview-row';
+        for (const iconKey of ['tab.loredecks', 'tab.context', 'tab.lore', 'tab.settings']) {
+            const path = getIconMapValue(iconSet.icons, iconKey);
+            const cell = document.createElement('span');
+            if (path) {
+                const img = document.createElement('img');
+                img.src = getLocalAssetSrc(path);
+                img.alt = iconKey;
+                img.addEventListener('error', () => {
+                    img.remove();
+                    cell.textContent = iconKey.split('.').pop()?.slice(0, 1).toUpperCase() || '?';
+                }, { once: true });
+                cell.appendChild(img);
+            } else {
+                cell.textContent = iconKey.split('.').pop()?.slice(0, 1).toUpperCase() || '?';
+            }
+            preview.appendChild(cell);
+        }
+        card.appendChild(preview);
+
+        const title = document.createElement('strong');
+        title.textContent = iconSet.title || iconSet.id;
+        card.appendChild(title);
+        const meta = document.createElement('small');
+        meta.textContent = active ? 'Active' : 'Switch';
+        card.appendChild(meta);
+        strip.appendChild(card);
+    }
+    shell.appendChild(strip);
+    return shell;
 }
 
 function createThemeColorOverridesPanel(settings, activePreset, colors) {
@@ -18376,7 +18599,7 @@ function buildThemePackExportObject(preset, settings = getSettings()) {
         description: preset?.description || 'Custom Theme Pack exported from Saga.',
         author: preset?.author || '',
         version: preset?.version || '1.0.0',
-        iconPackId: preset?.iconPackId || settings.themeIconPackId || 'saga-gold',
+        iconPackId: settings.themeIconPackId || preset?.iconPackId || DEFAULT_ICONSET_ID,
         colors,
         icons: preset?.icons || {},
         tags: Array.isArray(preset?.tags) ? preset.tags.filter(tag => tag !== 'quality:bundled') : [],
@@ -18519,12 +18742,23 @@ function createThemeAccessibilityCard(colors = {}, options = {}) {
     return shell;
 }
 
+function applyThemeIconSet(iconPackId = DEFAULT_ICONSET_ID) {
+    const iconSet = getIconSetPreset(iconPackId);
+    const next = getSettings();
+    next.themeIconPackId = iconSet.id || DEFAULT_ICONSET_ID;
+    saveSettings(next);
+    applyRuntimeTheme(panelRoot, next);
+    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    refreshHeader();
+    toast(`Icon Set set to ${iconSet.title || iconSet.id}.`, 'success');
+}
+
 function applyThemePreset(themeId) {
     const current = getSettings();
     const preset = getThemePreset(themeId, current);
     const next = getSettings();
     next.themePackId = preset.id;
-    next.themeIconPackId = preset.iconPackId || 'saga-gold';
+    next.themeIconPackId = preset.iconPackId || DEFAULT_ICONSET_ID;
     themePreviewPackId = '';
     writeThemeColorsToSettings(next, preset.colors || {});
     saveSettings(next);
@@ -18538,7 +18772,7 @@ function resetThemeSettings() {
     const preset = THEMEPACK_PRESETS[0];
     const next = getSettings();
     next.themePackId = preset.id;
-    next.themeIconPackId = preset.iconPackId || 'saga-gold';
+    next.themeIconPackId = preset.iconPackId || DEFAULT_ICONSET_ID;
     next.themeCustomEnabled = false;
     themePreviewPackId = '';
     writeThemeColorsToSettings(next, preset.colors || {});
@@ -19794,6 +20028,12 @@ function createContextDetectionCard(state) {
         sourceRow.appendChild(sourceText);
         sourceRow.appendChild(sourceInput);
         card.appendChild(sourceRow);
+        card.appendChild(createRangeSettingRow(
+            'Reasoner fallback',
+            'Minimum recent-message character count before automatic Context detection stores Reasoner-backed loaded-deck Context proposals. Manual Ask Reasoner ignores this threshold.',
+            'contextModelFallbackMinCharacters',
+            { min: 0, max: 8000, fallback: 1200, suffix: ' chars' }
+        ));
 
         appendSettingsResetButton(card, CONTEXT_DETECTION_SETTING_KEYS, 'Context detection settings');
     }

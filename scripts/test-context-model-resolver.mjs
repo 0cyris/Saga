@@ -53,9 +53,10 @@ const prompt = buildContextModelPrompt({
 
 const promptJson = JSON.parse(prompt);
 assert.equal(promptJson.targetPacks.length, 1);
-assert.ok(promptJson.targetPacks[0].anchors.some(anchor => anchor.id === 'hp.dh.ministry_falls'));
+assert.ok(promptJson.targetPacks[0].candidates.length <= 24);
+assert.ok(promptJson.targetPacks[0].candidates.some(candidate => candidate.candidateId === 'anchor:hp.dh.ministry_falls'));
 
-const fenced = '```json\n{"contexts":[{"packId":"hp-golden-trio","status":"resolved","anchorId":"hp.dh.ministry_falls","confidence":0.82,"reason":"The user says after the Ministry falls."}]}\n```';
+const fenced = '```json\n{"contexts":[{"packId":"hp-golden-trio","status":"resolved","candidateId":"anchor:hp.dh.ministry_falls","candidateType":"anchor","confidence":0.82,"reason":"The user says after the Ministry falls."}]}\n```';
 assert.equal(parseContextModelResponse(fenced).contexts.length, 1);
 
 const resolved = resolveContextsFromModelResponse(fenced, {
@@ -72,16 +73,25 @@ assert.equal(resolved.results[0].status, 'resolved');
 assert.equal(resolved.results[0].matchType, 'model');
 assert.equal(resolved.results[0].anchor.id, 'hp.dh.ministry_falls');
 assert.equal(resolved.results[0].patch.source, 'model');
+assert.equal(resolved.proposals.length, 1);
+assert.equal(resolved.proposals[0].candidateId, 'anchor:hp.dh.ministry_falls');
 
-const invented = resolveContextsFromModelResponse('{"contexts":[{"packId":"hp-golden-trio","status":"resolved","anchorId":"hp.fake.anchor","confidence":0.9}]}', {}, {
+const invented = resolveContextsFromModelResponse('{"contexts":[{"packId":"hp-golden-trio","status":"resolved","candidateId":"anchor:hp.fake.anchor","candidateType":"anchor","confidence":0.9}]}', {}, {
   state,
   index,
   targetPackIds: ['hp-golden-trio'],
 });
 assert.equal(invented.resolvedCount, 0);
-assert.equal(invented.results[0].reason, 'model_anchor_not_found');
+assert.equal(invented.results[0].reason, 'model_candidate_not_found');
 
-const lowConfidence = resolveContextsFromModelResponse('{"contexts":[{"packId":"hp-golden-trio","status":"resolved","anchorId":"hp.dh.ministry_falls","confidence":0.2}]}', {}, {
+const inventedWithoutTargets = resolveContextsFromModelResponse('{"contexts":[{"packId":"hp-golden-trio","status":"resolved","candidateId":"anchor:hp.fake.anchor","candidateType":"anchor","confidence":0.9}]}', {}, {
+  state,
+  index,
+});
+assert.equal(inventedWithoutTargets.resolvedCount, 0);
+assert.equal(inventedWithoutTargets.results[0].reason, 'model_candidate_not_found');
+
+const lowConfidence = resolveContextsFromModelResponse('{"contexts":[{"packId":"hp-golden-trio","status":"resolved","candidateId":"anchor:hp.dh.ministry_falls","candidateType":"anchor","confidence":0.2}]}', {}, {
   state,
   index,
   targetPackIds: ['hp-golden-trio'],

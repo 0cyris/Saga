@@ -84,6 +84,10 @@ themes/
   sea-map-odyssey/
     theme.json
 iconsets/
+  saga-hero/
+    icons.json
+    saga-tab-loredecks-256.png
+    saga-tab-lorecards-256.png
   saga-gold/
     icons.json
     256/

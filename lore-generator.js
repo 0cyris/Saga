@@ -40,7 +40,7 @@ import {
 import { sendLoreRequest, validateLoreProviderConfiguration } from './lore-llm-client.js';
 import { proposeCanonLoreForContext } from './canon-lore-db.js';
 import { normalizeLorePurpose, computeSpecificityScore } from './lore-relevance.js';
-import { resolveAndApplyContextsFromContext } from './context-resolver.js';
+import { resolveAndApplyContextsFromContext, resolveContextsWithModel } from './context-resolver.js';
 
 // ── Guard flags ─────────────────────────────────────────────────────────────────
 
@@ -603,14 +603,73 @@ function formatCanonProposalSuffix(result) {
     return '';
 }
 
+function getContextFallbackCharacterThreshold(settings = getSettings()) {
+    const configured = Number(settings.contextModelFallbackMinCharacters);
+    return Math.max(0, Math.min(20000, Number.isFinite(configured) ? configured : 1200));
+}
+
+function shouldRunContextModelFallback(sourceText = '', options = {}, settings = getSettings()) {
+    if (options.modelFallback === false) return false;
+    if (options.forceModelFallback === true || options.explicit === true) return true;
+    const threshold = getContextFallbackCharacterThreshold(settings);
+    return String(sourceText || '').trim().length >= threshold;
+}
+
+function storeContextResolutionProposals(result = null, context = {}, sourceText = '') {
+    const proposals = Array.isArray(result?.proposals) ? result.proposals : [];
+    const state = getState();
+    if (!state?.lorePanel) return;
+    if (!proposals.length) {
+        if (Array.isArray(state.lorePanel.contextResolutionProposals) && state.lorePanel.contextResolutionProposals.length) {
+            state.lorePanel.contextResolutionProposals = [];
+            saveState(state, { syncPrompt: false });
+        }
+        return;
+    }
+    state.lorePanel.contextResolutionProposals = proposals.map(proposal => ({
+        packId: String(proposal.packId || '').trim(),
+        candidateId: String(proposal.candidateId || '').trim(),
+        candidateType: String(proposal.candidateType || '').trim(),
+        label: String(proposal.label || '').trim().slice(0, 240),
+        summary: String(proposal.summary || '').trim().slice(0, 500),
+        confidence: Number.isFinite(Number(proposal.confidence)) ? Math.max(0, Math.min(1, Number(proposal.confidence))) : 0,
+        patch: proposal.patch && typeof proposal.patch === 'object' && !Array.isArray(proposal.patch) ? { ...proposal.patch } : {},
+    })).filter(proposal => proposal.packId && proposal.patch && Object.keys(proposal.patch).length);
+    state.lorePanel.contextResolutionProposalMeta = {
+        createdAt: Date.now(),
+        source: 'reasoner_context_resolution',
+        sourceCharacters: String(sourceText || '').length,
+        contextLabel: context.label || context.canonBoundary || context.sceneDate || '',
+    };
+    saveState(state, { syncPrompt: false });
+}
+
 async function maybeResolveContextsFromContext(context, options = {}) {
     try {
+        const settings = getSettings();
         const progress = typeof options.progress === 'function' ? options.progress : null;
         progress?.('Resolving Loredeck Context...', 82);
-        return await resolveAndApplyContextsFromContext(context, {
+        const local = await resolveAndApplyContextsFromContext(context, {
             contextSource: options.contextSource || 'local_alias',
             sourceText: options.sourceText || '',
         });
+        if (!local.unresolvedCount || !shouldRunContextModelFallback(options.sourceText || '', options, settings)) {
+            return local;
+        }
+        progress?.('Asking Reasoner for bounded Context proposals...', 86);
+        const model = await resolveContextsWithModel(context, {
+            contextSource: options.contextSource || 'model',
+            sourceText: options.sourceText || '',
+            applyLocal: false,
+            applyModel: false,
+        });
+        storeContextResolutionProposals(model, context, options.sourceText || '');
+        return {
+            ...model,
+            local,
+            appliedCount: local.appliedCount || 0,
+            localAppliedCount: local.appliedCount || 0,
+        };
     } catch (e) {
         console.warn(`${LOG_PREFIX} Context resolver failed:`, e);
         return { status: 'failed', error: e?.message || String(e || '') };
@@ -620,6 +679,7 @@ async function maybeResolveContextsFromContext(context, options = {}) {
 function formatContextResolutionSuffix(result) {
     if (!result || result.status === 'failed') return '';
     if (result.appliedCount > 0) return ` Context resolved for ${result.appliedCount} Loredeck${result.appliedCount === 1 ? '' : 's'}.`;
+    if (result.proposalCount > 0) return ` Reasoner drafted ${result.proposalCount} Context proposal${result.proposalCount === 1 ? '' : 's'} for review.`;
     if (result.resolvedCount > 0) return ' Context already matched the current context.';
     if (result.skippedCount > 0 && !result.unresolvedCount) return ' Context resolver skipped locked Loredecks.';
     return '';

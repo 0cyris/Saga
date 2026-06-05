@@ -489,8 +489,8 @@ The Reasoner must reject invented active Context. Invented anchors may be return
 4. Add browse/search for anchors, windows, dates, arcs, books, chapters, episodes, quests, and Lorecard-derived Context candidates.
 5. Add `Start Here`, `Before`, `After`, `Between`, lock, and apply controls.
 6. Done: move runtime manual Context controls, quick anchors, resolver launch actions, and manual locks from the Loredeck tab into the Context tab / Context Browser.
-7. Add Reasoner-backed `Resolve Context` using bounded candidates.
-8. Add suspected-jump review using the existing message-count and character-count threshold cadence.
+7. Done: add Reasoner-backed `Resolve Context` using bounded candidates.
+8. Done: add suspected-jump review using the existing message-count and character-count threshold cadence.
 9. Leave Timeline Registry editing, alias inspection, validation, and Pending Review timeline patches in the Loredeck tab.
 10. Add visual smoke coverage for startup Context selection, manual apply, Reasoner proposal, apply/reject, and locked Context behavior.
 
@@ -534,6 +534,8 @@ For Harry Potter, this means broad anchors such as `Year 6: Half-Blood Prince` r
 
 The Context tab now also owns the loaded-Loredeck Context summary that previously lived under Loredecks. It shows each enabled deck's active Context, index coverage, lock state, confidence, quick anchor lookup, reset action, local resolver launch, Reasoner fallback launch, and fullscreen Context Browser launch. The Loredeck tab no longer exposes a redundant runtime Context dropdown.
 
-This is still a bridge, not the final Context UX. The next development slice is to upgrade Reasoner-backed Context resolution so casual phrases select from the same bounded waypoint set instead of depending on exhaustive aliases.
+Reasoner-backed Context resolution now uses a bounded candidate set instead of exhaustive aliases or unbounded timeline dumps. Saga builds per-Loredeck candidates from local date/alias matches, ranked anchors, and timeline windows, then asks the Reasoner Provider to choose only from those candidate IDs. Model output that references unknown candidates is rejected.
+
+Reasoner results are stored as reviewable Context proposals, not silently applied. Manual `Ask Reasoner` drafts proposals immediately. Automatic Context detection first applies local/structured resolution; if any loaded Loredeck remains unresolved and recent chat text passes the configured character threshold, Saga asks the Reasoner and stores proposals in the Context tab for `Apply Proposals` or `Dismiss`.
 
 Do not expand this into an exhaustive local alias system. The long-term registry policy should add durable anchors for high-value recurring story moments, Creator output, accepted suggestions, and sparse coverage warnings. Casual phrasing should be handled by the Reasoner Provider selecting from bounded known candidates.

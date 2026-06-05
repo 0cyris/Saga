@@ -68,6 +68,7 @@ export const BASIC_EXPERIENCE_SETTINGS = Object.freeze({
     loreGenerationMode: 'manual',
     contextHeaderDetectionEnabled: true,
     contextSourceMessageCount: 20,
+    contextModelFallbackMinCharacters: 1200,
     canonLoreDatabaseEnabled: true,
     canonLoreAutoPropose: true,
     canonLoreMaxEntries: 10,
@@ -123,7 +124,7 @@ export const DEFAULT_SETTINGS = {
     advancedExperienceSettingsBackup: null,
     basicExperienceProfileVersion: BASIC_EXPERIENCE_PROFILE_VERSION,
     themePackId: 'wandlight-default',
-    themeIconPackId: 'saga-gold',
+    themeIconPackId: 'saga-hero',
     themeCustomEnabled: false,
     themeBackgroundColor: '#120c12',
     themeBackgroundAltColor: '#241018',
@@ -188,6 +189,7 @@ export const DEFAULT_SETTINGS = {
     contextDetectionMode: 'manual', // 'manual' | 'automatic'
     contextDetectionAutoInterval: 5,
     contextHeaderDetectionEnabled: true,
+    contextModelFallbackMinCharacters: 1200,
     loreGenerationMode: 'manual', // 'manual' | 'automatic'
     loreGenerationAutoInterval: 50,
     loreGenerationAutoMinTurns: 20,
