@@ -1207,6 +1207,16 @@ No full card generation should happen until the scope, title list, timeline, and
 
 The initial title pass is intentionally allowed before timeline and tag generation because titles are cheap to review and expose scope mistakes early. Approved titles are not entries; they are planning records that guide later timeline, tag, and full-entry stages.
 
+Full-entry drafting must be chunked. A Creator call should never attempt to draft an entire Loredeck or even a large approved title set at once. Saga should select the next small set of approved titles that are not already accepted, pending, or sitting in the edit-before-queue draft batch, then ask the model to draft only that micro-batch. This keeps thinking/reasoning models from spending the entire response budget before producing usable JSON, makes retries cheaper, and lets users review or revise a partial batch before continuing.
+
+Implementation policy:
+
+- Default entry micro-batch size should stay small, currently three Lorecards per model call.
+- The prompt must frame `targetTitleDrafts` as the whole assignment for that response.
+- The Creator may offer a guarded multi-batch button, but it should still run separate provider calls and stop cleanly if a batch asks for clarification or fails.
+- Successful batches should be cached immediately in the edit-before-queue draft batch so later failures do not discard earlier work.
+- Title, timeline, tag, and entry stages remain separately reviewable; chunking entry drafts should not bypass Pending Review.
+
 ### Coverage Versus Injection
 
 The creator should not ask for a spoiler boundary as a required field.
@@ -1416,6 +1426,7 @@ Implemented MVP behavior:
 - Loredeck Creator intake now drafts an approval-gated pack brief from fandom, scope, granularity, and notes. The brief records internal derived generation scale, Context approach, timeline/tag/title-pass plans, assumptions, exclusions, risks, and next stage before any generated entries exist.
 - Loredeck Creator title-pass and planning now generate reviewable titles first, then queue timeline anchors/windows and tag definitions onto a Generated Loredeck shell through Pending Review before full entry generation exists.
 - Loredeck Creator entry drafting now uses accepted planning metadata plus approved titles to draft schema v3 entry proposals into the same edit-before-queue batch used by the Lore Assistant before they can enter Pending Review.
+- Creator entry drafting now runs in resumable micro-batches instead of one large call: the next approved, undrafted titles are selected, the model drafts only that small batch, and successful batches are cached before any optional follow-on batch starts.
 - Generated Loredecks now validate and export from accepted Creator entries without requiring a fetchable manifest path; the virtual generated manifest derives entry stats, local timeline/tag registries feed Deck Health, and export readiness blocks unresolved Pending Review or draft-batch state.
 - Leaves runtime behavior unchanged until the user accepts queued Pending Review items.
 
@@ -1716,3 +1727,4 @@ Legacy cleanup checkpoint: the Wandlight compatibility posture has changed. Saga
 52. Done: audit Wandlight legacy features for removal. The audit marks the full Wandlight chat preset, fast reply-header Context detection, HP-specific global Context inference, root `Lore/` fallback loading, slash/prompt/state namespaces, Provider preset naming, and legacy schema aliases by removal priority.
 53. Done: remove the full Wandlight chat preset product path and fast reply-header Context detection. The Session preset card, bundled Wandlight chat preset, header toggle, header resolver helpers, HP-specific global correction path, deleted header test, and visible UI/model prompt copy now point at Saga's Context workflow instead.
 54. Done: remove the root `Lore/` fallback and make `Loredecks/hp-golden-trio` the only bundled HP reference source. The loader now reports a missing Loredeck manifest instead of falling back to legacy root data, and the old root `Lore/` folder has been removed.
+55. Done: chunk Loredeck Creator full-entry drafting into resumable micro-batches so large generated Loredecks no longer depend on a single massive model response.

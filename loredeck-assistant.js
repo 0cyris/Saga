@@ -621,10 +621,12 @@ Hard limits:
 - Return only upsert_entry proposals. Do not return timeline, tag, disable, restore, manifest, or settings proposals.
 - Do not claim Lorecards are applied. They are drafts for edit-before-queue review, then Pending Review, then acceptance.
 - Generate one Lorecard proposal per targetTitleDraft.
+- Treat targetTitleDrafts as the entire assignment for this response. Do not continue into unlisted titles, even if the deck needs more entries.
 - Use targetTitleDraft.titleId as entry.id unless it is invalid; preserve stable IDs.
 - Use only acceptedTimelineRegistry anchors/windows and acceptedTagRegistry tags. Do not invent anchor IDs or tag IDs at this stage.
 - Every entry must be schemaVersion 3 with content.fact, content.injection, context, retrieval, tags, category, canon/canonStatus, relevance, and priority.
 - Do not write wiki summaries. The fact should state the useful story constraint; the injection should tell the roleplay prompt what changes in-scene.
+- Keep each proposal compact: fact under 90 words, injection under 110 words, notes under 40 words, and reason under 50 words.
 
 Schema v3 entry requirements:
 - entry.context.scope must be "anchor", "window", or "global".
@@ -709,7 +711,7 @@ Output shape:
 
 export function buildLoredeckCreatorEntryUserPrompt(context = {}) {
     return JSON.stringify({
-        task: cleanString(context.task || 'Draft schema v3 lore entry proposals only.', 500),
+        task: cleanString(context.task || 'Draft one micro-batch of schema v3 lore entry proposals only.', 500),
         generatedPackId: cleanPackId(context.generatedPackId || '', 140),
         approvedBrief: isPlainObject(context.brief) ? context.brief : null,
         targetTitleDrafts: Array.isArray(context.targetTitleDrafts) ? context.targetTitleDrafts : [],
@@ -717,13 +719,20 @@ export function buildLoredeckCreatorEntryUserPrompt(context = {}) {
         acceptedTagRegistry: isPlainObject(context.tagRegistry) ? context.tagRegistry : null,
         existingEntryIds: cleanStringArray(context.existingEntryIds, 240, 180),
         notes: cleanString(context.notes, 2000),
-        entryBatchLimit: cleanInteger(context.entryBatchLimit, 8, 1, 20),
+        entryBatchLimit: cleanInteger(context.entryBatchLimit, 3, 1, 6),
+        batchProgress: {
+            microBatch: true,
+            remainingTitleCount: cleanInteger(context.remainingTitleCount, 0, 0, 10000),
+            remainingAfterThisBatch: cleanInteger(context.remainingAfterThisBatch, 0, 0, 10000),
+        },
         constraints: {
             generatedPackRequired: true,
             approvedBriefRequired: true,
             approvedTitlesRequired: true,
             acceptedPlanningMetadataRequired: true,
             upsertEntriesOnly: true,
+            currentMicroBatchOnly: true,
+            doNotGenerateUnlistedTitles: true,
             schemaVersion: 3,
             requireContext: true,
             requireRetrieval: true,
@@ -731,10 +740,11 @@ export function buildLoredeckCreatorEntryUserPrompt(context = {}) {
             useAcceptedTimelineIdsOnly: true,
             useAcceptedTagIdsOnly: true,
             noWikiSummaries: true,
+            conciseFields: true,
             pendingReviewOnly: true,
             sagaUseCase: 'long-form fanfic and roleplay Loredecks',
         },
-    }, null, 2);
+    });
 }
 
 export function buildLoredeckAssistantSystemPrompt() {

@@ -93,4 +93,5 @@ Context-aware Loredeck retrieval:
 - Done: migrate runtime Context controls from the Loredeck tab into the Context tab, including loaded-Loredeck Context review, current-context resolving, Reasoner fallback launch, quick anchors, manual locks, reset actions, and fullscreen Context Browser access.
 - Done: upgrade Reasoner-backed Context resolution so automatic fallback follows the existing message-count and character-count cadence, chooses from bounded anchor/window candidates, and stores structured, confirmable Context patches for user review.
 - Done: revise timeline densification policy around high-value candidate quality rather than alias sprawl. Deck Health now gives non-blocking sparse-candidate, concentrated-anchor, and missing-window suggestions.
+- Done: chunk Loredeck Creator full-entry drafting into resumable micro-batches. The Creator now drafts the next small approved-title set per provider call, can optionally run a bounded sequence of separate calls, and preserves successful draft batches if a later call fails.
 - Next: implement durable asset/bundle handling for Custom Loredecks, Theme Packs, Icon Sets, and deck covers.

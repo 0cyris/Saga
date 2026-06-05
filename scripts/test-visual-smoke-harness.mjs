@@ -5,6 +5,7 @@ const root = process.cwd();
 const harnessPath = path.join(root, 'tests', 'visual-smoke.html');
 const fixturePath = path.join(root, 'tests', 'fixtures', 'arlong-park-update.saga-loredeck.json');
 const panelPath = path.join(root, 'lore-panel.js');
+const assistantPath = path.join(root, 'loredeck-assistant.js');
 const stylePath = path.join(root, 'style.css');
 const settingsTemplatePath = path.join(root, 'settings.html');
 const sagaHeroIconPath = path.join(root, 'Images', 'iconsets', 'saga-hero', 'saga-tab-loredecks-256.png');
@@ -25,6 +26,7 @@ function assert(condition, message) {
 const harness = read(harnessPath);
 const fixture = JSON.parse(read(fixturePath));
 const panel = read(panelPath);
+const assistant = read(assistantPath);
 const style = read(stylePath);
 const settingsTemplate = read(settingsTemplatePath);
 
@@ -42,6 +44,13 @@ assert(harness.includes('source: {'), 'Harness must seed source/update metadata.
 assert(harness.includes('./fixtures/arlong-park-update.saga-loredeck.json'), 'Harness must point at the local update fixture.');
 assert(!settingsTemplate.includes('Provider Settings'), 'Extension menu settings must not expose the old Provider Settings dropdown.');
 assert(!settingsTemplate.includes('API and model controls'), 'Extension menu settings must not expose legacy API/model controls.');
+assert(!panel.includes('Drop support is queued'), 'Loredeck Library must not expose queued drop-support placeholder copy.');
+assert(!panel.includes("['contents', 'Contents'"), 'Loredeck Library details must not expose the low-value Contents tab.');
+assert(!panel.includes("['activation', 'Activation'"), 'Loredeck Library details must not expose the low-value Activation tab.');
+assert(panel.includes('LOREDECK_CREATOR_ENTRY_BATCH_SIZE = 3'), 'Creator entry drafting must keep the default micro-batch size small.');
+assert(panel.includes('Draft Next Batch'), 'Creator entry drafting must expose a one-batch action.');
+assert(panel.includes('Draft ${LOREDECK_CREATOR_ENTRY_AUTORUN_BATCHES} Batches'), 'Creator entry drafting must expose a bounded multi-batch action.');
+assert(assistant.includes('currentMicroBatchOnly'), 'Creator entry prompt context must mark entry drafting as a micro-batch.');
 
 assert(fixture.bundleType === 'saga_loredeck_json', 'Fixture must be a Saga Loredeck bundle.');
 assert(fixture.pack?.packId === 'smoke-arlong-park', 'Fixture pack ID must match the harness deck.');
@@ -113,6 +122,8 @@ for (const token of [
     'wandlight-loredeck-library-shell',
     'wandlight-loredeck-library-columns',
     'wandlight-loredeck-library-stack-card',
+    'wandlight-loredeck-library-stack-grip',
+    'wandlight-loredeck-library-stack-ghost',
     'wandlight-lore-workbench-shell .wandlight-runtime-button',
     'wandlight-loredeck-health-center-shell',
     'wandlight-loredeck-health-severity-card',
