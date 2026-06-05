@@ -77,7 +77,7 @@ import {
     buildLorepackCreatorEntrySystemPrompt,
     buildLorepackCreatorEntryUserPrompt,
 } from './lorepack-assistant.js';
-import { clearStoryPositionIndexCache, findStoryPositionAnchors, getStoryPositionIndexSync, loadStoryPositionIndex, rankStoryPositionAnchors } from './story-position-index.js';
+import { analyzeStoryPositionQuery, clearStoryPositionIndexCache, findStoryPositionAnchors, getStoryPositionIndexSync, loadStoryPositionIndex, rankStoryPositionAnchors } from './story-position-index.js';
 import { resolveAndApplyStoryPositionsFromContext, resolveStoryPositionsWithModel } from './story-position-resolver.js';
 import { runAutoRelevance, applyAutoRelevanceSuggestions, clearAutoRelevanceSuggestions, rejectAutoRelevanceSuggestions } from './auto-relevance.js';
 import {
@@ -6011,17 +6011,49 @@ function createStoryPositionWorkbenchResolverTester(pack, context = {}, position
     const list = document.createElement('div');
     list.className = 'wandlight-story-position-workbench-resolver-results';
     const query = String(storyPositionWorkbenchResolverQuery || '').trim();
+    const analysis = analyzeStoryPositionQuery(query);
+    if (query) {
+        if (analysis.terms?.length) {
+            meta.appendChild(createStatusPill(`Terms: ${analysis.terms.join(', ')}`, 'Search terms used by the local resolver after cleanup.'));
+        }
+        if (analysis.ignoredTerms?.length) {
+            meta.appendChild(createStatusPill(`Ignored: ${analysis.ignoredTerms.join(', ')}`, 'Direction/filler words ignored so they do not cause false matches.'));
+        }
+    }
     if (!positionIndex) {
         list.appendChild(createEmptyMessage('Position index is loading. Refresh the index and try again.'));
     } else if (!packIndex?.hasIndex) {
         list.appendChild(createEmptyMessage('This Loredeck has no loaded timeline registry for phrase matching.'));
     } else if (!query) {
         list.appendChild(createEmptyMessage('Enter a loose story phrase to preview matching anchors.'));
+    } else if (!analysis.terms?.length) {
+        list.appendChild(createStoryPositionResolverDiagnosticCard(
+            'No searchable terms',
+            [
+                'The phrase only contains direction or filler words after cleanup.',
+                'Add a story event, arc, date, book, chapter, episode, quest, or alias.',
+            ],
+            'warning'
+        ));
     } else {
         const matches = rankStoryPositionAnchors(query, { packId: pack.packId, limit: 8, index: positionIndex });
         if (!matches.length) {
-            list.appendChild(createEmptyMessage('No local anchor match found. Try a clearer date, arc, event, book, chapter, or alias.'));
+            list.appendChild(createStoryPositionResolverDiagnosticCard(
+                'No local anchor match',
+                getStoryPositionResolverMissReasons(pack, analysis, packIndex),
+                'warning'
+            ));
         } else {
+            if (Number(matches[0]?.score) < 32) {
+                list.appendChild(createStoryPositionResolverDiagnosticCard(
+                    'Weak match set',
+                    [
+                        'The best result only matched low-weight coordinate text.',
+                        'Review the reasons before applying, or add a stronger alias/anchor if this phrase should be supported.',
+                    ],
+                    'suggestion'
+                ));
+            }
             const currentAnchorId = normalizeLorepackTimelineId(context.anchorId);
             for (const match of matches) {
                 list.appendChild(createStoryPositionWorkbenchResolverResult(pack, match, currentAnchorId));
@@ -6031,6 +6063,90 @@ function createStoryPositionWorkbenchResolverTester(pack, context = {}, position
     wrap.appendChild(list);
 
     return wrap;
+}
+
+function getStoryPositionResolverMissReasons(pack, analysis = {}, packIndex = null) {
+    const terms = Array.isArray(analysis.terms) ? analysis.terms : [];
+    const lines = [
+        `Searched ${packIndex?.anchorCount || 0} timeline anchor${Number(packIndex?.anchorCount) === 1 ? '' : 's'} using labels, IDs, aliases, tags, and coordinates.`,
+    ];
+    if (terms.length) {
+        lines.push(`No anchor contained the cleaned term${terms.length === 1 ? '' : 's'}: ${terms.join(', ')}.`);
+    }
+    if (analysis.directionTerms?.length) {
+        lines.push(`Direction word${analysis.directionTerms.length === 1 ? '' : 's'} ignored: ${analysis.directionTerms.join(', ')}.`);
+    }
+    const entryHint = getStoryPositionResolverEntryCoverageHint(pack, terms);
+    if (entryHint?.count) {
+        lines.push(`${entryHint.count} loaded Lorecard${entryHint.count === 1 ? '' : 's'} mention those terms, but no timeline anchor does. This is probably a registry coverage gap.`);
+        if (entryHint.examples?.length) lines.push(`Examples: ${entryHint.examples.join(', ')}.`);
+    } else {
+        lines.push('If this phrase should resolve, add an alias to an existing anchor or create a more precise timeline anchor.');
+    }
+    if (pack?.type === 'bundled') {
+        lines.push('Bundled decks are protected; duplicate this Loredeck as Custom before editing its timeline registry.');
+    }
+    return lines;
+}
+
+function getStoryPositionResolverEntryCoverageHint(pack, terms = []) {
+    if (!terms.length) return null;
+    const rows = getStoryPositionWorkbenchEntryRows(pack);
+    if (!rows.length) return null;
+    const hits = [];
+    for (const row of rows) {
+        const entry = row.entry || {};
+        const text = getStoryPositionResolverEntrySearchText(entry);
+        if (!terms.every(term => text.includes(term))) continue;
+        hits.push(entry.title || entry.id || row.id || 'Untitled Lorecard');
+        if (hits.length >= 4) break;
+    }
+    return hits.length ? { count: hits.length, examples: hits } : null;
+}
+
+function getStoryPositionResolverEntrySearchText(entry = {}) {
+    const scope = entry.scope || {};
+    const retrieval = entry.retrieval || {};
+    const triggers = retrieval.triggers || {};
+    const content = entry.content || {};
+    return [
+        entry.id,
+        entry.title,
+        entry.kind,
+        entry.gateType,
+        entry.category,
+        entry.lorePurpose,
+        entry.priority,
+        entry.position?.label,
+        content.fact,
+        content.injection,
+        ...(Array.isArray(content.constraints) ? content.constraints : []),
+        ...(Array.isArray(scope.characters) ? scope.characters : []),
+        ...(Array.isArray(scope.locations) ? scope.locations : []),
+        ...(Array.isArray(scope.topics) ? scope.topics : []),
+        ...(Array.isArray(scope.books) ? scope.books : []),
+        ...(Array.isArray(scope.phases) ? scope.phases : []),
+        ...(Array.isArray(triggers.topicsAny) ? triggers.topicsAny : []),
+        ...(Array.isArray(triggers.charactersAny) ? triggers.charactersAny : []),
+        ...(Array.isArray(triggers.locationsAny) ? triggers.locationsAny : []),
+        ...(Array.isArray(entry.effects?.addsTags) ? entry.effects.addsTags : []),
+    ].filter(Boolean).join(' ').toLowerCase();
+}
+
+function createStoryPositionResolverDiagnosticCard(titleText = 'Resolver note', lines = [], severity = 'suggestion') {
+    const card = document.createElement('div');
+    card.className = `wandlight-story-position-workbench-resolver-diagnostic wandlight-story-position-workbench-issue-${severity || 'suggestion'}`;
+    const title = document.createElement('div');
+    title.className = 'wandlight-story-position-workbench-position-picker-title';
+    title.textContent = titleText;
+    card.appendChild(title);
+    for (const line of lines.filter(Boolean).slice(0, 5)) {
+        const item = document.createElement('div');
+        item.className = 'wandlight-story-position-workbench-resolver-diagnostic-line';
+        item.textContent = line;
+        card.appendChild(item);
+    }
+    return card;
 }
 
 function getStoryPositionResolverSeedText(context = {}, state = getState()) {
@@ -6091,6 +6207,10 @@ function createStoryPositionWorkbenchResolverResult(pack, match = {}, currentAnc
         anchor.aliases?.slice(0, 2).join(', '),
     ].filter(Boolean).join(' | ');
     main.appendChild(meta);
+    const reason = document.createElement('div');
+    reason.className = 'wandlight-story-position-workbench-resolver-reason';
+    reason.textContent = formatStoryPositionResolverReasonText(match);
+    main.appendChild(reason);
     row.appendChild(main);
 
     const score = document.createElement('div');
@@ -6117,6 +6237,24 @@ function createStoryPositionWorkbenchResolverResult(pack, match = {}, currentAnc
     }));
     row.appendChild(actions);
     return row;
+}
+
+function formatStoryPositionResolverReasonText(match = {}) {
+    const pieces = [];
+    const reasons = Array.isArray(match.reasons) ? match.reasons : [];
+    if (reasons.length) {
+        pieces.push(`Why: ${reasons.slice(0, 3).map(reason => reason.label).join('; ')}`);
+    }
+    if (Array.isArray(match.matchedTerms) && match.matchedTerms.length) {
+        pieces.push(`Matched: ${match.matchedTerms.join(', ')}`);
+    }
+    if (Array.isArray(match.missingTerms) && match.missingTerms.length) {
+        pieces.push(`Missing: ${match.missingTerms.join(', ')}`);
+    }
+    if (Array.isArray(match.ignoredTerms) && match.ignoredTerms.length) {
+        pieces.push(`Ignored: ${match.ignoredTerms.join(', ')}`);
+    }
+    return pieces.join(' | ') || 'Matched by local timeline registry text.';
 }
 
 function getStoryPositionResolverConfidenceLabel(score = 0) {

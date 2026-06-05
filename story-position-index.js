@@ -434,43 +434,170 @@ const STORY_POSITION_SEARCH_STOPWORDS = Object.freeze(new Set([
     'with',
 ]));
 
-function tokenizeAnchorSearchQuery(query = '') {
-    return String(query || '')
-        .toLowerCase()
-        .split(/[^a-z0-9._:-]+/i)
-        .map(term => term.trim())
-        .filter(term => term && (term.length > 1 || /\d/.test(term)) && !STORY_POSITION_SEARCH_STOPWORDS.has(term))
-        .slice(0, 24);
+const STORY_POSITION_DIRECTION_WORDS = Object.freeze(new Set([
+    'after',
+    'before',
+    'during',
+    'following',
+    'near',
+    'post',
+    'pre',
+    'prior',
+]));
+
+function cleanSearchToken(value = '') {
+    return String(value || '').trim().toLowerCase();
 }
 
-function scoreAnchorMatch(anchor = {}, terms = [], query = '') {
-    if (!terms.length) return 0;
+export function analyzeStoryPositionQuery(query = '') {
+    const rawTerms = String(query || '')
+        .toLowerCase()
+        .split(/[^a-z0-9._:-]+/i)
+        .map(cleanSearchToken)
+        .filter(Boolean);
+    const terms = [];
+    const ignoredTerms = [];
+    const directionTerms = [];
+    const seen = new Set();
+    for (const term of rawTerms) {
+        const isShortNoise = term.length <= 1 && !/\d/.test(term);
+        const isStopword = STORY_POSITION_SEARCH_STOPWORDS.has(term);
+        const isDirection = STORY_POSITION_DIRECTION_WORDS.has(term);
+        if (isDirection) directionTerms.push(term);
+        if (isShortNoise || isStopword || isDirection) {
+            if (!ignoredTerms.includes(term)) ignoredTerms.push(term);
+            continue;
+        }
+        if (seen.has(term)) continue;
+        seen.add(term);
+        terms.push(term);
+        if (terms.length >= 24) break;
+    }
+    return {
+        query: cleanSearchToken(query),
+        terms,
+        termPhrase: terms.join(' '),
+        ignoredTerms,
+        directionTerms: [...new Set(directionTerms)],
+    };
+}
+
+function tokenizeAnchorSearchQuery(query = '') {
+    return analyzeStoryPositionQuery(query).terms;
+}
+
+function addMatchReason(reasons, matchedTerms, type, label, score, detail = '') {
+    if (!label) return;
+    reasons.push({ type, label, score, detail });
+    const text = `${label} ${detail}`.toLowerCase();
+    for (const term of matchedTerms.queryTerms || []) {
+        if (text.includes(term)) matchedTerms.terms.add(term);
+    }
+}
+
+function markMatchedTermsFromText(matchedTerms, text = '') {
+    const haystack = String(text || '').toLowerCase();
+    if (!haystack) return;
+    for (const term of matchedTerms.queryTerms || []) {
+        if (haystack.includes(term)) matchedTerms.terms.add(term);
+    }
+}
+
+function scoreAnchorMatch(anchor = {}, analysis = analyzeStoryPositionQuery('')) {
+    const terms = Array.isArray(analysis) ? analysis : (analysis.terms || []);
+    const query = Array.isArray(analysis) ? '' : (analysis.query || '');
+    const termPhrase = Array.isArray(analysis) ? terms.join(' ') : (analysis.termPhrase || terms.join(' '));
+    if (!terms.length) return { score: 0, reasons: [], matchedTerms: [], missingTerms: [] };
     const label = String(anchor.label || '').toLowerCase();
     const id = String(anchor.id || '').toLowerCase();
     const aliases = (anchor.aliases || []).map(alias => String(alias || '').toLowerCase());
     const tags = (anchor.tags || []).map(tag => String(tag || '').toLowerCase());
     const searchText = getAnchorSearchText(anchor);
+    const reasons = [];
+    const matchedTerms = { queryTerms: terms, terms: new Set() };
     let score = 0;
-    if (label === query || id === query || aliases.includes(query)) score += 120;
-    if (label.includes(query)) score += 35;
-    if (id.includes(query)) score += 24;
-    if (aliases.some(alias => alias.includes(query))) score += 30;
-    if (tags.some(tag => tag.includes(query))) score += 12;
+    if (query && (label === query || id === query || aliases.includes(query))) {
+        score += 120;
+        addMatchReason(reasons, matchedTerms, 'exact', 'Exact label, ID, or alias match', 120, query);
+    }
+    if (termPhrase && termPhrase !== query && (label === termPhrase || id === termPhrase || aliases.includes(termPhrase))) {
+        score += 110;
+        addMatchReason(reasons, matchedTerms, 'exact_terms', 'Exact cleaned phrase match', 110, termPhrase);
+    }
+    if (query && label.includes(query)) {
+        score += 35;
+        addMatchReason(reasons, matchedTerms, 'label_phrase', 'Label contains full phrase', 35, anchor.label);
+    }
+    if (termPhrase && label.includes(termPhrase)) {
+        score += 35;
+        addMatchReason(reasons, matchedTerms, 'label_clean_phrase', 'Label contains cleaned phrase', 35, anchor.label);
+    }
+    if (query && id.includes(query)) {
+        score += 24;
+        addMatchReason(reasons, matchedTerms, 'id_phrase', 'ID contains full phrase', 24, anchor.id);
+    }
+    if (termPhrase && id.includes(termPhrase)) {
+        score += 24;
+        addMatchReason(reasons, matchedTerms, 'id_clean_phrase', 'ID contains cleaned phrase', 24, anchor.id);
+    }
+    if (query && aliases.some(alias => alias.includes(query))) {
+        score += 30;
+        addMatchReason(reasons, matchedTerms, 'alias_phrase', 'Alias contains full phrase', 30, aliases.find(alias => alias.includes(query)));
+    }
+    if (termPhrase && aliases.some(alias => alias.includes(termPhrase))) {
+        score += 30;
+        addMatchReason(reasons, matchedTerms, 'alias_clean_phrase', 'Alias contains cleaned phrase', 30, aliases.find(alias => alias.includes(termPhrase)));
+    }
+    if (query && tags.some(tag => tag.includes(query))) {
+        score += 12;
+        addMatchReason(reasons, matchedTerms, 'tag_phrase', 'Tag contains full phrase', 12, tags.find(tag => tag.includes(query)));
+    }
+    if (termPhrase && tags.some(tag => tag.includes(termPhrase))) {
+        score += 12;
+        addMatchReason(reasons, matchedTerms, 'tag_clean_phrase', 'Tag contains cleaned phrase', 12, tags.find(tag => tag.includes(termPhrase)));
+    }
     for (const term of terms) {
         if (!term) continue;
-        if (label.includes(term)) score += 12;
-        if (id.includes(term)) score += 8;
-        if (aliases.some(alias => alias.includes(term))) score += 10;
-        if (tags.some(tag => tag.includes(term))) score += 5;
-        if (searchText.includes(term)) score += 2;
+        if (label.includes(term)) {
+            score += 12;
+            addMatchReason(reasons, matchedTerms, 'label_term', `Label term: ${term}`, 12, anchor.label);
+        }
+        if (id.includes(term)) {
+            score += 8;
+            addMatchReason(reasons, matchedTerms, 'id_term', `ID term: ${term}`, 8, anchor.id);
+        }
+        const alias = aliases.find(item => item.includes(term));
+        if (alias) {
+            score += 10;
+            addMatchReason(reasons, matchedTerms, 'alias_term', `Alias term: ${term}`, 10, alias);
+        }
+        const tag = tags.find(item => item.includes(term));
+        if (tag) {
+            score += 5;
+            addMatchReason(reasons, matchedTerms, 'tag_term', `Tag term: ${term}`, 5, tag);
+        }
+        if (searchText.includes(term)) {
+            score += 2;
+            markMatchedTermsFromText(matchedTerms, searchText);
+            addMatchReason(reasons, matchedTerms, 'coordinate_term', `Coordinate term: ${term}`, 2, '');
+        }
     }
-    return score;
+    const matched = [...matchedTerms.terms];
+    return {
+        score,
+        reasons: reasons
+            .sort((a, b) => (b.score || 0) - (a.score || 0))
+            .slice(0, 8),
+        matchedTerms: matched,
+        missingTerms: terms.filter(term => !matchedTerms.terms.has(term)),
+    };
 }
 
 export function rankStoryPositionAnchors(query = '', options = {}) {
     const index = options.index || storyPositionIndexCache;
     if (!index?.anchors?.length) return [];
     const cleanQuery = String(query || '').trim().toLowerCase();
+    const analysis = analyzeStoryPositionQuery(query);
     const packId = cleanString(options.packId, 160);
     const limit = Math.max(1, Math.min(50, Number(options.limit) || 10));
     const candidates = packId
@@ -479,9 +606,20 @@ export function rankStoryPositionAnchors(query = '', options = {}) {
     if (!cleanQuery) {
         return candidates.slice(0, limit).map(anchor => ({ anchor, score: 0 }));
     }
-    const terms = tokenizeAnchorSearchQuery(cleanQuery);
     return candidates
-        .map(anchor => ({ anchor, score: scoreAnchorMatch(anchor, terms, cleanQuery) }))
+        .map(anchor => {
+            const result = scoreAnchorMatch(anchor, analysis);
+            return {
+                anchor,
+                score: result.score,
+                reasons: result.reasons,
+                matchedTerms: result.matchedTerms,
+                missingTerms: result.missingTerms,
+                queryTerms: analysis.terms,
+                ignoredTerms: analysis.ignoredTerms,
+                directionTerms: analysis.directionTerms,
+            };
+        })
         .filter(item => item.score > 0)
         .sort((a, b) => {
             if (b.score !== a.score) return b.score - a.score;

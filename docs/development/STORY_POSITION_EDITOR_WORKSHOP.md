@@ -463,3 +463,16 @@ Model fallback must reject invented anchors. The Loredeck registry remains the s
 Build this as a fullscreen workbench. Keep the dropdown only as a compact quick selector and launcher.
 
 The MVP should focus on `Position`, `Timeline`, `Aliases`, and `Validation`. Coordinates can start as fields on anchors/windows and become their own richer tab once the table model is stable.
+
+## Current Implementation Notes
+
+The first fullscreen Story Position Workbench is implemented with these MVP surfaces:
+
+- `Position`: loaded Loredeck stack, selected-deck manual Story Position editor, quick timeline picker, and local Phrase Resolver.
+- `Timeline`: searchable spreadsheet-style anchor/window table with selected-row inspector and apply actions.
+- `Aliases`: alias-focused table with duplicate warnings and apply actions.
+- `Validation`: Story Position structure checks for labels, aliases, duplicate aliases, dangling windows, undefined anchors, and index issues.
+
+The Phrase Resolver now explains cleaned terms, ignored direction words, match reasons, missing terms, weak matches, and no-match coverage gaps.
+
+The next design/development slice should focus on data density rather than more shell UI. The Harry Potter reference deck demonstrates the issue: event-like Lorecards such as Yule Ball are Story Position-native, but the active resolver only sees source `timeline.json` anchors. Saga needs a deliberate rule for whether creator tools should densify `timeline.json`, whether entry-level position gates can be promoted into resolver-visible anchors, or whether Deck Health/Assistant should propose missing anchors for review.

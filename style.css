@@ -8823,6 +8823,32 @@
     box-sizing: border-box;
 }
 
+.wandlight-story-position-workbench-resolver-reason {
+    color: var(--wandlight-muted, rgba(241, 234, 216, 0.62));
+    font-size: 0.68em;
+    line-height: 1.3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.wandlight-story-position-workbench-resolver-diagnostic {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border: 1px solid rgba(126, 145, 165, 0.22);
+    border-left-width: 3px;
+    border-radius: 7px;
+    background: rgba(10, 12, 16, 0.32);
+    padding: 8px 9px;
+}
+
+.wandlight-story-position-workbench-resolver-diagnostic-line {
+    color: var(--wandlight-muted, rgba(241, 234, 216, 0.72));
+    font-size: 0.72em;
+    line-height: 1.35;
+}
+
 .wandlight-story-position-workbench-position-picker-main {
     min-width: 0;
     display: flex;
@@ -8947,5 +8973,9 @@
 
     .wandlight-story-position-workbench-resolver-score {
         justify-self: flex-start;
+    }
+
+    .wandlight-story-position-workbench-resolver-reason {
+        white-space: normal;
     }
 }
