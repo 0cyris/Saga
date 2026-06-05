@@ -1142,6 +1142,8 @@ let contextWorkbenchSelectedKey = '';
 let contextWorkbenchQuery = '';
 let contextWorkbenchContextQuery = '';
 let contextWorkbenchResolverQuery = '';
+let contextWorkbenchWaypointQuery = '';
+let contextWorkbenchWaypointFilter = 'major';
 let contextWorkbenchTypeFilter = 'all';
 let loreTimelineOpen = false;
 let loreTimelineSelectedId = '';
@@ -4967,7 +4969,7 @@ function createLoredeckContextCard(state = getState(), contextIndex = getContext
     resolveActions.appendChild(createButton('Resolve From Context', 'Use current Context and Loredeck timeline aliases to update unlocked Contexts.', async (btn) => {
         await handleResolveContextsFromContext(btn);
     }));
-    resolveActions.appendChild(createButton('Model Fallback', 'Ask the configured Reasoning Provider to resolve unresolved Contexts using known timeline anchors only.', async (btn) => {
+    resolveActions.appendChild(createButton('Resolve With Reasoner', 'Ask the configured Reasoning Provider to resolve unresolved Contexts using bounded known candidates.', async (btn) => {
         await handleModelResolveContexts(btn);
     }));
     card.appendChild(resolveActions);
@@ -5323,6 +5325,7 @@ function createContextAnchorResult(packId, anchor = {}) {
 
 function applyContextAnchor(packId, anchor = {}) {
     const firstDate = String(anchor.dateRange?.from || anchor.dateRange?.to || '').trim();
+    const sortKey = getLoredeckAnchorStartSortKey(anchor);
     commitLoredeckContextPatch(packId, {
         contextType: anchor.contextType || 'anchor',
         anchorId: anchor.id || '',
@@ -5330,6 +5333,9 @@ function applyContextAnchor(packId, anchor = {}) {
         anchorTo: '',
         label: anchor.label || anchor.id || '',
         sceneDate: firstDate,
+        contextSortKey: sortKey,
+        contextSortKeyFrom: sortKey,
+        contextSortKeyTo: sortKey,
         arc: anchor.arc || '',
         phase: anchor.phase || '',
         season: anchor.season || '',
@@ -5808,7 +5814,7 @@ function createContextWorkbenchContextView(state = getState(), contextIndex = ge
         await handleResolveContextsFromContext(btn);
         refreshContextWorkbench();
     }, 'wandlight-primary-button'));
-    controls.appendChild(createButton('Model Fallback', 'Ask the configured Reasoning Provider to resolve unresolved Contexts using known timeline anchors only.', async (btn) => {
+    controls.appendChild(createButton('Resolve With Reasoner', 'Ask the configured Reasoning Provider to resolve unresolved Contexts using bounded known candidates.', async (btn) => {
         await handleModelResolveContexts(btn);
         refreshContextWorkbench();
     }));
@@ -5918,6 +5924,7 @@ function createContextWorkbenchContextEditor(state = getState(), contextIndex = 
     summary.textContent = formatContextSummary(context);
     panel.appendChild(summary);
 
+    panel.appendChild(createContextWorkbenchWaypointBrowser(pack, context, contextIndex));
     panel.appendChild(createContextWorkbenchResolverTester(pack, context, contextIndex));
     panel.appendChild(createContextWorkbenchContextPicker(pack, context, contextIndex));
 
@@ -5947,6 +5954,420 @@ function createContextWorkbenchContextEditor(state = getState(), contextIndex = 
     }, 'wandlight-danger-button'));
     panel.appendChild(actions);
     return panel;
+}
+
+const CONTEXT_WAYPOINT_FILTER_OPTIONS = Object.freeze([
+    ['major', 'Major Points'],
+    ['windows', 'Windows'],
+    ['anchors', 'Anchors'],
+    ['events', 'Events'],
+    ['lorecards', 'Lorecards'],
+    ['all', 'All'],
+]);
+
+function createContextWorkbenchWaypointBrowser(pack, context = {}, contextIndex = getContextIndexSync()) {
+    const wrap = document.createElement('div');
+    wrap.className = 'wandlight-context-workbench-waypoint-browser';
+
+    const top = document.createElement('div');
+    top.className = 'wandlight-context-workbench-waypoint-top';
+    const label = document.createElement('div');
+    label.className = 'wandlight-runtime-card-title';
+    label.textContent = 'Browse Story Waypoints';
+    addTooltip(label, 'Choose major timeline points directly. Use After and Before on two waypoints to build a Context window.');
+    top.appendChild(label);
+
+    const search = document.createElement('input');
+    search.type = 'search';
+    search.className = 'wandlight-lore-workbench-search';
+    search.placeholder = 'Search: Christmas 6th Year, Ron Lavender, Hogsmeade...';
+    search.value = contextWorkbenchWaypointQuery || '';
+    addTooltip(search, 'Search first-class timeline waypoints and, when loaded, Lorecard-derived event waypoints.');
+    search.addEventListener('keydown', event => {
+        if (event.key !== 'Enter') return;
+        event.preventDefault();
+        contextWorkbenchWaypointQuery = search.value.trim();
+        renderContextWorkbench();
+    });
+    search.addEventListener('change', () => {
+        contextWorkbenchWaypointQuery = search.value.trim();
+        renderContextWorkbench();
+    });
+    top.appendChild(search);
+
+    const filter = document.createElement('select');
+    filter.className = 'wandlight-lore-workbench-select';
+    addTooltip(filter, 'Control how much of the Loredeck Context map is shown.');
+    for (const [value, text] of CONTEXT_WAYPOINT_FILTER_OPTIONS) {
+        const option = document.createElement('option');
+        option.value = value;
+        option.textContent = text;
+        if (contextWorkbenchWaypointFilter === value) option.selected = true;
+        filter.appendChild(option);
+    }
+    filter.addEventListener('change', () => {
+        contextWorkbenchWaypointFilter = filter.value;
+        renderContextWorkbench();
+    });
+    top.appendChild(filter);
+
+    top.appendChild(createButton('Find', 'Search browser waypoints.', () => {
+        contextWorkbenchWaypointQuery = search.value.trim();
+        renderContextWorkbench();
+    }, 'wandlight-primary-button'));
+
+    const cachedEntries = loredeckEntryPreviewCache.get(pack?.packId);
+    const loadEvents = createButton(cachedEntries?.loadedAt ? 'Reload Events' : 'Load Events', 'Load Lorecards so the browser can include event-level Context waypoints.', async (btn) => {
+        await loadLoredeckEntriesForEditor(pack, btn);
+        renderContextWorkbench();
+    });
+    loadEvents.disabled = !canValidateLoredeckInEditor(pack);
+    top.appendChild(loadEvents);
+    wrap.appendChild(top);
+
+    wrap.appendChild(createContextWorkbenchWindowBuilderSummary(pack, context));
+
+    const allItems = getContextWorkbenchWaypointItems(pack, contextIndex);
+    const visible = filterContextWorkbenchWaypointItems(allItems, contextWorkbenchWaypointQuery, contextWorkbenchWaypointFilter);
+    const capped = visible.slice(0, 80);
+    const meta = document.createElement('div');
+    meta.className = 'wandlight-loredeck-row-meta';
+    const firstClassCount = allItems.filter(item => item.source === 'timeline').length;
+    const eventCount = allItems.filter(item => item.source === 'lorecard').length;
+    meta.appendChild(createStatusPill(`${firstClassCount} timeline`, 'First-class anchors/windows from the Loredeck timeline registry.'));
+    meta.appendChild(createStatusPill(cachedEntries?.loadedAt ? `${eventCount} event waypoints` : 'Events unloaded', 'Lorecard-derived Context candidates are optional and loaded on demand.'));
+    meta.appendChild(createStatusPill(`${visible.length} shown`, 'Waypoints matching the current search and filter.'));
+    if (contextWorkbenchWaypointFilter === 'major') {
+        meta.appendChild(createStatusPill('Major only', 'Major Points shows first-class timeline anchors/windows by default. Search or load Events for denser event selection.'));
+    }
+    wrap.appendChild(meta);
+
+    const list = document.createElement('div');
+    list.className = 'wandlight-context-workbench-waypoint-list';
+    if (!allItems.length) {
+        list.appendChild(createEmptyMessage('No Context waypoints are loaded for this Loredeck yet.'));
+    } else if (!visible.length) {
+        const lines = ['No waypoints match the current search/filter.'];
+        if (!cachedEntries?.loadedAt) lines.push('Load Events to include Lorecard-derived event waypoints such as parties, lessons, battles, reveals, and relationship turns.');
+        list.appendChild(createContextResolverDiagnosticCard('No browser match', lines, 'warning'));
+    } else {
+        for (const item of capped) {
+            list.appendChild(createContextWorkbenchWaypointRow(pack, item, context));
+        }
+        if (visible.length > capped.length) {
+            const note = document.createElement('div');
+            note.className = 'wandlight-runtime-help';
+            note.textContent = `Showing ${capped.length} of ${visible.length} matching waypoints. Narrow the search for a smaller set.`;
+            list.appendChild(note);
+        }
+    }
+    wrap.appendChild(list);
+    return wrap;
+}
+
+function createContextWorkbenchWindowBuilderSummary(pack, context = {}) {
+    const wrap = document.createElement('div');
+    wrap.className = 'wandlight-context-workbench-window-builder';
+    const title = document.createElement('div');
+    title.className = 'wandlight-context-workbench-window-builder-title';
+    title.textContent = 'Current Window';
+    addTooltip(title, 'Use After and Before on browser waypoints to define the active Context window for this Loredeck.');
+    wrap.appendChild(title);
+
+    const meta = document.createElement('div');
+    meta.className = 'wandlight-loredeck-row-meta';
+    meta.appendChild(createStatusPill(context.anchorFrom ? `After: ${formatContextAnchorBoundaryLabel(context.anchorFrom, context)}` : 'After: unset', 'Lower Context bound.'));
+    meta.appendChild(createStatusPill(context.anchorTo ? `Before: ${formatContextAnchorBoundaryLabel(context.anchorTo, context)}` : 'Before: unset', 'Upper Context bound.'));
+    meta.appendChild(createStatusPill(context.manualLock ? 'Locked' : 'Unlocked', 'Locked Contexts are protected from automatic updates.'));
+    wrap.appendChild(meta);
+
+    const summary = document.createElement('div');
+    summary.className = 'wandlight-context-workbench-window-summary';
+    summary.textContent = context.anchorFrom || context.anchorTo
+        ? formatContextSummary(context)
+        : 'Select After on one waypoint and Before on another to create a bounded Context window.';
+    wrap.appendChild(summary);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    const lockButton = createButton(context.manualLock ? 'Unlock' : 'Lock Context', 'Toggle whether automatic Context detection may replace this selected window.', () => {
+        commitLoredeckContextPatch(pack.packId, { manualLock: !context.manualLock }, `Toggle Context lock: ${getLoredeckDisplayName(pack.packId)}`, { manual: false });
+    });
+    actions.appendChild(lockButton);
+    const clearBounds = createButton('Clear Bounds', 'Clear only the After/Before bounds for this Loredeck Context.', () => {
+        commitLoredeckContextPatch(pack.packId, {
+            anchorFrom: '',
+            anchorTo: '',
+            anchorId: '',
+            contextType: 'custom',
+            label: '',
+            contextSortKey: null,
+            contextSortKeyFrom: null,
+            contextSortKeyTo: null,
+        }, `Clear Context bounds: ${getLoredeckDisplayName(pack.packId)}`);
+    });
+    clearBounds.disabled = !context.anchorFrom && !context.anchorTo && !context.anchorId;
+    actions.appendChild(clearBounds);
+    wrap.appendChild(actions);
+    return wrap;
+}
+
+function formatContextAnchorBoundaryLabel(anchorId = '', context = {}) {
+    const id = String(anchorId || '').trim();
+    if (!id) return 'unset';
+    const label = String(context.label || '').trim();
+    if (label && label.toLowerCase().includes(id.toLowerCase())) return label;
+    return id;
+}
+
+function getContextWorkbenchWaypointItems(pack = null, contextIndex = getContextIndexSync()) {
+    const timelineItems = getContextWorkbenchTimelineItems(pack, contextIndex).map(item => ({
+        ...item,
+        source: 'timeline',
+    }));
+    const entryItems = getContextWorkbenchEntryWaypointItems(pack);
+    return [...timelineItems, ...entryItems].sort(compareContextWaypointItems);
+}
+
+function getContextWorkbenchEntryWaypointItems(pack = {}) {
+    return getContextWorkbenchEntryRows(pack)
+        .filter(row => row?.id && !row.disabled)
+        .map(row => {
+            const anchorDefinition = buildContextEntryDerivedAnchor(pack, row, {});
+            if (!anchorDefinition) return null;
+            const entry = row.entry || {};
+            const contextGate = entry.context && typeof entry.context === 'object' && !Array.isArray(entry.context) ? entry.context : {};
+            return {
+                kind: 'entry',
+                source: 'lorecard',
+                id: anchorDefinition.id,
+                row,
+                entry,
+                context: contextGate,
+                definition: anchorDefinition,
+                registryState: 'Lorecard-derived',
+                entryIds: [row.id || entry.id].filter(Boolean),
+            };
+        })
+        .filter(Boolean);
+}
+
+function compareContextWaypointItems(a = {}, b = {}) {
+    const aSort = normalizeLoredeckTimelineNumber(a.definition?.sortKey ?? a.definition?.sortKeyFrom) ?? Number.MAX_SAFE_INTEGER;
+    const bSort = normalizeLoredeckTimelineNumber(b.definition?.sortKey ?? b.definition?.sortKeyFrom) ?? Number.MAX_SAFE_INTEGER;
+    if (aSort !== bSort) return aSort - bSort;
+    const sourceOrder = { timeline: 0, lorecard: 1 };
+    const sourceCompare = (sourceOrder[a.source] ?? 9) - (sourceOrder[b.source] ?? 9);
+    if (sourceCompare) return sourceCompare;
+    return String(a.definition?.label || a.id || '').localeCompare(String(b.definition?.label || b.id || ''), undefined, { numeric: true, sensitivity: 'base' });
+}
+
+function filterContextWorkbenchWaypointItems(items = [], query = '', filter = 'major') {
+    const q = String(query || '').trim();
+    const analysis = analyzeContextQuery(q);
+    return items.filter(item => {
+        if (!contextWaypointMatchesFilter(item, filter, Boolean(q))) return false;
+        if (!q) return true;
+        const text = getContextWaypointSearchText(item);
+        if (normalizeContextSearchText(text).includes(normalizeContextSearchText(q))) return true;
+        return analysis.terms.every(term => contextTextIncludesTerm(text, term));
+    });
+}
+
+function contextWaypointMatchesFilter(item = {}, filter = 'major', hasQuery = false) {
+    if (filter === 'all') return true;
+    if (filter === 'windows') return item.kind === 'window';
+    if (filter === 'anchors') return item.kind === 'anchor';
+    if (filter === 'events') return item.kind === 'entry' || contextWaypointLooksEventLike(item);
+    if (filter === 'lorecards') return item.source === 'lorecard';
+    if (filter === 'major') {
+        if (item.source === 'timeline') return true;
+        return hasQuery && contextWaypointLooksEventLike(item);
+    }
+    return true;
+}
+
+function contextWaypointLooksEventLike(item = {}) {
+    const def = item.definition || {};
+    if (item.source === 'lorecard') return true;
+    const tags = Array.isArray(def.tags) ? def.tags.join(' ') : '';
+    const haystack = normalizeContextSearchText([
+        item.kind,
+        def.contextType,
+        def.label,
+        def.arc,
+        tags,
+    ].filter(Boolean).join(' '));
+    return /\bevent\b|\bclimax\b|\bbattle\b|\bdeath\b|\breveal\b|\bincident\b|\btask\b|\bparty\b|\blesson\b/.test(haystack);
+}
+
+function getContextWaypointSearchText(item = {}) {
+    const def = item.definition || {};
+    const entry = item.entry || {};
+    const content = entry.content || {};
+    return [
+        item.kind,
+        item.source,
+        item.id,
+        item.registryState,
+        def.label,
+        def.anchorFrom,
+        def.anchorTo,
+        def.book,
+        def.work,
+        def.schoolYear,
+        def.arc,
+        def.phase,
+        def.season,
+        def.episode,
+        def.chapter,
+        def.issue,
+        def.quest,
+        def.gameStage,
+        def.notes,
+        entry.title,
+        entry.category,
+        entry.lorePurpose,
+        content.fact,
+        ...(Array.isArray(content.constraints) ? content.constraints : []),
+        ...(Array.isArray(def.aliases) ? def.aliases : []),
+        ...(Array.isArray(def.tags) ? def.tags : []),
+        ...(Array.isArray(item.entryIds) ? item.entryIds : []),
+    ].filter(Boolean).join(' ');
+}
+
+function createContextWorkbenchWaypointRow(pack, item = {}, context = {}) {
+    const def = item.definition || {};
+    const row = document.createElement('div');
+    row.className = 'wandlight-context-workbench-waypoint-row';
+    if (item.source === 'lorecard') row.classList.add('wandlight-context-workbench-waypoint-row-entry');
+    if (context.anchorId && normalizeLoredeckTimelineId(context.anchorId) === normalizeLoredeckTimelineId(item.id)) row.classList.add('wandlight-context-workbench-row-active');
+    if ((context.anchorFrom && normalizeLoredeckTimelineId(context.anchorFrom) === normalizeLoredeckTimelineId(item.id))
+        || (context.anchorTo && normalizeLoredeckTimelineId(context.anchorTo) === normalizeLoredeckTimelineId(item.id))) {
+        row.classList.add('wandlight-context-workbench-row-active');
+    }
+
+    const main = document.createElement('div');
+    main.className = 'wandlight-context-workbench-context-picker-main';
+    const title = document.createElement('div');
+    title.className = 'wandlight-context-workbench-context-picker-title';
+    title.textContent = def.label || item.entry?.title || item.id || 'Waypoint';
+    main.appendChild(title);
+
+    const meta = document.createElement('div');
+    meta.className = 'wandlight-context-workbench-context-picker-meta';
+    meta.textContent = [
+        getContextWaypointKindLabel(item),
+        item.id,
+        getContextTimelineItemContextText(item),
+        getContextTimelineItemCoordinateText(item),
+        item.source === 'lorecard' ? item.row?.id : '',
+    ].filter(Boolean).join(' | ');
+    main.appendChild(meta);
+    row.appendChild(main);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-context-workbench-row-actions';
+    if (item.kind === 'window') {
+        actions.appendChild(createButton('Use Window', 'Apply this whole timeline window as the current Context.', () => {
+            applyContextTimelineItem(pack.packId, item);
+        }, 'wandlight-primary-button'));
+    } else {
+        actions.appendChild(createButton('Start Here', 'Apply this waypoint as the exact starting Context.', () => {
+            applyContextWaypointItem(pack.packId, item);
+        }, 'wandlight-primary-button'));
+        actions.appendChild(createButton('After', 'Use this waypoint as the lower bound of the current Context window.', () => {
+            applyContextWaypointBoundary(pack.packId, item, 'from');
+        }));
+        actions.appendChild(createButton('Before', 'Use this waypoint as the upper bound of the current Context window.', () => {
+            applyContextWaypointBoundary(pack.packId, item, 'to');
+        }));
+    }
+    actions.appendChild(createButton(item.source === 'lorecard' ? 'Lorecard' : 'Timeline', item.source === 'lorecard' ? 'Find the source Lorecard.' : 'Inspect this waypoint in the Timeline tab.', () => {
+        if (item.source === 'lorecard') {
+            loredeckEntryOverrideQuery = item.row?.id || item.entry?.title || '';
+            selectLoredeckForDetails(pack.packId);
+            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+            toast('Loredeck editor filtered to the source Lorecard.', 'info');
+            return;
+        }
+        contextWorkbenchSelectedKey = getContextTimelineItemKey(item);
+        contextWorkbenchTab = 'timeline';
+        renderContextWorkbench();
+    }));
+    row.appendChild(actions);
+    return row;
+}
+
+function getContextWaypointKindLabel(item = {}) {
+    if (item.kind === 'window') return 'Window';
+    if (item.source === 'lorecard') return 'Lorecard event';
+    return 'Anchor';
+}
+
+function applyContextWaypointItem(packId, item = {}) {
+    if (item.source === 'lorecard') {
+        applyContextEntryCandidate(packId, {
+            row: item.row,
+            entry: item.entry,
+            context: item.context,
+            query: contextWorkbenchWaypointQuery,
+            score: 120,
+        });
+        return;
+    }
+    applyContextTimelineItem(packId, item);
+}
+
+function applyContextWaypointBoundary(packId, item = {}, mode = 'from') {
+    if (item.source !== 'lorecard') {
+        applyContextAnchorBoundary(packId, item, mode);
+        return;
+    }
+    const def = item.definition || {};
+    const contextGate = item.context || {};
+    const id = normalizeLoredeckTimelineId(def.id || item.id);
+    if (!id) return;
+    const context = getLoredeckContext(getState(), packId);
+    const label = String(def.label || item.entry?.title || id).trim();
+    const sortKeyFrom = normalizeLoredeckTimelineNumber(contextGate.sortKeyFrom ?? def.sortKey);
+    const sortKeyTo = normalizeLoredeckTimelineNumber(contextGate.sortKeyTo ?? def.sortKey);
+    const boundarySort = mode === 'to' ? (sortKeyFrom ?? sortKeyTo) : (sortKeyTo ?? sortKeyFrom);
+    const patch = {
+        contextType: 'anchor_window',
+        anchorId: '',
+        sceneDate: context.sceneDate || '',
+        contextSortKey: Number.isFinite(Number(context.contextSortKey)) && mode === 'to'
+            ? Number(context.contextSortKey)
+            : boundarySort,
+        arc: contextGate.arc || context.arc || '',
+        phase: contextGate.phase || context.phase || '',
+        season: contextGate.season || context.season || '',
+        episode: contextGate.episode || context.episode || '',
+        chapter: contextGate.chapter || context.chapter || '',
+        issue: contextGate.issue || context.issue || '',
+        quest: contextGate.quest || context.quest || '',
+        gameStage: contextGate.gameStage || context.gameStage || '',
+        alias: contextWorkbenchWaypointQuery || label,
+        source: 'manual',
+        notes: `Boundary applied from Lorecard-derived waypoint: ${item.row?.id || item.entry?.id || label}.`,
+    };
+    if (mode === 'to') {
+        patch.anchorFrom = context.anchorFrom || '';
+        patch.anchorTo = id;
+        patch.contextSortKeyFrom = Number.isFinite(Number(context.contextSortKeyFrom))
+            ? Number(context.contextSortKeyFrom)
+            : (Number.isFinite(Number(context.contextSortKey)) ? Number(context.contextSortKey) : null);
+        patch.contextSortKeyTo = boundarySort;
+        patch.label = context.anchorFrom ? `${context.anchorFrom} to ${label}` : `Before ${label}`;
+    } else {
+        patch.anchorFrom = id;
+        patch.anchorTo = context.anchorTo || '';
+        patch.contextSortKeyFrom = boundarySort;
+        patch.contextSortKeyTo = Number.isFinite(Number(context.contextSortKeyTo)) ? Number(context.contextSortKeyTo) : null;
+        patch.label = context.anchorTo ? `${label} to ${context.anchorTo}` : `After ${label}`;
+    }
+    commitLoredeckContextPatch(packId, patch, `Set Context ${mode === 'to' ? 'upper' : 'lower'} bound: ${getLoredeckDisplayName(packId)}`);
 }
 
 function createContextWorkbenchResolverTester(pack, context = {}, contextIndex = getContextIndexSync()) {
@@ -6535,6 +6956,8 @@ function applyContextEntryCandidate(packId, match = {}) {
         label: title,
         sceneDate: '',
         contextSortKey: sortKeyFrom ?? sortKeyTo,
+        contextSortKeyFrom: sortKeyFrom ?? sortKeyTo,
+        contextSortKeyTo: sortKeyTo ?? sortKeyFrom,
         arc: contextGate.arc || '',
         phase: contextGate.phase || '',
         season: contextGate.season || '',
@@ -7100,6 +7523,8 @@ function applyContextTimelineItem(packId, item = {}) {
             label: def.label || item.id || '',
             sceneDate: firstDate,
             contextSortKey: normalizeLoredeckTimelineNumber(def.sortKeyFrom),
+            contextSortKeyFrom: normalizeLoredeckTimelineNumber(def.sortKeyFrom),
+            contextSortKeyTo: normalizeLoredeckTimelineNumber(def.sortKeyTo),
             alias: def.aliases?.[0] || def.label || item.id || '',
             source: 'manual',
         }, `Set Context window: ${getLoredeckDisplayName(packId)}`);
@@ -7136,12 +7561,16 @@ function applyContextAnchorBoundary(packId, item = {}, mode = 'from') {
     if (mode === 'to') {
         patch.anchorFrom = context.anchorFrom || '';
         patch.anchorTo = id;
-        patch.contextSortKey = Number.isFinite(Number(context.contextSortKey)) ? Number(context.contextSortKey) : endSort;
+        patch.contextSortKey = Number.isFinite(Number(context.contextSortKey)) ? Number(context.contextSortKey) : (context.contextSortKeyFrom ?? endSort);
+        patch.contextSortKeyFrom = Number.isFinite(Number(context.contextSortKeyFrom)) ? Number(context.contextSortKeyFrom) : (Number.isFinite(Number(context.contextSortKey)) ? Number(context.contextSortKey) : null);
+        patch.contextSortKeyTo = endSort;
         patch.label = context.anchorFrom ? `${context.anchorFrom} to ${label}` : `Before ${label}`;
     } else {
         patch.anchorFrom = id;
         patch.anchorTo = context.anchorTo || '';
         patch.contextSortKey = startSort;
+        patch.contextSortKeyFrom = startSort;
+        patch.contextSortKeyTo = Number.isFinite(Number(context.contextSortKeyTo)) ? Number(context.contextSortKeyTo) : null;
         patch.label = context.anchorTo ? `${label} to ${context.anchorTo}` : `After ${label}`;
     }
     commitLoredeckContextPatch(packId, patch, `Set Context ${mode === 'to' ? 'upper' : 'lower'} bound: ${getLoredeckDisplayName(packId)}`);

@@ -307,7 +307,7 @@ function normalizeVisibilityMapToContext(value = {}) {
   }
   return {
     subjects: plain,
-    positions: out,
+    contexts: out,
     never,
   };
 }
@@ -322,8 +322,8 @@ function mergeVisibility(entry = {}) {
   const out = {
     revealPolicy: entry.revealPolicy || raw.revealPolicy,
     knownBy: uniqueStringArray(known.subjects, rawKnownBySubjects, Object.keys(existingKnownByAtContext)),
-    knownByAtContext: { ...existingKnownByAtContext, ...known.positions },
-    notKnownByBeforeContext: { ...existingNotKnownByBeforeContext, ...notKnown.positions },
+    knownByAtContext: { ...existingKnownByAtContext, ...known.contexts },
+    notKnownByBeforeContext: { ...existingNotKnownByBeforeContext, ...notKnown.contexts },
     neverKnownBy: uniqueStringArray(raw.neverKnownBy, notKnown.never),
     suspectedBy: raw.suspectedBy,
     believedBy: raw.believedBy ?? entry.whoBelievesPublicVersion,

@@ -359,6 +359,9 @@ Each loaded Loredeck can have its own Context slot.
       "label": "Order of the Phoenix, Year 5",
       "sceneDate": "1995-10-31",
       "subjectiveDate": "",
+      "contextSortKey": 9434,
+      "contextSortKeyFrom": 9434,
+      "contextSortKeyTo": 9434,
       "anchorId": "hp.ootp.year_5",
       "anchorFrom": "",
       "anchorTo": "",
@@ -385,6 +388,9 @@ Each loaded Loredeck can have its own Context slot.
       "label": "After Age of Ultron, before Civil War",
       "sceneDate": "",
       "subjectiveDate": "",
+      "contextSortKey": 2400,
+      "contextSortKeyFrom": 2200,
+      "contextSortKeyTo": 2600,
       "anchorId": "",
       "anchorFrom": "mcu.age_of_ultron",
       "anchorTo": "mcu.civil_war",
@@ -407,6 +413,8 @@ Each loaded Loredeck can have its own Context slot.
   }
 }
 ```
+
+`contextSortKey` is the best point estimate. `contextSortKeyFrom` and `contextSortKeyTo` define the selected range when Context is approximate or manually bounded with `After` / `Before`. Runtime gating should treat selected ranges as ranges, not as a single point.
 
 Manual locks are important. If a user chooses "before Civil War", Saga should not overwrite that just because later chat text mentions Civil War in dialogue or comparison.
 
@@ -1678,7 +1686,7 @@ Recent production completed **Context-native Loredeck retrieval, HP reference-de
 45. Done: expand Deck Health remediation from diagnosis into action. Editable Custom/Generated Loredecks can queue deterministic malformed tag ID repairs as Pending Review proposals, mark grouped issues ignored or resolved with persisted advisory state, send a grouped Health Center issue directly to the Lore Assistant for repair drafting, preserve health-impact stale marking through Pending Review acceptance, and route Bundled decks to Duplicate-as-Custom before repair.
 46. Done: redesign the Context editor into a fullscreen Context Workbench. The compact runtime card now launches the workbench; the workbench includes Context, Timeline, Aliases, and Validation tabs; spreadsheet-style anchor/window tables; selected-deck manual editing; timeline row inspection; local phrase resolver testing; and resolver explanations for matched, missing, and ignored terms. Clarified direction: this workbench is a stepping stone. Runtime Context selection should migrate to the Context tab, while Loredeck-side tools should become timeline registry authoring/validation tools.
 47. Done: improve local resolver data coverage without making runtime indexing heavier. The Workbench Phrase Resolver can load Lorecards and include Lorecard-derived Context candidates when `timeline.json` lacks a first-class anchor. Clarified direction: this should feed candidate generation for the Reasoner Provider, not become an exhaustive alias-matching system.
-48. Next: build the Context Browser in the Context tab. It should let users choose starting Context for each loaded Loredeck from searchable anchors/windows/Lorecard-derived Context candidates, support before/after/between choices, show current/locked/unset states, and make manual Context selection the primary trusted workflow.
+48. Done: build the first Context Browser slice in the Context tab. `Browse Story Waypoints` lets users search first-class timeline anchors/windows, load Lorecards on demand as Lorecard-derived event waypoints, choose `Start Here`, or create a window with `After` and `Before`. Manual Context selection remains the primary trusted workflow.
 49. Next: migrate runtime Context controls out of the Loredeck tab. Keep Loredeck-side timeline registry editing, Deck Health validation, and Creator tooling, but move current-context browsing, resolving, locking, and drift checks into the Context tab.
 50. Next: upgrade Reasoner-backed Context resolution. Reuse the existing context-detection cadence: local/structured resolution first, then a backup Reasoner call only after the configured message-count and character-count thresholds or explicit user request. The Reasoner should choose from bounded candidates and return structured, confirmable Context patches.
 51. Next: revise timeline densification policy around candidate quality, not alias sprawl. Durable timeline anchors should be added for high-value recurring story moments, missing registry coverage, Creator output, or accepted user/model suggestions. Deck Health can surface sparse coverage, but the Reasoner handles casual phrasing.

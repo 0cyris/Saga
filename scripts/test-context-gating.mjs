@@ -101,4 +101,38 @@ const unresolvedStrict = evaluateEntryContextGate({
 assert.equal(unresolvedStrict.status, CONTEXT_GATE_STATUSES.UNRESOLVED);
 assert.equal(unresolvedStrict.eligible, false);
 
+const rangeState = {
+  loredeckContexts: {
+    'mcu-infinity-saga': {
+      packId: 'mcu-infinity-saga',
+      contextType: 'anchor_window',
+      anchorFrom: 'mcu.age_of_ultron',
+      anchorTo: 'mcu.civil_war',
+      contextSortKeyFrom: 2200,
+      contextSortKeyTo: 2600,
+      phase: 'Phase 3',
+    },
+  },
+};
+
+const insideSelectedRange = evaluateEntryContextGate({
+  ...baseEntry,
+  context: {
+    sortKeyFrom: 2400,
+    sortKeyTo: 2450,
+  },
+}, rangeState, { index });
+assert.equal(insideSelectedRange.status, CONTEXT_GATE_STATUSES.MATCH);
+assert.equal(insideSelectedRange.eligible, true);
+
+const afterSelectedRange = evaluateEntryContextGate({
+  ...baseEntry,
+  context: {
+    sortKeyFrom: 2700,
+    sortKeyTo: 2800,
+  },
+}, rangeState, { index });
+assert.equal(afterSelectedRange.status, CONTEXT_GATE_STATUSES.MISMATCH);
+assert.equal(afterSelectedRange.eligible, false);
+
 console.log('Context gating tests passed.');

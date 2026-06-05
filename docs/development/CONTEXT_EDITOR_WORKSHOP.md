@@ -336,7 +336,7 @@ Must support:
 - Manual lock toggle.
 - Confidence/source chips.
 - `Resolve From Context`.
-- `Model Fallback`.
+- `Resolve With Reasoner`.
 - `Apply Selected`.
 
 ### Timeline
@@ -522,6 +522,16 @@ The Phrase Resolver now explains cleaned terms, ignored direction words, match r
 
 The Phrase Resolver can also load Lorecards and include Lorecard-derived Context candidates. This lets event-level prompts such as `after yule ball` resolve from a Lorecard's Context gate even when the active `timeline.json` is sparse. These rows are visually marked as Lorecard-derived, can be applied to the current chat Context, and can become real timeline anchors through Pending Review on editable decks. Bundled decks remain protected and route users to duplicate as Custom first.
 
-This is a bridge, not the final Context UX. The clarified next development slice is to move runtime Context selection into a Context Browser and use the existing local resolver as candidate generation for Reasoner-backed Context resolution.
+The Context tab now has an initial `Browse Story Waypoints` surface above the manual editor. It treats first-class timeline anchors/windows as the major waypoint list, and can load Lorecards on demand to expose event-level Context gates as Lorecard-derived waypoints. The expected runtime gesture is:
+
+1. Search or browse the Loredeck's major waypoints.
+2. Click `Start Here` for an exact anchor/window start, or click `After` on one waypoint and `Before` on another to create a bounded Context window.
+3. Lock the Context if the user does not want automatic detection to move it.
+
+The selected window stores both readable bounds (`anchorFrom` / `anchorTo`) and comparable sort bounds (`contextSortKeyFrom` / `contextSortKeyTo`). Entry gating should compare against that range, not collapse the selection into a single point.
+
+For Harry Potter, this means broad anchors such as `Year 6: Half-Blood Prince` remain first-class timeline entries, while denser events such as Christmas parties, relationship turns, lessons, battles, and reveals can be loaded from Lorecards without forcing the timeline registry to contain every scene on day one.
+
+This is still a bridge, not the final Context UX. The next development slice is to upgrade Reasoner-backed Context resolution so casual phrases select from the same bounded waypoint set instead of depending on exhaustive aliases.
 
 Do not expand this into an exhaustive local alias system. The long-term registry policy should add durable anchors for high-value recurring story moments, Creator output, accepted suggestions, and sparse coverage warnings. Casual phrasing should be handled by the Reasoner Provider selecting from bounded known candidates.

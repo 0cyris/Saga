@@ -25,7 +25,7 @@ Do not invent anchors, dates, arcs, phases, episodes, or canon facts.
 If the context is too ambiguous for a pack, mark it unresolved.
 Return only valid JSON with this shape:
 {
-  "positions": [
+  "contexts": [
     {
       "packId": "string",
       "status": "resolved|unresolved",
@@ -140,7 +140,7 @@ function parseContextDate(context = {}) {
     return parseDateLike(context.sceneDate || context.subjectiveDate || '', 'exact');
 }
 
-function getDatePositionSortKey(dateRecord = null) {
+function getDateContextSortKey(dateRecord = null) {
     if (!dateRecord || !Number.isFinite(Number(dateRecord.epoch))) return null;
     return Math.floor(Number(dateRecord.epoch) / 86400000);
 }
@@ -225,8 +225,11 @@ function confidenceFromAliasScore(score = 0) {
 
 export function buildContextPatchFromAnchor(anchor = {}, options = {}) {
     const firstDate = cleanString(anchor.dateRange?.from || anchor.dateRange?.to, 80);
-    const firstDateSortKey = getDatePositionSortKey(parseDateLike(firstDate, 'exact'));
+    const firstDateSortKey = getDateContextSortKey(parseDateLike(firstDate, 'exact'));
     const anchorSortKey = Number.isFinite(Number(anchor.sortKey)) ? Number(anchor.sortKey) : null;
+    const resolvedSortKey = Number.isFinite(Number(options.contextSortKey))
+        ? Number(options.contextSortKey)
+        : (firstDateSortKey ?? anchorSortKey);
     return {
         contextType: anchor.contextType || 'anchor',
         anchorId: anchor.id || '',
@@ -234,9 +237,9 @@ export function buildContextPatchFromAnchor(anchor = {}, options = {}) {
         anchorTo: '',
         label: anchor.label || anchor.id || '',
         sceneDate: firstDate,
-        contextSortKey: Number.isFinite(Number(options.contextSortKey))
-            ? Number(options.contextSortKey)
-            : (firstDateSortKey ?? anchorSortKey),
+        contextSortKey: resolvedSortKey,
+        contextSortKeyFrom: resolvedSortKey,
+        contextSortKeyTo: resolvedSortKey,
         arc: anchor.arc || '',
         phase: anchor.phase || '',
         season: anchor.season || '',
@@ -259,7 +262,7 @@ function buildResolutionFromMatch(packId, match, context = {}, options = {}) {
     });
     if (context.sceneDate && match.matchType === 'date') {
         patch.sceneDate = cleanString(context.sceneDate, 80);
-        patch.contextSortKey = getDatePositionSortKey(parseDateLike(context.sceneDate, 'exact')) ?? patch.contextSortKey;
+        patch.contextSortKey = getDateContextSortKey(parseDateLike(context.sceneDate, 'exact')) ?? patch.contextSortKey;
     }
     if (context.branchId) patch.branchId = cleanString(context.branchId, 120) || 'main';
     return {
@@ -308,12 +311,12 @@ function chooseBestMatch(dateMatch = null, aliasMatch = null) {
     return dateMatch;
 }
 
-function currentPositionForPack(state = {}, packId = '') {
+function currentContextForPack(state = {}, packId = '') {
     const contexts = isPlainObject(state?.loredeckContexts) ? state.loredeckContexts : {};
     return contexts[packId] || getLoredeckContext(state, packId);
 }
 
-function patchChangesPosition(current = {}, patch = {}) {
+function patchChangesContext(current = {}, patch = {}) {
     const keys = [
         'contextType',
         'label',
@@ -394,14 +397,14 @@ function parseContextModelResponse(text = '') {
     for (const candidate of candidates) {
         try {
             const parsed = JSON.parse(candidate);
-            if (Array.isArray(parsed)) return { positions: parsed };
-            if (Array.isArray(parsed?.positions)) return { positions: parsed.positions };
-            if (isPlainObject(parsed?.result) && Array.isArray(parsed.result.positions)) return { positions: parsed.result.positions };
+            if (Array.isArray(parsed)) return { contexts: parsed };
+            if (Array.isArray(parsed?.contexts)) return { contexts: parsed.contexts };
+            if (isPlainObject(parsed?.result) && Array.isArray(parsed.result.contexts)) return { contexts: parsed.result.contexts };
         } catch (_) {
             // Try the next candidate.
         }
     }
-    return { positions: [] };
+    return { contexts: [] };
 }
 
 function getAnchorById(index = {}, packId = '', anchorId = '') {
@@ -496,11 +499,11 @@ export function resolveContextsFromModelResponse(responseText = '', context = {}
     const parsed = parseContextModelResponse(responseText);
     const results = [];
 
-    for (const rawChoice of parsed.positions || []) {
+    for (const rawChoice of parsed.contexts || []) {
         if (!isPlainObject(rawChoice)) continue;
         const packId = cleanString(rawChoice.packId, 160);
         if (!packId || (targetPackIds.size && !targetPackIds.has(packId))) continue;
-        const current = currentPositionForPack(state, packId);
+        const current = currentContextForPack(state, packId);
         if (current?.manualLock === true && options.force !== true) {
             results.push({ packId, status: 'skipped', reason: 'manual_lock' });
             continue;
@@ -529,7 +532,7 @@ export function resolveContextsFromModelResponse(responseText = '', context = {}
             confidence,
             anchor,
             patch,
-            changed: patchChangesPosition(current, patch),
+            changed: patchChangesContext(current, patch),
             reason: cleanString(rawChoice.reason, 300),
         });
     }
@@ -557,7 +560,7 @@ export function resolveContextsFromContext(context = {}, options = {}) {
 
     for (const item of stack) {
         const packId = item.packId;
-        const current = currentPositionForPack(state, packId);
+        const current = currentContextForPack(state, packId);
         if (current?.manualLock === true && options.force !== true) {
             results.push({
                 packId,
@@ -590,7 +593,7 @@ export function resolveContextsFromContext(context = {}, options = {}) {
         }
 
         const resolution = buildResolutionFromMatch(packId, match, context, options);
-        resolution.changed = patchChangesPosition(current, resolution.patch);
+        resolution.changed = patchChangesContext(current, resolution.patch);
         results.push(resolution);
     }
 

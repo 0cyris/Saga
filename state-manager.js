@@ -200,6 +200,12 @@ function cleanContextField(input, key, maxLength, fallback = '') {
         : fallback;
 }
 
+function cleanContextNumber(value, fallback = null) {
+    if (value === null || value === undefined || value === '') return fallback;
+    const number = Number(value);
+    return Number.isFinite(number) ? number : fallback;
+}
+
 function buildDefaultLoredeckContext(packId = '', legacyContext = {}) {
     const id = cleanContextString(packId, 120);
     const sceneDate = cleanContextString(legacyContext?.sceneDate, 80);
@@ -212,6 +218,8 @@ function buildDefaultLoredeckContext(packId = '', legacyContext = {}) {
         sceneDate,
         subjectiveDate: cleanContextString(legacyContext?.subjectiveDate, 80),
         contextSortKey: null,
+        contextSortKeyFrom: null,
+        contextSortKeyTo: null,
         anchorId: '',
         anchorFrom: '',
         anchorTo: '',
@@ -245,9 +253,9 @@ function normalizeLoredeckContext(value, packId = '', legacyContext = {}) {
         label: cleanContextField(input, 'label', 240, defaults.label),
         sceneDate: cleanContextField(input, 'sceneDate', 80, defaults.sceneDate),
         subjectiveDate: cleanContextField(input, 'subjectiveDate', 80, defaults.subjectiveDate),
-        contextSortKey: Number.isFinite(Number(input.contextSortKey ?? input.sortKey))
-            ? Number(input.contextSortKey ?? input.sortKey)
-            : defaults.contextSortKey,
+        contextSortKey: cleanContextNumber(input.contextSortKey ?? input.sortKey, defaults.contextSortKey),
+        contextSortKeyFrom: cleanContextNumber(input.contextSortKeyFrom ?? input.sortKeyFrom, defaults.contextSortKeyFrom),
+        contextSortKeyTo: cleanContextNumber(input.contextSortKeyTo ?? input.sortKeyTo, defaults.contextSortKeyTo),
         anchorId: cleanContextField(input, 'anchorId', 180, ''),
         anchorFrom: cleanContextField(input, 'anchorFrom', 180, ''),
         anchorTo: cleanContextField(input, 'anchorTo', 180, ''),

@@ -1563,6 +1563,8 @@ Each active Loredeck can have its own context.
       "sceneDate": "1995-10-31",
       "subjectiveDate": "",
       "contextSortKey": 9434,
+      "contextSortKeyFrom": 9434,
+      "contextSortKeyTo": 9434,
       "anchorId": "hp.ootp.year_5",
       "anchorFrom": "",
       "anchorTo": "",
@@ -1590,6 +1592,8 @@ Each active Loredeck can have its own context.
       "sceneDate": "",
       "subjectiveDate": "",
       "contextSortKey": 2400,
+      "contextSortKeyFrom": 2200,
+      "contextSortKeyTo": 2600,
       "anchorId": "",
       "anchorFrom": "mcu.age_of_ultron",
       "anchorTo": "mcu.civil_war",
@@ -1613,7 +1617,9 @@ Each active Loredeck can have its own context.
 }
 ```
 
-`contextSortKey` is optional but important for date-capable decks. For Harry Potter, a picked date can resolve to a date-derived sort key while still preserving the chosen anchor/window label. Context-native entries can then use `context.sortKeyFrom` and `context.sortKeyTo` without every calendar day needing a named anchor.
+`contextSortKey` is the best single-point estimate when Saga has one. `contextSortKeyFrom` and `contextSortKeyTo` define the selected runtime range when the user chooses `After` one waypoint and `Before` another. For exact starts, all three values may be the same. For approximate windows, entry gates compare against the selected range so Saga can allow lore that overlaps the chosen Context while blocking lore entirely outside it.
+
+For Harry Potter, a picked date can resolve to a date-derived sort key while still preserving the chosen anchor/window label. Context-native entries can then use `context.sortKeyFrom` and `context.sortKeyTo` without every calendar day needing a named anchor.
 
 ### Context Sources
 

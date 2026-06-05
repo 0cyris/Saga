@@ -55,8 +55,8 @@ const promptJson = JSON.parse(prompt);
 assert.equal(promptJson.targetPacks.length, 1);
 assert.ok(promptJson.targetPacks[0].anchors.some(anchor => anchor.id === 'hp.dh.ministry_falls'));
 
-const fenced = '```json\n{"positions":[{"packId":"hp-golden-trio","status":"resolved","anchorId":"hp.dh.ministry_falls","confidence":0.82,"reason":"The user says after the Ministry falls."}]}\n```';
-assert.equal(parseContextModelResponse(fenced).positions.length, 1);
+const fenced = '```json\n{"contexts":[{"packId":"hp-golden-trio","status":"resolved","anchorId":"hp.dh.ministry_falls","confidence":0.82,"reason":"The user says after the Ministry falls."}]}\n```';
+assert.equal(parseContextModelResponse(fenced).contexts.length, 1);
 
 const resolved = resolveContextsFromModelResponse(fenced, {
   canonBoundary: 'after the Ministry falls',
@@ -73,7 +73,7 @@ assert.equal(resolved.results[0].matchType, 'model');
 assert.equal(resolved.results[0].anchor.id, 'hp.dh.ministry_falls');
 assert.equal(resolved.results[0].patch.source, 'model');
 
-const invented = resolveContextsFromModelResponse('{"positions":[{"packId":"hp-golden-trio","status":"resolved","anchorId":"hp.fake.anchor","confidence":0.9}]}', {}, {
+const invented = resolveContextsFromModelResponse('{"contexts":[{"packId":"hp-golden-trio","status":"resolved","anchorId":"hp.fake.anchor","confidence":0.9}]}', {}, {
   state,
   index,
   targetPackIds: ['hp-golden-trio'],
@@ -81,7 +81,7 @@ const invented = resolveContextsFromModelResponse('{"positions":[{"packId":"hp-g
 assert.equal(invented.resolvedCount, 0);
 assert.equal(invented.results[0].reason, 'model_anchor_not_found');
 
-const lowConfidence = resolveContextsFromModelResponse('{"positions":[{"packId":"hp-golden-trio","status":"resolved","anchorId":"hp.dh.ministry_falls","confidence":0.2}]}', {}, {
+const lowConfidence = resolveContextsFromModelResponse('{"contexts":[{"packId":"hp-golden-trio","status":"resolved","anchorId":"hp.dh.ministry_falls","confidence":0.2}]}', {}, {
   state,
   index,
   targetPackIds: ['hp-golden-trio'],

@@ -119,6 +119,38 @@ function getContextSortKey(index = null, context = {}, packId = '') {
     return null;
 }
 
+function getAnchorSortKey(index = null, packId = '', anchorId = '') {
+    const anchor = findAnchor(index, packId, anchorId);
+    return anchor && Number.isFinite(Number(anchor.sortKey)) ? Number(anchor.sortKey) : null;
+}
+
+function getContextSortRange(index = null, context = {}, packId = '') {
+    const point = getContextSortKey(index, context, packId);
+    let from = hasFiniteNumber(context?.contextSortKeyFrom ?? context?.sortKeyFrom)
+        ? Number(context.contextSortKeyFrom ?? context.sortKeyFrom)
+        : null;
+    let to = hasFiniteNumber(context?.contextSortKeyTo ?? context?.sortKeyTo)
+        ? Number(context.contextSortKeyTo ?? context.sortKeyTo)
+        : null;
+
+    const contextFrom = cleanString(context?.anchorFrom);
+    const contextTo = cleanString(context?.anchorTo);
+    const matchingWindow = findWindow(index, packId, contextFrom, contextTo);
+    if (from === null) from = getAnchorSortKey(index, packId, contextFrom);
+    if (to === null) to = getAnchorSortKey(index, packId, contextTo);
+    if (from === null && Number.isFinite(Number(matchingWindow?.sortKeyFrom))) from = Number(matchingWindow.sortKeyFrom);
+    if (to === null && Number.isFinite(Number(matchingWindow?.sortKeyTo))) to = Number(matchingWindow.sortKeyTo);
+
+    if (from === null && to === null && point !== null) {
+        from = point;
+        to = point;
+    }
+    if (from !== null && to !== null && from > to) {
+        return { from: to, to: from, point };
+    }
+    return { from, to, point };
+}
+
 function anchorMatches(contextGate = {}, context = {}, index = null, packId = '') {
     const requiredAnchor = cleanString(contextGate.anchorId);
     if (!requiredAnchor) return { ok: true };
@@ -151,8 +183,8 @@ function windowMatches(contextGate = {}, context = {}, index = null, packId = ''
     if (fromSort === null && Number.isFinite(Number(matchingWindow?.sortKeyFrom))) fromSort = Number(matchingWindow.sortKeyFrom);
     if (toSort === null && Number.isFinite(Number(matchingWindow?.sortKeyTo))) toSort = Number(matchingWindow.sortKeyTo);
 
-    const contextSort = getContextSortKey(index, context, packId);
-    if (contextSort === null) {
+    const contextRange = getContextSortRange(index, context, packId);
+    if (contextRange.from === null && contextRange.to === null && contextRange.point === null) {
         const contextFrom = cleanString(context?.anchorFrom);
         const contextTo = cleanString(context?.anchorTo);
         if ((fromAnchorId && contextFrom === fromAnchorId) || (toAnchorId && contextTo === toAnchorId)) {
@@ -161,10 +193,10 @@ function windowMatches(contextGate = {}, context = {}, index = null, packId = ''
         return { ok: false, unresolved: true, reason: 'Entry has a Context window, but this Loredeck Context has no comparable anchor or sort key.' };
     }
 
-    if (fromSort !== null && contextSort < fromSort) {
+    if (fromSort !== null && contextRange.to !== null && contextRange.to < fromSort) {
         return { ok: false, reason: `Current Context is before ${fromAnchorId || fromSort}.` };
     }
-    if (toSort !== null && contextSort > toSort) {
+    if (toSort !== null && contextRange.from !== null && contextRange.from > toSort) {
         return { ok: false, reason: `Current Context is after ${toAnchorId || toSort}.` };
     }
     return { ok: true };

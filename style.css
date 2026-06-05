@@ -8541,7 +8541,7 @@
     white-space: pre-wrap;
 }
 
-/* Context Workbench: timeline registry and runtime position editor. */
+/* Context Workbench: timeline registry and runtime Context editor. */
 .wandlight-context-workbench-shell {
     width: min(1480px, calc(100vw - 28px));
     height: min(920px, calc(100vh - 28px));
@@ -8751,6 +8751,7 @@
     grid-column: 1 / -1;
 }
 
+.wandlight-context-workbench-waypoint-browser,
 .wandlight-context-workbench-context-picker,
 .wandlight-context-workbench-resolver {
     display: flex;
@@ -8762,6 +8763,7 @@
     padding: 8px;
 }
 
+.wandlight-context-workbench-waypoint-top,
 .wandlight-context-workbench-context-picker-top,
 .wandlight-context-workbench-resolver-top {
     display: grid;
@@ -8770,10 +8772,43 @@
     align-items: center;
 }
 
+.wandlight-context-workbench-waypoint-top {
+    grid-template-columns: auto minmax(220px, 1fr) minmax(120px, auto) auto auto;
+}
+
 .wandlight-context-workbench-resolver-top {
     grid-template-columns: auto minmax(200px, 1fr) auto auto auto auto;
 }
 
+.wandlight-context-workbench-window-builder {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 8px;
+    align-items: center;
+    border: 1px solid rgba(215, 181, 109, 0.18);
+    border-radius: 7px;
+    background: rgba(215, 181, 109, 0.06);
+    padding: 7px 8px;
+}
+
+.wandlight-context-workbench-window-builder-title {
+    color: var(--wandlight-gold, #d7b56d);
+    font-size: 0.78em;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.wandlight-context-workbench-window-summary {
+    min-width: 0;
+    color: var(--wandlight-muted, rgba(241, 234, 216, 0.70));
+    font-size: 0.72em;
+    line-height: 1.35;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.wandlight-context-workbench-waypoint-list,
 .wandlight-context-workbench-context-picker-list {
     display: flex;
     flex-direction: column;
@@ -8792,6 +8827,11 @@
     padding-right: 2px;
 }
 
+.wandlight-context-workbench-waypoint-list {
+    max-height: 320px;
+}
+
+.wandlight-context-workbench-waypoint-row,
 .wandlight-context-workbench-context-picker-row,
 .wandlight-context-workbench-resolver-row {
     display: grid;
@@ -8802,6 +8842,11 @@
     border-radius: 7px;
     background: rgba(10, 12, 16, 0.28);
     padding: 6px 7px;
+}
+
+.wandlight-context-workbench-waypoint-row-entry {
+    border-color: rgba(151, 159, 230, 0.30);
+    background: linear-gradient(90deg, rgba(151, 159, 230, 0.10), rgba(10, 12, 16, 0.28) 42%);
 }
 
 .wandlight-context-workbench-resolver-row {
@@ -8964,6 +9009,9 @@
     }
 
     .wandlight-context-workbench-editor-grid,
+    .wandlight-context-workbench-waypoint-top,
+    .wandlight-context-workbench-window-builder,
+    .wandlight-context-workbench-waypoint-row,
     .wandlight-context-workbench-context-picker-top,
     .wandlight-context-workbench-resolver-top,
     .wandlight-context-workbench-context-picker-row,
@@ -8971,9 +9019,14 @@
         grid-template-columns: 1fr;
     }
 
+    .wandlight-context-workbench-waypoint-row .wandlight-context-workbench-row-actions,
     .wandlight-context-workbench-context-picker-row .wandlight-context-workbench-row-actions,
     .wandlight-context-workbench-resolver-row .wandlight-context-workbench-row-actions {
         justify-content: flex-start;
+    }
+
+    .wandlight-context-workbench-window-summary {
+        white-space: normal;
     }
 
     .wandlight-context-workbench-resolver-score {
