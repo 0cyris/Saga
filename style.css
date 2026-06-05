@@ -1870,7 +1870,7 @@
     width: 100%;
     min-height: 92px;
     display: grid;
-    grid-template-columns: 58px minmax(0, 1fr) auto;
+    grid-template-columns: 28px 58px minmax(0, 1fr) auto;
     gap: 9px;
     align-items: start;
     border: 1px solid rgba(185, 139, 54, 0.2);
@@ -2046,6 +2046,13 @@
     opacity: 0.68;
 }
 
+.wandlight-loredeck-library-stack-card-bulk-selected {
+    border-color: rgba(245, 196, 91, 0.86);
+    box-shadow:
+        0 0 0 1px rgba(245, 196, 91, 0.22) inset,
+        3px 0 0 rgba(245, 196, 91, 0.7) inset;
+}
+
 .wandlight-loredeck-library-stack-grip {
     align-self: stretch;
     width: 26px;
@@ -2059,6 +2066,10 @@
     padding: 0;
     cursor: grab;
     box-sizing: border-box;
+}
+
+.wandlight-loredeck-library-deck-grip {
+    min-height: 72px;
 }
 
 .wandlight-loredeck-library-stack-grip:active,
@@ -2090,6 +2101,14 @@
     pointer-events: none;
 }
 
+.wandlight-loredeck-library-drag-drop-target {
+    outline: 1px dashed rgba(245, 196, 91, 0.72);
+    outline-offset: -3px;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(215, 181, 109, 0.14), transparent 42%),
+        rgba(18, 18, 24, 0.42);
+}
+
 .wandlight-loredeck-library-stack-ghost {
     position: fixed;
     top: 0;
@@ -2111,10 +2130,68 @@
     gap: 6px;
 }
 
-.wandlight-loredeck-library-stack-toggle {
-    width: 34px;
-    height: 18px;
-    accent-color: var(--wandlight-success, #1f4a38);
+.wandlight-loredeck-library-stack-toggle-button {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(185, 139, 54, 0.28);
+    border-radius: 6px;
+    padding: 0;
+    font-size: 0.66em;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: 0;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.wandlight-loredeck-library-stack-toggle-active {
+    color: #eaffdf;
+    border-color: rgba(119, 184, 93, 0.72);
+    background:
+        radial-gradient(circle at 50% 30%, rgba(119, 184, 93, 0.24), transparent 60%),
+        rgba(31, 74, 56, 0.82);
+}
+
+.wandlight-loredeck-library-stack-toggle-inactive {
+    color: rgba(241, 234, 216, 0.72);
+    border-color: rgba(185, 139, 54, 0.22);
+    background:
+        radial-gradient(circle at 50% 30%, rgba(160, 160, 160, 0.12), transparent 60%),
+        rgba(35, 35, 38, 0.78);
+}
+
+.wandlight-loredeck-library-stack-toggle-button:hover,
+.wandlight-loredeck-library-stack-toggle-button:focus-visible {
+    border-color: rgba(245, 196, 91, 0.72);
+    box-shadow: 0 0 0 1px rgba(245, 196, 91, 0.18) inset;
+}
+
+.wandlight-loredeck-library-center-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 0 0 4px;
+}
+
+.wandlight-loredeck-library-square-action {
+    min-width: 0;
+    width: 100%;
+    min-height: 46px;
+    padding: 4px;
+    border-radius: 7px;
+    font-size: 0.62em;
+    font-weight: 800;
+    line-height: 1.05;
+    text-align: center;
+    white-space: normal;
+}
+
+.wandlight-loredeck-library-square-action-danger {
+    border-color: rgba(219, 105, 105, 0.42);
+    color: #ffd3c9;
 }
 
 .wandlight-loredeck-library-details {
