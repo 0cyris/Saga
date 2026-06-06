@@ -24,6 +24,7 @@ import { normalizeLoreRelevance, normalizeLoreCanon, normalizeLoreCategory, comp
 import { preprocessPendingLoreEntries } from './pending-lore-preprocessor.js';
 import { normalizeLoreTimeline, captureLoreTimelineState, recordLoreTimelineEvent, restoreTimelineEntriesToPending } from './lore-timeline.js';
 import { normalizeLoredeckLibraryIndex, normalizePackLibraryMetadata } from './loredeck-library-index.js';
+import { GENERATION_RUN_STATUSES, GENERATION_UNIT_STATUSES } from './generation-job-runner.js';
 import {
     DEFAULT_HP_LOREDECK_CONTEXTS,
     DEFAULT_HP_LOREDECK_FOLDER_ID,
@@ -852,6 +853,165 @@ function normalizeLoredeckCreatorStringList(value = [], limit = 80, maxLength = 
     return output;
 }
 
+const CREATOR_GENERATION_RUN_STATUSES = new Set(GENERATION_RUN_STATUSES);
+const CREATOR_GENERATION_UNIT_STATUSES = new Set(GENERATION_UNIT_STATUSES);
+const CREATOR_ACTIVE_GENERATION_STATUSES = new Set(['queued', 'running', 'retrying']);
+const CREATOR_GENERATION_RESULT_STATUSES = new Set(['success', 'warning', 'error', 'cancelled', 'complete', 'partial', 'failed', 'superseded', 'interrupted']);
+
+function normalizeLoredeckCreatorId(value = '', fallback = '') {
+    const text = normalizeLoredeckCreatorString(value, 220)
+        .replace(/[^a-zA-Z0-9:._-]+/g, '_')
+        .replace(/^_+|_+$/g, '');
+    return text || fallback;
+}
+
+function normalizeLoredeckCreatorNumber(value, fallback = 0) {
+    const number = Number(value);
+    return Number.isFinite(number) ? Math.max(0, Math.round(number)) : fallback;
+}
+
+function normalizeLoredeckCreatorGenerationStatus(value = '', allowed = CREATOR_GENERATION_UNIT_STATUSES, fallback = 'queued') {
+    const status = normalizeLoredeckCreatorString(value, 60).toLowerCase();
+    return allowed.has(status) ? status : fallback;
+}
+
+function normalizeLoredeckCreatorResultRef(value = {}, maxLength = 12000) {
+    const cloned = cloneLoredeckPlainObject(value, maxLength);
+    return cloned && typeof cloned === 'object' && !Array.isArray(cloned) ? cloned : null;
+}
+
+function normalizeLoredeckCreatorGenerationRun(value = {}, index = 0) {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+    const runId = normalizeLoredeckCreatorId(value.runId || value.id || '', `run_${index + 1}`);
+    if (!runId) return null;
+    const run = {
+        runId,
+        id: normalizeLoredeckCreatorId(value.id || runId, runId),
+        jobId: normalizeLoredeckCreatorId(value.jobId || '', ''),
+        kind: normalizeLoredeckCreatorId(value.kind || 'loredeck_creator', 'loredeck_creator'),
+        stage: normalizeLoredeckCreatorId(value.stage || '', ''),
+        mode: normalizeLoredeckCreatorId(value.mode || 'run_next', 'run_next'),
+        status: normalizeLoredeckCreatorGenerationStatus(value.status, CREATOR_GENERATION_RUN_STATUSES, 'queued'),
+        totalUnits: normalizeLoredeckCreatorNumber(value.totalUnits),
+        completedUnits: normalizeLoredeckCreatorNumber(value.completedUnits),
+        failedUnits: normalizeLoredeckCreatorNumber(value.failedUnits),
+        skippedUnits: normalizeLoredeckCreatorNumber(value.skippedUnits),
+        cancelledUnits: normalizeLoredeckCreatorNumber(value.cancelledUnits),
+        currentUnitId: normalizeLoredeckCreatorId(value.currentUnitId || '', ''),
+        currentUnitIndex: Number.isFinite(Number(value.currentUnitIndex)) ? Math.max(0, Math.round(Number(value.currentUnitIndex))) : 0,
+        error: normalizeLoredeckCreatorString(value.error, 800),
+        createdAt: Number.isFinite(Number(value.createdAt)) ? Number(value.createdAt) : 0,
+        updatedAt: Number.isFinite(Number(value.updatedAt)) ? Number(value.updatedAt) : 0,
+        startedAt: Number.isFinite(Number(value.startedAt)) ? Number(value.startedAt) : 0,
+        completedAt: Number.isFinite(Number(value.completedAt)) ? Number(value.completedAt) : 0,
+    };
+    const meta = normalizeLoredeckCreatorResultRef(value.meta, 12000);
+    if (meta) run.meta = meta;
+    return run;
+}
+
+function normalizeLoredeckCreatorGenerationUnit(value = {}, index = 0) {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+    const unitId = normalizeLoredeckCreatorId(value.unitId || value.id || value.batchId || '', `unit_${index + 1}`);
+    if (!unitId) return null;
+    const unit = {
+        unitId,
+        id: normalizeLoredeckCreatorId(value.id || unitId, unitId),
+        runId: normalizeLoredeckCreatorId(value.runId || '', ''),
+        jobId: normalizeLoredeckCreatorId(value.jobId || '', ''),
+        stage: normalizeLoredeckCreatorId(value.stage || '', ''),
+        label: normalizeLoredeckCreatorString(value.label || value.title || unitId, 180),
+        status: normalizeLoredeckCreatorGenerationStatus(value.status, CREATOR_GENERATION_UNIT_STATUSES, 'queued'),
+        attempts: normalizeLoredeckCreatorNumber(value.attempts),
+        inputHash: normalizeLoredeckCreatorString(value.inputHash, 160),
+        outputHash: normalizeLoredeckCreatorString(value.outputHash, 160),
+        error: normalizeLoredeckCreatorString(value.error, 800),
+        createdAt: Number.isFinite(Number(value.createdAt)) ? Number(value.createdAt) : 0,
+        updatedAt: Number.isFinite(Number(value.updatedAt)) ? Number(value.updatedAt) : 0,
+        startedAt: Number.isFinite(Number(value.startedAt)) ? Number(value.startedAt) : 0,
+        completedAt: Number.isFinite(Number(value.completedAt)) ? Number(value.completedAt) : 0,
+        failedAt: Number.isFinite(Number(value.failedAt)) ? Number(value.failedAt) : 0,
+    };
+    const resultRef = normalizeLoredeckCreatorResultRef(value.resultRef, 12000);
+    if (resultRef) unit.resultRef = resultRef;
+    const meta = normalizeLoredeckCreatorResultRef(value.meta, 12000);
+    if (meta) unit.meta = meta;
+    return unit;
+}
+
+function normalizeLoredeckCreatorGenerationMap(value = {}, normalizer, idKey = 'id', limit = 200) {
+    const input = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+    const output = {};
+    const rows = Object.entries(input)
+        .map(([key, raw], index) => normalizer({ ...(raw || {}), [idKey]: raw?.[idKey] || key }, index))
+        .filter(Boolean)
+        .sort((a, b) => (Number(b.updatedAt || b.completedAt || b.startedAt || b.createdAt) || 0) - (Number(a.updatedAt || a.completedAt || a.startedAt || a.createdAt) || 0))
+        .slice(0, Math.max(1, Number(limit) || 200));
+    for (const row of rows) output[row[idKey]] = row;
+    return output;
+}
+
+function normalizeLoredeckCreatorActiveGeneration(value = {}, jobId = '') {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+    const status = normalizeLoredeckCreatorGenerationStatus(value.status, CREATOR_ACTIVE_GENERATION_STATUSES, '');
+    if (!status) return null;
+    const id = normalizeLoredeckCreatorId(value.id || value.runId || value.unitId || '', '');
+    if (!id) return null;
+    const rawCurrentStage = normalizeLoredeckCreatorString(value.currentStage || value.uiStage || '', 80);
+    const normalizedCurrentStage = rawCurrentStage ? normalizeLoredeckCreatorStage(rawCurrentStage) : '';
+    const active = {
+        id,
+        jobId: normalizeLoredeckCreatorId(value.jobId || jobId || '', ''),
+        runId: normalizeLoredeckCreatorId(value.runId || '', ''),
+        unitId: normalizeLoredeckCreatorId(value.unitId || '', ''),
+        actionId: normalizeLoredeckCreatorId(value.actionId || '', ''),
+        stage: normalizeLoredeckCreatorId(value.stage || '', ''),
+        currentStage: normalizedCurrentStage === 'intake' && rawCurrentStage !== 'intake' ? '' : normalizedCurrentStage,
+        label: normalizeLoredeckCreatorString(value.label || 'Generation running', 180),
+        status,
+        phase: normalizeLoredeckCreatorString(value.phase || 'running', 80),
+        message: normalizeLoredeckCreatorString(value.message || '', 300),
+        startedAt: Number.isFinite(Number(value.startedAt)) ? Number(value.startedAt) : 0,
+        updatedAt: Number.isFinite(Number(value.updatedAt)) ? Number(value.updatedAt) : 0,
+        elapsedMs: normalizeLoredeckCreatorNumber(value.elapsedMs),
+        receivedChars: normalizeLoredeckCreatorNumber(value.receivedChars),
+        snippet: normalizeLoredeckCreatorString(value.snippet, 500),
+        streamRequested: value.streamRequested === true,
+        streamSupported: value.streamSupported === true ? true : value.streamSupported === false ? false : null,
+        abortable: value.abortable === true,
+        batchId: normalizeLoredeckCreatorId(value.batchId || '', ''),
+        batchLabel: normalizeLoredeckCreatorString(value.batchLabel || '', 180),
+        batchIndex: Number.isFinite(Number(value.batchIndex)) ? Math.max(0, Math.round(Number(value.batchIndex))) : null,
+        batchTotal: Number.isFinite(Number(value.batchTotal)) ? Math.max(0, Math.round(Number(value.batchTotal))) : null,
+    };
+    return active;
+}
+
+function normalizeLoredeckCreatorGenerationResult(value = {}) {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+    const id = normalizeLoredeckCreatorId(value.id || value.runId || value.unitId || '', '');
+    if (!id) return null;
+    const status = normalizeLoredeckCreatorGenerationStatus(value.status, CREATOR_GENERATION_RESULT_STATUSES, 'complete');
+    const result = {
+        id,
+        runId: normalizeLoredeckCreatorId(value.runId || '', ''),
+        unitId: normalizeLoredeckCreatorId(value.unitId || '', ''),
+        actionId: normalizeLoredeckCreatorId(value.actionId || '', ''),
+        stage: normalizeLoredeckCreatorId(value.stage || '', ''),
+        label: normalizeLoredeckCreatorString(value.label || 'Generation', 180),
+        status,
+        message: normalizeLoredeckCreatorString(value.message || '', 500),
+        completedAt: Number.isFinite(Number(value.completedAt)) ? Number(value.completedAt) : 0,
+        elapsedMs: normalizeLoredeckCreatorNumber(value.elapsedMs),
+        receivedChars: normalizeLoredeckCreatorNumber(value.receivedChars),
+        snippet: normalizeLoredeckCreatorString(value.snippet, 500),
+        streamSupported: value.streamSupported === true ? true : value.streamSupported === false ? false : null,
+        batchId: normalizeLoredeckCreatorId(value.batchId || '', ''),
+        batchLabel: normalizeLoredeckCreatorString(value.batchLabel || '', 180),
+    };
+    return result;
+}
+
 function normalizeLoredeckCreatorStage(value = '') {
     const stage = normalizeLoredeckCreatorString(value, 80).toLowerCase().replace(/[^a-z0-9_-]+/g, '_');
     return [
@@ -878,6 +1038,10 @@ function normalizeLoredeckCreatorStage(value = '') {
 }
 
 function inferLoredeckCreatorStage(job = {}) {
+    if (job.activeGeneration?.status && CREATOR_ACTIVE_GENERATION_STATUSES.has(String(job.activeGeneration.status).toLowerCase())) {
+        const activeStage = normalizeLoredeckCreatorStage(job.activeGeneration.currentStage || job.activeGeneration.stage || '');
+        if (activeStage && activeStage !== 'intake') return activeStage;
+    }
     if (job.currentStage) return normalizeLoredeckCreatorStage(job.currentStage);
     if (job.entryDraftCount || job.entryDraftedAt) return 'entries_drafted';
     if (job.generatedPackId && (job.planningQueuedCount || job.planningQueuedAt)) return 'planning_queued';
@@ -905,6 +1069,8 @@ function normalizeLoredeckCreatorJob(value = {}, index = 0) {
     const titleBatchDraftedIds = normalizeLoredeckCreatorStringList(value.titleBatchDraftedIds, 1200, 180);
     const planningBatchQueuedIds = normalizeLoredeckCreatorStringList(value.planningBatchQueuedIds, 1200, 180);
     const planningBatchAcceptedIds = normalizeLoredeckCreatorStringList(value.planningBatchAcceptedIds, 1200, 180);
+    const generationRuns = normalizeLoredeckCreatorGenerationMap(value.generationRuns, normalizeLoredeckCreatorGenerationRun, 'runId', 80);
+    const generationUnits = normalizeLoredeckCreatorGenerationMap(value.generationUnits, normalizeLoredeckCreatorGenerationUnit, 'unitId', 1200);
     const job = {
         schemaVersion: 1,
         jobId,
@@ -951,6 +1117,12 @@ function normalizeLoredeckCreatorJob(value = {}, index = 0) {
     if (titleBatchDraftedIds.length) job.titleBatchDraftedIds = titleBatchDraftedIds;
     if (planningBatchQueuedIds.length) job.planningBatchQueuedIds = planningBatchQueuedIds;
     if (planningBatchAcceptedIds.length) job.planningBatchAcceptedIds = planningBatchAcceptedIds;
+    job.generationRuns = generationRuns;
+    job.generationUnits = generationUnits;
+    const activeGeneration = normalizeLoredeckCreatorActiveGeneration(value.activeGeneration, jobId);
+    if (activeGeneration) job.activeGeneration = activeGeneration;
+    const lastGenerationResult = normalizeLoredeckCreatorGenerationResult(value.lastGenerationResult);
+    if (lastGenerationResult) job.lastGenerationResult = lastGenerationResult;
 
     const objectFields = {
         titleBatch: 20000,
@@ -1371,6 +1543,149 @@ export function updateLoredeckCreatorProject(jobId = '', patch = {}, options = {
         registry: getLoredeckCreatorRegistry(state),
         projectRegistry: settings.loredeckCreatorProjects,
     };
+}
+
+export function setLoredeckCreatorActiveGeneration(jobId = '', activeGeneration = null, options = {}) {
+    const id = normalizeLoredeckCreatorString(jobId, 160);
+    if (!id) return { ok: false, error: 'Missing Creator project id.' };
+    const normalizedActive = normalizeLoredeckCreatorActiveGeneration(activeGeneration, id);
+    const sourceJob = getLoredeckCreatorRegistry(getState()).jobs[id] || null;
+    return updateLoredeckCreatorProject(id, {
+        activeGeneration: normalizedActive || null,
+        ...(normalizedActive ? {
+            status: 'running',
+            currentStage: normalizedActive.currentStage || normalizedActive.stage || '',
+        } : (sourceJob?.status === 'running' ? { status: sourceJob.complete ? 'complete' : 'draft' } : {})),
+    }, { ...options, syncLocal: true });
+}
+
+export function updateLoredeckCreatorGenerationRun(jobId = '', runPatch = {}, options = {}) {
+    const id = normalizeLoredeckCreatorString(jobId, 160);
+    if (!id) return { ok: false, error: 'Missing Creator project id.' };
+    if (!runPatch || typeof runPatch !== 'object' || Array.isArray(runPatch)) {
+        return { ok: false, error: 'Creator generation run update must be an object.' };
+    }
+    const registry = getLoredeckCreatorRegistry(getState());
+    const sourceJob = registry.jobs[id] || null;
+    if (!sourceJob) return { ok: false, error: 'Creator project was not found.' };
+    const runId = normalizeLoredeckCreatorId(runPatch.runId || runPatch.id || sourceJob.activeGeneration?.runId || '', '');
+    if (!runId) return { ok: false, error: 'Missing Creator generation run id.' };
+
+    const generationRuns = {
+        ...(sourceJob.generationRuns || {}),
+    };
+    const previous = generationRuns[runId] || {};
+    const run = normalizeLoredeckCreatorGenerationRun({
+        ...previous,
+        ...runPatch,
+        runId,
+        jobId: id,
+        updatedAt: Number.isFinite(Number(runPatch.updatedAt)) ? Number(runPatch.updatedAt) : Date.now(),
+    }, Object.keys(generationRuns).length);
+    if (!run) return { ok: false, error: 'Creator generation run could not be normalized.' };
+    generationRuns[run.runId] = run;
+
+    const patch = { generationRuns };
+    if (options.activate === true || (run.status === 'running' && options.activate !== false)) {
+        const currentStage = options.currentStage || sourceJob.activeGeneration?.currentStage || sourceJob.currentStage || run.stage || '';
+        patch.activeGeneration = {
+            ...(sourceJob.activeGeneration || {}),
+            id: sourceJob.activeGeneration?.id || run.runId,
+            jobId: id,
+            runId: run.runId,
+            stage: run.stage,
+            currentStage,
+            status: 'running',
+            phase: run.status,
+            label: options.label || sourceJob.activeGeneration?.label || 'Generation running',
+            startedAt: run.startedAt || Date.now(),
+            updatedAt: run.updatedAt || Date.now(),
+        };
+        patch.status = 'running';
+        if (currentStage) patch.currentStage = currentStage;
+    } else if (sourceJob.activeGeneration?.runId === run.runId && !CREATOR_ACTIVE_GENERATION_STATUSES.has(run.status)) {
+        patch.activeGeneration = null;
+        if (sourceJob.status === 'running') patch.status = sourceJob.complete ? 'complete' : 'draft';
+    }
+
+    return updateLoredeckCreatorProject(id, patch, { ...options, syncLocal: true });
+}
+
+export function updateLoredeckCreatorGenerationUnit(jobId = '', unitId = '', unitPatch = {}, options = {}) {
+    const id = normalizeLoredeckCreatorString(jobId, 160);
+    if (!id) return { ok: false, error: 'Missing Creator project id.' };
+    if (!unitPatch || typeof unitPatch !== 'object' || Array.isArray(unitPatch)) {
+        return { ok: false, error: 'Creator generation unit update must be an object.' };
+    }
+    const registry = getLoredeckCreatorRegistry(getState());
+    const sourceJob = registry.jobs[id] || null;
+    if (!sourceJob) return { ok: false, error: 'Creator project was not found.' };
+    const resolvedUnitId = normalizeLoredeckCreatorId(unitId || unitPatch.unitId || unitPatch.id || sourceJob.activeGeneration?.unitId || '', '');
+    if (!resolvedUnitId) return { ok: false, error: 'Missing Creator generation unit id.' };
+    const incomingRunId = normalizeLoredeckCreatorId(unitPatch.runId || '', '');
+    if (
+        sourceJob.activeGeneration?.unitId === resolvedUnitId
+        && sourceJob.activeGeneration?.runId
+        && incomingRunId
+        && sourceJob.activeGeneration.runId !== incomingRunId
+        && options.allowStale !== true
+    ) {
+        return {
+            ok: true,
+            ignored: true,
+            reason: 'stale_creator_generation_unit',
+            job: sourceJob,
+            registry,
+        };
+    }
+
+    const generationUnits = {
+        ...(sourceJob.generationUnits || {}),
+    };
+    const previous = generationUnits[resolvedUnitId] || {};
+    const unit = normalizeLoredeckCreatorGenerationUnit({
+        ...previous,
+        ...unitPatch,
+        unitId: resolvedUnitId,
+        jobId: id,
+        updatedAt: Number.isFinite(Number(unitPatch.updatedAt)) ? Number(unitPatch.updatedAt) : Date.now(),
+    }, Object.keys(generationUnits).length);
+    if (!unit) return { ok: false, error: 'Creator generation unit could not be normalized.' };
+    generationUnits[unit.unitId] = unit;
+
+    const patch = { generationUnits };
+    if (CREATOR_ACTIVE_GENERATION_STATUSES.has(unit.status) && options.activate !== false) {
+        const currentStage = options.currentStage || sourceJob.activeGeneration?.currentStage || sourceJob.currentStage || unit.stage || '';
+        patch.activeGeneration = {
+            ...(sourceJob.activeGeneration || {}),
+            id: sourceJob.activeGeneration?.id || unit.runId || unit.unitId,
+            jobId: id,
+            runId: unit.runId || sourceJob.activeGeneration?.runId || '',
+            unitId: unit.unitId,
+            stage: unit.stage || sourceJob.activeGeneration?.stage || '',
+            currentStage,
+            status: 'running',
+            phase: unit.status,
+            label: options.label || unit.label || sourceJob.activeGeneration?.label || 'Generation running',
+            startedAt: unit.startedAt || sourceJob.activeGeneration?.startedAt || Date.now(),
+            updatedAt: unit.updatedAt || Date.now(),
+        };
+        patch.status = 'running';
+        if (currentStage) patch.currentStage = currentStage;
+    } else if (
+        sourceJob.activeGeneration?.unitId === unit.unitId
+        && (
+            !sourceJob.activeGeneration?.runId
+            || !unit.runId
+            || sourceJob.activeGeneration.runId === unit.runId
+        )
+        && !CREATOR_ACTIVE_GENERATION_STATUSES.has(unit.status)
+    ) {
+        patch.activeGeneration = null;
+        if (sourceJob.status === 'running') patch.status = sourceJob.complete ? 'complete' : 'draft';
+    }
+
+    return updateLoredeckCreatorProject(id, patch, { ...options, syncLocal: true });
 }
 
 export function clearLoredeckCreatorJob(jobId = '', options = {}) {

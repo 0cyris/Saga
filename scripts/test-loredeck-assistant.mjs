@@ -252,10 +252,55 @@ assert.equal(creatorTitlePass.titleDrafts[0].titleId, 'nami-hides-her-bargain');
 assert.equal(creatorTitlePass.titleDrafts[0].rubric.wikiSummaryRisk, 'low');
 assert.equal(creatorTitlePass.batch.nextBatchHint, 'Faction and setting constraints.');
 
+const truncatedCreatorTitlePass = parseLoredeckCreatorTitleResponse(`\`\`\`json
+{
+  "summary": "Drafted character pressure titles.",
+  "clarifyingQuestions": [],
+  "warnings": [],
+  "batch": {
+    "label": "Character pressure",
+    "coverage": "Nami, Arlong, villagers, and occupation pressure.",
+    "nextBatchHint": "Locations next.",
+    "complete": false
+  },
+  "titleDrafts": [
+    {
+      "titleId": "nami-coerced-cartography",
+      "title": "Nami's coerced cartography",
+      "category": "character_pressure",
+      "priority": 90,
+      "relevance": "high",
+      "contextHint": "From occupation through the betrayal reveal.",
+      "tags": ["character:nami"],
+      "reason": "Turns Nami's talent into playable coercion.",
+      "rubric": { "wikiSummaryRisk": "low" }
+    },
+    {
+      "titleId": "arlong-iron-tribute",
+      "title": "Arlong's iron tribute",
+      "category": "faction_control",
+      "priority": 85,
+      "relevance": "high",
+      "contextHint": "Ongoing under Arlong's rule.",
+      "tags": ["character:arlong"],
+      "reason": "Creates recurring survival pressure.",
+      "rubric": { "wikiSummaryRisk": "low" }
+    },
+    {
+      "titleId": "cut-off-row",
+      "title": "This row never finishes"
+`);
+assert.equal(truncatedCreatorTitlePass.titleDrafts.length, 2);
+assert.equal(truncatedCreatorTitlePass.titleDrafts[1].titleId, 'arlong-iron-tribute');
+assert.ok(truncatedCreatorTitlePass.warnings.some(item => item.includes('salvaged complete title drafts')));
+assert.equal(truncatedCreatorTitlePass.batch.nextBatchHint, 'Locations next.');
+
 const creatorTitleSystemPrompt = buildLoredeckCreatorTitleSystemPrompt();
 assert.ok(creatorTitleSystemPrompt.includes('Generate titles only'));
 assert.ok(creatorTitleSystemPrompt.includes('Do not generate full Lorecards'));
 assert.ok(creatorTitleSystemPrompt.includes('selectedTitleDrafts'));
+assert.ok(creatorTitleSystemPrompt.includes('Generate no more than titlePassLimit titles'));
+assert.ok(creatorTitleSystemPrompt.includes('Keep the whole JSON compact'));
 
 const creatorTitleUserPrompt = buildLoredeckCreatorTitleUserPrompt({
   brief: creatorBrief.brief,
@@ -275,6 +320,35 @@ const creatorPlanningSystemPrompt = buildLoredeckCreatorPlanningSystemPrompt();
 assert.ok(creatorPlanningSystemPrompt.includes('Do not generate full Lorecards'));
 assert.ok(creatorPlanningSystemPrompt.includes('upsert_timeline_anchor'));
 assert.ok(creatorPlanningSystemPrompt.includes('upsert_tag_definition'));
+assert.ok(creatorPlanningSystemPrompt.includes('Return no more than proposalLimit proposals'));
+assert.ok(creatorPlanningSystemPrompt.includes('Keep the whole JSON compact'));
+
+const truncatedPlanningPass = parseLoredeckAssistantResponse(`\`\`\`json
+{
+  "summary": "Drafted planning proposals.",
+  "clarifyingQuestions": [],
+  "warnings": [],
+  "proposals": [
+    {
+      "action": "upsert_timeline_anchor",
+      "title": "Create anchor: Cocoyasi arrival",
+      "timelineId": "one-piece.arlong.cocoyasi-arrival",
+      "timelineAnchor": {
+        "id": "one-piece.arlong.cocoyasi-arrival",
+        "label": "Cocoyasi arrival",
+        "sortKey": 120
+      },
+      "reason": "Gives Context a clear early boundary.",
+      "confidence": 0.82,
+      "risk": "low"
+    },
+    {
+      "action": "upsert_tag_definition",
+      "title": "This row never finishes"
+`);
+assert.equal(truncatedPlanningPass.proposals.length, 1);
+assert.equal(truncatedPlanningPass.proposals[0].action, 'upsert_timeline_anchor');
+assert.ok(truncatedPlanningPass.warnings.some(item => item.includes('salvaged complete proposals')));
 
 const creatorPlanningUserPrompt = buildLoredeckCreatorPlanningUserPrompt({
   generatedPackId: 'one-piece-arlong-park',
@@ -297,6 +371,46 @@ assert.ok(creatorEntrySystemPrompt.includes('Return only upsert_entry proposals'
 assert.ok(creatorEntrySystemPrompt.includes('schemaVersion 3'));
 assert.ok(creatorEntrySystemPrompt.includes('content.fact'));
 assert.ok(creatorEntrySystemPrompt.includes('content.injection'));
+assert.ok(creatorEntrySystemPrompt.includes('Keep the whole JSON compact'));
+
+const truncatedCreatorEntryPass = parseLoredeckAssistantResponse(`{
+  "summary": "Drafted Lorecard proposals.",
+  "clarifyingQuestions": [],
+  "warnings": [],
+  "proposals": [
+    {
+      "action": "upsert_entry",
+      "title": "Draft entry: Nami hides her bargain",
+      "entryId": "nami-hides-her-bargain",
+      "entry": {
+        "id": "nami-hides-her-bargain",
+        "schemaVersion": 3,
+        "title": "Nami hides her bargain",
+        "category": "secret",
+        "canon": "canon",
+        "canonStatus": "canon",
+        "relevance": "high",
+        "priority": 88,
+        "tags": ["character:nami"],
+        "context": { "scope": "window", "sortKeyFrom": 120, "sortKeyTo": 180, "precision": "anchor_window", "label": "Cocoyasi reveal window" },
+        "retrieval": { "activation": "context_or_topic", "frequency": "normal", "contextBoost": "high" },
+        "content": {
+          "fact": "Nami hides the bargain because Arlong holds Cocoyasi hostage.",
+          "injection": "During this window, show Nami deflecting trust to protect Cocoyasi.",
+          "notes": "Playable pressure."
+        }
+      },
+      "reason": "Creates secrecy pressure.",
+      "confidence": 0.84,
+      "risk": "low"
+    },
+    {
+      "action": "upsert_entry",
+      "title": "This row never finishes"
+`);
+assert.equal(truncatedCreatorEntryPass.proposals.length, 1);
+assert.equal(truncatedCreatorEntryPass.proposals[0].entryId, 'nami-hides-her-bargain');
+assert.ok(truncatedCreatorEntryPass.warnings.some(item => item.includes('salvaged complete proposals')));
 
 const creatorEntryUserPrompt = buildLoredeckCreatorEntryUserPrompt({
   generatedPackId: 'one-piece-arlong-park',

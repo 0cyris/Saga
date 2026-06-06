@@ -1222,6 +1222,8 @@ Implementation policy:
 - Successful batches should be cached immediately in the edit-before-queue draft batch so later failures do not discard earlier work.
 - Outline, title, timeline, tag, and entry stages remain separately reviewable; chunking entry drafts should not bypass Pending Review.
 
+Architecture note: the Creator should use a fresh Creator-specific batch model while reusing the proven job/checkpoint/retry patterns from Scan Story Lore. The detailed runner and idempotency plan is captured in [LOREDECK_CREATOR_BATCHING_ARCHITECTURE.md](LOREDECK_CREATOR_BATCHING_ARCHITECTURE.md).
+
 ### Coverage Versus Injection
 
 The creator should not ask for a spoiler boundary as a required field.

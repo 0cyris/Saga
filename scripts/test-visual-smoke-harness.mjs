@@ -195,9 +195,20 @@ for (const token of [
     'approveLoredeckCreatorOutline',
     'Approve the Story Outline before drafting titles',
     'Generate Next Title Batch',
+    'Generate Remaining',
+    'handleLoredeckCreatorRemainingTitleBatches',
+    'performLoredeckCreatorRemainingTitleBatches',
+    'getLoredeckCreatorRemainingTitleBatches',
+    'LOREDECK_CREATOR_TITLE_AUTORUN_BATCHES',
     'createLoredeckCreatorTitleBatchPlanner',
     'getLoredeckCreatorNextTitleBatch',
     'creatorTitleBatchId',
+    'runGenerationUnits',
+    'runLoredeckCreatorSingleUnitGeneration',
+    'buildLoredeckCreatorTitleGenerationUnitId',
+    'commitLoredeckCreatorTitleDraftResult',
+    'creator_title_batch',
+    'result.commitResult?.titleCommit',
     'Plan Context and Tags',
     'createLoredeckCreatorPlanningBatchPlanner',
     'getLoredeckCreatorNextPlanningBatch',
@@ -297,6 +308,8 @@ for (const token of [
     assert(panel.includes(token), `Runtime panel is missing expected smoke token: ${token}`);
 }
 assert(!panel.includes('main.appendChild(snippet)'), 'Creator generation status must not render raw model output snippets.');
+assert(!panel.includes('Draft This Set'), 'Creator Title Pass must not expose per-row title-batch draft buttons.');
+assert(!panel.includes('Redraft Set'), 'Creator Title Pass must not expose per-row title-batch redraft buttons.');
 
 for (const token of [
     'emitLoreRequestProgress',

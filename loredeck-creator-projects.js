@@ -78,6 +78,10 @@ function asObject(value) {
   return value && typeof value === 'object' && !Array.isArray(value) ? value : {};
 }
 
+function objectValues(value) {
+  return Object.values(asObject(value));
+}
+
 function uniqueIdList(value = []) {
   const output = [];
   const seen = new Set();
@@ -117,6 +121,10 @@ function getActiveGenerationForJob(job = {}, context = {}) {
   return job.activeGeneration || context.activeGeneration || getMapValue(context.activeGenerationByJobId, job.jobId);
 }
 
+function isActiveGenerationRunning(activeGeneration = null) {
+  return ['queued', 'running', 'retrying'].includes(String(activeGeneration?.status || '').toLowerCase());
+}
+
 function countEntryOverrides(pack = {}) {
   const source = asObject(pack);
   const overrides = asObject(source.entryOverrides);
@@ -143,7 +151,7 @@ export function normalizeLoredeckCreatorProjectStage(value = '') {
 
 export function inferLoredeckCreatorProjectStage(job = {}, context = {}) {
   const activeGeneration = getActiveGenerationForJob(job, context);
-  if (activeGeneration?.status === 'running' && job.currentStage) return normalizeLoredeckCreatorProjectStage(job.currentStage);
+  if (isActiveGenerationRunning(activeGeneration) && job.currentStage) return normalizeLoredeckCreatorProjectStage(job.currentStage);
   if (job.status === 'running' && job.currentStage) return normalizeLoredeckCreatorProjectStage(job.currentStage);
   if (job.status === 'blocked' || job.blocked === true) return 'blocked';
   if (job.status === 'complete' || job.complete === true) return 'complete';
@@ -166,7 +174,7 @@ export function getLoredeckCreatorProjectStageDescriptor(job = {}, context = {})
   const stageId = inferLoredeckCreatorProjectStage(job, context);
   const activeGeneration = getActiveGenerationForJob(job, context);
   const base = STAGE_LOOKUP.get(stageId) || STAGE_LOOKUP.get('intake');
-  const running = job.status === 'running' || activeGeneration?.status === 'running';
+  const running = job.status === 'running' || isActiveGenerationRunning(activeGeneration);
   const blocked = job.status === 'blocked' || stageId === 'blocked' || hasErrors(job, readiness);
   const tone = blocked ? 'warning' : (running ? 'running' : base.tone);
   const stageIndex = Math.max(0, LOREDECK_CREATOR_PROJECT_STAGE_ORDER.indexOf(stageId));
@@ -187,6 +195,8 @@ export function getLoredeckCreatorProjectCounts(job = {}, context = {}) {
   const pack = getGeneratedPackForJob(job, context);
   const readiness = getReadinessForPack(pack, context);
   const pipeline = asObject(readiness?.pipeline);
+  const generationRuns = objectValues(job.generationRuns);
+  const generationUnits = objectValues(job.generationUnits);
   const titleDraftCount = asArray(job.titleDrafts).length;
   const approvedTitleCount = cleanNumber(pipeline.approvedTitleCount || uniqueIdList(job.approvedTitleDraftIds).length);
   const planningQueuedCount = cleanNumber(
@@ -208,6 +218,11 @@ export function getLoredeckCreatorProjectCounts(job = {}, context = {}) {
     acceptedEntryCount: cleanNumber(readiness?.acceptedEntryCount || pipeline.approvedTitleAcceptedCount || countEntryOverrides(pack)),
     pendingChangeCount: cleanNumber(readiness?.pendingChangeCount),
     draftChangeCount: cleanNumber(readiness?.draftChangeCount),
+    generationRunCount: cleanNumber(generationRuns.length),
+    generationUnitCount: cleanNumber(generationUnits.length),
+    runningGenerationUnitCount: cleanNumber(generationUnits.filter(unit => ['queued', 'running', 'retrying'].includes(String(unit?.status || '').toLowerCase())).length),
+    completedGenerationUnitCount: cleanNumber(generationUnits.filter(unit => String(unit?.status || '').toLowerCase() === 'complete').length),
+    failedGenerationUnitCount: cleanNumber(generationUnits.filter(unit => String(unit?.status || '').toLowerCase() === 'failed').length),
     lorecardCount: getPackLorecardCount(pack),
     fileCount: getPackFileCount(pack),
     blockerCount: asArray(readiness?.blockers).length,

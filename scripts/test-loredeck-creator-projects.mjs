@@ -7,6 +7,9 @@ import {
   getLoredeckCreatorRegistry,
   getSettings,
   getState,
+  setLoredeckCreatorActiveGeneration,
+  updateLoredeckCreatorGenerationRun,
+  updateLoredeckCreatorGenerationUnit,
   updateLoredeckCreatorProject,
   upsertLoredeckCreatorJob,
 } from '../state-manager.js';
@@ -73,6 +76,147 @@ assert.ok(saveSettingsCount >= 1, 'Opening a chat with local Creator jobs should
 const globalRegistry = getLoredeckCreatorProjectRegistry();
 assert.equal(globalRegistry.activeJobId, 'creator_one_piece_arlong');
 assert.equal(globalRegistry.jobs.creator_one_piece_arlong.currentStage, 'titles_drafted');
+assert.deepEqual(globalRegistry.jobs.creator_one_piece_arlong.generationRuns, {});
+assert.deepEqual(globalRegistry.jobs.creator_one_piece_arlong.generationUnits, {});
+
+const runStarted = updateLoredeckCreatorGenerationRun('creator_one_piece_arlong', {
+  runId: 'run_titles_1',
+  stage: 'titles',
+  status: 'running',
+  totalUnits: 2,
+  currentUnitId: 'unit_title_1',
+  startedAt: 300,
+}, {
+  syncPrompt: false,
+  label: 'Generating title batches',
+  currentStage: 'titles_drafting',
+});
+assert.equal(runStarted.ok, true);
+assert.equal(runStarted.job.generationRuns.run_titles_1.status, 'running');
+assert.equal(runStarted.job.activeGeneration.runId, 'run_titles_1');
+assert.equal(runStarted.job.activeGeneration.status, 'running');
+assert.equal(runStarted.job.currentStage, 'titles_drafting');
+assert.equal(extensionSettings[MODULE_KEY].loredeckCreatorProjects.jobs.creator_one_piece_arlong.activeGeneration.runId, 'run_titles_1');
+assert.equal(chatMetadata[MODULE_KEY].loredeckCreator.jobs.creator_one_piece_arlong.activeGeneration.runId, 'run_titles_1');
+
+const unitStarted = updateLoredeckCreatorGenerationUnit('creator_one_piece_arlong', 'unit_title_1', {
+  runId: 'run_titles_1',
+  stage: 'titles',
+  status: 'running',
+  label: 'Characters and pressure',
+  inputHash: 'hash_input',
+  attempts: 1,
+  startedAt: 310,
+}, {
+  syncPrompt: false,
+  label: 'Generating title batch 1 of 2',
+  currentStage: 'titles_drafting',
+});
+assert.equal(unitStarted.ok, true);
+assert.equal(unitStarted.job.generationUnits.unit_title_1.status, 'running');
+assert.equal(unitStarted.job.activeGeneration.unitId, 'unit_title_1');
+assert.equal(unitStarted.job.activeGeneration.phase, 'running');
+assert.equal(unitStarted.job.activeGeneration.label, 'Generating title batch 1 of 2');
+
+const unitCompleted = updateLoredeckCreatorGenerationUnit('creator_one_piece_arlong', 'unit_title_1', {
+  status: 'complete',
+  outputHash: 'hash_output',
+  completedAt: 330,
+  resultRef: { type: 'creator_title_batch', batchId: 'characters_pressure' },
+}, { syncPrompt: false });
+assert.equal(unitCompleted.ok, true);
+assert.equal(unitCompleted.job.generationUnits.unit_title_1.status, 'complete');
+assert.equal(unitCompleted.job.generationUnits.unit_title_1.resultRef.batchId, 'characters_pressure');
+assert.equal(unitCompleted.job.activeGeneration, undefined, 'Completing the active unit should clear activeGeneration.');
+assert.equal(unitCompleted.job.status, 'draft', 'Clearing activeGeneration should not leave the Creator project stuck as running.');
+
+const runCompleted = updateLoredeckCreatorGenerationRun('creator_one_piece_arlong', {
+  runId: 'run_titles_1',
+  status: 'complete',
+  completedUnits: 1,
+  completedAt: 340,
+}, { syncPrompt: false });
+assert.equal(runCompleted.ok, true);
+assert.equal(runCompleted.job.generationRuns.run_titles_1.status, 'complete');
+
+const rerunStarted = updateLoredeckCreatorGenerationRun('creator_one_piece_arlong', {
+  runId: 'run_titles_2',
+  stage: 'titles',
+  status: 'running',
+  totalUnits: 1,
+  currentUnitId: 'unit_title_1',
+  startedAt: 350,
+}, {
+  syncPrompt: false,
+  label: 'Regenerating title batch',
+  currentStage: 'titles_drafting',
+});
+assert.equal(rerunStarted.ok, true);
+
+const rerunUnitStarted = updateLoredeckCreatorGenerationUnit('creator_one_piece_arlong', 'unit_title_1', {
+  runId: 'run_titles_2',
+  stage: 'titles',
+  status: 'running',
+  label: 'Characters and pressure',
+  attempts: 1,
+  startedAt: 360,
+}, {
+  syncPrompt: false,
+  label: 'Regenerating title batch',
+  currentStage: 'titles_drafting',
+});
+assert.equal(rerunUnitStarted.ok, true);
+assert.equal(rerunUnitStarted.job.activeGeneration.runId, 'run_titles_2');
+assert.equal(rerunUnitStarted.job.generationUnits.unit_title_1.runId, 'run_titles_2');
+
+const staleOldUnit = updateLoredeckCreatorGenerationUnit('creator_one_piece_arlong', 'unit_title_1', {
+  runId: 'run_titles_1',
+  stage: 'titles',
+  status: 'superseded',
+  completedAt: 365,
+}, { syncPrompt: false });
+assert.equal(staleOldUnit.ok, true);
+assert.equal(staleOldUnit.ignored, true, 'A stale old run for the same stable unit ID should be ignored while a newer run is active.');
+assert.equal(staleOldUnit.job.activeGeneration.runId, 'run_titles_2');
+assert.equal(staleOldUnit.job.generationUnits.unit_title_1.runId, 'run_titles_2');
+
+const rerunUnitCompleted = updateLoredeckCreatorGenerationUnit('creator_one_piece_arlong', 'unit_title_1', {
+  runId: 'run_titles_2',
+  stage: 'titles',
+  status: 'complete',
+  completedAt: 370,
+  resultRef: { type: 'creator_title_batch', batchId: 'characters_pressure', draftCount: 4 },
+}, { syncPrompt: false });
+assert.equal(rerunUnitCompleted.ok, true);
+assert.equal(rerunUnitCompleted.job.generationUnits.unit_title_1.status, 'complete');
+assert.equal(rerunUnitCompleted.job.generationUnits.unit_title_1.runId, 'run_titles_2');
+assert.equal(rerunUnitCompleted.job.activeGeneration, undefined);
+
+const rerunCompleted = updateLoredeckCreatorGenerationRun('creator_one_piece_arlong', {
+  runId: 'run_titles_2',
+  status: 'complete',
+  completedUnits: 1,
+  completedAt: 380,
+}, { syncPrompt: false });
+assert.equal(rerunCompleted.ok, true);
+
+const activeSet = setLoredeckCreatorActiveGeneration('creator_one_piece_arlong', {
+  id: 'run_outline_1',
+  runId: 'run_outline_1',
+  actionId: 'outline',
+  stage: 'outline',
+  currentStage: 'outline_drafting',
+  status: 'running',
+  label: 'Drafting Story Outline',
+}, { syncPrompt: false });
+assert.equal(activeSet.ok, true);
+assert.equal(activeSet.job.activeGeneration.label, 'Drafting Story Outline');
+assert.equal(activeSet.job.currentStage, 'outline_drafting');
+
+const activeCleared = setLoredeckCreatorActiveGeneration('creator_one_piece_arlong', null, { syncPrompt: false });
+assert.equal(activeCleared.ok, true);
+assert.equal(activeCleared.job.activeGeneration, undefined);
+assert.equal(activeCleared.job.status, 'draft');
 
 const upserted = upsertLoredeckCreatorJob({
   jobId: 'creator_naruto_chunin',

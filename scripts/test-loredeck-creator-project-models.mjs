@@ -65,6 +65,13 @@ const titleJob = {
   approvedTitleDraftIds: ['arlong_pressure', 'nami_debt'],
   planningBatchQueuedIds: ['batch_1', 'batch_2'],
   planningBatchAcceptedIds: ['batch_1'],
+  generationRuns: {
+    run_titles_1: { runId: 'run_titles_1', stage: 'titles', status: 'complete', completedUnits: 1, updatedAt: 220 },
+  },
+  generationUnits: {
+    unit_title_1: { unitId: 'unit_title_1', runId: 'run_titles_1', stage: 'titles', status: 'complete', label: 'Characters and pressure', updatedAt: 221 },
+    unit_title_2: { unitId: 'unit_title_2', runId: 'run_titles_1', stage: 'titles', status: 'failed', label: 'Places and consequences', updatedAt: 222 },
+  },
   generatedPackId: 'one-piece-arlong-park-generated',
   status: 'draft',
   updatedAt: 200,
@@ -88,6 +95,10 @@ assert.equal(model.counts.approvedTitleCount, 8);
 assert.equal(model.counts.planningAcceptedCount, 1);
 assert.equal(model.counts.draftChangeCount, 3);
 assert.equal(model.counts.pendingChangeCount, 1);
+assert.equal(model.counts.generationRunCount, 1);
+assert.equal(model.counts.generationUnitCount, 2);
+assert.equal(model.counts.completedGenerationUnitCount, 1);
+assert.equal(model.counts.failedGenerationUnitCount, 1);
 assert.equal(model.nextAction.label, 'Review Draft Lorecards');
 assert.ok(model.chips.some(chip => chip.label === 'Generated'));
 assert.ok(model.chips.some(chip => chip.label === '3 drafted'));
@@ -115,6 +126,15 @@ const reattachedRunningStage = getLoredeckCreatorProjectStageDescriptor({
 assert.equal(reattachedRunningStage.id, 'outline_drafting');
 assert.equal(reattachedRunningStage.label, 'Drafting Story Outline');
 assert.equal(reattachedRunningStage.tone, 'running');
+
+const retryingStage = getLoredeckCreatorProjectStageDescriptor({
+  ...titleJob,
+  currentStage: 'titles_drafting',
+  activeGeneration: { status: 'retrying', label: 'Retrying title batch' },
+});
+assert.equal(retryingStage.id, 'titles_drafting');
+assert.equal(retryingStage.label, 'Retrying title batch');
+assert.equal(retryingStage.tone, 'running');
 
 const blocked = {
   jobId: 'creator_broken',
