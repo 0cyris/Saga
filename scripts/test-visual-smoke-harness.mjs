@@ -122,6 +122,8 @@ for (const token of [
     'upsertLoredeckCreatorJob',
     'clearLoredeckCreatorJob',
     'inferLoredeckCreatorUiStage',
+    'refreshLoredeckCreatorWorkbenchBody',
+    'queueLoredeckCreatorWorkbenchRefresh',
     'requestLoredeckCreatorBriefResponse',
     'repairLoredeckCreatorBriefResponse',
     'Scope Brief',

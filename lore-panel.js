@@ -660,6 +660,7 @@ let loredeckCreatorNotes = '';
 let loredeckCreatorRevisionInstruction = '';
 let loredeckCreatorOutlineRevisionInstruction = '';
 let loredeckCreatorTitleRevisionInstruction = '';
+let loredeckCreatorWorkbenchRefreshQueued = false;
 
 const CATEGORY_LABELS = {
     all: 'All',
@@ -6270,6 +6271,34 @@ function openLoredeckCreatorWorkbench() {
     shell.appendChild(body);
 }
 
+function refreshLoredeckCreatorWorkbenchBody(options = {}) {
+    const body = document.querySelector('.wandlight-loredeck-creator-workbench-body');
+    if (!body) return false;
+    const scrollTop = options.preserveScroll === false ? 0 : (body.scrollTop || 0);
+    body.replaceChildren(createLoredeckCreatorCard(getState(), { embedded: true }));
+    if (options.preserveScroll !== false) {
+        const restore = () => {
+            body.scrollTop = scrollTop;
+        };
+        restore();
+        if (typeof requestAnimationFrame === 'function') requestAnimationFrame(restore);
+    }
+    return true;
+}
+
+function queueLoredeckCreatorWorkbenchRefresh(options = {}) {
+    if (!document.querySelector('.wandlight-loredeck-creator-workbench-body')) return false;
+    if (loredeckCreatorWorkbenchRefreshQueued) return true;
+    loredeckCreatorWorkbenchRefreshQueued = true;
+    const refresh = () => {
+        loredeckCreatorWorkbenchRefreshQueued = false;
+        refreshLoredeckCreatorWorkbenchBody(options);
+    };
+    if (typeof requestAnimationFrame === 'function') requestAnimationFrame(refresh);
+    else setTimeout(refresh, 0);
+    return true;
+}
+
 function createLoredeckCreatorCard(state = getState(), options = {}) {
     void state;
     const card = document.createElement('div');
@@ -6409,10 +6438,12 @@ function setLoredeckCreatorBriefCache(next = {}) {
     const result = upsertLoredeckCreatorJob(normalized, { syncPrompt: false });
     if (result.ok) {
         loredeckCreatorBriefCache.set('current', result.job);
+        if (result.job.status !== 'running') queueLoredeckCreatorWorkbenchRefresh();
         return result.job;
     }
     console.warn('[Saga] Loredeck Creator job persistence failed:', result.error);
     loredeckCreatorBriefCache.set('current', normalized);
+    if (normalized.status !== 'running') queueLoredeckCreatorWorkbenchRefresh();
     return normalized;
 }
 
@@ -6428,6 +6459,7 @@ function clearLoredeckCreatorBrief() {
     loredeckCreatorOutlineRevisionInstruction = '';
     loredeckCreatorTitleRevisionInstruction = '';
     refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    refreshLoredeckCreatorWorkbenchBody({ preserveScroll: false });
     toast('Loredeck Creator brief cleared.', 'info');
 }
 
