@@ -11279,14 +11279,14 @@ async function performLoredeckCreatorTitleDraft(options = {}) {
                 titleCommit,
             };
         }
-        const batchLabel = targetTitleBatch?.label || targetTitleBatch?.id || 'title set';
-        finishLoredeckCreatorGeneration(generation, 'success', `Drafted ${parsed.titleDrafts.length} ${batchLabel} title${parsed.titleDrafts.length === 1 ? '' : 's'}.`);
-        if (!options.suppressSuccessToast) toast(`Loredeck Creator drafted ${parsed.titleDrafts.length} ${batchLabel} title${parsed.titleDrafts.length === 1 ? '' : 's'} for review.`, 'success');
+        const successBatchLabel = batchLabel || targetTitleBatch?.label || targetTitleBatch?.id || 'title set';
+        finishLoredeckCreatorGeneration(generation, 'success', `Drafted ${parsed.titleDrafts.length} ${successBatchLabel} title${parsed.titleDrafts.length === 1 ? '' : 's'}.`);
+        if (!options.suppressSuccessToast) toast(`Loredeck Creator drafted ${parsed.titleDrafts.length} ${successBatchLabel} title${parsed.titleDrafts.length === 1 ? '' : 's'} for review.`, 'success');
         return {
             status: 'drafted',
             draftCount: parsed.titleDrafts.length,
             batchId: titleCommit?.batchId || batchId,
-            batchLabel: titleCommit?.batchLabel || batchLabel,
+            batchLabel: titleCommit?.batchLabel || successBatchLabel,
             titleCommit,
         };
 }
