@@ -3370,6 +3370,7 @@ function createLoredeckLibraryInlineFolderRow(folder = {}, options = {}) {
     const selectFolder = () => {
         loredeckLibrarySelectedFolderId = folderId || 'all';
         loredeckLibrarySelectedFolderDetailsId = folderId || '';
+        setLoredeckLibraryBulkSelection([], '');
         renderLoredeckLibraryOverlay();
     };
     row.addEventListener('click', e => {
@@ -3656,14 +3657,15 @@ function createLoredeckLibraryTransferPane(selectedPack = null, filteredPacks = 
     const selectedId = selectedPack?.packId || '';
     const library = getLoredeckLibrary(getState());
     const actionFolderId = String(selectedFolder?.id || '').trim();
-    const actionFolder = actionFolderId && actionFolderId !== 'unfiled'
+    const hasSelectedFolderDetails = !!actionFolderId;
+    const actionFolder = actionFolderId && !isLoredeckLibrarySpecialFolderId(actionFolderId)
         ? (libraryIndex.folders || []).find(folder => folder.id === actionFolderId)
         : null;
     const resolvedStackIds = new Set(resolveLoredeckStackItems(stack, libraryIndex, {
         packs: getLoredeckLibraryPackMap(library),
     }).stack.map(item => item.packId).filter(Boolean));
-    const selectedIds = selectedPacks.map(pack => pack.packId).filter(Boolean);
-    const actionIds = selectedIds.length ? selectedIds : (selectedId ? [selectedId] : []);
+    const selectedIds = hasSelectedFolderDetails ? [] : selectedPacks.map(pack => pack.packId).filter(Boolean);
+    const actionIds = selectedIds.length ? selectedIds : (!hasSelectedFolderDetails && selectedId ? [selectedId] : []);
     const selectedStackItems = actionIds.filter(packId => resolvedStackIds.has(packId));
     const inactiveMatches = filteredPacks.filter(pack => !resolvedStackIds.has(pack.packId));
 
@@ -3705,8 +3707,8 @@ function createLoredeckLibraryTransferPane(selectedPack = null, filteredPacks = 
 
     const libraryActions = document.createElement('div');
     libraryActions.className = 'wandlight-loredeck-library-center-actions';
-    const selectedActionFolder = selectedPacks.length ? null : actionFolder;
-    const duplicateTargets = selectedPacks.length ? selectedPacks : (selectedActionFolder ? [] : (selectedPack ? [selectedPack] : []));
+    const selectedActionFolder = actionFolder && !isLoredeckLibrarySpecialFolderId(actionFolder.id) ? actionFolder : null;
+    const duplicateTargets = selectedIds.length ? selectedPacks.filter(pack => selectedIds.includes(pack.packId)) : (selectedActionFolder || hasSelectedFolderDetails ? [] : (selectedPack ? [selectedPack] : []));
     const duplicateTooltip = selectedActionFolder
         ? `Duplicate the ${selectedActionFolder.title || selectedActionFolder.id} folder, nested folders, and contained Loredecks as Custom copies.`
         : duplicateTargets.length > 1
@@ -3727,10 +3729,10 @@ function createLoredeckLibraryTransferPane(selectedPack = null, filteredPacks = 
     });
     duplicate.disabled = !selectedActionFolder && !duplicateTargets.length;
     libraryActions.appendChild(duplicate);
-    const deleteTargets = selectedPacks.length ? selectedPacks : (selectedActionFolder ? [] : (selectedPack ? [selectedPack] : []));
+    const deleteTargets = selectedIds.length ? selectedPacks.filter(pack => selectedIds.includes(pack.packId)) : (selectedActionFolder || hasSelectedFolderDetails ? [] : (selectedPack ? [selectedPack] : []));
     const deletableTargets = deleteTargets.filter(pack => !isBundledLoredeckLibraryPack(pack));
     const deleteTooltip = selectedActionFolder
-        ? `Delete the ${selectedActionFolder.title || selectedActionFolder.id} folder after choosing where its contents go.`
+        ? `Delete the ${selectedActionFolder.title || selectedActionFolder.id} folder container after choosing where its contents go. Contained Loredecks are preserved.`
         : deletableTargets.length
             ? `Delete ${deletableTargets.length} selected Custom Loredeck${deletableTargets.length === 1 ? '' : 's'} after confirmation.`
             : deleteTargets.length
