@@ -104,6 +104,18 @@ assert.equal(runningStage.label, 'Drafting Lorecard Batch');
 assert.equal(runningStage.tone, 'running');
 assert.equal(getLoredeckCreatorProjectNextAction(running).disabled, true);
 
+const reattachedRunningStage = getLoredeckCreatorProjectStageDescriptor({
+  ...titleJob,
+  currentStage: 'outline_drafting',
+}, {
+  activeGenerationByJobId: new Map([
+    [titleJob.jobId, { status: 'running', label: 'Drafting Story Outline' }],
+  ]),
+});
+assert.equal(reattachedRunningStage.id, 'outline_drafting');
+assert.equal(reattachedRunningStage.label, 'Drafting Story Outline');
+assert.equal(reattachedRunningStage.tone, 'running');
+
 const blocked = {
   jobId: 'creator_broken',
   fandom: 'Naruto',

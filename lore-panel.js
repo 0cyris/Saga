@@ -287,7 +287,8 @@ const CONTEXT_SOURCE_OPTIONS = Object.freeze([
 ]);
 
 const DEFAULT_ICONSET_ID = 'saga-hero';
-const LEGACY_ICONSET_ID = 'saga-gold';
+const MYSTIC_ICONSET_ID = 'saga-mystic';
+const RELAY_ICONSET_ID = 'saga-relay';
 
 const THEMEPACK_PRESETS = Object.freeze([
     {
@@ -677,6 +678,8 @@ let loredeckCreatorProjectSelectedIds = new Set();
 let loredeckCreatorWorkbenchRefreshQueued = false;
 let loredeckCreatorGenerationTicker = null;
 const loredeckCreatorGenerationControllers = new Map();
+const loredeckCreatorLiveGenerationsByJobId = new Map();
+const loredeckCreatorLiveGenerationJobs = new Map();
 
 const CATEGORY_LABELS = {
     all: 'All',
@@ -726,13 +729,13 @@ const TAB_ICONS = {
 };
 
 const TAB_ICON_PATHS = {
-    loredecks: './Images/iconsets/saga-hero/saga-tab-loredecks-256.png',
-    session: './Images/iconsets/saga-hero/saga-tab-session-256.png',
-    context: './Images/iconsets/saga-hero/saga-tab-context-256.png',
-    continuity: './Images/iconsets/saga-hero/saga-tab-continuity-256.png',
-    lore: './Images/iconsets/saga-hero/saga-tab-lorecards-256.png',
-    injection: './Images/iconsets/saga-hero/saga-tab-injection-256.png',
-    settings: './Images/iconsets/saga-hero/saga-tab-settings-256.png',
+    loredecks: './Images/iconsets/saga-hero/hero-tab-loredecks-256.png',
+    session: './Images/iconsets/saga-hero/hero-tab-session-256.png',
+    context: './Images/iconsets/saga-hero/hero-tab-context-256.png',
+    continuity: './Images/iconsets/saga-hero/hero-tab-continuity-256.png',
+    lore: './Images/iconsets/saga-hero/hero-tab-lorecards-256.png',
+    injection: './Images/iconsets/saga-hero/hero-tab-injection-256.png',
+    settings: './Images/iconsets/saga-hero/hero-tab-settings-256.png',
 };
 
 const BRAND_LOGO_PATHS = {
@@ -767,13 +770,13 @@ const BUNDLED_ICONSET_PRESETS = Object.freeze([
         version: '1.0.0',
         preferredSize: 256,
         icons: {
-            'tab.loredecks': './Images/iconsets/saga-hero/saga-tab-loredecks-256.png',
-            'tab.session': './Images/iconsets/saga-hero/saga-tab-session-256.png',
-            'tab.context': './Images/iconsets/saga-hero/saga-tab-context-256.png',
-            'tab.continuity': './Images/iconsets/saga-hero/saga-tab-continuity-256.png',
-            'tab.lore': './Images/iconsets/saga-hero/saga-tab-lorecards-256.png',
-            'tab.injection': './Images/iconsets/saga-hero/saga-tab-injection-256.png',
-            'tab.settings': './Images/iconsets/saga-hero/saga-tab-settings-256.png',
+            'tab.loredecks': './Images/iconsets/saga-hero/hero-tab-loredecks-256.png',
+            'tab.session': './Images/iconsets/saga-hero/hero-tab-session-256.png',
+            'tab.context': './Images/iconsets/saga-hero/hero-tab-context-256.png',
+            'tab.continuity': './Images/iconsets/saga-hero/hero-tab-continuity-256.png',
+            'tab.lore': './Images/iconsets/saga-hero/hero-tab-lorecards-256.png',
+            'tab.injection': './Images/iconsets/saga-hero/hero-tab-injection-256.png',
+            'tab.settings': './Images/iconsets/saga-hero/hero-tab-settings-256.png',
             'brand.compact': BRAND_LOGO_PATHS.compact,
             'brand.expanded': BRAND_LOGO_PATHS.expanded,
         },
@@ -781,25 +784,47 @@ const BUNDLED_ICONSET_PRESETS = Object.freeze([
     },
     {
         schemaVersion: ICONSET_SCHEMA_VERSION,
-        id: LEGACY_ICONSET_ID,
+        id: MYSTIC_ICONSET_ID,
         type: 'bundled',
-        title: 'Saga Gold',
-        description: 'Golden Saga runtime shelf icons for Loredecks, Lorecards, session tools, and settings.',
+        title: 'Saga Mystic',
+        description: 'Fantasy Saga runtime shelf icons with arcane, gilded, storybook tab emblems.',
         author: 'Saga',
-        version: '1.1.0',
+        version: '1.0.0',
         preferredSize: 256,
         icons: {
-            'tab.loredecks': './Images/iconsets/saga-gold/256/loredecks.png',
-            'tab.session': './Images/iconsets/saga-gold/256/session.png',
-            'tab.context': './Images/iconsets/saga-gold/256/context.png',
-            'tab.continuity': './Images/iconsets/saga-gold/256/continuity.png',
-            'tab.lore': './Images/iconsets/saga-gold/256/lorecards.png',
-            'tab.injection': './Images/iconsets/saga-gold/256/injection.png',
-            'tab.settings': './Images/iconsets/saga-gold/256/settings.png',
+            'tab.loredecks': './Images/iconsets/saga-mystic/mystic-tab-loredecks-256.png',
+            'tab.session': './Images/iconsets/saga-mystic/mystic-tab-session-256.png',
+            'tab.context': './Images/iconsets/saga-mystic/mystic-tab-context-256.png',
+            'tab.continuity': './Images/iconsets/saga-mystic/mystic-tab-continuity-256.png',
+            'tab.lore': './Images/iconsets/saga-mystic/mystic-tab-lorecards-256.png',
+            'tab.injection': './Images/iconsets/saga-mystic/mystic-tab-injection-256.png',
+            'tab.settings': './Images/iconsets/saga-mystic/mystic-tab-settings-256.png',
             'brand.compact': BRAND_LOGO_PATHS.compact,
             'brand.expanded': BRAND_LOGO_PATHS.expanded,
         },
-        tags: ['iconset:runtime', 'style:saga-gold', 'quality:bundled'],
+        tags: ['iconset:runtime', 'style:saga-mystic', 'genre:fantasy', 'quality:bundled'],
+    },
+    {
+        schemaVersion: ICONSET_SCHEMA_VERSION,
+        id: RELAY_ICONSET_ID,
+        type: 'bundled',
+        title: 'Saga Relay',
+        description: 'Sci-fi Saga runtime shelf icons with signal, console, and starship-interface tab emblems.',
+        author: 'Saga',
+        version: '1.0.0',
+        preferredSize: 256,
+        icons: {
+            'tab.loredecks': './Images/iconsets/saga-relay/relay-tab-loredecks-256.png',
+            'tab.session': './Images/iconsets/saga-relay/relay-tab-session-256.png',
+            'tab.context': './Images/iconsets/saga-relay/relay-tab-context-256.png',
+            'tab.continuity': './Images/iconsets/saga-relay/relay-tab-continuity-256.png',
+            'tab.lore': './Images/iconsets/saga-relay/relay-tab-lorecards-256.png',
+            'tab.injection': './Images/iconsets/saga-relay/relay-tab-injection-256.png',
+            'tab.settings': './Images/iconsets/saga-relay/relay-tab-settings-256.png',
+            'brand.compact': BRAND_LOGO_PATHS.compact,
+            'brand.expanded': BRAND_LOGO_PATHS.expanded,
+        },
+        tags: ['iconset:runtime', 'style:saga-relay', 'genre:sci-fi', 'quality:bundled'],
     },
 ]);
 
@@ -2302,6 +2327,7 @@ function getLoredeckCreatorProjectShelfModels(state = getState()) {
     const models = buildLoredeckCreatorProjectCardModels(registry, {
         packsById,
         readinessByPackId,
+        activeGenerationByJobId: getLoredeckCreatorActiveGenerationByJobIdMap(),
     });
     return models.map(model => {
         const pack = model.generatedPackId ? packsById[model.generatedPackId] : null;
@@ -2921,7 +2947,7 @@ function openLoredeckCreatorProject(jobId = '') {
         toast(result.error || 'Creator project could not be opened.', 'error');
         return false;
     }
-    const job = result.job;
+    const job = attachLoredeckCreatorLiveGeneration(result.job);
     loredeckCreatorBriefCache.set('current', job);
     loredeckCreatorFandom = job.fandom || job.brief?.fandom || '';
     loredeckCreatorScope = job.scope || job.brief?.scope || '';
@@ -7270,13 +7296,89 @@ function isLoredeckCreatorAbortError(error) {
     return error?.name === 'AbortError' || /aborted|cancelled|canceled/i.test(String(error?.message || error || ''));
 }
 
+function getLoredeckCreatorJobId(job = {}) {
+    return String(job?.jobId || job?.id || '').trim();
+}
+
+function getLoredeckCreatorGenerationJobId(generation = null) {
+    if (!generation?.id) return '';
+    return String(generation.jobId || loredeckCreatorLiveGenerationJobs.get(generation.id) || '').trim();
+}
+
+function rememberLoredeckCreatorLiveGeneration(jobId = '', generation = null) {
+    const id = String(jobId || '').trim();
+    if (!id || !generation?.id || generation.status !== 'running') return generation;
+    const live = {
+        ...generation,
+        jobId: id,
+    };
+    loredeckCreatorLiveGenerationsByJobId.set(id, live);
+    loredeckCreatorLiveGenerationJobs.set(live.id, id);
+    return live;
+}
+
+function forgetLoredeckCreatorLiveGeneration(generationOrId = '') {
+    const generationId = typeof generationOrId === 'string'
+        ? String(generationOrId || '').trim()
+        : String(generationOrId?.id || '').trim();
+    const jobId = String(
+        (typeof generationOrId === 'object' && generationOrId ? generationOrId.jobId : '')
+        || loredeckCreatorLiveGenerationJobs.get(generationId)
+        || ''
+    ).trim();
+    if (jobId) {
+        const live = loredeckCreatorLiveGenerationsByJobId.get(jobId);
+        if (!generationId || live?.id === generationId) loredeckCreatorLiveGenerationsByJobId.delete(jobId);
+    }
+    if (generationId) loredeckCreatorLiveGenerationJobs.delete(generationId);
+}
+
+function getLoredeckCreatorLiveGenerationForJob(jobOrId = '') {
+    const jobId = typeof jobOrId === 'string' ? String(jobOrId || '').trim() : getLoredeckCreatorJobId(jobOrId);
+    if (!jobId) return null;
+    const live = loredeckCreatorLiveGenerationsByJobId.get(jobId);
+    if (!live || live.status !== 'running') return null;
+    return live;
+}
+
+function getLoredeckCreatorActiveGenerationByJobIdMap() {
+    const active = new Map();
+    for (const [jobId, generation] of loredeckCreatorLiveGenerationsByJobId.entries()) {
+        if (generation?.status === 'running') active.set(jobId, generation);
+    }
+    return active;
+}
+
+function getAnyActiveLoredeckCreatorLiveGeneration() {
+    for (const generation of getLoredeckCreatorActiveGenerationByJobIdMap().values()) {
+        if (generation?.status === 'running') return generation;
+    }
+    return null;
+}
+
+function attachLoredeckCreatorLiveGeneration(job = {}) {
+    if (!job || typeof job !== 'object' || Array.isArray(job)) return job || {};
+    const live = getLoredeckCreatorLiveGenerationForJob(job);
+    if (!live) return job;
+    return {
+        ...job,
+        activeGeneration: live,
+        status: 'running',
+    };
+}
+
 function getActiveLoredeckCreatorGeneration(job = getLoredeckCreatorBriefCache()) {
-    const active = job?.activeGeneration;
+    const active = getLoredeckCreatorLiveGenerationForJob(job) || job?.activeGeneration;
     return active && active.status === 'running' ? active : null;
 }
 
 function isLoredeckCreatorGenerationCurrent(generation = null) {
     if (!generation?.id) return false;
+    const jobId = getLoredeckCreatorGenerationJobId(generation);
+    if (jobId) {
+        const live = getLoredeckCreatorLiveGenerationForJob(jobId);
+        if (live?.id === generation.id) return true;
+    }
     const active = getActiveLoredeckCreatorGeneration();
     return !!active && active.id === generation.id;
 }
@@ -7286,6 +7388,7 @@ function ignoreStaleLoredeckCreatorGeneration(generation = null, context = 'Crea
     if (generation?.id) {
         console.info(`[Saga] Ignored stale ${context} result: ${generation.id}`);
         loredeckCreatorGenerationControllers.delete(generation.id);
+        forgetLoredeckCreatorLiveGeneration(generation);
     }
     return true;
 }
@@ -7315,7 +7418,7 @@ function startLoredeckCreatorGenerationTicker(generationId = '') {
 function startLoredeckCreatorGeneration(actionId = '', label = '', jobPatch = {}, details = {}) {
     const now = Date.now();
     const current = getLoredeckCreatorBriefCache();
-    const active = getActiveLoredeckCreatorGeneration(current);
+    const active = getActiveLoredeckCreatorGeneration(current) || getAnyActiveLoredeckCreatorLiveGeneration();
     if (active) {
         toast(`${active.label || 'Creator generation'} is still running. Cancel it or wait for it to finish before starting another generation.`, 'warning');
         queueLoredeckCreatorWorkbenchRefresh();
@@ -7352,6 +7455,17 @@ function startLoredeckCreatorGeneration(actionId = '', label = '', jobPatch = {}
         lastAction: actionId || jobPatch.lastAction || current.lastAction || '',
         lastStartedAt: now,
     }, { refreshWorkbench: true });
+    if (job?.jobId) {
+        const live = rememberLoredeckCreatorLiveGeneration(job.jobId, {
+            ...generation,
+            currentStage: job.currentStage || jobPatch.currentStage || current.currentStage || '',
+        });
+        if (live && live !== generation) Object.assign(generation, live);
+        loredeckCreatorBriefCache.set('current', {
+            ...getLoredeckCreatorBriefCache(),
+            activeGeneration: live || generation,
+        });
+    }
     startLoredeckCreatorGenerationTicker(generation.id);
     return { generation, job };
 }
@@ -7416,6 +7530,7 @@ function finishLoredeckCreatorGeneration(generation = null, status = 'success', 
     }
     stopLoredeckCreatorGenerationTicker();
     loredeckCreatorGenerationControllers.delete(generation.id);
+    forgetLoredeckCreatorLiveGeneration(generation);
     const now = Date.now();
     const result = {
         id: generation.id,
@@ -7451,6 +7566,7 @@ function cancelLoredeckCreatorGeneration(generationId = '') {
     }
     stopLoredeckCreatorGenerationTicker();
     loredeckCreatorGenerationControllers.delete(active.id);
+    forgetLoredeckCreatorLiveGeneration(active);
     const now = Date.now();
     const restoredStage = inferLoredeckCreatorUiStage({
         ...cached,
@@ -7546,12 +7662,6 @@ function createLoredeckCreatorGenerationStatus(cached = {}, actionIds = [], opti
     meta.textContent = `${streamText}${chars ? ` | ${chars} chars` : ''}${model.batchLabel ? ` | ${model.batchLabel}` : ''}`;
     main.appendChild(meta);
 
-    if (model.snippet) {
-        const snippet = document.createElement('pre');
-        snippet.className = 'wandlight-generation-live-snippet';
-        snippet.textContent = model.snippet;
-        main.appendChild(snippet);
-    }
     row.appendChild(main);
     return row;
 }
@@ -8333,17 +8443,20 @@ function createLoredeckCreatorCard(state = getState(), options = {}) {
 function getLoredeckCreatorBriefCache() {
     const stateJob = getActiveLoredeckCreatorJob(getState());
     const localJob = loredeckCreatorBriefCache.get('current') || {};
-    if (!stateJob) return localJob || {};
-    if (localJob?.jobId && stateJob?.jobId && localJob.jobId !== stateJob.jobId) return stateJob;
-    return {
+    if (!stateJob) return attachLoredeckCreatorLiveGeneration(localJob || {});
+    if (localJob?.jobId && stateJob?.jobId && localJob.jobId !== stateJob.jobId) {
+        return attachLoredeckCreatorLiveGeneration(stateJob);
+    }
+    return attachLoredeckCreatorLiveGeneration({
         ...stateJob,
         ...(localJob?.activeGeneration ? { activeGeneration: localJob.activeGeneration } : {}),
         ...(localJob?.lastGenerationResult ? { lastGenerationResult: localJob.lastGenerationResult } : {}),
-    };
+    });
 }
 
 function setLoredeckCreatorBriefCache(next = {}, options = {}) {
     const current = getLoredeckCreatorBriefCache();
+    const hasActiveGenerationPatch = Object.prototype.hasOwnProperty.call(next || {}, 'activeGeneration');
     const normalized = {
         ...(current || {}),
         ...(next || {}),
@@ -8352,9 +8465,19 @@ function setLoredeckCreatorBriefCache(next = {}, options = {}) {
     normalized.currentStage = inferLoredeckCreatorUiStage(normalized);
     const result = upsertLoredeckCreatorJob(normalized, { syncPrompt: false });
     if (result.ok) {
+        const active = normalized.activeGeneration?.status === 'running'
+            ? rememberLoredeckCreatorLiveGeneration(result.job.jobId, {
+                ...normalized.activeGeneration,
+                currentStage: normalized.currentStage || normalized.activeGeneration.currentStage || result.job.currentStage || '',
+            })
+            : null;
+        if (!active && hasActiveGenerationPatch && normalized.activeGeneration === null) {
+            const previousActive = current?.activeGeneration;
+            forgetLoredeckCreatorLiveGeneration(previousActive || { jobId: result.job.jobId });
+        }
         const localJob = {
             ...result.job,
-            ...(normalized.activeGeneration ? { activeGeneration: normalized.activeGeneration } : {}),
+            ...(active ? { activeGeneration: active } : {}),
             ...(normalized.lastGenerationResult ? { lastGenerationResult: normalized.lastGenerationResult } : {}),
         };
         loredeckCreatorBriefCache.set('current', localJob);
@@ -8362,9 +8485,12 @@ function setLoredeckCreatorBriefCache(next = {}, options = {}) {
         return localJob;
     }
     console.warn('[Saga] Loredeck Creator job persistence failed:', result.error);
+    const active = normalized.activeGeneration?.status === 'running'
+        ? rememberLoredeckCreatorLiveGeneration(normalized.jobId || current?.jobId || '', normalized.activeGeneration)
+        : null;
     loredeckCreatorBriefCache.set('current', normalized);
     if (normalized.status !== 'running' || options.refreshWorkbench) queueLoredeckCreatorWorkbenchRefresh();
-    return normalized;
+    return active ? { ...normalized, activeGeneration: active } : normalized;
 }
 
 function clearLoredeckCreatorBrief() {
@@ -8375,6 +8501,7 @@ function clearLoredeckCreatorBrief() {
             loredeckCreatorGenerationControllers.get(active.id)?.abort?.();
         } catch (_) {}
         loredeckCreatorGenerationControllers.delete(active.id);
+        forgetLoredeckCreatorLiveGeneration(active);
         stopLoredeckCreatorGenerationTicker();
     }
     if (cached.jobId) clearLoredeckCreatorJob(cached.jobId, { syncPrompt: false });
@@ -8497,6 +8624,21 @@ function isLoredeckCreatorBriefRetryableError(error) {
     return /response token limit|hit the response token limit|max[_ -]?token|length|truncated|reasoning-only|empty visible content/.test(message);
 }
 
+function markLoredeckCreatorOutlineFailed(error, fallbackMessage = 'Loredeck Creator outline response could not be parsed.') {
+    const current = getLoredeckCreatorBriefCache();
+    const message = String(error?.message || fallbackMessage || 'Loredeck Creator outline failed.').trim();
+    setLoredeckCreatorBriefCache({
+        ...(current || {}),
+        outlineApproved: false,
+        status: current?.approved ? 'approved' : 'draft',
+        errors: [
+            ...((current?.errors || []).slice(-20)),
+            message || fallbackMessage,
+        ],
+        lastFailedAt: Date.now(),
+    });
+}
+
 function markLoredeckCreatorActionFailed(error, fallbackMessage = 'Loredeck Creator action failed.') {
     const current = getLoredeckCreatorBriefCache();
     const message = String(error?.message || fallbackMessage || 'Loredeck Creator action failed.').trim();
@@ -8581,6 +8723,83 @@ Convert the malformed or overlong response into the compact scope-brief contract
         });
     }
     return await sendLoreRequest(systemPrompt, userPrompt, { providerKind: 'lore', maxTokens: 1024, expectedOutput: 'json', ...requestOptionsOverride });
+}
+
+async function requestLoredeckCreatorOutlineResponse(context = {}, requestOptionsOverride = {}) {
+    const systemPrompt = buildLoredeckCreatorOutlineSystemPrompt();
+    const userPrompt = buildLoredeckCreatorOutlineUserPrompt(context);
+    const requestOptions = { providerKind: 'lore', maxTokens: 4096, expectedOutput: 'json', ...requestOptionsOverride };
+    try {
+        return await sendLoreRequest(systemPrompt, userPrompt, requestOptions);
+    } catch (error) {
+        if (!isLoredeckCreatorBriefRetryableError(error)) throw error;
+        if (typeof requestOptions.onProgress === 'function') {
+            requestOptions.onProgress({
+                type: 'phase',
+                phase: 'retry',
+                message: 'Retrying compact Story Outline after oversized or empty response...',
+                streamSupported: requestOptions.stream === true,
+            });
+        }
+        const retrySystemPrompt = `${systemPrompt}
+
+RETRY MODE:
+- The previous attempt failed before a usable visible JSON object was returned.
+- Return only the compact Story Outline JSON object from the schema.
+- Use at most 8 beats, 8 Context milestones, and 5 titleBatches.
+- Keep each summary/contextRole under 18 words.
+- Do not include prose outside JSON.`;
+        const retryUserPrompt = `${userPrompt}
+
+Return the compact Story Outline now. If the approved Scope Brief is still too broad, return clarifyingQuestions with "outline": null.`;
+        return await sendLoreRequest(retrySystemPrompt, retryUserPrompt, requestOptions);
+    }
+}
+
+async function repairLoredeckCreatorOutlineResponse(responseText = '', context = {}, requestOptionsOverride = {}) {
+    const systemPrompt = `You repair Saga Loredeck Creator Story Outline output.
+
+Return JSON only. Do not include markdown.
+
+Convert the malformed, partial, or overlong response into the compact Story Outline contract. Preserve only reviewable story beats, Context milestones, title-batch slices, assumptions, risks, and warnings. Do not generate Lorecards, Lorecard titles, tag registries, timeline registry records, facts, or injection text. If there is not enough usable information, ask 1-3 clarifyingQuestions and set outline null.`;
+    const userPrompt = JSON.stringify({
+        sourceInputs: {
+            approvedBrief: context.brief || null,
+            notes: truncateText(context.notes || '', 700),
+            revisionInstruction: truncateText(context.revisionInstruction || '', 700),
+            previousOutline: context.previousOutline || null,
+        },
+        expectedShape: {
+            summary: 'one sentence',
+            clarifyingQuestions: [],
+            warnings: [],
+            outline: {
+                label: 'string',
+                coverageSummary: 'under 70 words',
+                beats: [{ id: 'machine-safe-id', label: 'string', type: 'beat', order: 10, summary: 'short sentence', contextRole: 'short sentence', titleTargets: [] }],
+                contextMilestones: [{ id: 'machine-safe-id', label: 'string', type: 'before_after', order: 10, summary: 'short sentence', contextRole: 'short sentence' }],
+                titleBatches: [{ id: 'machine-safe-id', label: 'string', type: 'title_batch', order: 10, summary: 'short sentence' }],
+                assumptions: [],
+                risks: [],
+            },
+        },
+        limits: {
+            beats: 8,
+            contextMilestones: 8,
+            titleBatches: 5,
+            maxVisibleJsonTokens: 1600,
+        },
+        malformedResponse: truncateText(responseText, 7000),
+    });
+    if (typeof requestOptionsOverride.onProgress === 'function') {
+        requestOptionsOverride.onProgress({
+            type: 'phase',
+            phase: 'repairing',
+            message: 'Repairing malformed Story Outline into compact Creator JSON...',
+            streamSupported: requestOptionsOverride.stream === true,
+        });
+    }
+    return await sendLoreRequest(systemPrompt, userPrompt, { providerKind: 'lore', maxTokens: 2048, expectedOutput: 'json', ...requestOptionsOverride });
 }
 
 async function handleLoredeckCreatorBriefDraft(options = {}, button = null) {
@@ -8900,34 +9119,17 @@ async function handleLoredeckCreatorOutlineDraft(options = {}, button = null) {
         );
         if (!generation) return;
         let responseText = '';
+        const requestContext = {
+            brief,
+            notes: options.notes || cached.notes || loredeckCreatorNotes,
+            previousOutline: options.previousOutline || cached.outline || null,
+            revisionInstruction,
+        };
         try {
-            responseText = await sendLoreRequest(
-                buildLoredeckCreatorOutlineSystemPrompt(),
-                buildLoredeckCreatorOutlineUserPrompt({
-                    brief,
-                    notes: options.notes || cached.notes || loredeckCreatorNotes,
-                    previousOutline: options.previousOutline || cached.outline || null,
-                    revisionInstruction,
-                }),
-                {
-                    providerKind: 'lore',
-                    maxTokens: 2048,
-                    expectedOutput: 'json',
-                    ...createLoredeckCreatorRequestOptions(generation),
-                }
-            );
+            responseText = await requestLoredeckCreatorOutlineResponse(requestContext, createLoredeckCreatorRequestOptions(generation));
         } catch (e) {
             if (isLoredeckCreatorAbortError(e) || ignoreStaleLoredeckCreatorGeneration(generation, 'story outline')) return;
-            setLoredeckCreatorBriefCache({
-                ...getLoredeckCreatorBriefCache(),
-                status: 'blocked',
-                currentStage: 'blocked',
-                errors: [
-                    ...((getLoredeckCreatorBriefCache().errors || []).slice(-20)),
-                    e?.message || 'Loredeck Creator outline draft failed.',
-                ],
-                lastFailedAt: Date.now(),
-            });
+            markLoredeckCreatorOutlineFailed(e, 'Loredeck Creator outline draft failed.');
             finishLoredeckCreatorGeneration(generation, 'error', e?.message || 'Story Outline generation failed.');
             throw e;
         }
@@ -8936,10 +9138,46 @@ async function handleLoredeckCreatorOutlineDraft(options = {}, button = null) {
         try {
             parsed = parseLoredeckCreatorOutlineResponse(responseText);
         } catch (parseError) {
-            if (ignoreStaleLoredeckCreatorGeneration(generation, 'story outline parse')) return;
-            markLoredeckCreatorActionFailed(parseError, 'Loredeck Creator outline response could not be parsed.');
-            finishLoredeckCreatorGeneration(generation, 'error', parseError?.message || 'Story Outline response could not be parsed.');
-            throw parseError;
+            try {
+                const repairedText = await repairLoredeckCreatorOutlineResponse(responseText, requestContext, createLoredeckCreatorRequestOptions(generation));
+                if (ignoreStaleLoredeckCreatorGeneration(generation, 'story outline repair')) return;
+                const repaired = parseLoredeckCreatorOutlineResponse(repairedText);
+                if (repaired.outline || repaired.clarifyingQuestions.length) {
+                    parsed = {
+                        ...repaired,
+                        warnings: [
+                            ...((repaired.warnings || [])),
+                            'Creator Story Outline response was normalized into Saga outline format.',
+                        ],
+                    };
+                }
+            } catch (repairError) {
+                console.warn('[Saga] Loredeck Creator outline repair failed:', repairError);
+            }
+            if (!parsed) {
+                if (ignoreStaleLoredeckCreatorGeneration(generation, 'story outline parse')) return;
+                markLoredeckCreatorOutlineFailed(parseError, 'Loredeck Creator outline response could not be parsed.');
+                finishLoredeckCreatorGeneration(generation, 'error', parseError?.message || 'Story Outline response could not be parsed.');
+                throw parseError;
+            }
+        }
+        if (!parsed.outline && !parsed.clarifyingQuestions.length && String(responseText || '').trim()) {
+            try {
+                const repairedText = await repairLoredeckCreatorOutlineResponse(responseText, requestContext, createLoredeckCreatorRequestOptions(generation));
+                if (ignoreStaleLoredeckCreatorGeneration(generation, 'story outline repair')) return;
+                const repaired = parseLoredeckCreatorOutlineResponse(repairedText);
+                if (repaired.outline || repaired.clarifyingQuestions.length) {
+                    parsed = {
+                        ...repaired,
+                        warnings: [
+                            ...((repaired.warnings || [])),
+                            'Creator Story Outline response was normalized into Saga outline format.',
+                        ],
+                    };
+                }
+            } catch (repairError) {
+                console.warn('[Saga] Loredeck Creator outline repair failed:', repairError);
+            }
         }
         if (ignoreStaleLoredeckCreatorGeneration(generation, 'story outline commit')) return;
         if (parsed.clarifyingQuestions.length && !parsed.outline) {

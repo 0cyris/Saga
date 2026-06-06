@@ -86,9 +86,14 @@ themes/
 iconsets/
   saga-hero/
     icons.json
-    saga-tab-loredecks-256.png
-    saga-tab-lorecards-256.png
-  saga-gold/
+    hero-tab-loredecks-256.png
+    hero-tab-lorecards-256.png
+  saga-mystic/
+    icons.json
+    mystic-tab-loredecks-256.png
+  saga-relay/
+    icons.json
+    relay-tab-loredecks-256.png
     icons.json
     256/
       loredecks.png

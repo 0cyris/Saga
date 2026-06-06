@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "type": "saga_iconset",
+  "id": "saga-mystic",
+  "title": "Saga Mystic",
+  "description": "Fantasy Saga runtime shelf icons with arcane, gilded, storybook tab emblems.",
+  "author": "Saga",
+  "version": "1.0.0",
+  "preferredSize": 256,
+  "icons": {
+    "tab.loredecks": "mystic-tab-loredecks-256.png",
+    "tab.session": "mystic-tab-session-256.png",
+    "tab.context": "mystic-tab-context-256.png",
+    "tab.continuity": "mystic-tab-continuity-256.png",
+    "tab.lore": "mystic-tab-lorecards-256.png",
+    "tab.injection": "mystic-tab-injection-256.png",
+    "tab.settings": "mystic-tab-settings-256.png"
+  },
+  "variants": {
+    "64": "mystic-tab-{target}-64.png",
+    "128": "mystic-tab-{target}-128.png",
+    "256": "mystic-tab-{target}-256.png",
+    "512": "mystic-tab-{target}-512.png"
+  },
+  "tags": [
+    "iconset:runtime",
+    "style:saga-mystic",
+    "genre:fantasy",
+    "quality:bundled"
+  ]
+}

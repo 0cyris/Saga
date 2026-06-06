@@ -6,12 +6,15 @@ import {
   buildLoredeckCreatorBriefUserPrompt,
   buildLoredeckCreatorTitleSystemPrompt,
   buildLoredeckCreatorTitleUserPrompt,
+  buildLoredeckCreatorOutlineSystemPrompt,
+  buildLoredeckCreatorOutlineUserPrompt,
   buildLoredeckCreatorPlanningSystemPrompt,
   buildLoredeckCreatorPlanningUserPrompt,
   buildLoredeckCreatorEntrySystemPrompt,
   buildLoredeckCreatorEntryUserPrompt,
   parseLoredeckAssistantResponse,
   parseLoredeckCreatorBriefResponse,
+  parseLoredeckCreatorOutlineResponse,
   parseLoredeckCreatorTitleResponse,
 } from '../loredeck-assistant.js';
 
@@ -149,6 +152,66 @@ const creatorUserJson = JSON.parse(creatorUserPrompt);
 assert.equal(creatorUserJson.fandom, 'One Piece');
 assert.equal(creatorUserJson.constraints.entryCountMustBeDerived, true);
 assert.equal(creatorUserJson.previousBrief.packId, 'one-piece-arlong-park');
+
+const creatorOutline = parseLoredeckCreatorOutlineResponse(`{
+  "summary": "Arlong Park outline drafted.",
+  "clarifyingQuestions": [],
+  "warnings": [],
+  "outline": {
+    "label": "Arlong Park Arc outline",
+    "coverageSummary": "Nami's coercion, Arlong's regime, the Straw Hats' commitment, and Cocoyashi's liberation.",
+    "beats": [
+      {
+        "id": "nami-asks-for-help",
+        "label": "Nami asks Luffy for help",
+        "type": "emotional_pivot",
+        "order": 50,
+        "summary": "Nami breaks under Arlong's betrayal and asks Luffy to help.",
+        "contextRole": "Boundary between Nami alone and crew committed.",
+        "titleTargets": ["Nami coercion", "Luffy promise"]
+      }
+    ],
+    "contextMilestones": [
+      {
+        "id": "after-broken-deal",
+        "label": "After Arlong's betrayal",
+        "type": "before_after",
+        "order": 40,
+        "summary": "Nami's savings are confiscated and her bargain collapses.",
+        "contextRole": "Useful for despair, rage, or rescue scenes."
+      }
+    ],
+    "titleBatches": [
+      {
+        "id": "characters-pressure",
+        "label": "Characters and pressure",
+        "type": "title_batch",
+        "order": 10,
+        "summary": "Future title slice for coercion, loyalties, and obligations."
+      }
+    ],
+    "assumptions": ["Broad manga/anime canon blend."],
+    "risks": ["Avoid leaking later crew history."]
+  }
+}`);
+assert.equal(creatorOutline.outline.beats.length, 1);
+assert.equal(creatorOutline.outline.contextMilestones[0].id, 'after-broken-deal');
+assert.equal(creatorOutline.outline.titleBatches[0].id, 'characters-pressure');
+
+assert.throws(
+  () => parseLoredeckCreatorOutlineResponse('{"summary":"Cut off","outline":{"label":"Arlong","beats":[{"id":"nami"'),
+  /truncated JSON/,
+);
+
+const creatorOutlineSystemPrompt = buildLoredeckCreatorOutlineSystemPrompt();
+assert.ok(creatorOutlineSystemPrompt.includes('Aim for under 1600 visible JSON tokens'));
+const creatorOutlineUserPrompt = buildLoredeckCreatorOutlineUserPrompt({
+  brief: creatorBrief.brief,
+  notes: 'Keep the outline compact.',
+});
+const creatorOutlineUserJson = JSON.parse(creatorOutlineUserPrompt);
+assert.equal(creatorOutlineUserJson.approvedBrief.packId, 'one-piece-arlong-park');
+assert.equal(creatorOutlineUserJson.constraints.compactJson, true);
 
 const creatorTitlePass = parseLoredeckCreatorTitleResponse(`{
   "summary": "Drafted character pressure titles.",

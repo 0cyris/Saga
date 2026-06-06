@@ -170,13 +170,13 @@ Icon Sets should also be pure data. Theme Packs select an Icon Set with `iconPac
   "description": "Heroic Saga runtime shelf icons.",
   "preferredSize": 256,
   "icons": {
-    "tab.loredecks": "./Images/iconsets/saga-hero/saga-tab-loredecks-256.png",
-    "tab.session": "./Images/iconsets/saga-hero/saga-tab-session-256.png",
-    "tab.context": "./Images/iconsets/saga-hero/saga-tab-context-256.png",
-    "tab.continuity": "./Images/iconsets/saga-hero/saga-tab-continuity-256.png",
-    "tab.lore": "./Images/iconsets/saga-hero/saga-tab-lorecards-256.png",
-    "tab.injection": "./Images/iconsets/saga-hero/saga-tab-injection-256.png",
-    "tab.settings": "./Images/iconsets/saga-hero/saga-tab-settings-256.png"
+    "tab.loredecks": "./Images/iconsets/saga-hero/hero-tab-loredecks-256.png",
+    "tab.session": "./Images/iconsets/saga-hero/hero-tab-session-256.png",
+    "tab.context": "./Images/iconsets/saga-hero/hero-tab-context-256.png",
+    "tab.continuity": "./Images/iconsets/saga-hero/hero-tab-continuity-256.png",
+    "tab.lore": "./Images/iconsets/saga-hero/hero-tab-lorecards-256.png",
+    "tab.injection": "./Images/iconsets/saga-hero/hero-tab-injection-256.png",
+    "tab.settings": "./Images/iconsets/saga-hero/hero-tab-settings-256.png"
   }
 }
 ```
@@ -192,7 +192,7 @@ Reasonable first-wave color tokens:
 
 Icon mappings are keyed by UI target, such as `brand.compact`, `brand.expanded`, `tab.loredecks`, `tab.context`, or `tab.settings`. Values must be passive image paths, data image URLs, or fetchable image URLs. They do not grant code execution.
 
-Imported Icon Sets should eventually live in their own registry instead of being smuggled through Theme Pack overrides. The current bundled foundation uses `saga-hero` as the bundled default Icon Set, keeps `saga-gold` as a bundled selectable fallback, and exposes a Settings selector for swapping bundled icon libraries without changing theme colors. Custom Icon Set storage should come with the zip/folder bundle importer.
+Imported Icon Sets should eventually live in their own registry instead of being smuggled through Theme Pack overrides. The current bundled foundation uses `saga-hero` as the bundled default Icon Set, and ships `saga-mystic` and `saga-relay` as bundled selectable alternatives for fantasy and sci-fi styling. Custom Icon Set storage should come with the zip/folder bundle importer.
 
 Installed Custom Theme Packs should be importable from a single Theme Pack JSON file or a Theme Pack Library JSON file. Custom imports must not overwrite Bundled Theme Pack IDs.
 

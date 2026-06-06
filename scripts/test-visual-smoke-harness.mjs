@@ -12,10 +12,12 @@ const creatorProjectsPath = path.join(root, 'loredeck-creator-projects.js');
 const stateManagerPath = path.join(root, 'state-manager.js');
 const stylePath = path.join(root, 'style.css');
 const settingsTemplatePath = path.join(root, 'settings.html');
-const sagaHeroIconPath = path.join(root, 'Images', 'iconsets', 'saga-hero', 'saga-tab-loredecks-256.png');
+const sagaHeroIconPath = path.join(root, 'Images', 'iconsets', 'saga-hero', 'hero-tab-loredecks-256.png');
 const sagaHeroManifestPath = path.join(root, 'Images', 'iconsets', 'saga-hero', 'icons.json');
-const sagaGoldIconPath = path.join(root, 'Images', 'iconsets', 'saga-gold', '256', 'loredecks.png');
-const sagaGoldManifestPath = path.join(root, 'Images', 'iconsets', 'saga-gold', 'icons.json');
+const sagaMysticIconPath = path.join(root, 'Images', 'iconsets', 'saga-mystic', 'mystic-tab-loredecks-256.png');
+const sagaMysticManifestPath = path.join(root, 'Images', 'iconsets', 'saga-mystic', 'icons.json');
+const sagaRelayIconPath = path.join(root, 'Images', 'iconsets', 'saga-relay', 'relay-tab-loredecks-256.png');
+const sagaRelayManifestPath = path.join(root, 'Images', 'iconsets', 'saga-relay', 'icons.json');
 const hpCoreCoverPath = path.join(root, 'Loredecks', 'hp-core', 'assets', 'cover.png');
 const hpYearOneCoverPath = path.join(root, 'Loredecks', 'hp-year-1-philosophers-stone', 'assets', 'cover.png');
 
@@ -43,8 +45,10 @@ const settingsTemplate = read(settingsTemplatePath);
 assert(harness.includes("import { showLorePanel } from '../lore-panel.js';"), 'Harness must import the real runtime panel.');
 assert(fs.existsSync(sagaHeroIconPath), 'Bundled Saga Hero Loredecks icon must exist.');
 assert(JSON.parse(read(sagaHeroManifestPath)).id === 'saga-hero', 'Bundled Saga Hero Icon Set manifest must exist.');
-assert(fs.existsSync(sagaGoldIconPath), 'Bundled Saga Gold Loredecks icon must exist.');
-assert(JSON.parse(read(sagaGoldManifestPath)).id === 'saga-gold', 'Bundled Saga Gold Icon Set manifest must exist.');
+assert(fs.existsSync(sagaMysticIconPath), 'Bundled Saga Mystic Loredecks icon must exist.');
+assert(JSON.parse(read(sagaMysticManifestPath)).id === 'saga-mystic', 'Bundled Saga Mystic Icon Set manifest must exist.');
+assert(fs.existsSync(sagaRelayIconPath), 'Bundled Saga Relay Loredecks icon must exist.');
+assert(JSON.parse(read(sagaRelayManifestPath)).id === 'saga-relay', 'Bundled Saga Relay Icon Set manifest must exist.');
 assert(fs.existsSync(hpCoreCoverPath), 'Bundled HP Core Loredeck cover must be deck-local.');
 assert(fs.existsSync(hpYearOneCoverPath), 'Bundled HP Year 1 Loredeck cover must be deck-local.');
 assert((loredeckIndex.bundled || []).some(record => record.packId === 'hp-core' && record.assets?.cover?.path === 'assets/cover.png'), 'Bundled HP index records must expose deck-local cover paths.');
@@ -147,6 +151,9 @@ for (const token of [
     'ignoreStaleLoredeckCreatorGeneration',
     'applyLoredeckCreatorGenerationButtonLock',
     'loredeckCreatorGenerationControllers',
+    'loredeckCreatorLiveGenerationsByJobId',
+    'attachLoredeckCreatorLiveGeneration',
+    'activeGenerationByJobId: getLoredeckCreatorActiveGenerationByJobIdMap()',
     'getLoredeckCreatorPipelineModel',
     'createLoredeckCreatorPipelineHeader',
     'createLoredeckCreatorStageGuide',
@@ -160,6 +167,9 @@ for (const token of [
     'normalized.activeGeneration',
     'requestLoredeckCreatorBriefResponse',
     'repairLoredeckCreatorBriefResponse',
+    'requestLoredeckCreatorOutlineResponse',
+    'repairLoredeckCreatorOutlineResponse',
+    'markLoredeckCreatorOutlineFailed',
     'createLoredeckCreatorProjectShelf',
     'getLoredeckCreatorProjectShelfModels',
     'createLoredeckCreatorProjectControls',
@@ -261,9 +271,11 @@ for (const token of [
     'ICONSET_SCHEMA_VERSION',
     'BUNDLED_ICONSET_PRESETS',
     'saga-hero',
-    'Images/iconsets/saga-hero/saga-tab-loredecks-256.png',
-    'saga-gold',
-    'Images/iconsets/saga-gold/256/loredecks.png',
+    'Images/iconsets/saga-hero/hero-tab-loredecks-256.png',
+    'saga-mystic',
+    'Images/iconsets/saga-mystic/mystic-tab-loredecks-256.png',
+    'saga-relay',
+    'Images/iconsets/saga-relay/relay-tab-loredecks-256.png',
     'createThemeIconSetSelector',
     'applyThemeIconSet',
     'createLoredeckDeckVisual',
@@ -284,6 +296,7 @@ for (const token of [
 ]) {
     assert(panel.includes(token), `Runtime panel is missing expected smoke token: ${token}`);
 }
+assert(!panel.includes('main.appendChild(snippet)'), 'Creator generation status must not render raw model output snippets.');
 
 for (const token of [
     'emitLoreRequestProgress',

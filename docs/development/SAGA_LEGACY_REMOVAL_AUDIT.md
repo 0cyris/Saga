@@ -111,10 +111,10 @@ These are not necessarily bad features, but they still expose Wandlight implemen
    - Files and code:
      - `constants.js`: default `themePackId: 'wandlight-default'`
      - `lore-panel.js`: bundled Theme Pack id `wandlight-default`
-     - `Images/iconsets/saga-gold` remains a valid alternate icon set.
+     - `Images/iconsets/saga-mystic` and `Images/iconsets/saga-relay` replace the retired `saga-gold` alternate icon set.
    - Target:
      - Rename active default theme id to a Saga name such as `saga-archive`.
-     - Keep `saga-gold` only as an alternate icon set, not a Wandlight-era default.
+     - Keep legacy saved `saga-gold` settings migrating to the default Hero set; do not ship the retired icon assets.
 
 6. User-facing copy
    - Files and code:

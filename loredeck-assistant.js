@@ -169,6 +169,37 @@ function findBalancedJson(text = '', open = '{', close = '}') {
     return start >= 0 ? s.slice(start) : '';
 }
 
+function looksLikeTruncatedJson(text = '') {
+    const s = String(text || '').trim();
+    const start = s.search(/[{\[]/);
+    if (start < 0) return false;
+    const stack = [];
+    let inString = false;
+    let escaped = false;
+    for (let i = start; i < s.length; i += 1) {
+        const ch = s[i];
+        if (escaped) {
+            escaped = false;
+            continue;
+        }
+        if (ch === '\\') {
+            escaped = true;
+            continue;
+        }
+        if (ch === '"') {
+            inString = !inString;
+            continue;
+        }
+        if (inString) continue;
+        if (ch === '{' || ch === '[') stack.push(ch);
+        else if (ch === '}' || ch === ']') {
+            const open = stack.pop();
+            if ((ch === '}' && open !== '{') || (ch === ']' && open !== '[')) return false;
+        }
+    }
+    return inString || stack.length > 0;
+}
+
 function parseAssistantJson(text = '') {
     const cleaned = sanitizeJsonish(stripJsonFences(removeReasoningBlocks(text)));
     const candidates = [
@@ -183,6 +214,9 @@ function parseAssistantJson(text = '') {
         } catch (e) {
             errors.push(e?.message || 'Invalid JSON');
         }
+    }
+    if (looksLikeTruncatedJson(cleaned)) {
+        throw new Error('Lore Assistant returned truncated JSON before the response finished. The provider likely hit its output limit; retry with a smaller scope, lower reasoning effort, or a larger output budget.');
     }
     throw new Error(`Lore Assistant returned invalid JSON${errors.length ? `: ${errors[0]}` : ''}.`);
 }
@@ -554,6 +588,9 @@ Field limits:
 - contextMilestones: 4-16 items.
 - titleBatches: 2-8 items.
 - assumptions/risks: at most 4 short items each.
+- Each row summary/contextRole: one short sentence.
+- titleTargets: at most 4 short strings.
+- Aim for under 1600 visible JSON tokens.
 
 Output shape:
 {
@@ -615,6 +652,8 @@ export function buildLoredeckCreatorOutlineUserPrompt(context = {}) {
             noTagRegistryGenerationYet: true,
             entryCountMustBeDerivedLater: true,
             sagaUseCase: 'long-form fanfic and roleplay Loredecks',
+            compactJson: true,
+            maxVisibleJsonTokens: 1600,
         },
     });
 }

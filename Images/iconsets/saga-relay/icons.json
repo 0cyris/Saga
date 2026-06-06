@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "type": "saga_iconset",
+  "id": "saga-relay",
+  "title": "Saga Relay",
+  "description": "Sci-fi Saga runtime shelf icons with signal, console, and starship-interface tab emblems.",
+  "author": "Saga",
+  "version": "1.0.0",
+  "preferredSize": 256,
+  "icons": {
+    "tab.loredecks": "relay-tab-loredecks-256.png",
+    "tab.session": "relay-tab-session-256.png",
+    "tab.context": "relay-tab-context-256.png",
+    "tab.continuity": "relay-tab-continuity-256.png",
+    "tab.lore": "relay-tab-lorecards-256.png",
+    "tab.injection": "relay-tab-injection-256.png",
+    "tab.settings": "relay-tab-settings-256.png"
+  },
+  "variants": {
+    "64": "relay-tab-{target}-64.png",
+    "128": "relay-tab-{target}-128.png",
+    "256": "relay-tab-{target}-256.png",
+    "512": "relay-tab-{target}-512.png"
+  },
+  "tags": [
+    "iconset:runtime",
+    "style:saga-relay",
+    "genre:sci-fi",
+    "quality:bundled"
+  ]
+}

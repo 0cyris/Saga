@@ -8,19 +8,19 @@
   "version": "1.0.0",
   "preferredSize": 256,
   "icons": {
-    "tab.loredecks": "saga-tab-loredecks-256.png",
-    "tab.session": "saga-tab-session-256.png",
-    "tab.context": "saga-tab-context-256.png",
-    "tab.continuity": "saga-tab-continuity-256.png",
-    "tab.lore": "saga-tab-lorecards-256.png",
-    "tab.injection": "saga-tab-injection-256.png",
-    "tab.settings": "saga-tab-settings-256.png"
+    "tab.loredecks": "hero-tab-loredecks-256.png",
+    "tab.session": "hero-tab-session-256.png",
+    "tab.context": "hero-tab-context-256.png",
+    "tab.continuity": "hero-tab-continuity-256.png",
+    "tab.lore": "hero-tab-lorecards-256.png",
+    "tab.injection": "hero-tab-injection-256.png",
+    "tab.settings": "hero-tab-settings-256.png"
   },
   "variants": {
-    "64": "saga-tab-{target}-64.png",
-    "128": "saga-tab-{target}-128.png",
-    "256": "saga-tab-{target}-256.png",
-    "512": "saga-tab-{target}-512.png"
+    "64": "hero-tab-{target}-64.png",
+    "128": "hero-tab-{target}-128.png",
+    "256": "hero-tab-{target}-256.png",
+    "512": "hero-tab-{target}-512.png"
   },
   "tags": [
     "iconset:runtime",
