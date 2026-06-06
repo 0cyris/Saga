@@ -1680,9 +1680,11 @@ Mitigation: Build a runtime index, cache loaded manifests, score candidates in s
 
 ## Immediate Next Steps
 
-The initial Loredeck foundation is implemented: `hp-golden-trio` is scaffolded, the Loredeck loader uses `Loredecks/hp-golden-trio` as the bundled HP source of truth, canon suggestions route through the active stack, the Loredeck tab owns library/stack workflows, Context v1 exists, Theme Packs exist, and provider settings now live in the runtime Settings tab.
+The initial Loredeck foundation is historical. Saga has moved beyond the single `hp-golden-trio` scaffold into pre-alpha integration hardening. Current production direction is the split HP reference family: `hp-core`, Years 1-7, and Epilogue/Post-War, with Context-native schema v3 Lorecards, dense timeline registries, and deck-local assets.
 
-Recent production completed **Context-native Loredeck retrieval, HP reference-deck conformance, and the first full-screen Saga workflow surfaces**.
+Recent production completed **Context-native Loredeck retrieval, HP reference-deck scaffolding, the Loredeck Library/Health/Creator workflow surfaces, and the first Creator batching architecture**.
+
+The next major phase is **core integration testing**. Before adding more feature surface area, Saga needs deterministic tests that prove the loop from loaded Loredecks to Context-gated Lorecard suggestion, Pending/Accepted state, pin/mute/relevance behavior, and final injection output. See [SAGA_CORE_INTEGRATION_TESTING.md](SAGA_CORE_INTEGRATION_TESTING.md).
 
 Legacy cleanup checkpoint: the Wandlight compatibility posture has changed. Saga should not ship the full Wandlight chat preset in MVP, and fast reply-header Context detection has been removed with it. The current removal plan is captured in [SAGA_LEGACY_REMOVAL_AUDIT.md](SAGA_LEGACY_REMOVAL_AUDIT.md).
 

@@ -1,5 +1,17 @@
 # Saga MVP Implementation Plan
 
+## Historical Status
+
+This document is a historical implementation slice. It describes the first Saga foundation, when the goal was to move the original Wandlight lore database into a single bundled Loredeck without changing runtime behavior.
+
+It is no longer the current roadmap. Current production work is tracked in:
+
+- [SAGA_ALPHA_RELEASE_SYSTEMS.md](SAGA_ALPHA_RELEASE_SYSTEMS.md)
+- [SAGA_CORE_INTEGRATION_TESTING.md](SAGA_CORE_INTEGRATION_TESTING.md)
+- [SAGA_STABILIZATION_CHECKPOINT.md](SAGA_STABILIZATION_CHECKPOINT.md)
+
+References below to `hp-golden-trio` describe the original scaffold state, not the current desired Harry Potter reference architecture. The current direction is the split HP family: `hp-core`, Years 1-7, and Epilogue/Post-War, with Context-native schema v3 Lorecards and dense timeline registries.
+
 ## Objective
 
 Historical implementation slice: build the first Saga foundation without changing Wandlight's existing runtime behavior.

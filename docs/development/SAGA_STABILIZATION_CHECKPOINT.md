@@ -8,6 +8,37 @@ Terminology note: public-facing Saga language is now **Loredeck**, **Lorecard**,
 
 This checkpoint records the current production baseline before starting Context-aware Loredeck retrieval.
 
+## 2026-06-06 Status Update
+
+This file now contains both historical checkpoint evidence and current stabilization direction.
+
+The older `hp-golden-trio` notes describe the first Loredeck scaffold and the first Context-aware retrieval baseline. They should not be read as the current desired HP reference architecture. Current production direction is the split HP family:
+
+```text
+hp-core
+hp-year-1-philosophers-stone
+hp-year-2-chamber-of-secrets
+hp-year-3-prisoner-of-azkaban
+hp-year-4-goblet-of-fire
+hp-year-5-order-of-the-phoenix
+hp-year-6-half-blood-prince
+hp-year-7-deathly-hallows
+hp-epilogue-post-war
+```
+
+Saga is now in pre-alpha integration hardening. The immediate goal is no longer simply proving that a Loredeck loads. The immediate goal is proving the core runtime loop deterministically:
+
+```text
+active Loredeck stack
+  -> selected/resolved Context
+  -> eligible Lorecard candidates
+  -> suggested and accepted Lorecards
+  -> dynamic pin, mute, and relevance behavior
+  -> injection preview and prompt output
+```
+
+The next test-planning document is [SAGA_CORE_INTEGRATION_TESTING.md](SAGA_CORE_INTEGRATION_TESTING.md).
+
 ## Current Foundation
 
 - Bundled Loredeck scaffold exists for `hp-golden-trio`.
@@ -50,7 +81,7 @@ Passed:
 - Update-preview live validation still needs a seeded imported/custom deck with an update URL or an explicit fixture path. Bundled decks are not expected to expose `Check Updates`.
 - The current Saga foundation is still uncommitted in the working tree.
 
-## Next Production Slice
+## Completed Production Slice
 
 Context-aware Loredeck retrieval:
 
@@ -95,4 +126,14 @@ Context-aware Loredeck retrieval:
 - Done: revise timeline densification policy around high-value candidate quality rather than alias sprawl. Deck Health now gives non-blocking sparse-candidate, concentrated-anchor, and missing-window suggestions.
 - Done: chunk Loredeck Creator full-entry drafting into resumable micro-batches. The Creator now drafts the next small approved-title set per provider call, can optionally run a bounded sequence of separate calls, and preserves successful draft batches if a later call fails.
 - Done: scaffold the Harry Potter Golden Trio split-deck family. `hp-core` plus Year 1-7 folders now exist with dense first-class timelines generated from the anchor plan, including the Year 6 post-Christmas/Apparition window and a single dense Year 7 deck. These are intentionally not registered as bundled Library decks until entries are split and conformance checks pass.
-- Next: implement durable asset/bundle handling for Custom Loredecks, Theme Packs, Icon Sets, and deck covers.
+## Next Production Slice
+
+Core integration hardening:
+
+- Build deterministic HP integration fixtures around `hp-core` plus `hp-year-6-half-blood-prince`.
+- Prove Context checkpoints can drive expected inclusion and exclusion behavior.
+- Prove candidate suggestions only come from enabled stack items.
+- Prove accepted Lorecards preserve schema v3 Context and retrieval metadata.
+- Prove pinned, muted, relevance-tiered, and Context-blocked Lorecards combine correctly.
+- Prove injection preview and prompt output agree.
+- Keep real SillyTavern chat files local-only; derive compact synthetic fixtures before committing anything.

@@ -15,6 +15,26 @@ Saga alpha is ready when users can:
 
 Alpha is not the same as public polish. It can still have limited bundled fandom coverage, incomplete advanced automation, and rougher creator workflows, but the foundational architecture should be stable enough that user feedback is meaningful.
 
+## Current Development Stage
+
+Saga is currently in **pre-alpha integration hardening**.
+
+Most foundational systems now exist in some form: the runtime shell, Loredeck Library, active stack, Context tab/browser, Deck Health Center, Theme/Icon Sets, Lore Assistant groundwork, Loredeck Creator batching, Pending Review, and the split Harry Potter reference deck family.
+
+The main risk has shifted from missing features to cross-system correctness. The next phase must prove that the core runtime loop works end to end:
+
+```text
+loaded Loredecks
+  -> selected or resolved Context
+  -> Context-gated Lorecard candidates
+  -> relevance, pin, mute, and stack priority
+  -> final injection preview and prompt output
+```
+
+The detailed test prework lives in [SAGA_CORE_INTEGRATION_TESTING.md](SAGA_CORE_INTEGRATION_TESTING.md).
+
+The first deterministic HP Year 6 harness now exists at `scripts/test-core-integration-hp-year6.mjs`. It validates stack loading, date-based Context resolution, Context-gated suggestions, Pending Review acceptance, pin/mute behavior, and final lore memo output without live model calls.
+
 ## Key Systems
 
 ### 1. Saga Runtime Shell
@@ -116,6 +136,7 @@ The main alpha blockers are:
 - Deck Health reports misleading counts, stale warnings, or cross-deck leakage.
 - Bundled HP reference decks are visibly incomplete, miscounted, or still superseded by the old monolithic deck.
 - SillyTavern live smoke testing shows console errors, broken fullscreen windows, native dialog leaks, or severe lag.
+- The Context-to-injection loop cannot be proven deterministically for a realistic story progression.
 
 ## Alpha Non-Blockers
 
@@ -132,8 +153,8 @@ These can remain incomplete for alpha if the underlying architecture is stable:
 
 The highest-value path toward alpha is:
 
-1. Finish the Harry Potter split-deck family and retire the old monolithic default.
-2. Stabilize Loredeck Library folder/stack behavior at scale.
-3. Verify Context selection and Context-gated retrieval against the split HP decks.
-4. Harden Injection preview/debugging so active Lorecard behavior is inspectable.
-5. Run repeatable local and live SillyTavern smoke passes after each major slice.
+1. Update the development docs so historical MVP notes, current alpha systems, and near-term testing plans agree.
+2. Expand deterministic data-level tests from the first HP Year 6 harness into progressive Context movement, additional HP years, and known resolver edge cases.
+3. Finish HP reference-deck conformance so `hp-core`, Years 1-7, and Epilogue/Post-War become the clean bundled example.
+4. Stabilize remaining Loredeck Library and stack behavior at scale, especially folders, drag/drop, selection, and active-stack persistence.
+5. Keep running local and live SillyTavern smoke passes after each major slice to catch UI regressions, console errors, and interaction lag.
