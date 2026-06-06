@@ -1612,41 +1612,19 @@
 }
 
 .wandlight-loredeck-creator-pipeline-header {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(210px, auto);
-    gap: 12px;
-    align-items: center;
-    padding: 12px;
-    border: 1px solid rgba(185, 139, 54, 0.22);
-    border-radius: 8px;
-    background:
-        radial-gradient(circle at 12% 0%, rgba(215, 181, 109, 0.08), transparent 38%),
-        linear-gradient(135deg, rgba(14, 17, 26, 0.92), rgba(31, 18, 23, 0.86));
+    flex: 0 0 auto;
 }
 
-.wandlight-loredeck-creator-pipeline-title-wrap {
+.wandlight-loredeck-creator-title-row,
+.wandlight-loredeck-creator-title-text {
     min-width: 0;
+}
+
+.wandlight-loredeck-creator-title-text {
     display: flex;
     flex-direction: column;
-    gap: 5px;
 }
 
-.wandlight-loredeck-creator-pipeline-title-wrap h4 {
-    margin: 0;
-    color: var(--wandlight-text, #f1ead8);
-    font-size: 1.25rem;
-    line-height: 1.15;
-}
-
-.wandlight-loredeck-creator-status-card {
-    min-width: 0;
-    border: 1px solid rgba(185, 139, 54, 0.2);
-    border-radius: 7px;
-    background: rgba(10, 12, 16, 0.46);
-    padding: 8px 10px;
-}
-
-.wandlight-loredeck-creator-status-kicker,
 .wandlight-loredeck-creator-current-kicker {
     color: var(--wandlight-gold, #d7b56d);
     font-size: 0.72rem;
@@ -1654,20 +1632,8 @@
     text-transform: uppercase;
 }
 
-.wandlight-loredeck-creator-status-text {
-    color: var(--wandlight-text, #f1ead8);
-    font-size: 0.86rem;
-    font-weight: 700;
-    line-height: 1.3;
-    margin-top: 3px;
-}
-
-.wandlight-loredeck-creator-status-actions {
-    display: flex;
+.wandlight-loredeck-creator-header-actions {
     justify-content: flex-end;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 8px;
 }
 
 .wandlight-loredeck-creator-stage-guide {
@@ -10162,10 +10128,9 @@
 
 
 
-/* Phase 12: compact logo box geometry only -------------------------------------
-   Rebuilt from phase 10 to restore the original runtime icon treatment.
-   The compact rail's logo/drag box is now square without changing the S image
-   centering rules. The expanded rail status line is suppressed. */
+/* Compact brand mark ------------------------------------------------------------
+   The collapsed rail uses the S mark as the shelf handle. Keep the drag target
+   invisible so the image can use the full top shelf space without a framed box. */
 .wandlight-runtime-rail-subtitle,
 .wandlight-runtime-rail-subtitle:empty,
 .wandlight-runtime-rail-expanded .wandlight-runtime-rail-subtitle {
@@ -10173,15 +10138,21 @@
 }
 
 .wandlight-runtime-rail-compact .wandlight-runtime-rail-drag {
-    width: 48px;
-    height: 48px;
-    min-height: 48px;
-    max-height: 48px;
+    width: calc(100% + 8px);
+    height: 54px;
+    min-height: 54px;
+    max-height: 54px;
+    margin: -2px -4px 0;
     padding: 0;
     align-self: center;
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    overflow: visible;
 }
 
 .wandlight-runtime-rail-compact .wandlight-runtime-rail-mark {
@@ -10194,13 +10165,14 @@
     padding: 0;
     line-height: 1;
     box-sizing: border-box;
+    overflow: visible;
 }
 
 .wandlight-runtime-rail-compact .wandlight-runtime-rail-logo-img {
-    width: 42px;
-    height: 42px;
-    max-width: 42px;
-    max-height: 42px;
+    width: 54px;
+    height: 54px;
+    max-width: 54px;
+    max-height: 54px;
     object-fit: contain;
 }
 

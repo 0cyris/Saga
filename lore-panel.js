@@ -974,8 +974,7 @@ function resolveThemeIconPath(iconKey, preset = getThemePreset(getSettings().the
     const defaultSet = getIconSetPreset(DEFAULT_ICONSET_ID, settings);
     const defaultPath = getIconMapValue(defaultSet.icons, iconKey);
     if (defaultPath) return defaultPath;
-    const fallbackSet = getIconSetPreset(LEGACY_ICONSET_ID, settings);
-    return getIconMapValue(fallbackSet.icons, iconKey);
+    return '';
 }
 
 function getTabIconSrc(tabId, settings = getSettings()) {
@@ -1901,18 +1900,34 @@ export function showLorePanel() {
         saveState(state);
     }
 
-    removeLorePanel();
-
     const freshState = getState();
     normalizePanelLayoutState(freshState, { persistLegacyOpenState: true });
     const panelState = freshState?.lorePanel || getDefaultState().lorePanel;
 
-    panelRoot = document.createElement('div');
-    panelRoot.id = PANEL_ID;
-    panelRoot.className = 'wandlight-lore-panel wandlight-runtime-shell';
-    applyRuntimeShellGeometry(panelRoot, panelState);
+    const previousRoot = panelRoot || document.getElementById(PANEL_ID);
+    const nextRoot = document.createElement('div');
+    nextRoot.id = PANEL_ID;
+    nextRoot.className = 'wandlight-lore-panel wandlight-runtime-shell';
+    applyRuntimeShellGeometry(nextRoot, panelState);
 
-    renderPanelShell(panelRoot, freshState);
+    try {
+        renderPanelShell(nextRoot, freshState);
+    } catch (e) {
+        console.error('[Saga] Runtime panel failed to render:', e);
+        try {
+            renderPanelFallbackShell(nextRoot, freshState, e);
+        } catch (fallbackError) {
+            console.error('[Saga] Runtime fallback panel failed to render:', fallbackError);
+            if (previousRoot) {
+                panelRoot = previousRoot;
+                return;
+            }
+            throw fallbackError;
+        }
+    }
+
+    if (previousRoot && previousRoot !== nextRoot) previousRoot.remove();
+    panelRoot = nextRoot;
     document.body.appendChild(panelRoot);
 
     requestAnimationFrame(() => {
@@ -1988,6 +2003,54 @@ function renderPanelShell(root, state) {
     if (drawerOpen) root.appendChild(renderDrawer(state, drawerDirection));
 
     refreshHeader();
+}
+
+function renderPanelFallbackShell(root, state, error) {
+    normalizePanelLayoutState(state);
+    const panelState = state?.lorePanel || getDefaultState().lorePanel;
+    const railMode = normalizeRailMode(panelState.railMode);
+    const drawerDirection = panelState.drawerOpen === true ? resolveDrawerDirection(panelState) : 'right';
+    const settings = getSettings();
+
+    root.innerHTML = '';
+    root.className = 'wandlight-lore-panel wandlight-runtime-shell';
+    root.classList.add(`wandlight-runtime-rail-${railMode}`);
+    root.classList.add('wandlight-runtime-drawer-open');
+    root.dataset.railMode = railMode;
+    root.dataset.drawerDirection = drawerDirection;
+    root.style.setProperty('--wandlight-rail-width', `${getRailWidth(panelState)}px`);
+    root.style.setProperty('--wandlight-drawer-width', `${getConstrainedDrawerWidth(panelState, drawerDirection)}px`);
+    root.style.setProperty('--wandlight-drawer-height', `${getConstrainedDrawerHeight(panelState)}px`);
+    applyRuntimeTheme(root, settings);
+
+    root.appendChild(renderRail(state));
+
+    const drawer = document.createElement('div');
+    drawer.className = `wandlight-runtime-drawer wandlight-runtime-drawer-${drawerDirection}`;
+    drawer.style.width = `${getConstrainedDrawerWidth(panelState, drawerDirection)}px`;
+    drawer.style.height = `${getConstrainedDrawerHeight(panelState)}px`;
+    const header = document.createElement('div');
+    header.className = 'wandlight-runtime-drawer-header';
+    const titleWrap = document.createElement('div');
+    titleWrap.className = 'wandlight-lore-panel-title-wrap';
+    const title = document.createElement('div');
+    title.className = 'wandlight-lore-panel-title wandlight-runtime-drawer-title';
+    title.textContent = 'Saga';
+    titleWrap.appendChild(title);
+    const status = document.createElement('div');
+    status.className = 'wandlight-lore-panel-status wandlight-runtime-drawer-status';
+    titleWrap.appendChild(status);
+    header.appendChild(titleWrap);
+    drawer.appendChild(header);
+
+    const body = document.createElement('div');
+    body.className = 'wandlight-lore-panel-body';
+    const tabBody = document.createElement('div');
+    tabBody.className = 'wandlight-runtime-tab-body';
+    tabBody.appendChild(createRuntimeRenderErrorCard('Runtime Window', error));
+    body.appendChild(tabBody);
+    drawer.appendChild(body);
+    root.appendChild(drawer);
 }
 
 function renderRail(state) {
@@ -7217,9 +7280,13 @@ function openLoredeckCreatorWorkbench() {
     shell.className = 'wandlight-lore-workbench-shell wandlight-loredeck-creator-workbench-shell';
     overlay.appendChild(shell);
 
+    const cached = getLoredeckCreatorBriefCache();
+    const pipeline = getLoredeckCreatorPipelineModel(cached);
+    shell.appendChild(createLoredeckCreatorPipelineHeader(cached, pipeline, { showClose: true, workbench: true }));
+
     const body = document.createElement('div');
     body.className = 'wandlight-loredeck-creator-workbench-body';
-    body.appendChild(createLoredeckCreatorCard(getState(), { embedded: true }));
+    body.appendChild(createLoredeckCreatorCard(getState(), { embedded: true, showHeader: false }));
     shell.appendChild(body);
 }
 
@@ -7228,7 +7295,14 @@ function refreshLoredeckCreatorWorkbenchBody(options = {}) {
     if (!body) return false;
     const scrollTop = options.preserveScroll === false ? 0 : (body.scrollTop || 0);
     const anchor = options.preserveScroll === false ? null : getLoredeckCreatorWorkbenchScrollAnchor(body);
-    body.replaceChildren(createLoredeckCreatorCard(getState(), { embedded: true }));
+    const shell = body.closest('.wandlight-loredeck-creator-workbench-shell');
+    const cached = getLoredeckCreatorBriefCache();
+    const pipeline = getLoredeckCreatorPipelineModel(cached);
+    const header = [...(shell?.children || [])].find(child => child.classList?.contains('wandlight-loredeck-creator-pipeline-header'));
+    const nextHeader = createLoredeckCreatorPipelineHeader(cached, pipeline, { showClose: true, workbench: true });
+    if (header) header.replaceWith(nextHeader);
+    else if (shell) shell.insertBefore(nextHeader, body);
+    body.replaceChildren(createLoredeckCreatorCard(getState(), { embedded: true, showHeader: false }));
     if (options.preserveScroll !== false) {
         const restore = () => {
             body.scrollTop = scrollTop;
@@ -8350,18 +8424,28 @@ function titleDraftCount(cached = {}) {
 
 function createLoredeckCreatorPipelineHeader(cached = {}, pipeline = getLoredeckCreatorPipelineModel(cached), options = {}) {
     const wrap = document.createElement('div');
-    wrap.className = 'wandlight-loredeck-creator-pipeline-header';
-    const main = document.createElement('div');
-    main.className = 'wandlight-loredeck-creator-pipeline-title-wrap';
-    const title = document.createElement('h4');
+    wrap.className = 'wandlight-lore-workbench-header wandlight-loredeck-creator-pipeline-header';
+    const titleWrap = document.createElement('div');
+    titleWrap.className = 'wandlight-lore-workbench-title-wrap';
+    const titleRow = document.createElement('div');
+    titleRow.className = 'wandlight-loredeck-library-title-row wandlight-loredeck-creator-title-row';
+    const emblem = document.createElement('div');
+    emblem.className = 'wandlight-loredeck-library-emblem wandlight-loredeck-creator-emblem';
+    emblem.textContent = 'S';
+    titleRow.appendChild(emblem);
+    const titleText = document.createElement('div');
+    titleText.className = 'wandlight-loredeck-creator-title-text';
+    const titleLine = document.createElement('div');
+    titleLine.className = 'wandlight-loredeck-library-title-line';
+    const title = document.createElement('div');
+    title.className = 'wandlight-lore-workbench-title';
     title.textContent = 'Loredeck Creator';
-    main.appendChild(title);
+    titleLine.appendChild(title);
     const subtitle = document.createElement('div');
-    subtitle.className = 'wandlight-runtime-help';
+    subtitle.className = 'wandlight-lore-workbench-subtitle';
     subtitle.textContent = 'Generated Loredeck draft';
-    main.appendChild(subtitle);
     const meta = document.createElement('div');
-    meta.className = 'wandlight-loredeck-row-meta';
+    meta.className = 'wandlight-loredeck-library-title-meta wandlight-loredeck-creator-pipeline-meta';
     const brief = cached.brief || {};
     const fandom = loredeckCreatorFandom || cached.fandom || brief.fandom || 'No fandom';
     const scope = loredeckCreatorScope || cached.scope || brief.scope || 'No scope';
@@ -8370,31 +8454,24 @@ function createLoredeckCreatorPipelineHeader(cached = {}, pipeline = getLoredeck
     meta.appendChild(createStatusPill(`Scope: ${scope}`, 'Story scope for this Creator project.'));
     meta.appendChild(createStatusPill(`Granularity: ${formatLoredeckCreatorGranularity(granularity)}`, 'Creator generation granularity.'));
     if (cached.jobId) meta.appendChild(createStatusPill('Resumable job', 'This Creator project is saved and can be resumed from the Loredecks tab.'));
-    main.appendChild(meta);
-    wrap.appendChild(main);
+    titleLine.appendChild(meta);
+    titleText.appendChild(titleLine);
+    titleText.appendChild(subtitle);
+    titleRow.appendChild(titleText);
+    titleWrap.appendChild(titleRow);
+    wrap.appendChild(titleWrap);
 
-    const status = document.createElement('div');
-    status.className = `wandlight-loredeck-creator-status-card wandlight-loredeck-creator-status-${pipeline.currentStep.status}`;
-    const statusLabel = document.createElement('div');
-    statusLabel.className = 'wandlight-loredeck-creator-status-kicker';
-    statusLabel.textContent = 'Status';
-    status.appendChild(statusLabel);
-    const statusText = document.createElement('div');
-    statusText.className = 'wandlight-loredeck-creator-status-text';
-    statusText.textContent = pipeline.statusLine;
-    status.appendChild(statusText);
-    const statusActions = document.createElement('div');
-    statusActions.className = 'wandlight-loredeck-creator-status-actions';
-    statusActions.appendChild(createButton('Project Settings', 'Jump to the editable project inputs or approved Scope Brief.', () => {
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions wandlight-loredeck-library-header-actions wandlight-loredeck-creator-header-actions';
+    actions.appendChild(createButton('Project Settings', 'Jump to the editable project inputs or approved Scope Brief.', () => {
         scrollLoredeckCreatorWorkbenchToAnchor(cached.approved ? 'scope-brief' : 'intake');
     }));
     if (options.showClose) {
-        statusActions.appendChild(createButton('Close', 'Close the Loredeck Creator wizard.', () => {
+        actions.appendChild(createButton('Close', 'Close the Loredeck Creator wizard.', () => {
             document.querySelector('.wandlight-loredeck-creator-workbench-overlay')?.remove();
         }));
     }
-    status.appendChild(statusActions);
-    wrap.appendChild(status);
+    wrap.appendChild(actions);
     return wrap;
 }
 
@@ -9000,7 +9077,9 @@ function createLoredeckCreatorCard(state = getState(), options = {}) {
     const pipeline = getLoredeckCreatorPipelineModel(cached);
     const outline = getLoredeckCreatorOutline(cached);
 
-    card.appendChild(createLoredeckCreatorPipelineHeader(cached, pipeline, { showClose: options.embedded === true }));
+    if (options.showHeader !== false) {
+        card.appendChild(createLoredeckCreatorPipelineHeader(cached, pipeline, { showClose: options.embedded === true }));
+    }
     card.appendChild(createLoredeckCreatorStageGuide(cached, pipeline));
 
     if (options.embedded !== true) {
@@ -27603,24 +27682,56 @@ function renderPanelBody(container, state) {
     tabBody.className = `wandlight-runtime-tab-body wandlight-runtime-tab-body-${activeTab}`;
     container.appendChild(tabBody);
 
-    if (activeTab === 'loredecks') {
-        renderLoredecksTab(tabBody, state);
-    } else if (activeTab === 'session') {
-        renderSessionTab(tabBody, state);
-    } else if (activeTab === 'context') {
-        renderContextTab(tabBody, state);
-    } else if (activeTab === 'continuity') {
-        renderContinuityTab(tabBody, state);
-    } else if (activeTab === 'lore') {
-        renderLoreTab(tabBody, state);
-    } else if (activeTab === 'settings') {
-        renderSettingsTab(tabBody, state);
-    } else {
-        renderInjectionTab(tabBody, state);
+    try {
+        if (activeTab === 'loredecks') {
+            renderLoredecksTab(tabBody, state);
+        } else if (activeTab === 'session') {
+            renderSessionTab(tabBody, state);
+        } else if (activeTab === 'context') {
+            renderContextTab(tabBody, state);
+        } else if (activeTab === 'continuity') {
+            renderContinuityTab(tabBody, state);
+        } else if (activeTab === 'lore') {
+            renderLoreTab(tabBody, state);
+        } else if (activeTab === 'settings') {
+            renderSettingsTab(tabBody, state);
+        } else {
+            renderInjectionTab(tabBody, state);
+        }
+    } catch (e) {
+        console.error(`[Saga] Runtime ${activeTab} tab failed to render:`, e);
+        tabBody.textContent = '';
+        tabBody.appendChild(createRuntimeRenderErrorCard(TAB_LABELS[activeTab] || 'Runtime Tab', e));
     }
 
     installNestedScrollHandoff(tabBody);
     if (activeTab === 'lore') scheduleAcceptedLoreLayoutUpdate();
+}
+
+function createRuntimeRenderErrorCard(titleText = 'Runtime Tab', error = null) {
+    const card = document.createElement('div');
+    card.className = 'wandlight-runtime-card wandlight-runtime-render-error-card';
+    const title = document.createElement('h4');
+    title.textContent = `${titleText} could not render`;
+    card.appendChild(title);
+    const help = document.createElement('div');
+    help.className = 'wandlight-runtime-help';
+    help.textContent = 'Saga kept the runtime window open so this can be diagnosed instead of disappearing.';
+    card.appendChild(help);
+    const message = document.createElement('pre');
+    message.className = 'wandlight-runtime-render-error-message';
+    message.textContent = error?.stack || error?.message || String(error || 'Unknown render error.');
+    card.appendChild(message);
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    actions.appendChild(createButton('Return to Session', 'Open the Session tab.', () => {
+        toggleDrawerForTab('session');
+    }, 'wandlight-primary-button'));
+    actions.appendChild(createButton('Reset Window', 'Reset Saga runtime window layout and section defaults.', () => {
+        resetLorePanelLayout();
+    }));
+    card.appendChild(actions);
+    return card;
 }
 
 function installNestedScrollHandoff(tabBody) {
