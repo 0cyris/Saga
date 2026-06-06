@@ -144,6 +144,10 @@ assert(panel.includes('getLoredeckCreatorPipelineReadiness'), 'Generated Loredec
 assert(panel.includes('Creator Readiness Gate'), 'Creator wizard must expose deterministic readiness feedback.');
 assert(panel.includes('titles covered'), 'Generated export readiness must show approved-title coverage.');
 assert(panel.includes('No linked Creator job was found'), 'Generated export readiness must warn when Creator job metadata is missing.');
+assert(panel.includes('acceptLoredeckPendingChanges(pack, pending.map(change => change.changeId))'), 'Loredeck Pending Review Accept All must pass explicit pending change IDs.');
+assert(panel.includes('const freshPack = getFreshLoredeckLibraryPack(pack?.packId, pack);'), 'Loredeck pending acceptance must re-read the freshest pack before applying changes.');
+assert(panel.includes("generated_shell_without_entries"), 'Generated Loredeck planning accepts must skip health rerun while the shell has no accepted Lorecards.');
+assert(!panel.includes('no valid manifest or accepted embedded data yet'), 'Generated Loredeck planning accepts must not warn about missing embedded data after each proposal.');
 assert(panel.includes('Finalize as Custom'), 'Generated Loredecks must expose reviewed Generated-to-Custom finalization.');
 assert(panel.includes('buildFinalizedCustomLoredeckRecordFromGenerated'), 'Generated-to-Custom finalization must use an explicit conversion builder.');
 assert(panel.includes('generated_finalized'), 'Finalized Custom Loredecks must retain generated-source provenance.');

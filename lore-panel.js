@@ -19768,7 +19768,7 @@ function createLoredeckPendingReviewCard(pack) {
     actions.className = 'wandlight-primary-actions';
     const acceptAll = createButton('Accept All', 'Apply every pending Loredeck change to this Custom Loredeck, then refresh Deck Health if accepted changes affect validation.', async (btn) => {
         await runBusyAction(btn, 'Accepting...', async () => {
-            await acceptLoredeckPendingChanges(pack);
+            await acceptLoredeckPendingChanges(pack, pending.map(change => change.changeId));
         });
     }, 'wandlight-primary-button');
     acceptAll.disabled = !pending.length;
@@ -25445,8 +25445,11 @@ async function refreshLoredeckHealthAfterAcceptedPendingChanges(pack = {}, accep
     if (!fresh) return null;
     if (!canValidateLoredeckInEditor(fresh)) {
         refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
-        toast('Accepted changes, but Deck Health could not rerun because this Loredeck has no valid manifest or accepted embedded data yet.', 'warning');
-        return null;
+        if (isGeneratedLoredeckPack(fresh) && !getAcceptedVirtualLoredeckEntries(fresh).length) {
+            return { skipped: true, reason: 'generated_shell_without_entries' };
+        }
+        toast('Accepted changes, but Deck Health could not rerun because this Loredeck is not validatable yet.', 'warning');
+        return { skipped: true, reason: 'not_validatable' };
     }
     const validation = await validateLoredeckForEditor(fresh, null, { quiet: true, updateLibrary: true });
     if (!validation.health) {
@@ -25464,19 +25467,25 @@ async function refreshLoredeckHealthAfterAcceptedPendingChanges(pack = {}, accep
 }
 
 async function acceptLoredeckPendingChanges(pack, changeIds = []) {
+    const freshPack = getFreshLoredeckLibraryPack(pack?.packId, pack);
+    if (!freshPack?.packId) {
+        toast('Loredeck is no longer available.', 'warning');
+        return false;
+    }
     const idSet = new Set(normalizeLoredeckPendingIdList(changeIds));
-    const pending = getLoredeckPendingChanges(pack);
+    const pending = getLoredeckPendingChanges(freshPack);
     const selected = idSet.size ? pending.filter(change => idSet.has(change.changeId)) : pending;
     if (!selected.length) {
         toast('No pending Loredeck changes selected.', 'warning');
         return false;
     }
     const affectsHealth = selected.some(change => doesLoredeckPendingChangeAffectPackHealth(change));
+    const shouldReportStaleHealth = affectsHealth && canValidateLoredeckInEditor(freshPack);
     const selectedCreatorPlanningBatchIds = selected
         .filter(change => String(change.source || '').trim() === 'loredeck_creator' && ['timeline_anchor', 'timeline_window', 'tag'].includes(change.targetKind))
         .map(change => normalizeLoredeckCreatorTitleId(change.preview?.creatorPlanningBatch?.id || '', ''))
         .filter(Boolean);
-    const accepted = persistLoredeckLibraryRecordMutation(pack, next => {
+    const accepted = persistLoredeckLibraryRecordMutation(freshPack, next => {
         const current = normalizeLoredeckPendingChanges(next.pendingChanges);
         const selectedIds = new Set(selected.map(change => change.changeId));
         for (const change of current) {
@@ -25486,7 +25495,7 @@ async function acceptLoredeckPendingChanges(pack, changeIds = []) {
         next.pendingChanges = current.filter(change => !selectedIds.has(change.changeId));
         if (isGeneratedLoredeckPack(next)) refreshGeneratedLoredeckDerivedMetadata(next);
         if (affectsHealth) next.healthStatus = 'stale';
-    }, affectsHealth
+    }, shouldReportStaleHealth
         ? `Accepted ${selected.length} pending Loredeck change${selected.length === 1 ? '' : 's'}. Deck Health marked stale.`
         : `Accepted ${selected.length} pending Loredeck change${selected.length === 1 ? '' : 's'}.`, {
         errorMessage: 'Pending Loredeck change acceptance failed.',
