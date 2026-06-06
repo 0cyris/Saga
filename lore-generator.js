@@ -73,6 +73,8 @@ async function quietPrompt(systemPrompt, userMessage, options = {}) {
             signal: options.signal,
             providerKind: options.providerKind || 'lore',
             expectedOutput: options.expectedOutput || 'json',
+            stream: options.stream === true,
+            onProgress: options.onProgress,
         });
     } catch (e) {
         if (e?.name === 'AbortError' || /aborted|cancelled|canceled/i.test(e?.message || '')) {

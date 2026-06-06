@@ -117,6 +117,41 @@ function extractChatCompletionReasoning(json) {
     return parts.join('').slice(0, 12000);
 }
 
+function emitLoreRequestProgress(options = {}, event = {}) {
+    if (typeof options.onProgress !== 'function') return;
+    try {
+        options.onProgress({
+            ...event,
+            timestamp: Date.now(),
+        });
+    } catch (error) {
+        console.warn('[Saga] Lore request progress callback failed:', error);
+    }
+}
+
+function wantsStreamingResponse(options = {}) {
+    return options.stream === true && typeof options.onProgress === 'function';
+}
+
+function extractStreamDeltaText(json) {
+    const choice = Array.isArray(json?.choices) ? json.choices[0] : null;
+    const delta = choice?.delta || {};
+    return extractTextFromContent(delta.content)
+        || extractTextFromContent(delta.text)
+        || extractTextFromContent(choice?.text)
+        || '';
+}
+
+function extractStreamReasoningDelta(json) {
+    const choice = Array.isArray(json?.choices) ? json.choices[0] : null;
+    const delta = choice?.delta || {};
+    return extractTextFromContent(delta.reasoning)
+        || extractTextFromContent(delta.reasoning_content)
+        || extractTextFromContent(delta.reasoningContent)
+        || extractTextFromContent(delta.reasoning_details)
+        || '';
+}
+
 function normalizeFinishReason(value) {
     if (value === undefined || value === null || value === '') return '';
     if (typeof value === 'object') {
@@ -408,9 +443,129 @@ function buildOpenAIEndpoint(cfg) {
     return normalizeOpenAIChatEndpoint(cfg.openAIBaseUrl);
 }
 
+async function readOpenAICompatibleStream(response, cfg, options = {}) {
+    if (!response.body || typeof response.body.getReader !== 'function') {
+        emitLoreRequestProgress(options, {
+            type: 'phase',
+            phase: 'fallback',
+            message: `${cfg.title} endpoint did not expose a readable stream; waiting for final response.`,
+            streamSupported: false,
+        });
+        const text = await response.text().catch(() => '');
+        let json = null;
+        try { json = text ? JSON.parse(text) : null; } catch (_) {}
+        return { text, json, content: extractChatCompletionText(json), reasoningPreview: extractChatCompletionReasoning(json), streamed: false };
+    }
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+    let content = '';
+    let reasoningPreview = '';
+    let visibleStarted = false;
+    let lastDeltaAt = 0;
+    const finishReasons = [];
+
+    emitLoreRequestProgress(options, {
+        type: 'stream_start',
+        phase: 'streaming',
+        message: `Receiving ${cfg.title} response...`,
+        streamSupported: true,
+    });
+
+    function consumeSseLine(line) {
+        const trimmed = String(line || '').trim();
+        if (!trimmed || !trimmed.startsWith('data:')) return;
+        const payload = trimmed.slice(5).trim();
+        if (!payload || payload === '[DONE]') return;
+
+        let json = null;
+        try { json = JSON.parse(payload); } catch (_) { return; }
+
+        const reason = collectFinishReasons(json).find(Boolean);
+        if (reason) finishReasons.push(reason);
+
+        const reasoningDelta = extractStreamReasoningDelta(json);
+        const textDelta = extractStreamDeltaText(json);
+        if (reasoningDelta && !textDelta) {
+            reasoningPreview = `${reasoningPreview}${reasoningDelta}`.slice(-12000);
+            if (!visibleStarted) {
+                const now = Date.now();
+                if (now - lastDeltaAt > 500) {
+                    lastDeltaAt = now;
+                    emitLoreRequestProgress(options, {
+                        type: 'reasoning',
+                        phase: 'reasoning',
+                        message: 'Model is reasoning; visible response has not started yet.',
+                        receivedChars: content.length,
+                        streamSupported: true,
+                    });
+                }
+            }
+            return;
+        }
+        if (!textDelta) return;
+
+        visibleStarted = true;
+        content += textDelta;
+        const now = Date.now();
+        if (now - lastDeltaAt > 150 || textDelta.includes('\n')) {
+            lastDeltaAt = now;
+            emitLoreRequestProgress(options, {
+                type: 'delta',
+                phase: 'receiving',
+                message: 'Receiving visible response...',
+                delta: textDelta,
+                accumulated: content,
+                receivedChars: content.length,
+                streamSupported: true,
+            });
+        }
+    }
+
+    while (true) {
+        if (options.signal?.aborted) throw new DOMException('Request aborted', 'AbortError');
+        const { value, done } = await reader.read();
+        if (done) break;
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split(/\r?\n/);
+        buffer = lines.pop() || '';
+        for (const line of lines) consumeSseLine(line);
+    }
+    buffer += decoder.decode();
+    if (buffer) {
+        for (const line of buffer.split(/\r?\n/)) consumeSseLine(line);
+    }
+
+    const finishReason = finishReasons.find(Boolean) || 'stop';
+    const json = {
+        choices: [{
+            message: { content },
+            finish_reason: finishReason,
+        }],
+    };
+    emitLoreRequestProgress(options, {
+        type: 'stream_complete',
+        phase: 'complete',
+        message: `Received ${content.length} visible character${content.length === 1 ? '' : 's'}.`,
+        accumulated: content,
+        receivedChars: content.length,
+        finishReason,
+        streamSupported: true,
+    });
+    return {
+        text: JSON.stringify(json),
+        json,
+        content,
+        reasoningPreview,
+        streamed: true,
+    };
+}
+
 async function sendViaOpenAICompatible(cfg, systemPrompt, userPrompt, options = {}) {
     const endpoint = buildOpenAIEndpoint(cfg);
     const headers = await buildOpenAIHeaders(cfg);
+    const shouldStream = wantsStreamingResponse(options);
 
     const requestBody = {
         model: cfg.openAIModel,
@@ -421,11 +576,17 @@ async function sendViaOpenAICompatible(cfg, systemPrompt, userPrompt, options = 
         temperature: Number(cfg.temperature ?? 0.7),
         top_p: Number(cfg.topP ?? 0.98),
         max_tokens: Number(options.maxTokens || cfg.maxTokens || 8192),
-        stream: false,
+        stream: shouldStream,
     };
 
     async function post(body) {
         if (options.signal?.aborted) throw new DOMException('Request aborted', 'AbortError');
+        emitLoreRequestProgress(options, {
+            type: 'phase',
+            phase: body.stream ? 'connecting_stream' : 'waiting',
+            message: body.stream ? `Opening ${cfg.title} streaming response...` : `Waiting for ${cfg.title} response...`,
+            streamSupported: body.stream === true,
+        });
         const response = await fetch(endpoint, {
             method: 'POST',
             headers,
@@ -433,6 +594,10 @@ async function sendViaOpenAICompatible(cfg, systemPrompt, userPrompt, options = 
             credentials: 'omit',
             signal: options.signal,
         });
+        if (body.stream && response.ok) {
+            const streamed = await readOpenAICompatibleStream(response, cfg, options);
+            return { response, text: streamed.text, json: streamed.json, content: streamed.content, reasoningPreview: streamed.reasoningPreview, streamed: streamed.streamed };
+        }
         const text = await response.text().catch(() => '');
         let json = null;
         try { json = text ? JSON.parse(text) : null; } catch (_) {}
@@ -453,6 +618,17 @@ async function sendViaOpenAICompatible(cfg, systemPrompt, userPrompt, options = 
         attempt = await post(requestBody);
     }
 
+    if (!attempt.response.ok && requestBody.stream && /stream/i.test(attempt.text)) {
+        emitLoreRequestProgress(options, {
+            type: 'phase',
+            phase: 'fallback',
+            message: `${cfg.title} endpoint rejected streaming; retrying as a final response.`,
+            streamSupported: false,
+        });
+        requestBody.stream = false;
+        attempt = await post(requestBody);
+    }
+
     if (!attempt.response.ok) {
         if (attempt.response.status === 401) throw new Error(`${cfg.title} OpenAI-compatible endpoint returned 401. Check API key.`);
         throw new Error(`${cfg.title} OpenAI request failed (${attempt.response.status}): ${attempt.text.slice(0, 500)}`);
@@ -462,7 +638,7 @@ async function sendViaOpenAICompatible(cfg, systemPrompt, userPrompt, options = 
 
     let content = extractChatCompletionText(attempt.json);
     if (!content || !content.trim()) {
-        const reasoning = extractChatCompletionReasoning(attempt.json);
+        const reasoning = attempt.reasoningPreview || extractChatCompletionReasoning(attempt.json);
         if (reasoning && reasoning.trim()) {
             const retryPrompts = makeFinalOnlyRetryPrompts(systemPrompt, userPrompt, options);
             const retryBody = {
@@ -507,6 +683,12 @@ async function sendViaSillyTavernRaw(cfg, systemPrompt, userPrompt, options = {}
     let lastResult = '';
     let reasoningPreview = '';
     const responseLength = options.maxTokens || cfg.maxTokens;
+    emitLoreRequestProgress(options, {
+        type: 'phase',
+        phase: 'waiting',
+        message: 'Waiting for SillyTavern generation response...',
+        streamSupported: false,
+    });
 
     async function tryGenerateRaw(sp, up, lengthMultiplier = 1) {
         if (typeof ctx?.generateRaw !== 'function') return '';
@@ -522,9 +704,27 @@ async function sendViaSillyTavernRaw(cfg, systemPrompt, userPrompt, options = {}
             assertNotTokenLimitedResponse(cfg, result, { ...options, maxTokens: Math.max(128, Math.min(8192, Math.ceil(Number(responseLength || 8192) * lengthMultiplier))) });
         }
         const content = typeof result === 'string' ? result : extractChatCompletionText(result);
-        if (content && content.trim()) return content;
+        if (content && content.trim()) {
+            emitLoreRequestProgress(options, {
+                type: 'complete',
+                phase: 'complete',
+                message: `Received ${content.length} visible character${content.length === 1 ? '' : 's'}.`,
+                accumulated: content,
+                receivedChars: content.length,
+                streamSupported: false,
+            });
+            return content;
+        }
         const reasoning = result && typeof result === 'object' ? extractChatCompletionReasoning(result) : '';
-        if (reasoning) reasoningPreview = reasoning;
+        if (reasoning) {
+            reasoningPreview = reasoning;
+            emitLoreRequestProgress(options, {
+                type: 'reasoning',
+                phase: 'reasoning',
+                message: 'Provider returned reasoning without visible output; retrying final-only response.',
+                streamSupported: false,
+            });
+        }
         return '';
     }
 
@@ -540,16 +740,42 @@ async function sendViaSillyTavernRaw(cfg, systemPrompt, userPrompt, options = {}
     if (typeof ctx?.generateQuietPrompt === 'function') {
         const prompts = reasoningPreview ? makeFinalOnlyRetryPrompts(systemPrompt, userPrompt, options) : { system: systemPrompt, user: userPrompt };
         const quietPrompt = `${prompts.system}\n\n${prompts.user}`;
+        emitLoreRequestProgress(options, {
+            type: 'phase',
+            phase: 'fallback',
+            message: 'Trying SillyTavern quiet prompt fallback...',
+            streamSupported: false,
+        });
         let result = await ctx.generateQuietPrompt({ quietPrompt });
         if (result && typeof result === 'object') assertNotTokenLimitedResponse(cfg, result, options);
         lastResult = typeof result === 'string' ? result : extractChatCompletionText(result);
-        if (lastResult && lastResult.trim()) return lastResult;
+        if (lastResult && lastResult.trim()) {
+            emitLoreRequestProgress(options, {
+                type: 'complete',
+                phase: 'complete',
+                message: `Received ${lastResult.length} visible character${lastResult.length === 1 ? '' : 's'}.`,
+                accumulated: lastResult,
+                receivedChars: lastResult.length,
+                streamSupported: false,
+            });
+            return lastResult;
+        }
 
         // Older SillyTavern builds accept a raw string instead of an object.
         result = await ctx.generateQuietPrompt(quietPrompt);
         if (result && typeof result === 'object') assertNotTokenLimitedResponse(cfg, result, options);
         lastResult = typeof result === 'string' ? result : extractChatCompletionText(result);
-        if (lastResult && lastResult.trim()) return lastResult;
+        if (lastResult && lastResult.trim()) {
+            emitLoreRequestProgress(options, {
+                type: 'complete',
+                phase: 'complete',
+                message: `Received ${lastResult.length} visible character${lastResult.length === 1 ? '' : 's'}.`,
+                accumulated: lastResult,
+                receivedChars: lastResult.length,
+                streamSupported: false,
+            });
+            return lastResult;
+        }
     }
 
     if (reasoningPreview) {
@@ -569,6 +795,12 @@ async function sendViaConnectionProfile(cfg, systemPrompt, userPrompt, options =
     const service = ctx?.ConnectionManagerRequestService;
     if (!cfg.profileId) throw new Error(`${cfg.title} profile is not selected.`);
     if (!service || typeof service.sendRequest !== 'function') throw new Error('ConnectionManagerRequestService unavailable.');
+    emitLoreRequestProgress(options, {
+        type: 'phase',
+        phase: 'waiting',
+        message: `Waiting for ${cfg.title} connection profile response...`,
+        streamSupported: false,
+    });
 
     async function send(messages, lengthMultiplier = 1) {
         return await service.sendRequest(
@@ -596,10 +828,26 @@ async function sendViaConnectionProfile(cfg, systemPrompt, userPrompt, options =
     if (options.signal?.aborted) throw new DOMException('Request aborted', 'AbortError');
     if (raw && typeof raw === 'object') assertNotTokenLimitedResponse(cfg, raw, options);
     let content = typeof raw === 'string' ? raw : extractChatCompletionText(raw);
-    if (content && content.trim()) return content;
+    if (content && content.trim()) {
+        emitLoreRequestProgress(options, {
+            type: 'complete',
+            phase: 'complete',
+            message: `Received ${content.length} visible character${content.length === 1 ? '' : 's'}.`,
+            accumulated: content,
+            receivedChars: content.length,
+            streamSupported: false,
+        });
+        return content;
+    }
 
     const reasoning = raw && typeof raw === 'object' ? extractChatCompletionReasoning(raw) : '';
     if (reasoning) {
+        emitLoreRequestProgress(options, {
+            type: 'reasoning',
+            phase: 'reasoning',
+            message: 'Connection profile returned reasoning without visible output; retrying final-only response.',
+            streamSupported: false,
+        });
         const retryPrompts = makeFinalOnlyRetryPrompts(systemPrompt, userPrompt, options);
         raw = await send([
             { role: 'system', content: retryPrompts.system },
@@ -608,7 +856,17 @@ async function sendViaConnectionProfile(cfg, systemPrompt, userPrompt, options =
         if (options.signal?.aborted) throw new DOMException('Request aborted', 'AbortError');
         if (raw && typeof raw === 'object') assertNotTokenLimitedResponse(cfg, raw, { ...options, maxTokens: Math.max(128, Math.min(8192, Math.ceil(Number(options.maxTokens || cfg.maxTokens || 8192) * 2))) });
         content = typeof raw === 'string' ? raw : extractChatCompletionText(raw);
-        if (content && content.trim()) return content;
+        if (content && content.trim()) {
+            emitLoreRequestProgress(options, {
+                type: 'complete',
+                phase: 'complete',
+                message: `Received ${content.length} visible character${content.length === 1 ? '' : 's'}.`,
+                accumulated: content,
+                receivedChars: content.length,
+                streamSupported: false,
+            });
+            return content;
+        }
         throw new Error(`${cfg.title} connection profile returned reasoning-only output with empty visible content. Retried with final-only visible-output instructions but still received no visible content. Increase max tokens, reduce reasoning effort in the profile/preset, or use a non-thinking model. Reasoning preview: ${reasoning.slice(0, 300)}`);
     }
     return content;
@@ -658,6 +916,15 @@ export async function sendLoreRequest(systemPrompt, userPrompt, options = {}) {
     const cfg = getProviderSettings(options.providerKind || 'lore');
     const validation = await validateLoreProviderConfigurationAsync(cfg.kind);
     if (!validation.ok) throw new Error(validation.message);
+    emitLoreRequestProgress(options, {
+        type: 'start',
+        phase: 'starting',
+        message: `Contacting ${cfg.title} Provider...`,
+        provider: cfg.provider,
+        providerKind: cfg.kind,
+        streamRequested: options.stream === true,
+        streamSupported: cfg.provider === 'openai_compatible' && wantsStreamingResponse(options),
+    });
 
     if (cfg.provider === 'openai_compatible') return await sendViaOpenAICompatible(cfg, systemPrompt, userPrompt, options);
     if (cfg.provider === 'profile') return await sendViaConnectionProfile(cfg, systemPrompt, userPrompt, options);

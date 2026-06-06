@@ -7,6 +7,7 @@ const fixturePath = path.join(root, 'tests', 'fixtures', 'arlong-park-update.sag
 const loredeckIndexPath = path.join(root, 'Loredecks', 'index.json');
 const panelPath = path.join(root, 'lore-panel.js');
 const assistantPath = path.join(root, 'loredeck-assistant.js');
+const llmClientPath = path.join(root, 'lore-llm-client.js');
 const stateManagerPath = path.join(root, 'state-manager.js');
 const stylePath = path.join(root, 'style.css');
 const settingsTemplatePath = path.join(root, 'settings.html');
@@ -32,6 +33,7 @@ const fixture = JSON.parse(read(fixturePath));
 const loredeckIndex = JSON.parse(read(loredeckIndexPath));
 const panel = read(panelPath);
 const assistant = read(assistantPath);
+const llm = read(llmClientPath);
 const stateManager = read(stateManagerPath);
 const style = read(stylePath);
 const settingsTemplate = read(settingsTemplatePath);
@@ -124,6 +126,9 @@ for (const token of [
     'inferLoredeckCreatorUiStage',
     'refreshLoredeckCreatorWorkbenchBody',
     'queueLoredeckCreatorWorkbenchRefresh',
+    'startLoredeckCreatorGeneration',
+    'createLoredeckCreatorRequestOptions',
+    'appendLoredeckCreatorGenerationStatus',
     'requestLoredeckCreatorBriefResponse',
     'repairLoredeckCreatorBriefResponse',
     'Scope Brief',
@@ -230,6 +235,16 @@ for (const token of [
     'Color Overrides',
 ]) {
     assert(panel.includes(token), `Runtime panel is missing expected smoke token: ${token}`);
+}
+
+for (const token of [
+    'emitLoreRequestProgress',
+    'readOpenAICompatibleStream',
+    'wantsStreamingResponse',
+    'stream: shouldStream',
+    'streamSupported: false',
+]) {
+    assert(llm.includes(token), `LLM client is missing expected streaming token: ${token}`);
 }
 
 for (const token of [
