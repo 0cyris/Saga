@@ -71,13 +71,13 @@ assert(panel.includes('function refreshLoredeckLibrarySelectionSurfaces'), 'Lore
 assert(panel.includes('function updateLoredeckLibraryDetailsCollapsedDom'), 'Loredeck Library details expand/collapse must update the existing DOM in place.');
 assert(panel.includes('if (!updateLoredeckLibraryDetailsCollapsedDom(next)) renderLoredeckLibraryOverlay();'), 'Loredeck Library details collapse should only rerender when the overlay DOM is missing.');
 assert(panel.includes('LOREDECK_CREATOR_ENTRY_BATCH_SIZE = 3'), 'Creator entry drafting must keep the default micro-batch size small.');
-assert(panel.includes('Draft Next Lorecards'), 'Creator entry drafting must expose a guided one-batch action.');
+assert(panel.includes('Draft Lorecards'), 'Creator entry drafting must expose a guided one-batch action.');
 assert(panel.includes('Auto-Draft Up To ${LOREDECK_CREATOR_ENTRY_AUTORUN_BATCHES}'), 'Creator entry drafting must expose a bounded advanced auto-draft action.');
 assert(panel.includes('Review the current Lorecard drafts before drafting more.'), 'Creator entry drafting must block additional generation while review drafts are open.');
 assert(panel.includes('Creator Lorecard Draft Review'), 'Creator draft review must use Creator-specific review language.');
 assert(panel.includes('Send Selected to Review'), 'Creator draft review must expose explicit Pending Review handoff language.');
-assert(panel.includes('Creator Roadmap'), 'Creator wizard must expose a staged roadmap.');
-assert(panel.includes('Next: ${nextMessage}'), 'Creator roadmap must expose next-step guidance.');
+assert(panel.includes('getLoredeckCreatorPipelineModel'), 'Creator wizard must derive a checkpointed production pipeline model.');
+assert(panel.includes('Generate -> Review -> Approve -> Unlock next stage'), 'Creator roadmap must expose next-step guidance.');
 assert(style.includes('wandlight-loredeck-creator-stage-guide'), 'Creator roadmap must have dedicated styling.');
 assert(panel.includes('getLoredeckCreatorWorkbenchScrollAnchor'), 'Creator workbench must preserve section anchors during rerenders.');
 assert(panel.includes('restoreLoredeckCreatorWorkbenchScrollAnchor'), 'Creator workbench must restore section anchors after rerenders.');
@@ -148,6 +148,16 @@ for (const token of [
     'ignoreStaleLoredeckCreatorGeneration',
     'applyLoredeckCreatorGenerationButtonLock',
     'loredeckCreatorGenerationControllers',
+    'getLoredeckCreatorPipelineModel',
+    'createLoredeckCreatorPipelineHeader',
+    'createLoredeckCreatorStageGuide',
+    'createLoredeckCreatorCurrentTaskCard',
+    'createLoredeckCreatorCurrentTaskActions',
+    'createLoredeckCreatorArtifactDisclosure',
+    'Generate -> Review -> Approve -> Unlock next stage',
+    'Draft Story Outline',
+    'Approve Outline and Unlock Title Pass',
+    'Finalize as Custom Loredeck',
     'localJob?.activeGeneration',
     'normalized.activeGeneration',
     'requestLoredeckCreatorBriefResponse',
@@ -176,11 +186,11 @@ for (const token of [
     'handleLoredeckCreatorOutlineDraft',
     'approveLoredeckCreatorOutline',
     'Approve the Story Outline before drafting titles',
-    'Draft Next Title Set',
+    'Generate Next Title Batch',
     'createLoredeckCreatorTitleBatchPlanner',
     'getLoredeckCreatorNextTitleBatch',
     'creatorTitleBatchId',
-    'Plan Next Context Set',
+    'Plan Context and Tags',
     'createLoredeckCreatorPlanningBatchPlanner',
     'getLoredeckCreatorNextPlanningBatch',
     'creatorPlanningBatch',
@@ -340,6 +350,14 @@ for (const token of [
     'wandlight-loredeck-creator-project-progress',
     'wandlight-loredeck-creator-project-delete',
     'wandlight-loredeck-creator-project-select-active',
+    'wandlight-loredeck-creator-pipeline-header',
+    'wandlight-loredeck-creator-stage-guide',
+    'wandlight-loredeck-creator-stage-active',
+    'wandlight-loredeck-creator-stage-needs-review',
+    'wandlight-loredeck-creator-current-task',
+    'wandlight-loredeck-creator-current-sidebar',
+    'wandlight-loredeck-creator-output-grid',
+    'wandlight-loredeck-creator-artifact',
     'wandlight-loredeck-library-details',
     'wandlight-loredeck-library-resize-handle',
     'wandlight-loredeck-library-resize-track-left',
