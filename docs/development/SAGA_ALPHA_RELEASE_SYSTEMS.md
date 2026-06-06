@@ -71,6 +71,8 @@ Accepted Lorecards, Pending Review, manual editing, bulk edit, metadata chips, C
 
 The user-facing system for determining where the chat is inside each loaded Loredeck's story. This includes the Context tab, Context Browser, manual selection, locks, after/before windows, local resolver, bounded Reasoner proposals, and review before applying model-derived Context.
 
+Current development gate: finish the broader Context system hardening described in [SAGA_CONTEXT_SYSTEM_DEVELOPMENT_PLAN.md](SAGA_CONTEXT_SYSTEM_DEVELOPMENT_PLAN.md) before treating integration testing as complete. The existing schema/resolver pieces are ahead of the active detector and compact Context UI; the next slice should make Context flexible across dates, arcs, chapters, episodes, quests, stardates, and loose story windows.
+
 ### 9. Timeline Registry System
 
 The deck-authoring system for anchors, windows, aliases, sortable coordinates, and timeline validation. Runtime Context selection belongs in the Context tab; timeline registry editing belongs with Loredeck authoring tools.

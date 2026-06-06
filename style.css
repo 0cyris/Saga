@@ -825,6 +825,16 @@
     cursor: progress;
 }
 
+.wandlight-loredeck-creator-done-button,
+.wandlight-loredeck-creator-done-button:disabled {
+    border-color: rgba(104, 186, 132, 0.54);
+    background: linear-gradient(135deg, rgba(24, 74, 42, 0.76), rgba(16, 34, 24, 0.9));
+    color: #bff1c4;
+    box-shadow: 0 0 0 1px rgba(104, 186, 132, 0.14) inset;
+    cursor: default;
+    opacity: 1;
+}
+
 .wandlight-key-value {
     display: flex;
     gap: 8px;

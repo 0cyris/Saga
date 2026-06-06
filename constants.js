@@ -55,7 +55,7 @@ export function detectExtensionFolder(fallback = EXTENSION_FOLDER) {
 export const LOG_PREFIX = '[Saga]';
 
 // ── Schema version ──────────────────────────────────────────────────────────────
-export const SCHEMA_VERSION = 23;
+export const SCHEMA_VERSION = 24;
 
 export const AUTOMATION_MODE_VALUES = Object.freeze(['manual', 'assisted', 'automatic']);
 export const EXPERIENCE_MODE_VALUES = Object.freeze(['basic', 'advanced']);
@@ -505,6 +505,37 @@ export function getDefaultState() {
             lastGeneratedFor: '',
             lastGenerationSummary: '',
         },
+        contextBrief: {
+            schemaVersion: 1,
+            summary: '',
+            branchId: 'main',
+            timeTravelMode: 'none',
+            evidence: [],
+            signals: {
+                sceneDate: '',
+                subjectiveDate: '',
+                canonBoundary: '',
+                positionPhrases: [],
+                fandomHints: [],
+                arc: '',
+                phase: '',
+                season: '',
+                episode: '',
+                chapter: '',
+                issue: '',
+                quest: '',
+                gameStage: '',
+                stardate: '',
+                coordinates: {},
+                eventLabels: [],
+            },
+            uncertainty: {
+                level: 'low',
+                notes: [],
+            },
+            source: 'unknown',
+            updatedAt: 0,
+        },
         loreMatrix: [],
         pendingLoreEntries: [],
 
@@ -688,21 +719,54 @@ export function getDefaultState() {
 // ── Lore Context Detection prompt ───────────────────────────────────────────────
 export const LORE_CONTEXT_DETECTION_SYSTEM_PROMPT = `You are Saga's Context Detector for long-form fandom roleplay.
 
-Read the current continuity state and recent messages. Infer only the story's current Context.
+Read the current continuity state and recent messages. Extract a compact Context Brief for the current scene.
+The brief is not the final Loredeck Context. It is a set of clues Saga will resolve against loaded Loredeck anchors and windows.
 
 Output ONLY valid JSON:
 {
-  "sceneDate": "string, or empty if unknown",
-  "subjectiveDate": "string, or empty if same/unknown",
-  "canonBoundary": "string, or empty if unknown",
-  "branchId": "main|alternate|custom string",
+  "schemaVersion": 1,
+  "summary": "one short sentence describing the current story position",
+  "branchId": "main|custom branch string",
   "timeTravelMode": "none|visitor_from_future|past_changed|alternate_branch",
-  "summary": "one sentence"
+  "evidence": [
+    {
+      "quote": "short exact phrase from recent messages",
+      "signal": "date|arc|episode|chapter|event|stardate|branch|uncertainty"
+    }
+  ],
+  "signals": {
+    "sceneDate": "string, or empty if unknown",
+    "subjectiveDate": "string, or empty if same/unknown",
+    "canonBoundary": "story-position phrase, or empty if unknown",
+    "positionPhrases": ["brief before/after/during phrases"],
+    "fandomHints": ["fandom or series names explicitly implied"],
+    "arc": "arc/saga/run/film/season label, or empty",
+    "phase": "phase/sub-arc/status quo, or empty",
+    "season": "season number or label, or empty",
+    "episode": "episode number/title, or empty",
+    "chapter": "chapter number/range/title, or empty",
+    "issue": "comic issue/run marker, or empty",
+    "quest": "quest/mission label, or empty",
+    "gameStage": "act/route/faction stage, or empty",
+    "stardate": "stardate, or empty",
+    "coordinates": {
+      "axis": "value"
+    },
+    "eventLabels": ["named events, reveals, battles, lessons, deaths, or milestones"]
+  },
+  "uncertainty": {
+    "level": "low|medium|high",
+    "notes": ["short reason uncertainty remains"]
+  }
 }
 
 Rules:
 - Do not invent a precise date if only an era is known.
-- Prefer story-position phrases when precise dates are unclear.
+- Prefer story-position signals when precise dates are unclear.
+- Use empty strings or empty arrays for unknown fields.
+- Evidence quotes must come from the recent messages.
+- Keep fields concise; do not summarize the full chat.
+- Do not invent anchors, windows, dates, episodes, chapters, or stardates.
 - If time travel is implied, separate sceneDate from subjectiveDate.
 - Output JSON only.`;
 

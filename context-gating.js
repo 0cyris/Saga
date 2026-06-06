@@ -28,6 +28,15 @@ function hasFiniteNumber(value) {
     return value !== null && value !== undefined && value !== '' && Number.isFinite(Number(value));
 }
 
+function parseStardateValue(value) {
+    if (value === null || value === undefined || value === '') return null;
+    if (Number.isFinite(Number(value))) return Number(value);
+    const match = String(value || '').match(/(?:stardate\s*)?(-?\d+(?:\.\d+)?)/i);
+    if (!match) return null;
+    const parsed = Number(match[1]);
+    return Number.isFinite(parsed) ? parsed : null;
+}
+
 function hasAnyContextGate(contextGate = {}, coordinates = []) {
     const p = isPlainObject(contextGate) ? contextGate : {};
     const stringFields = [
@@ -233,8 +242,8 @@ function stardateMatches(contextGate = {}, context = {}) {
     const from = hasFiniteNumber(contextGate.stardateFrom) ? Number(contextGate.stardateFrom) : null;
     const to = hasFiniteNumber(contextGate.stardateTo) ? Number(contextGate.stardateTo) : null;
     if (from === null && to === null) return { ok: true };
-    const current = Number(context?.stardate || context?.sceneDate || context?.subjectiveDate);
-    if (!Number.isFinite(current)) {
+    const current = parseStardateValue(context?.stardate) ?? parseStardateValue(context?.sceneDate) ?? parseStardateValue(context?.subjectiveDate);
+    if (current === null) {
         return { ok: false, unresolved: true, reason: 'Entry has a stardate gate, but the Loredeck Context has no stardate.' };
     }
     if (from !== null && current < from) return { ok: false, reason: `Current stardate is before ${from}.` };

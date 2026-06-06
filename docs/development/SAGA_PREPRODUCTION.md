@@ -1684,7 +1684,7 @@ The initial Loredeck foundation is historical. Saga has moved beyond the single 
 
 Recent production completed **Context-native Loredeck retrieval, HP reference-deck scaffolding, the Loredeck Library/Health/Creator workflow surfaces, and the first Creator batching architecture**.
 
-The next major phase is **core integration testing**. Before adding more feature surface area, Saga needs deterministic tests that prove the loop from loaded Loredecks to Context-gated Lorecard suggestion, Pending/Accepted state, pin/mute/relevance behavior, and final injection output. See [SAGA_CORE_INTEGRATION_TESTING.md](SAGA_CORE_INTEGRATION_TESTING.md).
+The next major phase is **Context system hardening before broader core integration testing**. The schema, Context gates, Context Index, and bounded Reasoner proposal pieces exist, but the active detector and compact Context tab still carry too much date/canon-boundary Wandlight shape. The development plan is captured in [SAGA_CONTEXT_SYSTEM_DEVELOPMENT_PLAN.md](SAGA_CONTEXT_SYSTEM_DEVELOPMENT_PLAN.md). After that hardening, deterministic tests should prove the loop from loaded Loredecks to Context-gated Lorecard suggestion, Pending/Accepted state, pin/mute/relevance behavior, and final injection output. See [SAGA_CORE_INTEGRATION_TESTING.md](SAGA_CORE_INTEGRATION_TESTING.md).
 
 Planned Auto-Relevance expansion: the current High/Normal/Low system should eventually support optional pin/mute suggestions or high-confidence pin/mute application. This must remain separately configurable and testable because pin/mute changes are stronger than relevance-tier changes.
 

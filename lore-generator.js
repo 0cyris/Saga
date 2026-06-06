@@ -17,6 +17,8 @@ import {
     getState,
     getSettings,
     setLoreContext,
+    setContextBrief,
+    normalizeContextBrief,
     recordLoreAttempt,
     appendPendingLoreEntries,
     startLoreBulkBatch,
@@ -446,6 +448,133 @@ function inferContextLocallyFromMessages(messages, state = getState()) {
     return normalized.sceneDate || normalized.canonBoundary || normalized.branchId !== 'main' ? normalized : null;
 }
 
+function asPlainObject(value) {
+    return value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+}
+
+function cleanBriefString(value, maxLength = 240) {
+    return String(value || '').trim().slice(0, maxLength);
+}
+
+function mergeBriefSignals(rawSignals = {}, raw = {}) {
+    const signals = asPlainObject(rawSignals);
+    const source = asPlainObject(raw);
+    return {
+        ...signals,
+        sceneDate: signals.sceneDate ?? source.sceneDate,
+        subjectiveDate: signals.subjectiveDate ?? source.subjectiveDate,
+        canonBoundary: signals.canonBoundary ?? source.canonBoundary,
+        positionPhrases: signals.positionPhrases ?? source.positionPhrases,
+        fandomHints: signals.fandomHints ?? source.fandomHints,
+        arc: signals.arc ?? source.arc,
+        phase: signals.phase ?? source.phase,
+        season: signals.season ?? source.season,
+        episode: signals.episode ?? source.episode,
+        chapter: signals.chapter ?? source.chapter,
+        issue: signals.issue ?? source.issue,
+        quest: signals.quest ?? source.quest,
+        gameStage: signals.gameStage ?? source.gameStage,
+        stardate: signals.stardate ?? source.stardate,
+        coordinates: signals.coordinates ?? source.coordinates,
+        eventLabels: signals.eventLabels ?? source.eventLabels,
+    };
+}
+
+function normalizeDetectedContextBrief(rawDetection = {}, legacyContext = {}, options = {}) {
+    const raw = asPlainObject(rawDetection);
+    const embedded = asPlainObject(raw.contextBrief || raw.brief);
+    const source = Object.keys(embedded).length ? embedded : raw;
+    const rawUncertainty = asPlainObject(source.uncertainty || raw.uncertainty);
+    return normalizeContextBrief({
+        ...source,
+        summary: source.summary ?? raw.summary,
+        branchId: source.branchId ?? raw.branchId ?? legacyContext?.branchId,
+        timeTravelMode: source.timeTravelMode ?? raw.timeTravelMode ?? legacyContext?.timeTravelMode,
+        evidence: source.evidence ?? raw.evidence,
+        signals: mergeBriefSignals(source.signals || raw.signals, raw),
+        uncertainty: {
+            ...rawUncertainty,
+            level: rawUncertainty.level ?? raw.uncertaintyLevel,
+            notes: rawUncertainty.notes ?? raw.uncertaintyNotes,
+        },
+        source: options.source || source.source || raw.source || 'unknown',
+        updatedAt: Number.isFinite(Number(options.updatedAt)) ? Number(options.updatedAt) : (Number(source.updatedAt) || Date.now()),
+    }, {});
+}
+
+function buildLoreContextFromContextBrief(brief = {}, previousContext = {}) {
+    const normalizedBrief = normalizeContextBrief(brief || {}, {});
+    const signals = normalizedBrief.signals || {};
+    return normalizeLoreContext({
+        sceneDate: signals.sceneDate || '',
+        subjectiveDate: signals.subjectiveDate || '',
+        canonBoundary: signals.canonBoundary || '',
+        branchId: normalizedBrief.branchId || previousContext?.branchId || 'main',
+        timeTravelMode: normalizedBrief.timeTravelMode || previousContext?.timeTravelMode || 'none',
+        lastDetectedAt: normalizedBrief.updatedAt || Date.now(),
+        lastGeneratedFor: previousContext?.lastGeneratedFor || '',
+        lastGenerationSummary: previousContext?.lastGenerationSummary || '',
+    });
+}
+
+function buildResolverContextFromContextBrief(brief = {}, loreContext = {}, options = {}) {
+    const normalizedBrief = normalizeContextBrief(brief || {}, {});
+    const signals = normalizedBrief.signals || {};
+    const phrases = [
+        ...(Array.isArray(signals.positionPhrases) ? signals.positionPhrases : []),
+        ...(Array.isArray(signals.eventLabels) ? signals.eventLabels : []),
+    ];
+    return {
+        ...normalizeLoreContext(loreContext || {}),
+        label: cleanBriefString(options.label || signals.canonBoundary || phrases[0] || normalizedBrief.summary, 240),
+        summary: cleanBriefString(normalizedBrief.summary, 800),
+        sceneDate: cleanBriefString(signals.sceneDate || loreContext?.sceneDate, 80),
+        subjectiveDate: cleanBriefString(signals.subjectiveDate || loreContext?.subjectiveDate, 80),
+        canonBoundary: cleanBriefString(signals.canonBoundary || loreContext?.canonBoundary, 240),
+        branchId: cleanBriefString(normalizedBrief.branchId || loreContext?.branchId || 'main', 120) || 'main',
+        timeTravelMode: cleanBriefString(normalizedBrief.timeTravelMode || loreContext?.timeTravelMode || 'none', 80) || 'none',
+        arc: cleanBriefString(signals.arc, 180),
+        phase: cleanBriefString(signals.phase, 180),
+        season: cleanBriefString(signals.season, 80),
+        episode: cleanBriefString(signals.episode, 80),
+        chapter: cleanBriefString(signals.chapter, 80),
+        issue: cleanBriefString(signals.issue, 80),
+        quest: cleanBriefString(signals.quest, 180),
+        gameStage: cleanBriefString(signals.gameStage, 180),
+        stardate: cleanBriefString(signals.stardate, 80),
+        coordinates: asPlainObject(signals.coordinates),
+        alias: cleanBriefString(phrases[0] || signals.canonBoundary || normalizedBrief.summary, 240),
+        notes: cleanBriefString([
+            ...(Array.isArray(signals.positionPhrases) ? signals.positionPhrases : []),
+            ...(Array.isArray(signals.eventLabels) ? signals.eventLabels : []),
+            ...(Array.isArray(normalizedBrief.uncertainty?.notes) ? normalizedBrief.uncertainty.notes : []),
+        ].join(' | '), 1000),
+    };
+}
+
+function buildContextBriefFromLoreContext(context = {}, options = {}) {
+    const normalized = normalizeLoreContext(context || {});
+    return normalizeContextBrief({
+        schemaVersion: 1,
+        summary: options.summary || normalized.canonBoundary || normalized.sceneDate || 'Fallback context inferred locally from message headings and current state.',
+        branchId: normalized.branchId || 'main',
+        timeTravelMode: normalized.timeTravelMode || 'none',
+        evidence: [],
+        signals: {
+            sceneDate: normalized.sceneDate || '',
+            subjectiveDate: normalized.subjectiveDate || '',
+            canonBoundary: normalized.canonBoundary || '',
+            positionPhrases: normalized.canonBoundary ? [normalized.canonBoundary] : [],
+        },
+        uncertainty: {
+            level: normalized.sceneDate || normalized.canonBoundary ? 'medium' : 'high',
+            notes: options.note ? [options.note] : [],
+        },
+        source: options.source || 'local',
+        updatedAt: Number.isFinite(Number(options.updatedAt)) ? Number(options.updatedAt) : Date.now(),
+    }, normalized);
+}
+
 
 async function maybeProposeCanonLoreFromContext(context, progress = null) {
     const settings = getSettings();
@@ -562,11 +691,48 @@ function formatContextResolutionSuffix(result) {
 
 // ── Lore Context Detection ──────────────────────────────────────────────────────
 
+function hasUsableContextBrief(brief = {}) {
+    const normalized = normalizeContextBrief(brief || {});
+    const signals = normalized.signals || {};
+    return Boolean(
+        normalized.summary
+        || normalized.evidence?.length
+        || Object.values(signals).some(value => {
+            if (Array.isArray(value)) return value.length > 0;
+            if (value && typeof value === 'object') return Object.keys(value).length > 0;
+            return String(value || '').trim();
+        })
+    );
+}
+
+async function saveContextBriefAndResolve(brief, messages, options = {}) {
+    const progress = typeof options.progress === 'function' ? options.progress : null;
+    const state = getState();
+    const loreContext = buildLoreContextFromContextBrief(brief, state?.loreContext || {});
+    setContextBrief(brief, { save: false });
+    setLoreContext(loreContext);
+    const savedState = getState();
+    const resolverContext = buildResolverContextFromContextBrief(brief, savedState?.loreContext || loreContext);
+    const positionResult = await maybeResolveContextsFromContext(resolverContext, {
+        contextSource: options.contextSource || 'model',
+        sourceText: messages,
+        progress,
+    });
+    const canonResult = await maybeProposeCanonLoreFromContext(savedState?.loreContext || loreContext, progress);
+    return {
+        loreContext: savedState?.loreContext || loreContext,
+        contextBrief: normalizeContextBrief(brief, savedState?.loreContext || loreContext),
+        resolverContext,
+        positionResult,
+        canonResult,
+    };
+}
+
 /**
  * Runs lore context detection via LLM.
  * Guarded by _detectionRunning to prevent concurrent calls.
- * The result is written to state via setLoreContext().
- * @returns {Promise<Object|null>} Detected context or null on failure
+ * The result is written to Context Brief state plus the legacy loreContext projection.
+ * @returns {Promise<Object|null>} Detected resolver context or null on failure
  */
 export async function runLoreContextDetection(options = {}) {
     if (_detectionRunning) {
@@ -599,26 +765,31 @@ export async function runLoreContextDetection(options = {}) {
             canon: state.canon,
             scene: state.scene,
             loreContext: state.loreContext,
+            contextBrief: state.contextBrief,
         }, null, 0);
 
         const messages = formatMessageObjects(messageObjects) || '(No messages available)';
         progress?.('Sending context detection request...', 35);
-        const userMessage = `Current state: ${stateSummary}\n\nRecent messages:\n${messages}\n\nDetect the current lore context. Output ONLY a valid JSON object with no markdown fences, no commentary, no explanations:`;
+        const userMessage = `Current state: ${stateSummary}\n\nRecent messages:\n${messages}\n\nExtract the current Context Brief. Output ONLY a valid JSON object with no markdown fences, no commentary, no explanations:`;
 
         const response = await quietPrompt(LORE_CONTEXT_DETECTION_SYSTEM_PROMPT, userMessage, { signal });
         if (!response) {
             const fallback = inferContextLocallyFromMessages(messages, state);
             if (fallback) {
                 const savedFallback = { ...fallback, lastDetectedAt: Date.now() };
-                setLoreContext(savedFallback);
-                const positionResult = await maybeResolveContextsFromContext(savedFallback, {
+                const fallbackBrief = buildContextBriefFromLoreContext(savedFallback, {
+                    source: 'local',
+                    updatedAt: savedFallback.lastDetectedAt,
+                    note: 'Model returned no response; local fallback used current headings/state only.',
+                });
+                const saved = await saveContextBriefAndResolve(fallbackBrief, messages, {
                     contextSource: 'local_alias',
-                    sourceText: messages,
                     progress,
                 });
-                const canonResult = await maybeProposeCanonLoreFromContext(savedFallback, progress);
+                const positionResult = saved.positionResult;
+                const canonResult = saved.canonResult;
                 progress?.(`Context inferred locally from message headings.${formatContextResolutionSuffix(positionResult)}${formatCanonProposalSuffix(canonResult)}`, 100);
-                return savedFallback;
+                return saved.resolverContext;
             }
             progress?.('Context detection returned no response.', 100);
             return null;
@@ -631,35 +802,47 @@ export async function runLoreContextDetection(options = {}) {
             const fallback = inferContextLocallyFromMessages(messages, state);
             if (fallback) {
                 const savedFallback = { ...fallback, lastDetectedAt: Date.now() };
-                setLoreContext(savedFallback);
-                const positionResult = await maybeResolveContextsFromContext(savedFallback, {
+                const fallbackBrief = buildContextBriefFromLoreContext(savedFallback, {
+                    source: 'local',
+                    updatedAt: savedFallback.lastDetectedAt,
+                    note: 'Model response could not be parsed; local fallback used current headings/state only.',
+                });
+                const saved = await saveContextBriefAndResolve(fallbackBrief, messages, {
                     contextSource: 'local_alias',
-                    sourceText: messages,
                     progress,
                 });
-                const canonResult = await maybeProposeCanonLoreFromContext(savedFallback, progress);
+                const positionResult = saved.positionResult;
+                const canonResult = saved.canonResult;
                 progress?.(`Context inferred locally from message headings.${formatContextResolutionSuffix(positionResult)}${formatCanonProposalSuffix(canonResult)}`, 100);
-                return savedFallback;
+                return saved.resolverContext;
             }
             progress?.('Context detection returned no usable result.', 100);
             return null;
         }
 
-        const normalized = normalizeLoreContext({ ...parsed, lastDetectedAt: Date.now() });
-        setLoreContext(normalized);
-        const positionResult = await maybeResolveContextsFromContext(normalized, {
+        const detectedAt = Date.now();
+        const contextBrief = normalizeDetectedContextBrief(parsed, state?.loreContext || {}, {
+            source: 'model',
+            updatedAt: detectedAt,
+        });
+        if (!hasUsableContextBrief(contextBrief)) {
+            progress?.('Context detection returned no usable signals.', 100);
+            return null;
+        }
+        const saved = await saveContextBriefAndResolve(contextBrief, messages, {
             contextSource: 'model',
-            sourceText: messages,
             progress,
         });
-        const canonResult = await maybeProposeCanonLoreFromContext(normalized, progress);
+        const normalized = saved.loreContext;
+        const positionResult = saved.positionResult;
+        const canonResult = saved.canonResult;
         progress?.(`Context detection complete.${formatContextResolutionSuffix(positionResult)}${formatCanonProposalSuffix(canonResult)}`, 100);
 
         if (settings.debugMode) {
-            console.log(`${LOG_PREFIX} Lore context detected:`, normalized);
+            console.log(`${LOG_PREFIX} Context Brief detected:`, saved.contextBrief);
         }
 
-        return normalized;
+        return saved.resolverContext;
     } catch (e) {
         console.error(`${LOG_PREFIX} Lore context detection failed:`, e);
         const progress = typeof options.progress === 'function' ? options.progress : null;
@@ -1868,6 +2051,14 @@ export const __bulkLoreTestHooks = {
  * Both steps are guarded. Skips generation if detection fails.
  * @returns {Promise<{ detected: Object|null, generated: Object[] }>}
  */
+export const __contextDetectionTestHooks = {
+    normalizeDetectedContextBrief,
+    buildLoreContextFromContextBrief,
+    buildResolverContextFromContextBrief,
+    buildContextBriefFromLoreContext,
+    hasUsableContextBrief,
+};
+
 export async function runLorePipeline(options = {}) {
     const detected = await runLoreContextDetection(options);
     const generated = detected

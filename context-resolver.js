@@ -244,12 +244,38 @@ function getPackWindows(index = {}, packId = '') {
         : [];
 }
 
+function contextCoordinatesToText(coordinates = {}) {
+    if (Array.isArray(coordinates)) {
+        return coordinates
+            .map(item => isPlainObject(item) ? [item.axis || item.type, item.value || item.id || item.label].filter(Boolean).join(':') : '')
+            .filter(Boolean)
+            .join(' ');
+    }
+    if (!isPlainObject(coordinates)) return '';
+    return Object.entries(coordinates)
+        .map(([axis, value]) => `${axis}:${isPlainObject(value) ? (value.id || value.value || value.label || '') : value}`)
+        .filter(Boolean)
+        .join(' ');
+}
+
+function candidateCoordinatesToContextObject(coordinates = []) {
+    const output = {};
+    for (const item of Array.isArray(coordinates) ? coordinates : []) {
+        if (!isPlainObject(item)) continue;
+        const axis = cleanString(item.axis || item.type, 80);
+        const value = cleanString(item.value || item.id || item.label, 180);
+        if (axis && value) output[axis] = value;
+    }
+    return output;
+}
+
 function buildResolverText(context = {}, options = {}) {
     const parts = [
         context.label,
         context.sceneDate,
         context.subjectiveDate,
         context.canonBoundary,
+        context.stardate,
         context.arc,
         context.phase,
         context.season,
@@ -264,6 +290,7 @@ function buildResolverText(context = {}, options = {}) {
         context.alias,
         context.notes,
         context.summary,
+        contextCoordinatesToText(context.coordinates),
         options.sourceText,
     ];
     return parts
@@ -286,6 +313,97 @@ function confidenceFromAliasScore(score = 0) {
     if (score >= 80) return 0.86;
     if (score >= 50) return 0.78;
     return 0.66;
+}
+
+function comparableText(value = '') {
+    return cleanString(value, 240).toLowerCase().replace(/[^a-z0-9.:-]+/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+function textMatchesLoose(defValue = '', contextValue = '') {
+    const defText = comparableText(defValue);
+    const contextText = comparableText(contextValue);
+    if (!defText || !contextText) return false;
+    return defText === contextText || defText.includes(contextText) || contextText.includes(defText);
+}
+
+function parseNumber(value = '') {
+    const match = cleanString(value, 120).match(/-?\d+(?:\.\d+)?/);
+    if (!match) return null;
+    const number = Number(match[0]);
+    return Number.isFinite(number) ? number : null;
+}
+
+function numberMatchesRange(value = '', rangeValue = '') {
+    const number = parseNumber(value);
+    if (number === null) return false;
+    const text = cleanString(rangeValue, 120);
+    if (!text) return false;
+    const range = text.match(/(-?\d+(?:\.\d+)?)\s*(?:-|to|through|\u2013|\u2014)\s*(-?\d+(?:\.\d+)?)/i);
+    if (range) {
+        const from = Number(range[1]);
+        const to = Number(range[2]);
+        if (!Number.isFinite(from) || !Number.isFinite(to)) return false;
+        return number >= Math.min(from, to) && number <= Math.max(from, to);
+    }
+    const exact = parseNumber(text);
+    return exact !== null && Number(exact) === Number(number);
+}
+
+function stardateNumber(value = '') {
+    const match = cleanString(value, 120).match(/(?:stardate\s*)?(-?\d+(?:\.\d+)?)/i);
+    if (!match) return null;
+    const number = Number(match[1]);
+    return Number.isFinite(number) ? number : null;
+}
+
+function stardateMatchesDef(def = {}, context = {}) {
+    const current = stardateNumber(context.stardate || context.sceneDate || context.subjectiveDate);
+    if (current === null) return false;
+    const exact = stardateNumber(def.stardate);
+    if (exact !== null && Math.abs(exact - current) < 0.0001) return true;
+    const from = stardateNumber(def.stardateFrom);
+    const to = stardateNumber(def.stardateTo);
+    if (from !== null || to !== null) {
+        const low = from ?? -Infinity;
+        const high = to ?? Infinity;
+        return current >= Math.min(low, high) && current <= Math.max(low, high);
+    }
+    return false;
+}
+
+function coordinateMatchesDef(defCoordinates = [], contextCoordinates = {}) {
+    const contextMap = isPlainObject(contextCoordinates)
+        ? contextCoordinates
+        : Object.fromEntries((Array.isArray(contextCoordinates) ? contextCoordinates : [])
+            .filter(isPlainObject)
+            .map(item => [cleanString(item.axis || item.type, 80), cleanString(item.value || item.id || item.label, 180)]));
+    let matches = 0;
+    for (const coordinate of Array.isArray(defCoordinates) ? defCoordinates : []) {
+        if (!isPlainObject(coordinate)) continue;
+        const axis = cleanString(coordinate.axis || coordinate.type, 80);
+        const value = comparableText(coordinate.value || coordinate.id || coordinate.label);
+        const contextValue = comparableText(contextMap[axis]);
+        if (axis && value && contextValue && value === contextValue) matches += 1;
+    }
+    return matches;
+}
+
+function scoreStructuredContextMatch(def = {}, context = {}, options = {}) {
+    let score = 0;
+    if (textMatchesLoose(def.arc, context.arc)) score += options.window ? 70 : 38;
+    if (textMatchesLoose(def.phase, context.phase)) score += options.window ? 38 : 28;
+    if (textMatchesLoose(def.season, context.season)) score += options.window ? 34 : 28;
+    if (textMatchesLoose(def.episode, context.episode)) score += options.window ? 20 : 38;
+    if (textMatchesLoose(def.chapter, context.chapter)) score += options.window ? 24 : 34;
+    if (!textMatchesLoose(def.chapter, context.chapter) && numberMatchesRange(context.chapter, def.chapter)) score += options.window ? 46 : 28;
+    if (textMatchesLoose(def.issue, context.issue)) score += options.window ? 24 : 34;
+    if (!textMatchesLoose(def.issue, context.issue) && numberMatchesRange(context.issue, def.issue)) score += options.window ? 42 : 28;
+    if (textMatchesLoose(def.quest, context.quest)) score += 34;
+    if (textMatchesLoose(def.gameStage, context.gameStage)) score += 34;
+    if (stardateMatchesDef(def, context)) score += options.window ? 50 : 78;
+    score += coordinateMatchesDef(def.coordinates, context.coordinates) * (options.window ? 18 : 14);
+    if (options.window && (context.arc || context.phase) && score > 0) score += 18;
+    return score;
 }
 
 export function buildContextPatchFromAnchor(anchor = {}, options = {}) {
@@ -313,6 +431,8 @@ export function buildContextPatchFromAnchor(anchor = {}, options = {}) {
         issue: anchor.issue || '',
         quest: anchor.quest || '',
         gameStage: anchor.gameStage || '',
+        stardate: anchor.stardate || anchor.stardateFrom || '',
+        coordinates: candidateCoordinatesToContextObject(anchor.coordinates),
         alias: anchor.aliases?.[0] || anchor.label || anchor.id || '',
         source: mapResolverSource(options.contextSource),
         confidence: Number.isFinite(Number(options.confidence)) ? Number(options.confidence) : 0.66,
@@ -346,6 +466,8 @@ export function buildContextPatchFromWindow(windowDef = {}, options = {}) {
         issue: windowDef.issue || '',
         quest: windowDef.quest || '',
         gameStage: windowDef.gameStage || '',
+        stardate: windowDef.stardate || windowDef.stardateFrom || '',
+        coordinates: candidateCoordinatesToContextObject(windowDef.coordinates),
         alias: windowDef.aliases?.[0] || windowDef.label || windowDef.id || '',
         source: mapResolverSource(options.contextSource),
         confidence: Number.isFinite(Number(options.confidence)) ? Number(options.confidence) : 0.66,
@@ -405,14 +527,23 @@ function getBestDateMatch(packId, context = {}, index = {}) {
 function getBestAliasMatch(packId, context = {}, index = {}, options = {}) {
     const resolverText = buildResolverText(context, options);
     if (!resolverText) return null;
-    const ranked = rankContextAnchors(resolverText, { packId, index, limit: 5 });
+    const ranked = buildContextModelCandidatesForPack(packId, context, {
+        ...options,
+        index,
+        candidateLimit: 8,
+        includeDateCandidates: false,
+        includeFallbackCandidates: false,
+    });
     const top = ranked[0];
     if (!top || top.score < MIN_ALIAS_SCORE) return null;
+    const isWindow = top.type === 'window';
     return {
-        anchor: top.anchor,
+        anchor: isWindow ? null : top.def,
+        window: isWindow ? top.def : null,
         score: top.score,
-        matchType: 'alias',
+        matchType: isWindow ? 'window_alias' : 'alias',
         confidence: confidenceFromAliasScore(top.score),
+        contextSortKey: top.def?.sortKey ?? top.def?.sortKeyFrom,
     };
 }
 
@@ -444,6 +575,10 @@ function getWindowSearchText(windowDef = {}) {
         windowDef.issue,
         windowDef.quest,
         windowDef.gameStage,
+        windowDef.stardate,
+        windowDef.stardateFrom,
+        windowDef.stardateTo,
+        ...(windowDef.coordinates || []).flatMap(coordinate => [coordinate.axis, coordinate.value]),
         ...(windowDef.aliases || []),
         ...(windowDef.tags || []),
     ].filter(Boolean).join(' ');
@@ -480,6 +615,7 @@ function scoreWindowCandidate(windowDef = {}, resolverText = '', context = {}) {
     ) {
         score += 70;
     }
+    score += scoreStructuredContextMatch(windowDef, context, { window: true });
     return score;
 }
 
@@ -524,6 +660,10 @@ function serializeContextCandidate(candidate = {}) {
         issue: def.issue,
         quest: def.quest,
         gameStage: def.gameStage,
+        stardate: def.stardate,
+        stardateFrom: def.stardateFrom,
+        stardateTo: def.stardateTo,
+        coordinates: def.coordinates,
         aliases: (def.aliases || []).slice(0, 8),
         tags: (def.tags || []).slice(0, 10),
     };
@@ -545,20 +685,40 @@ export function buildContextModelCandidatesForPack(packId = '', context = {}, op
     const resolverText = buildResolverText(context, options);
     const limit = Math.max(4, Math.min(60, Number(options.candidateLimit) || MODEL_CANDIDATE_CAP_PER_PACK));
     const candidates = [];
-    const seen = new Set();
+    const candidateIndexes = new Map();
     const addCandidate = (candidate) => {
         const key = candidate?.candidateId || getTimelineCandidateId(candidate);
-        if (!key || seen.has(key)) return;
-        seen.add(key);
+        if (!key) return;
+        const existingIndex = candidateIndexes.get(key);
+        if (existingIndex !== undefined) {
+            const existing = candidates[existingIndex] || {};
+            if ((Number(candidate.score) || 0) > (Number(existing.score) || 0)) {
+                candidates[existingIndex] = candidate;
+            }
+            return;
+        }
+        candidateIndexes.set(key, candidates.length);
         candidates.push(candidate);
     };
 
-    const dateMatch = getBestDateMatch(packId, context, index);
-    if (dateMatch?.anchor) addCandidate(makeAnchorCandidate(dateMatch.anchor, dateMatch.score, 'date_match'));
-    if (dateMatch?.window) addCandidate(makeWindowCandidate(dateMatch.window, dateMatch.score, 'date_match'));
+    if (options.includeDateCandidates !== false) {
+        const dateMatch = getBestDateMatch(packId, context, index);
+        if (dateMatch?.anchor) addCandidate(makeAnchorCandidate(dateMatch.anchor, dateMatch.score, 'date_match'));
+        if (dateMatch?.window) addCandidate(makeWindowCandidate(dateMatch.window, dateMatch.score, 'date_match'));
+    }
 
     for (const ranked of rankContextAnchors(resolverText, { packId, index, limit: limit * 2 }) || []) {
-        addCandidate(makeAnchorCandidate(ranked.anchor, ranked.score, 'ranked_anchor'));
+        const structuredScore = scoreStructuredContextMatch(ranked.anchor, context, { window: false });
+        addCandidate(makeAnchorCandidate(
+            ranked.anchor,
+            (Number(ranked.score) || 0) + structuredScore,
+            structuredScore > 0 ? 'ranked_anchor_structured' : 'ranked_anchor',
+        ));
+    }
+
+    for (const anchor of getPackAnchors(index, packId)) {
+        const structuredScore = scoreStructuredContextMatch(anchor, context, { window: false });
+        if (structuredScore > 0) addCandidate(makeAnchorCandidate(anchor, structuredScore, 'structured_anchor'));
     }
 
     for (const windowDef of getPackWindows(index, packId)) {
@@ -566,7 +726,7 @@ export function buildContextModelCandidatesForPack(packId = '', context = {}, op
         if (score > 0) addCandidate(makeWindowCandidate(windowDef, score, 'ranked_window'));
     }
 
-    if (!candidates.length) {
+    if (!candidates.length && options.includeFallbackCandidates !== false) {
         for (const anchor of getPackAnchors(index, packId).slice(0, Math.ceil(limit / 2))) {
             addCandidate(makeAnchorCandidate(anchor, 0, 'fallback_anchor'));
         }
@@ -609,11 +769,13 @@ function patchChangesContext(current = {}, patch = {}) {
         'issue',
         'quest',
         'gameStage',
+        'stardate',
         'alias',
         'branchId',
         'source',
     ];
-    return keys.some(key => cleanString(current?.[key], 240) !== cleanString(patch?.[key], 240));
+    if (keys.some(key => cleanString(current?.[key], 240) !== cleanString(patch?.[key], 240))) return true;
+    return JSON.stringify(current?.coordinates || {}) !== JSON.stringify(patch?.coordinates || {});
 }
 
 function clampConfidence(value, fallback = 0) {
@@ -748,6 +910,8 @@ function buildContextPatchFromModelChoice(choice = {}, candidate = {}, context =
     patch.contextType = cleanString(choice.contextType || patch.contextType, 80) || patch.contextType;
     patch.label = cleanString(choice.label || patch.label, 240);
     patch.sceneDate = cleanString(choice.sceneDate || context.sceneDate || patch.sceneDate, 80);
+    patch.stardate = cleanString(choice.stardate || context.stardate || patch.stardate, 80);
+    if (isPlainObject(choice.coordinates)) patch.coordinates = choice.coordinates;
     patch.alias = cleanString(choice.alias || patch.alias, 240);
     if (context.branchId) patch.branchId = cleanString(context.branchId, 120) || 'main';
     patch.source = 'model';
@@ -788,6 +952,16 @@ function buildContextModelPrompt(context = {}, options = {}) {
             branchId: context.branchId || 'main',
             timeTravelMode: context.timeTravelMode || 'none',
             summary: context.summary || '',
+            arc: context.arc || '',
+            phase: context.phase || '',
+            season: context.season || '',
+            episode: context.episode || '',
+            chapter: context.chapter || '',
+            issue: context.issue || '',
+            quest: context.quest || '',
+            gameStage: context.gameStage || '',
+            stardate: context.stardate || '',
+            coordinates: isPlainObject(context.coordinates) ? context.coordinates : {},
         },
         supportingText: cleanString(options.sourceText, 3000),
         rules: [
@@ -1073,6 +1247,8 @@ export const __contextResolverTestHooks = {
     scoreAnchorDateMatch,
     resolveContextsFromContext,
     buildContextPatchFromAnchor,
+    buildContextPatchFromWindow,
+    buildContextModelCandidatesForPack,
     buildContextModelPrompt,
     parseContextModelResponse,
     resolveContextsFromModelResponse,

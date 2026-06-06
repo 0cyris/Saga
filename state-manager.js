@@ -57,6 +57,7 @@ const LOREDECK_CONTEXT_SOURCES = Object.freeze([
     'header',
     'local_alias',
     'model',
+    'detector',
     'imported',
     'unknown',
 ]);
@@ -328,6 +329,101 @@ function cleanContextNumber(value, fallback = null) {
     return Number.isFinite(number) ? number : fallback;
 }
 
+function cleanContextStringArray(value, limit = 24, maxLength = 160) {
+    const source = Array.isArray(value) ? value : (typeof value === 'string' ? [value] : []);
+    const output = [];
+    const seen = new Set();
+    for (const raw of source) {
+        const text = cleanContextString(raw, maxLength);
+        const key = text.toLowerCase();
+        if (!text || seen.has(key)) continue;
+        seen.add(key);
+        output.push(text);
+        if (output.length >= limit) break;
+    }
+    return output;
+}
+
+function normalizeContextCoordinates(value = {}) {
+    const output = {};
+    const assign = (axis, rawValue) => {
+        const cleanAxis = cleanContextString(axis, 80);
+        const cleanValue = cleanContextString(rawValue, 180);
+        if (!cleanAxis || !cleanValue || Object.keys(output).length >= 24) return;
+        output[cleanAxis] = cleanValue;
+    };
+
+    if (Array.isArray(value)) {
+        for (const item of value) {
+            if (!item || typeof item !== 'object' || Array.isArray(item)) continue;
+            assign(item.axis || item.type, item.id || item.value || item.label);
+        }
+        return output;
+    }
+
+    if (value && typeof value === 'object') {
+        for (const [axis, rawValue] of Object.entries(value)) {
+            if (rawValue && typeof rawValue === 'object' && !Array.isArray(rawValue)) {
+                assign(axis, rawValue.id || rawValue.value || rawValue.label);
+            } else {
+                assign(axis, rawValue);
+            }
+        }
+    }
+    return output;
+}
+
+function normalizeContextBriefEvidence(value = []) {
+    return (Array.isArray(value) ? value : [])
+        .map(item => {
+            if (!item || typeof item !== 'object' || Array.isArray(item)) return null;
+            const quote = cleanContextString(item.quote || item.text || item.snippet, 280);
+            const signal = cleanContextString(item.signal || item.type || item.kind, 80);
+            return quote || signal ? { quote, signal } : null;
+        })
+        .filter(Boolean)
+        .slice(0, 12);
+}
+
+export function normalizeContextBrief(value = {}, legacyContext = {}) {
+    const input = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+    const legacy = legacyContext && typeof legacyContext === 'object' && !Array.isArray(legacyContext) ? legacyContext : {};
+    const rawSignals = input.signals && typeof input.signals === 'object' && !Array.isArray(input.signals) ? input.signals : {};
+    const rawUncertainty = input.uncertainty && typeof input.uncertainty === 'object' && !Array.isArray(input.uncertainty) ? input.uncertainty : {};
+    const uncertaintyLevel = cleanContextString(rawUncertainty.level, 40).toLowerCase();
+    return {
+        schemaVersion: 1,
+        summary: cleanContextString(input.summary || legacy.summary, 500),
+        branchId: cleanContextString(input.branchId || legacy.branchId || 'main', 120) || 'main',
+        timeTravelMode: cleanContextString(input.timeTravelMode || legacy.timeTravelMode || 'none', 80) || 'none',
+        evidence: normalizeContextBriefEvidence(input.evidence),
+        signals: {
+            sceneDate: cleanContextString(rawSignals.sceneDate || input.sceneDate || legacy.sceneDate, 80),
+            subjectiveDate: cleanContextString(rawSignals.subjectiveDate || input.subjectiveDate || legacy.subjectiveDate, 80),
+            canonBoundary: cleanContextString(rawSignals.canonBoundary || input.canonBoundary || legacy.canonBoundary, 240),
+            positionPhrases: cleanContextStringArray(rawSignals.positionPhrases || input.positionPhrases, 16, 180),
+            fandomHints: cleanContextStringArray(rawSignals.fandomHints || input.fandomHints, 16, 140),
+            arc: cleanContextString(rawSignals.arc || input.arc, 180),
+            phase: cleanContextString(rawSignals.phase || input.phase, 180),
+            season: cleanContextString(rawSignals.season || input.season, 80),
+            episode: cleanContextString(rawSignals.episode || input.episode, 80),
+            chapter: cleanContextString(rawSignals.chapter || input.chapter, 80),
+            issue: cleanContextString(rawSignals.issue || input.issue, 80),
+            quest: cleanContextString(rawSignals.quest || input.quest, 180),
+            gameStage: cleanContextString(rawSignals.gameStage || input.gameStage, 180),
+            stardate: cleanContextString(rawSignals.stardate || input.stardate, 80),
+            coordinates: normalizeContextCoordinates(rawSignals.coordinates || input.coordinates),
+            eventLabels: cleanContextStringArray(rawSignals.eventLabels || input.eventLabels, 24, 180),
+        },
+        uncertainty: {
+            level: ['low', 'medium', 'high'].includes(uncertaintyLevel) ? uncertaintyLevel : 'low',
+            notes: cleanContextStringArray(rawUncertainty.notes || input.uncertaintyNotes, 12, 240),
+        },
+        source: normalizeContextSource(input.source, 'unknown'),
+        updatedAt: Number.isFinite(Number(input.updatedAt)) ? Number(input.updatedAt) : 0,
+    };
+}
+
 function buildDefaultLoredeckContext(packId = '', legacyContext = {}) {
     const id = cleanContextString(packId, 120);
     const sceneDate = cleanContextString(legacyContext?.sceneDate, 80);
@@ -339,6 +435,7 @@ function buildDefaultLoredeckContext(packId = '', legacyContext = {}) {
         label: canonBoundary || sceneDate || '',
         sceneDate,
         subjectiveDate: cleanContextString(legacyContext?.subjectiveDate, 80),
+        stardate: cleanContextString(legacyContext?.stardate, 80),
         contextSortKey: null,
         contextSortKeyFrom: null,
         contextSortKeyTo: null,
@@ -353,6 +450,7 @@ function buildDefaultLoredeckContext(packId = '', legacyContext = {}) {
         issue: '',
         quest: '',
         gameStage: '',
+        coordinates: normalizeContextCoordinates(legacyContext?.coordinates),
         alias: canonBoundary || '',
         notes: '',
         branchId: cleanContextString(legacyContext?.branchId || 'main', 120) || 'main',
@@ -375,6 +473,7 @@ function normalizeLoredeckContext(value, packId = '', legacyContext = {}) {
         label: cleanContextField(input, 'label', 240, defaults.label),
         sceneDate: cleanContextField(input, 'sceneDate', 80, defaults.sceneDate),
         subjectiveDate: cleanContextField(input, 'subjectiveDate', 80, defaults.subjectiveDate),
+        stardate: cleanContextField(input, 'stardate', 80, defaults.stardate),
         contextSortKey: cleanContextNumber(input.contextSortKey ?? input.sortKey, defaults.contextSortKey),
         contextSortKeyFrom: cleanContextNumber(input.contextSortKeyFrom ?? input.sortKeyFrom, defaults.contextSortKeyFrom),
         contextSortKeyTo: cleanContextNumber(input.contextSortKeyTo ?? input.sortKeyTo, defaults.contextSortKeyTo),
@@ -389,6 +488,7 @@ function normalizeLoredeckContext(value, packId = '', legacyContext = {}) {
         issue: cleanContextField(input, 'issue', 80, ''),
         quest: cleanContextField(input, 'quest', 180, ''),
         gameStage: cleanContextField(input, 'gameStage', 180, ''),
+        coordinates: normalizeContextCoordinates(input.coordinates || defaults.coordinates),
         alias: cleanContextField(input, 'alias', 240, defaults.alias),
         notes: cleanContextField(input, 'notes', 1000, ''),
         branchId: cleanContextString(input.branchId || defaults.branchId || 'main', 120) || 'main',
@@ -671,6 +771,9 @@ function normalizeLoredeckTimelineAnchor(raw = {}, fallbackId = '', index = 0) {
         issue: String(raw.issue || '').trim().slice(0, 80),
         quest: String(raw.quest || '').trim().slice(0, 180),
         gameStage: String(raw.gameStage || '').trim().slice(0, 180),
+        stardate: String(raw.stardate || '').trim().slice(0, 80),
+        stardateFrom: String(raw.stardateFrom || raw.stardateStart || '').trim().slice(0, 80),
+        stardateTo: String(raw.stardateTo || raw.stardateEnd || '').trim().slice(0, 80),
         aliases: normalizeLoredeckTimelineRegistryList(raw.aliases || raw.triggers, 64),
         tags: normalizeLoredeckTimelineRegistryList(raw.tags, 64),
         notes: String(raw.notes || raw.description || '').trim().slice(0, 1000),
@@ -694,6 +797,18 @@ function normalizeLoredeckTimelineWindow(raw = {}, fallbackId = '', index = 0) {
         sortKeyFrom: normalizeLoredeckTimelineNumber(raw.sortKeyFrom),
         sortKeyTo: normalizeLoredeckTimelineNumber(raw.sortKeyTo),
         dateRange: normalizeLoredeckTimelineDateRange(raw.dateRange || raw.date),
+        schoolYear: String(raw.schoolYear || raw.date?.schoolYear || raw.canonTiming?.schoolYear || '').trim().slice(0, 80),
+        arc: String(raw.arc || '').trim().slice(0, 180),
+        phase: String(raw.phase || '').trim().slice(0, 180),
+        season: String(raw.season || '').trim().slice(0, 80),
+        episode: String(raw.episode || '').trim().slice(0, 80),
+        chapter: String(raw.chapter || '').trim().slice(0, 80),
+        issue: String(raw.issue || '').trim().slice(0, 80),
+        quest: String(raw.quest || '').trim().slice(0, 180),
+        gameStage: String(raw.gameStage || '').trim().slice(0, 180),
+        stardateFrom: String(raw.stardateFrom || raw.stardateStart || '').trim().slice(0, 80),
+        stardateTo: String(raw.stardateTo || raw.stardateEnd || '').trim().slice(0, 80),
+        coordinates: normalizeContextCoordinates(raw.coordinates),
         aliases: normalizeLoredeckTimelineRegistryList(raw.aliases || raw.triggers, 64),
         tags: normalizeLoredeckTimelineRegistryList(raw.tags, 64),
         notes: String(raw.notes || raw.description || '').trim().slice(0, 1000),
@@ -3214,12 +3329,20 @@ export function migrateState(state) {
         state._version = 23;
     }
 
+    // Schema v24: generalized Context Brief plus richer Loredeck Context fields
+    if (state._version < 24) {
+        state.contextBrief = normalizeContextBrief(state.contextBrief || {}, state.loreContext || {});
+        state.loredeckContexts = normalizeLoredeckContexts(state.loredeckContexts, state);
+        state._version = 24;
+    }
+
     // ── Always normalize lore fields post-migration ────────────────────────
     // First compact known-heavy canon DB payloads and oversized pending batches so
     // a poisoned chat can recover instead of freezing during panel render/save.
     sanitizeLoreArraysForStorage(state);
     // Even v4 states can become malformed through manual editing or old imports.
     state.loreContext = normalizeLoreContext(state.loreContext || {});
+    state.contextBrief = normalizeContextBrief(state.contextBrief || {}, state.loreContext || {});
     state.loreMatrix = normalizeLoreMatrix(state.loreMatrix || []);
     state.pendingLoreEntries = normalizeLoreMatrix(state.pendingLoreEntries || []);
     state.loreTimeline = normalizeLoreTimeline(state.loreTimeline || {});
@@ -4158,6 +4281,7 @@ export function importState(json) {
 
             // Lore fields (schema v2)
             loreContext: normalizeLoreContext(parsed.loreContext || {}),
+            contextBrief: normalizeContextBrief(parsed.contextBrief || {}, parsed.loreContext || {}),
             loreMatrix: normalizeLoreMatrix(parsed.loreMatrix || []),
             pendingLoreEntries: normalizeLoreMatrix(parsed.pendingLoreEntries || []),
 
@@ -4306,6 +4430,13 @@ export function setLoreContext(contextUpdate) {
  * @param {Object} [options={}] - { increment?: boolean } — whether to bump attemptCount
  * @returns {Object} Updated state
  */
+export function setContextBrief(briefUpdate, options = {}) {
+    const state = getState();
+    state.contextBrief = normalizeContextBrief(briefUpdate || {}, state.loreContext || {});
+    if (options.save !== false) saveState(state);
+    return state;
+}
+
 export function getLoredeckContext(state = getState(), packId = '') {
     const id = cleanContextString(packId, 120);
     if (!id) return normalizeLoredeckContext(null, '', state?.loreContext || {});

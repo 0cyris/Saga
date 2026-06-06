@@ -3059,6 +3059,14 @@ function openLoredeckLibraryWindow() {
     renderLoredeckLibraryOverlay();
 }
 
+function openLoredeckLibraryDetails(packId = '') {
+    const id = String(packId || '').trim();
+    if (!id) return false;
+    selectLoredeckForDetails(id, { refresh: false });
+    openLoredeckLibraryWindow();
+    return true;
+}
+
 function closeLoredeckLibraryWindow() {
     loredeckLibraryOpen = false;
     loredeckLibraryFolderCoverResizeObserver?.disconnect?.();
@@ -8734,7 +8742,13 @@ function createLoredeckCreatorCurrentTaskActions(cached = {}, pipeline = {}, con
         addSecondary('Open Title Table', 'Jump to the Title Pass review table.', 'title-sets');
     } else if (step.id === 'context') {
         const nextPlanningBatch = getLoredeckCreatorNextPlanningBatch(cached);
-        const planButton = createButton(nextPlanningBatch ? 'Plan Context and Tags' : 'Open Pending Review', nextPlanningBatch ? 'Draft timeline and tag proposals for the next accepted title set.' : 'Open the pending proposal queue for acceptance.', async (btn) => {
+        const pendingPlanningCount = Number(pipeline.pendingPlanningCount || 0);
+        const planButton = createButton(
+            nextPlanningBatch ? 'Plan Context and Tags' : (pendingPlanningCount ? 'Review Context and Tags' : 'Open Pending Review'),
+            nextPlanningBatch
+                ? 'Draft timeline and tag proposals for the next accepted title set.'
+                : (pendingPlanningCount ? 'Review and accept pending Context and Tag proposals so Lorecard drafting can unlock.' : 'Open the pending proposal queue for acceptance.'),
+            async (btn) => {
             const fresh = getLoredeckCreatorBriefCache();
             const batch = getLoredeckCreatorNextPlanningBatch(fresh);
             if (batch) {
@@ -8856,7 +8870,7 @@ function createLoredeckCreatorGuidancePanel(pipeline = {}) {
 function createLoredeckCreatorQueuePanel(pipeline = {}) {
     const panel = document.createElement('div');
     panel.className = 'wandlight-loredeck-creator-side-panel';
-    panel.dataset.sagaCreatorAnchor = 'review-queue';
+    panel.dataset.sagaCreatorAnchor = 'review-status';
     const title = document.createElement('div');
     title.className = 'wandlight-loredeck-creator-side-title';
     title.textContent = 'Pending Review';
@@ -8879,6 +8893,21 @@ function createLoredeckCreatorQueuePanel(pipeline = {}) {
         panel.appendChild(row);
     }
     return panel;
+}
+
+function createLoredeckCreatorPendingReviewCard(cached = {}, pipeline = {}) {
+    const pack = pipeline.generatedPack || (cached.generatedPackId ? getLoredeckDefinition(cached.generatedPackId) : null);
+    if (!pack) return null;
+    const card = createLoredeckPendingReviewCard(pack);
+    card.classList.add('wandlight-loredeck-creator-pending-review');
+    if (pipeline.pendingPlanningCount) {
+        const note = document.createElement('div');
+        note.className = 'wandlight-runtime-help';
+        note.textContent = 'Next step: review and accept these Context and Tag proposals. Accepted planning metadata unlocks Lorecard drafting.';
+        const insertBefore = card.children[2] || null;
+        card.insertBefore(note, insertBefore);
+    }
+    return card;
 }
 
 function createLoredeckCreatorJobPanel(cached = {}, pipeline = {}) {
@@ -9157,6 +9186,7 @@ function createLoredeckCreatorCard(state = getState(), options = {}) {
                 { open: !!outline && cached.outlineApproved !== true, state: outline ? (cached.outlineApproved ? 'Approved' : 'Needs review') : 'Ready', anchor: 'story-outline' }
             ));
             if (cached.outlineApproved && outline) {
+                const generatedPack = cached.generatedPackId ? getLoredeckDefinition(cached.generatedPackId) : null;
                 card.appendChild(createLoredeckCreatorArtifactDisclosure(
                     'Title Pass',
                     createLoredeckCreatorTitlePassCard(cached.brief, cached),
@@ -9167,12 +9197,21 @@ function createLoredeckCreatorCard(state = getState(), options = {}) {
                     createLoredeckCreatorPlanningCard(cached.brief, cached),
                     { open: pipeline.currentStep.id === 'context', state: pipeline.stages.find(stage => stage.id === 'context')?.detail || 'Locked', anchor: 'context-plan' }
                 ));
+                if (generatedPack && pipeline.pendingChanges.length) {
+                    const pendingReviewCard = createLoredeckCreatorPendingReviewCard(cached, pipeline);
+                    if (pendingReviewCard) {
+                        card.appendChild(createLoredeckCreatorArtifactDisclosure(
+                            'Pending Review',
+                            pendingReviewCard,
+                            { open: ['context', 'review'].includes(pipeline.currentStep.id), state: `${pipeline.pendingChanges.length} pending`, anchor: 'review-queue' }
+                        ));
+                    }
+                }
                 card.appendChild(createLoredeckCreatorArtifactDisclosure(
                     'Lorecards',
                     createLoredeckCreatorEntryDraftCard(cached.brief, cached),
                     { open: pipeline.currentStep.id === 'lorecards', state: pipeline.stages.find(stage => stage.id === 'lorecards')?.detail || 'Locked', anchor: 'lorecards' }
                 ));
-                const generatedPack = cached.generatedPackId ? getLoredeckDefinition(cached.generatedPackId) : null;
                 if (generatedPack) {
                     card.appendChild(createLoredeckCreatorArtifactDisclosure(
                         'Deck Health and Finalize',
@@ -11817,11 +11856,14 @@ function createLoredeckCreatorPlanningBatchPlanner(brief = {}, cached = {}) {
                 }, btn);
             }, 'wandlight-primary-button');
             actions.appendChild(applyLoredeckCreatorGenerationButtonLock(planButton, cached, 'context/tag plan'));
+        } else if (queued) {
+            const doneButton = createButton('Done', 'This Context and Tag set is already in Pending Review.', null, 'wandlight-loredeck-creator-done-button');
+            doneButton.disabled = true;
+            actions.appendChild(doneButton);
         } else {
-            actions.appendChild(createStatusPill(queued ? 'Done' : 'Waiting', queued ? 'This Context and Tag set is already in Pending Review.' : 'This set unlocks after earlier eligible sets are planned.'));
+            actions.appendChild(createStatusPill('Waiting', 'This set unlocks after earlier eligible sets are planned.'));
         }
         row.appendChild(actions);
-        appendLoredeckCreatorGenerationStatus(main, cached, ['planning_batch_draft'], { batchId: batch.id, compact: true });
         section.appendChild(row);
     }
 
@@ -11841,6 +11883,7 @@ function createLoredeckCreatorPlanningCard(brief = {}, cached = {}) {
     const eligiblePlanningBatchCount = planningBatches.filter(batch => batch.approvedTitleCount > 0).length;
     const nextPlanningBatch = getLoredeckCreatorNextPlanningBatch(cached);
     const generatedPack = cached.generatedPackId ? getLoredeckDefinition(cached.generatedPackId) : null;
+    const pendingPlanningCount = generatedPack ? countLoredeckCreatorPlanningPendingChanges(generatedPack) : 0;
     const wrap = document.createElement('div');
     wrap.className = 'wandlight-loredeck-creator-brief wandlight-loredeck-creator-planning';
     wrap.dataset.sagaCreatorAnchor = 'context-tags';
@@ -11856,6 +11899,7 @@ function createLoredeckCreatorPlanningCard(brief = {}, cached = {}) {
     summary.appendChild(createStatusPill(`${queuedBatchIds.size}/${eligiblePlanningBatchCount} planned`, 'Context and Tag sets drafted from approved title sets.'));
     summary.appendChild(createStatusPill(generatedPack ? 'Generated shell ready' : 'No shell yet', 'Generated Loredeck shell status.'));
     if (generatedPack) summary.appendChild(createStatusPill(generatedPack.packId, 'Generated Loredeck target for Pending Review proposals.'));
+    if (pendingPlanningCount) summary.appendChild(createStatusPill(`${pendingPlanningCount} awaiting review`, 'Context and Tag proposals waiting in Pending Review.'));
     if (cached.planningQueuedCount) summary.appendChild(createStatusPill(`${cached.planningQueuedCount} drafted`, 'Last Creator planning proposal count sent to Pending Review.'));
     if (cached.planningQuestions?.length) summary.appendChild(createStatusPill(`${cached.planningQuestions.length} question${cached.planningQuestions.length === 1 ? '' : 's'}`, 'Creator needs clarification before Context and Tag planning can proceed.'));
     wrap.appendChild(summary);
@@ -11880,16 +11924,29 @@ function createLoredeckCreatorPlanningCard(brief = {}, cached = {}) {
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
-    const draftButton = createButton(nextPlanningBatch ? 'Plan Context and Tags' : 'Context Plans Complete', nextPlanningBatch ? 'Create or reuse the Generated Loredeck shell, then draft Context and Tag proposals for the next approved title set.' : 'Every eligible Context and Tag set has already been planned.', async (btn) => {
-        await handleLoredeckCreatorPlanningDraft({
-            targetPlanningBatch: getLoredeckCreatorNextPlanningBatch(getLoredeckCreatorBriefCache()),
-        }, btn);
-    }, 'wandlight-primary-button');
-    draftButton.disabled = !nextPlanningBatch;
+    const draftButton = createButton(
+        nextPlanningBatch ? 'Plan Context and Tags' : (pendingPlanningCount ? 'Review Context and Tags' : 'Context Plans Complete'),
+        nextPlanningBatch
+            ? 'Create or reuse the Generated Loredeck shell, then draft Context and Tag proposals for the next approved title set.'
+            : (pendingPlanningCount ? 'Open the Pending Review section to accept Context and Tag proposals.' : 'Every eligible Context and Tag set has already been planned.'),
+        async (btn) => {
+            const fresh = getLoredeckCreatorBriefCache();
+            const batch = getLoredeckCreatorNextPlanningBatch(fresh);
+            if (batch) {
+                await handleLoredeckCreatorPlanningDraft({
+                    targetPlanningBatch: batch,
+                }, btn);
+                return;
+            }
+            scrollLoredeckCreatorWorkbenchToAnchor('review-queue');
+        },
+        'wandlight-primary-button'
+    );
+    draftButton.disabled = !nextPlanningBatch && !pendingPlanningCount;
     actions.appendChild(applyLoredeckCreatorGenerationButtonLock(draftButton, cached, 'context/tag plan'));
     if (generatedPack) {
-        actions.appendChild(createButton('Inspect Deck', 'Open the Generated Loredeck detail panel and review pending planning proposals.', () => {
-            selectLoredeckForDetails(generatedPack.packId);
+        actions.appendChild(createButton('Inspect in Library', 'Open the Generated Loredeck in the fullscreen Loredeck Library details panel.', () => {
+            openLoredeckLibraryDetails(generatedPack.packId);
         }));
         const inStack = getLoredeckStack(getState()).some(item => item.packId === generatedPack.packId && item.enabled);
         const stackButton = createButton(inStack ? 'In Stack' : 'Add to Stack', 'Add the Generated Loredeck to the current stack when you are ready to test it.', () => {
@@ -11899,7 +11956,6 @@ function createLoredeckCreatorPlanningCard(brief = {}, cached = {}) {
         actions.appendChild(stackButton);
     }
     wrap.appendChild(actions);
-    appendLoredeckCreatorGenerationStatus(wrap, cached, ['planning_batch_draft']);
 
     if (!approvedTitles.length) {
         wrap.appendChild(createEmptyMessage('Approve title drafts before generating timeline and tag planning proposals.'));
@@ -12707,8 +12763,8 @@ function createLoredeckCreatorEntryDraftCard(brief = {}, cached = {}) {
     multiBatchButton.disabled = !canDraftEntries || (progress?.batchCount || 0) <= 1;
     actions.appendChild(applyLoredeckCreatorGenerationButtonLock(multiBatchButton, cached, 'Lorecard batch draft'));
     if (generatedPack) {
-        actions.appendChild(createButton('Inspect Deck', 'Open the Generated Loredeck detail panel for draft batch and Pending Review controls.', () => {
-            selectLoredeckForDetails(generatedPack.packId);
+        actions.appendChild(createButton('Inspect in Library', 'Open the Generated Loredeck in the fullscreen Loredeck Library details panel.', () => {
+            openLoredeckLibraryDetails(generatedPack.packId);
         }));
     }
     wrap.appendChild(actions);
@@ -25416,7 +25472,7 @@ async function acceptLoredeckPendingChanges(pack, changeIds = []) {
         return false;
     }
     const affectsHealth = selected.some(change => doesLoredeckPendingChangeAffectPackHealth(change));
-    const acceptedCreatorPlanningBatchIds = selected
+    const selectedCreatorPlanningBatchIds = selected
         .filter(change => String(change.source || '').trim() === 'loredeck_creator' && ['timeline_anchor', 'timeline_window', 'tag'].includes(change.targetKind))
         .map(change => normalizeLoredeckCreatorTitleId(change.preview?.creatorPlanningBatch?.id || '', ''))
         .filter(Boolean);
@@ -25435,11 +25491,16 @@ async function acceptLoredeckPendingChanges(pack, changeIds = []) {
         : `Accepted ${selected.length} pending Loredeck change${selected.length === 1 ? '' : 's'}.`, {
         errorMessage: 'Pending Loredeck change acceptance failed.',
     });
-    if (accepted && acceptedCreatorPlanningBatchIds.length) {
+    if (accepted && selectedCreatorPlanningBatchIds.length) {
         const cached = getLoredeckCreatorBriefCache();
         if (cached.generatedPackId === pack.packId) {
+            const fresh = getFreshLoredeckLibraryPack(pack.packId, pack);
+            const remainingPending = getLoredeckPendingChanges(fresh);
             const acceptedIds = new Set(normalizeLoredeckCreatorTitleIdList(cached.planningBatchAcceptedIds || [], 1200));
-            for (const id of acceptedCreatorPlanningBatchIds) acceptedIds.add(id);
+            for (const id of selectedCreatorPlanningBatchIds) {
+                const stillPending = remainingPending.some(change => isLoredeckCreatorPlanningPendingChange(change, id));
+                if (!stillPending) acceptedIds.add(id);
+            }
             setLoredeckCreatorBriefCache({
                 ...cached,
                 planningBatchAcceptedIds: [...acceptedIds],
@@ -25449,6 +25510,10 @@ async function acceptLoredeckPendingChanges(pack, changeIds = []) {
     }
     if (accepted && affectsHealth) {
         await refreshLoredeckHealthAfterAcceptedPendingChanges(pack, selected.length);
+    }
+    if (accepted) {
+        refreshLoredeckCreatorWorkbenchBody({ preserveScroll: true });
+        refreshHeader();
     }
     return accepted;
 }
@@ -25461,12 +25526,17 @@ function rejectLoredeckPendingChanges(pack, changeIds = []) {
         toast('No pending Loredeck changes selected.', 'warning');
         return false;
     }
-    return persistLoredeckLibraryRecordMutation(pack, next => {
+    const rejected = persistLoredeckLibraryRecordMutation(pack, next => {
         const selectedIds = new Set(selected.map(change => change.changeId));
         next.pendingChanges = normalizeLoredeckPendingChanges(next.pendingChanges).filter(change => !selectedIds.has(change.changeId));
     }, `Rejected ${selected.length} pending Loredeck change${selected.length === 1 ? '' : 's'}.`, {
         errorMessage: 'Pending Loredeck change rejection failed.',
     });
+    if (rejected) {
+        refreshLoredeckCreatorWorkbenchBody({ preserveScroll: true });
+        refreshHeader();
+    }
+    return rejected;
 }
 
 function saveLoredeckEntryOverride(pack, entry) {

@@ -2,6 +2,8 @@
 
 This document began as the Context Editor workshop. Clarified direction: **Context is the user-facing Context system**. The internal structured object may remain `context`, but users should browse, resolve, lock, and monitor **Context**.
 
+Implementation companion: [SAGA_CONTEXT_SYSTEM_DEVELOPMENT_PLAN.md](SAGA_CONTEXT_SYSTEM_DEVELOPMENT_PLAN.md) tracks the broader detector/state/resolver/model-call hardening needed before Context can support dates, arcs, chapters, episodes, quests, stardates, and loose story windows across many fandom structures.
+
 Saga's Context system answers a simple runtime question:
 
 > Where is this chat inside each loaded Loredeck's story?
