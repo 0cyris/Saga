@@ -221,6 +221,122 @@ function parseAssistantJson(text = '') {
     throw new Error(`Lore Assistant returned invalid JSON${errors.length ? `: ${errors[0]}` : ''}.`);
 }
 
+function findJsonKeyValueStart(text = '', key = '') {
+    const s = String(text || '');
+    const escapedKey = String(key || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const match = s.match(new RegExp(`"${escapedKey}"\\s*:`));
+    return match ? (match.index + match[0].length) : -1;
+}
+
+function parseJsonObjectAfterKey(text = '', key = '') {
+    const start = findJsonKeyValueStart(text, key);
+    if (start < 0) return null;
+    const value = findBalancedJson(String(text || '').slice(start), '{', '}');
+    if (!value) return null;
+    try {
+        return JSON.parse(value);
+    } catch {
+        return null;
+    }
+}
+
+function parseJsonArrayAfterKey(text = '', key = '') {
+    const start = findJsonKeyValueStart(text, key);
+    if (start < 0) return [];
+    const value = findBalancedJson(String(text || '').slice(start), '[', ']');
+    if (!value) return [];
+    try {
+        const parsed = JSON.parse(value);
+        return Array.isArray(parsed) ? parsed : [];
+    } catch {
+        return [];
+    }
+}
+
+function extractCompleteObjectsFromJsonArray(text = '', key = '') {
+    const cleaned = sanitizeJsonish(stripJsonFences(removeReasoningBlocks(text)));
+    const start = findJsonKeyValueStart(cleaned, key);
+    if (start < 0) return [];
+    const arrayStart = cleaned.indexOf('[', start);
+    if (arrayStart < 0) return [];
+    const rows = [];
+    let objectStart = -1;
+    let depth = 0;
+    let inString = false;
+    let escaped = false;
+    for (let i = arrayStart + 1; i < cleaned.length; i += 1) {
+        const ch = cleaned[i];
+        if (escaped) {
+            escaped = false;
+            continue;
+        }
+        if (ch === '\\') {
+            escaped = true;
+            continue;
+        }
+        if (ch === '"') {
+            inString = !inString;
+            continue;
+        }
+        if (inString) continue;
+        if (ch === '[' && depth === 0 && objectStart < 0) continue;
+        if (ch === ']' && depth === 0) break;
+        if (ch === '{') {
+            if (depth === 0) objectStart = i;
+            depth += 1;
+            continue;
+        }
+        if (ch === '}') {
+            depth -= 1;
+            if (depth === 0 && objectStart >= 0) {
+                const rawObject = cleaned.slice(objectStart, i + 1);
+                try {
+                    rows.push(JSON.parse(rawObject));
+                } catch {
+                    // Ignore malformed partial rows; complete rows before the cutoff remain usable.
+                }
+                objectStart = -1;
+            }
+        }
+    }
+    return rows;
+}
+
+function extractPartialCreatorTitleResponse(text = '') {
+    const cleaned = sanitizeJsonish(stripJsonFences(removeReasoningBlocks(text)));
+    const rows = extractCompleteObjectsFromJsonArray(cleaned, 'titleDrafts')
+        .concat(extractCompleteObjectsFromJsonArray(cleaned, 'titles'))
+        .concat(extractCompleteObjectsFromJsonArray(cleaned, 'entries'));
+    if (!rows.length) return null;
+    const batch = parseJsonObjectAfterKey(cleaned, 'batch') || parseJsonObjectAfterKey(cleaned, 'titleBatch') || {};
+    const warnings = parseJsonArrayAfterKey(cleaned, 'warnings');
+    const summaryMatch = cleaned.match(/"summary"\s*:\s*"([^"]{1,1000})"/);
+    return {
+        summary: summaryMatch ? summaryMatch[1] : '',
+        clarifyingQuestions: parseJsonArrayAfterKey(cleaned, 'clarifyingQuestions'),
+        warnings,
+        batch,
+        titleRows: rows,
+        salvaged: true,
+    };
+}
+
+function extractPartialAssistantResponse(text = '') {
+    const cleaned = sanitizeJsonish(stripJsonFences(removeReasoningBlocks(text)));
+    const proposalRows = extractCompleteObjectsFromJsonArray(cleaned, 'proposals')
+        .concat(extractCompleteObjectsFromJsonArray(cleaned, 'changes'));
+    if (!proposalRows.length) return null;
+    const warnings = parseJsonArrayAfterKey(cleaned, 'warnings');
+    const summaryMatch = cleaned.match(/"summary"\s*:\s*"([^"]{1,1000})"/);
+    return {
+        summary: summaryMatch ? summaryMatch[1] : '',
+        clarifyingQuestions: parseJsonArrayAfterKey(cleaned, 'clarifyingQuestions'),
+        warnings,
+        proposals: proposalRows,
+        salvaged: true,
+    };
+}
+
 function coerceAssistantShape(parsed) {
     if (Array.isArray(parsed)) return { proposals: parsed };
     if (!isPlainObject(parsed)) return { proposals: [] };
@@ -267,12 +383,27 @@ function normalizeAssistantProposal(raw = {}, index = 0) {
 }
 
 export function parseLoredeckAssistantResponse(text = '') {
-    const parsedJson = parseAssistantJson(text);
-    const parsed = coerceAssistantShape(parsedJson);
+    let parsedJson = null;
+    let parseError = null;
+    try {
+        parsedJson = parseAssistantJson(text);
+    } catch (error) {
+        parseError = error;
+    }
+    const partial = extractPartialAssistantResponse(text);
+    if (parseError && !partial?.proposals?.length) throw parseError;
+    const parsed = parsedJson ? coerceAssistantShape(parsedJson) : { proposals: [] };
     const raw = isPlainObject(parsedJson) ? parsedJson : {};
+    const directHasProposalObjects = (parsed.proposals || []).some(row => isPlainObject(row));
+    const proposalRows = partial?.proposals?.length && !directHasProposalObjects
+        ? partial.proposals
+        : (parsed.proposals || []);
     const proposals = [];
-    const warnings = cleanStringArray(raw.warnings, 12, 300);
-    for (const [index, raw] of (parsed.proposals || []).entries()) {
+    const warnings = cleanStringArray(partial?.warnings?.length ? partial.warnings : raw.warnings, 12, 300);
+    if (partial?.salvaged && !directHasProposalObjects) {
+        warnings.push('Assistant response was truncated; Saga salvaged complete proposals before the cutoff.');
+    }
+    for (const [index, raw] of proposalRows.entries()) {
         const proposal = normalizeAssistantProposal(raw, index);
         if (!proposal) {
             warnings.push(`Skipped unsupported proposal ${index + 1}.`);
@@ -281,8 +412,8 @@ export function parseLoredeckAssistantResponse(text = '') {
         proposals.push(proposal);
     }
     return {
-        summary: parsed.summary || '',
-        clarifyingQuestions: parsed.clarifyingQuestions || [],
+        summary: partial?.summary || parsed.summary || '',
+        clarifyingQuestions: cleanStringArray(partial?.clarifyingQuestions?.length ? partial.clarifyingQuestions : parsed.clarifyingQuestions, 8, 300),
         proposals,
         warnings,
     };
@@ -451,18 +582,33 @@ export function parseLoredeckCreatorOutlineResponse(text = '') {
 }
 
 export function parseLoredeckCreatorTitleResponse(text = '') {
-    const parsedJson = parseAssistantJson(text);
-    const parsed = coerceAssistantShape(parsedJson);
+    let parsedJson = null;
+    let parseError = null;
+    try {
+        parsedJson = parseAssistantJson(text);
+    } catch (error) {
+        parseError = error;
+    }
+    const parsed = parsedJson ? coerceAssistantShape(parsedJson) : {};
     const raw = isPlainObject(parsedJson) ? parsedJson : {};
-    const titleRows = Array.isArray(parsedJson)
+    const partial = extractPartialCreatorTitleResponse(text);
+    if (parseError && !partial?.titleRows?.length) throw parseError;
+    const directTitleRows = Array.isArray(parsedJson)
         ? parsedJson
         : (Array.isArray(raw.titleDrafts)
             ? raw.titleDrafts
             : (Array.isArray(raw.titles)
                 ? raw.titles
                 : (Array.isArray(raw.entries) ? raw.entries : [])));
+    const directHasTitleObjects = directTitleRows.some(row => isPlainObject(row));
+    const titleRows = partial?.titleRows?.length && !directHasTitleObjects
+        ? partial.titleRows
+        : directTitleRows;
     const titleDrafts = [];
-    const warnings = cleanStringArray(raw.warnings, 12, 300);
+    const warnings = cleanStringArray(partial?.warnings?.length ? partial.warnings : raw.warnings, 12, 300);
+    if (partial?.salvaged) {
+        warnings.push('Title response was truncated; Saga salvaged complete title drafts before the cutoff.');
+    }
     const seenIds = new Set();
     for (const [index, row] of titleRows.entries()) {
         const draft = normalizeCreatorTitleDraft(row, index);
@@ -475,10 +621,12 @@ export function parseLoredeckCreatorTitleResponse(text = '') {
         seenIds.add(id);
         titleDrafts.push({ ...draft, titleId: id });
     }
-    const batch = isPlainObject(raw.batch || raw.titleBatch) ? (raw.batch || raw.titleBatch) : {};
+    const batch = isPlainObject(partial?.batch)
+        ? partial.batch
+        : (isPlainObject(raw.batch || raw.titleBatch) ? (raw.batch || raw.titleBatch) : {});
     return {
-        summary: cleanString(raw.summary || parsed.summary, 1000),
-        clarifyingQuestions: cleanStringArray(raw.clarifyingQuestions || raw.questions || parsed.clarifyingQuestions, 8, 300),
+        summary: cleanString(partial?.summary || raw.summary || parsed.summary, 1000),
+        clarifyingQuestions: cleanStringArray(partial?.clarifyingQuestions?.length ? partial.clarifyingQuestions : (raw.clarifyingQuestions || raw.questions || parsed.clarifyingQuestions), 8, 300),
         warnings,
         titleDrafts,
         batch: {
@@ -669,14 +817,17 @@ Hard limits:
 - Do not generate full Lorecards, facts, injection text, timeline anchors, timeline windows, or tag registries yet.
 - Do not ask the user for an approximate Lorecard count. Derive title count from granularity, coverage size, story density, and the approved outline.
 - Generate only the supplied targetTitleBatch. Do not continue into other outline batches.
+- Generate no more than titlePassLimit titles. Prefer fewer strong titles over many thin ones.
 - When selectedTitleDrafts are supplied, revise only those selected title drafts and return replacements for them.
+- Keep the whole JSON compact. Do not use markdown, commentary, long explanations, or verbose per-title rubrics.
 
 Title quality rules:
 - Prefer high-value roleplay/fanfic scene context over wiki completeness.
 - Each title should imply playable pressure, constraints, relationships, secrets, powers, obligations, setting response, or context consequences.
 - Include broad/wide titles only when they are genuinely useful across a large window; mark that in contextHint.
 - Avoid duplicate titles and avoid generic biography titles.
-- Use category, priority, relevance, contextHint, tags, reason, and rubric so the user can review before Lorecard generation.
+- Use category, priority, relevance, contextHint, tags, and reason so the user can review before Lorecard generation.
+- Rubric is optional and should be tiny. Include only wikiSummaryRisk plus one or two useful rubric keys when needed.
 
 Output shape:
 {
@@ -701,15 +852,8 @@ Output shape:
       "reason": "Creates secrecy, pressure, and timing for scenes.",
       "rubric": {
         "sceneUtility": "high",
-        "activationClarity": "high",
-        "behavioralImpact": "high",
-        "relationshipImpact": "medium",
-        "conflictStakes": "high",
-        "nonRedundancy": "high",
-        "injectionQuality": "medium",
         "contextFit": "high",
-        "wikiSummaryRisk": "low",
-        "notes": ["Title points toward playable behavior, not biography."]
+        "wikiSummaryRisk": "low"
       },
       "warnings": []
     }
@@ -741,6 +885,9 @@ export function buildLoredeckCreatorTitleUserPrompt(context = {}) {
             entryCountMustBeDerived: true,
             preserveTitleIdsWhenRevising: true,
             sagaUseCase: 'long-form fanfic and roleplay Loredecks',
+            compactJson: true,
+            noMarkdown: true,
+            minimalRubric: true,
         },
     }, null, 2);
 }
@@ -760,6 +907,8 @@ Hard limits:
 - Timeline anchors/windows should be useful for Context gating and should prevent future canon leakage.
 - Tags should support retrieval, filtering, Deck Health, and future Lorecard generation. Avoid tag spam and avoid vague unnamespaced tags when a namespace is natural.
 - Use approvedTitleDrafts from the supplied targetPlanningBatch only. Do not continue into other title batches or attempt full deck completeness in one pass.
+- Return no more than proposalLimit proposals. Prefer fewer high-value planning records over noisy coverage.
+- Keep the whole JSON compact. Do not use markdown, commentary, long explanations, or verbose per-proposal rubrics.
 - If the target batch shape is insufficient, ask 1-3 clarifying questions and return an empty proposals array.
 
 Planning guidance:
@@ -767,7 +916,8 @@ Planning guidance:
 - Use windows for spans where entries should be eligible between two anchors.
 - Use tag definitions for characters, factions, locations, arcs, concepts, powers, secrets, and relationship/state clusters that the approved titles imply.
 - Prefer a compact but robust registry foundation over exhaustive wiki coverage.
-- Include confidence, risk, reason, and rubric on every proposal.
+- Include confidence, risk, and reason on every proposal.
+- Rubric is optional and should be tiny. Include only wikiSummaryRisk plus one or two useful rubric keys when needed.
 
 Supported proposal actions:
 - upsert_timeline_anchor with {timelineAnchor}
@@ -799,15 +949,9 @@ Output shape:
       "risk": "low",
       "rubric": {
         "sceneUtility": "high",
-        "activationClarity": "high",
-        "behavioralImpact": "medium",
-        "relationshipImpact": "medium",
-        "conflictStakes": "medium",
-        "nonRedundancy": "high",
         "injectionQuality": "not_applicable",
         "contextFit": "high",
-        "wikiSummaryRisk": "low",
-        "notes": ["Planning metadata, not wiki recap."]
+        "wikiSummaryRisk": "low"
       }
     }
   ]
@@ -839,6 +983,9 @@ export function buildLoredeckCreatorPlanningUserPrompt(context = {}) {
             pendingReviewOnly: true,
             preserveStableIds: true,
             sagaUseCase: 'long-form fanfic and roleplay Loredecks',
+            compactJson: true,
+            noMarkdown: true,
+            minimalRubric: true,
         },
     }, null, 2);
 }
@@ -860,7 +1007,8 @@ Hard limits:
 - Use only acceptedTimelineRegistry anchors/windows and acceptedTagRegistry tags. Do not invent anchor IDs or tag IDs at this stage.
 - Every entry must be schemaVersion 3 with content.fact, content.injection, context, retrieval, tags, category, canon/canonStatus, relevance, and priority.
 - Do not write wiki summaries. The fact should state the useful story constraint; the injection should tell the roleplay prompt what changes in-scene.
-- Keep each proposal compact: fact under 90 words, injection under 110 words, notes under 40 words, and reason under 50 words.
+- Keep each proposal compact: fact under 75 words, injection under 85 words, notes under 30 words, and reason under 30 words.
+- Keep the whole JSON compact. Do not use markdown, commentary, or verbose per-proposal rubrics.
 
 Schema v3 entry requirements:
 - entry.context.scope must be "anchor", "window", or "global".
@@ -879,7 +1027,7 @@ High-value lore rules:
 - Avoid future canon leakage outside the chosen Context window.
 - Ask 1-3 clarifying questions and return no proposals if accepted planning metadata is insufficient.
 
-Use the Lore Value Rubric for every proposal.
+Use the Lore Value Rubric as a quality check. Rubric output is optional and should be tiny: include wikiSummaryRisk plus at most two useful rubric keys.
 
 Output shape:
 {
@@ -928,15 +1076,9 @@ Output shape:
       "risk": "low",
       "rubric": {
         "sceneUtility": "high",
-        "activationClarity": "high",
-        "behavioralImpact": "high",
-        "relationshipImpact": "high",
-        "conflictStakes": "high",
-        "nonRedundancy": "high",
         "injectionQuality": "high",
         "contextFit": "high",
-        "wikiSummaryRisk": "low",
-        "notes": ["Entry drives deception and pressure in scenes."]
+        "wikiSummaryRisk": "low"
       }
     }
   ]
@@ -981,6 +1123,9 @@ export function buildLoredeckCreatorEntryUserPrompt(context = {}) {
             conciseFields: true,
             pendingReviewOnly: true,
             sagaUseCase: 'long-form fanfic and roleplay Loredecks',
+            compactJson: true,
+            noMarkdown: true,
+            minimalRubric: true,
         },
     });
 }

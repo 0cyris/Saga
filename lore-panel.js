@@ -950,8 +950,7 @@ function resolveThemeIconPath(iconKey, preset = getThemePreset(getSettings().the
     const defaultSet = getIconSetPreset(DEFAULT_ICONSET_ID, settings);
     const defaultPath = getIconMapValue(defaultSet.icons, iconKey);
     if (defaultPath) return defaultPath;
-    const fallbackSet = getIconSetPreset(LEGACY_ICONSET_ID, settings);
-    return getIconMapValue(fallbackSet.icons, iconKey);
+    return '';
 }
 
 function getTabIconSrc(tabId, settings = getSettings()) {
@@ -1877,18 +1876,34 @@ export function showLorePanel() {
         saveState(state);
     }
 
-    removeLorePanel();
-
     const freshState = getState();
     normalizePanelLayoutState(freshState, { persistLegacyOpenState: true });
     const panelState = freshState?.lorePanel || getDefaultState().lorePanel;
 
-    panelRoot = document.createElement('div');
-    panelRoot.id = PANEL_ID;
-    panelRoot.className = 'wandlight-lore-panel wandlight-runtime-shell';
-    applyRuntimeShellGeometry(panelRoot, panelState);
+    const previousRoot = panelRoot || document.getElementById(PANEL_ID);
+    const nextRoot = document.createElement('div');
+    nextRoot.id = PANEL_ID;
+    nextRoot.className = 'wandlight-lore-panel wandlight-runtime-shell';
+    applyRuntimeShellGeometry(nextRoot, panelState);
 
-    renderPanelShell(panelRoot, freshState);
+    try {
+        renderPanelShell(nextRoot, freshState);
+    } catch (e) {
+        console.error('[Saga] Runtime panel failed to render:', e);
+        try {
+            renderPanelFallbackShell(nextRoot, freshState, e);
+        } catch (fallbackError) {
+            console.error('[Saga] Runtime fallback panel failed to render:', fallbackError);
+            if (previousRoot) {
+                panelRoot = previousRoot;
+                return;
+            }
+            throw fallbackError;
+        }
+    }
+
+    if (previousRoot && previousRoot !== nextRoot) previousRoot.remove();
+    panelRoot = nextRoot;
     document.body.appendChild(panelRoot);
 
     requestAnimationFrame(() => {
@@ -1964,6 +1979,54 @@ function renderPanelShell(root, state) {
     if (drawerOpen) root.appendChild(renderDrawer(state, drawerDirection));
 
     refreshHeader();
+}
+
+function renderPanelFallbackShell(root, state, error) {
+    normalizePanelLayoutState(state);
+    const panelState = state?.lorePanel || getDefaultState().lorePanel;
+    const railMode = normalizeRailMode(panelState.railMode);
+    const drawerDirection = panelState.drawerOpen === true ? resolveDrawerDirection(panelState) : 'right';
+    const settings = getSettings();
+
+    root.innerHTML = '';
+    root.className = 'wandlight-lore-panel wandlight-runtime-shell';
+    root.classList.add(`wandlight-runtime-rail-${railMode}`);
+    root.classList.add('wandlight-runtime-drawer-open');
+    root.dataset.railMode = railMode;
+    root.dataset.drawerDirection = drawerDirection;
+    root.style.setProperty('--wandlight-rail-width', `${getRailWidth(panelState)}px`);
+    root.style.setProperty('--wandlight-drawer-width', `${getConstrainedDrawerWidth(panelState, drawerDirection)}px`);
+    root.style.setProperty('--wandlight-drawer-height', `${getConstrainedDrawerHeight(panelState)}px`);
+    applyRuntimeTheme(root, settings);
+
+    root.appendChild(renderRail(state));
+
+    const drawer = document.createElement('div');
+    drawer.className = `wandlight-runtime-drawer wandlight-runtime-drawer-${drawerDirection}`;
+    drawer.style.width = `${getConstrainedDrawerWidth(panelState, drawerDirection)}px`;
+    drawer.style.height = `${getConstrainedDrawerHeight(panelState)}px`;
+    const header = document.createElement('div');
+    header.className = 'wandlight-runtime-drawer-header';
+    const titleWrap = document.createElement('div');
+    titleWrap.className = 'wandlight-lore-panel-title-wrap';
+    const title = document.createElement('div');
+    title.className = 'wandlight-lore-panel-title wandlight-runtime-drawer-title';
+    title.textContent = 'Saga';
+    titleWrap.appendChild(title);
+    const status = document.createElement('div');
+    status.className = 'wandlight-lore-panel-status wandlight-runtime-drawer-status';
+    titleWrap.appendChild(status);
+    header.appendChild(titleWrap);
+    drawer.appendChild(header);
+
+    const body = document.createElement('div');
+    body.className = 'wandlight-lore-panel-body';
+    const tabBody = document.createElement('div');
+    tabBody.className = 'wandlight-runtime-tab-body';
+    tabBody.appendChild(createRuntimeRenderErrorCard('Runtime Window', error));
+    body.appendChild(tabBody);
+    drawer.appendChild(body);
+    root.appendChild(drawer);
 }
 
 function renderRail(state) {
@@ -7188,9 +7251,13 @@ function openLoredeckCreatorWorkbench() {
     shell.className = 'wandlight-lore-workbench-shell wandlight-loredeck-creator-workbench-shell';
     overlay.appendChild(shell);
 
+    const cached = getLoredeckCreatorBriefCache();
+    const pipeline = getLoredeckCreatorPipelineModel(cached);
+    shell.appendChild(createLoredeckCreatorPipelineHeader(cached, pipeline, { showClose: true, workbench: true }));
+
     const body = document.createElement('div');
     body.className = 'wandlight-loredeck-creator-workbench-body';
-    body.appendChild(createLoredeckCreatorCard(getState(), { embedded: true }));
+    body.appendChild(createLoredeckCreatorCard(getState(), { embedded: true, showHeader: false }));
     shell.appendChild(body);
 }
 
@@ -7199,7 +7266,14 @@ function refreshLoredeckCreatorWorkbenchBody(options = {}) {
     if (!body) return false;
     const scrollTop = options.preserveScroll === false ? 0 : (body.scrollTop || 0);
     const anchor = options.preserveScroll === false ? null : getLoredeckCreatorWorkbenchScrollAnchor(body);
-    body.replaceChildren(createLoredeckCreatorCard(getState(), { embedded: true }));
+    const shell = body.closest('.wandlight-loredeck-creator-workbench-shell');
+    const cached = getLoredeckCreatorBriefCache();
+    const pipeline = getLoredeckCreatorPipelineModel(cached);
+    const header = [...(shell?.children || [])].find(child => child.classList?.contains('wandlight-loredeck-creator-pipeline-header'));
+    const nextHeader = createLoredeckCreatorPipelineHeader(cached, pipeline, { showClose: true, workbench: true });
+    if (header) header.replaceWith(nextHeader);
+    else if (shell) shell.insertBefore(nextHeader, body);
+    body.replaceChildren(createLoredeckCreatorCard(getState(), { embedded: true, showHeader: false }));
     if (options.preserveScroll !== false) {
         const restore = () => {
             body.scrollTop = scrollTop;
@@ -7824,18 +7898,28 @@ function titleDraftCount(cached = {}) {
 
 function createLoredeckCreatorPipelineHeader(cached = {}, pipeline = getLoredeckCreatorPipelineModel(cached), options = {}) {
     const wrap = document.createElement('div');
-    wrap.className = 'wandlight-loredeck-creator-pipeline-header';
-    const main = document.createElement('div');
-    main.className = 'wandlight-loredeck-creator-pipeline-title-wrap';
-    const title = document.createElement('h4');
+    wrap.className = 'wandlight-lore-workbench-header wandlight-loredeck-creator-pipeline-header';
+    const titleWrap = document.createElement('div');
+    titleWrap.className = 'wandlight-lore-workbench-title-wrap';
+    const titleRow = document.createElement('div');
+    titleRow.className = 'wandlight-loredeck-library-title-row wandlight-loredeck-creator-title-row';
+    const emblem = document.createElement('div');
+    emblem.className = 'wandlight-loredeck-library-emblem wandlight-loredeck-creator-emblem';
+    emblem.textContent = 'S';
+    titleRow.appendChild(emblem);
+    const titleText = document.createElement('div');
+    titleText.className = 'wandlight-loredeck-creator-title-text';
+    const titleLine = document.createElement('div');
+    titleLine.className = 'wandlight-loredeck-library-title-line';
+    const title = document.createElement('div');
+    title.className = 'wandlight-lore-workbench-title';
     title.textContent = 'Loredeck Creator';
-    main.appendChild(title);
+    titleLine.appendChild(title);
     const subtitle = document.createElement('div');
-    subtitle.className = 'wandlight-runtime-help';
+    subtitle.className = 'wandlight-lore-workbench-subtitle';
     subtitle.textContent = 'Generated Loredeck draft';
-    main.appendChild(subtitle);
     const meta = document.createElement('div');
-    meta.className = 'wandlight-loredeck-row-meta';
+    meta.className = 'wandlight-loredeck-library-title-meta wandlight-loredeck-creator-pipeline-meta';
     const brief = cached.brief || {};
     const fandom = loredeckCreatorFandom || cached.fandom || brief.fandom || 'No fandom';
     const scope = loredeckCreatorScope || cached.scope || brief.scope || 'No scope';
@@ -7844,31 +7928,24 @@ function createLoredeckCreatorPipelineHeader(cached = {}, pipeline = getLoredeck
     meta.appendChild(createStatusPill(`Scope: ${scope}`, 'Story scope for this Creator project.'));
     meta.appendChild(createStatusPill(`Granularity: ${formatLoredeckCreatorGranularity(granularity)}`, 'Creator generation granularity.'));
     if (cached.jobId) meta.appendChild(createStatusPill('Resumable job', 'This Creator project is saved and can be resumed from the Loredecks tab.'));
-    main.appendChild(meta);
-    wrap.appendChild(main);
+    titleLine.appendChild(meta);
+    titleText.appendChild(titleLine);
+    titleText.appendChild(subtitle);
+    titleRow.appendChild(titleText);
+    titleWrap.appendChild(titleRow);
+    wrap.appendChild(titleWrap);
 
-    const status = document.createElement('div');
-    status.className = `wandlight-loredeck-creator-status-card wandlight-loredeck-creator-status-${pipeline.currentStep.status}`;
-    const statusLabel = document.createElement('div');
-    statusLabel.className = 'wandlight-loredeck-creator-status-kicker';
-    statusLabel.textContent = 'Status';
-    status.appendChild(statusLabel);
-    const statusText = document.createElement('div');
-    statusText.className = 'wandlight-loredeck-creator-status-text';
-    statusText.textContent = pipeline.statusLine;
-    status.appendChild(statusText);
-    const statusActions = document.createElement('div');
-    statusActions.className = 'wandlight-loredeck-creator-status-actions';
-    statusActions.appendChild(createButton('Project Settings', 'Jump to the editable project inputs or approved Scope Brief.', () => {
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions wandlight-loredeck-library-header-actions wandlight-loredeck-creator-header-actions';
+    actions.appendChild(createButton('Project Settings', 'Jump to the editable project inputs or approved Scope Brief.', () => {
         scrollLoredeckCreatorWorkbenchToAnchor(cached.approved ? 'scope-brief' : 'intake');
     }));
     if (options.showClose) {
-        statusActions.appendChild(createButton('Close', 'Close the Loredeck Creator wizard.', () => {
+        actions.appendChild(createButton('Close', 'Close the Loredeck Creator wizard.', () => {
             document.querySelector('.wandlight-loredeck-creator-workbench-overlay')?.remove();
         }));
     }
-    status.appendChild(statusActions);
-    wrap.appendChild(status);
+    wrap.appendChild(actions);
     return wrap;
 }
 
@@ -8335,7 +8412,9 @@ function createLoredeckCreatorCard(state = getState(), options = {}) {
     const pipeline = getLoredeckCreatorPipelineModel(cached);
     const outline = getLoredeckCreatorOutline(cached);
 
-    card.appendChild(createLoredeckCreatorPipelineHeader(cached, pipeline, { showClose: options.embedded === true }));
+    if (options.showHeader !== false) {
+        card.appendChild(createLoredeckCreatorPipelineHeader(cached, pipeline, { showClose: options.embedded === true }));
+    }
     card.appendChild(createLoredeckCreatorStageGuide(cached, pipeline));
 
     if (options.embedded !== true) {
@@ -8800,6 +8879,269 @@ Convert the malformed, partial, or overlong response into the compact Story Outl
         });
     }
     return await sendLoreRequest(systemPrompt, userPrompt, { providerKind: 'lore', maxTokens: 2048, expectedOutput: 'json', ...requestOptionsOverride });
+}
+
+async function requestLoredeckCreatorTitleResponse(context = {}, requestOptionsOverride = {}) {
+    const systemPrompt = buildLoredeckCreatorTitleSystemPrompt();
+    const userPrompt = buildLoredeckCreatorTitleUserPrompt(context);
+    const requestOptions = {
+        providerKind: 'lore',
+        maxTokens: context.revisionInstruction ? 4096 : 4096,
+        expectedOutput: 'json',
+        ...requestOptionsOverride,
+    };
+    try {
+        return await sendLoreRequest(systemPrompt, userPrompt, requestOptions);
+    } catch (error) {
+        if (!isLoredeckCreatorBriefRetryableError(error)) throw error;
+        if (typeof requestOptions.onProgress === 'function') {
+            requestOptions.onProgress({
+                type: 'phase',
+                phase: 'retry',
+                message: 'Retrying compact title set after oversized or empty response...',
+                streamSupported: requestOptions.stream === true,
+            });
+        }
+        const retrySystemPrompt = `${systemPrompt}
+
+RETRY MODE:
+- The previous attempt failed before valid visible JSON was returned.
+- Return only the compact Title Pass JSON object from the schema.
+- Generate at most ${Math.max(1, Math.min(12, Number(context.titlePassLimit || 8)))} titles for the supplied targetTitleBatch.
+- Omit rubric unless a title needs a specific quality warning; if included, use only wikiSummaryRisk and one useful key.
+- Keep each reason under 18 words and each contextHint under 18 words.
+- Do not include prose outside JSON.`;
+        return await sendLoreRequest(retrySystemPrompt, userPrompt, requestOptions);
+    }
+}
+
+async function repairLoredeckCreatorTitleResponse(responseText = '', context = {}, requestOptionsOverride = {}) {
+    const systemPrompt = `You repair Saga Loredeck Creator Title Pass output.
+
+Return JSON only. Do not include markdown.
+
+Convert the malformed, partial, overlong, or structurally wrong response into the compact Title Pass contract. Preserve usable title drafts from the source. Do not generate Lorecards, facts, injection text, timeline anchors, timeline windows, or tag registries. If there is not enough usable title information, ask 1-3 clarifyingQuestions and return an empty titleDrafts array.`;
+    const userPrompt = JSON.stringify({
+        sourceInputs: {
+            approvedBrief: context.brief || null,
+            targetTitleBatch: context.targetTitleBatch || null,
+            revisionInstruction: truncateText(context.revisionInstruction || '', 700),
+            selectedTitleDrafts: Array.isArray(context.selectedTitleDrafts) ? context.selectedTitleDrafts.slice(0, 20) : [],
+            titlePassLimit: Math.max(1, Math.min(12, Number(context.titlePassLimit || 8))),
+        },
+        expectedShape: {
+            summary: 'one sentence',
+            clarifyingQuestions: [],
+            warnings: [],
+            batch: {
+                label: 'string',
+                coverage: 'under 40 words',
+                nextBatchHint: 'optional string',
+                complete: false,
+            },
+            titleDrafts: [{
+                titleId: 'machine-safe-id',
+                title: 'string',
+                category: 'string',
+                priority: 80,
+                relevance: 'high|medium|low',
+                contextHint: 'short timing or activation hint',
+                tags: ['namespaced:tag'],
+                reason: 'short review rationale',
+                rubric: { wikiSummaryRisk: 'low' },
+                warnings: [],
+            }],
+        },
+        limits: {
+            titleDrafts: Math.max(1, Math.min(12, Number(context.titlePassLimit || 8))),
+            maxReasonWords: 18,
+            maxContextHintWords: 18,
+            compactJson: true,
+        },
+        malformedResponse: truncateText(responseText, 9000),
+    });
+    if (typeof requestOptionsOverride.onProgress === 'function') {
+        requestOptionsOverride.onProgress({
+            type: 'phase',
+            phase: 'repairing',
+            message: 'Repairing malformed Title Pass into compact Creator JSON...',
+            streamSupported: requestOptionsOverride.stream === true,
+        });
+    }
+    return await sendLoreRequest(systemPrompt, userPrompt, { providerKind: 'lore', maxTokens: 2048, expectedOutput: 'json', ...requestOptionsOverride });
+}
+
+async function requestLoredeckCreatorPlanningResponse(context = {}, requestOptionsOverride = {}) {
+    const systemPrompt = buildLoredeckCreatorPlanningSystemPrompt();
+    const userPrompt = buildLoredeckCreatorPlanningUserPrompt(context);
+    const requestOptions = { providerKind: 'lore', maxTokens: 4096, expectedOutput: 'json', ...requestOptionsOverride };
+    try {
+        return await sendLoreRequest(systemPrompt, userPrompt, requestOptions);
+    } catch (error) {
+        if (!isLoredeckCreatorBriefRetryableError(error)) throw error;
+        if (typeof requestOptions.onProgress === 'function') {
+            requestOptions.onProgress({
+                type: 'phase',
+                phase: 'retry',
+                message: 'Retrying compact Context and Tag plan after oversized or empty response...',
+                streamSupported: requestOptions.stream === true,
+            });
+        }
+        const retrySystemPrompt = `${systemPrompt}
+
+RETRY MODE:
+- The previous attempt failed before valid visible JSON was returned.
+- Return only the compact proposal JSON object from the schema.
+- Return at most ${Math.max(1, Math.min(24, Number(context.proposalLimit || 16)))} planning proposals.
+- Supported actions only: upsert_timeline_anchor, upsert_timeline_window, upsert_tag_definition.
+- Omit rubric unless a proposal needs a specific quality warning; if included, use only wikiSummaryRisk and one useful key.
+- Keep each reason under 18 words.
+- Do not include prose outside JSON.`;
+        return await sendLoreRequest(retrySystemPrompt, userPrompt, requestOptions);
+    }
+}
+
+async function repairLoredeckCreatorPlanningResponse(responseText = '', context = {}, requestOptionsOverride = {}) {
+    const systemPrompt = `You repair Saga Loredeck Creator Context and Tag planning output.
+
+Return JSON only. Do not include markdown.
+
+Convert the malformed, partial, overlong, or structurally wrong response into the compact proposal contract. Preserve usable planning proposals from the source. Return only upsert_timeline_anchor, upsert_timeline_window, and upsert_tag_definition proposals. Do not generate Lorecards, facts, injection text, or entry overrides. If there is not enough usable planning information, ask 1-3 clarifyingQuestions and return an empty proposals array.`;
+    const userPrompt = JSON.stringify({
+        sourceInputs: {
+            generatedPackId: context.generatedPackId || '',
+            approvedBrief: context.brief || null,
+            targetPlanningBatch: context.targetPlanningBatch || null,
+            approvedTitleDrafts: Array.isArray(context.approvedTitleDrafts) ? context.approvedTitleDrafts.slice(0, 24) : [],
+            existingTimelineIds: Array.isArray(context.existingTimelineIds) ? context.existingTimelineIds.slice(0, 120) : [],
+            existingTagIds: Array.isArray(context.existingTagIds) ? context.existingTagIds.slice(0, 160) : [],
+            proposalLimit: Math.max(1, Math.min(24, Number(context.proposalLimit || 16))),
+        },
+        expectedShape: {
+            summary: 'one sentence',
+            clarifyingQuestions: [],
+            warnings: [],
+            proposals: [{
+                action: 'upsert_timeline_anchor|upsert_timeline_window|upsert_tag_definition',
+                title: 'string',
+                timelineId: 'optional-id',
+                tagId: 'optional-id',
+                timelineAnchor: 'object when action is upsert_timeline_anchor',
+                timelineWindow: 'object when action is upsert_timeline_window',
+                tagDefinition: 'object when action is upsert_tag_definition',
+                reason: 'short review rationale',
+                confidence: 0.8,
+                risk: 'low|medium|high',
+                rubric: { wikiSummaryRisk: 'low' },
+            }],
+        },
+        limits: {
+            proposals: Math.max(1, Math.min(24, Number(context.proposalLimit || 16))),
+            supportedActionsOnly: true,
+            compactJson: true,
+        },
+        malformedResponse: truncateText(responseText, 9000),
+    });
+    if (typeof requestOptionsOverride.onProgress === 'function') {
+        requestOptionsOverride.onProgress({
+            type: 'phase',
+            phase: 'repairing',
+            message: 'Repairing malformed Context and Tag plan into compact Creator JSON...',
+            streamSupported: requestOptionsOverride.stream === true,
+        });
+    }
+    return await sendLoreRequest(systemPrompt, userPrompt, { providerKind: 'lore', maxTokens: 2048, expectedOutput: 'json', ...requestOptionsOverride });
+}
+
+async function requestLoredeckCreatorEntryResponse(context = {}, requestOptionsOverride = {}) {
+    const systemPrompt = buildLoredeckCreatorEntrySystemPrompt();
+    const userPrompt = buildLoredeckCreatorEntryUserPrompt(context);
+    const requestOptions = { providerKind: 'lore', maxTokens: 8192, expectedOutput: 'json', ...requestOptionsOverride };
+    try {
+        return await sendLoreRequest(systemPrompt, userPrompt, requestOptions);
+    } catch (error) {
+        if (!isLoredeckCreatorBriefRetryableError(error)) throw error;
+        if (typeof requestOptions.onProgress === 'function') {
+            requestOptions.onProgress({
+                type: 'phase',
+                phase: 'retry',
+                message: 'Retrying compact Lorecard micro-batch after oversized or empty response...',
+                streamSupported: requestOptions.stream === true,
+            });
+        }
+        const retrySystemPrompt = `${systemPrompt}
+
+RETRY MODE:
+- The previous attempt failed before valid visible JSON was returned.
+- Return only the compact proposal JSON object from the schema.
+- Return only upsert_entry proposals for the supplied targetTitleDrafts.
+- Keep fact under 60 words, injection under 75 words, notes under 24 words, and reason under 20 words.
+- Omit rubric unless needed; if included, use only wikiSummaryRisk and one useful key.
+- Do not include prose outside JSON.`;
+        return await sendLoreRequest(retrySystemPrompt, userPrompt, requestOptions);
+    }
+}
+
+async function repairLoredeckCreatorEntryResponse(responseText = '', context = {}, requestOptionsOverride = {}) {
+    const systemPrompt = `You repair Saga Loredeck Creator Lorecard drafting output.
+
+Return JSON only. Do not include markdown.
+
+Convert the malformed, partial, overlong, or structurally wrong response into the compact proposal contract. Preserve usable upsert_entry proposals from the source. Return only upsert_entry proposals for the supplied targetTitleDrafts. Do not generate timeline, tag, disable, restore, manifest, or settings proposals. If there is not enough usable entry information, ask 1-3 clarifyingQuestions and return an empty proposals array.`;
+    const userPrompt = JSON.stringify({
+        sourceInputs: {
+            generatedPackId: context.generatedPackId || '',
+            approvedBrief: context.brief || null,
+            targetPlanningBatch: context.targetPlanningBatch || null,
+            targetTitleDrafts: Array.isArray(context.targetTitleDrafts) ? context.targetTitleDrafts.slice(0, 6) : [],
+            acceptedTimelineRegistry: context.timelineRegistry || null,
+            acceptedTagRegistry: context.tagRegistry || null,
+            existingEntryIds: Array.isArray(context.existingEntryIds) ? context.existingEntryIds.slice(0, 160) : [],
+        },
+        expectedShape: {
+            summary: 'one sentence',
+            clarifyingQuestions: [],
+            warnings: [],
+            proposals: [{
+                action: 'upsert_entry',
+                title: 'Draft entry: title',
+                entryId: 'target-entry-id',
+                entry: {
+                    id: 'target-entry-id',
+                    schemaVersion: 3,
+                    title: 'string',
+                    category: 'string',
+                    canon: 'canon',
+                    canonStatus: 'canon',
+                    relevance: 'high|medium|low',
+                    priority: 80,
+                    tags: [],
+                    context: {},
+                    retrieval: {},
+                    content: { fact: 'short useful constraint', injection: 'short scene instruction', notes: 'optional' },
+                },
+                reason: 'short review rationale',
+                confidence: 0.8,
+                risk: 'low|medium|high',
+                rubric: { wikiSummaryRisk: 'low' },
+            }],
+        },
+        limits: {
+            proposals: Math.max(1, Math.min(6, Number(context.entryBatchLimit || 3))),
+            upsertEntriesOnly: true,
+            compactJson: true,
+        },
+        malformedResponse: truncateText(responseText, 12000),
+    });
+    if (typeof requestOptionsOverride.onProgress === 'function') {
+        requestOptionsOverride.onProgress({
+            type: 'phase',
+            phase: 'repairing',
+            message: 'Repairing malformed Lorecard batch into compact Creator JSON...',
+            streamSupported: requestOptionsOverride.stream === true,
+        });
+    }
+    return await sendLoreRequest(systemPrompt, userPrompt, { providerKind: 'lore', maxTokens: 4096, expectedOutput: 'json', ...requestOptionsOverride });
 }
 
 async function handleLoredeckCreatorBriefDraft(options = {}, button = null) {
@@ -9424,12 +9766,12 @@ function getLoredeckCreatorNextTitleBatch(cached = {}) {
 function getLoredeckCreatorTitleBatchLimit(brief = {}) {
     const granularity = String(brief?.granularity || '').trim().toLowerCase();
     const byGranularity = {
-        compact: 8,
-        focused: 12,
-        dense: 16,
-        scene_dense: 14,
+        compact: 6,
+        focused: 8,
+        dense: 10,
+        scene_dense: 8,
     };
-    return byGranularity[granularity] || 12;
+    return byGranularity[granularity] || 8;
 }
 
 function attachLoredeckCreatorTitleBatch(drafts = [], batch = {}) {
@@ -9920,30 +10262,23 @@ async function handleLoredeckCreatorTitleDraft(options = {}, button = null) {
         );
         if (!generation) return;
         let responseText = '';
+        const requestContext = {
+            brief,
+            outline,
+            notes: options.notes || cached.notes || loredeckCreatorNotes,
+            revisionInstruction,
+            previousTitleDrafts: Array.isArray(options.previousTitleDrafts) ? options.previousTitleDrafts.slice(0, 120) : [],
+            selectedTitleDrafts,
+            targetTitleBatch,
+            draftedTitleBatchIds: [...getLoredeckCreatorTitleDraftedBatchIds(cached)],
+            titlePassLimit: revisionInstruction ? Math.max(10, selectedTitleDrafts.length) : getLoredeckCreatorTitleBatchLimit(brief),
+        };
+        const generationOptions = createLoredeckCreatorRequestOptions(generation, {
+            batchId: normalizeLoredeckCreatorTitleId(targetTitleBatch?.id || targetTitleBatch?.label || '', ''),
+            batchLabel: targetTitleBatch?.label || targetTitleBatch?.id || '',
+        });
         try {
-            responseText = await sendLoreRequest(
-                buildLoredeckCreatorTitleSystemPrompt(),
-                buildLoredeckCreatorTitleUserPrompt({
-                    brief,
-                    outline,
-                    notes: options.notes || cached.notes || loredeckCreatorNotes,
-                    revisionInstruction,
-                    previousTitleDrafts: Array.isArray(options.previousTitleDrafts) ? options.previousTitleDrafts.slice(0, 120) : [],
-                    selectedTitleDrafts,
-                    targetTitleBatch,
-                    draftedTitleBatchIds: [...getLoredeckCreatorTitleDraftedBatchIds(cached)],
-                    titlePassLimit: revisionInstruction ? Math.max(10, selectedTitleDrafts.length) : getLoredeckCreatorTitleBatchLimit(brief),
-                }),
-                {
-                    providerKind: 'lore',
-                    maxTokens: revisionInstruction ? 4096 : 3072,
-                    expectedOutput: 'json',
-                    ...createLoredeckCreatorRequestOptions(generation, {
-                        batchId: normalizeLoredeckCreatorTitleId(targetTitleBatch?.id || targetTitleBatch?.label || '', ''),
-                        batchLabel: targetTitleBatch?.label || targetTitleBatch?.id || '',
-                    }),
-                }
-            );
+            responseText = await requestLoredeckCreatorTitleResponse(requestContext, generationOptions);
         } catch (e) {
             if (isLoredeckCreatorAbortError(e) || ignoreStaleLoredeckCreatorGeneration(generation, 'title draft')) return;
             setLoredeckCreatorBriefCache({
@@ -9964,10 +10299,46 @@ async function handleLoredeckCreatorTitleDraft(options = {}, button = null) {
         try {
             parsed = parseLoredeckCreatorTitleResponse(responseText);
         } catch (parseError) {
-            if (ignoreStaleLoredeckCreatorGeneration(generation, 'title draft parse')) return;
-            markLoredeckCreatorActionFailed(parseError, 'Loredeck Creator title response could not be parsed.');
-            finishLoredeckCreatorGeneration(generation, 'error', parseError?.message || 'Title response could not be parsed.');
-            throw parseError;
+            try {
+                const repairedText = await repairLoredeckCreatorTitleResponse(responseText, requestContext, generationOptions);
+                if (ignoreStaleLoredeckCreatorGeneration(generation, 'title draft repair')) return;
+                const repaired = parseLoredeckCreatorTitleResponse(repairedText);
+                if (repaired.titleDrafts.length || repaired.clarifyingQuestions.length) {
+                    parsed = {
+                        ...repaired,
+                        warnings: [
+                            ...((repaired.warnings || [])),
+                            'Creator Title Pass response was normalized into Saga title-draft format.',
+                        ],
+                    };
+                }
+            } catch (repairError) {
+                console.warn('[Saga] Loredeck Creator title repair failed:', repairError);
+            }
+            if (!parsed) {
+                if (ignoreStaleLoredeckCreatorGeneration(generation, 'title draft parse')) return;
+                markLoredeckCreatorActionFailed(parseError, 'Loredeck Creator title response could not be parsed.');
+                finishLoredeckCreatorGeneration(generation, 'error', parseError?.message || 'Title response could not be parsed.');
+                throw parseError;
+            }
+        }
+        if (!parsed.titleDrafts.length && !parsed.clarifyingQuestions.length && String(responseText || '').trim()) {
+            try {
+                const repairedText = await repairLoredeckCreatorTitleResponse(responseText, requestContext, generationOptions);
+                if (ignoreStaleLoredeckCreatorGeneration(generation, 'title draft repair')) return;
+                const repaired = parseLoredeckCreatorTitleResponse(repairedText);
+                if (repaired.titleDrafts.length || repaired.clarifyingQuestions.length) {
+                    parsed = {
+                        ...repaired,
+                        warnings: [
+                            ...((repaired.warnings || [])),
+                            'Creator Title Pass response was normalized into Saga title-draft format.',
+                        ],
+                    };
+                }
+            } catch (repairError) {
+                console.warn('[Saga] Loredeck Creator title repair failed:', repairError);
+            }
         }
         if (ignoreStaleLoredeckCreatorGeneration(generation, 'title draft commit')) return;
         if (parsed.clarifyingQuestions.length && !parsed.titleDrafts.length) {
@@ -10507,34 +10878,27 @@ async function handleLoredeckCreatorPlanningDraft(options = {}, button = null) {
         );
         if (!generation) return;
         let responseText = '';
+        const requestContext = {
+            generatedPackId: pack.packId,
+            brief,
+            outline,
+            notes: cached.notes || loredeckCreatorNotes,
+            targetPlanningBatch: compactLoredeckCreatorPlanningBatchForPrompt({
+                ...targetPlanningBatch,
+                approvedTitleCount: targetApprovedTitles.length,
+            }),
+            approvedTitleDrafts: targetApprovedTitles.map(compactLoredeckCreatorTitleDraftForRevision).slice(0, 40),
+            existingTimelineIds: getLoredeckCreatorPlanningExistingTimelineIds(pack),
+            existingTagIds: getLoredeckCreatorPlanningExistingTagIds(pack),
+            queuedPlanningBatchIds: [...queuedBatchIds],
+            proposalLimit: 18,
+        };
+        const generationOptions = createLoredeckCreatorRequestOptions(generation, {
+            batchId: targetBatchId,
+            batchLabel: targetPlanningBatch.label || targetBatchId,
+        });
         try {
-            responseText = await sendLoreRequest(
-                buildLoredeckCreatorPlanningSystemPrompt(),
-                buildLoredeckCreatorPlanningUserPrompt({
-                    generatedPackId: pack.packId,
-                    brief,
-                    outline,
-                    notes: cached.notes || loredeckCreatorNotes,
-                    targetPlanningBatch: compactLoredeckCreatorPlanningBatchForPrompt({
-                        ...targetPlanningBatch,
-                        approvedTitleCount: targetApprovedTitles.length,
-                    }),
-                    approvedTitleDrafts: targetApprovedTitles.map(compactLoredeckCreatorTitleDraftForRevision).slice(0, 40),
-                    existingTimelineIds: getLoredeckCreatorPlanningExistingTimelineIds(pack),
-                    existingTagIds: getLoredeckCreatorPlanningExistingTagIds(pack),
-                    queuedPlanningBatchIds: [...queuedBatchIds],
-                    proposalLimit: 24,
-                }),
-                {
-                    providerKind: 'lore',
-                    maxTokens: 3072,
-                    expectedOutput: 'json',
-                    ...createLoredeckCreatorRequestOptions(generation, {
-                        batchId: targetBatchId,
-                        batchLabel: targetPlanningBatch.label || targetBatchId,
-                    }),
-                }
-            );
+            responseText = await requestLoredeckCreatorPlanningResponse(requestContext, generationOptions);
         } catch (e) {
             if (isLoredeckCreatorAbortError(e) || ignoreStaleLoredeckCreatorGeneration(generation, 'context/tag plan')) return;
             setLoredeckCreatorBriefCache({
@@ -10555,12 +10919,76 @@ async function handleLoredeckCreatorPlanningDraft(options = {}, button = null) {
         try {
             parsed = parseLoredeckAssistantResponse(responseText);
         } catch (parseError) {
-            if (ignoreStaleLoredeckCreatorGeneration(generation, 'context/tag plan parse')) return;
-            markLoredeckCreatorActionFailed(parseError, 'Loredeck Creator planning response could not be parsed.');
-            finishLoredeckCreatorGeneration(generation, 'error', parseError?.message || 'Planning response could not be parsed.');
-            throw parseError;
+            try {
+                const repairedText = await repairLoredeckCreatorPlanningResponse(responseText, requestContext, generationOptions);
+                if (ignoreStaleLoredeckCreatorGeneration(generation, 'context/tag plan repair')) return;
+                const repaired = parseLoredeckAssistantResponse(repairedText);
+                if (repaired.proposals.length || repaired.clarifyingQuestions.length) {
+                    parsed = {
+                        ...repaired,
+                        warnings: [
+                            ...((repaired.warnings || [])),
+                            'Creator Context and Tag plan was normalized into Saga proposal format.',
+                        ],
+                    };
+                }
+            } catch (repairError) {
+                console.warn('[Saga] Loredeck Creator planning repair failed:', repairError);
+            }
+            if (!parsed) {
+                if (ignoreStaleLoredeckCreatorGeneration(generation, 'context/tag plan parse')) return;
+                markLoredeckCreatorActionFailed(parseError, 'Loredeck Creator planning response could not be parsed.');
+                finishLoredeckCreatorGeneration(generation, 'error', parseError?.message || 'Planning response could not be parsed.');
+                throw parseError;
+            }
+        }
+        if (!parsed.proposals.length && !parsed.clarifyingQuestions.length && String(responseText || '').trim()) {
+            try {
+                const repairedText = await repairLoredeckCreatorPlanningResponse(responseText, requestContext, generationOptions);
+                if (ignoreStaleLoredeckCreatorGeneration(generation, 'context/tag plan repair')) return;
+                const repaired = parseLoredeckAssistantResponse(repairedText);
+                if (repaired.proposals.length || repaired.clarifyingQuestions.length) {
+                    parsed = {
+                        ...repaired,
+                        warnings: [
+                            ...((repaired.warnings || [])),
+                            'Creator Context and Tag plan was normalized into Saga proposal format.',
+                        ],
+                    };
+                }
+            } catch (repairError) {
+                console.warn('[Saga] Loredeck Creator planning repair failed:', repairError);
+            }
         }
         if (ignoreStaleLoredeckCreatorGeneration(generation, 'context/tag plan commit')) return;
+        if (parsed.proposals.length
+            && !parsed.clarifyingQuestions.length
+            && !parsed.proposals.some(proposal => [
+                'upsert_tag_definition',
+                'upsert_timeline_anchor',
+                'upsert_timeline_window',
+            ].includes(proposal.action))) {
+            try {
+                const repairedText = await repairLoredeckCreatorPlanningResponse(responseText, requestContext, generationOptions);
+                if (ignoreStaleLoredeckCreatorGeneration(generation, 'context/tag plan repair')) return;
+                const repaired = parseLoredeckAssistantResponse(repairedText);
+                if (repaired.proposals.some(proposal => [
+                    'upsert_tag_definition',
+                    'upsert_timeline_anchor',
+                    'upsert_timeline_window',
+                ].includes(proposal.action)) || repaired.clarifyingQuestions.length) {
+                    parsed = {
+                        ...repaired,
+                        warnings: [
+                            ...((repaired.warnings || [])),
+                            'Creator Context and Tag plan was normalized into supported planning proposal actions.',
+                        ],
+                    };
+                }
+            } catch (repairError) {
+                console.warn('[Saga] Loredeck Creator planning repair failed:', repairError);
+            }
+        }
         const allowed = parsed.proposals.filter(proposal => [
             'upsert_tag_definition',
             'upsert_timeline_anchor',
@@ -11041,41 +11469,99 @@ async function draftLoredeckCreatorEntryBatch(cached = {}, pack = {}, planning =
             batchTotal: options.batchTotal ?? null,
         });
     }
-    const responseText = await sendLoreRequest(
-        buildLoredeckCreatorEntrySystemPrompt(),
-        buildLoredeckCreatorEntryUserPrompt({
-            generatedPackId: pack.packId,
-            brief,
-            notes: cached.notes || loredeckCreatorNotes,
-            targetPlanningBatch: targetPlanningBatch ? compactLoredeckCreatorPlanningBatchForPrompt({
-                ...targetPlanningBatch,
-                approvedTitleCount: progress.source.length,
-            }) : null,
-            acceptedPlanningBatchIds: [...getLoredeckCreatorPlanningAcceptedBatchIds(cached)],
-            targetTitleDrafts: targetTitles.map(compactLoredeckCreatorEntryTitleForPrompt),
-            timelineRegistry: compactLoredeckCreatorTimelineRegistryForPrompt(planning.timeline),
-            tagRegistry: compactLoredeckCreatorTagRegistryForPrompt(planning.tags),
-            existingEntryIds: getLoredeckCreatorExistingEntryIdsForPrompt(pack),
-            entryBatchLimit: targetTitles.length,
-            remainingTitleCount: progress.remainingCount,
-            remainingAfterThisBatch: Math.max(0, progress.remainingCount - targetTitles.length),
-        }),
-        {
-            providerKind: 'lore',
-            maxTokens: 8192,
-            expectedOutput: 'json',
-            ...(options.generation ? createLoredeckCreatorRequestOptions(options.generation, {
-                batchId: targetPlanningBatch?.id || '',
-                batchLabel: targetPlanningBatch?.label || '',
-                batchIndex: options.batchIndex ?? null,
-                batchTotal: options.batchTotal ?? null,
-            }) : {}),
-        }
-    );
+    const requestContext = {
+        generatedPackId: pack.packId,
+        brief,
+        notes: cached.notes || loredeckCreatorNotes,
+        targetPlanningBatch: targetPlanningBatch ? compactLoredeckCreatorPlanningBatchForPrompt({
+            ...targetPlanningBatch,
+            approvedTitleCount: progress.source.length,
+        }) : null,
+        acceptedPlanningBatchIds: [...getLoredeckCreatorPlanningAcceptedBatchIds(cached)],
+        targetTitleDrafts: targetTitles.map(compactLoredeckCreatorEntryTitleForPrompt),
+        timelineRegistry: compactLoredeckCreatorTimelineRegistryForPrompt(planning.timeline),
+        tagRegistry: compactLoredeckCreatorTagRegistryForPrompt(planning.tags),
+        existingEntryIds: getLoredeckCreatorExistingEntryIdsForPrompt(pack),
+        entryBatchLimit: targetTitles.length,
+        remainingTitleCount: progress.remainingCount,
+        remainingAfterThisBatch: Math.max(0, progress.remainingCount - targetTitles.length),
+    };
+    const requestOptions = options.generation ? createLoredeckCreatorRequestOptions(options.generation, {
+        batchId: targetPlanningBatch?.id || '',
+        batchLabel: targetPlanningBatch?.label || '',
+        batchIndex: options.batchIndex ?? null,
+        batchTotal: options.batchTotal ?? null,
+    }) : {};
+    const responseText = await requestLoredeckCreatorEntryResponse(requestContext, requestOptions);
     if (options.generation && ignoreStaleLoredeckCreatorGeneration(options.generation, 'entry draft')) {
         return { status: 'stale', changeCount: 0, targetCount: targetTitles.length };
     }
-    const parsed = parseLoredeckAssistantResponse(responseText);
+    let parsed = null;
+    try {
+        parsed = parseLoredeckAssistantResponse(responseText);
+    } catch (parseError) {
+        try {
+            const repairedText = await repairLoredeckCreatorEntryResponse(responseText, requestContext, requestOptions);
+            if (options.generation && ignoreStaleLoredeckCreatorGeneration(options.generation, 'entry draft repair')) {
+                return { status: 'stale', changeCount: 0, targetCount: targetTitles.length };
+            }
+            const repaired = parseLoredeckAssistantResponse(repairedText);
+            if (repaired.proposals.length || repaired.clarifyingQuestions.length) {
+                parsed = {
+                    ...repaired,
+                    warnings: [
+                        ...((repaired.warnings || [])),
+                        'Creator Lorecard batch was normalized into Saga proposal format.',
+                    ],
+                };
+            }
+        } catch (repairError) {
+            console.warn('[Saga] Loredeck Creator entry repair failed:', repairError);
+        }
+        if (!parsed) throw parseError;
+    }
+    if (!parsed.proposals.length && !parsed.clarifyingQuestions.length && String(responseText || '').trim()) {
+        try {
+            const repairedText = await repairLoredeckCreatorEntryResponse(responseText, requestContext, requestOptions);
+            if (options.generation && ignoreStaleLoredeckCreatorGeneration(options.generation, 'entry draft repair')) {
+                return { status: 'stale', changeCount: 0, targetCount: targetTitles.length };
+            }
+            const repaired = parseLoredeckAssistantResponse(repairedText);
+            if (repaired.proposals.length || repaired.clarifyingQuestions.length) {
+                parsed = {
+                    ...repaired,
+                    warnings: [
+                        ...((repaired.warnings || [])),
+                        'Creator Lorecard batch was normalized into Saga proposal format.',
+                    ],
+                };
+            }
+        } catch (repairError) {
+            console.warn('[Saga] Loredeck Creator entry repair failed:', repairError);
+        }
+    }
+    if (parsed.proposals.length
+        && !parsed.clarifyingQuestions.length
+        && !parsed.proposals.some(proposal => proposal.action === 'upsert_entry')) {
+        try {
+            const repairedText = await repairLoredeckCreatorEntryResponse(responseText, requestContext, requestOptions);
+            if (options.generation && ignoreStaleLoredeckCreatorGeneration(options.generation, 'entry draft repair')) {
+                return { status: 'stale', changeCount: 0, targetCount: targetTitles.length };
+            }
+            const repaired = parseLoredeckAssistantResponse(repairedText);
+            if (repaired.proposals.some(proposal => proposal.action === 'upsert_entry') || repaired.clarifyingQuestions.length) {
+                parsed = {
+                    ...repaired,
+                    warnings: [
+                        ...((repaired.warnings || [])),
+                        'Creator Lorecard batch was normalized into supported entry proposal actions.',
+                    ],
+                };
+            }
+        } catch (repairError) {
+            console.warn('[Saga] Loredeck Creator entry repair failed:', repairError);
+        }
+    }
     const allowed = parsed.proposals.filter(proposal => {
         if (proposal.action !== 'upsert_entry') return false;
         const proposalId = normalizeLoredeckEntryId(proposal.entryId || proposal.entry?.id);
@@ -25876,24 +26362,56 @@ function renderPanelBody(container, state) {
     tabBody.className = `wandlight-runtime-tab-body wandlight-runtime-tab-body-${activeTab}`;
     container.appendChild(tabBody);
 
-    if (activeTab === 'loredecks') {
-        renderLoredecksTab(tabBody, state);
-    } else if (activeTab === 'session') {
-        renderSessionTab(tabBody, state);
-    } else if (activeTab === 'context') {
-        renderContextTab(tabBody, state);
-    } else if (activeTab === 'continuity') {
-        renderContinuityTab(tabBody, state);
-    } else if (activeTab === 'lore') {
-        renderLoreTab(tabBody, state);
-    } else if (activeTab === 'settings') {
-        renderSettingsTab(tabBody, state);
-    } else {
-        renderInjectionTab(tabBody, state);
+    try {
+        if (activeTab === 'loredecks') {
+            renderLoredecksTab(tabBody, state);
+        } else if (activeTab === 'session') {
+            renderSessionTab(tabBody, state);
+        } else if (activeTab === 'context') {
+            renderContextTab(tabBody, state);
+        } else if (activeTab === 'continuity') {
+            renderContinuityTab(tabBody, state);
+        } else if (activeTab === 'lore') {
+            renderLoreTab(tabBody, state);
+        } else if (activeTab === 'settings') {
+            renderSettingsTab(tabBody, state);
+        } else {
+            renderInjectionTab(tabBody, state);
+        }
+    } catch (e) {
+        console.error(`[Saga] Runtime ${activeTab} tab failed to render:`, e);
+        tabBody.textContent = '';
+        tabBody.appendChild(createRuntimeRenderErrorCard(TAB_LABELS[activeTab] || 'Runtime Tab', e));
     }
 
     installNestedScrollHandoff(tabBody);
     if (activeTab === 'lore') scheduleAcceptedLoreLayoutUpdate();
+}
+
+function createRuntimeRenderErrorCard(titleText = 'Runtime Tab', error = null) {
+    const card = document.createElement('div');
+    card.className = 'wandlight-runtime-card wandlight-runtime-render-error-card';
+    const title = document.createElement('h4');
+    title.textContent = `${titleText} could not render`;
+    card.appendChild(title);
+    const help = document.createElement('div');
+    help.className = 'wandlight-runtime-help';
+    help.textContent = 'Saga kept the runtime window open so this can be diagnosed instead of disappearing.';
+    card.appendChild(help);
+    const message = document.createElement('pre');
+    message.className = 'wandlight-runtime-render-error-message';
+    message.textContent = error?.stack || error?.message || String(error || 'Unknown render error.');
+    card.appendChild(message);
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    actions.appendChild(createButton('Return to Session', 'Open the Session tab.', () => {
+        toggleDrawerForTab('session');
+    }, 'wandlight-primary-button'));
+    actions.appendChild(createButton('Reset Window', 'Reset Saga runtime window layout and section defaults.', () => {
+        resetLorePanelLayout();
+    }));
+    card.appendChild(actions);
+    return card;
 }
 
 function installNestedScrollHandoff(tabBody) {
