@@ -74,7 +74,23 @@ It proves the next downstream layer:
 - Confirms current Ron poisoning lore is promoted and stale earlier memory-sequence lore is demoted.
 - Confirms final injection includes the promoted current Lorecard.
 
-Important product boundary: current Auto-Relevance changes relevance tiers only. It does **not** change mute or pin state. Manual pin/mute behavior is covered by the first harness. If Saga later adds automatic pinning or automatic muting, that should be a distinct feature with explicit UI copy, review behavior, and its own integration harness.
+Important product boundary: current Auto-Relevance changes relevance tiers only. It does **not** change mute or pin state. Manual pin/mute behavior is covered by the first harness.
+
+Planned extension: Auto-Relevance should eventually support optional pin/mute recommendations or high-confidence actions. This should be treated as stronger than High/Normal/Low tiering because pin and mute directly affect injection authority. It needs explicit user-facing controls, review behavior, and its own integration coverage before it is enabled.
+
+Recommended future modes:
+
+- `tiers_only`: current behavior; Auto-Relevance can promote or demote High/Normal/Low.
+- `suggest_pin_mute`: Auto-Relevance writes reviewable pin/mute suggestions, but does not mutate `loreSelection`.
+- `apply_high_confidence_pin_mute`: Auto-Relevance can apply pin/mute only when confidence is high and settings allow it.
+
+Recommended guardrails:
+
+- Never auto-mute user-pinned Lorecards unless the user enables an override.
+- Never auto-pin muted Lorecards unless the user accepts a suggestion or enables an override.
+- Distinguish temporary relevance from durable user intent. A temporary scene hit should usually promote to High, not pin.
+- Auto-mute should be reserved for clear out-of-context, expired, disabled, duplicate, or contradicted entries, not merely "less relevant right now."
+- All automatic pin/mute actions should be visible in the injection audit and timeline/history log.
 
 ## Core Runtime Contract
 
@@ -149,6 +165,7 @@ Proves that accepted Lorecards remain stable while their injection eligibility c
 - Context-gated suggestions change as the loaded Loredeck Context advances.
 - Relevance tiers control injection grouping and compression budget.
 - Auto-Relevance can promote and demote accepted Lorecards based on current scene and recent messages.
+- Future Auto-Relevance can optionally suggest or apply pin/mute state when configured.
 - Manual pin/mute choices survive Context changes.
 
 Current implementation note: accepted Lorecard injection does not yet re-run full Loredeck Context gates for every accepted Lorecard. Context gates currently govern candidate suggestion/retrieval. Accepted injection uses relevance, lifecycle, branch/date windows, pin/mute, and tier caps. If alpha requires accepted canon Lorecards to auto-drop purely by Loredeck Context gate, add that as a separate implementation step and test.
@@ -248,6 +265,7 @@ Before alpha, Saga should have deterministic tests proving:
 - Injection preview and prompt output agree.
 - Context progression changes suggested Lorecards over time.
 - Auto-Relevance can promote current lore and demote stale lore without mutating pin/mute state.
+- Future optional Auto-Relevance pin/mute behavior is covered separately, including suggestion mode, high-confidence apply mode, user override protection, and injection-audit visibility.
 
 ## Non-Goals
 

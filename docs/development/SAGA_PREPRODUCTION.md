@@ -1686,6 +1686,8 @@ Recent production completed **Context-native Loredeck retrieval, HP reference-de
 
 The next major phase is **core integration testing**. Before adding more feature surface area, Saga needs deterministic tests that prove the loop from loaded Loredecks to Context-gated Lorecard suggestion, Pending/Accepted state, pin/mute/relevance behavior, and final injection output. See [SAGA_CORE_INTEGRATION_TESTING.md](SAGA_CORE_INTEGRATION_TESTING.md).
 
+Planned Auto-Relevance expansion: the current High/Normal/Low system should eventually support optional pin/mute suggestions or high-confidence pin/mute application. This must remain separately configurable and testable because pin/mute changes are stronger than relevance-tier changes.
+
 Legacy cleanup checkpoint: the Wandlight compatibility posture has changed. Saga should not ship the full Wandlight chat preset in MVP, and fast reply-header Context detection has been removed with it. The current removal plan is captured in [SAGA_LEGACY_REMOVAL_AUDIT.md](SAGA_LEGACY_REMOVAL_AUDIT.md).
 
 1. Done: normalize entry-level `context` metadata in the Lorecard pipeline.

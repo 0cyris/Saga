@@ -79,6 +79,8 @@ The deck-authoring system for anchors, windows, aliases, sortable coordinates, a
 
 Context-gated candidate selection, stack-priority scoring, relevance ranking, source chips, and wide-lore handling. This is the core system that decides which Lorecards should matter at a given moment.
 
+Auto-Relevance currently owns High/Normal/Low tier changes. Planned expansion: allow optional pin/mute recommendations or high-confidence pin/mute application as a separate, explicitly configured layer. This should not be treated as a silent side effect of tier scoring because pin and mute are stronger injection controls.
+
 ### 11. Injection System
 
 The final prompt-injection layer. It needs to account for pinned, muted, newly relevant, disabled, and Context-blocked Lorecards, and should provide a useful preview/debug surface for what will actually be injected.
