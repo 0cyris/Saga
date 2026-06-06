@@ -321,6 +321,8 @@ assert.ok(creatorPlanningSystemPrompt.includes('Do not generate full Lorecards')
 assert.ok(creatorPlanningSystemPrompt.includes('upsert_timeline_anchor'));
 assert.ok(creatorPlanningSystemPrompt.includes('upsert_tag_definition'));
 assert.ok(creatorPlanningSystemPrompt.includes('Return no more than proposalLimit proposals'));
+assert.ok(creatorPlanningSystemPrompt.includes('Prefer 6-10 strong proposals'));
+assert.ok(creatorPlanningSystemPrompt.includes('final answer first'));
 assert.ok(creatorPlanningSystemPrompt.includes('Keep the whole JSON compact'));
 
 const truncatedPlanningPass = parseLoredeckAssistantResponse(`\`\`\`json

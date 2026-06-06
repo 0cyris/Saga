@@ -908,6 +908,8 @@ Hard limits:
 - Tags should support retrieval, filtering, Deck Health, and future Lorecard generation. Avoid tag spam and avoid vague unnamespaced tags when a namespace is natural.
 - Use approvedTitleDrafts from the supplied targetPlanningBatch only. Do not continue into other title batches or attempt full deck completeness in one pass.
 - Return no more than proposalLimit proposals. Prefer fewer high-value planning records over noisy coverage.
+- Prefer 6-10 strong proposals when that is enough for the current title batch; do not pad to proposalLimit.
+- Keep visible output short enough for reasoning profiles: final answer first, compact JSON only, no hidden-plan dependency.
 - Keep the whole JSON compact. Do not use markdown, commentary, long explanations, or verbose per-proposal rubrics.
 - If the target batch shape is insufficient, ask 1-3 clarifying questions and return an empty proposals array.
 
