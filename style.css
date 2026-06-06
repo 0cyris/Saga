@@ -10065,10 +10065,9 @@
 
 
 
-/* Phase 12: compact logo box geometry only -------------------------------------
-   Rebuilt from phase 10 to restore the original runtime icon treatment.
-   The compact rail's logo/drag box is now square without changing the S image
-   centering rules. The expanded rail status line is suppressed. */
+/* Compact brand mark ------------------------------------------------------------
+   The collapsed rail uses the S mark as the shelf handle. Keep the drag target
+   invisible so the image can use the full top shelf space without a framed box. */
 .wandlight-runtime-rail-subtitle,
 .wandlight-runtime-rail-subtitle:empty,
 .wandlight-runtime-rail-expanded .wandlight-runtime-rail-subtitle {
@@ -10076,15 +10075,21 @@
 }
 
 .wandlight-runtime-rail-compact .wandlight-runtime-rail-drag {
-    width: 48px;
-    height: 48px;
-    min-height: 48px;
-    max-height: 48px;
+    width: calc(100% + 8px);
+    height: 54px;
+    min-height: 54px;
+    max-height: 54px;
+    margin: -2px -4px 0;
     padding: 0;
     align-self: center;
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    overflow: visible;
 }
 
 .wandlight-runtime-rail-compact .wandlight-runtime-rail-mark {
@@ -10097,13 +10102,14 @@
     padding: 0;
     line-height: 1;
     box-sizing: border-box;
+    overflow: visible;
 }
 
 .wandlight-runtime-rail-compact .wandlight-runtime-rail-logo-img {
-    width: 42px;
-    height: 42px;
-    max-width: 42px;
-    max-height: 42px;
+    width: 54px;
+    height: 54px;
+    max-width: 54px;
+    max-height: 54px;
     object-fit: contain;
 }
 
