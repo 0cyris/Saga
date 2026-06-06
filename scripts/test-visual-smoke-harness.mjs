@@ -76,7 +76,7 @@ assert(panel.includes('function updateLoredeckLibraryDetailsCollapsedDom'), 'Lor
 assert(panel.includes('if (!updateLoredeckLibraryDetailsCollapsedDom(next)) renderLoredeckLibraryOverlay();'), 'Loredeck Library details collapse should only rerender when the overlay DOM is missing.');
 assert(panel.includes('LOREDECK_CREATOR_ENTRY_BATCH_SIZE = 3'), 'Creator entry drafting must keep the default micro-batch size small.');
 assert(panel.includes('Draft Lorecards'), 'Creator entry drafting must expose a guided one-batch action.');
-assert(panel.includes('Auto-Draft Up To ${LOREDECK_CREATOR_ENTRY_AUTORUN_BATCHES}'), 'Creator entry drafting must expose a bounded advanced auto-draft action.');
+assert(panel.includes('Auto-Draft Up To ${generationSettings.entryRunRemainingLimit}'), 'Creator entry drafting must expose a settings-driven bounded advanced auto-draft action.');
 assert(panel.includes('Review the current Lorecard drafts before drafting more.'), 'Creator entry drafting must block additional generation while review drafts are open.');
 assert(panel.includes('Creator Lorecard Draft Review'), 'Creator draft review must use Creator-specific review language.');
 assert(panel.includes('Send Selected to Review'), 'Creator draft review must expose explicit Pending Review handoff language.');
@@ -98,6 +98,35 @@ assert(assistant.includes('currentTitleBatchOnly'), 'Creator title prompt must p
 assert(assistant.includes('targetPlanningBatch'), 'Creator planning prompt must target one approved title batch per call.');
 assert(assistant.includes('currentPlanningBatchOnly'), 'Creator planning prompt must prohibit drifting into other planning batches.');
 assert(assistant.includes('acceptedPlanningBatchIds'), 'Creator entry prompt must receive accepted planning batch IDs.');
+assert(panel.includes('buildLoredeckCreatorPlanningGenerationUnitId'), 'Creator planning must use stable unit IDs for one planning batch per provider call.');
+assert(panel.includes('commitLoredeckCreatorPlanningResult'), 'Creator planning must commit through an idempotent Pending Review helper.');
+assert(panel.includes('upsertLoredeckCreatorPlanningPendingChanges'), 'Creator planning must replace same-batch Pending Review proposals instead of appending duplicates.');
+assert(panel.includes('creator_planning_batch:'), 'Creator planning unit IDs must be namespaced for runner checkpoints.');
+assert(panel.includes('buildLoredeckCreatorEntryGenerationUnitId'), 'Creator Lorecard drafting must use stable micro-batch unit IDs.');
+assert(panel.includes('commitLoredeckCreatorEntryDraftResult'), 'Creator Lorecard drafting must commit through an idempotent draft-review helper.');
+assert(panel.includes('upsertLoredeckCreatorEntryDraftChanges'), 'Creator Lorecard drafting must replace same-unit draft-review records instead of appending duplicates.');
+assert(panel.includes('creator_entry_micro_batch:'), 'Creator Lorecard unit IDs must be namespaced for runner checkpoints.');
+assert(panel.includes('entry_micro_batch'), 'Creator Lorecard drafting must run through the generation runner as entry micro-batches.');
+assert(panel.includes('draft-review items exist'), 'Creator Lorecard auto-draft must stop when draft-review items exist.');
+assert(panel.includes('createLoredeckCreatorAdvancedGenerationSettings'), 'Creator wizard must expose a collapsed Advanced Generation Settings panel.');
+assert(panel.includes('getLoredeckCreatorGenerationSettings'), 'Creator generation must read normalized per-project generation settings.');
+assert(panel.includes('setLoredeckCreatorGenerationSettings'), 'Creator generation settings must persist per project.');
+assert(panel.includes('showStreamingProgress'), 'Creator generation settings must control streaming progress snippets.');
+assert(panel.includes('titleRunRemainingLimit'), 'Creator title Generate Remaining must use a configurable run limit.');
+assert(panel.includes('entryRunRemainingLimit'), 'Creator Lorecard auto-draft must use a configurable run limit.');
+assert(panel.includes('retryAttempts: Number.isFinite(Number(config.retryAttempts))'), 'Creator runner calls must support configured retry attempts.');
+assert(stateManager.includes('generationSettings'), 'Creator project persistence must preserve generation settings.');
+assert(panel.includes('unitMeta'), 'Creator generation units must persist compact retry metadata.');
+assert(panel.includes('getLoredeckCreatorLatestRecoverableUnit'), 'Creator recovery must locate the latest failed or interrupted unit.');
+assert(panel.includes('retryLoredeckCreatorRecoverableUnit'), 'Creator recovery must retry failed generation units.');
+assert(panel.includes('markLoredeckCreatorRecoveryUnitSuperseded'), 'Creator Retry Smaller must supersede the previous failed unit after creating a replacement.');
+assert(panel.includes('buildLoredeckCreatorRetryUnitId'), 'Creator Retry Smaller must create a distinct replacement unit ID.');
+assert(panel.includes('Retry Failed'), 'Creator current task controls must expose Retry Failed.');
+assert(panel.includes('Retry Smaller'), 'Creator current task controls must expose Retry Smaller.');
+assert(panel.includes('Cancel Generation'), 'Creator current task controls must expose Cancel while a generation is active.');
+assert(panel.includes('titlePassLimitOverride'), 'Creator Retry Smaller must reduce Title Pass batch size.');
+assert(panel.includes('planningProposalLimitOverride'), 'Creator Retry Smaller must reduce Context/Tag planning proposal size.');
+assert(panel.includes('targetTitleIds'), 'Creator Lorecard retries must preserve target title IDs.');
 assert(panel.includes('getLoredeckCreatorPipelineReadiness'), 'Generated Loredeck export must inspect staged Creator pipeline readiness.');
 assert(panel.includes('Creator Readiness Gate'), 'Creator wizard must expose deterministic readiness feedback.');
 assert(panel.includes('titles covered'), 'Generated export readiness must show approved-title coverage.');
@@ -149,6 +178,12 @@ for (const token of [
     'appendLoredeckCreatorGenerationStatus',
     'cancelLoredeckCreatorGeneration',
     'ignoreStaleLoredeckCreatorGeneration',
+    'recoverLoredeckCreatorInterruptedActiveGeneration',
+    'recoverLoredeckCreatorCurrentActiveGenerationOnOpen',
+    'isLoredeckCreatorActiveGenerationStillLive',
+    'buildLoredeckCreatorInterruptedResult',
+    "status: 'interrupted'",
+    'Saved batches are preserved',
     'applyLoredeckCreatorGenerationButtonLock',
     'loredeckCreatorGenerationControllers',
     'loredeckCreatorLiveGenerationsByJobId',

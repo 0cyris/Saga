@@ -1,6 +1,6 @@
 # Loredeck Creator Batching Architecture
 
-Status: Phase 5 implemented. Title Pass uses guided `Generate Next` / `Generate Remaining` controls; Context/Tag Planning migration is next.
+Status: Phase 11 implemented. The Creator generation architecture now has dedicated regression coverage for duplicate-click dedupe, late/superseded responses, interrupted reopen recovery, token-limit retry, and partial success preservation.
 
 ## Purpose
 
@@ -247,7 +247,7 @@ Unit count: one per approved title batch or selected title set.
 Stable unit ID:
 
 ```text
-{jobId}:planning:{planningBatchId}:{approvedTitlesHash}
+creator_planning_batch:{planningBatchId}:{approvedTitlesHash}
 ```
 
 Each unit receives:
@@ -263,9 +263,10 @@ Commit rule:
 
 - Create Pending Review proposals for anchors/windows/tags.
 - Upsert proposal records by stable proposal ID.
+- Replace existing Pending Review proposals for the same Creator planning batch before adding the new batch slice.
 - Record `planningBatchQueuedIds`.
 - Do not apply proposals until Pending Review acceptance.
-- If exact unit output arrives late, dedupe by proposal ID and output hash.
+- If exact unit output arrives late, dedupe by proposal ID and batch marker.
 
 ### Stage 5: Lorecard Drafting
 
@@ -274,7 +275,7 @@ Unit count: one per Lorecard micro-batch, usually 1-3 titles.
 Stable unit ID:
 
 ```text
-{jobId}:entries:{planningBatchId}:{titleIdHash}
+creator_entry_micro_batch:{planningBatchId}:{titleIdHash}
 ```
 
 Each unit receives:
@@ -289,8 +290,9 @@ Each unit receives:
 Commit rule:
 
 - Store proposals in Creator Lorecard Draft Review, not Pending Review directly.
-- Upsert by `entryId`.
-- Mark drafted title IDs with the unit ID that produced them.
+- Upsert draft-review records by stable Creator entry draft IDs.
+- Replace existing draft-review records for the same micro-batch unit before adding the new batch slice.
+- Mark drafted title IDs with the micro-batch unit ID that produced them.
 - Do not draft more entries while draft-review proposals are unresolved unless the user explicitly drops or queues them.
 
 Recommended default:
@@ -385,7 +387,7 @@ Add a default-collapsed `Advanced Generation Settings` disclosure in the Creator
 - Retry smaller behavior.
 - Streaming progress toggle.
 
-Defaults should be conservative:
+Implemented defaults are conservative:
 
 - Title batch limit: 8.
 - Planning proposal limit: 12.
@@ -393,7 +395,17 @@ Defaults should be conservative:
 - Run-remaining call limit: 5.
 - Retry attempts: 1.
 - Retry smaller: on.
-- Streaming progress: off unless live streaming snippets are useful and supported.
+- Streaming progress: on because Creator status uses short transient snippets as the live progress surface.
+
+Implemented behavior:
+
+- Settings are saved on the active Creator project as `generationSettings`.
+- Scope Brief, Story Outline, Title Pass, Context/Tag Planning, and Lorecard Drafting share the configured retry count through the generation runner.
+- Title Pass uses `titleBatchLimit` for title count and `titleRunRemainingLimit` for `Generate Remaining`.
+- Context/Tag Planning uses `planningProposalLimit`.
+- Lorecard Drafting uses `entryBatchSize` for micro-batches and `entryRunRemainingLimit` for Auto-Draft.
+- The streaming toggle controls whether provider calls request live snippets; completed raw output is still not rendered.
+- The `retrySmaller` preference is persisted for explicit Retry Smaller controls and future automatic retry behavior.
 
 The UI copy should frame these as performance/reliability controls, not required creative choices.
 
@@ -464,6 +476,19 @@ Remove:
 
 If snippets are shown, they should be temporary and replaced by parsed review UI when the unit finishes.
 
+## Stale And Interrupted Recovery
+
+The Creator can be closed, reopened, or reloaded while a provider request was previously marked active. On open:
+
+- If the active generation still has a live in-memory generation record and controller, keep it running and restart the status ticker.
+- If the saved `activeGeneration` has no matching live generation/controller, treat it as interrupted.
+- Mark the matching `generationRuns[runId]` and `generationUnits[unitId]` as `interrupted` when available.
+- Clear `activeGeneration` so buttons unlock.
+- Preserve completed title batches, planning proposals, draft-review Lorecards, Pending Review items, and generated deck data.
+- Write `lastGenerationResult.status = "interrupted"` so the user sees what happened instead of a silent reset.
+
+Do not retry automatically on open. The user should decide whether to rerun the current stage, retry smaller, revise inputs, or continue reviewing already-created outputs.
+
 ## Failure Handling
 
 Failure should be unit-local.
@@ -499,6 +524,15 @@ Recovery actions:
 - Ask clarification.
 - Cancel run.
 
+Implemented recovery behavior:
+
+- Each Creator unit stores compact `meta` for the target stage, batch/window, selected title IDs, and effective batch/proposal limits.
+- `Retry Failed` reruns the latest failed/interrupted unit with the same unit ID so the checkpoint replaces the failed status.
+- `Retry Smaller` creates a new retry unit ID with a smaller request size, then marks the older failed unit `superseded` once the replacement unit exists.
+- Smaller retry is available for Title Pass batches, Context/Tag planning, and Lorecard micro-batches.
+- Scope Brief and Story Outline can retry the failed unit, but they do not expose Retry Smaller because they are not currently split into reducible units.
+- Active generations still show `Cancel Generation` in the current task action bar and `Cancel` in the active status row.
+
 ## Implementation Slices
 
 1. Done: Create `generation-job-runner.js` with generic sequential unit execution, lifecycle statuses, progress callback wiring, and cancellation checks.
@@ -506,12 +540,13 @@ Recovery actions:
 3. Done: Migrate Scope Brief and Story Outline calls to the runner without changing output behavior.
 4. Done: Migrate Title Pass to unit-based execution and idempotent upsert by title batch.
 5. Done: Replace multiple title batch buttons with guided `Generate Next` / `Generate Remaining`.
-6. Next: Migrate Context/Tag Planning to unit-based execution and idempotent Pending Review proposal creation.
-7. Migrate Lorecard Drafting to runner-managed micro-batches and idempotent draft-review writes.
-8. Add stale/interrupted active-generation recovery when the Creator opens.
-9. Add the default-collapsed Advanced Generation Settings panel for batch limits, run-remaining limits, retry behavior, and streaming progress.
-10. Add `Retry Failed`, `Retry Smaller`, and `Cancel` controls.
-11. Add tests for duplicate clicks, late responses, interrupted reopen, token-limit retry, and partial success preservation.
+6. Done: Migrate Context/Tag Planning to unit-based execution and idempotent Pending Review proposal creation.
+7. Done: Migrate Lorecard Drafting to runner-managed micro-batches and idempotent draft-review writes.
+8. Done: Add stale/interrupted active-generation recovery when the Creator opens.
+9. Done: Add the default-collapsed Advanced Generation Settings panel for batch limits, run-remaining limits, retry behavior, and streaming progress.
+10. Done: Add `Retry Failed`, `Retry Smaller`, and `Cancel` controls.
+11. Done: Add tests for duplicate clicks, late responses, interrupted reopen, token-limit retry, and partial success preservation.
+12. Next: Run provider-backed Creator QA in SillyTavern and use the results to tune batch-size defaults, retry copy, and any remaining stage-specific status text.
 
 ## Test Plan
 
@@ -525,6 +560,12 @@ Unit tests:
 - Completed title unit cannot append duplicate titles.
 - Completed planning unit cannot append duplicate proposals.
 - Completed entry unit cannot append duplicate draft Lorecards.
+- `scripts/test-loredeck-creator-generation-recovery.mjs` exercises Creator-specific regression paths:
+  - duplicate unit IDs from repeated clicks run only one provider call;
+  - superseded late responses do not commit;
+  - interrupted reopen state clears `activeGeneration` while preserving failed unit metadata;
+  - token-limit retry checkpoints `retrying` and completes on the next attempt;
+  - partial runs preserve completed units and failed-unit metadata in the same Creator job.
 
 Integration tests:
 

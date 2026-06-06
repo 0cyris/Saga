@@ -1128,6 +1128,7 @@ function normalizeLoredeckCreatorJob(value = {}, index = 0) {
         titleBatch: 20000,
         stageStatus: 50000,
         batches: 100000,
+        generationSettings: 12000,
     };
     for (const [key, maxLength] of Object.entries(objectFields)) {
         const cloned = cloneLoredeckPlainObject(value[key], maxLength);
