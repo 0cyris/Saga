@@ -1665,6 +1665,8 @@
 .wandlight-loredeck-creator-status-actions {
     display: flex;
     justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 6px;
     margin-top: 8px;
 }
 
@@ -1977,8 +1979,29 @@
 
 .wandlight-loredeck-creator-form,
 .wandlight-loredeck-creator-revise-form {
-    padding: 0;
+    padding: 10px;
+    border: 1px solid rgba(185, 139, 54, 0.20);
+    border-radius: 8px;
+    background:
+        radial-gradient(circle at 100% 0%, rgba(215, 181, 109, 0.08), transparent 36%),
+        rgba(8, 11, 18, 0.42);
     overflow: visible;
+}
+
+.wandlight-loredeck-creator-form-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 6px 10px;
+    margin-bottom: 2px;
+}
+
+.wandlight-loredeck-creator-form-title {
+    color: var(--wandlight-gold, #d7b56d);
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-transform: uppercase;
 }
 
 .wandlight-loredeck-creator-brief {
@@ -4290,7 +4313,8 @@
     }
 
     .wandlight-loredeck-library-body {
-        grid-template-rows: auto auto auto auto;
+        display: flex;
+        flex-direction: column;
         overflow-y: auto;
     }
 
@@ -4303,20 +4327,26 @@
     }
 
     .wandlight-loredeck-library-columns {
-        grid-template-columns: minmax(0, 1fr);
+        display: flex;
+        flex-direction: column;
     }
 
     .wandlight-loredeck-library-pane {
-        min-height: 260px;
+        flex: 0 0 auto;
+        height: min(520px, calc(100vh - 220px));
+        min-height: 360px;
     }
 
     .wandlight-loredeck-library-transfer-pane {
+        flex: 0 0 auto;
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        min-height: auto;
         padding: 0;
     }
 
     .wandlight-loredeck-library-details {
+        flex: 0 0 auto;
         grid-template-columns: minmax(0, 1fr);
         min-height: 320px;
     }
@@ -10376,6 +10406,9 @@
 .wandlight-lore-workbench-overlay {
     position: fixed;
     inset: 0;
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
     z-index: 10060;
     display: flex;
     align-items: center;

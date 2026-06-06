@@ -7162,22 +7162,6 @@ function openLoredeckCreatorWorkbench() {
     shell.className = 'wandlight-lore-workbench-shell wandlight-loredeck-creator-workbench-shell';
     overlay.appendChild(shell);
 
-    const header = document.createElement('div');
-    header.className = 'wandlight-lore-workbench-header';
-    const titleWrap = document.createElement('div');
-    titleWrap.className = 'wandlight-lore-workbench-title-wrap';
-    const title = document.createElement('div');
-    title.className = 'wandlight-lore-workbench-title';
-    title.textContent = 'Loredeck Creator';
-    titleWrap.appendChild(title);
-    const subtitle = document.createElement('div');
-    subtitle.className = 'wandlight-lore-workbench-subtitle';
-    subtitle.textContent = 'Draft a Generated Loredeck in staged, reviewable passes.';
-    titleWrap.appendChild(subtitle);
-    header.appendChild(titleWrap);
-    header.appendChild(createButton('Close', 'Close the Loredeck Creator wizard.', () => overlay.remove()));
-    shell.appendChild(header);
-
     const body = document.createElement('div');
     body.className = 'wandlight-loredeck-creator-workbench-body';
     body.appendChild(createLoredeckCreatorCard(getState(), { embedded: true }));
@@ -7728,7 +7712,7 @@ function titleDraftCount(cached = {}) {
     return getLoredeckCreatorTitleDrafts(cached).length;
 }
 
-function createLoredeckCreatorPipelineHeader(cached = {}, pipeline = getLoredeckCreatorPipelineModel(cached)) {
+function createLoredeckCreatorPipelineHeader(cached = {}, pipeline = getLoredeckCreatorPipelineModel(cached), options = {}) {
     const wrap = document.createElement('div');
     wrap.className = 'wandlight-loredeck-creator-pipeline-header';
     const main = document.createElement('div');
@@ -7768,6 +7752,11 @@ function createLoredeckCreatorPipelineHeader(cached = {}, pipeline = getLoredeck
     statusActions.appendChild(createButton('Project Settings', 'Jump to the editable project inputs or approved Scope Brief.', () => {
         scrollLoredeckCreatorWorkbenchToAnchor(cached.approved ? 'scope-brief' : 'intake');
     }));
+    if (options.showClose) {
+        statusActions.appendChild(createButton('Close', 'Close the Loredeck Creator wizard.', () => {
+            document.querySelector('.wandlight-loredeck-creator-workbench-overlay')?.remove();
+        }));
+    }
     status.appendChild(statusActions);
     wrap.appendChild(status);
     return wrap;
@@ -8254,7 +8243,7 @@ function createLoredeckCreatorCard(state = getState(), options = {}) {
     const pipeline = getLoredeckCreatorPipelineModel(cached);
     const outline = getLoredeckCreatorOutline(cached);
 
-    card.appendChild(createLoredeckCreatorPipelineHeader(cached, pipeline));
+    card.appendChild(createLoredeckCreatorPipelineHeader(cached, pipeline, { showClose: options.embedded === true }));
     card.appendChild(createLoredeckCreatorStageGuide(cached, pipeline));
 
     if (options.embedded !== true) {
@@ -8278,6 +8267,17 @@ function createLoredeckCreatorCard(state = getState(), options = {}) {
         intakeForm = document.createElement('div');
         intakeForm.className = 'wandlight-new-lore-form wandlight-loredeck-creator-form';
         intakeForm.dataset.sagaCreatorAnchor = 'intake';
+        const intakeHeader = document.createElement('div');
+        intakeHeader.className = 'wandlight-loredeck-creator-form-header';
+        const intakeTitle = document.createElement('div');
+        intakeTitle.className = 'wandlight-loredeck-creator-form-title';
+        intakeTitle.textContent = 'Project Inputs';
+        intakeHeader.appendChild(intakeTitle);
+        const intakeHelp = document.createElement('div');
+        intakeHelp.className = 'wandlight-runtime-help';
+        intakeHelp.textContent = 'Set the fandom and scope before drafting the first reviewable brief.';
+        intakeHeader.appendChild(intakeHelp);
+        intakeForm.appendChild(intakeHeader);
         const fandomInput = createNewLoreInput(intakeForm, 'Fandom', 'Fandom, universe, or canon family.', currentFandom, false, 'One Piece');
         const scopeInput = createNewLoreInput(intakeForm, 'Scope', 'Story range, arc, season, issue run, game act, or scenario slice.', currentScope, true, 'Arlong Park Arc');
         const grid = document.createElement('div');
@@ -8296,8 +8296,8 @@ function createLoredeckCreatorCard(state = getState(), options = {}) {
         intakeRefs = { fandomInput, scopeInput, granularitySelect, notesInput };
     }
 
-    card.appendChild(createLoredeckCreatorCurrentTaskCard(cached, pipeline, { intakeRefs }));
     if (intakeForm) card.appendChild(intakeForm);
+    card.appendChild(createLoredeckCreatorCurrentTaskCard(cached, pipeline, { intakeRefs }));
 
     if (cached.summary || cached.questions?.length || cached.warnings?.length) {
         const result = document.createElement('div');
