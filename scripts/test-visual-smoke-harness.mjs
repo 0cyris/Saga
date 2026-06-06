@@ -8,6 +8,7 @@ const loredeckIndexPath = path.join(root, 'Loredecks', 'index.json');
 const panelPath = path.join(root, 'lore-panel.js');
 const assistantPath = path.join(root, 'loredeck-assistant.js');
 const llmClientPath = path.join(root, 'lore-llm-client.js');
+const creatorProjectsPath = path.join(root, 'loredeck-creator-projects.js');
 const stateManagerPath = path.join(root, 'state-manager.js');
 const stylePath = path.join(root, 'style.css');
 const settingsTemplatePath = path.join(root, 'settings.html');
@@ -34,6 +35,7 @@ const loredeckIndex = JSON.parse(read(loredeckIndexPath));
 const panel = read(panelPath);
 const assistant = read(assistantPath);
 const llm = read(llmClientPath);
+const creatorProjects = read(creatorProjectsPath);
 const stateManager = read(stateManagerPath);
 const style = read(stylePath);
 const settingsTemplate = read(settingsTemplatePath);
@@ -131,6 +133,9 @@ for (const token of [
     'Pending Review',
     'Loredeck Creator',
     'getActiveLoredeckCreatorJob',
+    'getLoredeckCreatorProjectRegistry',
+    'activateLoredeckCreatorJob',
+    'updateLoredeckCreatorProject',
     'upsertLoredeckCreatorJob',
     'clearLoredeckCreatorJob',
     'inferLoredeckCreatorUiStage',
@@ -147,6 +152,25 @@ for (const token of [
     'normalized.activeGeneration',
     'requestLoredeckCreatorBriefResponse',
     'repairLoredeckCreatorBriefResponse',
+    'createLoredeckCreatorProjectShelf',
+    'getLoredeckCreatorProjectShelfModels',
+    'createLoredeckCreatorProjectControls',
+    'createLoredeckCreatorProjectBulkToolbar',
+    'appendLoredeckCreatorProjectFolderFilterOptions',
+    'appendLoredeckCreatorProjectMoveOptions',
+    'moveLoredeckCreatorProjectsToFolder',
+    'getFilteredLoredeckCreatorProjectModels',
+    'matchesLoredeckCreatorProjectFolderFilter',
+    'setLoredeckCreatorProjectSelected',
+    'openLoredeckCreatorProject',
+    'renameLoredeckCreatorProjectTitle',
+    'deleteLoredeckCreatorProjectWithConfirm',
+    'deleteSelectedLoredeckCreatorProjectsWithConfirm',
+    'buildLoredeckCreatorProjectCardModels',
+    'Search projects...',
+    'Delete Selected',
+    'Move to: Unfiled',
+    'Resume unfinished Generated Loredecks',
     'Scope Brief',
     'Creator Story Outline',
     'handleLoredeckCreatorOutlineDraft',
@@ -264,11 +288,31 @@ for (const token of [
 }
 
 for (const token of [
+    'LOREDECK_CREATOR_PROJECT_STAGE_ORDER',
+    'normalizeLoredeckCreatorProjectStage',
+    'inferLoredeckCreatorProjectStage',
+    'getLoredeckCreatorProjectStageDescriptor',
+    'getLoredeckCreatorProjectCounts',
+    'getLoredeckCreatorProjectNextAction',
+    'isLoredeckCreatorProjectUnfinished',
+    'buildLoredeckCreatorProjectCardModel',
+    'buildLoredeckCreatorProjectCardModels',
+    'Review Draft Lorecards',
+    'Review Pending Lorecards',
+]) {
+    assert(creatorProjects.includes(token), `Creator project model is missing expected token: ${token}`);
+}
+
+for (const token of [
     'loredeckCreator',
+    'loredeckCreatorProjects',
     'normalizeLoredeckCreatorRegistry',
     'normalizeLoredeckCreatorJob',
     'getLoredeckCreatorRegistry',
+    'getLoredeckCreatorProjectRegistry',
     'getActiveLoredeckCreatorJob',
+    'activateLoredeckCreatorJob',
+    'updateLoredeckCreatorProject',
     'upsertLoredeckCreatorJob',
     'clearLoredeckCreatorJob',
     'outline_approved',
@@ -284,6 +328,18 @@ for (const token of [
     'wandlight-loredeck-install-shell',
     'wandlight-runtime-rail',
     'wandlight-runtime-drawer',
+    'wandlight-loredeck-creator-project-shelf',
+    'wandlight-loredeck-creator-project-card',
+    'wandlight-loredeck-creator-project-controls',
+    'wandlight-loredeck-creator-project-search',
+    'wandlight-loredeck-creator-project-filter',
+    'wandlight-loredeck-creator-project-folder-filter',
+    'wandlight-loredeck-creator-project-move-select',
+    'wandlight-loredeck-creator-project-bulk',
+    'wandlight-loredeck-creator-project-card-selected',
+    'wandlight-loredeck-creator-project-progress',
+    'wandlight-loredeck-creator-project-delete',
+    'wandlight-loredeck-creator-project-select-active',
     'wandlight-loredeck-library-details',
     'wandlight-loredeck-library-resize-handle',
     'wandlight-loredeck-library-resize-track-left',

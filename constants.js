@@ -159,6 +159,12 @@ export const DEFAULT_SETTINGS = {
         packs: DEFAULT_HP_LOREDECK_LIBRARY_PACKS,
         activeStack: DEFAULT_HP_LOREDECK_STACK,
     },
+    loredeckCreatorProjects: {
+        schemaVersion: 1,
+        activeJobId: '',
+        lastJobId: '',
+        jobs: {},
+    },
 
     // Runtime automation modes. These replace the old single workflow preset for new behavior.
     automationMode: 'manual',

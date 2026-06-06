@@ -910,6 +910,7 @@ function normalizeLoredeckCreatorJob(value = {}, index = 0) {
         jobId,
         status: normalizeLoredeckCreatorString(value.status || (value.blocked ? 'blocked' : 'draft'), 80) || 'draft',
         currentStage: inferLoredeckCreatorStage(value),
+        archived: value.archived === true,
         fandom: normalizeLoredeckCreatorString(value.fandom || intake.fandom, 200),
         scope: normalizeLoredeckCreatorString(value.scope || intake.scope, 500),
         granularity: normalizeLoredeckCreatorString(value.granularity || intake.granularity || 'focused', 80) || 'focused',
@@ -940,6 +941,7 @@ function normalizeLoredeckCreatorJob(value = {}, index = 0) {
         'lastStartedAt',
         'lastCompletedAt',
         'lastFailedAt',
+        'archivedAt',
     ]) {
         if (Number.isFinite(Number(value[key]))) job[key] = Number(value[key]);
     }
@@ -971,6 +973,8 @@ function normalizeLoredeckCreatorJob(value = {}, index = 0) {
         'planningCurrentBatchLabel',
         'entryDraftCurrentBatchId',
         'entryDraftCurrentBatchLabel',
+        'folderId',
+        'projectTitle',
         'lastAction',
     ]) {
         const text = normalizeLoredeckCreatorString(value[key], key.includes('Summary') ? 1500 : 200);
@@ -1017,6 +1021,50 @@ function normalizeLoredeckCreatorRegistry(value) {
         lastJobId: jobs[lastJobId] ? lastJobId : fallbackActive,
         jobs,
     };
+}
+
+function mergeLoredeckCreatorRegistries(globalRegistry = {}, localRegistry = {}, options = {}) {
+    const globalNormalized = normalizeLoredeckCreatorRegistry(globalRegistry);
+    const localNormalized = normalizeLoredeckCreatorRegistry(localRegistry);
+    const jobs = {};
+    const addJob = job => {
+        if (!job?.jobId) return;
+        const existing = jobs[job.jobId];
+        if (!existing || (Number(job.updatedAt) || 0) >= (Number(existing.updatedAt) || 0)) {
+            jobs[job.jobId] = job;
+        }
+    };
+    for (const job of Object.values(globalNormalized.jobs || {})) addJob(job);
+    for (const job of Object.values(localNormalized.jobs || {})) addJob(job);
+    const preferLocalActive = options.preferLocalActive !== false;
+    const activeJobId = preferLocalActive && localNormalized.activeJobId && jobs[localNormalized.activeJobId]
+        ? localNormalized.activeJobId
+        : (globalNormalized.activeJobId && jobs[globalNormalized.activeJobId]
+            ? globalNormalized.activeJobId
+            : (localNormalized.activeJobId && jobs[localNormalized.activeJobId]
+                ? localNormalized.activeJobId
+                : ''));
+    const lastJobId = preferLocalActive && localNormalized.lastJobId && jobs[localNormalized.lastJobId]
+        ? localNormalized.lastJobId
+        : (globalNormalized.lastJobId && jobs[globalNormalized.lastJobId]
+            ? globalNormalized.lastJobId
+            : (activeJobId || ''));
+    return normalizeLoredeckCreatorRegistry({
+        schemaVersion: 1,
+        activeJobId,
+        lastJobId,
+        jobs,
+    });
+}
+
+function getLoredeckCreatorSettingsRegistry(settings = getSettings()) {
+    return normalizeLoredeckCreatorRegistry(settings.loredeckCreatorProjects || DEFAULT_SETTINGS.loredeckCreatorProjects);
+}
+
+function getMostRecentLoredeckCreatorJob(registry = {}) {
+    return Object.values(registry.jobs || {})
+        .filter(job => job?.jobId)
+        .sort((a, b) => (Number(b.updatedAt) || 0) - (Number(a.updatedAt) || 0))[0] || null;
 }
 
 function normalizeThemeHexColor(value) {
@@ -1182,7 +1230,15 @@ function createLoredeckCreatorJobId(seed = '') {
 
 export function getLoredeckCreatorRegistry(state = null) {
     const source = state || getState();
-    return normalizeLoredeckCreatorRegistry(source?.loredeckCreator || getDefaultState().loredeckCreator);
+    return mergeLoredeckCreatorRegistries(
+        getLoredeckCreatorSettingsRegistry(),
+        normalizeLoredeckCreatorRegistry(source?.loredeckCreator || getDefaultState().loredeckCreator),
+        { preferLocalActive: !!source?.loredeckCreator?.activeJobId }
+    );
+}
+
+export function getLoredeckCreatorProjectRegistry() {
+    return getLoredeckCreatorSettingsRegistry();
 }
 
 export function getActiveLoredeckCreatorJob(state = null) {
@@ -1192,39 +1248,164 @@ export function getActiveLoredeckCreatorJob(state = null) {
 
 export function upsertLoredeckCreatorJob(jobRecord = {}, options = {}) {
     const state = getState();
-    const registry = normalizeLoredeckCreatorRegistry(state.loredeckCreator || getDefaultState().loredeckCreator);
+    const registry = getLoredeckCreatorRegistry(state);
     const active = registry.activeJobId ? registry.jobs[registry.activeJobId] : null;
-    const seed = `${jobRecord.fandom || active?.fandom || 'creator'}-${jobRecord.scope || active?.scope || ''}`;
+    const requestedJobId = normalizeLoredeckCreatorString(jobRecord.jobId, 160);
+    const existing = requestedJobId ? (registry.jobs[requestedJobId] || null) : active;
+    const base = existing || (!requestedJobId ? active : null);
+    const seed = `${jobRecord.fandom || base?.fandom || active?.fandom || 'creator'}-${jobRecord.scope || base?.scope || active?.scope || ''}`;
     const job = normalizeLoredeckCreatorJob({
-        ...(active || {}),
+        ...(base || {}),
         ...(jobRecord || {}),
-        jobId: jobRecord.jobId || active?.jobId || createLoredeckCreatorJobId(seed),
+        jobId: requestedJobId || base?.jobId || active?.jobId || createLoredeckCreatorJobId(seed),
         updatedAt: Date.now(),
     });
     if (!job) return { ok: false, error: 'Creator job could not be normalized.' };
-    registry.jobs[job.jobId] = job;
-    registry.activeJobId = job.jobId;
-    registry.lastJobId = job.jobId;
-    state.loredeckCreator = normalizeLoredeckCreatorRegistry(registry);
+
+    const settings = getSettings();
+    const projectRegistry = getLoredeckCreatorSettingsRegistry(settings);
+    projectRegistry.jobs[job.jobId] = job;
+    projectRegistry.activeJobId = job.jobId;
+    projectRegistry.lastJobId = job.jobId;
+    settings.loredeckCreatorProjects = normalizeLoredeckCreatorRegistry(projectRegistry);
+    saveSettings(settings);
+
+    const localRegistry = normalizeLoredeckCreatorRegistry(state.loredeckCreator || getDefaultState().loredeckCreator);
+    localRegistry.jobs[job.jobId] = job;
+    localRegistry.activeJobId = job.jobId;
+    localRegistry.lastJobId = job.jobId;
+    state.loredeckCreator = normalizeLoredeckCreatorRegistry(localRegistry);
     saveState(state, { syncPrompt: options.syncPrompt !== false, sanitize: true });
-    return { ok: true, job: state.loredeckCreator.jobs[job.jobId], registry: state.loredeckCreator };
+    return {
+        ok: true,
+        job: state.loredeckCreator.jobs[job.jobId],
+        registry: getLoredeckCreatorRegistry(state),
+        projectRegistry: settings.loredeckCreatorProjects,
+    };
+}
+
+export function activateLoredeckCreatorJob(jobId = '', options = {}) {
+    const id = normalizeLoredeckCreatorString(jobId, 160);
+    if (!id) return { ok: false, error: 'Missing Creator project id.' };
+
+    const state = getState();
+    const settings = getSettings();
+    const projectRegistry = getLoredeckCreatorSettingsRegistry(settings);
+    const localRegistry = normalizeLoredeckCreatorRegistry(state.loredeckCreator || getDefaultState().loredeckCreator);
+    const sourceJob = projectRegistry.jobs[id] || localRegistry.jobs[id] || null;
+    if (!sourceJob) return { ok: false, error: 'Creator project was not found.' };
+
+    const job = normalizeLoredeckCreatorJob({
+        ...sourceJob,
+        jobId: id,
+        updatedAt: sourceJob.updatedAt || Date.now(),
+    });
+    if (!job) return { ok: false, error: 'Creator project could not be normalized.' };
+
+    projectRegistry.jobs[job.jobId] = job;
+    projectRegistry.activeJobId = job.jobId;
+    projectRegistry.lastJobId = job.jobId;
+    settings.loredeckCreatorProjects = normalizeLoredeckCreatorRegistry(projectRegistry);
+    saveSettings(settings);
+
+    localRegistry.jobs[job.jobId] = job;
+    localRegistry.activeJobId = job.jobId;
+    localRegistry.lastJobId = job.jobId;
+    state.loredeckCreator = normalizeLoredeckCreatorRegistry(localRegistry);
+    saveState(state, { syncPrompt: options.syncPrompt !== false, sanitize: true });
+
+    return {
+        ok: true,
+        job: state.loredeckCreator.jobs[job.jobId],
+        registry: getLoredeckCreatorRegistry(state),
+        projectRegistry: settings.loredeckCreatorProjects,
+    };
+}
+
+export function updateLoredeckCreatorProject(jobId = '', patch = {}, options = {}) {
+    const id = normalizeLoredeckCreatorString(jobId, 160);
+    if (!id) return { ok: false, error: 'Missing Creator project id.' };
+    if (!patch || typeof patch !== 'object' || Array.isArray(patch)) {
+        return { ok: false, error: 'Creator project update must be an object.' };
+    }
+
+    const state = getState();
+    const settings = getSettings();
+    const projectRegistry = getLoredeckCreatorSettingsRegistry(settings);
+    const localRegistry = normalizeLoredeckCreatorRegistry(state.loredeckCreator || getDefaultState().loredeckCreator);
+    const sourceJob = projectRegistry.jobs[id] || localRegistry.jobs[id] || null;
+    if (!sourceJob) return { ok: false, error: 'Creator project was not found.' };
+
+    const projectActiveJobId = projectRegistry.activeJobId;
+    const projectLastJobId = projectRegistry.lastJobId;
+    const localActiveJobId = localRegistry.activeJobId;
+    const localLastJobId = localRegistry.lastJobId;
+    const updatedAt = options.touchUpdatedAt === false
+        ? (Number(sourceJob.updatedAt) || Date.now())
+        : Date.now();
+    const job = normalizeLoredeckCreatorJob({
+        ...sourceJob,
+        ...patch,
+        jobId: id,
+        updatedAt,
+    });
+    if (!job) return { ok: false, error: 'Creator project could not be normalized.' };
+
+    projectRegistry.jobs[id] = job;
+    projectRegistry.activeJobId = projectActiveJobId;
+    projectRegistry.lastJobId = projectLastJobId;
+    settings.loredeckCreatorProjects = normalizeLoredeckCreatorRegistry(projectRegistry);
+    saveSettings(settings);
+
+    if (localRegistry.jobs[id] || localRegistry.activeJobId === id || options.syncLocal === true) {
+        localRegistry.jobs[id] = job;
+        localRegistry.activeJobId = localActiveJobId;
+        localRegistry.lastJobId = localLastJobId;
+        state.loredeckCreator = normalizeLoredeckCreatorRegistry(localRegistry);
+        saveState(state, { syncPrompt: options.syncPrompt !== false, sanitize: true });
+    }
+
+    return {
+        ok: true,
+        job,
+        registry: getLoredeckCreatorRegistry(state),
+        projectRegistry: settings.loredeckCreatorProjects,
+    };
 }
 
 export function clearLoredeckCreatorJob(jobId = '', options = {}) {
     const state = getState();
-    const registry = normalizeLoredeckCreatorRegistry(state.loredeckCreator || getDefaultState().loredeckCreator);
+    const registry = getLoredeckCreatorRegistry(state);
     const id = normalizeLoredeckCreatorString(jobId || registry.activeJobId, 160);
-    if (id && registry.jobs[id]) delete registry.jobs[id];
-    if (registry.activeJobId === id) registry.activeJobId = '';
-    if (registry.lastJobId === id) registry.lastJobId = '';
-    const remaining = Object.values(registry.jobs).sort((a, b) => (Number(b.updatedAt) || 0) - (Number(a.updatedAt) || 0));
-    if (remaining.length) {
-        registry.activeJobId = remaining[0].jobId;
-        registry.lastJobId = remaining[0].jobId;
+    const settings = getSettings();
+    const projectRegistry = getLoredeckCreatorSettingsRegistry(settings);
+    if (id && projectRegistry.jobs[id]) delete projectRegistry.jobs[id];
+    if (projectRegistry.activeJobId === id) projectRegistry.activeJobId = '';
+    if (projectRegistry.lastJobId === id) projectRegistry.lastJobId = '';
+    const nextGlobalActive = getMostRecentLoredeckCreatorJob(projectRegistry);
+    if (nextGlobalActive) {
+        projectRegistry.activeJobId = nextGlobalActive.jobId;
+        projectRegistry.lastJobId = nextGlobalActive.jobId;
     }
-    state.loredeckCreator = normalizeLoredeckCreatorRegistry(registry);
+    settings.loredeckCreatorProjects = normalizeLoredeckCreatorRegistry(projectRegistry);
+    saveSettings(settings);
+
+    const localRegistry = normalizeLoredeckCreatorRegistry(state.loredeckCreator || getDefaultState().loredeckCreator);
+    if (id && localRegistry.jobs[id]) delete localRegistry.jobs[id];
+    if (localRegistry.activeJobId === id) localRegistry.activeJobId = '';
+    if (localRegistry.lastJobId === id) localRegistry.lastJobId = '';
+    const nextLocalActive = getMostRecentLoredeckCreatorJob(localRegistry);
+    if (nextLocalActive) {
+        localRegistry.activeJobId = nextLocalActive.jobId;
+        localRegistry.lastJobId = nextLocalActive.jobId;
+    }
+    state.loredeckCreator = normalizeLoredeckCreatorRegistry(localRegistry);
     saveState(state, { syncPrompt: options.syncPrompt !== false, sanitize: true });
-    return { ok: true, registry: state.loredeckCreator };
+    return {
+        ok: true,
+        registry: getLoredeckCreatorRegistry(state),
+        projectRegistry: settings.loredeckCreatorProjects,
+    };
 }
 
 export function getLoredeckLibraryRegistry(state = null) {
@@ -1365,6 +1546,35 @@ function promoteChatLoredeckRegistryToSettings(state = {}) {
     saveSettings(settings);
 }
 
+function promoteChatLoredeckCreatorToSettings(state = {}) {
+    const chatRegistry = normalizeLoredeckCreatorRegistry(state?.loredeckCreator || getDefaultState().loredeckCreator);
+    if (!Object.keys(chatRegistry.jobs || {}).length) return;
+
+    const settings = getSettings();
+    const projectRegistry = getLoredeckCreatorSettingsRegistry(settings);
+    let changed = false;
+    for (const [jobId, job] of Object.entries(chatRegistry.jobs || {})) {
+        const existing = projectRegistry.jobs[jobId];
+        if (!existing || (Number(job.updatedAt) || 0) > (Number(existing.updatedAt) || 0)) {
+            projectRegistry.jobs[jobId] = job;
+            changed = true;
+        }
+    }
+    if (chatRegistry.activeJobId && projectRegistry.jobs[chatRegistry.activeJobId]
+        && projectRegistry.activeJobId !== chatRegistry.activeJobId) {
+        projectRegistry.activeJobId = chatRegistry.activeJobId;
+        changed = true;
+    }
+    if (chatRegistry.lastJobId && projectRegistry.jobs[chatRegistry.lastJobId]
+        && projectRegistry.lastJobId !== chatRegistry.lastJobId) {
+        projectRegistry.lastJobId = chatRegistry.lastJobId;
+        changed = true;
+    }
+    if (!changed) return;
+    settings.loredeckCreatorProjects = normalizeLoredeckCreatorRegistry(projectRegistry);
+    saveSettings(settings);
+}
+
 
 
 function migrateBucket(container, bucketName = 'storage') {
@@ -1443,6 +1653,9 @@ export function getSettings() {
     merged.themePackLibrary = normalizeThemePackRegistry(
         stored.themePackLibrary || DEFAULT_SETTINGS.themePackLibrary,
         DEFAULT_SETTINGS.themePackLibrary
+    );
+    merged.loredeckCreatorProjects = normalizeLoredeckCreatorRegistry(
+        stored.loredeckCreatorProjects || DEFAULT_SETTINGS.loredeckCreatorProjects
     );
 
     const hasStoredSettings = hasStoredWandlightSettings(stored);
@@ -1615,6 +1828,7 @@ export function saveSettings(settings) {
             DEFAULT_SETTINGS.loredeckLibrary
         );
         settings.themePackLibrary = normalizeThemePackRegistry(settings.themePackLibrary, DEFAULT_SETTINGS.themePackLibrary);
+        settings.loredeckCreatorProjects = normalizeLoredeckCreatorRegistry(settings.loredeckCreatorProjects || DEFAULT_SETTINGS.loredeckCreatorProjects);
     }
     extensionSettings[MODULE_KEY] = settings;
     removeLegacyBuckets(extensionSettings);
@@ -2702,6 +2916,7 @@ export function migrateState(state) {
     state.loredeckRegistry = normalizeLoredeckRegistry(state.loredeckRegistry);
     state.loredeckCreator = normalizeLoredeckCreatorRegistry(state.loredeckCreator || getDefaultState().loredeckCreator);
     promoteChatLoredeckRegistryToSettings(state);
+    promoteChatLoredeckCreatorToSettings(state);
     state.loredeckContexts = normalizeLoredeckContexts(state.loredeckContexts, state);
 
     if (!state.loreCompressionStatus || typeof state.loreCompressionStatus !== 'object') {
