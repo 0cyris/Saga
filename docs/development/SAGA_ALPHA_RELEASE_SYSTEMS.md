@@ -35,6 +35,8 @@ The detailed test prework lives in [SAGA_CORE_INTEGRATION_TESTING.md](SAGA_CORE_
 
 The first deterministic HP Year 6 harness now exists at `scripts/test-core-integration-hp-year6.mjs`. It validates stack loading, date-based Context resolution, Context-gated suggestions, Pending Review acceptance, pin/mute behavior, and final lore memo output without live model calls.
 
+The next progression harness, `scripts/test-core-integration-hp-year6-progression.mjs`, validates Context movement from post-Christmas Year 6 to Ron's poisoning, suggestion-set changes, accepted Lorecards across checkpoints, Auto-Relevance tier changes, and final injection output.
+
 ## Key Systems
 
 ### 1. Saga Runtime Shell
@@ -154,7 +156,7 @@ These can remain incomplete for alpha if the underlying architecture is stable:
 The highest-value path toward alpha is:
 
 1. Update the development docs so historical MVP notes, current alpha systems, and near-term testing plans agree.
-2. Expand deterministic data-level tests from the first HP Year 6 harness into progressive Context movement, additional HP years, and known resolver edge cases.
+2. Expand deterministic data-level tests from the first HP Year 6 harness and progression harness into additional HP years, accepted-Lorecard Context gate behavior, and known resolver edge cases.
 3. Finish HP reference-deck conformance so `hp-core`, Years 1-7, and Epilogue/Post-War become the clean bundled example.
 4. Stabilize remaining Loredeck Library and stack behavior at scale, especially folders, drag/drop, selection, and active-stack persistence.
 5. Keep running local and live SillyTavern smoke passes after each major slice to catch UI regressions, console errors, and interaction lag.

@@ -54,6 +54,28 @@ node scripts\test-core-integration-hp-year6.mjs --chat="F:\SillyTavern\SillyTave
 
 That mode does not commit or copy the chat. It only reads progressive slices and reports Context signal counts such as Christmas, Lavender, Apparition, Susan Bones, Slughorn, and Dumbledore. This is the staging point for the next test: feeding progressive transcript slices into Context detection and asserting Context movement over time.
 
+The second committed progression harness is:
+
+```powershell
+node scripts\test-core-integration-hp-year6-progression.mjs
+```
+
+It proves the next downstream layer:
+
+- Emulates a progressive story fixture from post-Christmas Year 6 to Ron's poisoning.
+- Converts fixture chat signals into Context objects without live model calls.
+- Runs the real Context resolver against the loaded HP stack.
+- Confirms the early Context resolves to `hp.y6.window.post_christmas_before_apparition`.
+- Confirms the later Context resolves to `hp.y6.ron_love_potion`.
+- Confirms early-only suggestions such as `lexcal_y6_horcrux_memory_task` leave the preview when the Context advances.
+- Confirms later-only suggestions such as `lexcal_y6_ron_poisoned_bezoar` appear when the Context advances.
+- Accepts Lorecards from both checkpoints.
+- Runs Auto-Relevance in local apply mode.
+- Confirms current Ron poisoning lore is promoted and stale earlier memory-sequence lore is demoted.
+- Confirms final injection includes the promoted current Lorecard.
+
+Important product boundary: current Auto-Relevance changes relevance tiers only. It does **not** change mute or pin state. Manual pin/mute behavior is covered by the first harness. If Saga later adds automatic pinning or automatic muting, that should be a distinct feature with explicit UI copy, review behavior, and its own integration harness.
+
 ## Core Runtime Contract
 
 The first deterministic integration harness should prove this contract:
@@ -124,9 +146,12 @@ Proves that accepted Lorecards remain stable while their injection eligibility c
 
 - Pinned Lorecards are prioritized when eligible.
 - Muted Lorecards are excluded even when eligible.
-- Context-blocked Lorecards do not inject even if accepted and pinned.
+- Context-gated suggestions change as the loaded Loredeck Context advances.
 - Relevance tiers control injection grouping and compression budget.
+- Auto-Relevance can promote and demote accepted Lorecards based on current scene and recent messages.
 - Manual pin/mute choices survive Context changes.
+
+Current implementation note: accepted Lorecard injection does not yet re-run full Loredeck Context gates for every accepted Lorecard. Context gates currently govern candidate suggestion/retrieval. Accepted injection uses relevance, lifecycle, branch/date windows, pin/mute, and tier caps. If alpha requires accepted canon Lorecards to auto-drop purely by Loredeck Context gate, add that as a separate implementation step and test.
 
 ### 6. Injection Output
 
@@ -221,6 +246,8 @@ Before alpha, Saga should have deterministic tests proving:
 - Accepted Lorecards preserve schema v3 metadata.
 - Pin, mute, relevance, and Context gates combine predictably.
 - Injection preview and prompt output agree.
+- Context progression changes suggested Lorecards over time.
+- Auto-Relevance can promote current lore and demote stale lore without mutating pin/mute state.
 
 ## Non-Goals
 
