@@ -1722,8 +1722,7 @@
 }
 
 .wandlight-loredeck-creator-stage-label,
-.wandlight-loredeck-creator-stage-detail,
-.wandlight-loredeck-creator-next-step {
+.wandlight-loredeck-creator-stage-detail {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -1781,11 +1780,6 @@
 .wandlight-loredeck-creator-stage-not-ready,
 .wandlight-loredeck-creator-stage-empty {
     opacity: 0.58;
-}
-
-.wandlight-loredeck-creator-next-step {
-    color: var(--wandlight-muted, #b8aa98);
-    font-size: 12px;
 }
 
 .wandlight-loredeck-creator-current-task {

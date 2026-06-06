@@ -77,7 +77,6 @@ assert(panel.includes('Review the current Lorecard drafts before drafting more.'
 assert(panel.includes('Creator Lorecard Draft Review'), 'Creator draft review must use Creator-specific review language.');
 assert(panel.includes('Send Selected to Review'), 'Creator draft review must expose explicit Pending Review handoff language.');
 assert(panel.includes('getLoredeckCreatorPipelineModel'), 'Creator wizard must derive a checkpointed production pipeline model.');
-assert(panel.includes('Generate -> Review -> Approve -> Unlock next stage'), 'Creator roadmap must expose next-step guidance.');
 assert(style.includes('wandlight-loredeck-creator-stage-guide'), 'Creator roadmap must have dedicated styling.');
 assert(panel.includes('getLoredeckCreatorWorkbenchScrollAnchor'), 'Creator workbench must preserve section anchors during rerenders.');
 assert(panel.includes('restoreLoredeckCreatorWorkbenchScrollAnchor'), 'Creator workbench must restore section anchors after rerenders.');
@@ -154,7 +153,6 @@ for (const token of [
     'createLoredeckCreatorCurrentTaskCard',
     'createLoredeckCreatorCurrentTaskActions',
     'createLoredeckCreatorArtifactDisclosure',
-    'Generate -> Review -> Approve -> Unlock next stage',
     'Draft Story Outline',
     'Approve Outline and Unlock Title Pass',
     'Finalize as Custom Loredeck',

@@ -7800,21 +7800,7 @@ function createLoredeckCreatorStageGuide(cached = {}, pipeline = getLoredeckCrea
         list.appendChild(item);
     }
     wrap.appendChild(list);
-
-    const next = document.createElement('div');
-    next.className = 'wandlight-loredeck-creator-next-step';
-    next.textContent = getLoredeckCreatorPipelineRuleText(pipeline);
-    wrap.appendChild(next);
     return wrap;
-}
-
-function getLoredeckCreatorPipelineRuleText(pipeline = {}) {
-    const step = pipeline.currentStep || {};
-    if (step.status === 'locked') return step.dependency || 'Complete the prior stage to unlock this step.';
-    if (step.status === 'generating') return 'Generating. Review the output before unlocking the next stage.';
-    if (step.status === 'needs-review') return 'Review and approve this output before continuing.';
-    if (step.status === 'ready') return 'Generate -> Review -> Approve -> Unlock next stage.';
-    return 'Complete each stage in order. Approved outputs unlock the next stage.';
 }
 
 function scrollLoredeckCreatorWorkbenchToAnchor(anchorId = '') {
@@ -8136,10 +8122,6 @@ function createLoredeckCreatorGuidancePanel(pipeline = {}) {
     title.className = 'wandlight-loredeck-creator-side-title';
     title.textContent = 'Guidance';
     panel.appendChild(title);
-    const text = document.createElement('div');
-    text.className = 'wandlight-runtime-help';
-    text.textContent = getLoredeckCreatorPipelineRuleText(pipeline);
-    panel.appendChild(text);
     const list = document.createElement('ul');
     list.className = 'wandlight-loredeck-creator-check-list';
     const items = pipeline.currentStep?.id === 'outline'
@@ -8273,10 +8255,6 @@ function createLoredeckCreatorCard(state = getState(), options = {}) {
         intakeTitle.className = 'wandlight-loredeck-creator-form-title';
         intakeTitle.textContent = 'Project Inputs';
         intakeHeader.appendChild(intakeTitle);
-        const intakeHelp = document.createElement('div');
-        intakeHelp.className = 'wandlight-runtime-help';
-        intakeHelp.textContent = 'Set the fandom and scope before drafting the first reviewable brief.';
-        intakeHeader.appendChild(intakeHelp);
         intakeForm.appendChild(intakeHeader);
         const fandomInput = createNewLoreInput(intakeForm, 'Fandom', 'Fandom, universe, or canon family.', currentFandom, false, 'One Piece');
         const scopeInput = createNewLoreInput(intakeForm, 'Scope', 'Story range, arc, season, issue run, game act, or scenario slice.', currentScope, true, 'Arlong Park Arc');
@@ -8479,11 +8457,6 @@ function createLoredeckCreatorBriefReview(brief = {}, cached = {}) {
     const reviseInput = createNewLoreInput(reviseForm, 'Revision', 'Instruction for revising this brief before approval.', loredeckCreatorRevisionInstruction || '', true, 'Narrow this to Cocoyasi Village and Nami/Arlong pressure. Keep it focused rather than dense.');
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
-    const approve = createButton(cached.approved ? 'Approved' : 'Approve Brief', 'Approve this Creator brief for the next generation stage.', () => {
-        approveLoredeckCreatorBrief();
-    }, cached.approved ? '' : 'wandlight-primary-button');
-    approve.disabled = cached.approved === true;
-    actions.appendChild(approve);
     const reviseBriefButton = createButton('Revise Brief', 'Ask the Reasoning Provider to revise this Creator brief.', async (btn) => {
         loredeckCreatorRevisionInstruction = reviseInput.value.trim();
         await handleLoredeckCreatorBriefDraft({
@@ -8497,7 +8470,6 @@ function createLoredeckCreatorBriefReview(brief = {}, cached = {}) {
     });
     actions.appendChild(applyLoredeckCreatorGenerationButtonLock(reviseBriefButton, cached, 'brief revision'));
     reviseForm.appendChild(actions);
-    appendLoredeckCreatorGenerationStatus(reviseForm, cached, ['brief_revision', 'brief_draft']);
     wrap.appendChild(reviseForm);
     return wrap;
 }
