@@ -92,6 +92,10 @@ assert(panel.includes("panel.dataset.sagaCreatorAnchor = 'review-status'"), 'Cre
 assert(panel.includes('createLoredeckCreatorPendingReviewCard'), 'Creator wizard must render an actionable Pending Review card after planning proposals are queued.');
 assert(panel.includes('Review Context and Tags'), 'Creator Context stage must guide users to review queued Context and Tag proposals.');
 assert(panel.includes('openLoredeckLibraryDetails'), 'Creator deck inspection buttons must open the visible Loredeck Library details window.');
+assert(panel.includes('wandlight-loredeck-creator-done-button'), 'Creator Context rows must show planned sets as compact Done controls.');
+assert(style.includes('wandlight-loredeck-creator-done-button'), 'Creator Context Done controls must have a dedicated success style.');
+assert(!panel.includes("appendLoredeckCreatorGenerationStatus(main, cached, ['planning_batch_draft'], { batchId: batch.id, compact: true });"), 'Creator Context rows must not render duplicate compact success bars.');
+assert(!panel.includes("appendLoredeckCreatorGenerationStatus(wrap, cached, ['planning_batch_draft']);"), 'Creator Context card must not render a duplicate bottom success bar.');
 assert(assistant.includes('currentMicroBatchOnly'), 'Creator entry prompt context must mark entry drafting as a micro-batch.');
 assert(assistant.includes('coverageSummary'), 'Creator brief prompt must use the compact scope-brief coverage summary field.');
 assert(assistant.includes('timeline plans, tag plans, title-pass plans'), 'Creator brief prompt must prohibit first-pass generation plans.');

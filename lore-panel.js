@@ -11856,11 +11856,14 @@ function createLoredeckCreatorPlanningBatchPlanner(brief = {}, cached = {}) {
                 }, btn);
             }, 'wandlight-primary-button');
             actions.appendChild(applyLoredeckCreatorGenerationButtonLock(planButton, cached, 'context/tag plan'));
+        } else if (queued) {
+            const doneButton = createButton('Done', 'This Context and Tag set is already in Pending Review.', null, 'wandlight-loredeck-creator-done-button');
+            doneButton.disabled = true;
+            actions.appendChild(doneButton);
         } else {
-            actions.appendChild(createStatusPill(queued ? 'Done' : 'Waiting', queued ? 'This Context and Tag set is already in Pending Review.' : 'This set unlocks after earlier eligible sets are planned.'));
+            actions.appendChild(createStatusPill('Waiting', 'This set unlocks after earlier eligible sets are planned.'));
         }
         row.appendChild(actions);
-        appendLoredeckCreatorGenerationStatus(main, cached, ['planning_batch_draft'], { batchId: batch.id, compact: true });
         section.appendChild(row);
     }
 
@@ -11953,7 +11956,6 @@ function createLoredeckCreatorPlanningCard(brief = {}, cached = {}) {
         actions.appendChild(stackButton);
     }
     wrap.appendChild(actions);
-    appendLoredeckCreatorGenerationStatus(wrap, cached, ['planning_batch_draft']);
 
     if (!approvedTitles.length) {
         wrap.appendChild(createEmptyMessage('Approve title drafts before generating timeline and tag planning proposals.'));
