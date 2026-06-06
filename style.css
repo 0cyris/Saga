@@ -1323,6 +1323,88 @@
     gap: 8px;
 }
 
+.wandlight-loredeck-creator-stage-guide {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    border: 1px solid rgba(185, 139, 54, 0.22);
+    border-radius: 7px;
+    background: linear-gradient(135deg, rgba(19, 18, 24, 0.78), rgba(67, 27, 35, 0.14));
+    padding: 8px;
+}
+
+.wandlight-loredeck-creator-stage-heading {
+    color: var(--wandlight-gold, #d7b56d);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0;
+}
+
+.wandlight-loredeck-creator-stage-list {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(92px, 1fr));
+    gap: 6px;
+}
+
+.wandlight-loredeck-creator-stage-item {
+    min-width: 0;
+    border: 1px solid rgba(180, 160, 140, 0.18);
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.18);
+    padding: 6px 7px;
+}
+
+.wandlight-loredeck-creator-stage-label,
+.wandlight-loredeck-creator-stage-detail,
+.wandlight-loredeck-creator-next-step {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.wandlight-loredeck-creator-stage-label {
+    color: var(--wandlight-text, #f2eadc);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.wandlight-loredeck-creator-stage-detail {
+    color: var(--wandlight-muted, #b8aa98);
+    font-size: 11px;
+    margin-top: 2px;
+}
+
+.wandlight-loredeck-creator-stage-complete {
+    border-color: rgba(104, 186, 132, 0.42);
+    background: rgba(24, 54, 35, 0.18);
+}
+
+.wandlight-loredeck-creator-stage-current {
+    border-color: rgba(215, 181, 109, 0.62);
+    background: rgba(125, 88, 34, 0.22);
+    box-shadow: 0 0 0 1px rgba(215, 181, 109, 0.12) inset;
+}
+
+.wandlight-loredeck-creator-stage-review {
+    border-color: rgba(230, 175, 73, 0.42);
+    background: rgba(112, 73, 26, 0.16);
+}
+
+.wandlight-loredeck-creator-stage-locked {
+    opacity: 0.58;
+}
+
+.wandlight-loredeck-creator-next-step {
+    color: var(--wandlight-muted, #b8aa98);
+    font-size: 12px;
+}
+
+@media (max-width: 980px) {
+    .wandlight-loredeck-creator-stage-list {
+        grid-template-columns: repeat(3, minmax(92px, 1fr));
+    }
+}
+
 .wandlight-loredeck-creator-form,
 .wandlight-loredeck-creator-revise-form {
     padding: 0;
@@ -1403,6 +1485,11 @@
     background: linear-gradient(135deg, rgba(34, 14, 19, 0.84), rgba(88, 24, 32, 0.18));
 }
 
+.wandlight-generation-live-status-cancelled {
+    border-color: rgba(180, 160, 140, 0.28);
+    background: linear-gradient(135deg, rgba(22, 21, 24, 0.84), rgba(82, 73, 58, 0.16));
+}
+
 .wandlight-generation-thinking-icon,
 .wandlight-generation-result-icon {
     width: 18px;
@@ -1459,6 +1546,14 @@
     color: var(--wandlight-muted, rgba(241, 234, 216, 0.68));
     font-size: 0.76rem;
     margin-left: auto;
+}
+
+.wandlight-generation-cancel-button {
+    padding: 2px 7px;
+    min-height: 22px;
+    font-size: 0.72rem;
+    border-color: rgba(190, 80, 92, 0.42);
+    color: #f0c8c8;
 }
 
 .wandlight-generation-live-meta {
@@ -2256,7 +2351,9 @@
     .wandlight-loredeck-library-folder-cover-strip,
     .wandlight-loredeck-library-folder-cover-tile,
     .wandlight-loredeck-library-inline-folder-row,
-    .wandlight-loredeck-library-title-edit-action {
+    .wandlight-loredeck-library-title-edit-action,
+    .wandlight-loredeck-library-cover-actions,
+    .wandlight-loredeck-library-cover-action {
         transition: none;
     }
 }
@@ -2268,6 +2365,13 @@
     object-fit: cover;
     object-position: center;
     border-radius: inherit;
+}
+
+.wandlight-loredeck-library-folder-cover-tile-contain img {
+    object-fit: contain;
+    background:
+        radial-gradient(circle at 50% 42%, rgba(215, 181, 109, 0.1), transparent 62%),
+        linear-gradient(180deg, rgba(8, 10, 14, 0.94), rgba(3, 4, 7, 0.98));
 }
 
 .wandlight-loredeck-library-folder-cover-more {
@@ -2439,6 +2543,13 @@
     border-radius: inherit;
 }
 
+.wandlight-loredeck-library-visual-contain img {
+    object-fit: contain;
+    background:
+        radial-gradient(circle at 50% 42%, rgba(215, 181, 109, 0.1), transparent 62%),
+        linear-gradient(180deg, rgba(8, 10, 14, 0.94), rgba(3, 4, 7, 0.98));
+}
+
 .wandlight-loredeck-library-visual-cover {
     padding: 0;
 }
@@ -2457,6 +2568,89 @@
 
 .wandlight-loredeck-library-visual-fallback {
     padding: 0;
+}
+
+.wandlight-loredeck-library-visual-fallback-text {
+    min-width: 0;
+    max-width: calc(100% - 10px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.wandlight-loredeck-library-cover-actions {
+    position: absolute;
+    inset: auto 4px 4px auto;
+    z-index: 2;
+    display: flex;
+    gap: 4px;
+    opacity: 0;
+    transform: translateY(4px) scale(0.96);
+    transition:
+        opacity 150ms ease,
+        transform 150ms ease;
+    pointer-events: none;
+}
+
+.wandlight-loredeck-library-visual:hover .wandlight-loredeck-library-cover-actions,
+.wandlight-loredeck-library-visual:focus-within .wandlight-loredeck-library-cover-actions {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+}
+
+.wandlight-loredeck-library-cover-action {
+    position: relative;
+    width: 22px;
+    height: 22px;
+    display: inline-grid;
+    place-items: center;
+    border: 1px solid rgba(215, 181, 109, 0.42);
+    border-radius: 6px;
+    background: rgba(7, 7, 10, 0.82);
+    color: var(--wandlight-gold, #d7b56d);
+    font-size: 0.78em;
+    font-weight: 900;
+    line-height: 1;
+    padding: 0;
+    cursor: pointer;
+    box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.32),
+        0 4px 12px rgba(0, 0, 0, 0.32);
+    transition:
+        border-color 150ms ease,
+        background 150ms ease,
+        color 150ms ease,
+        box-shadow 150ms ease,
+        transform 150ms ease;
+}
+
+.wandlight-loredeck-library-cover-action:hover,
+.wandlight-loredeck-library-cover-action:focus-visible {
+    border-color: rgba(255, 207, 105, 0.82);
+    background: rgba(215, 181, 109, 0.18);
+    box-shadow:
+        0 0 0 1px rgba(255, 207, 105, 0.16),
+        0 0 14px rgba(215, 181, 109, 0.28);
+    transform: translateY(-1px);
+}
+
+.wandlight-loredeck-library-cover-action-remove {
+    border-color: rgba(219, 105, 105, 0.48);
+    color: #f07f68;
+}
+
+.wandlight-loredeck-library-cover-action-remove:hover,
+.wandlight-loredeck-library-cover-action-remove:focus-visible {
+    border-color: rgba(240, 127, 104, 0.82);
+    background: rgba(111, 29, 31, 0.62);
+    color: #ffd0c2;
+}
+
+.wandlight-loredeck-library-cover-action:disabled {
+    cursor: wait;
+    opacity: 0.58;
+    transform: none;
 }
 
 .wandlight-loredeck-library-deck-main,

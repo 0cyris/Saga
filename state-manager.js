@@ -796,7 +796,7 @@ function normalizeLoredeckRegistry(value, defaults = getDefaultState().loredeckR
             installedAt: Number.isFinite(Number(raw.installedAt)) ? Number(raw.installedAt) : 0,
             updatedAt: Number.isFinite(Number(raw.updatedAt)) ? Number(raw.updatedAt) : 0,
         };
-        const assets = cloneLoredeckPlainObject(raw.assets, 50000);
+        const assets = cloneLoredeckPlainObject(raw.assets, 1500000);
         if (assets) pack.assets = assets;
         else if (raw.cover || raw.coverImage) {
             pack.assets = {

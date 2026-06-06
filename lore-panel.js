@@ -144,6 +144,10 @@ const LOREDECK_LIBRARY_DETAILS_MIN_HEIGHT = 190;
 const LOREDECK_LIBRARY_DETAILS_DEFAULT_HEIGHT = LOREDECK_LIBRARY_DETAILS_MIN_HEIGHT;
 const LOREDECK_LIBRARY_DETAILS_MAX_HEIGHT = 560;
 const LOREDECK_LIBRARY_COLUMNS_MIN_HEIGHT = 250;
+const LOREDECK_COVER_MAX_DIMENSION = 768;
+const LOREDECK_COVER_OUTPUT_QUALITY = 0.86;
+const LOREDECK_COVER_INPUT_MAX_BYTES = 12 * 1024 * 1024;
+const LOREDECK_COVER_OUTPUT_MAX_CHARS = 1200000;
 const STORED_API_KEY_SETTING_PREFIXES = Object.freeze(['loreOpenAI', 'continuityOpenAI']);
 const STORED_API_KEY_SETTING_SUFFIXES = Object.freeze(['Encrypted', 'Salt', 'Iv', 'KeyEncrypted', 'KeySalt', 'KeyIv', 'KeySet']);
 const CONTEXT_DETECTION_SETTING_KEYS = Object.freeze([
@@ -662,6 +666,7 @@ let loredeckCreatorOutlineRevisionInstruction = '';
 let loredeckCreatorTitleRevisionInstruction = '';
 let loredeckCreatorWorkbenchRefreshQueued = false;
 let loredeckCreatorGenerationTicker = null;
+const loredeckCreatorGenerationControllers = new Map();
 
 const CATEGORY_LABELS = {
     all: 'All',
@@ -825,6 +830,14 @@ function normalizeAssetRef(ref = null) {
         title: String(raw.title || '').trim().slice(0, 160),
         aspect: String(raw.aspect || '').trim().slice(0, 40),
     };
+    const fit = String(raw.fit || raw.objectFit || '').trim().toLowerCase();
+    if (fit === 'contain' || fit === 'cover') asset.fit = fit;
+    const width = Number(raw.width);
+    const height = Number(raw.height);
+    if (Number.isFinite(width) && width > 0) asset.width = Math.round(width);
+    if (Number.isFinite(height) && height > 0) asset.height = Math.round(height);
+    if (raw.mimeType) asset.mimeType = String(raw.mimeType || '').trim().slice(0, 80);
+    if (Number.isFinite(Number(raw.updatedAt))) asset.updatedAt = Number(raw.updatedAt);
     if (raw.focalPoint && typeof raw.focalPoint === 'object' && !Array.isArray(raw.focalPoint)) {
         const x = Number(raw.focalPoint.x);
         const y = Number(raw.focalPoint.y);
@@ -3476,6 +3489,7 @@ function createLoredeckLibraryFolderCoverStrip(coverPacks = [], totalCoverableCo
         const cover = getLoredeckAssetRef(pack, 'cover');
         const tile = document.createElement('span');
         tile.className = 'wandlight-loredeck-library-folder-cover-tile';
+        if (cover.fit === 'contain') tile.classList.add('wandlight-loredeck-library-folder-cover-tile-contain');
         tile.style.setProperty('--wandlight-cover-index', String(index));
         tile.dataset.coverTile = 'true';
         const img = document.createElement('img');
@@ -5029,7 +5043,9 @@ function createLoredeckLibraryDetailsPanel(pack = null, stack = [], canonDb = nu
 
     const identity = document.createElement('div');
     identity.className = 'wandlight-loredeck-library-detail-identity';
-    identity.appendChild(createLoredeckDeckVisual(pack, 'wandlight-loredeck-library-detail-monogram'));
+    identity.appendChild(createLoredeckDeckVisual(pack, 'wandlight-loredeck-library-detail-monogram', {
+        editableCover: true,
+    }));
     const main = document.createElement('div');
     main.className = 'wandlight-loredeck-library-detail-main';
     main.appendChild(createLoredeckLibraryDetailKicker('Selected Loredeck', 'This Loredeck is selected for Library details and bulk actions.'));
@@ -5942,10 +5958,57 @@ function getLoredeckAssetRef(pack = {}, key = 'cover') {
     return resolvedPath ? { ...asset, path: resolvedPath } : null;
 }
 
-function createLoredeckDeckVisual(pack = {}, className = 'wandlight-loredeck-library-monogram') {
+function setLoredeckDeckVisualFallback(visual, pack = {}) {
+    visual.classList.remove('wandlight-loredeck-library-visual-cover', 'wandlight-loredeck-library-visual-contain');
+    visual.classList.add('wandlight-loredeck-library-visual-fallback');
+    visual.replaceChildren();
+    const text = document.createElement('span');
+    text.className = 'wandlight-loredeck-library-visual-fallback-text';
+    text.textContent = getLoredeckMonogram(pack);
+    visual.appendChild(text);
+}
+
+function createLoredeckCoverActionButton(kind = 'import', tooltip = '', handler = null) {
+    const normalized = kind === 'remove' ? 'remove' : 'import';
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = `wandlight-loredeck-library-cover-action wandlight-loredeck-library-cover-action-${normalized}`;
+    btn.setAttribute('aria-label', tooltip || (normalized === 'remove' ? 'Remove cover image.' : 'Import cover image.'));
+    if (normalized === 'import') {
+        btn.classList.add('wandlight-loredeck-library-title-edit-wand');
+    } else {
+        btn.textContent = 'x';
+    }
+    addTooltip(btn, tooltip);
+    btn.addEventListener('click', e => {
+        e.preventDefault();
+        e.stopPropagation();
+        hideFloatingTooltip();
+        handler?.(btn, e);
+    });
+    return btn;
+}
+
+function createLoredeckCoverActionOverlay(pack = {}, cover = null) {
+    if (!isEditableLoredeckLibraryPack(pack)) return null;
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-loredeck-library-cover-actions';
+    actions.appendChild(createLoredeckCoverActionButton('import', 'Import a cover image for this Custom Loredeck.', btn => {
+        importLoredeckCoverImageFromFile(pack.packId, btn);
+    }));
+    if (cover) {
+        actions.appendChild(createLoredeckCoverActionButton('remove', 'Remove this cover image and return to the text fallback.', btn => {
+            removeLoredeckCoverImage(pack.packId, btn);
+        }));
+    }
+    return actions;
+}
+
+function createLoredeckDeckVisual(pack = {}, className = 'wandlight-loredeck-library-monogram', options = {}) {
     const visual = document.createElement('div');
     visual.className = `${className} wandlight-loredeck-library-visual`;
     const cover = getLoredeckAssetRef(pack, 'cover');
+    const coverActions = options.editableCover ? createLoredeckCoverActionOverlay(pack, cover) : null;
     if (cover) {
         const img = document.createElement('img');
         img.src = getAssetSrc(cover);
@@ -5955,18 +6018,202 @@ function createLoredeckDeckVisual(pack = {}, className = 'wandlight-loredeck-lib
             img.style.objectPosition = `${Math.round(cover.focalPoint.x * 100)}% ${Math.round(cover.focalPoint.y * 100)}%`;
         }
         img.addEventListener('error', () => {
-            visual.classList.add('wandlight-loredeck-library-visual-fallback');
-            visual.textContent = getLoredeckMonogram(pack);
+            setLoredeckDeckVisualFallback(visual, pack);
+            if (coverActions) visual.appendChild(coverActions);
         }, { once: true });
         visual.classList.add('wandlight-loredeck-library-visual-cover');
+        if (cover.fit === 'contain') visual.classList.add('wandlight-loredeck-library-visual-contain');
         visual.appendChild(img);
+        if (coverActions) visual.appendChild(coverActions);
         addTooltip(visual, cover.title || cover.alt || `${pack.title || pack.packId} Deck Cover.`);
         return visual;
     }
-    visual.classList.add('wandlight-loredeck-library-visual-fallback');
-    visual.textContent = getLoredeckMonogram(pack);
-    addTooltip(visual, `${pack.title || pack.packId || 'Loredeck'} monogram fallback. Add assets.cover to show a Deck Cover image.`);
+    setLoredeckDeckVisualFallback(visual, pack);
+    if (coverActions) visual.appendChild(coverActions);
+    addTooltip(visual, `${pack.title || pack.packId || 'Loredeck'} monogram fallback.${isEditableLoredeckLibraryPack(pack) ? ' Import a cover image from this details panel.' : ' Duplicate as Custom to add a cover image.'}`);
     return visual;
+}
+
+function readLoredeckCoverFileAsDataUrl(file) {
+    return new Promise((resolve, reject) => {
+        if (!file) {
+            reject(new Error('Choose an image file.'));
+            return;
+        }
+        const type = String(file.type || '').toLowerCase();
+        const name = String(file.name || '').toLowerCase();
+        if (!type.startsWith('image/') && !/\.(png|jpe?g|webp|gif)$/i.test(name)) {
+            reject(new Error('Loredeck covers must be image files.'));
+            return;
+        }
+        if (Number(file.size) > LOREDECK_COVER_INPUT_MAX_BYTES) {
+            reject(new Error('Cover image is too large. Choose an image under 12 MB.'));
+            return;
+        }
+        const reader = new FileReader();
+        reader.addEventListener('load', () => resolve(String(reader.result || '')));
+        reader.addEventListener('error', () => reject(reader.error || new Error('Could not read cover image.')));
+        reader.readAsDataURL(file);
+    });
+}
+
+function loadLoredeckCoverImage(dataUrl = '') {
+    return new Promise((resolve, reject) => {
+        const src = String(dataUrl || '').trim();
+        if (!src) {
+            reject(new Error('Cover image data could not be normalized.'));
+            return;
+        }
+        if (!/^data:image\/(?:png|jpe?g|webp|gif);base64,/i.test(src)) {
+            reject(new Error('Cover image type could not be decoded.'));
+            return;
+        }
+        const img = new Image();
+        img.decoding = 'async';
+        img.addEventListener('load', () => resolve(img), { once: true });
+        img.addEventListener('error', () => reject(new Error('Cover image could not be decoded.')), { once: true });
+        img.src = src;
+    });
+}
+
+function encodeLoredeckCoverCanvas(canvas) {
+    let dataUrl = canvas.toDataURL('image/webp', LOREDECK_COVER_OUTPUT_QUALITY);
+    if (/^data:image\/webp;base64,/i.test(dataUrl)) {
+        return { dataUrl, mimeType: 'image/webp' };
+    }
+    dataUrl = canvas.toDataURL('image/jpeg', LOREDECK_COVER_OUTPUT_QUALITY);
+    if (/^data:image\/jpe?g;base64,/i.test(dataUrl)) {
+        return { dataUrl, mimeType: 'image/jpeg' };
+    }
+    dataUrl = canvas.toDataURL('image/png');
+    return { dataUrl, mimeType: 'image/png' };
+}
+
+async function buildLoredeckCoverAssetFromFile(file, pack = {}) {
+    const source = await readLoredeckCoverFileAsDataUrl(file);
+    const img = await loadLoredeckCoverImage(source);
+    const naturalWidth = Number(img.naturalWidth || img.width) || 0;
+    const naturalHeight = Number(img.naturalHeight || img.height) || 0;
+    if (!naturalWidth || !naturalHeight) throw new Error('Cover image has no readable dimensions.');
+    const scale = Math.min(1, LOREDECK_COVER_MAX_DIMENSION / Math.max(naturalWidth, naturalHeight));
+    let width = Math.max(1, Math.round(naturalWidth * scale));
+    let height = Math.max(1, Math.round(naturalHeight * scale));
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    if (!ctx) throw new Error('This browser could not prepare the cover image.');
+    let encoded = null;
+    for (let attempt = 0; attempt < 6; attempt += 1) {
+        canvas.width = width;
+        canvas.height = height;
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
+        ctx.clearRect(0, 0, width, height);
+        ctx.drawImage(img, 0, 0, width, height);
+        encoded = encodeLoredeckCoverCanvas(canvas);
+        if (encoded.dataUrl.length <= LOREDECK_COVER_OUTPUT_MAX_CHARS || Math.max(width, height) <= 320) break;
+        const shrink = Math.max(0.55, Math.min(0.86, Math.sqrt(LOREDECK_COVER_OUTPUT_MAX_CHARS / encoded.dataUrl.length) * 0.92));
+        width = Math.max(1, Math.round(width * shrink));
+        height = Math.max(1, Math.round(height * shrink));
+    }
+    if (!encoded?.dataUrl || encoded.dataUrl.length > LOREDECK_COVER_OUTPUT_MAX_CHARS * 1.2) {
+        throw new Error('Cover image could not be compacted enough for Library storage.');
+    }
+    const title = String(file?.name || '').replace(/\.[^.]+$/, '').replace(/[_-]+/g, ' ').trim();
+    return {
+        path: encoded.dataUrl,
+        mimeType: encoded.mimeType,
+        fit: 'contain',
+        aspect: `${width}:${height}`,
+        width,
+        height,
+        title: title.slice(0, 160),
+        alt: `${pack.title || pack.packId || 'Loredeck'} cover`,
+        updatedAt: Date.now(),
+    };
+}
+
+function saveLoredeckCoverImageAsset(packId = '', asset = null, message = '') {
+    const pack = getFreshLoredeckLibraryPack(packId);
+    if (!pack) {
+        toast('That Loredeck is no longer available.', 'warning');
+        return false;
+    }
+    if (!isEditableLoredeckLibraryPack(pack)) {
+        toast('Bundled Loredecks are read-only. Duplicate as Custom first.', 'warning');
+        return false;
+    }
+    return persistLoredeckLibraryRecordMutation(pack, next => {
+        const assets = next.assets && typeof next.assets === 'object' && !Array.isArray(next.assets)
+            ? { ...next.assets }
+            : {};
+        if (asset) {
+            assets.cover = asset;
+        } else {
+            delete assets.cover;
+            delete assets.deckCover;
+            delete next.cover;
+            delete next.coverImage;
+            if (next.manifestData && typeof next.manifestData === 'object' && !Array.isArray(next.manifestData)) {
+                const manifestAssets = next.manifestData.assets && typeof next.manifestData.assets === 'object' && !Array.isArray(next.manifestData.assets)
+                    ? { ...next.manifestData.assets }
+                    : {};
+                delete manifestAssets.cover;
+                delete manifestAssets.deckCover;
+                if (Object.keys(manifestAssets).length) {
+                    next.manifestData = {
+                        ...next.manifestData,
+                        assets: manifestAssets,
+                    };
+                } else {
+                    next.manifestData = { ...next.manifestData };
+                    delete next.manifestData.assets;
+                }
+            }
+        }
+        if (Object.keys(assets).length) next.assets = assets;
+        else delete next.assets;
+    }, message, {
+        errorMessage: 'Loredeck cover save failed.',
+    });
+}
+
+function importLoredeckCoverImageFromFile(packId = '', button = null) {
+    const pack = getFreshLoredeckLibraryPack(packId);
+    if (!pack) {
+        toast('That Loredeck is no longer available.', 'warning');
+        return;
+    }
+    if (!isEditableLoredeckLibraryPack(pack)) {
+        toast('Bundled Loredecks are read-only. Duplicate as Custom first.', 'warning');
+        return;
+    }
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'image/*';
+    input.addEventListener('change', async () => {
+        const file = input.files?.[0];
+        if (!file) return;
+        if (button) button.disabled = true;
+        try {
+            const fresh = getFreshLoredeckLibraryPack(packId, pack) || pack;
+            const asset = await buildLoredeckCoverAssetFromFile(file, fresh);
+            saveLoredeckCoverImageAsset(packId, asset, `${fresh.title || fresh.packId || 'Loredeck'} cover updated.`);
+        } catch (e) {
+            toast(e?.message || 'Cover image import failed.', 'error');
+        } finally {
+            if (button) button.disabled = false;
+        }
+    }, { once: true });
+    input.click();
+}
+
+function removeLoredeckCoverImage(packId = '', button = null) {
+    if (button) button.disabled = true;
+    try {
+        saveLoredeckCoverImageAsset(packId, null, 'Loredeck cover removed.');
+    } finally {
+        if (button) button.disabled = false;
+    }
 }
 
 function addLoredecksToStack(packIds = []) {
@@ -6276,15 +6523,52 @@ function refreshLoredeckCreatorWorkbenchBody(options = {}) {
     const body = document.querySelector('.wandlight-loredeck-creator-workbench-body');
     if (!body) return false;
     const scrollTop = options.preserveScroll === false ? 0 : (body.scrollTop || 0);
+    const anchor = options.preserveScroll === false ? null : getLoredeckCreatorWorkbenchScrollAnchor(body);
     body.replaceChildren(createLoredeckCreatorCard(getState(), { embedded: true }));
     if (options.preserveScroll !== false) {
         const restore = () => {
             body.scrollTop = scrollTop;
+            restoreLoredeckCreatorWorkbenchScrollAnchor(body, anchor);
         };
         restore();
         if (typeof requestAnimationFrame === 'function') requestAnimationFrame(restore);
     }
     return true;
+}
+
+function getLoredeckCreatorWorkbenchScrollAnchor(body) {
+    if (!body) return null;
+    const bodyRect = body.getBoundingClientRect();
+    const active = document.activeElement && body.contains(document.activeElement)
+        ? document.activeElement.closest('[data-saga-creator-anchor]')
+        : null;
+    let target = active;
+    if (!target) {
+        const focusLine = bodyRect.top + Math.min(96, Math.max(28, body.clientHeight * 0.18));
+        const anchors = [...body.querySelectorAll('[data-saga-creator-anchor]')];
+        target = anchors
+            .filter(anchor => {
+                const rect = anchor.getBoundingClientRect();
+                return rect.bottom >= bodyRect.top && rect.top <= bodyRect.bottom;
+            })
+            .sort((a, b) => Math.abs(a.getBoundingClientRect().top - focusLine) - Math.abs(b.getBoundingClientRect().top - focusLine))[0] || null;
+    }
+    if (!target?.dataset?.sagaCreatorAnchor) return null;
+    const rect = target.getBoundingClientRect();
+    return {
+        id: target.dataset.sagaCreatorAnchor,
+        offset: rect.top - bodyRect.top,
+    };
+}
+
+function restoreLoredeckCreatorWorkbenchScrollAnchor(body, anchor = null) {
+    if (!body || !anchor?.id) return;
+    const selectorId = String(anchor.id).replace(/"/g, '\\"');
+    const next = body.querySelector(`[data-saga-creator-anchor="${selectorId}"]`);
+    if (!next) return;
+    const bodyRect = body.getBoundingClientRect();
+    const rect = next.getBoundingClientRect();
+    body.scrollTop += rect.top - bodyRect.top - Number(anchor.offset || 0);
 }
 
 function queueLoredeckCreatorWorkbenchRefresh(options = {}) {
@@ -6333,6 +6617,30 @@ function stopLoredeckCreatorGenerationTicker() {
     loredeckCreatorGenerationTicker = null;
 }
 
+function isLoredeckCreatorAbortError(error) {
+    return error?.name === 'AbortError' || /aborted|cancelled|canceled/i.test(String(error?.message || error || ''));
+}
+
+function getActiveLoredeckCreatorGeneration(job = getLoredeckCreatorBriefCache()) {
+    const active = job?.activeGeneration;
+    return active && active.status === 'running' ? active : null;
+}
+
+function isLoredeckCreatorGenerationCurrent(generation = null) {
+    if (!generation?.id) return false;
+    const active = getActiveLoredeckCreatorGeneration();
+    return !!active && active.id === generation.id;
+}
+
+function ignoreStaleLoredeckCreatorGeneration(generation = null, context = 'Creator generation') {
+    if (isLoredeckCreatorGenerationCurrent(generation)) return false;
+    if (generation?.id) {
+        console.info(`[Saga] Ignored stale ${context} result: ${generation.id}`);
+        loredeckCreatorGenerationControllers.delete(generation.id);
+    }
+    return true;
+}
+
 function startLoredeckCreatorGenerationTicker(generationId = '') {
     stopLoredeckCreatorGenerationTicker();
     if (!generationId) return;
@@ -6357,6 +6665,14 @@ function startLoredeckCreatorGenerationTicker(generationId = '') {
 
 function startLoredeckCreatorGeneration(actionId = '', label = '', jobPatch = {}, details = {}) {
     const now = Date.now();
+    const current = getLoredeckCreatorBriefCache();
+    const active = getActiveLoredeckCreatorGeneration(current);
+    if (active) {
+        toast(`${active.label || 'Creator generation'} is still running. Cancel it or wait for it to finish before starting another generation.`, 'warning');
+        queueLoredeckCreatorWorkbenchRefresh();
+        return { generation: null, job: current, blocked: true };
+    }
+    const controller = typeof AbortController === 'function' ? new AbortController() : null;
     const generation = {
         id: `${actionId || 'generation'}-${now}`,
         actionId,
@@ -6371,12 +6687,13 @@ function startLoredeckCreatorGeneration(actionId = '', label = '', jobPatch = {}
         snippet: '',
         streamRequested: true,
         streamSupported: null,
+        abortable: !!controller,
         batchId: details.batchId || '',
         batchLabel: details.batchLabel || '',
         batchIndex: Number.isFinite(Number(details.batchIndex)) ? Number(details.batchIndex) : null,
         batchTotal: Number.isFinite(Number(details.batchTotal)) ? Number(details.batchTotal) : null,
     };
-    const current = getLoredeckCreatorBriefCache();
+    if (controller) loredeckCreatorGenerationControllers.set(generation.id, controller);
     const job = setLoredeckCreatorBriefCache({
         ...(current || {}),
         ...(jobPatch || {}),
@@ -6432,8 +6749,10 @@ function makeLoredeckCreatorProgressHandler(generation = null, options = {}) {
 }
 
 function createLoredeckCreatorRequestOptions(generation = null, options = {}) {
+    const controller = generation?.id ? loredeckCreatorGenerationControllers.get(generation.id) : null;
     return {
         stream: true,
+        signal: controller?.signal,
         onProgress: makeLoredeckCreatorProgressHandler(generation, options),
     };
 }
@@ -6442,8 +6761,12 @@ function finishLoredeckCreatorGeneration(generation = null, status = 'success', 
     if (!generation?.id) return;
     const cached = getLoredeckCreatorBriefCache();
     const active = cached.activeGeneration;
-    if (!active || active.id !== generation.id) return;
+    if (!active || active.id !== generation.id) {
+        loredeckCreatorGenerationControllers.delete(generation.id);
+        return;
+    }
     stopLoredeckCreatorGenerationTicker();
+    loredeckCreatorGenerationControllers.delete(generation.id);
     const now = Date.now();
     const result = {
         id: generation.id,
@@ -6465,6 +6788,59 @@ function finishLoredeckCreatorGeneration(generation = null, status = 'success', 
         lastGenerationResult: result,
         lastCompletedAt: status === 'error' ? cached.lastCompletedAt : now,
     }, { refreshWorkbench: true });
+}
+
+function cancelLoredeckCreatorGeneration(generationId = '') {
+    const cached = getLoredeckCreatorBriefCache();
+    const active = getActiveLoredeckCreatorGeneration(cached);
+    if (!active || (generationId && active.id !== generationId)) return false;
+    const controller = loredeckCreatorGenerationControllers.get(active.id);
+    try {
+        controller?.abort?.();
+    } catch (error) {
+        console.warn('[Saga] Could not abort Creator generation:', error);
+    }
+    stopLoredeckCreatorGenerationTicker();
+    loredeckCreatorGenerationControllers.delete(active.id);
+    const now = Date.now();
+    const restoredStage = inferLoredeckCreatorUiStage({
+        ...cached,
+        activeGeneration: null,
+        status: '',
+        currentStage: '',
+    });
+    const result = {
+        id: active.id,
+        actionId: active.actionId || '',
+        label: active.label || 'Generation',
+        status: 'cancelled',
+        message: 'Generation cancelled. Any late provider response will be ignored.',
+        completedAt: now,
+        elapsedMs: now - Number(active.startedAt || now),
+        receivedChars: Number(active.receivedChars || 0),
+        snippet: active.snippet || '',
+        streamSupported: active.streamSupported,
+        batchId: active.batchId || '',
+        batchLabel: active.batchLabel || '',
+    };
+    setLoredeckCreatorBriefCache({
+        ...cached,
+        activeGeneration: null,
+        lastGenerationResult: result,
+        status: cached.brief ? 'draft' : 'idle',
+        currentStage: restoredStage,
+    }, { refreshWorkbench: true });
+    toast(`${active.label || 'Creator generation'} cancelled.`, 'info');
+    return true;
+}
+
+function applyLoredeckCreatorGenerationButtonLock(button, cached = getLoredeckCreatorBriefCache(), label = 'generation') {
+    if (!button) return button;
+    const active = getActiveLoredeckCreatorGeneration(cached);
+    if (!active) return button;
+    button.disabled = true;
+    addTooltip(button, `${active.label || 'Creator generation'} is running. Cancel it or wait for it to finish before starting another ${label}.`);
+    return button;
 }
 
 function loredeckCreatorGenerationMatches(model = null, actionIds = [], options = {}) {
@@ -6506,6 +6882,12 @@ function createLoredeckCreatorGenerationStatus(cached = {}, actionIds = [], opti
     elapsed.className = 'wandlight-generation-live-elapsed';
     elapsed.textContent = formatLoredeckCreatorGenerationElapsed(active ? Date.now() - Number(model.startedAt || Date.now()) : model.elapsedMs);
     line.appendChild(elapsed);
+    if (active) {
+        const cancel = createButton('Cancel', 'Cancel this generation. Any late provider response will be ignored.', () => {
+            cancelLoredeckCreatorGeneration(model.id);
+        }, 'wandlight-generation-cancel-button');
+        line.appendChild(cancel);
+    }
     main.appendChild(line);
 
     const meta = document.createElement('div');
@@ -6529,6 +6911,140 @@ function appendLoredeckCreatorGenerationStatus(container, cached = {}, actionIds
     const row = createLoredeckCreatorGenerationStatus(cached, actionIds, options);
     if (row) container.appendChild(row);
     return row;
+}
+
+function createLoredeckCreatorStageGuide(cached = {}) {
+    const outline = getLoredeckCreatorOutline(cached);
+    const titleSets = getLoredeckCreatorTitleBatchRows(cached);
+    const draftedTitleSetIds = getLoredeckCreatorTitleDraftedBatchIds(cached);
+    const draftedTitleSetCount = titleSets.filter(batch => draftedTitleSetIds.has(batch.id)).length;
+    const approvedTitles = getLoredeckCreatorApprovedTitleDrafts(cached);
+    const generatedPack = cached.generatedPackId ? getLoredeckDefinition(cached.generatedPackId) : null;
+    const planningSets = getLoredeckCreatorPlanningBatchRows(cached);
+    const eligiblePlanningSets = planningSets.filter(batch => batch.approvedTitleCount > 0);
+    const plannedSetIds = getLoredeckCreatorPlanningQueuedBatchIds(cached);
+    const plannedSetCount = eligiblePlanningSets.filter(batch => plannedSetIds.has(batch.id)).length;
+    const acceptedPlanningSetIds = getLoredeckCreatorPlanningAcceptedBatchIds(cached);
+    const acceptedPlanningSetCount = eligiblePlanningSets.filter(batch => acceptedPlanningSetIds.has(batch.id)).length;
+    const draftChanges = generatedPack ? getLoredeckAssistantDraftChanges(loredeckAssistantDraftCache.get(generatedPack.packId) || {}) : [];
+    const pendingEntryCount = generatedPack ? getLoredeckPendingChanges(generatedPack).filter(change => (change.affectedEntryIds || []).length).length : 0;
+    const pipeline = generatedPack ? getLoredeckCreatorPipelineReadiness(generatedPack, cached) : null;
+    const readiness = generatedPack ? getGeneratedLoredeckExportReadiness(generatedPack, null, cached) : null;
+    const titleSetTotal = titleSets.length || (outline ? 1 : 0);
+    const eligiblePlanningTotal = eligiblePlanningSets.length || (approvedTitles.length ? 1 : 0);
+
+    const briefComplete = !!cached.approved && !!cached.brief;
+    const outlineComplete = !!cached.outlineApproved && !!outline;
+    const titleSetsComplete = outlineComplete && titleSetTotal > 0 && draftedTitleSetCount >= titleSetTotal;
+    const titleReviewComplete = titleSetsComplete && approvedTitles.length > 0;
+    const planningComplete = titleReviewComplete && eligiblePlanningTotal > 0 && acceptedPlanningSetCount >= eligiblePlanningTotal;
+    const lorecardsComplete = !!pipeline && pipeline.approvedTitleCount > 0 && pipeline.approvedTitleAcceptedCount >= pipeline.approvedTitleCount;
+
+    let nextMessage = 'Enter a fandom and scope, then draft a Scope Brief.';
+    if (getActiveLoredeckCreatorGeneration(cached)) {
+        nextMessage = 'A Creator generation is running. Watch the status row or cancel it before starting another step.';
+    } else if (cached.questions?.length) {
+        nextMessage = `Answer or revise the Scope Brief request: ${cached.questions[0]}`;
+    } else if (!cached.brief) {
+        nextMessage = 'Draft a compact Scope Brief from the fandom, scope, granularity, and notes.';
+    } else if (!cached.approved) {
+        nextMessage = 'Review the Scope Brief, revise if needed, then approve it.';
+    } else if (!outline) {
+        nextMessage = 'Draft the Story Outline so Saga can define major beats, Context points, and title sets.';
+    } else if (!cached.outlineApproved) {
+        nextMessage = 'Review the Story Outline, revise if needed, then approve it.';
+    } else if (!titleSetsComplete) {
+        nextMessage = 'Draft the next title set from the approved Story Outline.';
+    } else if (!approvedTitles.length) {
+        nextMessage = 'Approve the useful title drafts before Context and Tag planning.';
+    } else if (acceptedPlanningSetCount < eligiblePlanningTotal) {
+        nextMessage = plannedSetCount < eligiblePlanningTotal
+            ? 'Plan the next Context and Tag set, then review the proposals in Pending Review.'
+            : 'Accept the planned Context and Tag proposals in Pending Review.';
+    } else if (draftChanges.length) {
+        nextMessage = 'Review the current Creator Lorecard drafts before drafting more.';
+    } else if (pendingEntryCount) {
+        nextMessage = 'Accept or reject pending Lorecard proposals before finalizing this Generated Loredeck.';
+    } else if (!lorecardsComplete) {
+        nextMessage = 'Draft the next Lorecards from accepted Context and Tag metadata.';
+    } else if (readiness?.ready) {
+        nextMessage = 'This Generated Loredeck is ready to finalize as a Custom Loredeck.';
+    } else {
+        nextMessage = 'Resolve the readiness warnings before exporting or sharing this Generated Loredeck.';
+    }
+
+    const stages = [
+        {
+            label: 'Scope Brief',
+            status: briefComplete ? 'complete' : (cached.brief ? 'review' : 'current'),
+            detail: briefComplete ? 'Approved' : (cached.brief ? 'Needs approval' : 'Draft first'),
+        },
+        {
+            label: 'Story Outline',
+            status: !briefComplete ? 'locked' : (outlineComplete ? 'complete' : (outline ? 'review' : 'current')),
+            detail: !briefComplete ? 'Locked' : (outlineComplete ? 'Approved' : (outline ? 'Needs approval' : 'Draft next')),
+        },
+        {
+            label: 'Title Sets',
+            status: !outlineComplete ? 'locked' : (titleReviewComplete ? 'complete' : 'current'),
+            detail: !outlineComplete
+                ? 'Locked'
+                : (titleSetTotal ? `${draftedTitleSetCount}/${titleSetTotal} drafted` : 'No sets yet'),
+        },
+        {
+            label: 'Context & Tags',
+            status: !titleReviewComplete ? 'locked' : (planningComplete ? 'complete' : 'current'),
+            detail: !titleReviewComplete
+                ? 'Locked'
+                : `${acceptedPlanningSetCount}/${eligiblePlanningTotal} accepted`,
+        },
+        {
+            label: 'Lorecards',
+            status: !planningComplete ? 'locked' : (lorecardsComplete ? 'complete' : (draftChanges.length || pendingEntryCount ? 'review' : 'current')),
+            detail: !planningComplete
+                ? 'Locked'
+                : (lorecardsComplete
+                    ? 'Covered'
+                    : (draftChanges.length ? `${draftChanges.length} drafts` : (pendingEntryCount ? `${pendingEntryCount} pending` : `${pipeline?.remainingEntryCount || approvedTitles.length} remaining`))),
+        },
+        {
+            label: 'Finalize',
+            status: !lorecardsComplete ? 'locked' : (readiness?.ready ? 'current' : 'review'),
+            detail: !lorecardsComplete ? 'Locked' : (readiness?.ready ? 'Ready' : 'Needs cleanup'),
+        },
+    ];
+
+    const wrap = document.createElement('div');
+    wrap.className = 'wandlight-loredeck-creator-stage-guide';
+    wrap.dataset.sagaCreatorAnchor = 'roadmap';
+    const heading = document.createElement('div');
+    heading.className = 'wandlight-loredeck-creator-stage-heading';
+    heading.textContent = 'Creator Roadmap';
+    wrap.appendChild(heading);
+
+    const list = document.createElement('div');
+    list.className = 'wandlight-loredeck-creator-stage-list';
+    for (const stage of stages) {
+        const item = document.createElement('div');
+        item.className = `wandlight-loredeck-creator-stage-item wandlight-loredeck-creator-stage-${stage.status}`;
+        const label = document.createElement('div');
+        label.className = 'wandlight-loredeck-creator-stage-label';
+        label.textContent = stage.label;
+        item.appendChild(label);
+        const detail = document.createElement('div');
+        detail.className = 'wandlight-loredeck-creator-stage-detail';
+        detail.textContent = stage.detail;
+        item.appendChild(detail);
+        addTooltip(item, `${stage.label}: ${stage.detail}`);
+        list.appendChild(item);
+    }
+    wrap.appendChild(list);
+
+    const next = document.createElement('div');
+    next.className = 'wandlight-loredeck-creator-next-step';
+    next.textContent = `Next: ${nextMessage}`;
+    wrap.appendChild(next);
+    return wrap;
 }
 
 function createLoredeckCreatorCard(state = getState(), options = {}) {
@@ -6575,6 +7091,7 @@ function createLoredeckCreatorCard(state = getState(), options = {}) {
         summary.appendChild(createStatusPill(`${cached.questions.length} question${cached.questions.length === 1 ? '' : 's'}`, 'Creator needs clarification before the brief is ready.'));
     }
     card.appendChild(summary);
+    card.appendChild(createLoredeckCreatorStageGuide(cached));
 
     if (options.embedded !== true) {
         const launcher = document.createElement('div');
@@ -6592,6 +7109,7 @@ function createLoredeckCreatorCard(state = getState(), options = {}) {
 
     const form = document.createElement('div');
     form.className = 'wandlight-new-lore-form wandlight-loredeck-creator-form';
+    form.dataset.sagaCreatorAnchor = 'intake';
     const fandomInput = createNewLoreInput(form, 'Fandom', 'Fandom, universe, or canon family.', currentFandom, false, 'One Piece');
     const scopeInput = createNewLoreInput(form, 'Scope', 'Story range, arc, season, issue run, game act, or scenario slice.', currentScope, true, 'Arlong Park Arc');
     const grid = document.createElement('div');
@@ -6611,7 +7129,8 @@ function createLoredeckCreatorCard(state = getState(), options = {}) {
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
-    actions.appendChild(createButton(cached.brief ? 'Redraft Brief' : 'Draft Brief', 'Ask the Reasoning Provider to draft a staged Loredeck brief for approval.', async (btn) => {
+    actions.dataset.sagaCreatorAnchor = 'intake-actions';
+    const briefDraftButton = createButton(cached.brief ? 'Redraft Brief' : 'Draft Brief', 'Ask the Reasoning Provider to draft a staged Loredeck brief for approval.', async (btn) => {
         loredeckCreatorFandom = fandomInput.value.trim();
         loredeckCreatorScope = scopeInput.value.trim();
         loredeckCreatorGranularity = granularitySelect.value;
@@ -6622,7 +7141,8 @@ function createLoredeckCreatorCard(state = getState(), options = {}) {
             granularity: loredeckCreatorGranularity,
             notes: loredeckCreatorNotes,
         }, btn);
-    }, 'wandlight-primary-button'));
+    }, 'wandlight-primary-button');
+    actions.appendChild(applyLoredeckCreatorGenerationButtonLock(briefDraftButton, cached, 'brief draft'));
     actions.appendChild(createButton('Clear Creator', 'Clear the current Creator intake and drafted brief.', () => {
         clearLoredeckCreatorBrief();
     }));
@@ -6657,7 +7177,15 @@ function createLoredeckCreatorCard(state = getState(), options = {}) {
 }
 
 function getLoredeckCreatorBriefCache() {
-    return getActiveLoredeckCreatorJob(getState()) || loredeckCreatorBriefCache.get('current') || {};
+    const stateJob = getActiveLoredeckCreatorJob(getState());
+    const localJob = loredeckCreatorBriefCache.get('current') || {};
+    if (!stateJob) return localJob || {};
+    if (localJob?.jobId && stateJob?.jobId && localJob.jobId !== stateJob.jobId) return stateJob;
+    return {
+        ...stateJob,
+        ...(localJob?.activeGeneration ? { activeGeneration: localJob.activeGeneration } : {}),
+        ...(localJob?.lastGenerationResult ? { lastGenerationResult: localJob.lastGenerationResult } : {}),
+    };
 }
 
 function setLoredeckCreatorBriefCache(next = {}, options = {}) {
@@ -6670,9 +7198,14 @@ function setLoredeckCreatorBriefCache(next = {}, options = {}) {
     normalized.currentStage = inferLoredeckCreatorUiStage(normalized);
     const result = upsertLoredeckCreatorJob(normalized, { syncPrompt: false });
     if (result.ok) {
-        loredeckCreatorBriefCache.set('current', result.job);
+        const localJob = {
+            ...result.job,
+            ...(normalized.activeGeneration ? { activeGeneration: normalized.activeGeneration } : {}),
+            ...(normalized.lastGenerationResult ? { lastGenerationResult: normalized.lastGenerationResult } : {}),
+        };
+        loredeckCreatorBriefCache.set('current', localJob);
         if (result.job.status !== 'running' || options.refreshWorkbench) queueLoredeckCreatorWorkbenchRefresh();
-        return result.job;
+        return localJob;
     }
     console.warn('[Saga] Loredeck Creator job persistence failed:', result.error);
     loredeckCreatorBriefCache.set('current', normalized);
@@ -6682,6 +7215,14 @@ function setLoredeckCreatorBriefCache(next = {}, options = {}) {
 
 function clearLoredeckCreatorBrief() {
     const cached = getLoredeckCreatorBriefCache();
+    const active = getActiveLoredeckCreatorGeneration(cached);
+    if (active?.id) {
+        try {
+            loredeckCreatorGenerationControllers.get(active.id)?.abort?.();
+        } catch (_) {}
+        loredeckCreatorGenerationControllers.delete(active.id);
+        stopLoredeckCreatorGenerationTicker();
+    }
     if (cached.jobId) clearLoredeckCreatorJob(cached.jobId, { syncPrompt: false });
     loredeckCreatorBriefCache.delete('current');
     loredeckCreatorFandom = '';
@@ -6732,6 +7273,7 @@ function getLoredeckCreatorGranularityBlurb(value = '') {
 function createLoredeckCreatorBriefReview(brief = {}, cached = {}) {
     const wrap = document.createElement('div');
     wrap.className = 'wandlight-loredeck-creator-brief';
+    wrap.dataset.sagaCreatorAnchor = 'brief-review';
 
     const title = document.createElement('div');
     title.className = 'wandlight-runtime-card-title';
@@ -6766,7 +7308,7 @@ function createLoredeckCreatorBriefReview(brief = {}, cached = {}) {
     }, cached.approved ? '' : 'wandlight-primary-button');
     approve.disabled = cached.approved === true;
     actions.appendChild(approve);
-    actions.appendChild(createButton('Revise Brief', 'Ask the Reasoning Provider to revise this Creator brief.', async (btn) => {
+    const reviseBriefButton = createButton('Revise Brief', 'Ask the Reasoning Provider to revise this Creator brief.', async (btn) => {
         loredeckCreatorRevisionInstruction = reviseInput.value.trim();
         await handleLoredeckCreatorBriefDraft({
             fandom: loredeckCreatorFandom || brief.fandom,
@@ -6776,7 +7318,8 @@ function createLoredeckCreatorBriefReview(brief = {}, cached = {}) {
             previousBrief: brief,
             revisionInstruction: loredeckCreatorRevisionInstruction,
         }, btn);
-    }));
+    });
+    actions.appendChild(applyLoredeckCreatorGenerationButtonLock(reviseBriefButton, cached, 'brief revision'));
     reviseForm.appendChild(actions);
     appendLoredeckCreatorGenerationStatus(reviseForm, cached, ['brief_revision', 'brief_draft']);
     wrap.appendChild(reviseForm);
@@ -6913,6 +7456,7 @@ async function handleLoredeckCreatorBriefDraft(options = {}, button = null) {
                 currentStage: 'intake',
             }
         );
+        if (!generation) return;
         const generationOptions = createLoredeckCreatorRequestOptions(generation);
         let responseText = '';
         const requestContext = {
@@ -6926,6 +7470,7 @@ async function handleLoredeckCreatorBriefDraft(options = {}, button = null) {
         try {
             responseText = await requestLoredeckCreatorBriefResponse(requestContext, generationOptions);
         } catch (e) {
+            if (isLoredeckCreatorAbortError(e) || ignoreStaleLoredeckCreatorGeneration(generation, 'scope brief')) return;
             setLoredeckCreatorBriefCache({
                 ...(startedJob || {}),
                 status: 'blocked',
@@ -6939,12 +7484,14 @@ async function handleLoredeckCreatorBriefDraft(options = {}, button = null) {
             finishLoredeckCreatorGeneration(generation, 'error', e?.message || 'Scope brief generation failed.');
             throw e;
         }
+        if (ignoreStaleLoredeckCreatorGeneration(generation, 'scope brief')) return;
         let parsed = null;
         try {
             parsed = parseLoredeckCreatorBriefResponse(responseText);
         } catch (parseError) {
             try {
                 const repairedText = await repairLoredeckCreatorBriefResponse(responseText, requestContext, generationOptions);
+                if (ignoreStaleLoredeckCreatorGeneration(generation, 'scope brief repair')) return;
                 const repaired = parseLoredeckCreatorBriefResponse(repairedText);
                 if (repaired.brief || repaired.clarifyingQuestions.length) {
                     parsed = {
@@ -6967,6 +7514,7 @@ async function handleLoredeckCreatorBriefDraft(options = {}, button = null) {
         if (!parsed.brief && !parsed.clarifyingQuestions.length && String(responseText || '').trim()) {
             try {
                 const repairedText = await repairLoredeckCreatorBriefResponse(responseText, requestContext, generationOptions);
+                if (ignoreStaleLoredeckCreatorGeneration(generation, 'scope brief repair')) return;
                 const repaired = parseLoredeckCreatorBriefResponse(repairedText);
                 if (repaired.brief || repaired.clarifyingQuestions.length) {
                     parsed = {
@@ -6981,6 +7529,7 @@ async function handleLoredeckCreatorBriefDraft(options = {}, button = null) {
                 console.warn('[Saga] Loredeck Creator brief repair failed:', repairError);
             }
         }
+        if (ignoreStaleLoredeckCreatorGeneration(generation, 'scope brief commit')) return;
         setLoredeckCreatorBriefCache({
             summary: parsed.summary,
             questions: parsed.clarifyingQuestions,
@@ -7104,6 +7653,7 @@ function createLoredeckCreatorOutlineCard(brief = {}, cached = {}) {
     const titleBatches = getLoredeckCreatorOutlineRows(outline, 'titleBatches');
     const wrap = document.createElement('div');
     wrap.className = 'wandlight-loredeck-creator-brief wandlight-loredeck-creator-outline';
+    wrap.dataset.sagaCreatorAnchor = 'story-outline';
 
     const title = document.createElement('div');
     title.className = 'wandlight-runtime-card-title';
@@ -7115,7 +7665,7 @@ function createLoredeckCreatorOutlineCard(brief = {}, cached = {}) {
     summary.appendChild(createStatusPill(outline ? (cached.outlineApproved ? 'Approved' : 'Needs approval') : 'Ready', 'Story Outline approval status.'));
     summary.appendChild(createStatusPill(`${beats.length} beat${beats.length === 1 ? '' : 's'}`, 'Major story beats in this outline.'));
     summary.appendChild(createStatusPill(`${contextMilestones.length} Context`, 'Major Context browser points suggested by this outline.'));
-    summary.appendChild(createStatusPill(`${titleBatches.length} title batch${titleBatches.length === 1 ? '' : 'es'}`, 'Future title-pass slices suggested by this outline.'));
+    summary.appendChild(createStatusPill(`${titleBatches.length} title set${titleBatches.length === 1 ? '' : 's'}`, 'Future title-pass slices suggested by this outline.'));
     if (cached.outlineQuestions?.length) summary.appendChild(createStatusPill(`${cached.outlineQuestions.length} question${cached.outlineQuestions.length === 1 ? '' : 's'}`, 'Creator needs clarification before the outline is ready.'));
     wrap.appendChild(summary);
 
@@ -7153,22 +7703,24 @@ function createLoredeckCreatorOutlineCard(brief = {}, cached = {}) {
     const reviseInput = createNewLoreInput(reviseForm, 'Outline Revision', 'Instruction for revising the outline before approval.', loredeckCreatorOutlineRevisionInstruction || '', true, 'Add more high-value Context points around the betrayal reveal and final battle.');
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
-    actions.appendChild(createButton(outline ? 'Redraft Outline' : 'Draft Outline', 'Ask the Reasoning Provider to draft this reviewable story outline.', async (btn) => {
+    const draftOutlineButton = createButton(outline ? 'Redraft Outline' : 'Draft Outline', 'Ask the Reasoning Provider to draft this reviewable story outline.', async (btn) => {
         loredeckCreatorOutlineRevisionInstruction = '';
         await handleLoredeckCreatorOutlineDraft({}, btn);
-    }, outline ? '' : 'wandlight-primary-button'));
+    }, outline ? '' : 'wandlight-primary-button');
+    actions.appendChild(applyLoredeckCreatorGenerationButtonLock(draftOutlineButton, cached, 'story outline draft'));
     const approve = createButton(cached.outlineApproved ? 'Outline Approved' : 'Approve Outline', 'Approve this Story Outline for title-pass generation.', () => {
         approveLoredeckCreatorOutline();
     }, cached.outlineApproved ? '' : 'wandlight-primary-button');
     approve.disabled = !outline || cached.outlineApproved === true;
     actions.appendChild(approve);
-    actions.appendChild(createButton('Revise Outline', 'Ask the Reasoning Provider to revise this outline.', async (btn) => {
+    const reviseOutlineButton = createButton('Revise Outline', 'Ask the Reasoning Provider to revise this outline.', async (btn) => {
         loredeckCreatorOutlineRevisionInstruction = reviseInput.value.trim();
         await handleLoredeckCreatorOutlineDraft({
             previousOutline: outline,
             revisionInstruction: loredeckCreatorOutlineRevisionInstruction,
         }, btn);
-    }));
+    });
+    actions.appendChild(applyLoredeckCreatorGenerationButtonLock(reviseOutlineButton, cached, 'story outline revision'));
     reviseForm.appendChild(actions);
     appendLoredeckCreatorGenerationStatus(reviseForm, cached, ['outline_draft', 'outline_revision']);
     wrap.appendChild(reviseForm);
@@ -7198,6 +7750,7 @@ async function handleLoredeckCreatorOutlineDraft(options = {}, button = null) {
                 currentStage: 'outline_drafting',
             }
         );
+        if (!generation) return;
         let responseText = '';
         try {
             responseText = await sendLoreRequest(
@@ -7216,6 +7769,7 @@ async function handleLoredeckCreatorOutlineDraft(options = {}, button = null) {
                 }
             );
         } catch (e) {
+            if (isLoredeckCreatorAbortError(e) || ignoreStaleLoredeckCreatorGeneration(generation, 'story outline')) return;
             setLoredeckCreatorBriefCache({
                 ...getLoredeckCreatorBriefCache(),
                 status: 'blocked',
@@ -7229,14 +7783,17 @@ async function handleLoredeckCreatorOutlineDraft(options = {}, button = null) {
             finishLoredeckCreatorGeneration(generation, 'error', e?.message || 'Story Outline generation failed.');
             throw e;
         }
+        if (ignoreStaleLoredeckCreatorGeneration(generation, 'story outline')) return;
         let parsed = null;
         try {
             parsed = parseLoredeckCreatorOutlineResponse(responseText);
         } catch (parseError) {
+            if (ignoreStaleLoredeckCreatorGeneration(generation, 'story outline parse')) return;
             markLoredeckCreatorActionFailed(parseError, 'Loredeck Creator outline response could not be parsed.');
             finishLoredeckCreatorGeneration(generation, 'error', parseError?.message || 'Story Outline response could not be parsed.');
             throw parseError;
         }
+        if (ignoreStaleLoredeckCreatorGeneration(generation, 'story outline commit')) return;
         if (parsed.clarifyingQuestions.length && !parsed.outline) {
             setLoredeckCreatorBriefCache({
                 ...getLoredeckCreatorBriefCache(),
@@ -7468,7 +8025,7 @@ function getLoredeckCreatorTitleBatchRows(cached = {}) {
         type: 'title_batch',
         order: 10,
         summary: outline?.coverageSummary || brief.coverageSummary || brief.coverage || brief.scope || 'Approved Creator scope.',
-        contextRole: 'Fallback title batch when the outline did not define smaller title slices.',
+        contextRole: 'Fallback title set when the outline did not define smaller title slices.',
         titleTargets: [],
     }];
 }
@@ -7523,15 +8080,18 @@ function createLoredeckCreatorTitleBatchPlanner(brief = {}, cached = {}) {
     const batches = getLoredeckCreatorTitleBatchRows(cached);
     const draftedIds = getLoredeckCreatorTitleDraftedBatchIds(cached);
     const drafts = getLoredeckCreatorTitleDrafts(cached);
+    const nextBatch = getLoredeckCreatorNextTitleBatch(cached);
     const section = document.createElement('div');
     section.className = 'wandlight-loredeck-creator-title-batches';
 
     const heading = document.createElement('div');
     heading.className = 'wandlight-loredeck-row-title';
-    heading.textContent = 'Title Batch Queue';
+    heading.textContent = 'Title Set Plan';
     section.appendChild(heading);
 
     for (const batch of batches.slice(0, 16)) {
+        const drafted = draftedIds.has(batch.id);
+        const isNext = !drafted && nextBatch?.id === batch.id;
         const row = document.createElement('div');
         row.className = 'wandlight-loredeck-entry-row wandlight-loredeck-creator-title-batch-row';
         const main = document.createElement('div');
@@ -7547,7 +8107,7 @@ function createLoredeckCreatorTitleBatchPlanner(brief = {}, cached = {}) {
         const meta = document.createElement('div');
         meta.className = 'wandlight-loredeck-row-meta';
         const batchDrafts = drafts.filter(draft => draft.creatorTitleBatchId === batch.id);
-        meta.appendChild(createStatusPill(draftedIds.has(batch.id) ? 'Drafted' : 'Open', draftedIds.has(batch.id) ? 'This title batch already has generated drafts.' : 'This title batch has not been generated yet.'));
+        meta.appendChild(createStatusPill(drafted ? 'Drafted' : (isNext ? 'Next' : 'Waiting'), drafted ? 'This title set already has generated drafts.' : (isNext ? 'This is the next title set Saga will draft.' : 'Draft earlier title sets before this one.')));
         meta.appendChild(createStatusPill(`${batchDrafts.length} title${batchDrafts.length === 1 ? '' : 's'}`, 'Title drafts currently tied to this batch.'));
         if (batch.type) meta.appendChild(createStatusPill(humanizeScopeKey(batch.type), 'Outline title-batch type.'));
         if (batch.titleTargets?.length) meta.appendChild(createStatusPill(`${batch.titleTargets.length} target${batch.titleTargets.length === 1 ? '' : 's'}`, batch.titleTargets.join(', ')));
@@ -7556,18 +8116,22 @@ function createLoredeckCreatorTitleBatchPlanner(brief = {}, cached = {}) {
 
         const actions = document.createElement('div');
         actions.className = 'wandlight-loredeck-row-actions';
-        const draftButton = createButton(draftedIds.has(batch.id) ? 'Redraft Batch' : 'Draft Batch', draftedIds.has(batch.id) ? 'Replace title drafts generated for this specific batch.' : 'Generate title drafts for this specific batch only.', async (btn) => {
-            const fresh = getLoredeckCreatorBriefCache();
-            const freshDraftedIds = getLoredeckCreatorTitleDraftedBatchIds(fresh);
-            await handleLoredeckCreatorTitleDraft({
-                brief: fresh.brief || brief,
-                notes: fresh.notes || loredeckCreatorNotes,
-                targetTitleBatch: batch,
-                redraftTitleBatch: freshDraftedIds.has(batch.id),
-                previousTitleDrafts: getLoredeckCreatorTitleDrafts(fresh).map(compactLoredeckCreatorTitleDraftForRevision),
-            }, btn);
-        }, draftedIds.has(batch.id) ? '' : 'wandlight-primary-button');
-        actions.appendChild(draftButton);
+        if (drafted || isNext) {
+            const draftButton = createButton(drafted ? 'Redraft Set' : 'Draft This Set', drafted ? 'Replace title drafts generated for this specific title set.' : 'Generate title drafts for the next planned title set.', async (btn) => {
+                const fresh = getLoredeckCreatorBriefCache();
+                const freshDraftedIds = getLoredeckCreatorTitleDraftedBatchIds(fresh);
+                await handleLoredeckCreatorTitleDraft({
+                    brief: fresh.brief || brief,
+                    notes: fresh.notes || loredeckCreatorNotes,
+                    targetTitleBatch: batch,
+                    redraftTitleBatch: freshDraftedIds.has(batch.id),
+                    previousTitleDrafts: getLoredeckCreatorTitleDrafts(fresh).map(compactLoredeckCreatorTitleDraftForRevision),
+                }, btn);
+            }, drafted ? '' : 'wandlight-primary-button');
+            actions.appendChild(applyLoredeckCreatorGenerationButtonLock(draftButton, cached, 'title set draft'));
+        } else {
+            actions.appendChild(createStatusPill('Waiting', 'This title set unlocks after earlier title sets are drafted.'));
+        }
         row.appendChild(actions);
         appendLoredeckCreatorGenerationStatus(main, cached, ['title_batch_draft', 'title_batch_redraft'], { batchId: batch.id, compact: true });
         section.appendChild(row);
@@ -7576,7 +8140,7 @@ function createLoredeckCreatorTitleBatchPlanner(brief = {}, cached = {}) {
     if (batches.length > 16) {
         const more = document.createElement('div');
         more.className = 'wandlight-runtime-help';
-        more.textContent = `Showing 16 of ${batches.length} planned title batches.`;
+        more.textContent = `Showing 16 of ${batches.length} planned title sets.`;
         section.appendChild(more);
     }
     return section;
@@ -7593,6 +8157,7 @@ function createLoredeckCreatorTitlePassCard(brief = {}, cached = {}) {
     const selectedApprovedCount = drafts.filter(draft => selectedIds.has(draft.titleId) && approvedIds.has(draft.titleId)).length;
     const wrap = document.createElement('div');
     wrap.className = 'wandlight-loredeck-creator-brief wandlight-loredeck-creator-title-pass';
+    wrap.dataset.sagaCreatorAnchor = 'title-sets';
 
     const title = document.createElement('div');
     title.className = 'wandlight-runtime-card-title';
@@ -7608,12 +8173,12 @@ function createLoredeckCreatorTitlePassCard(brief = {}, cached = {}) {
     if (approvedIds.size) summary.appendChild(createStatusPill(`${approvedIds.size} approved`, 'Approved titles are ready for the next Creator stage.'));
     const qualityWarningCount = countLoredeckCreatorTitleQualityWarnings(drafts);
     if (qualityWarningCount) summary.appendChild(createStatusPill(`${qualityWarningCount} quality flag${qualityWarningCount === 1 ? '' : 's'}`, 'Model-provided quality warnings across title drafts.'));
-    if (cached.titleBatch?.label) summary.appendChild(createStatusPill(cached.titleBatch.label, 'Current title batch label.'));
+    if (cached.titleBatch?.label) summary.appendChild(createStatusPill(cached.titleBatch.label, 'Current title set label.'));
     wrap.appendChild(summary);
 
     const help = document.createElement('div');
     help.className = 'wandlight-runtime-help';
-    help.textContent = 'Titles are review-only. Draft one outline batch per model call, then approve the useful titles for the next Creator stage.';
+    help.textContent = 'Titles are review-only. Draft one planned title set per model call, then approve the useful titles for the next Creator stage.';
     wrap.appendChild(help);
 
     wrap.appendChild(createLoredeckCreatorTitleBatchPlanner(brief, cached));
@@ -7633,7 +8198,7 @@ function createLoredeckCreatorTitlePassCard(brief = {}, cached = {}) {
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
-    const draftNext = createButton(nextTitleBatch ? 'Draft Next Title Batch' : 'Title Batches Complete', nextTitleBatch ? 'Generate the next undrafted title batch from the approved Story Outline.' : 'Every planned title batch has already been drafted. Use a batch row to redraft a specific batch.', async (btn) => {
+    const draftNext = createButton(nextTitleBatch ? 'Draft Next Title Set' : 'Title Sets Complete', nextTitleBatch ? 'Generate the next undrafted title set from the approved Story Outline.' : 'Every planned title set has already been drafted. Use a drafted row to redraft a specific set.', async (btn) => {
         const fresh = getLoredeckCreatorBriefCache();
         await handleLoredeckCreatorTitleDraft({
             brief: fresh.brief || brief,
@@ -7643,7 +8208,7 @@ function createLoredeckCreatorTitlePassCard(brief = {}, cached = {}) {
         }, btn);
     }, 'wandlight-primary-button');
     draftNext.disabled = !nextTitleBatch;
-    actions.appendChild(draftNext);
+    actions.appendChild(applyLoredeckCreatorGenerationButtonLock(draftNext, cached, 'title set draft'));
     const approveSelected = createButton('Approve Selected', 'Approve selected title drafts for the next Creator stage.', () => {
         approveLoredeckCreatorTitleSelection(getLoredeckCreatorSelectedTitleIds(getLoredeckCreatorBriefCache()));
     });
@@ -7685,13 +8250,13 @@ function createLoredeckCreatorTitlePassCard(brief = {}, cached = {}) {
         }, btn);
     });
     reviseButton.disabled = !selectedCount;
-    reviseActions.appendChild(reviseButton);
+    reviseActions.appendChild(applyLoredeckCreatorGenerationButtonLock(reviseButton, cached, 'title revision'));
     reviseForm.appendChild(reviseActions);
     appendLoredeckCreatorGenerationStatus(reviseForm, cached, ['title_revision']);
     wrap.appendChild(reviseForm);
 
     if (!drafts.length) {
-        wrap.appendChild(createEmptyMessage('Draft title batches after approving the Creator Story Outline.'));
+        wrap.appendChild(createEmptyMessage('Draft title sets after approving the Creator Story Outline.'));
         return wrap;
     }
 
@@ -7744,7 +8309,7 @@ function createLoredeckCreatorTitleRow(draft = {}, selected = false, approved = 
     if (draft.category) meta.appendChild(createStatusPill(humanizeScopeKey(draft.category), 'Title category.'));
     if (draft.relevance) meta.appendChild(createStatusPill(`Relevance: ${humanizeScopeKey(draft.relevance)}`, 'Expected lore relevance.'));
     meta.appendChild(createStatusPill(`Priority ${Number.isFinite(Number(draft.priority)) ? Math.round(Number(draft.priority)) : 50}`, 'Draft priority from 0-100.'));
-    if (draft.creatorTitleBatchLabel || draft.creatorTitleBatchId) meta.appendChild(createStatusPill(draft.creatorTitleBatchLabel || draft.creatorTitleBatchId, 'Creator title batch that produced this draft.'));
+    if (draft.creatorTitleBatchLabel || draft.creatorTitleBatchId) meta.appendChild(createStatusPill(draft.creatorTitleBatchLabel || draft.creatorTitleBatchId, 'Creator title set that produced this draft.'));
     if (draft.contextHint) meta.appendChild(createStatusPill('Context hint', draft.contextHint));
     for (const tag of (draft.tags || []).slice(0, 6)) {
         meta.appendChild(createStatusPill(tag, 'Suggested tag hint.'));
@@ -7948,13 +8513,13 @@ async function handleLoredeckCreatorTitleDraft(options = {}, button = null) {
             ? (options.targetTitleBatch || null)
             : (options.targetTitleBatch || getLoredeckCreatorNextTitleBatch(cached));
         if (!revisionInstruction && !targetTitleBatch) {
-            toast('All planned title batches have already been drafted.', 'info');
+            toast('All planned title sets have already been drafted.', 'info');
             return;
         }
         const actionId = revisionInstruction ? 'title_revision' : (options.redraftTitleBatch ? 'title_batch_redraft' : 'title_batch_draft');
         const generationLabel = revisionInstruction
             ? 'Revising Selected Titles'
-            : (options.redraftTitleBatch ? 'Redrafting Title Batch' : 'Drafting Title Batch');
+            : (options.redraftTitleBatch ? 'Redrafting Title Set' : 'Drafting Title Set');
         const { generation } = startLoredeckCreatorGeneration(
             actionId,
             generationLabel,
@@ -7967,6 +8532,7 @@ async function handleLoredeckCreatorTitleDraft(options = {}, button = null) {
                 batchLabel: targetTitleBatch?.label || targetTitleBatch?.id || '',
             }
         );
+        if (!generation) return;
         let responseText = '';
         try {
             responseText = await sendLoreRequest(
@@ -7993,6 +8559,7 @@ async function handleLoredeckCreatorTitleDraft(options = {}, button = null) {
                 }
             );
         } catch (e) {
+            if (isLoredeckCreatorAbortError(e) || ignoreStaleLoredeckCreatorGeneration(generation, 'title draft')) return;
             setLoredeckCreatorBriefCache({
                 ...getLoredeckCreatorBriefCache(),
                 status: 'blocked',
@@ -8006,14 +8573,17 @@ async function handleLoredeckCreatorTitleDraft(options = {}, button = null) {
             finishLoredeckCreatorGeneration(generation, 'error', e?.message || 'Title generation failed.');
             throw e;
         }
+        if (ignoreStaleLoredeckCreatorGeneration(generation, 'title draft')) return;
         let parsed = null;
         try {
             parsed = parseLoredeckCreatorTitleResponse(responseText);
         } catch (parseError) {
+            if (ignoreStaleLoredeckCreatorGeneration(generation, 'title draft parse')) return;
             markLoredeckCreatorActionFailed(parseError, 'Loredeck Creator title response could not be parsed.');
             finishLoredeckCreatorGeneration(generation, 'error', parseError?.message || 'Title response could not be parsed.');
             throw parseError;
         }
+        if (ignoreStaleLoredeckCreatorGeneration(generation, 'title draft commit')) return;
         if (parsed.clarifyingQuestions.length && !parsed.titleDrafts.length) {
             updateLoredeckCreatorTitleCache(current => ({
                 ...current,
@@ -8131,7 +8701,7 @@ async function handleLoredeckCreatorTitleDraft(options = {}, button = null) {
             toast(`Revised ${selectedTitleDrafts.length} selected title draft${selectedTitleDrafts.length === 1 ? '' : 's'} into ${parsed.titleDrafts.length} draft${parsed.titleDrafts.length === 1 ? '' : 's'}.`, 'success');
             return;
         }
-        const batchLabel = targetTitleBatch?.label || targetTitleBatch?.id || 'title batch';
+        const batchLabel = targetTitleBatch?.label || targetTitleBatch?.id || 'title set';
         finishLoredeckCreatorGeneration(generation, 'success', `Drafted ${parsed.titleDrafts.length} ${batchLabel} title${parsed.titleDrafts.length === 1 ? '' : 's'}.`);
         toast(`Loredeck Creator drafted ${parsed.titleDrafts.length} ${batchLabel} title${parsed.titleDrafts.length === 1 ? '' : 's'} for review.`, 'success');
     });
@@ -8308,7 +8878,7 @@ function getLoredeckCreatorPlanningBatchRows(cached = {}) {
                 label: draft.creatorTitleBatchLabel || humanizeScopeKey(id),
                 type: 'title_batch',
                 order: rowsById.size + 1,
-                summary: 'Approved titles without a matching Story Outline title batch.',
+                summary: 'Approved titles without a matching Story Outline title set.',
                 contextRole: '',
                 titleTargets: [],
                 approvedTitles: [],
@@ -8363,16 +8933,18 @@ function markLoredeckCreatorPlanningChangeForBatch(change = {}, batch = {}) {
 function createLoredeckCreatorPlanningBatchPlanner(brief = {}, cached = {}) {
     const rows = getLoredeckCreatorPlanningBatchRows(cached);
     const queuedIds = getLoredeckCreatorPlanningQueuedBatchIds(cached);
+    const nextBatch = getLoredeckCreatorNextPlanningBatch(cached);
     const section = document.createElement('div');
     section.className = 'wandlight-loredeck-creator-title-batches wandlight-loredeck-creator-planning-batches';
 
     const heading = document.createElement('div');
     heading.className = 'wandlight-loredeck-row-title';
-    heading.textContent = 'Planning Batch Queue';
+    heading.textContent = 'Context & Tag Plan';
     section.appendChild(heading);
 
     for (const batch of rows.slice(0, 16)) {
         const queued = queuedIds.has(batch.id);
+        const isNext = !queued && batch.approvedTitleCount > 0 && nextBatch?.id === batch.id;
         const row = document.createElement('div');
         row.className = 'wandlight-loredeck-entry-row wandlight-loredeck-creator-title-batch-row';
         const main = document.createElement('div');
@@ -8383,11 +8955,11 @@ function createLoredeckCreatorPlanningBatchPlanner(brief = {}, cached = {}) {
         main.appendChild(label);
         const desc = document.createElement('div');
         desc.className = 'wandlight-loredeck-row-description';
-        desc.textContent = batch.summary || batch.contextRole || 'Approved-title batch used for timeline and tag planning.';
+        desc.textContent = batch.summary || batch.contextRole || 'Approved-title set used for Context and Tag planning.';
         main.appendChild(desc);
         const meta = document.createElement('div');
         meta.className = 'wandlight-loredeck-row-meta';
-        meta.appendChild(createStatusPill(queued ? 'Queued' : 'Open', queued ? 'Planning proposals were already queued for this title batch.' : 'Planning proposals have not been queued for this title batch yet.'));
+        meta.appendChild(createStatusPill(queued ? 'Planned' : (isNext ? 'Next' : 'Waiting'), queued ? 'Context and tag proposals were already drafted for this title set.' : (isNext ? 'This is the next Context and Tag set Saga will plan.' : 'Approve and plan earlier title sets before this one.')));
         meta.appendChild(createStatusPill(`${batch.approvedTitleCount} approved title${batch.approvedTitleCount === 1 ? '' : 's'}`, 'Approved titles available to this planning batch.'));
         if (batch.type) meta.appendChild(createStatusPill(humanizeScopeKey(batch.type), 'Planning batch type.'));
         main.appendChild(meta);
@@ -8395,13 +8967,16 @@ function createLoredeckCreatorPlanningBatchPlanner(brief = {}, cached = {}) {
 
         const actions = document.createElement('div');
         actions.className = 'wandlight-loredeck-row-actions';
-        const queueButton = createButton(queued ? 'Queued' : 'Queue Batch', queued ? 'This planning batch has already been queued.' : 'Queue timeline/tag planning proposals for this title batch only.', async (btn) => {
-            await handleLoredeckCreatorPlanningDraft({
-                targetPlanningBatch: batch,
-            }, btn);
-        }, queued ? '' : 'wandlight-primary-button');
-        queueButton.disabled = queued || batch.approvedTitleCount < 1;
-        actions.appendChild(queueButton);
+        if (isNext) {
+            const planButton = createButton('Plan This Set', 'Draft Context anchors/windows and tag proposals for this title set.', async (btn) => {
+                await handleLoredeckCreatorPlanningDraft({
+                    targetPlanningBatch: batch,
+                }, btn);
+            }, 'wandlight-primary-button');
+            actions.appendChild(applyLoredeckCreatorGenerationButtonLock(planButton, cached, 'context/tag plan'));
+        } else {
+            actions.appendChild(createStatusPill(queued ? 'Done' : 'Waiting', queued ? 'This Context and Tag set is already in Pending Review.' : 'This set unlocks after earlier eligible sets are planned.'));
+        }
         row.appendChild(actions);
         appendLoredeckCreatorGenerationStatus(main, cached, ['planning_batch_draft'], { batchId: batch.id, compact: true });
         section.appendChild(row);
@@ -8410,7 +8985,7 @@ function createLoredeckCreatorPlanningBatchPlanner(brief = {}, cached = {}) {
     if (rows.length > 16) {
         const more = document.createElement('div');
         more.className = 'wandlight-runtime-help';
-        more.textContent = `Showing 16 of ${rows.length} planning batches.`;
+        more.textContent = `Showing 16 of ${rows.length} Context and Tag sets.`;
         section.appendChild(more);
     }
     return section;
@@ -8425,25 +9000,26 @@ function createLoredeckCreatorPlanningCard(brief = {}, cached = {}) {
     const generatedPack = cached.generatedPackId ? getLoredeckDefinition(cached.generatedPackId) : null;
     const wrap = document.createElement('div');
     wrap.className = 'wandlight-loredeck-creator-brief wandlight-loredeck-creator-planning';
+    wrap.dataset.sagaCreatorAnchor = 'context-tags';
 
     const title = document.createElement('div');
     title.className = 'wandlight-runtime-card-title';
-    title.textContent = 'Creator Timeline & Tags';
+    title.textContent = 'Creator Context & Tags';
     wrap.appendChild(title);
 
     const summary = document.createElement('div');
     summary.className = 'wandlight-loredeck-entry-summary';
-    summary.appendChild(createStatusPill(`${approvedTitles.length} approved title${approvedTitles.length === 1 ? '' : 's'}`, 'Approved title drafts used to infer the timeline/tag planning shape.'));
-    summary.appendChild(createStatusPill(`${queuedBatchIds.size}/${eligiblePlanningBatchCount} batches`, 'Planning batches queued from approved title batches.'));
+    summary.appendChild(createStatusPill(`${approvedTitles.length} approved title${approvedTitles.length === 1 ? '' : 's'}`, 'Approved title drafts used to infer the Context and Tag planning shape.'));
+    summary.appendChild(createStatusPill(`${queuedBatchIds.size}/${eligiblePlanningBatchCount} planned`, 'Context and Tag sets drafted from approved title sets.'));
     summary.appendChild(createStatusPill(generatedPack ? 'Generated shell ready' : 'No shell yet', 'Generated Loredeck shell status.'));
     if (generatedPack) summary.appendChild(createStatusPill(generatedPack.packId, 'Generated Loredeck target for Pending Review proposals.'));
-    if (cached.planningQueuedCount) summary.appendChild(createStatusPill(`${cached.planningQueuedCount} queued`, 'Last Creator planning proposal count queued to Pending Review.'));
-    if (cached.planningQuestions?.length) summary.appendChild(createStatusPill(`${cached.planningQuestions.length} question${cached.planningQuestions.length === 1 ? '' : 's'}`, 'Creator needs clarification before timeline/tag planning can proceed.'));
+    if (cached.planningQueuedCount) summary.appendChild(createStatusPill(`${cached.planningQueuedCount} drafted`, 'Last Creator planning proposal count sent to Pending Review.'));
+    if (cached.planningQuestions?.length) summary.appendChild(createStatusPill(`${cached.planningQuestions.length} question${cached.planningQuestions.length === 1 ? '' : 's'}`, 'Creator needs clarification before Context and Tag planning can proceed.'));
     wrap.appendChild(summary);
 
     const help = document.createElement('div');
     help.className = 'wandlight-runtime-help';
-    help.textContent = 'Timeline anchors/windows and tag definitions are queued one title batch at a time into the Generated Loredeck Pending Review. They do not become accepted registry data until reviewed.';
+    help.textContent = 'Context anchors/windows and tag definitions are drafted one title set at a time into the Generated Loredeck Pending Review. They do not become accepted registry data until reviewed.';
     wrap.appendChild(help);
 
     wrap.appendChild(createLoredeckCreatorPlanningBatchPlanner(brief, cached));
@@ -8461,13 +9037,13 @@ function createLoredeckCreatorPlanningCard(brief = {}, cached = {}) {
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
-    const draftButton = createButton(nextPlanningBatch ? 'Queue Next Planning Batch' : 'Planning Batches Complete', nextPlanningBatch ? 'Create or reuse the Generated Loredeck shell, then queue Creator timeline/tag proposals for the next approved title batch.' : 'Every eligible planning batch has already been queued.', async (btn) => {
+    const draftButton = createButton(nextPlanningBatch ? 'Plan Next Context Set' : 'Context Sets Complete', nextPlanningBatch ? 'Create or reuse the Generated Loredeck shell, then draft Context and Tag proposals for the next approved title set.' : 'Every eligible Context and Tag set has already been planned.', async (btn) => {
         await handleLoredeckCreatorPlanningDraft({
             targetPlanningBatch: getLoredeckCreatorNextPlanningBatch(getLoredeckCreatorBriefCache()),
         }, btn);
     }, 'wandlight-primary-button');
     draftButton.disabled = !nextPlanningBatch;
-    actions.appendChild(draftButton);
+    actions.appendChild(applyLoredeckCreatorGenerationButtonLock(draftButton, cached, 'context/tag plan'));
     if (generatedPack) {
         actions.appendChild(createButton('Inspect Deck', 'Open the Generated Loredeck detail panel and review pending planning proposals.', () => {
             selectLoredeckForDetails(generatedPack.packId);
@@ -8498,40 +9074,40 @@ async function handleLoredeckCreatorPlanningDraft(options = {}, button = null) {
         const cached = getLoredeckCreatorBriefCache();
         const brief = cached.brief || {};
         if (!cached.approved || !brief) {
-            toast('Approve a Creator brief before planning timeline and tags.', 'warning');
+            toast('Approve a Creator brief before planning Context and Tags.', 'warning');
             return;
         }
         const outline = getLoredeckCreatorOutline(cached);
         if (!cached.outlineApproved || !outline) {
-            toast('Approve the Story Outline before planning timeline and tags.', 'warning');
+            toast('Approve the Story Outline before planning Context and Tags.', 'warning');
             return;
         }
         const approvedTitles = getLoredeckCreatorApprovedTitleDrafts(cached);
         if (!approvedTitles.length) {
-            toast('Approve title drafts before planning timeline and tags.', 'warning');
+            toast('Approve title drafts before planning Context and Tags.', 'warning');
             return;
         }
         const targetPlanningBatch = options.targetPlanningBatch || getLoredeckCreatorNextPlanningBatch(cached);
         if (!targetPlanningBatch) {
-            toast('All eligible planning batches have already been queued.', 'info');
+            toast('All eligible Context and Tag sets have already been planned.', 'info');
             return;
         }
         const targetBatchId = normalizeLoredeckCreatorTitleId(targetPlanningBatch.id || targetPlanningBatch.label || '', '');
         const queuedBatchIds = getLoredeckCreatorPlanningQueuedBatchIds(cached);
         if (targetBatchId && queuedBatchIds.has(targetBatchId)) {
-            toast('That planning batch has already been queued.', 'info');
+            toast('That Context and Tag set has already been planned.', 'info');
             return;
         }
         const targetApprovedTitles = approvedTitles.filter(draft => normalizeLoredeckCreatorTitleId(draft.creatorTitleBatchId || 'unbatched', 'unbatched') === targetBatchId);
         if (!targetApprovedTitles.length) {
-            toast('Approve at least one title in this batch before planning timeline and tags.', 'warning');
+            toast('Approve at least one title in this set before planning Context and Tags.', 'warning');
             return;
         }
         const pack = ensureLoredeckCreatorGeneratedPack(cached);
         if (!pack) return;
         const { generation } = startLoredeckCreatorGeneration(
             'planning_batch_draft',
-            'Planning Timeline & Tags',
+            'Planning Context & Tags',
             {
                 ...cached,
                 currentStage: 'planning_drafting',
@@ -8543,6 +9119,7 @@ async function handleLoredeckCreatorPlanningDraft(options = {}, button = null) {
                 batchLabel: targetPlanningBatch.label || targetBatchId,
             }
         );
+        if (!generation) return;
         let responseText = '';
         try {
             responseText = await sendLoreRequest(
@@ -8573,6 +9150,7 @@ async function handleLoredeckCreatorPlanningDraft(options = {}, button = null) {
                 }
             );
         } catch (e) {
+            if (isLoredeckCreatorAbortError(e) || ignoreStaleLoredeckCreatorGeneration(generation, 'context/tag plan')) return;
             setLoredeckCreatorBriefCache({
                 ...getLoredeckCreatorBriefCache(),
                 status: 'blocked',
@@ -8586,14 +9164,17 @@ async function handleLoredeckCreatorPlanningDraft(options = {}, button = null) {
             finishLoredeckCreatorGeneration(generation, 'error', e?.message || 'Timeline/tag planning failed.');
             throw e;
         }
+        if (ignoreStaleLoredeckCreatorGeneration(generation, 'context/tag plan')) return;
         let parsed = null;
         try {
             parsed = parseLoredeckAssistantResponse(responseText);
         } catch (parseError) {
+            if (ignoreStaleLoredeckCreatorGeneration(generation, 'context/tag plan parse')) return;
             markLoredeckCreatorActionFailed(parseError, 'Loredeck Creator planning response could not be parsed.');
             finishLoredeckCreatorGeneration(generation, 'error', parseError?.message || 'Planning response could not be parsed.');
             throw parseError;
         }
+        if (ignoreStaleLoredeckCreatorGeneration(generation, 'context/tag plan commit')) return;
         const allowed = parsed.proposals.filter(proposal => [
             'upsert_tag_definition',
             'upsert_timeline_anchor',
@@ -8638,10 +9219,10 @@ async function handleLoredeckCreatorPlanningDraft(options = {}, button = null) {
             });
             refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
             finishLoredeckCreatorGeneration(generation, 'warning', warnings[0] || 'No planning proposals returned.');
-            toast(warnings[0] || 'Loredeck Creator returned no timeline/tag planning proposals.', 'warning');
+            toast(warnings[0] || 'Loredeck Creator returned no Context or Tag planning proposals.', 'warning');
             return;
         }
-        const queued = queueLoredeckPendingChanges(pack, changes, `Queued ${changes.length} Creator planning proposal${changes.length === 1 ? '' : 's'} for Pending Review.`);
+        const queued = queueLoredeckPendingChanges(pack, changes, `Drafted ${changes.length} Creator planning proposal${changes.length === 1 ? '' : 's'} for Pending Review.`);
         if (!queued) return;
         const nextQueuedBatchIds = getLoredeckCreatorPlanningQueuedBatchIds(getLoredeckCreatorBriefCache());
         if (targetBatchId) nextQueuedBatchIds.add(targetBatchId);
@@ -8662,8 +9243,8 @@ async function handleLoredeckCreatorPlanningDraft(options = {}, button = null) {
         selectLoredeckForDetails(pack.packId, { refresh: false });
         refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
         refreshHeader();
-        finishLoredeckCreatorGeneration(generation, 'success', `Queued ${changes.length} planning proposal${changes.length === 1 ? '' : 's'} for review.`);
-        toast(`Queued ${changes.length} ${targetPlanningBatch.label || targetBatchId} planning proposal${changes.length === 1 ? '' : 's'} for Pending Review.`, 'success');
+        finishLoredeckCreatorGeneration(generation, 'success', `Drafted ${changes.length} planning proposal${changes.length === 1 ? '' : 's'} for review.`);
+        toast(`Drafted ${changes.length} ${targetPlanningBatch.label || targetBatchId} planning proposal${changes.length === 1 ? '' : 's'} for Pending Review.`, 'success');
     });
 }
 
@@ -8941,12 +9522,15 @@ function createLoredeckCreatorEntryDraftCard(brief = {}, cached = {}) {
     const approvedTitles = getLoredeckCreatorApprovedTitleDrafts(cached);
     const draftCache = generatedPack ? loredeckAssistantDraftCache.get(generatedPack.packId) : null;
     const draftChanges = getLoredeckAssistantDraftChanges(draftCache);
+    const hasDraftsAwaitingReview = draftChanges.length > 0;
     const pendingCount = generatedPack ? getLoredeckPendingChanges(generatedPack).filter(change => (change.affectedEntryIds || []).length).length : 0;
     const entryCount = generatedPack ? Object.keys(generatedPack.entryOverrides || {}).length : 0;
     const progress = generatedPack ? getLoredeckCreatorEntryDraftProgress(cached, generatedPack) : null;
     const targetTitles = generatedPack ? getLoredeckCreatorEntryTargetTitles(cached, generatedPack) : [];
+    const canDraftEntries = !!generatedPack && planning.ready && !!targetTitles.length && !hasDraftsAwaitingReview;
     const wrap = document.createElement('div');
     wrap.className = 'wandlight-loredeck-creator-brief wandlight-loredeck-creator-entry-drafts';
+    wrap.dataset.sagaCreatorAnchor = 'lorecards';
 
     const title = document.createElement('div');
     title.className = 'wandlight-runtime-card-title';
@@ -8956,23 +9540,30 @@ function createLoredeckCreatorEntryDraftCard(brief = {}, cached = {}) {
     const summary = document.createElement('div');
     summary.className = 'wandlight-loredeck-entry-summary';
     summary.appendChild(createStatusPill(`${approvedTitles.length} approved title${approvedTitles.length === 1 ? '' : 's'}`, 'Approved title drafts available for schema v3 entry generation.'));
-    summary.appendChild(createStatusPill(`${acceptedPlanningBatchIds.size}/${queuedPlanningBatchIds.size || acceptedPlanningBatchIds.size} planning batches accepted`, 'Creator planning batches accepted into the Generated Loredeck registry.'));
+    summary.appendChild(createStatusPill(`${acceptedPlanningBatchIds.size}/${queuedPlanningBatchIds.size || acceptedPlanningBatchIds.size} Context sets accepted`, 'Creator Context and Tag sets accepted into the Generated Loredeck registry.'));
     summary.appendChild(createStatusPill(`${planning.anchorCount + planning.windowCount} timeline`, 'Accepted timeline anchors/windows on the Generated Loredeck.'));
     summary.appendChild(createStatusPill(`${planning.tagCount} tags`, 'Accepted tag definitions on the Generated Loredeck.'));
     if (progress) {
-        summary.appendChild(createStatusPill(`${progress.remainingCount} remaining`, 'Approved titles not yet accepted, queued, or sitting in the Creator draft batch.'));
-        if (progress.activeBatchLabel) summary.appendChild(createStatusPill(`Batch: ${progress.activeBatchLabel}`, 'Accepted planning batch used for the next Lorecard micro-batch.'));
+        summary.appendChild(createStatusPill(`${progress.remainingCount} remaining`, 'Approved titles not yet accepted, pending, or sitting in the Creator draft batch.'));
+        if (progress.activeBatchLabel) summary.appendChild(createStatusPill(`Set: ${progress.activeBatchLabel}`, 'Accepted Context and Tag set used for the next Lorecard micro-batch.'));
         summary.appendChild(createStatusPill(`${progress.batchSize}/call`, 'Maximum Lorecards Saga asks the model to draft in one Creator call.'));
     }
-    if (draftChanges.length) summary.appendChild(createStatusPill(`${draftChanges.length} drafted`, 'Generated Lorecard drafts waiting in the draft batch.'));
+    if (draftChanges.length) summary.appendChild(createStatusPill(`${draftChanges.length} awaiting review`, 'Generated Lorecard drafts waiting for edit-before-review.'));
     if (pendingCount) summary.appendChild(createStatusPill(`${pendingCount} pending`, 'Entry proposals already queued into Pending Review.'));
     if (entryCount) summary.appendChild(createStatusPill(`${entryCount} accepted`, 'Accepted generated Lorecards in this Generated Loredeck.'));
     wrap.appendChild(summary);
 
     const help = document.createElement('div');
     help.className = 'wandlight-runtime-help';
-    help.textContent = 'Lorecard drafts run in small resumable batches. Each model call receives only titles from one accepted planning batch, then drafts enter the edit-before-queue batch before Pending Review and acceptance.';
+    help.textContent = 'Lorecard drafts run in small resumable batches. Each model call receives only titles from one accepted Context and Tag set, then drafts enter review before Pending Review and acceptance.';
     wrap.appendChild(help);
+
+    if (hasDraftsAwaitingReview) {
+        const reviewHelp = document.createElement('div');
+        reviewHelp.className = 'wandlight-runtime-help wandlight-loredeck-creator-review-blocker';
+        reviewHelp.textContent = 'Review the current Lorecard drafts below before drafting more. Send useful drafts to Pending Review, edit or revise them, or drop the ones that do not fit.';
+        wrap.appendChild(reviewHelp);
+    }
 
     if (cached.entryDraftSummary || cached.entryDraftQuestions?.length || cached.entryDraftWarnings?.length) {
         const result = document.createElement('div');
@@ -8987,22 +9578,22 @@ function createLoredeckCreatorEntryDraftCard(brief = {}, cached = {}) {
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
-    const draftButton = createButton('Draft Next Batch', 'Generate the next small schema v3 Lorecard batch for approved titles that are not accepted, pending, or already drafted.', async (btn) => {
+    const draftButton = createButton('Draft Next Lorecards', hasDraftsAwaitingReview ? 'Review the current Lorecard drafts before drafting more.' : 'Generate the next small schema v3 Lorecard set for approved titles that are not accepted, pending, or already drafted.', async (btn) => {
         await handleLoredeckCreatorEntryDraft(btn);
     }, 'wandlight-primary-button');
-    draftButton.disabled = !generatedPack || !planning.ready || !targetTitles.length;
-    actions.appendChild(draftButton);
-    const multiBatchButton = createButton(`Draft ${LOREDECK_CREATOR_ENTRY_AUTORUN_BATCHES} Batches`, `Run up to ${LOREDECK_CREATOR_ENTRY_AUTORUN_BATCHES} separate small Lorecard drafting calls. Each call still sees only ${LOREDECK_CREATOR_ENTRY_BATCH_SIZE} target titles.`, async (btn) => {
+    draftButton.disabled = !canDraftEntries;
+    actions.appendChild(applyLoredeckCreatorGenerationButtonLock(draftButton, cached, 'Lorecard batch draft'));
+    const multiBatchButton = createButton(`Auto-Draft Up To ${LOREDECK_CREATOR_ENTRY_AUTORUN_BATCHES}`, hasDraftsAwaitingReview ? 'Review the current Lorecard drafts before auto-drafting more.' : `Advanced: run up to ${LOREDECK_CREATOR_ENTRY_AUTORUN_BATCHES} separate small Lorecard drafting calls. Each call still sees only ${LOREDECK_CREATOR_ENTRY_BATCH_SIZE} target titles.`, async (btn) => {
         const freshPack = cached.generatedPackId ? getFreshLoredeckLibraryPack(cached.generatedPackId, generatedPack) : null;
         const freshProgress = freshPack ? getLoredeckCreatorEntryDraftProgress(getLoredeckCreatorBriefCache(), freshPack) : null;
         const callCount = Math.min(LOREDECK_CREATOR_ENTRY_AUTORUN_BATCHES, freshProgress?.batchCount || 0);
         if (!callCount) return;
-        const confirmed = await confirmAction('Draft Lorecard Batches', `Saga will make up to ${callCount} separate Reasoning Provider call${callCount === 1 ? '' : 's'}, with at most ${LOREDECK_CREATOR_ENTRY_BATCH_SIZE} Lorecards per call. Continue?`);
+        const confirmed = await confirmAction('Auto-Draft Lorecards', `Saga will make up to ${callCount} separate Reasoning Provider call${callCount === 1 ? '' : 's'}, with at most ${LOREDECK_CREATOR_ENTRY_BATCH_SIZE} Lorecards per call. Review drafts after this run before drafting more. Continue?`);
         if (!confirmed) return;
         await handleLoredeckCreatorEntryDraft(btn, { maxBatches: LOREDECK_CREATOR_ENTRY_AUTORUN_BATCHES });
     });
-    multiBatchButton.disabled = !generatedPack || !planning.ready || !targetTitles.length || (progress?.batchCount || 0) <= 1;
-    actions.appendChild(multiBatchButton);
+    multiBatchButton.disabled = !canDraftEntries || (progress?.batchCount || 0) <= 1;
+    actions.appendChild(applyLoredeckCreatorGenerationButtonLock(multiBatchButton, cached, 'Lorecard batch draft'));
     if (generatedPack) {
         actions.appendChild(createButton('Inspect Deck', 'Open the Generated Loredeck detail panel for draft batch and Pending Review controls.', () => {
             selectLoredeckForDetails(generatedPack.packId);
@@ -9012,19 +9603,19 @@ function createLoredeckCreatorEntryDraftCard(brief = {}, cached = {}) {
     appendLoredeckCreatorGenerationStatus(wrap, cached, ['entry_batch_draft', 'entry_multi_batch_draft']);
 
     if (!generatedPack) {
-        wrap.appendChild(createEmptyMessage('Queue and accept timeline/tag planning to create the Generated Loredeck shell before drafting Lorecards.'));
+        wrap.appendChild(createEmptyMessage('Plan and accept Context and Tag proposals to create the Generated Loredeck shell before drafting Lorecards.'));
         return wrap;
     }
     if (!planning.ready) {
-        wrap.appendChild(createEmptyMessage('Accept timeline/tag planning proposals before drafting full Lorecards.'));
+        wrap.appendChild(createEmptyMessage('Accept Context and Tag planning proposals before drafting full Lorecards.'));
         return wrap;
     }
     if (!progress?.eligibleBatchCount) {
-        wrap.appendChild(createEmptyMessage('Accept at least one queued planning batch before drafting full Lorecards.'));
+        wrap.appendChild(createEmptyMessage('Accept at least one planned Context and Tag set before drafting full Lorecards.'));
         return wrap;
     }
     if (!targetTitles.length && !draftChanges.length) {
-        wrap.appendChild(createEmptyMessage('No undrafted approved titles remain. Approve more titles or queue/accept existing Lorecard drafts.'));
+        wrap.appendChild(createEmptyMessage('No undrafted approved titles remain. Approve more titles or review existing Lorecard drafts.'));
     }
     if (targetTitles.length) {
         const next = document.createElement('div');
@@ -9095,6 +9686,9 @@ async function draftLoredeckCreatorEntryBatch(cached = {}, pack = {}, planning =
             }) : {}),
         }
     );
+    if (options.generation && ignoreStaleLoredeckCreatorGeneration(options.generation, 'entry draft')) {
+        return { status: 'stale', changeCount: 0, targetCount: targetTitles.length };
+    }
     const parsed = parseLoredeckAssistantResponse(responseText);
     const allowed = parsed.proposals.filter(proposal => {
         if (proposal.action !== 'upsert_entry') return false;
@@ -9201,14 +9795,19 @@ async function handleLoredeckCreatorEntryDraft(button = null, options = {}) {
             toast('Create and accept Creator planning before drafting Lorecards.', 'warning');
             return;
         }
+        const openDrafts = getLoredeckAssistantDraftChanges(loredeckAssistantDraftCache.get(pack.packId) || {});
+        if (openDrafts.length) {
+            toast('Review the current Lorecard drafts before drafting more.', 'warning');
+            return;
+        }
         let planning = getLoredeckCreatorAcceptedPlanningStatus(pack);
         if (!planning.ready) {
-            toast('Accept timeline/tag planning proposals before drafting Lorecards.', 'warning');
+            toast('Accept Context and Tag planning proposals before drafting Lorecards.', 'warning');
             return;
         }
         const eligibleBatchIds = getLoredeckCreatorEntryEligibleBatchIds(cached, planning);
         if (!eligibleBatchIds.size) {
-            toast('Accept at least one queued planning batch before drafting Lorecards.', 'warning');
+            toast('Accept at least one planned Context and Tag set before drafting Lorecards.', 'warning');
             return;
         }
         if (!getLoredeckCreatorEntryTargetTitles(cached, pack).length) {
@@ -9229,10 +9828,12 @@ async function handleLoredeckCreatorEntryDraft(button = null, options = {}) {
                 batchTotal: maxBatches,
             }
         );
+        if (!generation) return;
 
         let totalChanges = 0;
         let completedBatches = 0;
         let lastResult = null;
+        let staleResult = false;
         try {
             for (let batchIndex = 0; batchIndex < maxBatches; batchIndex += 1) {
                 cached = getLoredeckCreatorBriefCache();
@@ -9245,11 +9846,16 @@ async function handleLoredeckCreatorEntryDraft(button = null, options = {}) {
                     batchIndex: batchIndex + 1,
                     batchTotal: maxBatches,
                 });
+                if (lastResult.status === 'stale') {
+                    staleResult = true;
+                    break;
+                }
                 if (lastResult.status === 'questions' || lastResult.status === 'empty' || lastResult.status === 'empty_pool') break;
                 totalChanges += lastResult.changeCount || 0;
                 completedBatches += 1;
             }
         } catch (e) {
+            if (isLoredeckCreatorAbortError(e) || ignoreStaleLoredeckCreatorGeneration(generation, 'entry draft')) return;
             if (totalChanges > 0) {
                 refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
                 refreshHeader();
@@ -9270,6 +9876,7 @@ async function handleLoredeckCreatorEntryDraft(button = null, options = {}) {
             finishLoredeckCreatorGeneration(generation, 'error', e?.message || 'Lorecard entry drafting failed.');
             throw e;
         }
+        if (staleResult || ignoreStaleLoredeckCreatorGeneration(generation, 'entry draft commit')) return;
 
         if (!pack) {
             refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
@@ -15299,16 +15906,16 @@ function getLoredeckCreatorPipelineReadiness(pack = {}, creatorJob = null) {
     if (!job.approved) warnings.push('Scope Brief is not approved in the linked Creator job.');
     if (!job.outlineApproved) warnings.push('Story Outline is not approved in the linked Creator job.');
     if (titleBatches.length && titleBatchDraftedCount < titleBatches.length) {
-        warnings.push(`${titleBatches.length - titleBatchDraftedCount} title batch${titleBatches.length - titleBatchDraftedCount === 1 ? '' : 'es'} still need a title pass.`);
+        warnings.push(`${titleBatches.length - titleBatchDraftedCount} title set${titleBatches.length - titleBatchDraftedCount === 1 ? '' : 's'} still need a title pass.`);
     }
     if (!approvedEntryIds.size) {
         warnings.push('No approved title plan is linked to this Generated Loredeck.');
     }
     if (eligiblePlanningBatches.length && queuedPlanningBatchCount < eligiblePlanningBatches.length) {
-        warnings.push(`${eligiblePlanningBatches.length - queuedPlanningBatchCount} approved-title batch${eligiblePlanningBatches.length - queuedPlanningBatchCount === 1 ? '' : 'es'} still need timeline/tag planning queued.`);
+        warnings.push(`${eligiblePlanningBatches.length - queuedPlanningBatchCount} approved-title set${eligiblePlanningBatches.length - queuedPlanningBatchCount === 1 ? '' : 's'} still need Context and Tag planning.`);
     }
     if (queuedPlanningBatchCount && acceptedPlanningBatchCount < queuedPlanningBatchCount) {
-        warnings.push(`${queuedPlanningBatchCount - acceptedPlanningBatchCount} queued planning batch${queuedPlanningBatchCount - acceptedPlanningBatchCount === 1 ? '' : 'es'} still need Pending Review acceptance.`);
+        warnings.push(`${queuedPlanningBatchCount - acceptedPlanningBatchCount} planned Context and Tag set${queuedPlanningBatchCount - acceptedPlanningBatchCount === 1 ? '' : 's'} still need Pending Review acceptance.`);
     }
     if (approvedEntryIds.size && approvedTitleAcceptedCount < approvedEntryIds.size) {
         warnings.push(`${approvedEntryIds.size - approvedTitleAcceptedCount} approved title${approvedEntryIds.size - approvedTitleAcceptedCount === 1 ? '' : 's'} do not have accepted Lorecards yet.`);
@@ -15369,6 +15976,7 @@ function createLoredeckCreatorPipelineReadinessCard(pack = {}, cached = null) {
     const pipeline = readiness.pipeline || getLoredeckCreatorPipelineReadiness(pack, linkedJob);
     const wrap = document.createElement('div');
     wrap.className = 'wandlight-loredeck-creator-brief wandlight-loredeck-generated-readiness wandlight-loredeck-creator-pipeline-readiness';
+    wrap.dataset.sagaCreatorAnchor = 'finalize';
 
     const title = document.createElement('div');
     title.className = 'wandlight-runtime-card-title';
@@ -15379,8 +15987,8 @@ function createLoredeckCreatorPipelineReadinessCard(pack = {}, cached = null) {
     summary.className = 'wandlight-loredeck-entry-summary';
     summary.appendChild(createStatusPill(readiness.ready ? 'Export ready' : 'Export blocked', 'Generated Loredeck export gate after staged Creator review.'));
     summary.appendChild(createStatusPill(pipeline.statusLabel || 'Pipeline check', 'Creator pipeline completeness based on the persisted staged job.'));
-    summary.appendChild(createStatusPill(`${pipeline.titleBatchDraftedCount}/${pipeline.titleBatchCount} title batches`, 'Title batches drafted from the approved Story Outline.'));
-    summary.appendChild(createStatusPill(`${pipeline.acceptedPlanningBatchCount}/${pipeline.eligiblePlanningBatchCount} planning accepted`, 'Planning batches accepted from Pending Review into the Generated Loredeck.'));
+    summary.appendChild(createStatusPill(`${pipeline.titleBatchDraftedCount}/${pipeline.titleBatchCount} title sets`, 'Title sets drafted from the approved Story Outline.'));
+    summary.appendChild(createStatusPill(`${pipeline.acceptedPlanningBatchCount}/${pipeline.eligiblePlanningBatchCount} Context sets accepted`, 'Context and Tag sets accepted from Pending Review into the Generated Loredeck.'));
     summary.appendChild(createStatusPill(`${pipeline.approvedTitleAcceptedCount}/${pipeline.approvedTitleCount} titles accepted`, 'Approved title plan covered by accepted generated Lorecards.'));
     if (pipeline.remainingEntryCount) summary.appendChild(createStatusPill(`${pipeline.remainingEntryCount} remaining`, 'Approved titles still available for Creator entry drafting.'));
     wrap.appendChild(summary);
@@ -15452,10 +16060,10 @@ function createGeneratedLoredeckExportReadinessCard(pack = {}) {
     summary.appendChild(createStatusPill(`${readiness.pendingChangeCount} pending`, 'Pending Review proposals must be resolved before export.'));
     summary.appendChild(createStatusPill(`${readiness.draftChangeCount} drafted`, 'Creator/Assistant draft proposals must be resolved before export.'));
     if (readiness.pipeline?.titleBatchCount) {
-        summary.appendChild(createStatusPill(`${readiness.pipeline.titleBatchDraftedCount}/${readiness.pipeline.titleBatchCount} title batches`, 'Title batches drafted from the approved Story Outline.'));
+        summary.appendChild(createStatusPill(`${readiness.pipeline.titleBatchDraftedCount}/${readiness.pipeline.titleBatchCount} title sets`, 'Title sets drafted from the approved Story Outline.'));
     }
     if (readiness.pipeline?.eligiblePlanningBatchCount) {
-        summary.appendChild(createStatusPill(`${readiness.pipeline.acceptedPlanningBatchCount}/${readiness.pipeline.eligiblePlanningBatchCount} planning accepted`, 'Planning batches accepted into the Generated Loredeck registry.'));
+        summary.appendChild(createStatusPill(`${readiness.pipeline.acceptedPlanningBatchCount}/${readiness.pipeline.eligiblePlanningBatchCount} Context sets accepted`, 'Context and Tag sets accepted into the Generated Loredeck registry.'));
     }
     if (readiness.pipeline?.approvedTitleCount) {
         summary.appendChild(createStatusPill(`${readiness.pipeline.approvedTitleAcceptedCount}/${readiness.pipeline.approvedTitleCount} titles covered`, 'Approved title plan covered by accepted generated Lorecards.'));
@@ -17770,48 +18378,48 @@ function createLoredeckAssistantDraftBatchCard(pack, cached = null, rows = [], f
 
     const title = document.createElement('div');
     title.className = 'wandlight-runtime-card-title';
-    title.textContent = creatorBatch ? 'Creator Draft Batch' : 'Assistant Draft Batch';
+    title.textContent = creatorBatch ? 'Creator Lorecard Draft Review' : 'Assistant Draft Batch';
     wrap.appendChild(title);
 
     const summary = document.createElement('div');
     summary.className = 'wandlight-loredeck-entry-summary';
-    summary.appendChild(createStatusPill(`${changes.length} drafted`, 'Draft proposals waiting for edit-before-queue review.'));
-    summary.appendChild(createStatusPill(`${selectedCount} selected`, 'Selected proposals are affected by queue, drop, and revise actions.'));
+    summary.appendChild(createStatusPill(`${changes.length} drafted`, creatorBatch ? 'Creator Lorecard drafts waiting for edit-before-review.' : 'Draft proposals waiting for edit-before-queue review.'));
+    summary.appendChild(createStatusPill(`${selectedCount} selected`, creatorBatch ? 'Selected drafts are affected by send, drop, and revise actions.' : 'Selected proposals are affected by queue, drop, and revise actions.'));
     const qualityWarningCount = countLoredeckAssistantQualityWarningsForChanges(changes);
     if (qualityWarningCount) summary.appendChild(createStatusPill(`${qualityWarningCount} quality flag${qualityWarningCount === 1 ? '' : 's'}`, 'Local guardrail flags across this assistant draft batch.'));
     wrap.appendChild(summary);
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
-    const queueSelected = createButton('Queue Selected', 'Move selected assistant draft proposals into Pending Review.', () => {
+    const queueSelected = createButton(creatorBatch ? 'Send Selected to Review' : 'Queue Selected', creatorBatch ? 'Move selected Creator Lorecard drafts into Pending Review.' : 'Move selected assistant draft proposals into Pending Review.', () => {
         queueLoredeckAssistantDraftSelection(pack, getLoredeckAssistantSelectedDraftIds(loredeckAssistantDraftCache.get(pack.packId) || {}));
     }, 'wandlight-primary-button');
     queueSelected.disabled = !selectedCount;
     actions.appendChild(queueSelected);
-    const queueAll = createButton('Queue All', 'Move every assistant draft proposal into Pending Review.', () => {
+    const queueAll = createButton(creatorBatch ? 'Send All to Review' : 'Queue All', creatorBatch ? 'Move every Creator Lorecard draft into Pending Review.' : 'Move every assistant draft proposal into Pending Review.', () => {
         queueLoredeckAssistantDraftSelection(pack, new Set(changes.map(change => change.changeId)));
     });
     queueAll.disabled = !changes.length;
     actions.appendChild(queueAll);
-    const dropSelected = createButton('Drop Selected', 'Remove selected assistant draft proposals without queueing them.', () => {
+    const dropSelected = createButton('Drop Selected', creatorBatch ? 'Remove selected Creator Lorecard drafts without sending them to Pending Review.' : 'Remove selected assistant draft proposals without queueing them.', () => {
         dropLoredeckAssistantDraftSelection(pack, getLoredeckAssistantSelectedDraftIds(loredeckAssistantDraftCache.get(pack.packId) || {}));
     }, 'wandlight-danger-button');
     dropSelected.disabled = !selectedCount;
     actions.appendChild(dropSelected);
-    actions.appendChild(createButton('Select All', 'Select every assistant draft proposal.', () => {
+    actions.appendChild(createButton('Select All', creatorBatch ? 'Select every Creator Lorecard draft.' : 'Select every assistant draft proposal.', () => {
         setLoredeckAssistantDraftSelectionBulk(pack, 'all');
     }));
-    actions.appendChild(createButton('Clear Selection', 'Clear the assistant draft selection.', () => {
+    actions.appendChild(createButton('Clear Selection', creatorBatch ? 'Clear the Creator draft selection.' : 'Clear the assistant draft selection.', () => {
         setLoredeckAssistantDraftSelectionBulk(pack, 'none');
     }));
     wrap.appendChild(actions);
 
     const reviseForm = document.createElement('div');
     reviseForm.className = 'wandlight-new-lore-form wandlight-loredeck-assistant-revise-form';
-    const reviseInput = createNewLoreInput(reviseForm, 'Revision', 'Instruction for revising selected draft proposals before queueing them.', loredeckAssistantRevisionInstruction || '', true, 'Tighten selected entries so the injection text creates more pressure and less biography.');
+    const reviseInput = createNewLoreInput(reviseForm, 'Revision', creatorBatch ? 'Instruction for revising selected Creator Lorecard drafts before sending them to Pending Review.' : 'Instruction for revising selected draft proposals before queueing them.', loredeckAssistantRevisionInstruction || '', true, 'Tighten selected entries so the injection text creates more pressure and less biography.');
     const reviseActions = document.createElement('div');
     reviseActions.className = 'wandlight-primary-actions';
-    const reviseButton = createButton('Revise Selected', 'Ask the Reasoning Provider to revise only the selected assistant draft proposals.', async (btn) => {
+    const reviseButton = createButton('Revise Selected', creatorBatch ? 'Ask the Reasoning Provider to revise only the selected Creator Lorecard drafts.' : 'Ask the Reasoning Provider to revise only the selected assistant draft proposals.', async (btn) => {
         loredeckAssistantRevisionInstruction = reviseInput.value.trim();
         await handleLoredeckAssistantDraftRevision(pack, rows, filteredRows, {
             instruction: loredeckAssistantRevisionInstruction,
@@ -17825,19 +18433,22 @@ function createLoredeckAssistantDraftBatchCard(pack, cached = null, rows = [], f
     const list = document.createElement('div');
     list.className = 'wandlight-loredeck-entry-list';
     for (const change of changes.slice(0, 30)) {
-        list.appendChild(createLoredeckAssistantDraftRow(pack, change, selectedIds.has(change.changeId)));
+        list.appendChild(createLoredeckAssistantDraftRow(pack, change, selectedIds.has(change.changeId), { creatorBatch }));
     }
     if (changes.length > 30) {
         const more = document.createElement('div');
         more.className = 'wandlight-runtime-help';
-        more.textContent = `Showing 30 of ${changes.length} draft proposals. Queue or drop some to reduce the list.`;
+        more.textContent = creatorBatch
+            ? `Showing 30 of ${changes.length} Creator Lorecard drafts. Send or drop some to reduce the list.`
+            : `Showing 30 of ${changes.length} draft proposals. Queue or drop some to reduce the list.`;
         list.appendChild(more);
     }
     wrap.appendChild(list);
     return wrap;
 }
 
-function createLoredeckAssistantDraftRow(pack, change = {}, selected = false) {
+function createLoredeckAssistantDraftRow(pack, change = {}, selected = false, options = {}) {
+    const creatorDraft = options.creatorBatch || String(change.source || '').trim() === 'loredeck_creator';
     const row = document.createElement('div');
     row.className = 'wandlight-loredeck-entry-row wandlight-loredeck-assistant-draft-row';
 
@@ -17863,7 +18474,7 @@ function createLoredeckAssistantDraftRow(pack, change = {}, selected = false) {
     const desc = document.createElement('div');
     desc.className = 'wandlight-loredeck-row-description';
     const preview = change.preview || {};
-    desc.textContent = change.description || preview.after || preview.before || 'Assistant draft proposal.';
+    desc.textContent = change.description || preview.after || preview.before || (creatorDraft ? 'Creator Lorecard draft.' : 'Assistant draft proposal.');
     main.appendChild(desc);
 
     const meta = document.createElement('div');
@@ -17889,13 +18500,13 @@ function createLoredeckAssistantDraftRow(pack, change = {}, selected = false) {
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-loredeck-row-actions';
-    actions.appendChild(createButton('Queue', 'Move this assistant draft proposal into Pending Review.', () => {
+    actions.appendChild(createButton(creatorDraft ? 'Send to Review' : 'Queue', creatorDraft ? 'Move this Creator Lorecard draft into Pending Review.' : 'Move this assistant draft proposal into Pending Review.', () => {
         queueLoredeckAssistantDraftSelection(pack, new Set([change.changeId]));
     }, 'wandlight-primary-button'));
-    actions.appendChild(createButton('Edit JSON', 'Edit this draft proposal record before queueing.', () => {
+    actions.appendChild(createButton('Edit JSON', creatorDraft ? 'Edit this Creator Lorecard draft record before sending it to Pending Review.' : 'Edit this draft proposal record before queueing.', () => {
         openLoredeckAssistantDraftJsonEditor(pack, change);
     }));
-    actions.appendChild(createButton('Drop', 'Remove this draft proposal without queueing it.', () => {
+    actions.appendChild(createButton('Drop', creatorDraft ? 'Remove this Creator Lorecard draft without sending it to Pending Review.' : 'Remove this draft proposal without queueing it.', () => {
         dropLoredeckAssistantDraftSelection(pack, new Set([change.changeId]));
     }, 'wandlight-danger-button'));
     row.appendChild(actions);
@@ -17921,14 +18532,23 @@ function updateLoredeckAssistantDraftAfterRemoval(packId, removedIds = new Set()
 
 function queueLoredeckAssistantDraftSelection(pack, selectedIds = new Set()) {
     const cached = loredeckAssistantDraftCache.get(pack.packId) || {};
+    const draftChanges = getLoredeckAssistantDraftChanges(cached);
+    const creatorBatch = String(cached?.source || '').trim() === 'loredeck_creator'
+        || (draftChanges.length > 0 && draftChanges.every(change => String(change.source || '').trim() === 'loredeck_creator'));
     const idSet = selectedIds instanceof Set ? selectedIds : new Set(normalizeLoredeckPendingIdList(selectedIds || []));
-    const selected = getLoredeckAssistantDraftChanges(cached).filter(change => idSet.has(change.changeId));
+    const selected = draftChanges.filter(change => idSet.has(change.changeId));
     if (!selected.length) {
-        toast('Select assistant draft proposals to queue.', 'warning');
+        toast(creatorBatch ? 'Select Creator Lorecard drafts to send to review.' : 'Select assistant draft proposals to queue.', 'warning');
         return false;
     }
     const fresh = getFreshLoredeckLibraryPack(pack.packId, pack);
-    const queued = queueLoredeckPendingChanges(fresh, selected, `Queued ${selected.length} assistant draft proposal${selected.length === 1 ? '' : 's'} for Pending Review.`);
+    const queued = queueLoredeckPendingChanges(
+        fresh,
+        selected,
+        creatorBatch
+            ? `Sent ${selected.length} Creator Lorecard draft${selected.length === 1 ? '' : 's'} to Pending Review.`
+            : `Queued ${selected.length} assistant draft proposal${selected.length === 1 ? '' : 's'} for Pending Review.`
+    );
     if (!queued) return false;
     updateLoredeckAssistantDraftAfterRemoval(pack.packId, new Set(selected.map(change => change.changeId)), selected.length);
     refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
@@ -17937,15 +18557,20 @@ function queueLoredeckAssistantDraftSelection(pack, selectedIds = new Set()) {
 
 function dropLoredeckAssistantDraftSelection(pack, selectedIds = new Set()) {
     const cached = loredeckAssistantDraftCache.get(pack.packId) || {};
+    const draftChanges = getLoredeckAssistantDraftChanges(cached);
+    const creatorBatch = String(cached?.source || '').trim() === 'loredeck_creator'
+        || (draftChanges.length > 0 && draftChanges.every(change => String(change.source || '').trim() === 'loredeck_creator'));
     const idSet = selectedIds instanceof Set ? selectedIds : new Set(normalizeLoredeckPendingIdList(selectedIds || []));
-    const selected = getLoredeckAssistantDraftChanges(cached).filter(change => idSet.has(change.changeId));
+    const selected = draftChanges.filter(change => idSet.has(change.changeId));
     if (!selected.length) {
-        toast('Select assistant draft proposals to drop.', 'warning');
+        toast(creatorBatch ? 'Select Creator Lorecard drafts to drop.' : 'Select assistant draft proposals to drop.', 'warning');
         return false;
     }
     updateLoredeckAssistantDraftAfterRemoval(pack.packId, new Set(selected.map(change => change.changeId)), 0);
     refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-    toast(`Dropped ${selected.length} assistant draft proposal${selected.length === 1 ? '' : 's'}.`, 'info');
+    toast(creatorBatch
+        ? `Dropped ${selected.length} Creator Lorecard draft${selected.length === 1 ? '' : 's'}.`
+        : `Dropped ${selected.length} assistant draft proposal${selected.length === 1 ? '' : 's'}.`, 'info');
     return true;
 }
 
@@ -33069,6 +33694,7 @@ function createButton(label, tooltip, handler, className = '') {
     addTooltip(btn, tooltip);
     btn.addEventListener('click', (e) => {
         e.stopPropagation();
+        hideFloatingTooltip();
         handler?.(btn, e);
     });
     return btn;
@@ -33088,7 +33714,10 @@ function createIconButton(label, tooltip, className, handler) {
     btn.className = className;
     btn.textContent = label;
     addTooltip(btn, tooltip);
-    btn.addEventListener('click', handler);
+    btn.addEventListener('click', event => {
+        hideFloatingTooltip();
+        handler?.(event);
+    });
     return btn;
 }
 

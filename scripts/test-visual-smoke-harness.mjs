@@ -69,8 +69,18 @@ assert(panel.includes('function refreshLoredeckLibrarySelectionSurfaces'), 'Lore
 assert(panel.includes('function updateLoredeckLibraryDetailsCollapsedDom'), 'Loredeck Library details expand/collapse must update the existing DOM in place.');
 assert(panel.includes('if (!updateLoredeckLibraryDetailsCollapsedDom(next)) renderLoredeckLibraryOverlay();'), 'Loredeck Library details collapse should only rerender when the overlay DOM is missing.');
 assert(panel.includes('LOREDECK_CREATOR_ENTRY_BATCH_SIZE = 3'), 'Creator entry drafting must keep the default micro-batch size small.');
-assert(panel.includes('Draft Next Batch'), 'Creator entry drafting must expose a one-batch action.');
-assert(panel.includes('Draft ${LOREDECK_CREATOR_ENTRY_AUTORUN_BATCHES} Batches'), 'Creator entry drafting must expose a bounded multi-batch action.');
+assert(panel.includes('Draft Next Lorecards'), 'Creator entry drafting must expose a guided one-batch action.');
+assert(panel.includes('Auto-Draft Up To ${LOREDECK_CREATOR_ENTRY_AUTORUN_BATCHES}'), 'Creator entry drafting must expose a bounded advanced auto-draft action.');
+assert(panel.includes('Review the current Lorecard drafts before drafting more.'), 'Creator entry drafting must block additional generation while review drafts are open.');
+assert(panel.includes('Creator Lorecard Draft Review'), 'Creator draft review must use Creator-specific review language.');
+assert(panel.includes('Send Selected to Review'), 'Creator draft review must expose explicit Pending Review handoff language.');
+assert(panel.includes('Creator Roadmap'), 'Creator wizard must expose a staged roadmap.');
+assert(panel.includes('Next: ${nextMessage}'), 'Creator roadmap must expose next-step guidance.');
+assert(style.includes('wandlight-loredeck-creator-stage-guide'), 'Creator roadmap must have dedicated styling.');
+assert(panel.includes('getLoredeckCreatorWorkbenchScrollAnchor'), 'Creator workbench must preserve section anchors during rerenders.');
+assert(panel.includes('restoreLoredeckCreatorWorkbenchScrollAnchor'), 'Creator workbench must restore section anchors after rerenders.');
+assert(panel.includes("wrap.dataset.sagaCreatorAnchor = 'lorecards'"), 'Creator Lorecard stage must expose a stable scroll anchor.');
+assert(panel.includes("wrap.dataset.sagaCreatorAnchor = 'finalize'"), 'Creator readiness stage must expose a stable scroll anchor.');
 assert(assistant.includes('currentMicroBatchOnly'), 'Creator entry prompt context must mark entry drafting as a micro-batch.');
 assert(assistant.includes('coverageSummary'), 'Creator brief prompt must use the compact scope-brief coverage summary field.');
 assert(assistant.includes('timeline plans, tag plans, title-pass plans'), 'Creator brief prompt must prohibit first-pass generation plans.');
@@ -129,6 +139,12 @@ for (const token of [
     'startLoredeckCreatorGeneration',
     'createLoredeckCreatorRequestOptions',
     'appendLoredeckCreatorGenerationStatus',
+    'cancelLoredeckCreatorGeneration',
+    'ignoreStaleLoredeckCreatorGeneration',
+    'applyLoredeckCreatorGenerationButtonLock',
+    'loredeckCreatorGenerationControllers',
+    'localJob?.activeGeneration',
+    'normalized.activeGeneration',
     'requestLoredeckCreatorBriefResponse',
     'repairLoredeckCreatorBriefResponse',
     'Scope Brief',
@@ -136,16 +152,16 @@ for (const token of [
     'handleLoredeckCreatorOutlineDraft',
     'approveLoredeckCreatorOutline',
     'Approve the Story Outline before drafting titles',
-    'Draft Next Title Batch',
+    'Draft Next Title Set',
     'createLoredeckCreatorTitleBatchPlanner',
     'getLoredeckCreatorNextTitleBatch',
     'creatorTitleBatchId',
-    'Queue Next Planning Batch',
+    'Plan Next Context Set',
     'createLoredeckCreatorPlanningBatchPlanner',
     'getLoredeckCreatorNextPlanningBatch',
     'creatorPlanningBatch',
     'getLoredeckCreatorEntryEligibleBatchIds',
-    'Accept at least one queued planning batch before drafting Lorecards',
+    'Accept at least one planned Context and Tag set before drafting Lorecards',
     'creatorEntryBatch',
     'Open Loredeck Library',
     'Loredeck Library',
