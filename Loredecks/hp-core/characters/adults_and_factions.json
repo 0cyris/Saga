@@ -19,10 +19,10 @@
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
-        "Dumbledore",
-        "Hogwarts",
-        "headmaster",
-        "Order"
+        "character:albus-dumbledore",
+        "place:hogwarts",
+        "role:headmaster",
+        "faction:order-of-the-phoenix"
       ],
       "priority": 90,
       "status": "active",
@@ -149,10 +149,10 @@
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
-        "Snape",
-        "Hogwarts",
-        "Potions",
-        "Defense"
+        "character:severus-snape",
+        "place:hogwarts",
+        "subject:potions",
+        "subject:defense-against-the-dark-arts"
       ],
       "priority": 75,
       "status": "active",

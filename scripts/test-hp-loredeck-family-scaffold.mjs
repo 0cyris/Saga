@@ -41,6 +41,10 @@ for (const [deckId, minAnchors, minWindows] of decks) {
   assert.equal(manifest.assets?.cover?.path, 'assets/cover.png', `${deckId} should use a deck-local cover asset.`);
   assert.ok(fs.existsSync(path.join(root, 'Loredecks', deckId, 'assets', 'cover.png')), `${deckId} should bundle assets/cover.png.`);
   assert.equal(manifest.registries.timeline, 'timeline.json', `${deckId} should expose a first-class timeline registry.`);
+  if (deckId !== 'hp-epilogue-post-war') {
+    assert.equal(manifest.registries.tags, 'tags.json', `${deckId} should expose a first-class tag registry.`);
+    assert.ok(fs.existsSync(path.join(root, 'Loredecks', deckId, 'tags.json')), `${deckId} should bundle tags.json.`);
+  }
   assert.ok(Array.isArray(timeline.anchors) && timeline.anchors.length >= minAnchors, `${deckId} should have dense anchors.`);
   assert.ok(Array.isArray(timeline.windows) && timeline.windows.length >= minWindows, `${deckId} should have curated windows.`);
   assert.equal(new Set(timeline.anchors.map(anchor => anchor.id)).size, timeline.anchors.length, `${deckId} anchor IDs should be unique.`);

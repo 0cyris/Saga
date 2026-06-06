@@ -847,7 +847,7 @@
       "validFromAnchor": "hp.postwar.kingsley_caretaker_minister",
       "validToAnchor": "hp.postwar.harry_joins_aurors",
       "sortKeyFrom": 10348,
-      "sortKeyTo": 10349,
+      "sortKeyTo": 10591,
       "aliases": [
         "Window Immediate Rebuilding",
         "window immediate_rebuilding"
@@ -869,7 +869,7 @@
       "validFromAnchor": "hp.postwar.kingsley_elected_minister",
       "validToAnchor": "hp.postwar.ministry_reforms_established",
       "sortKeyFrom": 10349,
-      "sortKeyTo": 10957,
+      "sortKeyTo": 14609,
       "aliases": [
         "Window Early Ministry Reforms",
         "window early_ministry_reforms"
@@ -891,7 +891,7 @@
       "validFromAnchor": "hp.postwar.comic_relief_schoolbooks_published",
       "validToAnchor": "hp.postwar.quidditch_world_cup_2010",
       "sortKeyFrom": 11393,
-      "sortKeyTo": 14610,
+      "sortKeyTo": 14974,
       "aliases": [
         "Window Postwar Publications and Sports",
         "window postwar_publications_and_sports"
@@ -913,7 +913,7 @@
       "validFromAnchor": "hp.postwar.harry_joins_aurors",
       "validToAnchor": "hp.postwar.harry_head_auror_department",
       "sortKeyFrom": 10349,
-      "sortKeyTo": 13514,
+      "sortKeyTo": 13878,
       "aliases": [
         "Window Harry Auror Career",
         "window harry_auror_career"
@@ -935,7 +935,7 @@
       "validFromAnchor": "hp.postwar.quidditch_world_cup_2014_opening",
       "validToAnchor": "hp.postwar.ginny_reports_gobstones_league",
       "sortKeyFrom": 16172,
-      "sortKeyTo": 16252,
+      "sortKeyTo": 16282,
       "aliases": [
         "Window Quidditch World Cup 2014",
         "window quidditch_world_cup_2014"

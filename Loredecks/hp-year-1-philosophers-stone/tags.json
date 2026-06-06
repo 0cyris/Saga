@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "tags": {
+    "artifact:philosophers-stone": {
+      "label": "Philosophers Stone",
+      "description": "Harry Potter bundled Loredeck artifact tag."
+    },
+    "calendar-year:1991": {
+      "label": "1991",
+      "description": "Harry Potter bundled Loredeck calendar year tag."
+    },
+    "place:hogwarts": {
+      "label": "Hogwarts",
+      "description": "Harry Potter bundled Loredeck place tag."
+    },
+    "school-year:1": {
+      "label": "1",
+      "description": "Harry Potter bundled Loredeck school year tag."
+    }
+  }
+}

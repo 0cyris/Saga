@@ -209,18 +209,7 @@ export const DEFAULT_HP_LOREDECK_LIBRARY_PACKS = Object.freeze(Object.fromEntrie
 export const DEFAULT_HP_LOREDECK_CONTEXTS = Object.freeze(Object.fromEntries(
     HP_SPLIT_LOREDECKS.map(deck => [deck.packId, buildHpLoredeckContext(deck)])
 ));
-export const DEFAULT_HP_LOREDECK_STACK = Object.freeze([
-    Object.freeze({
-        type: 'folder',
-        folderId: DEFAULT_HP_LOREDECK_FOLDER_ID,
-        enabled: true,
-        includeNested: true,
-        collapsed: false,
-        priority: 100,
-        locked: false,
-        addedAt: DEFAULT_HP_LOREDECK_UPDATED_AT,
-    }),
-]);
+export const DEFAULT_HP_LOREDECK_STACK = Object.freeze([]);
 export const DEFAULT_HP_LOREDECK_IDS = Object.freeze(HP_SPLIT_LOREDECKS.map(deck => deck.packId));
 
 export function isDefaultHarryPotterLoredeckId(packId = '') {

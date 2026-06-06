@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "tags": {
+    "artifact:half-blood-prince-book": {
+      "label": "Half Blood Prince Book",
+      "description": "Harry Potter bundled Loredeck artifact tag."
+    },
+    "calendar-year:1996": {
+      "label": "1996",
+      "description": "Harry Potter bundled Loredeck calendar year tag."
+    },
+    "character:voldemort": {
+      "label": "Voldemort",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "school-year:6": {
+      "label": "6",
+      "description": "Harry Potter bundled Loredeck school year tag."
+    }
+  }
+}

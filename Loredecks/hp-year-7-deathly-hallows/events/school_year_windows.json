@@ -17,10 +17,10 @@
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
-        "year-7",
-        "1997",
-        "deathly-hallows",
-        "war"
+        "school-year:7",
+        "calendar-year:1997",
+        "artifact:deathly-hallows",
+        "event:second-wizarding-war"
       ],
       "priority": 75,
       "status": "active",

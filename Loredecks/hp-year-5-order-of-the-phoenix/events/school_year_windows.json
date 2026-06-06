@@ -17,10 +17,10 @@
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
-        "year-5",
-        "1995",
-        "order-phoenix",
-        "ministry"
+        "school-year:5",
+        "calendar-year:1995",
+        "faction:order-of-the-phoenix",
+        "faction:ministry-of-magic"
       ],
       "priority": 75,
       "status": "active",

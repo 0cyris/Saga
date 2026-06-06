@@ -7,6 +7,7 @@ const fixturePath = path.join(root, 'tests', 'fixtures', 'arlong-park-update.sag
 const loredeckIndexPath = path.join(root, 'Loredecks', 'index.json');
 const panelPath = path.join(root, 'lore-panel.js');
 const assistantPath = path.join(root, 'loredeck-assistant.js');
+const stateManagerPath = path.join(root, 'state-manager.js');
 const stylePath = path.join(root, 'style.css');
 const settingsTemplatePath = path.join(root, 'settings.html');
 const sagaHeroIconPath = path.join(root, 'Images', 'iconsets', 'saga-hero', 'saga-tab-loredecks-256.png');
@@ -31,6 +32,7 @@ const fixture = JSON.parse(read(fixturePath));
 const loredeckIndex = JSON.parse(read(loredeckIndexPath));
 const panel = read(panelPath);
 const assistant = read(assistantPath);
+const stateManager = read(stateManagerPath);
 const style = read(stylePath);
 const settingsTemplate = read(settingsTemplatePath);
 
@@ -68,6 +70,31 @@ assert(panel.includes('LOREDECK_CREATOR_ENTRY_BATCH_SIZE = 3'), 'Creator entry d
 assert(panel.includes('Draft Next Batch'), 'Creator entry drafting must expose a one-batch action.');
 assert(panel.includes('Draft ${LOREDECK_CREATOR_ENTRY_AUTORUN_BATCHES} Batches'), 'Creator entry drafting must expose a bounded multi-batch action.');
 assert(assistant.includes('currentMicroBatchOnly'), 'Creator entry prompt context must mark entry drafting as a micro-batch.');
+assert(assistant.includes('coverageSummary'), 'Creator brief prompt must use the compact scope-brief coverage summary field.');
+assert(assistant.includes('timeline plans, tag plans, title-pass plans'), 'Creator brief prompt must prohibit first-pass generation plans.');
+assert(assistant.includes('compactCreatorBriefForPrompt'), 'Creator brief revisions must compact older saved briefs before prompting.');
+assert(assistant.includes('buildLoredeckCreatorOutlineSystemPrompt'), 'Creator must expose a dedicated outline-stage prompt.');
+assert(assistant.includes('parseLoredeckCreatorOutlineResponse'), 'Creator must parse outline-stage responses.');
+assert(assistant.includes('Context milestones'), 'Creator outline prompt must ask for major Context browser points.');
+assert(assistant.includes('targetTitleBatch'), 'Creator title prompt must target one outline title batch per call.');
+assert(assistant.includes('currentTitleBatchOnly'), 'Creator title prompt must prohibit drifting into other title batches.');
+assert(assistant.includes('targetPlanningBatch'), 'Creator planning prompt must target one approved title batch per call.');
+assert(assistant.includes('currentPlanningBatchOnly'), 'Creator planning prompt must prohibit drifting into other planning batches.');
+assert(assistant.includes('acceptedPlanningBatchIds'), 'Creator entry prompt must receive accepted planning batch IDs.');
+assert(panel.includes('getLoredeckCreatorPipelineReadiness'), 'Generated Loredeck export must inspect staged Creator pipeline readiness.');
+assert(panel.includes('Creator Readiness Gate'), 'Creator wizard must expose deterministic readiness feedback.');
+assert(panel.includes('titles covered'), 'Generated export readiness must show approved-title coverage.');
+assert(panel.includes('No linked Creator job was found'), 'Generated export readiness must warn when Creator job metadata is missing.');
+assert(panel.includes('Finalize as Custom'), 'Generated Loredecks must expose reviewed Generated-to-Custom finalization.');
+assert(panel.includes('buildFinalizedCustomLoredeckRecordFromGenerated'), 'Generated-to-Custom finalization must use an explicit conversion builder.');
+assert(panel.includes('generated_finalized'), 'Finalized Custom Loredecks must retain generated-source provenance.');
+assert(panel.includes('Generated Loredeck is not export-ready'), 'Selected export must enforce Generated Loredeck readiness.');
+assert(panel.includes('refreshLoredeckHealthAfterAcceptedPendingChanges'), 'Pending Review acceptance must rerun Deck Health after health-impact changes.');
+assert(panel.includes('and refreshed Deck Health'), 'Pending Review health rerun must report refreshed Deck Health to the user.');
+assert(panel.includes('getLoredeckBundleContentHash'), 'Loredeck bundle export/import must use a canonical content hash.');
+assert(panel.includes('Hash mismatch'), 'Loredeck install preview must surface declared content-hash mismatches.');
+assert(panel.includes('Embedded Lorecards'), 'Loredeck install preview must show embedded Lorecard counts.');
+assert(panel.includes('Pending Dropped'), 'Loredeck install preview must show pending proposals dropped during import.');
 
 assert(fixture.bundleType === 'saga_loredeck_json', 'Fixture must be a Saga Loredeck bundle.');
 assert(fixture.pack?.packId === 'smoke-arlong-park', 'Fixture pack ID must match the harness deck.');
@@ -91,6 +118,28 @@ for (const token of [
     'Install As New Copy',
     'Pending Review',
     'Loredeck Creator',
+    'getActiveLoredeckCreatorJob',
+    'upsertLoredeckCreatorJob',
+    'clearLoredeckCreatorJob',
+    'inferLoredeckCreatorUiStage',
+    'requestLoredeckCreatorBriefResponse',
+    'repairLoredeckCreatorBriefResponse',
+    'Scope Brief',
+    'Creator Story Outline',
+    'handleLoredeckCreatorOutlineDraft',
+    'approveLoredeckCreatorOutline',
+    'Approve the Story Outline before drafting titles',
+    'Draft Next Title Batch',
+    'createLoredeckCreatorTitleBatchPlanner',
+    'getLoredeckCreatorNextTitleBatch',
+    'creatorTitleBatchId',
+    'Queue Next Planning Batch',
+    'createLoredeckCreatorPlanningBatchPlanner',
+    'getLoredeckCreatorNextPlanningBatch',
+    'creatorPlanningBatch',
+    'getLoredeckCreatorEntryEligibleBatchIds',
+    'Accept at least one queued planning batch before drafting Lorecards',
+    'creatorEntryBatch',
     'Open Loredeck Library',
     'Loredeck Library',
     'Import Deck',
@@ -100,6 +149,8 @@ for (const token of [
     'Deck Health Center',
     'Open Health Center',
     'Run Validation',
+    'captureLoredeckHealthCenterScrollState',
+    'restoreLoredeckHealthCenterScrollState',
     'Duplicate',
     'Delete',
     'Add Folder to Stack',
@@ -136,6 +187,8 @@ for (const token of [
     'createLoredeckStackFolderKey',
     'setLoredeckStackItemCollapsed',
     'createLoredeckLibraryDetailKicker',
+    'createLoredeckLibraryEditableTitle',
+    'renameLoredeckLibraryDeckTitle',
     'aria-current',
     'resolveLoredeckLibraryDragFeedback',
     'sortLoredeckLibraryPacks',
@@ -178,6 +231,23 @@ for (const token of [
 }
 
 for (const token of [
+    'loredeckCreator',
+    'normalizeLoredeckCreatorRegistry',
+    'normalizeLoredeckCreatorJob',
+    'getLoredeckCreatorRegistry',
+    'getActiveLoredeckCreatorJob',
+    'upsertLoredeckCreatorJob',
+    'clearLoredeckCreatorJob',
+    'outline_approved',
+    'outlineApproved',
+    'titleBatchDraftedIds',
+    'planningBatchQueuedIds',
+    'planningBatchAcceptedIds',
+]) {
+    assert(stateManager.includes(token), `State manager is missing expected Creator job token: ${token}`);
+}
+
+for (const token of [
     'wandlight-loredeck-install-shell',
     'wandlight-runtime-rail',
     'wandlight-runtime-drawer',
@@ -216,6 +286,9 @@ for (const token of [
     'wandlight-loredeck-library-transfer-footer',
     'wandlight-loredeck-library-stack-card',
     'wandlight-loredeck-library-stack-grip',
+    'wandlight-loredeck-library-inline-title',
+    'wandlight-loredeck-library-title-edit-action',
+    'wandlight-loredeck-library-title-input',
     'wandlight-loredeck-library-stack-ghost',
     'wandlight-loredeck-library-center-actions',
     'wandlight-loredeck-library-square-action',

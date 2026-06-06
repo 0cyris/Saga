@@ -55,7 +55,7 @@ export function detectExtensionFolder(fallback = EXTENSION_FOLDER) {
 export const LOG_PREFIX = '[Saga]';
 
 // ── Schema version ──────────────────────────────────────────────────────────────
-export const SCHEMA_VERSION = 22;
+export const SCHEMA_VERSION = 23;
 
 export const AUTOMATION_MODE_VALUES = Object.freeze(['manual', 'assisted', 'automatic']);
 export const EXPERIENCE_MODE_VALUES = Object.freeze(['basic', 'advanced']);
@@ -153,6 +153,7 @@ export const DEFAULT_SETTINGS = {
         schemaVersion: 1,
         packs: {},
     },
+    emptyLoredeckStackDefaultsMigrated20260605: true,
     loredeckLibrary: {
         schemaVersion: 1,
         packs: DEFAULT_HP_LOREDECK_LIBRARY_PACKS,
@@ -512,6 +513,7 @@ export function getDefaultState() {
         },
 
         loredeckStack: DEFAULT_HP_LOREDECK_STACK.map(item => ({ ...item })),
+        hpDefaultLoredeckStackCleared20260605: true,
         loredeckRegistry: {
             schemaVersion: 1,
             packs: DEFAULT_HP_LOREDECK_LIBRARY_PACKS,
@@ -535,6 +537,14 @@ export function getDefaultState() {
             batches: {},
             chunks: {},
             candidates: {},
+        },
+
+        // Resumable Loredeck Creator jobs (schema v23)
+        loredeckCreator: {
+            schemaVersion: 1,
+            activeJobId: '',
+            lastJobId: '',
+            jobs: {},
         },
 
         // Resumable continuity scan ledger (schema v9)

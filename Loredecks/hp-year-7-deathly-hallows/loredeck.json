@@ -65,7 +65,8 @@
     "tokenBudget": null
   },
   "registries": {
-    "timeline": "timeline.json"
+    "timeline": "timeline.json",
+    "tags": "tags.json"
   },
   "files": [
     "characters/adult_character_phase_baselines.json",

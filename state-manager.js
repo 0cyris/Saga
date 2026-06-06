@@ -26,6 +26,7 @@ import { normalizeLoreTimeline, captureLoreTimelineState, recordLoreTimelineEven
 import { normalizeLoredeckLibraryIndex, normalizePackLibraryMetadata } from './loredeck-library-index.js';
 import {
     DEFAULT_HP_LOREDECK_CONTEXTS,
+    DEFAULT_HP_LOREDECK_FOLDER_ID,
     DEFAULT_HP_LOREDECK_ID,
     DEFAULT_HP_LOREDECK_LIBRARY_PACKS,
     DEFAULT_HP_LOREDECK_STACK,
@@ -229,6 +230,21 @@ function replaceLegacyHpLoredeckStack(value) {
     return replaced ? output : value;
 }
 
+function isDefaultHpLoredeckFolderStack(value) {
+    if (!Array.isArray(value) || value.length !== 1) return false;
+    const item = value[0] || {};
+    const type = item.type === 'folder' || item.folderId ? 'folder' : 'deck';
+    return type === 'folder'
+        && String(item.folderId || '').trim() === DEFAULT_HP_LOREDECK_FOLDER_ID
+        && item.enabled !== false
+        && item.includeNested !== false
+        && !String(item.packId || item.deckId || '').trim();
+}
+
+function clearDefaultHpLoredeckFolderStack(value) {
+    return isDefaultHpLoredeckFolderStack(value) ? [] : value;
+}
+
 function migrateLegacyHpLoredeckRegistry(value) {
     const input = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
     const packs = { ...(input.packs || {}) };
@@ -268,6 +284,13 @@ function migrateLegacyHpLoredeckState(state = {}) {
     if (hasLegacySelection) {
         state.lorePanel.selectedLoredeckId = DEFAULT_HP_LOREDECK_ID;
     }
+    return state;
+}
+
+function clearDefaultHpLoredeckStackOnce(state = {}) {
+    if (state.hpDefaultLoredeckStackCleared20260605 === true) return state;
+    state.loredeckStack = clearDefaultHpLoredeckFolderStack(state.loredeckStack);
+    state.hpDefaultLoredeckStackCleared20260605 = true;
     return state;
 }
 
@@ -809,6 +832,193 @@ function normalizeLoredeckRegistry(value, defaults = getDefaultState().loredeckR
     };
 }
 
+function normalizeLoredeckCreatorString(value = '', maxLength = 1000) {
+    return String(value || '').trim().replace(/\s+/g, ' ').slice(0, maxLength).trim();
+}
+
+function normalizeLoredeckCreatorStringList(value = [], limit = 80, maxLength = 300) {
+    const input = Array.isArray(value) ? value : [];
+    const output = [];
+    const seen = new Set();
+    for (const raw of input) {
+        const text = normalizeLoredeckCreatorString(raw, maxLength);
+        if (!text) continue;
+        const key = text.toLowerCase();
+        if (seen.has(key)) continue;
+        seen.add(key);
+        output.push(text);
+        if (output.length >= limit) break;
+    }
+    return output;
+}
+
+function normalizeLoredeckCreatorStage(value = '') {
+    const stage = normalizeLoredeckCreatorString(value, 80).toLowerCase().replace(/[^a-z0-9_-]+/g, '_');
+    return [
+        'intake',
+        'brief_drafted',
+        'brief_approved',
+        'outline_drafting',
+        'outline_drafted',
+        'outline_approved',
+        'context_drafted',
+        'tags_drafted',
+        'titles_drafting',
+        'titles_drafted',
+        'titles_approved',
+        'planning_drafting',
+        'planning_queued',
+        'planning_accepted',
+        'entries_drafting',
+        'entries_drafted',
+        'health_review',
+        'complete',
+        'blocked',
+    ].includes(stage) ? stage : 'intake';
+}
+
+function inferLoredeckCreatorStage(job = {}) {
+    if (job.currentStage) return normalizeLoredeckCreatorStage(job.currentStage);
+    if (job.entryDraftCount || job.entryDraftedAt) return 'entries_drafted';
+    if (job.generatedPackId && (job.planningQueuedCount || job.planningQueuedAt)) return 'planning_queued';
+    if (Array.isArray(job.approvedTitleDraftIds) && job.approvedTitleDraftIds.length) return 'titles_approved';
+    if (Array.isArray(job.titleDrafts) && job.titleDrafts.length) return 'titles_drafted';
+    if (job.outlineApproved && job.outline) return 'outline_approved';
+    if (job.outline) return 'outline_drafted';
+    if (job.approved) return 'brief_approved';
+    if (job.brief) return 'brief_drafted';
+    return 'intake';
+}
+
+function normalizeLoredeckCreatorJob(value = {}, index = 0) {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+    const intake = value.intake && typeof value.intake === 'object' && !Array.isArray(value.intake) ? value.intake : {};
+    const now = Date.now();
+    const fallbackIdSeed = `${value.fandom || intake.fandom || 'creator'}-${value.scope || intake.scope || index + 1}-${value.createdAt || now}`;
+    const jobId = normalizeLoredeckCreatorString(value.jobId || value.id || '', 160)
+        || `creator_${String(fallbackIdSeed).toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '').slice(0, 80) || index + 1}`;
+    const titleDrafts = Array.isArray(value.titleDrafts)
+        ? value.titleDrafts.map(item => cloneLoredeckPlainObject(item, 30000)).filter(Boolean).slice(0, 1200)
+        : [];
+    const selectedTitleDraftIds = normalizeLoredeckCreatorStringList(value.selectedTitleDraftIds, 1200, 180);
+    const approvedTitleDraftIds = normalizeLoredeckCreatorStringList(value.approvedTitleDraftIds, 1200, 180);
+    const titleBatchDraftedIds = normalizeLoredeckCreatorStringList(value.titleBatchDraftedIds, 1200, 180);
+    const planningBatchQueuedIds = normalizeLoredeckCreatorStringList(value.planningBatchQueuedIds, 1200, 180);
+    const planningBatchAcceptedIds = normalizeLoredeckCreatorStringList(value.planningBatchAcceptedIds, 1200, 180);
+    const job = {
+        schemaVersion: 1,
+        jobId,
+        status: normalizeLoredeckCreatorString(value.status || (value.blocked ? 'blocked' : 'draft'), 80) || 'draft',
+        currentStage: inferLoredeckCreatorStage(value),
+        fandom: normalizeLoredeckCreatorString(value.fandom || intake.fandom, 200),
+        scope: normalizeLoredeckCreatorString(value.scope || intake.scope, 500),
+        granularity: normalizeLoredeckCreatorString(value.granularity || intake.granularity || 'focused', 80) || 'focused',
+        notes: normalizeLoredeckCreatorString(value.notes || intake.notes, 4000),
+        summary: normalizeLoredeckCreatorString(value.summary, 1500),
+        questions: normalizeLoredeckCreatorStringList(value.questions || value.clarifyingQuestions, 20, 400),
+        warnings: normalizeLoredeckCreatorStringList(value.warnings, 40, 400),
+        approved: value.approved === true,
+        outlineApproved: value.outlineApproved === true,
+        createdAt: Number.isFinite(Number(value.createdAt)) ? Number(value.createdAt) : now,
+        updatedAt: Number.isFinite(Number(value.updatedAt)) ? Number(value.updatedAt) : now,
+    };
+    const brief = cloneLoredeckPlainObject(value.brief, 60000);
+    if (brief) job.brief = brief;
+    const outline = cloneLoredeckPlainObject(value.outline, 80000);
+    if (outline) job.outline = outline;
+    for (const key of [
+        'approvedAt',
+        'outlineDraftedAt',
+        'outlineRevisedAt',
+        'outlineApprovedAt',
+        'approvedTitleDraftAt',
+        'titleDraftedAt',
+        'titleRevisedAt',
+        'planningQueuedAt',
+        'planningAcceptedAt',
+        'entryDraftedAt',
+        'lastStartedAt',
+        'lastCompletedAt',
+        'lastFailedAt',
+    ]) {
+        if (Number.isFinite(Number(value[key]))) job[key] = Number(value[key]);
+    }
+    if (titleDrafts.length) job.titleDrafts = titleDrafts;
+    if (selectedTitleDraftIds.length) job.selectedTitleDraftIds = selectedTitleDraftIds;
+    if (approvedTitleDraftIds.length) job.approvedTitleDraftIds = approvedTitleDraftIds;
+    if (titleBatchDraftedIds.length) job.titleBatchDraftedIds = titleBatchDraftedIds;
+    if (planningBatchQueuedIds.length) job.planningBatchQueuedIds = planningBatchQueuedIds;
+    if (planningBatchAcceptedIds.length) job.planningBatchAcceptedIds = planningBatchAcceptedIds;
+
+    const objectFields = {
+        titleBatch: 20000,
+        stageStatus: 50000,
+        batches: 100000,
+    };
+    for (const [key, maxLength] of Object.entries(objectFields)) {
+        const cloned = cloneLoredeckPlainObject(value[key], maxLength);
+        if (cloned) job[key] = cloned;
+    }
+
+    for (const key of [
+        'titlePassSummary',
+        'outlineSummary',
+        'planningSummary',
+        'entryDraftSummary',
+        'generatedPackId',
+        'generatedPackTitle',
+        'planningCurrentBatchId',
+        'planningCurrentBatchLabel',
+        'entryDraftCurrentBatchId',
+        'entryDraftCurrentBatchLabel',
+        'lastAction',
+    ]) {
+        const text = normalizeLoredeckCreatorString(value[key], key.includes('Summary') ? 1500 : 200);
+        if (text) job[key] = text;
+    }
+    for (const key of ['outlineQuestions', 'outlineWarnings', 'titlePassQuestions', 'titlePassWarnings', 'planningQuestions', 'planningWarnings', 'entryDraftQuestions', 'entryDraftWarnings']) {
+        const list = normalizeLoredeckCreatorStringList(value[key], 40, 400);
+        if (list.length) job[key] = list;
+    }
+    for (const key of [
+        'planningQueuedCount',
+        'entryDraftCount',
+        'entryDraftLastBatchCount',
+        'entryDraftLastTargetCount',
+        'entryDraftRemainingCount',
+        'entryDraftBatchSize',
+    ]) {
+        if (Number.isFinite(Number(value[key]))) job[key] = Math.max(0, Math.round(Number(value[key])));
+    }
+    const errors = normalizeLoredeckCreatorStringList(value.errors, 40, 500);
+    if (errors.length) job.errors = errors;
+    return job;
+}
+
+function normalizeLoredeckCreatorRegistry(value) {
+    const input = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+    const jobs = {};
+    const rawJobs = input.jobs && typeof input.jobs === 'object' && !Array.isArray(input.jobs) ? input.jobs : {};
+    let count = 0;
+    for (const [key, raw] of Object.entries(rawJobs)) {
+        if (!raw || typeof raw !== 'object' || Array.isArray(raw)) continue;
+        const job = normalizeLoredeckCreatorJob({ ...(raw || {}), jobId: raw?.jobId || key }, count);
+        if (!job) continue;
+        jobs[job.jobId] = job;
+        count += 1;
+        if (count >= 200) break;
+    }
+    const activeJobId = normalizeLoredeckCreatorString(input.activeJobId, 160);
+    const lastJobId = normalizeLoredeckCreatorString(input.lastJobId, 160);
+    const fallbackActive = jobs[activeJobId] ? activeJobId : (jobs[lastJobId] ? lastJobId : Object.keys(jobs)[0] || '');
+    return {
+        schemaVersion: 1,
+        activeJobId: fallbackActive,
+        lastJobId: jobs[lastJobId] ? lastJobId : fallbackActive,
+        jobs,
+    };
+}
+
 function normalizeThemeHexColor(value) {
     const text = String(value || '').trim();
     if (/^#[0-9a-f]{6}$/i.test(text)) return text.toLowerCase();
@@ -959,6 +1169,62 @@ export function importThemePackLibraryRegistry(registry = {}, options = {}) {
     settings.themePackLibrary = normalizeThemePackRegistry(current, DEFAULT_SETTINGS.themePackLibrary);
     saveSettings(settings);
     return { ok: true, importedCount, skippedCount, library: settings.themePackLibrary };
+}
+
+function createLoredeckCreatorJobId(seed = '') {
+    const stem = normalizeLoredeckCreatorString(seed, 100)
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '_')
+        .replace(/^_+|_+$/g, '')
+        .slice(0, 60) || 'creator';
+    return `${stem}_${Date.now().toString(36)}`;
+}
+
+export function getLoredeckCreatorRegistry(state = null) {
+    const source = state || getState();
+    return normalizeLoredeckCreatorRegistry(source?.loredeckCreator || getDefaultState().loredeckCreator);
+}
+
+export function getActiveLoredeckCreatorJob(state = null) {
+    const registry = getLoredeckCreatorRegistry(state);
+    return registry.activeJobId ? (registry.jobs[registry.activeJobId] || null) : null;
+}
+
+export function upsertLoredeckCreatorJob(jobRecord = {}, options = {}) {
+    const state = getState();
+    const registry = normalizeLoredeckCreatorRegistry(state.loredeckCreator || getDefaultState().loredeckCreator);
+    const active = registry.activeJobId ? registry.jobs[registry.activeJobId] : null;
+    const seed = `${jobRecord.fandom || active?.fandom || 'creator'}-${jobRecord.scope || active?.scope || ''}`;
+    const job = normalizeLoredeckCreatorJob({
+        ...(active || {}),
+        ...(jobRecord || {}),
+        jobId: jobRecord.jobId || active?.jobId || createLoredeckCreatorJobId(seed),
+        updatedAt: Date.now(),
+    });
+    if (!job) return { ok: false, error: 'Creator job could not be normalized.' };
+    registry.jobs[job.jobId] = job;
+    registry.activeJobId = job.jobId;
+    registry.lastJobId = job.jobId;
+    state.loredeckCreator = normalizeLoredeckCreatorRegistry(registry);
+    saveState(state, { syncPrompt: options.syncPrompt !== false, sanitize: true });
+    return { ok: true, job: state.loredeckCreator.jobs[job.jobId], registry: state.loredeckCreator };
+}
+
+export function clearLoredeckCreatorJob(jobId = '', options = {}) {
+    const state = getState();
+    const registry = normalizeLoredeckCreatorRegistry(state.loredeckCreator || getDefaultState().loredeckCreator);
+    const id = normalizeLoredeckCreatorString(jobId || registry.activeJobId, 160);
+    if (id && registry.jobs[id]) delete registry.jobs[id];
+    if (registry.activeJobId === id) registry.activeJobId = '';
+    if (registry.lastJobId === id) registry.lastJobId = '';
+    const remaining = Object.values(registry.jobs).sort((a, b) => (Number(b.updatedAt) || 0) - (Number(a.updatedAt) || 0));
+    if (remaining.length) {
+        registry.activeJobId = remaining[0].jobId;
+        registry.lastJobId = remaining[0].jobId;
+    }
+    state.loredeckCreator = normalizeLoredeckCreatorRegistry(registry);
+    saveState(state, { syncPrompt: options.syncPrompt !== false, sanitize: true });
+    return { ok: true, registry: state.loredeckCreator };
 }
 
 export function getLoredeckLibraryRegistry(state = null) {
@@ -1207,6 +1473,14 @@ export function getSettings() {
             DEFAULT_SETTINGS.loredeckLibrary
         );
         merged.hpSplitLoredeckDefaultsMigrated20260605 = true;
+    }
+
+    if (stored.emptyLoredeckStackDefaultsMigrated20260605 !== true) {
+        merged.loredeckLibrary = normalizeLoredeckRegistry({
+            ...(merged.loredeckLibrary || {}),
+            activeStack: clearDefaultHpLoredeckFolderStack(merged.loredeckLibrary?.activeStack),
+        }, DEFAULT_SETTINGS.loredeckLibrary);
+        merged.emptyLoredeckStackDefaultsMigrated20260605 = true;
     }
 
     // One-time upgrade from the old conservative story-lore generation defaults.
@@ -2404,6 +2678,12 @@ export function migrateState(state) {
         state._version = 22;
     }
 
+    // Schema v23: persistent, resumable Loredeck Creator jobs
+    if (state._version < 23) {
+        state.loredeckCreator = normalizeLoredeckCreatorRegistry(state.loredeckCreator || getDefaultState().loredeckCreator);
+        state._version = 23;
+    }
+
     // ── Always normalize lore fields post-migration ────────────────────────
     // First compact known-heavy canon DB payloads and oversized pending batches so
     // a poisoned chat can recover instead of freezing during panel render/save.
@@ -2417,8 +2697,10 @@ export function migrateState(state) {
 
     normalizeContinuityStructure(state);
     migrateLegacyHpLoredeckState(state);
+    clearDefaultHpLoredeckStackOnce(state);
     state.loredeckStack = normalizeLoredeckStack(state.loredeckStack);
     state.loredeckRegistry = normalizeLoredeckRegistry(state.loredeckRegistry);
+    state.loredeckCreator = normalizeLoredeckCreatorRegistry(state.loredeckCreator || getDefaultState().loredeckCreator);
     promoteChatLoredeckRegistryToSettings(state);
     state.loredeckContexts = normalizeLoredeckContexts(state.loredeckContexts, state);
 
@@ -3373,6 +3655,8 @@ export function importState(json) {
                         ? parsed.loreBulkGeneration.candidates : {},
                 }
                 : { ...getDefaultState().loreBulkGeneration },
+
+            loredeckCreator: normalizeLoredeckCreatorRegistry(parsed.loredeckCreator || getDefaultState().loredeckCreator),
 
             continuityScan: parsed.continuityScan && typeof parsed.continuityScan === 'object' && !Array.isArray(parsed.continuityScan)
                 ? {

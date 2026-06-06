@@ -2137,7 +2137,8 @@
 @media (prefers-reduced-motion: reduce) {
     .wandlight-loredeck-library-folder-cover-strip,
     .wandlight-loredeck-library-folder-cover-tile,
-    .wandlight-loredeck-library-inline-folder-row {
+    .wandlight-loredeck-library-inline-folder-row,
+    .wandlight-loredeck-library-title-edit-action {
         transition: none;
     }
 }
@@ -2363,6 +2364,109 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.wandlight-loredeck-library-inline-title {
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    min-width: 0;
+}
+
+.wandlight-loredeck-library-inline-title-label {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.wandlight-loredeck-library-title-edit-action {
+    position: relative;
+    flex: 0 0 18px;
+    width: 18px;
+    height: 18px;
+    display: inline-grid;
+    place-items: center;
+    border: 1px solid rgba(215, 181, 109, 0.24);
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.26);
+    color: var(--wandlight-gold, #d7b56d);
+    cursor: pointer;
+    opacity: 0;
+    padding: 0;
+    transform: translateX(-3px) scale(0.94);
+    transition:
+        opacity 150ms ease,
+        transform 150ms ease,
+        border-color 150ms ease,
+        background 150ms ease,
+        box-shadow 150ms ease;
+}
+
+.wandlight-loredeck-library-inline-title-editable:hover .wandlight-loredeck-library-title-edit-action,
+.wandlight-loredeck-library-inline-title-editable:focus-within .wandlight-loredeck-library-title-edit-action,
+.wandlight-loredeck-library-inline-title-editing .wandlight-loredeck-library-title-edit-action {
+    opacity: 1;
+    transform: none;
+}
+
+.wandlight-loredeck-library-title-edit-action:hover,
+.wandlight-loredeck-library-title-edit-action:focus-visible {
+    border-color: rgba(255, 207, 105, 0.72);
+    background: rgba(215, 181, 109, 0.16);
+    box-shadow: 0 0 10px rgba(215, 181, 109, 0.22);
+}
+
+.wandlight-loredeck-library-title-edit-wand::before {
+    content: "";
+    position: absolute;
+    width: 11px;
+    height: 2px;
+    border-radius: 999px;
+    background: currentColor;
+    transform: rotate(-36deg);
+    box-shadow: 0 0 5px rgba(245, 196, 91, 0.36);
+}
+
+.wandlight-loredeck-library-title-edit-wand::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    width: 3px;
+    height: 3px;
+    border-radius: 999px;
+    background: #ffe1a2;
+    box-shadow:
+        4px -2px 0 rgba(255, 225, 162, 0.72),
+        -2px 4px 0 rgba(255, 225, 162, 0.56);
+}
+
+.wandlight-loredeck-library-title-edit-accept::before {
+    content: "";
+    width: 9px;
+    height: 5px;
+    border-left: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: translateY(-1px) rotate(-45deg);
+}
+
+.wandlight-loredeck-library-title-edit-accept::after {
+    content: none;
+}
+
+.wandlight-loredeck-library-title-input {
+    width: 100%;
+    min-width: 0;
+    height: 24px;
+    box-sizing: border-box;
+    font: inherit;
+    font-weight: inherit;
+    color: var(--wandlight-text, #f1ead8);
+    background: rgba(0, 0, 0, 0.34);
+    border-color: rgba(255, 207, 105, 0.58);
+    cursor: text;
 }
 
 .wandlight-loredeck-library-deck-description,

@@ -17,10 +17,10 @@
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
-        "year-4",
-        "1994",
-        "triwizard",
-        "hogwarts"
+        "school-year:4",
+        "calendar-year:1994",
+        "event:triwizard-tournament",
+        "place:hogwarts"
       ],
       "priority": 75,
       "status": "active",

@@ -17,10 +17,10 @@
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
-        "Hogwarts",
-        "school",
-        "castle",
-        "students"
+        "place:hogwarts",
+        "institution:school",
+        "place:hogwarts-castle",
+        "role:student"
       ],
       "priority": 75,
       "status": "active",
@@ -128,10 +128,10 @@
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
-        "Hogsmeade",
-        "village",
-        "students",
-        "Hogwarts"
+        "place:hogsmeade",
+        "place:village",
+        "role:student",
+        "place:hogwarts"
       ],
       "priority": 50,
       "status": "active",
@@ -224,10 +224,10 @@
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
-        "Ministry",
-        "government",
-        "law",
-        "Britain"
+        "faction:ministry-of-magic",
+        "institution:government",
+        "institution:law",
+        "place:britain"
       ],
       "priority": 50,
       "status": "active",

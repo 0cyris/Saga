@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "tags": {
+    "calendar-year:1992": {
+      "label": "1992",
+      "description": "Harry Potter bundled Loredeck calendar year tag."
+    },
+    "event:chamber-of-secrets": {
+      "label": "Chamber Of Secrets",
+      "description": "Harry Potter bundled Loredeck event tag."
+    },
+    "place:hogwarts": {
+      "label": "Hogwarts",
+      "description": "Harry Potter bundled Loredeck place tag."
+    },
+    "school-year:2": {
+      "label": "2",
+      "description": "Harry Potter bundled Loredeck school year tag."
+    }
+  }
+}

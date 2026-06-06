@@ -266,25 +266,27 @@ function normalizeCreatorBrief(raw = {}) {
         : {};
     const min = cleanInteger(range.min ?? range.low, 0, 0, 10000);
     const max = cleanInteger(range.max ?? range.high, min, min, 10000);
+    const coverageSummary = cleanString(source.coverageSummary || source.coverage || source.summary, 700);
     const brief = {
         title: cleanString(source.title || source.name, 180),
         packId: cleanPackId(source.packId || source.id || source.title || source.name, 140),
         fandom: cleanString(source.fandom, 120),
-        scope: cleanString(source.scope || source.coverageRange || source.coverage, 240),
+        scope: cleanString(source.scope || source.coverageRange || source.coverageScope || source.coverage, 240),
         granularity: cleanString(source.granularity || source.density, 80),
-        coverage: cleanString(source.coverage || source.coverageSummary, 1000),
+        coverageSummary,
+        coverage: coverageSummary,
         contextApproach: cleanString(source.contextApproach || source.timelineApproach, 1000),
         estimatedEntryRange: {
             min,
             max,
             rationale: cleanString(range.rationale || source.entryRangeRationale, 500),
         },
-        timelinePlan: cleanStringArray(source.timelinePlan || source.timeline || source.anchors, 12, 240),
-        tagPlan: cleanStringArray(source.tagPlan || source.tags || source.entityPlan, 16, 180),
-        titlePassPlan: cleanStringArray(source.titlePassPlan || source.entryTitlePassPlan || source.titlePlan, 12, 240),
-        assumptions: cleanStringArray(source.assumptions, 12, 240),
-        exclusions: cleanStringArray(source.exclusions || source.outOfScope, 12, 240),
-        risks: cleanStringArray(source.risks || source.openRisks, 12, 240),
+        timelinePlan: cleanStringArray(source.timelinePlan || source.timeline || source.anchors, 8, 180),
+        tagPlan: cleanStringArray(source.tagPlan || source.tags || source.entityPlan, 8, 160),
+        titlePassPlan: cleanStringArray(source.titlePassPlan || source.entryTitlePassPlan || source.titlePlan, 8, 180),
+        assumptions: cleanStringArray(source.assumptions, 5, 160),
+        exclusions: cleanStringArray(source.exclusions || source.outOfScope, 5, 160),
+        risks: cleanStringArray(source.risks || source.openRisks, 5, 160),
         nextStage: cleanString(source.nextStage, 500),
     };
     return Object.values(brief).some(value => {
@@ -292,6 +294,21 @@ function normalizeCreatorBrief(raw = {}) {
         if (isPlainObject(value)) return Object.values(value).some(Boolean);
         return !!value;
     }) ? brief : null;
+}
+
+function compactCreatorBriefForPrompt(raw = {}) {
+    const brief = normalizeCreatorBrief(raw);
+    if (!brief) return null;
+    return {
+        title: brief.title,
+        packId: brief.packId,
+        fandom: brief.fandom,
+        scope: brief.scope,
+        granularity: brief.granularity,
+        coverageSummary: brief.coverageSummary || brief.coverage,
+        assumptions: brief.assumptions,
+        risks: brief.risks,
+    };
 }
 
 function normalizeCreatorTitleDraft(raw = {}, index = 0) {
@@ -310,6 +327,8 @@ function normalizeCreatorTitleDraft(raw = {}, index = 0) {
         contextHint: cleanString(raw.contextHint || raw.timelineHint || raw.windowHint, 500),
         tags: cleanStringArray(raw.tags || raw.tagHints || raw.suggestedTags, 24, 140),
         reason: cleanString(raw.reason || raw.rationale || raw.description, 1000),
+        creatorTitleBatchId: cleanPackId(raw.creatorTitleBatchId || raw.batchId || raw.sourceBatchId, 160),
+        creatorTitleBatchLabel: cleanString(raw.creatorTitleBatchLabel || raw.batchLabel || raw.sourceBatchLabel, 180),
         rubric: normalizeAssistantRubric(raw),
         warnings: cleanStringArray(raw.warnings || raw.qualityWarnings, 8, 240),
     };
@@ -320,11 +339,79 @@ export function parseLoredeckCreatorBriefResponse(text = '') {
     const parsedJson = parseAssistantJson(text);
     const parsed = coerceAssistantShape(parsedJson);
     const raw = isPlainObject(parsedJson) ? parsedJson : {};
-    const brief = normalizeCreatorBrief(raw);
+    const brief = Object.prototype.hasOwnProperty.call(raw, 'brief')
+        ? (isPlainObject(raw.brief) ? normalizeCreatorBrief(raw.brief) : null)
+        : normalizeCreatorBrief(raw);
     return {
         summary: cleanString(raw.summary || parsed.summary, 1000),
         clarifyingQuestions: cleanStringArray(raw.clarifyingQuestions || raw.questions || parsed.clarifyingQuestions, 8, 300),
         brief,
+        warnings: cleanStringArray(raw.warnings, 8, 300),
+    };
+}
+
+function normalizeCreatorOutlineRow(raw = {}, index = 0, kind = 'beat') {
+    if (!isPlainObject(raw)) return null;
+    const label = cleanString(raw.label || raw.title || raw.name, 180);
+    const summary = cleanString(raw.summary || raw.description || raw.reason, 500);
+    if (!label && !summary) return null;
+    const fallback = `${kind}-${index + 1}`;
+    return {
+        id: cleanPackId(raw.id || raw.key || label || fallback, 140) || fallback,
+        label: label || summary.slice(0, 80) || fallback,
+        type: cleanString(raw.type || raw.kind || raw.category || kind, 80),
+        order: cleanInteger(raw.order ?? raw.sortKey ?? raw.index, index + 1, 0, 100000),
+        summary,
+        contextRole: cleanString(raw.contextRole || raw.context || raw.use || raw.role, 300),
+        titleTargets: cleanStringArray(raw.titleTargets || raw.titleTargetHints || raw.targets, 8, 120),
+    };
+}
+
+function normalizeCreatorOutline(raw = {}) {
+    const source = isPlainObject(raw?.outline)
+        ? raw.outline
+        : (isPlainObject(raw?.storyOutline)
+            ? raw.storyOutline
+            : (isPlainObject(raw) ? raw : {}));
+    if (!isPlainObject(source)) return null;
+    const beats = (Array.isArray(source.beats || source.storyBeats || source.structure)
+        ? (source.beats || source.storyBeats || source.structure)
+        : [])
+        .map((row, index) => normalizeCreatorOutlineRow(row, index, 'beat'))
+        .filter(Boolean)
+        .slice(0, 24);
+    const contextMilestones = (Array.isArray(source.contextMilestones || source.contextPlan || source.contextPoints)
+        ? (source.contextMilestones || source.contextPlan || source.contextPoints)
+        : [])
+        .map((row, index) => normalizeCreatorOutlineRow(row, index, 'context'))
+        .filter(Boolean)
+        .slice(0, 24);
+    const titleBatches = (Array.isArray(source.titleBatches || source.titlePlan || source.titleBatchPlan)
+        ? (source.titleBatches || source.titlePlan || source.titleBatchPlan)
+        : [])
+        .map((row, index) => normalizeCreatorOutlineRow(row, index, 'title_batch'))
+        .filter(Boolean)
+        .slice(0, 12);
+    const outline = {
+        label: cleanString(source.label || source.title || source.name, 180),
+        coverageSummary: cleanString(source.coverageSummary || source.coverage || source.summary, 700),
+        beats,
+        contextMilestones,
+        titleBatches,
+        assumptions: cleanStringArray(source.assumptions, 5, 160),
+        risks: cleanStringArray(source.risks || source.openRisks, 5, 160),
+    };
+    return Object.values(outline).some(value => Array.isArray(value) ? value.length : !!value) ? outline : null;
+}
+
+export function parseLoredeckCreatorOutlineResponse(text = '') {
+    const parsedJson = parseAssistantJson(text);
+    const parsed = coerceAssistantShape(parsedJson);
+    const raw = isPlainObject(parsedJson) ? parsedJson : {};
+    return {
+        summary: cleanString(raw.summary || parsed.summary, 1000),
+        clarifyingQuestions: cleanStringArray(raw.clarifyingQuestions || raw.questions || parsed.clarifyingQuestions, 8, 300),
+        outline: normalizeCreatorOutline(raw),
         warnings: cleanStringArray(raw.warnings, 8, 300),
     };
 }
@@ -374,7 +461,7 @@ export function buildLoredeckCreatorBriefSystemPrompt() {
 
 Return JSON only. Do not include markdown.
 
-Your task is to turn a user's fandom, scope, and granularity into a short deck brief for approval. Do not generate Lorecards, timeline anchors, or tag registries yet.
+Your task is to turn a user's fandom, scope, and granularity into a tiny scope brief for approval. This is intake only.
 
 Creator principles:
 - Narrow vague or oversized requests into a practical story scope.
@@ -384,12 +471,21 @@ Creator principles:
 - Prefer high-value roleplay/fanfic scene context over wiki completeness.
 - Flag assumptions and risks clearly.
 - If the request is too broad or ambiguous, ask 1-3 clarifying questions and leave brief null.
+- Do not generate Lorecards at intake.
+- Keep the whole JSON compact. Do not include lore entry titles, wiki facts, timeline plans, tag plans, title-pass plans, entry counts, or generation plans.
 
 Granularity meanings:
 - compact: key constraints and major character/state changes only.
 - focused: practical arc-level play with enough detail for long-form roleplay.
 - dense: many anchors, relationships, and scene-specific constraints.
 - scene_dense: intensive coverage for a short span with many moment-level entries.
+
+Field limits:
+- summary: 1 sentence.
+- coverageSummary: 1-2 sentences, under 60 words.
+- assumptions: at most 4 short items.
+- risks: at most 4 short items.
+- warnings: at most 4 short items.
 
 Output shape:
 {
@@ -402,16 +498,9 @@ Output shape:
     "fandom": "One Piece",
     "scope": "Arlong Park Arc",
     "granularity": "focused",
-    "coverage": "What this pack should cover.",
-    "contextApproach": "How timeline anchors/windows should likely be organized later.",
-    "estimatedEntryRange": { "min": 70, "max": 120, "rationale": "Derived from scope and granularity." },
-    "timelinePlan": ["High-level anchor/window plan only."],
-    "tagPlan": ["High-level tag/entity plan only."],
-    "titlePassPlan": ["How the next title-pass should be organized."],
+    "coverageSummary": "What this deck should cover at approval time.",
     "assumptions": ["Assumption to confirm."],
-    "exclusions": ["Out-of-scope material."],
-    "risks": ["Known risk."],
-    "nextStage": "Recommended next generation stage."
+    "risks": ["Known risk."]
   }
 }`;
 }
@@ -424,17 +513,110 @@ export function buildLoredeckCreatorBriefUserPrompt(context = {}) {
         granularity: cleanString(context.granularity || 'focused', 80),
         notes: cleanString(context.notes, 2000),
         revisionInstruction: cleanString(context.revisionInstruction, 2000),
-        previousBrief: isPlainObject(context.previousBrief) ? context.previousBrief : null,
+        previousBrief: isPlainObject(context.previousBrief) ? compactCreatorBriefForPrompt(context.previousBrief) : null,
         constraints: {
             noEntryGenerationYet: true,
             noTimelineGenerationYet: true,
+            noOutlineGenerationYet: true,
             noRequiredSpoilerBoundary: true,
             noRequiredAdaptationOrContinuityQuestion: true,
             entryCountMustBeDerived: true,
             coverageIsNotInjectionBoundary: true,
             sagaUseCase: 'long-form fanfic and roleplay Loredecks',
+            maxVisibleJsonTokens: 700,
         },
-    }, null, 2);
+    });
+}
+
+export function buildLoredeckCreatorOutlineSystemPrompt() {
+    return `You are Saga's Loredeck Creator story outline assistant.
+
+Return JSON only. Do not include markdown.
+
+Your task is to turn an approved compact Scope Brief into a reviewable story outline and Context plan. This stage helps the user confirm the deck shape before any Lorecard title generation.
+
+Hard limits:
+- Do not generate Lorecards, Lorecard titles, tag registries, timeline registry records, anchors, windows, facts, or injection text.
+- Do not ask for adaptation, continuity, spoiler boundary, or approximate entry count.
+- Keep the outline compact and useful for long-form fanfic/roleplay planning.
+- If the scope is still too broad or unclear, ask 1-3 clarifying questions and leave outline null.
+
+Outline quality:
+- Beats should be major story phases, scene clusters, reveals, state changes, or relationship/power shifts.
+- Context milestones should be the high-value browse/select points a user might choose before/after when starting a story.
+- Title batches should describe future title-pass slices, not actual titles.
+- Prefer playable pressure, secrets, relationship changes, faction consequences, locations, powers, obligations, and canon timing over wiki completeness.
+
+Field limits:
+- summary: 1 sentence.
+- coverageSummary: under 70 words.
+- beats: 4-12 items unless the scope is tiny.
+- contextMilestones: 4-16 items.
+- titleBatches: 2-8 items.
+- assumptions/risks: at most 4 short items each.
+
+Output shape:
+{
+  "summary": "short summary",
+  "clarifyingQuestions": [],
+  "warnings": [],
+  "outline": {
+    "label": "Arlong Park Arc outline",
+    "coverageSummary": "Reviewable story shape for the approved scope.",
+    "beats": [
+      {
+        "id": "cocoyasi-arrival",
+        "label": "Straw Hats reach Cocoyasi",
+        "type": "arrival",
+        "order": 10,
+        "summary": "Early arc pressure before Nami's full bargain is exposed.",
+        "contextRole": "Useful starting point for scenes before the reveal.",
+        "titleTargets": ["Nami secrecy", "village tension"]
+      }
+    ],
+    "contextMilestones": [
+      {
+        "id": "before-nami-asks-for-help",
+        "label": "Before Nami asks for help",
+        "type": "before_after",
+        "order": 40,
+        "summary": "Boundary before the emotional pivot and crew commitment.",
+        "contextRole": "A user can start just before this reveal."
+      }
+    ],
+    "titleBatches": [
+      {
+        "id": "characters-pressure",
+        "label": "Characters and pressure",
+        "type": "title_batch",
+        "order": 10,
+        "summary": "Future titles for character secrets, coercion, loyalties, and obligations."
+      }
+    ],
+    "assumptions": ["Assumption to confirm."],
+    "risks": ["Known risk."]
+  }
+}`;
+}
+
+export function buildLoredeckCreatorOutlineUserPrompt(context = {}) {
+    return JSON.stringify({
+        task: cleanString(context.task || 'Draft a reviewable Creator story outline and Context plan only.', 500),
+        approvedBrief: isPlainObject(context.brief) ? compactCreatorBriefForPrompt(context.brief) : null,
+        notes: cleanString(context.notes, 2000),
+        revisionInstruction: cleanString(context.revisionInstruction, 2000),
+        previousOutline: isPlainObject(context.previousOutline) ? normalizeCreatorOutline(context.previousOutline) : null,
+        constraints: {
+            approvedBriefRequired: true,
+            outlineOnly: true,
+            noEntryGenerationYet: true,
+            noLorecardTitleGenerationYet: true,
+            noTimelineRegistryGenerationYet: true,
+            noTagRegistryGenerationYet: true,
+            entryCountMustBeDerivedLater: true,
+            sagaUseCase: 'long-form fanfic and roleplay Loredecks',
+        },
+    });
 }
 
 export function buildLoredeckCreatorTitleSystemPrompt() {
@@ -442,12 +624,12 @@ export function buildLoredeckCreatorTitleSystemPrompt() {
 
 Return JSON only. Do not include markdown.
 
-Your task is to turn an approved Creator brief into reviewable future Lorecard titles. Generate titles only.
+Your task is to turn one approved Story Outline title batch into reviewable future Lorecard titles. Generate titles only.
 
 Hard limits:
 - Do not generate full Lorecards, facts, injection text, timeline anchors, timeline windows, or tag registries yet.
-- Do not ask the user for an approximate Lorecard count. Derive title count from the approved brief's granularity, coverage size, story density, and entry range.
-- If a deck is too large for one response, return a coherent first title batch and use batch.nextBatchHint to describe the next batch.
+- Do not ask the user for an approximate Lorecard count. Derive title count from granularity, coverage size, story density, and the approved outline.
+- Generate only the supplied targetTitleBatch. Do not continue into other outline batches.
 - When selectedTitleDrafts are supplied, revise only those selected title drafts and return replacements for them.
 
 Title quality rules:
@@ -499,15 +681,21 @@ Output shape:
 export function buildLoredeckCreatorTitleUserPrompt(context = {}) {
     return JSON.stringify({
         task: cleanString(context.task || 'Draft a reviewable Creator title pass only.', 500),
-        approvedBrief: isPlainObject(context.brief) ? context.brief : null,
+        approvedBrief: isPlainObject(context.brief) ? compactCreatorBriefForPrompt(context.brief) : null,
+        approvedOutline: isPlainObject(context.outline) ? normalizeCreatorOutline(context.outline) : null,
+        targetTitleBatch: isPlainObject(context.targetTitleBatch) ? context.targetTitleBatch : null,
         notes: cleanString(context.notes, 2000),
         revisionInstruction: cleanString(context.revisionInstruction, 2000),
         previousTitleDrafts: Array.isArray(context.previousTitleDrafts) ? context.previousTitleDrafts : [],
         selectedTitleDrafts: Array.isArray(context.selectedTitleDrafts) ? context.selectedTitleDrafts : [],
+        draftedTitleBatchIds: cleanStringArray(context.draftedTitleBatchIds, 120, 160),
         titlePassLimit: cleanInteger(context.titlePassLimit, 80, 10, 120),
         constraints: {
             approvedBriefRequired: true,
             titlesOnly: true,
+            approvedOutlineRequired: true,
+            targetTitleBatchRequired: true,
+            currentTitleBatchOnly: true,
             noEntryGenerationYet: true,
             noTimelineGenerationYet: true,
             noTagRegistryGenerationYet: true,
@@ -523,7 +711,7 @@ export function buildLoredeckCreatorPlanningSystemPrompt() {
 
 Return JSON only. Do not include markdown.
 
-Your task is to turn an approved Creator brief and approved title drafts into reviewable planning proposals for Pending Review.
+Your task is to turn one approved title batch into reviewable timeline/tag planning proposals for Pending Review.
 
 Hard limits:
 - Do not generate full Lorecards, facts, injection text, Lorecard bodies, or entry overrides yet.
@@ -532,8 +720,8 @@ Hard limits:
 - Preserve stable IDs and namespaced tags.
 - Timeline anchors/windows should be useful for Context gating and should prevent future canon leakage.
 - Tags should support retrieval, filtering, Deck Health, and future Lorecard generation. Avoid tag spam and avoid vague unnamespaced tags when a namespace is natural.
-- Use approvedTitleDrafts to infer the minimum useful timeline and tag shape; do not attempt full deck completeness in one pass.
-- If the approved title shape is insufficient, ask 1-3 clarifying questions and return an empty proposals array.
+- Use approvedTitleDrafts from the supplied targetPlanningBatch only. Do not continue into other title batches or attempt full deck completeness in one pass.
+- If the target batch shape is insufficient, ask 1-3 clarifying questions and return an empty proposals array.
 
 Planning guidance:
 - Use anchors for meaningful story moments, reveals, arrivals, battles, state changes, relationship pivots, or date/arc boundaries.
@@ -591,15 +779,21 @@ export function buildLoredeckCreatorPlanningUserPrompt(context = {}) {
     return JSON.stringify({
         task: cleanString(context.task || 'Draft reviewable Creator timeline anchors/windows and tag definitions only.', 500),
         generatedPackId: cleanPackId(context.generatedPackId || '', 140),
-        approvedBrief: isPlainObject(context.brief) ? context.brief : null,
+        approvedBrief: isPlainObject(context.brief) ? compactCreatorBriefForPrompt(context.brief) : null,
+        approvedOutline: isPlainObject(context.outline) ? normalizeCreatorOutline(context.outline) : null,
+        targetPlanningBatch: isPlainObject(context.targetPlanningBatch) ? context.targetPlanningBatch : null,
         approvedTitleDrafts: Array.isArray(context.approvedTitleDrafts) ? context.approvedTitleDrafts : [],
         notes: cleanString(context.notes, 2000),
         existingTimelineIds: cleanStringArray(context.existingTimelineIds, 160, 180),
         existingTagIds: cleanStringArray(context.existingTagIds, 240, 140),
-        proposalLimit: cleanInteger(context.proposalLimit, 40, 8, 80),
+        queuedPlanningBatchIds: cleanStringArray(context.queuedPlanningBatchIds, 120, 160),
+        proposalLimit: cleanInteger(context.proposalLimit, 24, 6, 40),
         constraints: {
             approvedBriefRequired: true,
+            approvedOutlineRequired: true,
             approvedTitlesRequired: true,
+            targetPlanningBatchRequired: true,
+            currentPlanningBatchOnly: true,
             timelineAndTagsOnly: true,
             noEntryGenerationYet: true,
             noEntryFactsOrInjectionYet: true,
@@ -615,13 +809,14 @@ export function buildLoredeckCreatorEntrySystemPrompt() {
 
 Return JSON only. Do not include markdown.
 
-Your task is to generate reviewable schema v3 Lorecard proposals from approved title drafts and accepted planning metadata.
+Your task is to generate reviewable schema v3 Lorecard proposals from one accepted planning batch and its target title drafts.
 
 Hard limits:
 - Return only upsert_entry proposals. Do not return timeline, tag, disable, restore, manifest, or settings proposals.
 - Do not claim Lorecards are applied. They are drafts for edit-before-queue review, then Pending Review, then acceptance.
 - Generate one Lorecard proposal per targetTitleDraft.
 - Treat targetTitleDrafts as the entire assignment for this response. Do not continue into unlisted titles, even if the deck needs more entries.
+- Use targetPlanningBatch as the current planning context. Do not draft titles from other planning batches.
 - Use targetTitleDraft.titleId as entry.id unless it is invalid; preserve stable IDs.
 - Use only acceptedTimelineRegistry anchors/windows and acceptedTagRegistry tags. Do not invent anchor IDs or tag IDs at this stage.
 - Every entry must be schemaVersion 3 with content.fact, content.injection, context, retrieval, tags, category, canon/canonStatus, relevance, and priority.
@@ -713,7 +908,9 @@ export function buildLoredeckCreatorEntryUserPrompt(context = {}) {
     return JSON.stringify({
         task: cleanString(context.task || 'Draft one micro-batch of schema v3 lore entry proposals only.', 500),
         generatedPackId: cleanPackId(context.generatedPackId || '', 140),
-        approvedBrief: isPlainObject(context.brief) ? context.brief : null,
+        approvedBrief: isPlainObject(context.brief) ? compactCreatorBriefForPrompt(context.brief) : null,
+        targetPlanningBatch: isPlainObject(context.targetPlanningBatch) ? context.targetPlanningBatch : null,
+        acceptedPlanningBatchIds: cleanStringArray(context.acceptedPlanningBatchIds, 120, 160),
         targetTitleDrafts: Array.isArray(context.targetTitleDrafts) ? context.targetTitleDrafts : [],
         acceptedTimelineRegistry: isPlainObject(context.timelineRegistry) ? context.timelineRegistry : null,
         acceptedTagRegistry: isPlainObject(context.tagRegistry) ? context.tagRegistry : null,
@@ -730,6 +927,8 @@ export function buildLoredeckCreatorEntryUserPrompt(context = {}) {
             approvedBriefRequired: true,
             approvedTitlesRequired: true,
             acceptedPlanningMetadataRequired: true,
+            targetPlanningBatchRequired: true,
+            currentPlanningBatchOnly: true,
             upsertEntriesOnly: true,
             currentMicroBatchOnly: true,
             doNotGenerateUnlistedTitles: true,
@@ -860,4 +1059,5 @@ export const __loredeckAssistantTestHooks = {
     parseAssistantJson,
     parseLoredeckAssistantResponse,
     normalizeAssistantProposal,
+    parseLoredeckCreatorOutlineResponse,
 };

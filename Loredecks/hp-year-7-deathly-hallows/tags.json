@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "tags": {
+    "artifact:deathly-hallows": {
+      "label": "Deathly Hallows",
+      "description": "Harry Potter bundled Loredeck artifact tag."
+    },
+    "calendar-year:1997": {
+      "label": "1997",
+      "description": "Harry Potter bundled Loredeck calendar year tag."
+    },
+    "event:second-wizarding-war": {
+      "label": "Second Wizarding War",
+      "description": "Harry Potter bundled Loredeck event tag."
+    },
+    "school-year:7": {
+      "label": "7",
+      "description": "Harry Potter bundled Loredeck school year tag."
+    }
+  }
+}

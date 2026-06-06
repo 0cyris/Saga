@@ -19,10 +19,10 @@
       "truthStatus": "hidden",
       "revealPolicy": "private",
       "tags": [
-        "map",
-        "Hogwarts",
-        "secret",
-        "artifact"
+        "artifact:marauders-map",
+        "place:hogwarts",
+        "knowledge:secret",
+        "category:artifact"
       ],
       "priority": 10,
       "status": "active",
@@ -153,10 +153,10 @@
       "truthStatus": "hidden",
       "revealPolicy": "private",
       "tags": [
-        "cloak",
-        "Harry",
-        "artifact",
-        "stealth"
+        "artifact:invisibility-cloak",
+        "character:harry-potter",
+        "category:artifact",
+        "tactic:stealth"
       ],
       "priority": 10,
       "status": "active",
@@ -271,10 +271,10 @@
       "truthStatus": "hidden",
       "revealPolicy": "do_not_reveal",
       "tags": [
-        "horcrux",
-        "voldemort",
-        "secret",
-        "dark-magic"
+        "magic:horcrux",
+        "character:voldemort",
+        "knowledge:secret",
+        "magic:dark-magic"
       ],
       "priority": 90,
       "status": "active",

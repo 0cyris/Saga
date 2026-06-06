@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "tags": {
+    "calendar-year:1993": {
+      "label": "1993",
+      "description": "Harry Potter bundled Loredeck calendar year tag."
+    },
+    "place:azkaban": {
+      "label": "Azkaban",
+      "description": "Harry Potter bundled Loredeck place tag."
+    },
+    "place:hogwarts": {
+      "label": "Hogwarts",
+      "description": "Harry Potter bundled Loredeck place tag."
+    },
+    "school-year:3": {
+      "label": "3",
+      "description": "Harry Potter bundled Loredeck school year tag."
+    }
+  }
+}

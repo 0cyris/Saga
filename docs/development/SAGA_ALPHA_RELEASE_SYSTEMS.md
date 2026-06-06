@@ -67,7 +67,7 @@ Continuity tracking, scan cadence, status feedback, and integration with Context
 
 ### 13. Deck Health Center
 
-Manifest/schema validation, tag validation, Context/timeline validation, coverage warnings, stale scan state, grouped issues, ignored/resolved issue state, deterministic repair actions, and Lore Assistant repair routing.
+Manifest/schema validation, tag validation, Context/timeline validation, coverage warnings, stale scan state, automatic post-accept reruns when possible, grouped issues, ignored/resolved issue state, deterministic repair actions, and Lore Assistant repair routing.
 
 ### 14. Tag System
 
@@ -75,11 +75,11 @@ Tag registry, namespaced tags, tag manager, bulk tag edits, malformed tag repair
 
 ### 15. Import, Export, And Update System
 
-Individual `.saga-loredeck.json` export, selected bulk export, local import, URL/GitHub import, update preview, content-hash comparison, collision handling, local modification warnings, and Custom-copy installation behavior.
+Individual `.saga-loredeck.json` export, selected bulk export, local import, URL/GitHub import, update preview, canonical content-hash comparison, declared-hash mismatch warnings, collision handling, local modification warnings, and Custom-copy installation behavior.
 
 ### 16. Loredeck Creator
 
-The staged generation workflow: scope brief, granularity, title pass, timeline/tag planning, micro-batched Lorecard drafting, Generated Loredeck shell creation, Pending Review integration, validation, and export readiness.
+The staged generation workflow: compact Scope Brief, granularity, Story Outline and Context plan, outline-batched title pass, title-batch timeline/tag planning, planning-aware micro-batched Lorecard drafting, Generated Loredeck shell creation, Pending Review integration, validation, deterministic Creator-pipeline export readiness, and reviewed Generated-to-Custom finalization.
 
 ### 17. Lore Assistant
 

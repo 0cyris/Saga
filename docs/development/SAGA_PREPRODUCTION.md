@@ -1179,7 +1179,7 @@ The Creator will eventually generate timelines, tag registries, title lists, and
 - Field-level diffs for entries, tags, timeline anchors, and timeline windows.
 - Clear proposal provenance, especially `lore_assistant`, `manual`, `bulk_edit`, `safe_repair`, and later `creator`.
 - Assistant proposal reason, confidence, and risk display.
-- Deck Health rerun or stale-health warning after accepting generated or assistant patches.
+- Automatic Deck Health rerun when possible, with stale-health warning fallback after accepting generated or assistant patches.
 - Acceptance warnings for changes that affect Context gates, disable entries, create undefined tags, or alter timeline anchors/windows.
 - Batch review affordances so generated title and entry batches can be accepted, rejected, or revised in chunks.
 
@@ -1190,32 +1190,37 @@ This is the bridge from Lore Assistant MVP to Loredeck Creator. The Creator shou
 1. User requests a Loredeck.
 2. Saga identifies fandom, coverage range, and granularity.
 3. Saga narrows vague or oversized scope when needed.
-4. Saga produces a pack brief with assumptions and internal derived generation scale.
+4. Saga produces a compact Scope Brief with title, ID, fandom, scope, granularity, coverage summary, assumptions, and risks.
 5. User approves or revises the brief.
-6. Saga drafts entry titles only as a reviewable planning batch.
-7. User adds, removes, merges, splits, revises, or approves titles.
-8. Saga drafts timeline anchors/windows and tag/entity definitions appropriate to the approved coverage and title shape.
-9. User reviews the timeline/tag planning proposals in Pending Review.
-10. User accepts selected planning metadata into the Generated Loredeck.
-11. Saga uses accepted planning metadata plus approved titles as the full-entry generation context.
-12. Saga drafts full schema v3 entries for approved titles into an edit-before-queue draft batch.
-13. User reviews, edits, drops, revises, or queues selected entry drafts into Pending Review.
-14. User accepts selected entry proposals into the Generated Loredeck.
-15. Saga runs Deck Health and export validation on the accepted Generated Loredeck.
+6. Saga drafts a Story Outline and Context plan with major beats, high-value Context milestones, and future title-batch slices.
+7. User approves or revises the outline.
+8. Saga drafts entry titles only as a reviewable planning batch from the approved brief and outline.
+9. User adds, removes, merges, splits, revises, or approves titles.
+10. Saga drafts timeline anchors/windows and tag/entity definitions appropriate to the approved coverage and title shape.
+11. User reviews the timeline/tag planning proposals in Pending Review.
+12. User accepts selected planning metadata into the Generated Loredeck.
+13. Saga uses accepted planning metadata plus approved titles as the full-entry generation context.
+14. Saga drafts full schema v3 entries for approved titles into an edit-before-queue draft batch.
+15. User reviews, edits, drops, revises, or queues selected entry drafts into Pending Review.
+16. User accepts selected entry proposals into the Generated Loredeck.
+17. Saga runs Deck Health and export validation on the accepted Generated Loredeck.
 
-No full card generation should happen until the scope, title list, timeline, and tag/entity registry have been reviewed.
+No full card generation should happen until the scope, outline, title list, timeline, and tag/entity registry have been reviewed.
 
-The initial title pass is intentionally allowed before timeline and tag generation because titles are cheap to review and expose scope mistakes early. Approved titles are not entries; they are planning records that guide later timeline, tag, and full-entry stages.
+The Story Outline stage is intentionally inserted before title generation because it catches scope mistakes at a cheaper granularity than title lists. The initial title pass is still allowed before timeline and tag generation because titles are cheap to review and expose remaining coverage mistakes early. Approved titles are not entries; they are planning records that guide later timeline, tag, and full-entry stages.
 
-Full-entry drafting must be chunked. A Creator call should never attempt to draft an entire Loredeck or even a large approved title set at once. Saga should select the next small set of approved titles that are not already accepted, pending, or sitting in the edit-before-queue draft batch, then ask the model to draft only that micro-batch. This keeps thinking/reasoning models from spending the entire response budget before producing usable JSON, makes retries cheaper, and lets users review or revise a partial batch before continuing.
+Full-entry drafting must be chunked. A Creator call should never attempt to draft an entire Loredeck or even a large approved title set at once. Saga should select the next small set of approved titles from one accepted planning batch that are not already accepted, pending, or sitting in the edit-before-queue draft batch, then ask the model to draft only that micro-batch. This keeps thinking/reasoning models from spending the entire response budget before producing usable JSON, makes retries cheaper, and lets users review or revise a partial batch before continuing.
 
 Implementation policy:
 
 - Default entry micro-batch size should stay small, currently three Lorecards per model call.
 - The prompt must frame `targetTitleDrafts` as the whole assignment for that response.
+- Title generation should also be chunked by the approved Story Outline's `titleBatches`. Each title-pass model call should receive one `targetTitleBatch`, append that batch's drafts, and preserve already approved titles from other batches.
+- Timeline/tag planning should be chunked by approved title batch as well. Each planning call should receive one `targetPlanningBatch`, only the approved titles in that batch, and existing registry IDs so it can avoid duplicates.
+- Entry drafting should require at least one accepted planning batch. Each entry micro-batch should draw titles from one accepted planning batch and pass that planning batch to the model with `targetTitleDrafts`.
 - The Creator may offer a guarded multi-batch button, but it should still run separate provider calls and stop cleanly if a batch asks for clarification or fails.
 - Successful batches should be cached immediately in the edit-before-queue draft batch so later failures do not discard earlier work.
-- Title, timeline, tag, and entry stages remain separately reviewable; chunking entry drafts should not bypass Pending Review.
+- Outline, title, timeline, tag, and entry stages remain separately reviewable; chunking entry drafts should not bypass Pending Review.
 
 ### Coverage Versus Injection
 
@@ -1423,18 +1428,23 @@ Implemented MVP behavior:
 - Requests Lore Value Rubric metadata for assistant proposals and surfaces scene utility, behavioral impact, Context fit, wiki-summary risk, rubric notes, and local quality flags in Pending Review.
 - Drafts now land in an Assistant Draft Batch first, where users can select proposals, queue selected/all into Pending Review, drop selected proposals, edit draft JSON, or ask the assistant to revise selected proposals before queueing.
 - Deck Health validation issues can now be selected from the editor validation preview and sent to the Lore Assistant as repair-planning context; returned repairs land in the Assistant Draft Batch before Pending Review.
-- Loredeck Creator intake now drafts an approval-gated pack brief from fandom, scope, granularity, and notes. The brief records internal derived generation scale, Context approach, timeline/tag/title-pass plans, assumptions, exclusions, risks, and next stage before any generated entries exist.
-- Loredeck Creator title-pass and planning now generate reviewable titles first, then queue timeline anchors/windows and tag definitions onto a Generated Loredeck shell through Pending Review before full entry generation exists.
+- Loredeck Creator intake now drafts an approval-gated compact Scope Brief from fandom, scope, granularity, and notes without asking the model to plan the whole Loredeck in one response.
+- Loredeck Creator now adds a reviewable Story Outline and Context plan between Scope Brief approval and title generation, giving users a cheap approval gate for major beats, Context milestones, and title-batch slices.
+- Loredeck Creator title-pass generation now follows the approved Story Outline's title-batch queue, generating one target batch per provider call and appending/redrafting only that batch instead of replacing the full title set.
+- Loredeck Creator timeline/tag planning now follows approved title batches, queueing one target batch of planning proposals at a time onto a Generated Loredeck shell through Pending Review before full entry generation exists.
+- Loredeck Creator entry drafting now tracks accepted planning batches and drafts Lorecard micro-batches from one accepted planning batch at a time, preserving batch provenance on generated entry drafts.
 - Loredeck Creator entry drafting now uses accepted planning metadata plus approved titles to draft schema v3 entry proposals into the same edit-before-queue batch used by the Lore Assistant before they can enter Pending Review.
 - Creator entry drafting now runs in resumable micro-batches instead of one large call: the next approved, undrafted titles are selected, the model drafts only that small batch, and successful batches are cached before any optional follow-on batch starts.
 - Generated Loredecks now validate and export from accepted Creator entries without requiring a fetchable manifest path; the virtual generated manifest derives entry stats, local timeline/tag registries feed Deck Health, and export readiness blocks unresolved Pending Review or draft-batch state.
+- Generated Loredeck export readiness now understands the staged Creator pipeline: linked Creator job, drafted title batches, queued/accepted planning batches, accepted generated Lorecards, and approved-title coverage are surfaced as deterministic readiness warnings before sharing.
+- Reviewed Generated Loredecks can now be finalized into normal editable Custom Loredecks. Finalization validates first, respects the same readiness blockers as export, warns before proceeding with incomplete Creator coverage, embeds accepted entries/registries into a Custom virtual deck, and leaves the original Generated draft intact.
+- Pending Review acceptance now automatically reruns Deck Health when accepted entry/tag/timeline changes affect validation and the Loredeck can be validated. If validation cannot run, Saga keeps the stale-health warning visible.
+- Exported Loredeck bundles now carry a stable canonical content hash, and import/update previews recompute that hash from installable deck content rather than volatile timestamps. The preview surfaces bundle type, embedded Lorecard count, dropped pending proposals, declared-hash mismatches, duplicate matches, and update/install source metadata.
 - Leaves runtime behavior unchanged until the user accepts queued Pending Review items.
 
 Not included yet:
 
 - Multi-turn assistant chat memory.
-- Import/install/update polish for exported Loredeck bundles.
-- Automatic Deck Health rerun after accepting assistant proposals.
 
 ## Loredeck Editor
 
@@ -1729,3 +1739,7 @@ Legacy cleanup checkpoint: the Wandlight compatibility posture has changed. Saga
 54. Done: remove the root `Lore/` fallback and make `Loredecks/hp-golden-trio` the only bundled HP reference source. The loader now reports a missing Loredeck manifest instead of falling back to legacy root data, and the old root `Lore/` folder has been removed.
 55. Done: chunk Loredeck Creator full-entry drafting into resumable micro-batches so large generated Loredecks no longer depend on a single massive model response.
 56. Done: scaffold the Harry Potter Golden Trio split-deck family from [HP_LOREDECK_SPLIT_ANCHOR_PLAN.md](HP_LOREDECK_SPLIT_ANCHOR_PLAN.md). `hp-core` plus Year 1-7 folders now have first-class dense `timeline.json` registries, Loredeck manifests, deck-family metadata, and a reproducible scaffold/test script. These decks are not yet registered in `Loredecks/index.json`; entry splitting and conformance checks should happen before replacing the current monolithic bundled deck.
+57. Done: harden Loredeck Creator readiness after staged generation. Generated Loredecks now show deterministic Creator pipeline warnings for missing linked jobs, incomplete title batches, unaccepted planning batches, unresolved approved titles, Pending Review blockers, draft-batch blockers, stale Deck Health, and export/share readiness.
+58. Done: add Generated-to-Custom finalization for reviewed Creator output. Generated Loredeck metadata now offers `Finalize as Custom`, validates before copying, blocks unresolved Pending Review or draft-batch state, preserves provenance in `derivedFrom`, converts accepted generated entries into Custom embedded overrides, and enforces generated readiness during selected export.
+59. Done: close the Pending Review health loop. Accepting health-impact entry, tag, or timeline proposals now runs a quiet Deck Health validation immediately afterward when possible, updates cached deck health/status, refreshes library/runtime surfaces, and falls back to a stale-health warning if the deck cannot be validated.
+60. Done: polish exported Loredeck bundle install/update diagnostics. Export now includes a canonical content hash that ignores volatile wrapper fields, import/update recomputes the hash for duplicate/update detection, warns on declared-hash mismatch, and surfaces bundle type, embedded Lorecard count, and dropped pending proposals in single-file and bulk previews.

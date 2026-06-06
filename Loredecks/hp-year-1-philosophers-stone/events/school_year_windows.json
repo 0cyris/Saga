@@ -17,10 +17,10 @@
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
-        "year-1",
-        "1991",
-        "philosophers-stone",
-        "hogwarts"
+        "school-year:1",
+        "calendar-year:1991",
+        "artifact:philosophers-stone",
+        "place:hogwarts"
       ],
       "priority": 75,
       "status": "active",

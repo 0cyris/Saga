@@ -17,10 +17,10 @@
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
-        "year-2",
-        "1992",
-        "chamber-secrets",
-        "hogwarts"
+        "school-year:2",
+        "calendar-year:1992",
+        "event:chamber-of-secrets",
+        "place:hogwarts"
       ],
       "priority": 75,
       "status": "active",

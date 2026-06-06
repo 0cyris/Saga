@@ -17,10 +17,10 @@
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
-        "Harry",
-        "Gryffindor",
-        "student",
-        "protagonist"
+        "character:harry-potter",
+        "house:gryffindor",
+        "role:student",
+        "role:protagonist"
       ],
       "priority": 90,
       "status": "active",
@@ -129,10 +129,10 @@
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
-        "Hermione",
-        "Gryffindor",
-        "student",
-        "knowledge"
+        "character:hermione-granger",
+        "house:gryffindor",
+        "role:student",
+        "category:knowledge"
       ],
       "priority": 75,
       "status": "active",
@@ -243,10 +243,10 @@
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
-        "Ron",
-        "Weasley",
-        "Gryffindor",
-        "student"
+        "character:ron-weasley",
+        "family:weasley",
+        "house:gryffindor",
+        "role:student"
       ],
       "priority": 75,
       "status": "active",
@@ -356,10 +356,10 @@
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
-        "Draco",
-        "Malfoy",
-        "Slytherin",
-        "rival"
+        "character:draco-malfoy",
+        "family:malfoy",
+        "house:slytherin",
+        "relationship:rival"
       ],
       "priority": 75,
       "status": "active",

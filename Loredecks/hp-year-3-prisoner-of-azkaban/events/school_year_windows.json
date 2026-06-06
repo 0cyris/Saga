@@ -17,10 +17,10 @@
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
-        "year-3",
-        "1993",
-        "azkaban",
-        "hogwarts"
+        "school-year:3",
+        "calendar-year:1993",
+        "place:azkaban",
+        "place:hogwarts"
       ],
       "priority": 75,
       "status": "active",
