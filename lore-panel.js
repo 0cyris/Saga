@@ -87,7 +87,7 @@ import {
     buildLoredeckCreatorEntryUserPrompt,
 } from './loredeck-assistant.js';
 import { analyzeContextQuery, clearContextIndexCache, findContextAnchors, getContextIndexSync, loadContextIndex, normalizeContextSearchText, rankContextAnchors, contextTextIncludesTerm } from './context-index.js';
-import { applyContextResolutionResults, resolveAndApplyContextsFromContext, resolveContextsWithModel } from './context-resolver.js';
+import { applyContextResolutionResults, buildContextResolutionAudit, buildResolverContextFromState, resolveAndApplyContextsFromContext, resolveContextsWithModel } from './context-resolver.js';
 import { runAutoRelevance, applyAutoRelevanceSuggestions, clearAutoRelevanceSuggestions, rejectAutoRelevanceSuggestions } from './auto-relevance.js';
 import {
     buildFolderTree,
@@ -13197,6 +13197,7 @@ function createLoredeckContextCard(state = getState(), contextIndex = getContext
     }));
     card.appendChild(resolveActions);
     card.appendChild(createContextResolutionProposalPanel(state));
+    card.appendChild(createContextResolutionAuditPanel(state));
 
     const list = document.createElement('div');
     list.className = 'wandlight-loredeck-context-list';
@@ -13221,10 +13222,57 @@ function clearContextResolutionProposals() {
     saveState(state, { syncPrompt: false });
 }
 
+function createContextResolutionAuditPanel(state = getState()) {
+    const audit = state?.lorePanel?.contextResolutionAudit || null;
+    if (!audit || !audit.createdAt) return document.createDocumentFragment();
+    const wrap = document.createElement('div');
+    wrap.className = 'wandlight-loredeck-context-quick wandlight-context-resolution-audit';
+
+    const header = document.createElement('div');
+    header.className = 'wandlight-loredeck-context-quick-header';
+    const title = document.createElement('div');
+    title.className = 'wandlight-runtime-card-title';
+    title.textContent = 'Last Resolver Check';
+    addTooltip(title, 'Audit summary for the most recent local or Reasoner-backed Context resolver pass.');
+    header.appendChild(title);
+
+    const chips = document.createElement('div');
+    chips.className = 'wandlight-loredeck-row-meta';
+    chips.appendChild(createStatusPill(audit.status || 'unknown', 'Final resolver status for the latest check.'));
+    if (audit.cached) chips.appendChild(createStatusPill('Cached', 'This result came from the repeated-check cache.'));
+    if (audit.inFlight) chips.appendChild(createStatusPill('In flight skipped', 'Saga skipped a duplicate Context Reasoner request because one was already running.'));
+    if (audit.counts?.localApplied) chips.appendChild(createStatusPill(`${audit.counts.localApplied} local applied`, 'High-confidence local Context updates applied to unlocked Loredecks.'));
+    if (audit.counts?.proposed) chips.appendChild(createStatusPill(`${audit.counts.proposed} proposed`, 'Bounded Reasoner proposals waiting for review.'));
+    if (audit.counts?.skippedLocked) chips.appendChild(createStatusPill(`${audit.counts.skippedLocked} locked`, 'Loredecks skipped because manual lock is enabled.'));
+    if (audit.counts?.skippedLowConfidence) chips.appendChild(createStatusPill(`${audit.counts.skippedLowConfidence} low confidence`, 'Local or model results left unresolved because confidence was too low.'));
+    if (audit.counts?.unresolved) chips.appendChild(createStatusPill(`${audit.counts.unresolved} unresolved`, 'Loredecks that still need clearer Context or manual selection.'));
+    chips.appendChild(createStatusPill(new Date(audit.createdAt).toLocaleTimeString(), 'When this resolver check completed.'));
+    header.appendChild(chips);
+    wrap.appendChild(header);
+
+    return wrap;
+}
+
+function storeContextResolutionAuditFromResult(result = null, context = {}, sourceText = '', source = 'manual_context') {
+    const state = getState();
+    if (!state?.lorePanel) return null;
+    const audit = buildContextResolutionAudit(result || {}, context || {}, {
+        source,
+        sourceText,
+    });
+    state.lorePanel.contextResolutionAudit = audit;
+    saveState(state, { syncPrompt: false });
+    return audit;
+}
+
 function storeContextResolutionProposalsFromResult(result = null, context = {}) {
+    if (result?.status === 'in_flight') return getContextResolutionProposals().length;
     const proposals = Array.isArray(result?.proposals) ? result.proposals : [];
     const state = getState();
     if (!state?.lorePanel) return 0;
+    if (result?.cacheRecord) {
+        state.lorePanel.contextResolutionCache = result.cacheRecord;
+    }
     state.lorePanel.contextResolutionProposals = proposals.map(proposal => ({
         packId: String(proposal.packId || '').trim(),
         candidateId: String(proposal.candidateId || '').trim(),
@@ -13237,8 +13285,9 @@ function storeContextResolutionProposalsFromResult(result = null, context = {}) 
     state.lorePanel.contextResolutionProposalMeta = proposals.length
         ? {
             createdAt: Date.now(),
-            source: 'manual_reasoner',
+            source: result?.cached === true ? 'manual_reasoner_cached' : 'manual_reasoner',
             contextLabel: context.label || context.canonBoundary || context.sceneDate || '',
+            cached: result?.cached === true,
         }
         : null;
     saveState(state, { syncPrompt: false });
@@ -13697,19 +13746,45 @@ function seedLoredeckContextFromRuntimeContext(packId, context = {}) {
     }, `Seed Context from runtime context: ${getLoredeckDisplayName(packId)}`);
 }
 
+function buildContextResolutionSourceText(state = {}, resolverContext = {}) {
+    const brief = state?.contextBrief || {};
+    const signals = brief?.signals || {};
+    const evidence = Array.isArray(brief?.evidence) ? brief.evidence : [];
+    const uncertaintyNotes = Array.isArray(brief?.uncertainty?.notes) ? brief.uncertainty.notes : [];
+    return [
+        resolverContext.label,
+        resolverContext.summary,
+        resolverContext.sceneDate,
+        resolverContext.subjectiveDate,
+        resolverContext.canonBoundary,
+        resolverContext.branchId,
+        resolverContext.timeTravelMode,
+        resolverContext.arc,
+        resolverContext.phase,
+        resolverContext.season,
+        resolverContext.episode,
+        resolverContext.chapter,
+        resolverContext.issue,
+        resolverContext.quest,
+        resolverContext.gameStage,
+        resolverContext.stardate,
+        ...(Array.isArray(signals.positionPhrases) ? signals.positionPhrases : []),
+        ...(Array.isArray(signals.eventLabels) ? signals.eventLabels : []),
+        ...evidence.map(item => item?.quote || item?.text || item?.snippet),
+        ...uncertaintyNotes,
+    ].map(value => String(value || '').trim()).filter(Boolean).join(' | ').slice(0, 3000);
+}
+
 async function handleResolveContextsFromContext(btn = null) {
     await runBusyAction(btn, 'Resolving...', async () => {
         const state = getState();
-        const context = state?.loreContext || {};
+        const context = buildResolverContextFromState(state);
+        const sourceText = buildContextResolutionSourceText(state, context);
         const result = await resolveAndApplyContextsFromContext(context, {
             contextSource: 'local_alias',
-            sourceText: [
-                context.sceneDate,
-                context.subjectiveDate,
-                context.canonBoundary,
-                context.branchId,
-            ].filter(Boolean).join(' | '),
+            sourceText,
         });
+        storeContextResolutionAuditFromResult(result, context, sourceText, 'manual_local_resolve');
         refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
         refreshHeader();
         if (result.appliedCount > 0) {
@@ -13736,24 +13811,27 @@ async function handleModelResolveContexts(btn = null) {
             return;
         }
         const state = getState();
-        const context = state?.loreContext || {};
+        const context = buildResolverContextFromState(state);
+        const sourceText = buildContextResolutionSourceText(state, context);
         const result = await resolveContextsWithModel(context, {
             explicit: true,
             applyModel: false,
-            sourceText: [
-                context.sceneDate,
-                context.subjectiveDate,
-                context.canonBoundary,
-                context.branchId,
-                context.timeTravelMode,
-            ].filter(Boolean).join(' | '),
+            sourceText,
+            resolutionCache: state?.lorePanel?.contextResolutionCache || null,
         });
+        if (result.status === 'in_flight') {
+            storeContextResolutionAuditFromResult(result, context, sourceText, 'manual_reasoner');
+            toast('A Context Reasoner request is already running.', 'warning');
+            return;
+        }
+        storeContextResolutionAuditFromResult(result, context, sourceText, result.cached ? 'manual_reasoner_cached' : 'manual_reasoner');
         const proposalCount = storeContextResolutionProposalsFromResult(result, context);
         refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
         refreshHeader();
         if (proposalCount > 0) {
             const localText = result.localAppliedCount ? ` Local resolver also updated ${result.localAppliedCount} Loredeck${result.localAppliedCount === 1 ? '' : 's'}.` : '';
-            toast(`Reasoner drafted ${proposalCount} Context proposal${proposalCount === 1 ? '' : 's'} for review.${localText}`, 'success');
+            const verb = result.cached ? 'Reopened cached' : 'Reasoner drafted';
+            toast(`${verb} ${proposalCount} Context proposal${proposalCount === 1 ? '' : 's'} for review.${localText}`, 'success');
             return;
         }
         if (result.localAppliedCount > 0) {
@@ -13766,6 +13844,10 @@ async function handleModelResolveContexts(btn = null) {
         }
         if (!result.targetPackIds?.length) {
             toast('No unlocked unresolved Loredecks need model fallback.', 'info');
+            return;
+        }
+        if (result.cached) {
+            toast('Same Context was already checked; cached result had no confident bounded candidate.', 'info');
             return;
         }
         toast('Reasoner fallback did not find a confident bounded Context candidate.', 'warning');
@@ -19768,7 +19850,7 @@ function createLoredeckPendingReviewCard(pack) {
     actions.className = 'wandlight-primary-actions';
     const acceptAll = createButton('Accept All', 'Apply every pending Loredeck change to this Custom Loredeck, then refresh Deck Health if accepted changes affect validation.', async (btn) => {
         await runBusyAction(btn, 'Accepting...', async () => {
-            await acceptLoredeckPendingChanges(pack);
+            await acceptLoredeckPendingChanges(pack, pending.map(change => change.changeId));
         });
     }, 'wandlight-primary-button');
     acceptAll.disabled = !pending.length;
@@ -25445,8 +25527,11 @@ async function refreshLoredeckHealthAfterAcceptedPendingChanges(pack = {}, accep
     if (!fresh) return null;
     if (!canValidateLoredeckInEditor(fresh)) {
         refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
-        toast('Accepted changes, but Deck Health could not rerun because this Loredeck has no valid manifest or accepted embedded data yet.', 'warning');
-        return null;
+        if (isGeneratedLoredeckPack(fresh) && !getAcceptedVirtualLoredeckEntries(fresh).length) {
+            return { skipped: true, reason: 'generated_shell_without_entries' };
+        }
+        toast('Accepted changes, but Deck Health could not rerun because this Loredeck is not validatable yet.', 'warning');
+        return { skipped: true, reason: 'not_validatable' };
     }
     const validation = await validateLoredeckForEditor(fresh, null, { quiet: true, updateLibrary: true });
     if (!validation.health) {
@@ -25464,19 +25549,25 @@ async function refreshLoredeckHealthAfterAcceptedPendingChanges(pack = {}, accep
 }
 
 async function acceptLoredeckPendingChanges(pack, changeIds = []) {
+    const freshPack = getFreshLoredeckLibraryPack(pack?.packId, pack);
+    if (!freshPack?.packId) {
+        toast('Loredeck is no longer available.', 'warning');
+        return false;
+    }
     const idSet = new Set(normalizeLoredeckPendingIdList(changeIds));
-    const pending = getLoredeckPendingChanges(pack);
+    const pending = getLoredeckPendingChanges(freshPack);
     const selected = idSet.size ? pending.filter(change => idSet.has(change.changeId)) : pending;
     if (!selected.length) {
         toast('No pending Loredeck changes selected.', 'warning');
         return false;
     }
     const affectsHealth = selected.some(change => doesLoredeckPendingChangeAffectPackHealth(change));
+    const shouldReportStaleHealth = affectsHealth && canValidateLoredeckInEditor(freshPack);
     const selectedCreatorPlanningBatchIds = selected
         .filter(change => String(change.source || '').trim() === 'loredeck_creator' && ['timeline_anchor', 'timeline_window', 'tag'].includes(change.targetKind))
         .map(change => normalizeLoredeckCreatorTitleId(change.preview?.creatorPlanningBatch?.id || '', ''))
         .filter(Boolean);
-    const accepted = persistLoredeckLibraryRecordMutation(pack, next => {
+    const accepted = persistLoredeckLibraryRecordMutation(freshPack, next => {
         const current = normalizeLoredeckPendingChanges(next.pendingChanges);
         const selectedIds = new Set(selected.map(change => change.changeId));
         for (const change of current) {
@@ -25486,7 +25577,7 @@ async function acceptLoredeckPendingChanges(pack, changeIds = []) {
         next.pendingChanges = current.filter(change => !selectedIds.has(change.changeId));
         if (isGeneratedLoredeckPack(next)) refreshGeneratedLoredeckDerivedMetadata(next);
         if (affectsHealth) next.healthStatus = 'stale';
-    }, affectsHealth
+    }, shouldReportStaleHealth
         ? `Accepted ${selected.length} pending Loredeck change${selected.length === 1 ? '' : 's'}. Deck Health marked stale.`
         : `Accepted ${selected.length} pending Loredeck change${selected.length === 1 ? '' : 's'}.`, {
         errorMessage: 'Pending Loredeck change acceptance failed.',
@@ -28661,7 +28752,80 @@ function createContextDetectionCard(state) {
     card.appendChild(actions);
 
     appendGenerationStatus(card, state, 'context');
+    card.appendChild(createContextBriefStatusCard(state));
     return card;
+}
+
+function getContextBriefStatusLabel(status = {}) {
+    const state = String(status?.state || 'idle').toLowerCase();
+    switch (state) {
+        case 'detected': return 'Detected';
+        case 'repaired': return 'Repaired';
+        case 'fallback': return 'Local fallback';
+        case 'failed': return 'Failed';
+        case 'empty': return 'No signal';
+        case 'skipped': return 'Skipped';
+        case 'idle':
+        default:
+            return 'Idle';
+    }
+}
+
+function getContextBriefStatusTone(status = {}) {
+    const state = String(status?.state || 'idle').toLowerCase();
+    if (state === 'detected') return 'low';
+    if (state === 'repaired' || state === 'fallback' || state === 'empty' || state === 'skipped') return 'medium';
+    if (state === 'failed') return 'high';
+    return 'unknown';
+}
+
+function formatContextBriefUpdatedAt(brief = {}) {
+    const timestamp = Number(brief?.updatedAt || 0);
+    if (!Number.isFinite(timestamp) || timestamp <= 0) return 'Never';
+    return formatRelativeHealthTime(timestamp);
+}
+
+function createContextBriefStatusPill(text, tooltip, tone = '') {
+    const pill = createStatusPill(text, tooltip);
+    if (tone) pill.classList.add(`wandlight-status-pill-risk-${tone}`);
+    return pill;
+}
+
+function createContextBriefStatusCard(state) {
+    const brief = state?.contextBrief || {};
+    const status = brief?.status || {};
+    const labelText = getContextBriefStatusLabel(status);
+    const tone = getContextBriefStatusTone(status);
+    const row = document.createElement('div');
+    row.className = `wandlight-lore-context-status wandlight-context-brief-status wandlight-context-brief-status-${tone}`;
+    markTourTarget(row, 'context.briefStatus');
+
+    const label = document.createElement('div');
+    label.className = 'wandlight-lore-context-status-label';
+    label.textContent = 'Detector';
+    addTooltip(label, 'Latest top-level Context Brief extraction status. Loredeck Context rows below use this brief plus each loaded deck timeline registry.');
+    row.appendChild(label);
+
+    const value = document.createElement('div');
+    value.className = 'wandlight-lore-context-status-value';
+    const message = String(status.message || status.error || '').trim();
+    value.textContent = message ? `${labelText}: ${message}` : labelText;
+    if (tone === 'medium' || tone === 'high') value.classList.add('wandlight-warning-text');
+    addTooltip(value, status.rawResponsePreview ? `Raw response preview: ${status.rawResponsePreview}` : 'No raw response preview stored.');
+    row.appendChild(value);
+
+    const chips = document.createElement('div');
+    chips.className = 'wandlight-loredeck-row-meta wandlight-context-brief-status-chips';
+    chips.appendChild(createContextBriefStatusPill(labelText, 'Detector status from the last Context scan.', tone));
+    if (status.repaired) chips.appendChild(createContextBriefStatusPill('JSON repaired', 'Saga repaired malformed detector JSON before saving the brief.', 'medium'));
+    if (status.fallbackUsed) chips.appendChild(createContextBriefStatusPill('Local fallback', 'Saga inferred Context locally from recent message headings or obvious story-position cues.', 'medium'));
+    chips.appendChild(createStatusPill(`Source: ${formatContextSource(brief.source || 'unknown')}`, 'Where the latest Context Brief came from.'));
+    chips.appendChild(createStatusPill(`Evidence: ${(brief.evidence || []).length}`, 'Number of evidence snippets saved in the latest Context Brief.'));
+    chips.appendChild(createStatusPill(`Uncertainty: ${brief.uncertainty?.level || 'low'}`, 'Detector uncertainty level from the latest Context Brief.'));
+    chips.appendChild(createStatusPill(`Updated: ${formatContextBriefUpdatedAt(brief)}`, 'When the latest Context Brief was saved.'));
+    row.appendChild(chips);
+
+    return row;
 }
 
 function createLoreGenerationCard(state) {
@@ -29488,7 +29652,7 @@ async function performStoryContextDetection(options = {}) {
     const after = getState();
     if (options.stayOnTab) setPanelState({ activeTab: options.stayOnTab }, { deferSave: true });
     refreshHeader();
-    refreshPanelBody({ preserveScroll: false });
+    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
 
     const fields = after?.loreContext || {};
     const filled = ['sceneDate', 'subjectiveDate', 'canonBoundary', 'branchId', 'timeTravelMode']

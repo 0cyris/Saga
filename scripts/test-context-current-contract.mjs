@@ -10,6 +10,7 @@ import { getLoredeckContext, normalizeContextBrief } from '../state-manager.js';
 
 const { buildContextModelPrompt, buildContextPatchFromWindow, buildResolverText } = __contextResolverTestHooks;
 const {
+  buildContextBriefRepairPrompt,
   normalizeDetectedContextBrief,
   buildLoreContextFromContextBrief,
   buildResolverContextFromContextBrief,
@@ -150,6 +151,7 @@ assert.equal(contextBrief.signals.episode, '2');
 assert.equal(contextBrief.signals.stardate, '45047.2');
 assert.deepEqual(contextBrief.signals.coordinates, { series: 'tng' });
 assert.equal(contextBrief.updatedAt, 12345);
+assert.equal(contextBrief.status.state, 'detected');
 assert.equal(hasUsableContextBrief(contextBrief), true);
 
 const legacyProjectedContext = buildLoreContextFromContextBrief(contextBrief, globalContext);
@@ -163,6 +165,8 @@ assert.equal(resolverContext.season, '5');
 assert.equal(resolverContext.episode, '2');
 assert.equal(resolverContext.stardate, '45047.2');
 assert.deepEqual(resolverContext.coordinates, { series: 'tng' });
+assert.equal(resolverContext.contextBrief.summary, 'Darmok and Jalad at Tanagra.');
+assert.equal(resolverContext.contextBrief.evidence[0].quote, 'Darmok and Jalad');
 
 const fallbackBrief = buildContextBriefFromLoreContext({
   sceneDate: 'Saturday, Jan 25, 1997',
@@ -177,13 +181,30 @@ const defaultState = getDefaultState();
 assert.equal(defaultState.contextBrief.schemaVersion, 1);
 assert.equal(defaultState.contextBrief.signals.stardate, '');
 assert.deepEqual(defaultState.contextBrief.signals.coordinates, {});
+assert.equal(defaultState.contextBrief.status.state, 'idle');
+assert.equal(defaultState.contextBrief.status.repaired, false);
 
 const normalizedBrief = normalizeContextBrief({
+  status: {
+    state: 'repaired',
+    message: 'fixed',
+    repaired: true,
+    rawResponsePreview: 'bad json',
+  },
   signals: {
     coordinates: [{ axis: 'series', id: 'tng' }],
   },
 });
 assert.deepEqual(normalizedBrief.signals.coordinates, { series: 'tng' });
+assert.equal(normalizedBrief.status.state, 'repaired');
+assert.equal(normalizedBrief.status.repaired, true);
+assert.equal(normalizedBrief.status.rawResponsePreview, 'bad json');
+
+const repairPrompt = buildContextBriefRepairPrompt('{ summary: "Darmok", signals: { stardate: 45047.2 }');
+assert.match(repairPrompt, /Repair this malformed Saga Context Brief/);
+assert.match(repairPrompt, /"signals"/);
+assert.match(repairPrompt, /"stardate"/);
+assert.match(repairPrompt, /Do not invent anchors/);
 
 const normalizedDeckContext = getLoredeckContext(state, PACK_ID);
 assert.equal(normalizedDeckContext.contextType, 'season_episode');
@@ -245,6 +266,7 @@ const prompt = JSON.parse(buildContextModelPrompt({
   episode: '2',
   stardate: '45047.2',
   summary: 'Darmok and Jalad at Tanagra',
+  contextBrief,
 }, {
   state,
   index,
@@ -255,6 +277,9 @@ assert.equal(prompt.currentStoryContext.summary, 'Darmok and Jalad at Tanagra');
 assert.equal(prompt.currentStoryContext.stardate, '45047.2');
 assert.equal(prompt.currentStoryContext.season, '5');
 assert.equal(prompt.currentStoryContext.episode, '2');
+assert.equal(prompt.currentStoryContext.contextBrief.evidence[0].quote, 'Darmok and Jalad');
+assert.equal(prompt.currentStoryContext.contextBrief.uncertainty.level, 'low');
+assert.equal(prompt.currentStoryContext.contextBrief.status.state, 'detected');
 assert.ok(prompt.targetPacks[0].candidates.some(candidate => candidate.candidateId === 'anchor:tng.s05e02.darmok'));
 const promptDarmok = prompt.targetPacks[0].candidates.find(candidate => candidate.candidateId === 'anchor:tng.s05e02.darmok');
 assert.equal(promptDarmok.stardate, '45047.2');

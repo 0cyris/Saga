@@ -42,7 +42,7 @@ import {
 import { sendLoreRequest, validateLoreProviderConfiguration } from './lore-llm-client.js';
 import { proposeCanonLoreForContext } from './canon-lore-db.js';
 import { normalizeLorePurpose, computeSpecificityScore } from './lore-relevance.js';
-import { resolveAndApplyContextsFromContext, resolveContextsWithModel } from './context-resolver.js';
+import { buildContextResolutionAudit, buildResolverContextFromContextBrief, resolveAndApplyContextsFromContext, resolveContextsWithModel } from './context-resolver.js';
 
 // ── Guard flags ─────────────────────────────────────────────────────────────────
 
@@ -377,6 +377,87 @@ ${String(rawResponse || '').slice(0, 12000)}
  * @param {number} [count=20] - Max messages to include
  * @returns {string} Formatted messages text
  */
+function buildContextBriefRepairPrompt(rawResponse = '') {
+    return `Repair this malformed Saga Context Brief detector response into valid JSON.
+
+Required shape:
+{
+  "schemaVersion": 1,
+  "summary": "one short sentence describing the current story position",
+  "branchId": "main",
+  "timeTravelMode": "none|visitor_from_future|past_changed|alternate_branch",
+  "evidence": [
+    {
+      "quote": "short exact phrase from the malformed response or recent messages",
+      "signal": "date|arc|episode|chapter|event|stardate|branch|uncertainty"
+    }
+  ],
+  "signals": {
+    "sceneDate": "",
+    "subjectiveDate": "",
+    "canonBoundary": "",
+    "positionPhrases": [],
+    "fandomHints": [],
+    "arc": "",
+    "phase": "",
+    "season": "",
+    "episode": "",
+    "chapter": "",
+    "issue": "",
+    "quest": "",
+    "gameStage": "",
+    "stardate": "",
+    "coordinates": {},
+    "eventLabels": []
+  },
+  "uncertainty": {
+    "level": "low|medium|high",
+    "notes": []
+  }
+}
+
+Rules:
+- Preserve only recoverable Context signals from the malformed response.
+- Do not invent anchors, windows, dates, episodes, chapters, stardates, or canon facts.
+- Use empty strings, empty arrays, or empty objects when unknown.
+- Return only the repaired JSON object. No markdown fences or commentary.
+
+Malformed response:
+${String(rawResponse || '').slice(0, 12000)}
+`;
+}
+
+async function repairContextBriefJsonResponse(rawResponse = '', legacyContext = {}, options = {}) {
+    const settings = getSettings();
+    if (settings.loreRepairOnParseFail === false || options.repair === false) return null;
+
+    try {
+        const repaired = await quietPrompt(JSON_REPAIR_SYSTEM_PROMPT, buildContextBriefRepairPrompt(rawResponse), {
+            signal: options.signal || null,
+            maxTokens: options.maxTokens || 1800,
+            expectedOutput: 'json',
+        });
+        if (!repaired) return null;
+        const parsed = parseJsonResponse(repaired);
+        if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return null;
+        const updatedAt = Number.isFinite(Number(options.updatedAt)) ? Number(options.updatedAt) : Date.now();
+        const brief = normalizeDetectedContextBrief(parsed, legacyContext, {
+            source: 'model',
+            updatedAt,
+            status: {
+                state: 'repaired',
+                message: 'Detector response repaired into Context Brief JSON.',
+                repaired: true,
+                rawResponsePreview: String(rawResponse || '').slice(0, 1000),
+            },
+        });
+        return hasUsableContextBrief(brief) ? brief : null;
+    } catch (e) {
+        console.warn(`${LOG_PREFIX} Context Brief JSON repair pass failed:`, e);
+        return null;
+    }
+}
+
 function getRecentMessageObjects(count = 8) {
     try {
         const ctx = SillyTavern.getContext();
@@ -456,6 +537,240 @@ function cleanBriefString(value, maxLength = 240) {
     return String(value || '').trim().slice(0, maxLength);
 }
 
+function pushBriefString(list, value, limit = 12, maxLength = 180) {
+    const text = cleanBriefString(value, maxLength);
+    if (!text) return;
+    const key = text.toLowerCase();
+    if (list.some(item => String(item || '').toLowerCase() === key)) return;
+    if (list.length < limit) list.push(text);
+}
+
+function addLocalEvidence(evidence, quote, signal) {
+    const cleanQuote = cleanBriefString(quote, 280);
+    const cleanSignal = cleanBriefString(signal, 80);
+    if (!cleanQuote && !cleanSignal) return;
+    const key = `${cleanSignal.toLowerCase()}::${cleanQuote.toLowerCase()}`;
+    if (evidence.some(item => `${item.signal.toLowerCase()}::${item.quote.toLowerCase()}` === key)) return;
+    if (evidence.length < 12) evidence.push({ quote: cleanQuote, signal: cleanSignal });
+}
+
+function normalizeLocalTitle(value = '') {
+    return cleanBriefString(String(value || '')
+        .replace(/^#+\s*/, '')
+        .replace(/\s+/g, ' ')
+        .replace(/[.;,!?]+$/g, '')
+        .trim(), 180);
+}
+
+function inferContextBriefLocallyFromMessages(messages, state = getState(), options = {}) {
+    const text = String(messages || '');
+    const signals = {
+        sceneDate: '',
+        subjectiveDate: '',
+        canonBoundary: '',
+        positionPhrases: [],
+        fandomHints: [],
+        arc: '',
+        phase: '',
+        season: '',
+        episode: '',
+        chapter: '',
+        issue: '',
+        quest: '',
+        gameStage: '',
+        stardate: '',
+        coordinates: {},
+        eventLabels: [],
+    };
+    const evidence = [];
+    let explicitSignals = 0;
+
+    const record = (quote, signal) => {
+        explicitSignals += 1;
+        addLocalEvidence(evidence, quote, signal);
+    };
+
+    const datePatterns = [
+        /(?:^|\n)\s*(?:date|day|in[- ]?universe date|scene date)\s*[:\-]\s*([^\n]+)/i,
+        /(?:^|\n)\s*#{1,6}\s*([^\n]*(?:\b\d{4}\b|\bJan\.?\b|\bFeb\.?\b|\bMar\.?\b|\bApr\.?\b|\bJun\.?\b|\bJul\.?\b|\bAug\.?\b|\bSep\.?\b|\bSept\.?\b|\bOct\.?\b|\bNov\.?\b|\bDec\.?\b|\bJanuary\b|\bFebruary\b|\bMarch\b|\bApril\b|\bMay\b|\bJune\b|\bJuly\b|\bAugust\b|\bSeptember\b|\bOctober\b|\bNovember\b|\bDecember\b)[^\n]*)/i,
+        /\b((?:Mon(?:day)?|Tue(?:sday)?|Wed(?:nesday)?|Thu(?:rsday)?|Fri(?:day)?|Sat(?:urday)?|Sun(?:day)?)?\.?\s*,?\s*(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t)?(?:ember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\.?\s+\d{1,2}(?:st|nd|rd|th)?\s*,?\s+\d{4})\b/i,
+        /\b(\d{1,2}\/\d{1,2}\/\d{2,4})\b/,
+    ];
+    for (const pattern of datePatterns) {
+        const match = text.match(pattern);
+        if (match?.[1]) {
+            signals.sceneDate = normalizeLocalTitle(match[1]);
+            record(match[0], 'date');
+            break;
+        }
+    }
+
+    const canonMatch = text.match(/(?:canon|boundary|canon reference|reference point)\s*[:\-]\s*([^\n]+)/i);
+    if (canonMatch?.[1]) {
+        signals.canonBoundary = normalizeLocalTitle(canonMatch[1]);
+        pushBriefString(signals.positionPhrases, signals.canonBoundary, 16, 180);
+        record(canonMatch[0], 'event');
+    }
+
+    const stardateMatch = text.match(/\bstardate\s*[:#]?\s*(-?\d+(?:\.\d+)?)/i);
+    if (stardateMatch?.[1]) {
+        signals.stardate = stardateMatch[1];
+        record(stardateMatch[0], 'stardate');
+    }
+
+    const seasonEpisodePatterns = [
+        /\bS(?:eason)?\s*0?(\d{1,2})\s*E(?:p(?:isode)?\.?)?\s*0?(\d{1,3})\b\s*[:\-]?\s*([A-Z][^\n.;,!?]{1,80})?/i,
+        /\bseason\s+0?(\d{1,2})\s*(?:,|\-|:)?\s*(?:episode|ep\.?)\s+0?(\d{1,3})\b\s*[:\-]?\s*([A-Z][^\n.;,!?]{1,80})?/i,
+    ];
+    for (const pattern of seasonEpisodePatterns) {
+        const match = text.match(pattern);
+        if (!match) continue;
+        signals.season = match[1];
+        signals.episode = match[2];
+        const label = normalizeLocalTitle(match[3]);
+        if (label) pushBriefString(signals.eventLabels, label, 24, 180);
+        record(match[0], 'episode');
+        break;
+    }
+    if (!signals.season) {
+        const seasonMatch = text.match(/\bseason\s+0?(\d{1,2})\b/i);
+        if (seasonMatch?.[1]) {
+            signals.season = seasonMatch[1];
+            record(seasonMatch[0], 'episode');
+        }
+    }
+    if (!signals.episode) {
+        const episodeMatch = text.match(/\b(?:episode|ep\.?)\s+0?(\d{1,3}|[A-Z][^\n.;,!?]{1,80})/i);
+        if (episodeMatch?.[1]) {
+            signals.episode = normalizeLocalTitle(episodeMatch[1]);
+            record(episodeMatch[0], 'episode');
+        }
+    }
+
+    const chapterMatch = text.match(/\b(?:chapter|chapters|ch\.?)\s*[:#]?\s*(\d+(?:\s*(?:-|to|through)\s*\d+)?|[A-Z][^\n.;,!?]{1,80})/i);
+    if (chapterMatch?.[1]) {
+        signals.chapter = normalizeLocalTitle(chapterMatch[1]);
+        record(chapterMatch[0], 'chapter');
+    }
+
+    const issueMatch = text.match(/\b(?:issue|issues)\s*[:#]?\s*(\d+(?:\s*(?:-|to|through)\s*\d+)?|[A-Z][^\n.;,!?]{1,80})/i);
+    if (issueMatch?.[1]) {
+        signals.issue = normalizeLocalTitle(issueMatch[1]);
+        record(issueMatch[0], 'issue');
+    }
+
+    const explicitArc = text.match(/(?:^|\n|\b)(?:arc|run|film|movie)\s*[:\-]\s*([^\n.;!?]+)/i);
+    const namedArc = text.match(/\b(?:during|in|inside|within)\s+the\s+([A-Z][A-Za-z0-9'’:\- ]{2,80}?)\s+(?:arc|saga|run|film|movie)\b/i)
+        || text.match(/\b([A-Z][A-Za-z0-9'’:\- ]{2,80}?)\s+(?:arc|saga|run|film|movie)\b/i);
+    const arcValue = explicitArc?.[1] || namedArc?.[1] || '';
+    if (arcValue) {
+        signals.arc = normalizeLocalTitle(arcValue);
+        record((explicitArc || namedArc)?.[0], 'arc');
+    }
+
+    const phaseMatch = text.match(/(?:^|\n|\b)(?:phase|sub[- ]arc|stage)\s*[:\-]\s*([^\n.;!?]+)/i);
+    if (phaseMatch?.[1]) {
+        signals.phase = normalizeLocalTitle(phaseMatch[1]);
+        record(phaseMatch[0], 'arc');
+    }
+
+    const questMatch = text.match(/(?:^|\n|\b)(?:quest|mission)\s*[:\-]\s*([^\n.;!?]+)/i);
+    if (questMatch?.[1]) {
+        signals.quest = normalizeLocalTitle(questMatch[1]);
+        record(questMatch[0], 'quest');
+    }
+
+    const gameStageMatch = text.match(/(?:^|\n|\b)(?:game stage|act|route)\s*[:\-]\s*([^\n.;!?]+)/i);
+    if (gameStageMatch?.[1]) {
+        signals.gameStage = normalizeLocalTitle(gameStageMatch[1]);
+        record(gameStageMatch[0], 'gameStage');
+    }
+
+    const coordinatePattern = /\b(series|saga|island|location|route|faction|era|book|film|run)\s*[:\-]\s*([^\n.;!?]+)/gi;
+    for (const match of text.matchAll(coordinatePattern)) {
+        const axis = cleanBriefString(match[1].toLowerCase(), 80);
+        const value = normalizeLocalTitle(match[2]);
+        if (axis && value && Object.keys(signals.coordinates).length < 12) {
+            signals.coordinates[axis] = value;
+            record(match[0], 'event');
+        }
+    }
+
+    const knownSeries = [
+        ['tng', /\b(?:TNG|Star Trek:\s*The Next Generation)\b/i],
+        ['voy', /\b(?:VOY|Star Trek:\s*Voyager)\b/i],
+        ['ds9', /\b(?:DS9|Star Trek:\s*Deep Space Nine)\b/i],
+        ['one piece', /\bOne Piece\b/i],
+        ['harry potter', /\b(?:Harry Potter|Hogwarts)\b/i],
+    ];
+    for (const [hint, pattern] of knownSeries) {
+        const match = text.match(pattern);
+        if (!match) continue;
+        pushBriefString(signals.fandomHints, hint, 16, 140);
+        if (!signals.coordinates.series && ['tng', 'voy', 'ds9'].includes(hint)) signals.coordinates.series = hint;
+        record(match[0], 'event');
+    }
+
+    const relativePattern = /\b((?:right\s+|just\s+)?(?:before|after|during|following|prior to)\s+[^.\n!?]{3,140})/gi;
+    for (const match of text.matchAll(relativePattern)) {
+        const phrase = normalizeLocalTitle(match[1]);
+        if (!phrase) continue;
+        pushBriefString(signals.positionPhrases, phrase, 16, 180);
+        pushBriefString(signals.eventLabels, phrase.replace(/^(?:right\s+|just\s+)?(?:before|after|during|following|prior to)\s+/i, ''), 24, 180);
+        record(match[0], 'event');
+        if (signals.positionPhrases.length >= 4) break;
+    }
+
+    const previous = state?.loreContext || {};
+    if (!explicitSignals && (previous.sceneDate || previous.canonBoundary || previous.branchId && previous.branchId !== 'main')) {
+        return buildContextBriefFromLoreContext(previous, {
+            source: 'local',
+            updatedAt: Number.isFinite(Number(options.updatedAt)) ? Number(options.updatedAt) : Date.now(),
+            note: options.note || 'No new local Context signals found; preserving previous known Context.',
+        });
+    }
+    if (!explicitSignals) return null;
+
+    const branchMatch = text.match(/(?:branch|timeline|au)\s*[:\-]\s*([^\n]+)/i);
+    const branchId = normalizeLocalTitle(branchMatch?.[1]) || previous.branchId || 'main';
+    const tt = text.match(/\b(time travel|from the future|alternate timeline|changed past|branch)\b/i);
+    const timeTravelMode = tt
+        ? (/future/i.test(tt[0]) ? 'visitor_from_future' : 'alternate_branch')
+        : (previous.timeTravelMode || 'none');
+
+    const summaryParts = [
+        signals.sceneDate,
+        signals.stardate ? `Stardate ${signals.stardate}` : '',
+        signals.arc,
+        signals.season && signals.episode ? `S${signals.season}E${signals.episode}` : (signals.season ? `Season ${signals.season}` : ''),
+        signals.chapter ? `Chapter ${signals.chapter}` : '',
+        signals.issue ? `Issue ${signals.issue}` : '',
+        signals.quest,
+        signals.gameStage,
+        signals.positionPhrases[0],
+    ].filter(Boolean);
+
+    return normalizeContextBrief({
+        schemaVersion: 1,
+        summary: summaryParts.length ? `Local Context signals: ${summaryParts.join('; ')}.` : 'Local Context Brief inferred from explicit story-position phrases.',
+        branchId,
+        timeTravelMode,
+        evidence,
+        signals,
+        uncertainty: {
+            level: explicitSignals >= 3 ? 'medium' : 'high',
+            notes: [options.note || 'Deterministic local fallback; review if the story position is ambiguous.'],
+        },
+        status: {
+            state: 'fallback',
+            message: 'Deterministic local fallback produced a Context Brief.',
+            fallbackUsed: true,
+        },
+        source: 'local_alias',
+        updatedAt: Number.isFinite(Number(options.updatedAt)) ? Number(options.updatedAt) : Date.now(),
+    }, {});
+}
+
 function mergeBriefSignals(rawSignals = {}, raw = {}) {
     const signals = asPlainObject(rawSignals);
     const source = asPlainObject(raw);
@@ -497,6 +812,10 @@ function normalizeDetectedContextBrief(rawDetection = {}, legacyContext = {}, op
             level: rawUncertainty.level ?? raw.uncertaintyLevel,
             notes: rawUncertainty.notes ?? raw.uncertaintyNotes,
         },
+        status: options.status || source.status || raw.status || {
+            state: options.source === 'model' ? 'detected' : 'idle',
+            message: options.source === 'model' ? 'Detector returned Context Brief JSON.' : '',
+        },
         source: options.source || source.source || raw.source || 'unknown',
         updatedAt: Number.isFinite(Number(options.updatedAt)) ? Number(options.updatedAt) : (Number(source.updatedAt) || Date.now()),
     }, {});
@@ -517,41 +836,6 @@ function buildLoreContextFromContextBrief(brief = {}, previousContext = {}) {
     });
 }
 
-function buildResolverContextFromContextBrief(brief = {}, loreContext = {}, options = {}) {
-    const normalizedBrief = normalizeContextBrief(brief || {}, {});
-    const signals = normalizedBrief.signals || {};
-    const phrases = [
-        ...(Array.isArray(signals.positionPhrases) ? signals.positionPhrases : []),
-        ...(Array.isArray(signals.eventLabels) ? signals.eventLabels : []),
-    ];
-    return {
-        ...normalizeLoreContext(loreContext || {}),
-        label: cleanBriefString(options.label || signals.canonBoundary || phrases[0] || normalizedBrief.summary, 240),
-        summary: cleanBriefString(normalizedBrief.summary, 800),
-        sceneDate: cleanBriefString(signals.sceneDate || loreContext?.sceneDate, 80),
-        subjectiveDate: cleanBriefString(signals.subjectiveDate || loreContext?.subjectiveDate, 80),
-        canonBoundary: cleanBriefString(signals.canonBoundary || loreContext?.canonBoundary, 240),
-        branchId: cleanBriefString(normalizedBrief.branchId || loreContext?.branchId || 'main', 120) || 'main',
-        timeTravelMode: cleanBriefString(normalizedBrief.timeTravelMode || loreContext?.timeTravelMode || 'none', 80) || 'none',
-        arc: cleanBriefString(signals.arc, 180),
-        phase: cleanBriefString(signals.phase, 180),
-        season: cleanBriefString(signals.season, 80),
-        episode: cleanBriefString(signals.episode, 80),
-        chapter: cleanBriefString(signals.chapter, 80),
-        issue: cleanBriefString(signals.issue, 80),
-        quest: cleanBriefString(signals.quest, 180),
-        gameStage: cleanBriefString(signals.gameStage, 180),
-        stardate: cleanBriefString(signals.stardate, 80),
-        coordinates: asPlainObject(signals.coordinates),
-        alias: cleanBriefString(phrases[0] || signals.canonBoundary || normalizedBrief.summary, 240),
-        notes: cleanBriefString([
-            ...(Array.isArray(signals.positionPhrases) ? signals.positionPhrases : []),
-            ...(Array.isArray(signals.eventLabels) ? signals.eventLabels : []),
-            ...(Array.isArray(normalizedBrief.uncertainty?.notes) ? normalizedBrief.uncertainty.notes : []),
-        ].join(' | '), 1000),
-    };
-}
-
 function buildContextBriefFromLoreContext(context = {}, options = {}) {
     const normalized = normalizeLoreContext(context || {});
     return normalizeContextBrief({
@@ -570,7 +854,12 @@ function buildContextBriefFromLoreContext(context = {}, options = {}) {
             level: normalized.sceneDate || normalized.canonBoundary ? 'medium' : 'high',
             notes: options.note ? [options.note] : [],
         },
-        source: options.source || 'local',
+        status: {
+            state: 'fallback',
+            message: 'Legacy local fallback projected existing loreContext into Context Brief.',
+            fallbackUsed: true,
+        },
+        source: options.source || 'local_alias',
         updatedAt: Number.isFinite(Number(options.updatedAt)) ? Number(options.updatedAt) : Date.now(),
     }, normalized);
 }
@@ -620,12 +909,25 @@ function shouldRunContextModelFallback(sourceText = '', options = {}, settings =
 }
 
 function storeContextResolutionProposals(result = null, context = {}, sourceText = '') {
-    const proposals = Array.isArray(result?.proposals) ? result.proposals : [];
     const state = getState();
     if (!state?.lorePanel) return;
+    state.lorePanel.contextResolutionAudit = buildContextResolutionAudit(result || {}, context || {}, {
+        source: 'automatic_context_detection',
+        sourceText,
+    });
+    if (result?.cacheRecord) {
+        state.lorePanel.contextResolutionCache = result.cacheRecord;
+    }
+    if (result?.status === 'in_flight') {
+        saveState(state, { syncPrompt: false });
+        return;
+    }
+    const proposals = Array.isArray(result?.proposals) ? result.proposals : [];
     if (!proposals.length) {
         if (Array.isArray(state.lorePanel.contextResolutionProposals) && state.lorePanel.contextResolutionProposals.length) {
             state.lorePanel.contextResolutionProposals = [];
+            saveState(state, { syncPrompt: false });
+        } else {
             saveState(state, { syncPrompt: false });
         }
         return;
@@ -644,6 +946,7 @@ function storeContextResolutionProposals(result = null, context = {}, sourceText
         source: 'reasoner_context_resolution',
         sourceCharacters: String(sourceText || '').length,
         contextLabel: context.label || context.canonBoundary || context.sceneDate || '',
+        cached: result?.cached === true,
     };
     saveState(state, { syncPrompt: false });
 }
@@ -658,6 +961,7 @@ async function maybeResolveContextsFromContext(context, options = {}) {
             sourceText: options.sourceText || '',
         });
         if (!local.unresolvedCount || !shouldRunContextModelFallback(options.sourceText || '', options, settings)) {
+            storeContextResolutionProposals(local, context, options.sourceText || '');
             return local;
         }
         progress?.('Asking Reasoner for bounded Context proposals...', 86);
@@ -666,14 +970,16 @@ async function maybeResolveContextsFromContext(context, options = {}) {
             sourceText: options.sourceText || '',
             applyLocal: false,
             applyModel: false,
+            resolutionCache: getState()?.lorePanel?.contextResolutionCache || null,
         });
-        storeContextResolutionProposals(model, context, options.sourceText || '');
-        return {
+        const merged = {
             ...model,
             local,
             appliedCount: local.appliedCount || 0,
             localAppliedCount: local.appliedCount || 0,
         };
+        storeContextResolutionProposals(merged, context, options.sourceText || '');
+        return merged;
     } catch (e) {
         console.warn(`${LOG_PREFIX} Context resolver failed:`, e);
         return { status: 'failed', error: e?.message || String(e || '') };
@@ -728,6 +1034,18 @@ async function saveContextBriefAndResolve(brief, messages, options = {}) {
     };
 }
 
+function recordContextBriefStatus(statusPatch = {}, state = getState()) {
+    const previous = asPlainObject(state?.contextBrief);
+    setContextBrief({
+        ...previous,
+        status: {
+            ...(previous.status || {}),
+            ...statusPatch,
+        },
+        updatedAt: Date.now(),
+    });
+}
+
 /**
  * Runs lore context detection via LLM.
  * Guarded by _detectionRunning to prevent concurrent calls.
@@ -774,14 +1092,11 @@ export async function runLoreContextDetection(options = {}) {
 
         const response = await quietPrompt(LORE_CONTEXT_DETECTION_SYSTEM_PROMPT, userMessage, { signal });
         if (!response) {
-            const fallback = inferContextLocallyFromMessages(messages, state);
-            if (fallback) {
-                const savedFallback = { ...fallback, lastDetectedAt: Date.now() };
-                const fallbackBrief = buildContextBriefFromLoreContext(savedFallback, {
-                    source: 'local',
-                    updatedAt: savedFallback.lastDetectedAt,
-                    note: 'Model returned no response; local fallback used current headings/state only.',
-                });
+            const fallbackBrief = inferContextBriefLocallyFromMessages(messages, state, {
+                updatedAt: Date.now(),
+                note: 'Model returned no response; deterministic local fallback used recent message signals.',
+            });
+            if (fallbackBrief) {
                 const saved = await saveContextBriefAndResolve(fallbackBrief, messages, {
                     contextSource: 'local_alias',
                     progress,
@@ -791,6 +1106,26 @@ export async function runLoreContextDetection(options = {}) {
                 progress?.(`Context inferred locally from message headings.${formatContextResolutionSuffix(positionResult)}${formatCanonProposalSuffix(canonResult)}`, 100);
                 return saved.resolverContext;
             }
+            const fallback = inferContextLocallyFromMessages(messages, state);
+            if (fallback) {
+                const savedFallback = { ...fallback, lastDetectedAt: Date.now() };
+                const legacyBrief = buildContextBriefFromLoreContext(savedFallback, {
+                    source: 'local_alias',
+                    updatedAt: savedFallback.lastDetectedAt,
+                    note: 'Model returned no response; legacy local fallback used current headings/state only.',
+                });
+                const saved = await saveContextBriefAndResolve(legacyBrief, messages, {
+                    contextSource: 'local_alias',
+                    progress,
+                });
+                progress?.(`Context inferred locally from message headings.${formatContextResolutionSuffix(saved.positionResult)}${formatCanonProposalSuffix(saved.canonResult)}`, 100);
+                return saved.resolverContext;
+            }
+            recordContextBriefStatus({
+                state: 'empty',
+                message: 'Context detector returned no response and local fallback found no signals.',
+                fallbackUsed: false,
+            }, state);
             progress?.('Context detection returned no response.', 100);
             return null;
         }
@@ -799,14 +1134,26 @@ export async function runLoreContextDetection(options = {}) {
         const parsed = parseJsonResponse(response);
         if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
             console.warn(`${LOG_PREFIX} Could not parse lore context detection response`);
-            const fallback = inferContextLocallyFromMessages(messages, state);
-            if (fallback) {
-                const savedFallback = { ...fallback, lastDetectedAt: Date.now() };
-                const fallbackBrief = buildContextBriefFromLoreContext(savedFallback, {
-                    source: 'local',
-                    updatedAt: savedFallback.lastDetectedAt,
-                    note: 'Model response could not be parsed; local fallback used current headings/state only.',
+            progress?.('Repairing malformed context response...', 78);
+            const repairedBrief = await repairContextBriefJsonResponse(response, state?.loreContext || {}, {
+                signal,
+                updatedAt: Date.now(),
+            });
+            if (repairedBrief) {
+                const saved = await saveContextBriefAndResolve(repairedBrief, messages, {
+                    contextSource: 'model',
+                    progress,
                 });
+                const positionResult = saved.positionResult;
+                const canonResult = saved.canonResult;
+                progress?.(`Context response repaired.${formatContextResolutionSuffix(positionResult)}${formatCanonProposalSuffix(canonResult)}`, 100);
+                return saved.resolverContext;
+            }
+            const fallbackBrief = inferContextBriefLocallyFromMessages(messages, state, {
+                updatedAt: Date.now(),
+                note: 'Model response could not be parsed; deterministic local fallback used recent message signals.',
+            });
+            if (fallbackBrief) {
                 const saved = await saveContextBriefAndResolve(fallbackBrief, messages, {
                     contextSource: 'local_alias',
                     progress,
@@ -816,6 +1163,27 @@ export async function runLoreContextDetection(options = {}) {
                 progress?.(`Context inferred locally from message headings.${formatContextResolutionSuffix(positionResult)}${formatCanonProposalSuffix(canonResult)}`, 100);
                 return saved.resolverContext;
             }
+            const fallback = inferContextLocallyFromMessages(messages, state);
+            if (fallback) {
+                const savedFallback = { ...fallback, lastDetectedAt: Date.now() };
+                const legacyBrief = buildContextBriefFromLoreContext(savedFallback, {
+                    source: 'local_alias',
+                    updatedAt: savedFallback.lastDetectedAt,
+                    note: 'Model response could not be parsed; legacy local fallback used current headings/state only.',
+                });
+                const saved = await saveContextBriefAndResolve(legacyBrief, messages, {
+                    contextSource: 'local_alias',
+                    progress,
+                });
+                progress?.(`Context inferred locally from message headings.${formatContextResolutionSuffix(saved.positionResult)}${formatCanonProposalSuffix(saved.canonResult)}`, 100);
+                return saved.resolverContext;
+            }
+            recordContextBriefStatus({
+                state: 'failed',
+                message: 'Context detector returned malformed JSON; repair and local fallback found no usable signals.',
+                error: 'parse_failed',
+                rawResponsePreview: String(response || '').slice(0, 1000),
+            }, state);
             progress?.('Context detection returned no usable result.', 100);
             return null;
         }
@@ -826,6 +1194,11 @@ export async function runLoreContextDetection(options = {}) {
             updatedAt: detectedAt,
         });
         if (!hasUsableContextBrief(contextBrief)) {
+            recordContextBriefStatus({
+                state: 'empty',
+                message: 'Context detector returned valid JSON without usable Context signals.',
+                rawResponsePreview: String(response || '').slice(0, 1000),
+            }, state);
             progress?.('Context detection returned no usable signals.', 100);
             return null;
         }
@@ -846,6 +1219,13 @@ export async function runLoreContextDetection(options = {}) {
     } catch (e) {
         console.error(`${LOG_PREFIX} Lore context detection failed:`, e);
         const progress = typeof options.progress === 'function' ? options.progress : null;
+        if (!isAbortError(e)) {
+            recordContextBriefStatus({
+                state: 'failed',
+                message: 'Context detection failed before a usable Context Brief could be saved.',
+                error: e?.message || String(e || ''),
+            });
+        }
         progress?.(`Context detection failed: ${e.message || e}`, 100);
         return null;
     } finally {
@@ -2052,7 +2432,9 @@ export const __bulkLoreTestHooks = {
  * @returns {Promise<{ detected: Object|null, generated: Object[] }>}
  */
 export const __contextDetectionTestHooks = {
+    buildContextBriefRepairPrompt,
     normalizeDetectedContextBrief,
+    inferContextBriefLocallyFromMessages,
     buildLoreContextFromContextBrief,
     buildResolverContextFromContextBrief,
     buildContextBriefFromLoreContext,

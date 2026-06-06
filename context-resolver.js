@@ -7,7 +7,11 @@ import {
     getState,
     getLoredeckContext,
     setLoredeckContext,
+    normalizeContextBrief,
 } from './state-manager.js';
+import {
+    normalizeLoreContext,
+} from './lore-matrix.js';
 import {
     getContextIndexSync,
     loadContextIndex,
@@ -16,8 +20,10 @@ import {
 import { sendLoreRequest } from './lore-llm-client.js';
 
 const MIN_ALIAS_SCORE = 40;
+const DEFAULT_LOCAL_APPLY_MIN_CONFIDENCE = 0.78;
 const MIN_MODEL_CONFIDENCE = 0.55;
 const MODEL_CANDIDATE_CAP_PER_PACK = 24;
+let _contextModelResolutionRunning = false;
 const CONTEXT_MODEL_SYSTEM_PROMPT = `You are the Saga Context Resolver.
 
 Resolve each target Loredeck to one known timeline candidate using only the candidate IDs provided.
@@ -75,6 +81,27 @@ function cleanString(value, maxLength = 240) {
 
 function isPlainObject(value) {
     return value && typeof value === 'object' && !Array.isArray(value);
+}
+
+function stableSerialize(value) {
+    if (value == null) return 'null';
+    if (Array.isArray(value)) return `[${value.map(stableSerialize).join(',')}]`;
+    if (isPlainObject(value)) {
+        return `{${Object.keys(value).sort().map(key => `${JSON.stringify(key)}:${stableSerialize(value[key])}`).join(',')}}`;
+    }
+    if (typeof value === 'number') return Number.isFinite(value) ? String(value) : 'null';
+    if (typeof value === 'boolean') return value ? 'true' : 'false';
+    return JSON.stringify(String(value || ''));
+}
+
+function stableHashString(value = '') {
+    const text = String(value || '');
+    let hash = 2166136261;
+    for (let i = 0; i < text.length; i += 1) {
+        hash ^= text.charCodeAt(i);
+        hash = Math.imul(hash, 16777619);
+    }
+    return (hash >>> 0).toString(36);
 }
 
 function getEnabledStack(state = {}, index = null) {
@@ -300,6 +327,77 @@ function buildResolverText(context = {}, options = {}) {
         .slice(0, 4000);
 }
 
+function getContextBriefSignalValue(signals = {}, key = '', legacyValue = '', options = {}) {
+    const signalValue = cleanString(signals?.[key], 240);
+    const previousValue = cleanString(legacyValue, 240);
+    return options.preferBriefSignals === false
+        ? (previousValue || signalValue)
+        : (signalValue || previousValue);
+}
+
+export function buildResolverContextFromContextBrief(brief = {}, loreContext = {}, options = {}) {
+    const normalizedContext = normalizeLoreContext(loreContext || {});
+    const normalizedBrief = normalizeContextBrief(brief || {}, normalizedContext);
+    const signals = isPlainObject(normalizedBrief.signals) ? normalizedBrief.signals : {};
+    const positionPhrases = Array.isArray(signals.positionPhrases) ? signals.positionPhrases : [];
+    const eventLabels = Array.isArray(signals.eventLabels) ? signals.eventLabels : [];
+    const fandomHints = Array.isArray(signals.fandomHints) ? signals.fandomHints : [];
+    const evidenceQuotes = (Array.isArray(normalizedBrief.evidence) ? normalizedBrief.evidence : [])
+        .map(item => cleanString(item?.quote || item?.text || item?.snippet, 220))
+        .filter(Boolean);
+    const uncertaintyNotes = Array.isArray(normalizedBrief.uncertainty?.notes) ? normalizedBrief.uncertainty.notes : [];
+    const phrases = [...positionPhrases, ...eventLabels].map(item => cleanString(item, 180)).filter(Boolean);
+    const label = cleanString(
+        options.label
+        || getContextBriefSignalValue(signals, 'canonBoundary', normalizedContext.canonBoundary, options)
+        || phrases[0]
+        || normalizedBrief.summary
+        || normalizedContext.sceneDate,
+        240,
+    );
+    return {
+        ...normalizedContext,
+        contextBrief: normalizedBrief,
+        label,
+        summary: cleanString(normalizedBrief.summary, 800),
+        sceneDate: getContextBriefSignalValue(signals, 'sceneDate', normalizedContext.sceneDate, options),
+        subjectiveDate: getContextBriefSignalValue(signals, 'subjectiveDate', normalizedContext.subjectiveDate, options),
+        canonBoundary: getContextBriefSignalValue(signals, 'canonBoundary', normalizedContext.canonBoundary, options),
+        branchId: cleanString(options.preferBriefSignals === false
+            ? (normalizedContext.branchId || normalizedBrief.branchId || 'main')
+            : (normalizedBrief.branchId || normalizedContext.branchId || 'main'), 120) || 'main',
+        timeTravelMode: cleanString(options.preferBriefSignals === false
+            ? (normalizedContext.timeTravelMode || normalizedBrief.timeTravelMode || 'none')
+            : (normalizedBrief.timeTravelMode || normalizedContext.timeTravelMode || 'none'), 80) || 'none',
+        arc: cleanString(signals.arc, 180),
+        phase: cleanString(signals.phase, 180),
+        season: cleanString(signals.season, 80),
+        episode: cleanString(signals.episode, 80),
+        chapter: cleanString(signals.chapter, 80),
+        issue: cleanString(signals.issue, 80),
+        quest: cleanString(signals.quest, 180),
+        gameStage: cleanString(signals.gameStage, 180),
+        stardate: cleanString(signals.stardate, 80),
+        coordinates: isPlainObject(signals.coordinates) ? { ...signals.coordinates } : {},
+        alias: cleanString(phrases[0] || signals.canonBoundary || normalizedBrief.summary || normalizedContext.canonBoundary, 240),
+        notes: cleanString([
+            ...phrases,
+            ...fandomHints.map(item => `Fandom: ${item}`),
+            ...evidenceQuotes.map(item => `Evidence: ${item}`),
+            ...uncertaintyNotes,
+        ].join(' | '), 1000),
+    };
+}
+
+export function buildResolverContextFromState(state = getState(), options = {}) {
+    const currentState = state || {};
+    return buildResolverContextFromContextBrief(
+        options.contextBrief || currentState.contextBrief || {},
+        options.loreContext || currentState.loreContext || {},
+        options,
+    );
+}
+
 function mapResolverSource(value = '') {
     const source = cleanString(value, 40).toLowerCase();
     if (source === 'header') return 'header';
@@ -313,6 +411,12 @@ function confidenceFromAliasScore(score = 0) {
     if (score >= 80) return 0.86;
     if (score >= 50) return 0.78;
     return 0.66;
+}
+
+function getMinimumLocalConfidence(options = {}, fallback = 0) {
+    const configured = Number(options.minLocalConfidence);
+    const value = Number.isFinite(configured) ? configured : fallback;
+    return Math.max(0, Math.min(1, value));
 }
 
 function comparableText(value = '') {
@@ -680,6 +784,351 @@ function serializeContextCandidate(candidate = {}) {
     return base;
 }
 
+function serializeContextBriefForPrompt(value = {}, fallbackContext = {}) {
+    const input = isPlainObject(value) ? value : {};
+    const fallback = isPlainObject(fallbackContext) ? fallbackContext : {};
+    const rawSignals = isPlainObject(input.signals) ? input.signals : {};
+    const rawUncertainty = isPlainObject(input.uncertainty) ? input.uncertainty : {};
+    const rawStatus = isPlainObject(input.status) ? input.status : {};
+    const evidence = Array.isArray(input.evidence) ? input.evidence : [];
+    const notes = Array.isArray(rawUncertainty.notes) ? rawUncertainty.notes : [];
+    return {
+        summary: cleanString(input.summary || fallback.summary, 500),
+        source: cleanString(input.source, 60),
+        updatedAt: Number.isFinite(Number(input.updatedAt)) ? Number(input.updatedAt) : null,
+        evidence: evidence
+            .filter(isPlainObject)
+            .map(item => ({
+                quote: cleanString(item.quote || item.text || item.snippet, 220),
+                signal: cleanString(item.signal || item.type || item.kind, 80),
+            }))
+            .filter(item => item.quote || item.signal)
+            .slice(0, 8),
+        uncertainty: {
+            level: cleanString(rawUncertainty.level, 40) || 'low',
+            notes: notes.map(note => cleanString(note, 180)).filter(Boolean).slice(0, 6),
+        },
+        status: {
+            state: cleanString(rawStatus.state || rawStatus.status, 40) || '',
+            repaired: rawStatus.repaired === true,
+            fallbackUsed: rawStatus.fallbackUsed === true,
+            message: cleanString(rawStatus.message, 220),
+            error: cleanString(rawStatus.error, 220),
+        },
+        signals: {
+            positionPhrases: (Array.isArray(rawSignals.positionPhrases) ? rawSignals.positionPhrases : [])
+                .map(item => cleanString(item, 160))
+                .filter(Boolean)
+                .slice(0, 8),
+            eventLabels: (Array.isArray(rawSignals.eventLabels) ? rawSignals.eventLabels : [])
+                .map(item => cleanString(item, 160))
+                .filter(Boolean)
+                .slice(0, 8),
+            fandomHints: (Array.isArray(rawSignals.fandomHints) ? rawSignals.fandomHints : [])
+                .map(item => cleanString(item, 120))
+                .filter(Boolean)
+                .slice(0, 8),
+        },
+    };
+}
+
+function getContextBriefCachePayload(brief = {}) {
+    const input = isPlainObject(brief) ? brief : {};
+    const signals = isPlainObject(input.signals) ? input.signals : {};
+    return {
+        summary: cleanString(input.summary, 500),
+        branchId: cleanString(input.branchId || 'main', 120),
+        timeTravelMode: cleanString(input.timeTravelMode || 'none', 80),
+        evidence: (Array.isArray(input.evidence) ? input.evidence : [])
+            .filter(isPlainObject)
+            .map(item => ({
+                quote: cleanString(item.quote || item.text || item.snippet, 220),
+                signal: cleanString(item.signal || item.type || item.kind, 80),
+            }))
+            .filter(item => item.quote || item.signal)
+            .slice(0, 8),
+        signals: {
+            sceneDate: cleanString(signals.sceneDate, 80),
+            subjectiveDate: cleanString(signals.subjectiveDate, 80),
+            canonBoundary: cleanString(signals.canonBoundary, 240),
+            positionPhrases: (Array.isArray(signals.positionPhrases) ? signals.positionPhrases : []).map(item => cleanString(item, 160)).filter(Boolean).slice(0, 8),
+            fandomHints: (Array.isArray(signals.fandomHints) ? signals.fandomHints : []).map(item => cleanString(item, 120)).filter(Boolean).slice(0, 8),
+            arc: cleanString(signals.arc, 180),
+            phase: cleanString(signals.phase, 180),
+            season: cleanString(signals.season, 80),
+            episode: cleanString(signals.episode, 80),
+            chapter: cleanString(signals.chapter, 80),
+            issue: cleanString(signals.issue, 80),
+            quest: cleanString(signals.quest, 180),
+            gameStage: cleanString(signals.gameStage, 180),
+            stardate: cleanString(signals.stardate, 80),
+            coordinates: isPlainObject(signals.coordinates) ? signals.coordinates : {},
+            eventLabels: (Array.isArray(signals.eventLabels) ? signals.eventLabels : []).map(item => cleanString(item, 160)).filter(Boolean).slice(0, 8),
+        },
+        uncertainty: {
+            level: cleanString(input.uncertainty?.level, 40) || 'low',
+            notes: (Array.isArray(input.uncertainty?.notes) ? input.uncertainty.notes : []).map(item => cleanString(item, 180)).filter(Boolean).slice(0, 6),
+        },
+    };
+}
+
+function buildContextStackSignature(state = {}, index = {}, targetPackIds = []) {
+    const stack = getEnabledStack(state, index).map(item => ({
+        packId: item.packId,
+        priority: Number.isFinite(Number(item.priority)) ? Number(item.priority) : 0,
+        stackIndex: Number.isFinite(Number(item.stackIndex)) ? Number(item.stackIndex) : 0,
+    }));
+    const summary = isPlainObject(index?.summary)
+        ? {
+            packCount: Number(index.summary.packCount) || 0,
+            anchorCount: Number(index.summary.anchorCount) || 0,
+            windowCount: Number(index.summary.windowCount) || 0,
+            issueCount: Number(index.summary.issueCount) || 0,
+        }
+        : {};
+    return stableHashString(stableSerialize({
+        stack,
+        targetPackIds: (targetPackIds || []).map(id => cleanString(id, 160)).filter(Boolean),
+        summary,
+    }));
+}
+
+function buildContextResolutionCacheKey(context = {}, options = {}) {
+    const state = options.state || {};
+    const index = options.index || {};
+    const targetPackIds = (options.targetPackIds || []).map(id => cleanString(id, 160)).filter(Boolean);
+    const sourceText = cleanString(options.sourceText, 3000);
+    const sourceHash = stableHashString(sourceText.toLowerCase().replace(/\s+/g, ' ').trim());
+    const stackSignature = buildContextStackSignature(state, index, targetPackIds);
+    const contextPayload = {
+        label: cleanString(context.label, 240),
+        summary: cleanString(context.summary, 500),
+        sceneDate: cleanString(context.sceneDate, 80),
+        subjectiveDate: cleanString(context.subjectiveDate, 80),
+        canonBoundary: cleanString(context.canonBoundary, 240),
+        branchId: cleanString(context.branchId || 'main', 120),
+        timeTravelMode: cleanString(context.timeTravelMode || 'none', 80),
+        arc: cleanString(context.arc, 180),
+        phase: cleanString(context.phase, 180),
+        season: cleanString(context.season, 80),
+        episode: cleanString(context.episode, 80),
+        chapter: cleanString(context.chapter, 80),
+        issue: cleanString(context.issue, 80),
+        quest: cleanString(context.quest, 180),
+        gameStage: cleanString(context.gameStage, 180),
+        stardate: cleanString(context.stardate, 80),
+        coordinates: isPlainObject(context.coordinates) ? context.coordinates : {},
+        alias: cleanString(context.alias, 240),
+        notes: cleanString(context.notes, 1000),
+        contextBrief: getContextBriefCachePayload(context.contextBrief),
+    };
+    const key = stableHashString(stableSerialize({
+        sourceHash,
+        stackSignature,
+        targetPackIds,
+        context: contextPayload,
+    }));
+    return { key, sourceHash, stackSignature, targetPackIds };
+}
+
+function normalizeContextResolutionCacheRecord(value = {}) {
+    if (!isPlainObject(value)) return null;
+    const key = cleanString(value.key, 120);
+    if (!key) return null;
+    const proposals = (Array.isArray(value.proposals) ? value.proposals : [])
+        .filter(isPlainObject)
+        .map(proposal => ({
+            packId: cleanString(proposal.packId, 160),
+            candidateId: cleanString(proposal.candidateId, 240),
+            candidateType: cleanString(proposal.candidateType, 40),
+            label: cleanString(proposal.label, 240),
+            summary: cleanString(proposal.summary, 500),
+            confidence: clampConfidence(proposal.confidence, 0),
+            patch: isPlainObject(proposal.patch) ? { ...proposal.patch } : {},
+        }))
+        .filter(proposal => proposal.packId && Object.keys(proposal.patch || {}).length)
+        .slice(0, 80);
+    return {
+        key,
+        sourceHash: cleanString(value.sourceHash, 120),
+        stackSignature: cleanString(value.stackSignature, 120),
+        targetPackIds: (Array.isArray(value.targetPackIds) ? value.targetPackIds : []).map(id => cleanString(id, 160)).filter(Boolean).slice(0, 80),
+        status: cleanString(value.status, 60) || 'unresolved',
+        reason: cleanString(value.reason, 160),
+        proposalCount: proposals.length,
+        proposals,
+        resolvedCount: Math.max(0, Number(value.resolvedCount) || 0),
+        changedCount: Math.max(0, Number(value.changedCount) || 0),
+        skippedCount: Math.max(0, Number(value.skippedCount) || 0),
+        unresolvedCount: Math.max(0, Number(value.unresolvedCount) || 0),
+        sourceCharacters: Math.max(0, Number(value.sourceCharacters) || 0),
+        createdAt: Number.isFinite(Number(value.createdAt)) ? Number(value.createdAt) : Date.now(),
+    };
+}
+
+function getMatchingContextResolutionCache(value = null, cacheKey = {}) {
+    const cache = normalizeContextResolutionCacheRecord(value);
+    if (!cache || !cacheKey?.key || cache.key !== cacheKey.key) return null;
+    return cache;
+}
+
+function buildCachedContextResolutionResult(cache = {}, local = {}, targetPackIds = [], index = {}, localAppliedCount = 0) {
+    return {
+        status: cache.status || (cache.proposals?.length ? 'proposed' : 'unresolved'),
+        cached: true,
+        reason: 'context_model_resolution_cache_hit',
+        local,
+        model: null,
+        appliedCount: localAppliedCount || 0,
+        localAppliedCount: localAppliedCount || 0,
+        modelAppliedCount: 0,
+        proposalCount: cache.proposals?.length || 0,
+        proposals: cache.proposals || [],
+        resolvedCount: (local.resolvedCount || 0) + (cache.resolvedCount || 0),
+        changedCount: (local.changedCount || 0) + (cache.changedCount || 0),
+        skippedCount: (local.skippedCount || 0) + (cache.skippedCount || 0),
+        unresolvedCount: cache.unresolvedCount || 0,
+        targetPackIds,
+        indexSummary: index?.summary || null,
+        cacheRecord: cache,
+    };
+}
+
+function buildContextResolutionCacheRecord(result = {}, cacheKey = {}, sourceText = '') {
+    if (!cacheKey?.key || result.status === 'in_flight') return null;
+    return normalizeContextResolutionCacheRecord({
+        key: cacheKey.key,
+        sourceHash: cacheKey.sourceHash,
+        stackSignature: cacheKey.stackSignature,
+        targetPackIds: cacheKey.targetPackIds,
+        status: result.status || 'unresolved',
+        reason: result.reason || '',
+        proposalCount: result.proposalCount || 0,
+        proposals: result.proposals || [],
+        resolvedCount: Math.max(0, (result.model?.resolvedCount || 0)),
+        changedCount: Math.max(0, (result.model?.changedCount || 0)),
+        skippedCount: Math.max(0, (result.model?.skippedCount || 0)),
+        unresolvedCount: Math.max(0, (result.model?.unresolvedCount ?? result.unresolvedCount ?? 0)),
+        sourceCharacters: String(sourceText || '').length,
+        createdAt: Date.now(),
+    });
+}
+
+function getResultCandidateId(result = {}) {
+    if (result.proposal?.candidateId) return cleanString(result.proposal.candidateId, 240);
+    if (result.candidate?.candidateId) return cleanString(result.candidate.candidateId, 240);
+    if (result.patch?.anchorId) return `anchor:${cleanString(result.patch.anchorId, 180)}`;
+    if (result.patch?.anchorFrom || result.patch?.anchorTo) {
+        return cleanString([result.patch.anchorFrom, result.patch.anchorTo].filter(Boolean).join('..'), 240);
+    }
+    if (result.anchor?.id) return `anchor:${cleanString(result.anchor.id, 180)}`;
+    if (result.window?.id) return `window:${cleanString(result.window.id, 180)}`;
+    return '';
+}
+
+function normalizeResolutionAuditOutcome(result = {}, phase = 'local') {
+    if (!isPlainObject(result)) return null;
+    const packId = cleanString(result.packId, 160);
+    const status = cleanString(result.status, 60) || 'unknown';
+    const reason = cleanString(result.reason || result.matchType, 180);
+    const label = cleanString(result.patch?.label || result.proposal?.label || result.candidate?.label || result.anchor?.label || result.window?.label, 240);
+    return {
+        phase,
+        packId,
+        status,
+        reason,
+        confidence: Number.isFinite(Number(result.confidence)) ? Math.max(0, Math.min(1, Number(result.confidence))) : null,
+        changed: result.changed === true,
+        candidateId: getResultCandidateId(result),
+        label,
+    };
+}
+
+function getResolutionAuditOutcomes(result = {}) {
+    const outcomes = [];
+    const localResults = Array.isArray(result?.local?.results)
+        ? result.local.results
+        : (Array.isArray(result?.results) ? result.results : []);
+    const modelResults = Array.isArray(result?.model?.results) ? result.model.results : [];
+    for (const item of localResults) {
+        const outcome = normalizeResolutionAuditOutcome(item, 'local');
+        if (outcome) outcomes.push(outcome);
+    }
+    for (const item of modelResults) {
+        const outcome = normalizeResolutionAuditOutcome(item, 'model');
+        if (outcome) outcomes.push(outcome);
+    }
+    if (result?.cached === true && Array.isArray(result.proposals)) {
+        for (const proposal of result.proposals) {
+            const outcome = normalizeResolutionAuditOutcome({
+                packId: proposal.packId,
+                status: 'proposed',
+                reason: 'cache_hit',
+                confidence: proposal.confidence,
+                changed: true,
+                proposal,
+            }, 'cache');
+            if (outcome) outcomes.push(outcome);
+        }
+    }
+    if (result?.status === 'in_flight') {
+        outcomes.push({
+            phase: 'system',
+            packId: '',
+            status: 'skipped',
+            reason: 'context_model_resolution_in_flight',
+            confidence: null,
+            changed: false,
+            candidateId: '',
+            label: '',
+        });
+    }
+    return outcomes.filter(outcome => outcome.packId || outcome.phase === 'system').slice(0, 120);
+}
+
+export function buildContextResolutionAudit(result = {}, context = {}, options = {}) {
+    const outcomes = getResolutionAuditOutcomes(result);
+    const reasonCounts = outcomes.reduce((counts, outcome) => {
+        const reason = outcome.reason || outcome.status || 'unknown';
+        counts[reason] = (counts[reason] || 0) + 1;
+        return counts;
+    }, {});
+    const proposals = Array.isArray(result?.proposals) ? result.proposals : [];
+    const localApplied = Number.isFinite(Number(result?.localAppliedCount))
+        ? Number(result.localAppliedCount)
+        : (Number.isFinite(Number(result?.appliedCount)) && !result?.model ? Number(result.appliedCount) : 0);
+    const modelApplied = Number.isFinite(Number(result?.modelAppliedCount)) ? Number(result.modelAppliedCount) : 0;
+    return {
+        schemaVersion: 1,
+        createdAt: Number.isFinite(Number(options.createdAt)) ? Number(options.createdAt) : Date.now(),
+        source: cleanString(options.source || 'context_resolver', 80),
+        status: cleanString(result?.status, 80) || 'unknown',
+        reason: cleanString(result?.reason || '', 180),
+        cached: result?.cached === true,
+        inFlight: result?.status === 'in_flight',
+        contextLabel: cleanString(options.contextLabel || context.label || context.canonBoundary || context.sceneDate || context.summary, 240),
+        sourceCharacters: Math.max(0, String(options.sourceText || '').length),
+        targetPackIds: (Array.isArray(result?.targetPackIds) ? result.targetPackIds : [])
+            .map(id => cleanString(id, 160))
+            .filter(Boolean)
+            .slice(0, 120),
+        counts: {
+            localApplied,
+            modelApplied,
+            proposed: Number.isFinite(Number(result?.proposalCount)) ? Number(result.proposalCount) : proposals.length,
+            resolved: Math.max(0, Number(result?.resolvedCount) || 0),
+            changed: Math.max(0, Number(result?.changedCount) || 0),
+            skipped: Math.max(0, Number(result?.skippedCount) || 0),
+            unresolved: Math.max(0, Number(result?.unresolvedCount) || 0),
+            skippedLocked: reasonCounts.manual_lock || 0,
+            skippedLowConfidence: (reasonCounts.local_low_confidence || 0) + (reasonCounts.model_low_confidence || 0),
+            cached: result?.cached === true ? 1 : 0,
+            inFlight: result?.status === 'in_flight' ? 1 : 0,
+        },
+        outcomes,
+    };
+}
+
 export function buildContextModelCandidatesForPack(packId = '', context = {}, options = {}) {
     const index = options.index || getContextIndexSync();
     const resolverText = buildResolverText(context, options);
@@ -923,6 +1372,10 @@ function buildContextPatchFromModelChoice(choice = {}, candidate = {}, context =
 function buildContextModelPrompt(context = {}, options = {}) {
     const state = options.state || {};
     const index = options.index || {};
+    const contextBrief = serializeContextBriefForPrompt(
+        options.contextBrief || context.contextBrief || state.contextBrief || {},
+        context,
+    );
     const targetPackIds = new Set((options.targetPackIds || []).map(packId => cleanString(packId, 160)).filter(Boolean));
     const packs = getEnabledStack(state, index)
         .filter(item => targetPackIds.has(item.packId))
@@ -962,12 +1415,14 @@ function buildContextModelPrompt(context = {}, options = {}) {
             gameStage: context.gameStage || '',
             stardate: context.stardate || '',
             coordinates: isPlainObject(context.coordinates) ? context.coordinates : {},
+            contextBrief,
         },
         supportingText: cleanString(options.sourceText, 3000),
         rules: [
             'Use only candidateId values listed under each pack.',
             'Prefer unresolved over guessing.',
             'Do not output locked packs; locked packs are omitted from targets.',
+            'Use contextBrief.evidence and contextBrief.uncertainty only to choose among listed candidates, never to invent timeline facts.',
             'If a date clearly falls within a candidate dateRange, choose that candidate.',
             'If user wording describes a broad before/after range and a window candidate fits, prefer the window.',
             'If wording says before/after but no exact candidate fits, choose the nearest listed candidate only when confidence is at least 0.55.',
@@ -1072,6 +1527,7 @@ export function resolveContextsFromContext(context = {}, options = {}) {
     const state = options.state || getState();
     const index = options.index || getContextIndexSync();
     const stack = getEnabledStack(state, index);
+    const minLocalConfidence = getMinimumLocalConfidence(options, 0);
     const results = [];
 
     for (const item of stack) {
@@ -1110,6 +1566,15 @@ export function resolveContextsFromContext(context = {}, options = {}) {
 
         const resolution = buildResolutionFromMatch(packId, match, context, options);
         resolution.changed = patchChangesContext(current, resolution.patch);
+        if (minLocalConfidence > 0 && resolution.changed && Number(resolution.confidence || 0) < minLocalConfidence) {
+            results.push({
+                ...resolution,
+                status: 'unresolved',
+                reason: 'local_low_confidence',
+                minConfidence: minLocalConfidence,
+            });
+            continue;
+        }
         results.push(resolution);
     }
 
@@ -1128,6 +1593,7 @@ export async function resolveAndApplyContextsFromContext(context = {}, options =
     const state = options.state || getState();
     const resolution = resolveContextsFromContext(context, {
         ...options,
+        minLocalConfidence: getMinimumLocalConfidence(options, DEFAULT_LOCAL_APPLY_MIN_CONFIDENCE),
         state,
         index,
     });
@@ -1165,6 +1631,7 @@ export async function resolveContextsWithModel(context = {}, options = {}) {
     const state = options.state || getState();
     const local = resolveContextsFromContext(context, {
         ...options,
+        minLocalConfidence: getMinimumLocalConfidence(options, DEFAULT_LOCAL_APPLY_MIN_CONFIDENCE),
         state,
         index,
     });
@@ -1191,6 +1658,39 @@ export async function resolveContextsWithModel(context = {}, options = {}) {
         };
     }
 
+    const cacheKey = buildContextResolutionCacheKey(context, {
+        ...options,
+        state,
+        index,
+        targetPackIds,
+    });
+    const cached = options.useResolutionCache !== false
+        ? getMatchingContextResolutionCache(options.resolutionCache, cacheKey)
+        : null;
+    if (cached && options.forceModelFallback !== true) {
+        return buildCachedContextResolutionResult(cached, local, targetPackIds, index, localAppliedCount);
+    }
+
+    if (_contextModelResolutionRunning && options.allowConcurrent !== true) {
+        return {
+            status: 'in_flight',
+            reason: 'context_model_resolution_in_flight',
+            local,
+            model: null,
+            appliedCount: localAppliedCount,
+            localAppliedCount,
+            modelAppliedCount: 0,
+            resolvedCount: local.resolvedCount || 0,
+            changedCount: local.changedCount || 0,
+            skippedCount: local.skippedCount || 0,
+            unresolvedCount: local.unresolvedCount || 0,
+            proposalCount: 0,
+            proposals: [],
+            targetPackIds,
+            indexSummary: index?.summary || null,
+        };
+    }
+
     const candidatesByPack = Object.fromEntries(targetPackIds.map(packId => [
         packId,
         buildContextModelCandidatesForPack(packId, context, {
@@ -1206,23 +1706,29 @@ export async function resolveContextsWithModel(context = {}, options = {}) {
         targetPackIds,
         candidatesByPack,
     });
-    const responseText = await sendLoreRequest(CONTEXT_MODEL_SYSTEM_PROMPT, userPrompt, {
-        providerKind: 'lore',
-        expectedOutput: 'json',
-        maxTokens: options.maxTokens || 1800,
-        signal: options.signal || null,
-    });
-    const model = resolveContextsFromModelResponse(responseText, context, {
-        ...options,
-        state,
-        index,
-        targetPackIds,
-        candidatesByPack,
-    });
+    _contextModelResolutionRunning = true;
+    let model;
+    try {
+        const responseText = await sendLoreRequest(CONTEXT_MODEL_SYSTEM_PROMPT, userPrompt, {
+            providerKind: 'lore',
+            expectedOutput: 'json',
+            maxTokens: options.maxTokens || 1800,
+            signal: options.signal || null,
+        });
+        model = resolveContextsFromModelResponse(responseText, context, {
+            ...options,
+            state,
+            index,
+            targetPackIds,
+            candidatesByPack,
+        });
+    } finally {
+        _contextModelResolutionRunning = false;
+    }
 
     const modelAppliedCount = options.applyModel === true ? applyContextResolutionResults(model.results) : 0;
 
-    return {
+    const result = {
         status: modelAppliedCount ? 'resolved' : (model.proposals?.length ? 'proposed' : (model.resolvedCount ? 'resolved_unapplied' : 'unresolved')),
         local,
         model,
@@ -1238,6 +1744,8 @@ export async function resolveContextsWithModel(context = {}, options = {}) {
         targetPackIds,
         indexSummary: index?.summary || null,
     };
+    result.cacheRecord = buildContextResolutionCacheRecord(result, cacheKey, options.sourceText || '');
+    return result;
 }
 
 export const __contextResolverTestHooks = {
@@ -1245,6 +1753,11 @@ export const __contextResolverTestHooks = {
     parseContextDate,
     buildResolverText,
     scoreAnchorDateMatch,
+    buildResolverContextFromContextBrief,
+    buildResolverContextFromState,
+    buildContextResolutionCacheKey,
+    normalizeContextResolutionCacheRecord,
+    buildContextResolutionAudit,
     resolveContextsFromContext,
     buildContextPatchFromAnchor,
     buildContextPatchFromWindow,

@@ -8284,6 +8284,22 @@
     color: #d5dfeb;
 }
 
+.wandlight-context-brief-status {
+    grid-template-columns: auto minmax(0, 1fr) minmax(180px, auto);
+}
+
+.wandlight-context-brief-status-chips {
+    justify-content: flex-end;
+    min-width: 0;
+    font-size: 0.72em;
+}
+
+.wandlight-context-brief-status-chips .wandlight-status-pill {
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .wandlight-warning-text {
     color: #e9b36b !important;
 }

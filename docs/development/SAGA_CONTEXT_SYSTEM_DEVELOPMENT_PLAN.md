@@ -30,12 +30,12 @@ Strong pieces already present:
 
 Weak or incomplete pieces:
 
-- Slice 4 has started: the top-level detector now asks for a Context Brief with evidence, uncertainty, media/story-position signals, stardate, and coordinates.
+- Slice 4 is mostly implemented: the top-level detector now asks for a Context Brief with evidence, uncertainty, media/story-position signals, stardate, and coordinates.
 - The global `loreContext` object intentionally remains date/canon-boundary oriented as a compatibility projection for older canon DB and UI readers.
-- The deterministic fallback still mostly extracts dates, headings, canon boundary lines, branch lines, and time-travel hints.
+- The deterministic fallback now extracts obvious dates/headings plus arc, chapter, issue, season/episode, stardate, quest/mission, game-stage, relative before/after/during phrases, and simple coordinates.
 - Slice 3 scores stardates, coordinates, arcs, chapters, and season/episode queries across anchors and windows before model fallback.
 - The main Context tab still exposes legacy-feeling date/canon-boundary controls beside newer Browser controls.
-- Automatic detection now saves `contextBrief` and resolves Loredeck Context from rich brief signals, but JSON repair/status UX still need more hardening.
+- Automatic detection now saves `contextBrief`, repairs malformed detector JSON before local fallback, records detector status metadata, resolves Loredeck Context from rich brief signals, and surfaces the latest detector status in the Context tab.
 
 This is good enough for date-heavy Harry Potter workflows, but not enough for One Piece, Star Trek, manga/anime chapter structures, games, comics, or loose cinematic timelines.
 
@@ -563,14 +563,18 @@ The synthetic fixture covers:
 - Add strict JSON repair/fallback without clearing existing Context.
 - Store brief status and evidence.
 
-Status: started. The model prompt now requests a Context Brief instead of a narrow date/canon-boundary object. `runLoreContextDetection()` normalizes detector output into `state.contextBrief`, projects a narrow legacy `loreContext` for older consumers, and resolves Loredeck Context from the rich brief signals. The test contract covers media fields, coordinates, fallback brief projection, and prevention of stale legacy date signals leaking into fresh non-date briefs.
+Status: mostly implemented. The model prompt now requests a Context Brief instead of a narrow date/canon-boundary object. `runLoreContextDetection()` normalizes detector output into `state.contextBrief`, projects a narrow legacy `loreContext` for older consumers, and resolves Loredeck Context from the rich brief signals. The deterministic fallback can now populate the same brief shape for obvious non-date signals such as `chapter 82`, `S05E02`, `stardate 45047.2`, `during Arlong Park`, `Quest: ...`, and simple coordinate lines such as `Series: TNG` or `Saga: East Blue`. Malformed detector JSON now gets a Context Brief-specific repair pass before local fallback. `contextBrief.status` records detected/repaired/fallback/empty/failed state, messages, repair/fallback flags, and bounded raw response previews. The Context tab surfaces this status in the detector card. Bounded Reasoner prompts now receive compact nested Context Brief evidence, uncertainty, source, and status while still choosing only from known candidates. The test contract covers media fields, coordinates, fallback brief projection, local extraction, repair prompt shape, status metadata, prompt evidence/uncertainty, and prevention of stale legacy date signals leaking into fresh non-date briefs.
+
+Current local-extraction script:
+
+```powershell
+node scripts\test-context-local-extraction.mjs
+```
 
 Remaining Slice 4 work:
 
-- Broaden deterministic local extraction beyond dates/headings into obvious arc/chapter/episode/stardate phrases.
-- Add a dedicated Context Brief JSON repair pass if malformed detector JSON becomes common.
-- Record richer detector status/failure metadata for UI display.
-- Feed nested evidence/uncertainty into bounded Reasoner prompts where useful.
+- Live-provider QA against non-date fandom phrasing, especially loose arc/chapter/episode requests.
+- Prompt-size and status-copy tuning after live runs with Reasoning providers.
 
 ### Slice 5: Resolver Orchestration
 
@@ -579,6 +583,20 @@ Remaining Slice 4 work:
 - Send only bounded candidate sets to Reasoner.
 - Store proposal results for review.
 - Protect manual locks and duplicate in-flight calls.
+
+Status: done for the current runtime contract. `context-resolver.js` now owns the shared conversion from `state.contextBrief` plus legacy `loreContext` into the richer resolver context used by local ranking and bounded Reasoner prompts. Manual Context-tab resolve actions now use this same rich context instead of only the legacy date/canon-boundary projection. Automatic local application now requires high-confidence local matches by default, so weak alias/date matches stay unresolved and can flow to bounded Reasoner proposal review. Context model fallback now blocks duplicate in-flight provider calls and preserves existing proposal review state when a duplicate request is skipped. The resolver now computes a repeated-check cache key from recent source text, rich Context signals, target packs, and active stack/index signature; automatic and manual Reasoner flows persist cache records in `lorePanel.contextResolutionCache`, so identical unresolved/proposed checks can be returned from cache without another provider call. The resolver also builds `contextResolutionAudit` metadata for local-applied, proposed, cached, skipped-locked, skipped-low-confidence, unresolved, and in-flight outcomes, and the Context tab shows a compact Last Resolver Check strip.
+
+Slice 5 test coverage now includes:
+
+```powershell
+node scripts\test-context-resolver.mjs
+node scripts\test-context-model-resolver.mjs
+node scripts\test-visual-smoke-harness.mjs
+```
+
+These tests cover local lock protection, model lock protection, low-confidence local skips, cache reuse, in-flight audit records, bounded model proposals, invented-candidate rejection, and source-smoke coverage for automatic/manual proposal persistence.
+
+Next work moves to Slice 6: Context Tab Redesign.
 
 ### Slice 6: Context Tab Redesign
 

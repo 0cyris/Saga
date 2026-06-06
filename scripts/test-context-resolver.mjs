@@ -15,7 +15,7 @@ globalThis.fetch = async (url) => {
 };
 
 const { loadContextIndexForState } = await import('../context-index.js');
-const { resolveContextsFromContext } = await import('../context-resolver.js');
+const { buildContextResolutionAudit, resolveContextsFromContext } = await import('../context-resolver.js');
 
 const YEAR_3_DECK_ID = 'hp-year-3-prisoner-of-azkaban';
 const YEAR_6_DECK_ID = 'hp-year-6-half-blood-prince';
@@ -148,6 +148,27 @@ assert.equal(dateResolution.results[0].patch.source, 'header');
 assert.equal(dateResolution.results[0].patch.sceneDate, 'Saturday, Jan 25, 1997');
 assert.equal(dateResolution.results[0].patch.contextSortKey, Math.floor(Date.UTC(1997, 0, 25) / 86400000));
 
+const thresholdedDateResolution = resolveContextsFromContext({
+  sceneDate: 'Saturday, Jan 25, 1997',
+  canonBoundary: 'Half-Blood Prince era, Year 6',
+  branchId: 'main',
+}, {
+  state: baseState,
+  index,
+  contextSource: 'header',
+  minLocalConfidence: 0.99,
+});
+const thresholdedDateMatch = thresholdedDateResolution.results.find(result => result.packId === YEAR_6_DECK_ID);
+assert.equal(thresholdedDateMatch.status, 'unresolved');
+assert.equal(thresholdedDateMatch.reason, 'local_low_confidence');
+assert.equal(thresholdedDateResolution.unresolvedCount, 2);
+const thresholdedAudit = buildContextResolutionAudit(thresholdedDateResolution, { sceneDate: 'Saturday, Jan 25, 1997' }, {
+  source: 'test_local',
+  sourceText: 'Saturday, Jan 25, 1997',
+});
+assert.equal(thresholdedAudit.counts.skippedLowConfidence, 1);
+assert.equal(thresholdedAudit.outcomes.some(outcome => outcome.reason === 'local_low_confidence'), true);
+
 const aliasResolution = resolveContextsFromContext({
   canonBoundary: 'Shrieking Shack Reveal',
   branchId: 'au-test',
@@ -185,5 +206,11 @@ const lockedResolution = resolveContextsFromContext({
 assert.equal(lockedResolution.resolvedCount, 0);
 assert.equal(lockedResolution.skippedCount, 1);
 assert.equal(lockedResolution.results.find(result => result.packId === YEAR_3_DECK_ID).reason, 'manual_lock');
+const lockedAudit = buildContextResolutionAudit(lockedResolution, { canonBoundary: 'Shrieking Shack Reveal' }, {
+  source: 'test_local_lock',
+  sourceText: 'Shrieking Shack Reveal',
+});
+assert.equal(lockedAudit.counts.skippedLocked, 1);
+assert.equal(lockedAudit.outcomes.some(outcome => outcome.packId === YEAR_3_DECK_ID && outcome.reason === 'manual_lock'), true);
 
 console.log('Context resolver tests passed.');

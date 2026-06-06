@@ -385,6 +385,20 @@ function normalizeContextBriefEvidence(value = []) {
         .slice(0, 12);
 }
 
+function normalizeContextBriefStatus(value = {}) {
+    const input = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+    const state = cleanContextString(input.state || input.status, 40).toLowerCase();
+    const allowedStates = ['idle', 'detected', 'repaired', 'fallback', 'failed', 'empty', 'skipped'];
+    return {
+        state: allowedStates.includes(state) ? state : 'idle',
+        message: cleanContextString(input.message || input.reason, 240),
+        error: cleanContextString(input.error || input.lastError, 500),
+        repaired: input.repaired === true,
+        fallbackUsed: input.fallbackUsed === true,
+        rawResponsePreview: cleanContextString(input.rawResponsePreview || input.preview, 1000),
+    };
+}
+
 export function normalizeContextBrief(value = {}, legacyContext = {}) {
     const input = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
     const legacy = legacyContext && typeof legacyContext === 'object' && !Array.isArray(legacyContext) ? legacyContext : {};
@@ -419,6 +433,7 @@ export function normalizeContextBrief(value = {}, legacyContext = {}) {
             level: ['low', 'medium', 'high'].includes(uncertaintyLevel) ? uncertaintyLevel : 'low',
             notes: cleanContextStringArray(rawUncertainty.notes || input.uncertaintyNotes, 12, 240),
         },
+        status: normalizeContextBriefStatus(input.status),
         source: normalizeContextSource(input.source, 'unknown'),
         updatedAt: Number.isFinite(Number(input.updatedAt)) ? Number(input.updatedAt) : 0,
     };

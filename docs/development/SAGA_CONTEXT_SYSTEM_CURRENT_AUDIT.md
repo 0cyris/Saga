@@ -15,9 +15,10 @@ Saga already has meaningful Context infrastructure, but the active runtime path 
 - The compact Context UI still foregrounds date/canon-boundary fields.
 - Slice 2 now preserves stardate, coordinates, and richer media fields on Loredeck Context state and timeline windows.
 - Slice 3 now ranks anchors and windows together with structured scoring for arcs, chapters, episodes, stardates, and coordinates.
-- Slice 4 has started by saving detector evidence/uncertainty/story-position signals into `state.contextBrief`.
+- Slice 4 now saves detector evidence/uncertainty/story-position signals into `state.contextBrief`, repairs malformed detector JSON before fallback, surfaces detector status in the Context tab, and feeds compact brief evidence into bounded Reasoner prompts.
+- Slice 5 now routes automatic and manual Context checks through the same rich resolver context, stores bounded Reasoner proposals for review, caches repeated checks, protects manual locks, and records resolver audit metadata.
 
-This explains why Harry Potter date workflows can work while One Piece, Star Trek, manga chapters, game quests, and other non-date structures still need detector and UI work before they feel first-class.
+This explains why Harry Potter date workflows are already the most mature path while One Piece, Star Trek, manga chapters, game quests, and other non-date structures still need live-provider tuning and Context-tab redesign before they feel first-class.
 
 ## Current Runtime Path
 
@@ -39,7 +40,7 @@ Recent chat messages
 Important current behavior:
 
 - The detector asks for a `Context Brief` with summary, branch, time-travel mode, evidence, structured signals, uncertainty, stardate, and coordinates.
-- Local fallback still mostly looks for dates, headings, canon boundary lines, branch lines, and time-travel hints.
+- Local fallback now also extracts obvious arc, chapter, issue, season/episode, stardate, quest/mission, game-stage, before/after/during phrases, fandom hints, and simple coordinate lines.
 - A narrow `loreContext` is still written for legacy date/canon-boundary consumers, but per-Loredeck resolution uses the richer brief-derived resolver context.
 - Reasoner fallback is bounded to known candidates, which is the correct safety direction.
 
@@ -48,13 +49,13 @@ Important current behavior:
 | Module | Current Role | Current Gap |
 | --- | --- | --- |
 | `constants.js` | Defines the top-level Context detection prompt. | Prompt now asks for Context Brief; future work is prompt tuning after live provider QA. |
-| `lore-generator.js` | Runs Context detection, local fallback, resolver, and canon proposal side effects. | Model output now starts from Context Brief; deterministic fallback is still narrow. |
+| `lore-generator.js` | Runs Context detection, repair, local fallback, resolver, and canon proposal side effects. | Model output and deterministic fallback both produce Context Briefs; remaining work is live-provider prompt tuning. |
 | `lore-matrix.js` | Normalizes global `loreContext` and Lorecard entry Context gates. | Global `loreContext` intentionally remains a compatibility projection and still drops media fields. |
-| `state-manager.js` | Normalizes and stores per-Loredeck `loredeckContexts` and `contextBrief`. | `contextBrief` now stores coordinates and detector signals; UI status metadata is still limited. |
+| `state-manager.js` | Normalizes and stores per-Loredeck `loredeckContexts` and `contextBrief`. | `contextBrief` now stores coordinates, detector signals, and detector status metadata. |
 | `context-index.js` | Aggregates timeline registries into searchable anchors/windows. | Slice 2 preserves rich anchor/window media fields; Lorecard-derived event candidates are still deferred/lazy. |
-| `context-resolver.js` | Local date/alias resolver and bounded model resolver. | Slice 3 ranks anchors/windows together with structured media scoring; bounded model prompt receives derived fields but not the full nested evidence/uncertainty object yet. |
+| `context-resolver.js` | Local structured resolver and bounded model resolver. | Slice 5 uses rich Context Brief signals for automatic/manual resolution, caches repeated checks, blocks duplicate in-flight model calls, and audits lock/low-confidence/proposal outcomes. |
 | `context-gating.js` | Evaluates entry Context gates against active Loredeck Context. | Gate support is broad; Slice 2 fixed empty-stardate coercion. |
-| `lore-panel.js` | Context tab and fullscreen Context Workbench/Browser. | Compact Context tab still includes legacy global date/canon-boundary editor. |
+| `lore-panel.js` | Context tab and fullscreen Context Workbench/Browser. | Compact Context tab now surfaces detector status, but still includes legacy global date/canon-boundary editor. |
 
 ## What Works Today
 
@@ -92,44 +93,30 @@ The model resolver already uses bounded known candidates and rejects invented ca
 
 ## Known Current Gaps
 
-### 1. Deterministic Fallback Is Still Too Narrow
+### 1. Deterministic Fallback Is Pattern-Based, Not Semantic
 
-The model detector output is now broad, but the no-response/parse-failure fallback still only extracts the old shape:
+The no-response/parse-failure fallback now produces the same Context Brief shape as the detector and extracts obvious non-date signals:
 
-```json
-{
-  "sceneDate": "",
-  "subjectiveDate": "",
-  "canonBoundary": "",
-  "branchId": "main",
-  "timeTravelMode": "none",
-  "summary": ""
-}
-```
-
-It has no structured place for:
-
-- Arc.
-- Phase.
-- Season.
-- Episode.
-- Chapter.
-- Issue.
-- Quest.
+- Arc and phase phrasing.
+- Season/episode.
+- Chapter and issue.
+- Quest/mission.
 - Game stage.
 - Stardate.
-- Event labels.
+- Before/after/during position phrases.
 - Fandom hints.
-- Evidence.
-- Uncertainty.
+- Simple coordinate lines such as `Series: TNG` or `Saga: East Blue`.
+- Evidence and uncertainty metadata.
+
+This is intentionally conservative. It is useful for explicit structure, but it should not try to understand vague fandom prose. Ambiguous cases should flow to local candidate ranking and bounded Reasoner proposals.
 
 ### 2. Global Context Drops Media Fields
 
 `normalizeLoreContext()` keeps only the older global fields. If a detector result contains `arc`, `episode`, or `stardate`, those fields are not preserved on global `loreContext`.
 
-### 3. Bounded Reasoner Prompt Is Still Not A Full Brief
+### 3. Bounded Reasoner Prompt Is Compact, Not Freeform
 
-The bounded Reasoner prompt is safe, but `currentStoryContext` currently includes:
+The bounded Reasoner prompt is safe and now includes `currentStoryContext.contextBrief`, but it is intentionally compact. `currentStoryContext` includes:
 
 - `sceneDate`
 - `subjectiveDate`
@@ -138,8 +125,9 @@ The bounded Reasoner prompt is safe, but `currentStoryContext` currently include
 - `timeTravelMode`
 - `summary`
 - media fields such as arc, season, episode, chapter, quest, game stage, stardate, and coordinates
+- compact Context Brief summary, evidence, uncertainty, source, detector status, and limited signal lists
 
-It does not yet include a full nested Context Brief with evidence and uncertainty.
+It still must choose only from known candidate IDs and cannot invent timeline facts from the brief.
 
 ### 4. Compact Context UI Is Still Legacy-Weighted
 
@@ -150,6 +138,10 @@ The Context tab has useful Loredeck Context and Browser surfaces, but the compac
 - Branch.
 
 Those should become an advanced/global brief area, not the primary Context model.
+
+### 5. Context Tab Needs Slice 6 Redesign
+
+Resolver internals are now ahead of the compact UI. The Context tab should foreground per-Loredeck Context rows, proposal review, locks, last-check audit, automation mode, and Browser access. Legacy global date/canon-boundary fields should move into an advanced brief section.
 
 ## Slice 2 Resolved Gaps
 
@@ -174,7 +166,7 @@ The Context Index/resolver upgrade has now:
 - Replaced the local alias resolver's anchor-only path with the shared anchor/window candidate builder.
 - Preserved stronger duplicate candidate scores when a candidate is found by multiple routes.
 
-## Slice 4 Started
+## Slice 4 Progress
 
 The detector redesign has now:
 
@@ -184,7 +176,24 @@ The detector redesign has now:
 - Saved successful detector output to `state.contextBrief`.
 - Projected detector output into legacy `loreContext` without letting stale legacy dates leak into fresh non-date briefs.
 - Fed brief-derived media/story-position signals into Loredeck Context resolution.
+- Expanded local fallback to populate Context Brief signals for obvious non-date structures.
+- Added a Context Brief-specific repair pass for malformed detector JSON before local fallback.
+- Added `contextBrief.status` metadata for detected, repaired, fallback, empty, and failed detector outcomes.
 - Kept local fallback behavior conservative and non-destructive when model detection fails.
+
+## Slice 5 Progress
+
+The resolver orchestration upgrade has now:
+
+- Shared rich Context Brief-to-resolver conversion between automatic and manual Context actions.
+- Kept local auto-apply conservative with a high-confidence threshold.
+- Routed weak local matches to bounded Reasoner proposal review instead of silently applying them.
+- Preserved existing proposal review state when duplicate model calls are skipped as in-flight.
+- Stored repeated-check cache records in `lorePanel.contextResolutionCache`.
+- Returned cached unresolved/proposed checks without another provider call.
+- Stored `contextResolutionAudit` records for local applied, proposed, cached, skipped locked, skipped low-confidence, unresolved, and in-flight outcomes.
+- Surfaced the latest resolver audit in the Context tab as a compact Last Resolver Check strip.
+- Added deterministic tests for local lock protection, model lock protection, in-flight audit state, cache reuse, proposal persistence smoke coverage, low-confidence skips, and invented-candidate rejection.
 
 ## Baseline Tests
 
@@ -199,7 +208,10 @@ This test now records the upgraded data-model behavior:
 - Detector prompt asks for Context Brief signals, evidence, uncertainty, stardate, and coordinates.
 - Global `normalizeLoreContext()` still drops media fields by design because it is now a compatibility projection.
 - Context Brief normalization preserves media fields and coordinates.
+- Context Brief status metadata preserves detector state, repair/fallback flags, errors, and bounded raw response previews.
 - Brief projection feeds rich resolver context without forcing stardate into `sceneDate`.
+- Bounded Reasoner prompts include compact nested Context Brief evidence, uncertainty, source, and status without allowing candidate invention.
+- The Context tab surfaces the latest `contextBrief.status` in the detector card.
 - Default state includes `contextBrief`.
 - Per-Loredeck Context preserves `stardate` and `coordinates`.
 - Anchors and windows preserve media fields, stardates, and coordinates.
@@ -215,14 +227,17 @@ node scripts\test-context-resolver.mjs
 node scripts\test-context-model-resolver.mjs
 node scripts\test-lore-context-normalization.mjs
 node scripts\test-context-media-scoring.mjs
+node scripts\test-context-local-extraction.mjs
+node scripts\test-visual-smoke-harness.mjs
 ```
 
 ## Contract For The Next Slice
 
-The next Slice 4 increment should harden detector fallback and status behavior:
+Slice 6 should redesign the Context tab around the Saga mental model:
 
-- Broaden deterministic extraction for obvious arc/chapter/episode/stardate phrases.
-- Add a Context Brief repair pass for malformed detector JSON if needed.
-- Preserve existing good Context on detection failure.
-- Store last detector status/failure metadata for the Context UI.
-- Keep model fallback bounded to known candidates and reviewable proposals.
+- Loaded Loredeck Context rows as the primary surface.
+- Browser, Detect, and Review Proposals as the primary actions.
+- Manual locks and latest resolver audit visible at a glance.
+- Automation mode/cadence controls grouped clearly.
+- Legacy global date/canon-boundary fields moved to an advanced Context Brief section.
+- Live-provider tuning treated as QA after the redesigned surface makes status and proposals understandable.
