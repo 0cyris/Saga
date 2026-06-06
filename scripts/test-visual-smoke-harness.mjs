@@ -114,6 +114,9 @@ assert(panel.includes('createLoredeckCreatorAdvancedGenerationSettings'), 'Creat
 assert(panel.includes('getLoredeckCreatorGenerationSettings'), 'Creator generation must read normalized per-project generation settings.');
 assert(panel.includes('setLoredeckCreatorGenerationSettings'), 'Creator generation settings must persist per project.');
 assert(panel.includes('showStreamingProgress'), 'Creator generation settings must control streaming progress snippets.');
+assert(panel.includes('forceVisibleOutput'), 'Creator generation requests must ask reasoning profiles for visible final output on the first call.');
+assert(llm.includes('prepareLoreRequestPrompts'), 'Lore LLM client must prepare first-pass visible-output prompts when requested.');
+assert(llm.includes('options.forceVisibleOutput === true'), 'Lore LLM client must expose an explicit visible-output opt-in.');
 assert(panel.includes('titleRunRemainingLimit'), 'Creator title Generate Remaining must use a configurable run limit.');
 assert(panel.includes('entryRunRemainingLimit'), 'Creator Lorecard auto-draft must use a configurable run limit.');
 assert(panel.includes('retryAttempts: Number.isFinite(Number(config.retryAttempts))'), 'Creator runner calls must support configured retry attempts.');

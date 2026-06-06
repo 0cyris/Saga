@@ -7752,6 +7752,7 @@ function createLoredeckCreatorRequestOptions(generation = null, options = {}) {
     const stream = options.stream !== undefined ? options.stream === true : settings.showStreamingProgress !== false;
     return {
         stream,
+        forceVisibleOutput: options.forceVisibleOutput !== undefined ? options.forceVisibleOutput === true : true,
         signal: controller?.signal,
         onProgress: makeLoredeckCreatorProgressHandler(generation, options),
     };

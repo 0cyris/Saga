@@ -233,6 +233,10 @@ function assertNotTokenLimitedResponse(cfg, json, options = {}) {
 }
 
 function makeFinalOnlyRetryPrompts(systemPrompt, userPrompt, options = {}) {
+    const alreadyConstrained = String(systemPrompt || '').includes('CRITICAL OUTPUT REQUIREMENT FOR THINKING MODELS:')
+        || String(userPrompt || '').includes('Do not leave message.content empty.');
+    if (alreadyConstrained) return { system: systemPrompt, user: userPrompt };
+
     const expectedOutput = String(options.expectedOutput || options.outputFormat || 'json').toLowerCase();
     const wantsText = /text|plain|compression|compressed/.test(expectedOutput);
     const system = wantsText
@@ -258,6 +262,13 @@ Return the final compressed text now in visible message.content. Do not leave me
 
 Return the final JSON now. The first character of your visible answer must be { and the last character must be }. Do not leave message.content empty.`;
     return { system, user };
+}
+
+function prepareLoreRequestPrompts(systemPrompt, userPrompt, options = {}) {
+    if (options.forceVisibleOutput === true) {
+        return makeFinalOnlyRetryPrompts(systemPrompt, userPrompt, options);
+    }
+    return { system: systemPrompt, user: userPrompt };
 }
 
 function getSillyTavernContext() {
@@ -916,6 +927,7 @@ export async function sendLoreRequest(systemPrompt, userPrompt, options = {}) {
     const cfg = getProviderSettings(options.providerKind || 'lore');
     const validation = await validateLoreProviderConfigurationAsync(cfg.kind);
     if (!validation.ok) throw new Error(validation.message);
+    const prompts = prepareLoreRequestPrompts(systemPrompt, userPrompt, options);
     emitLoreRequestProgress(options, {
         type: 'start',
         phase: 'starting',
@@ -926,7 +938,7 @@ export async function sendLoreRequest(systemPrompt, userPrompt, options = {}) {
         streamSupported: cfg.provider === 'openai_compatible' && wantsStreamingResponse(options),
     });
 
-    if (cfg.provider === 'openai_compatible') return await sendViaOpenAICompatible(cfg, systemPrompt, userPrompt, options);
-    if (cfg.provider === 'profile') return await sendViaConnectionProfile(cfg, systemPrompt, userPrompt, options);
-    return await sendViaSillyTavernRaw(cfg, systemPrompt, userPrompt, options);
+    if (cfg.provider === 'openai_compatible') return await sendViaOpenAICompatible(cfg, prompts.system, prompts.user, options);
+    if (cfg.provider === 'profile') return await sendViaConnectionProfile(cfg, prompts.system, prompts.user, options);
+    return await sendViaSillyTavernRaw(cfg, prompts.system, prompts.user, options);
 }
