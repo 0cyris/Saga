@@ -59,6 +59,8 @@ Provider/API settings, Reasoner Provider settings, automation thresholds, theme/
 
 The durable data contract for Loredecks: manifests, schema v3 Lorecards, tags, timeline registry, assets, covers, source/update metadata, and validation expectations. This needs to be stable because user-created and bundled decks will depend on it.
 
+Release-facing Loredeck authoring guidance now lives in [../loredecks/LOREDECK_AND_LORECARD_CREATION_GUIDE.md](../loredecks/LOREDECK_AND_LORECARD_CREATION_GUIDE.md), with the schema reference in [../loredecks/SAGA_LOREDECK_SCHEMA.md](../loredecks/SAGA_LOREDECK_SCHEMA.md). Keep future user-facing Loredeck documentation in that folder instead of adding more broad development notes here.
+
 ### 4. Loredeck Loader
 
 Bundled, Custom, and Generated Loredeck loading. The loader must support active stack loading, embedded Custom/Generated entries, deck-local assets, and loud failures when required bundled manifests are missing. Legacy root lore fallback should remain removed.

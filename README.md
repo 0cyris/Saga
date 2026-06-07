@@ -30,7 +30,7 @@ This repository is being prepared for public testing so the extension can be loa
 
 The current production focus is stabilizing the Loredeck system:
 
-- Bundled Harry Potter Golden Trio Loredeck.
+- Bundled Harry Potter Golden Trio Loredeck family.
 - Context-native schema and retrieval.
 - Loredeck Library and Stack UI.
 - Custom and Generated Loredeck editing.
@@ -38,6 +38,10 @@ The current production focus is stabilizing the Loredeck system:
 - Pending Review for lore, tags, and timeline changes.
 - Timeline Registry and Tag Manager tools.
 - Early Lore Assistant and Loredeck Creator workflows.
+
+## Documentation
+
+Release-facing documentation is being organized under [docs](docs/DOCUMENTATION_INDEX.md). Loredeck and Lorecard creation guidance now lives in [docs/loredecks](docs/loredecks/LOREDECK_AND_LORECARD_CREATION_GUIDE.md).
 
 ## License
 

@@ -1,10 +1,10 @@
-# Saga Loredeck Schema Draft
+# Saga Loredeck Schema Reference
 
 **SAGA: Fandom Loresystem.**
 
 ## Status
 
-This is a pre-implementation schema draft for Saga Loredecks.
+This is the working schema and product/data contract for Saga Loredecks. It is still evolving with the extension, but it is no longer stored with broad development notes because deck authors need a stable place to find the contract.
 
 Terminology note: public-facing Saga language is now **Loredeck**, **Lorecard**, **Context**, and **Deck Health**. Internal implementation identifiers such as `packId` remain explicit until Saga has a separate deck-id migration plan.
 
@@ -18,7 +18,7 @@ The goal is to define enough structure for:
 - Import, export, and update metadata.
 - Future Loredeck editing and generation.
 
-This document is not final JSON Schema syntax yet. It is the product and data contract the first implementation should target.
+This document is not final JSON Schema syntax yet. It is the product and data contract the implementation and bundled reference decks should target.
 
 ## Design Goals
 
