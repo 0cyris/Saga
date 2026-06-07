@@ -148,6 +148,7 @@ assert(panel.includes('titles covered'), 'Generated export readiness must show a
 assert(panel.includes('No linked Creator job was found'), 'Generated export readiness must warn when Creator job metadata is missing.');
 assert(panel.includes('acceptLoredeckPendingChanges(pack, pending.map(change => change.changeId))'), 'Loredeck Pending Review Accept All must pass explicit pending change IDs.');
 assert(panel.includes('const freshPack = getFreshLoredeckLibraryPack(pack?.packId, pack);'), 'Loredeck pending acceptance must re-read the freshest pack before applying changes.');
+assert(panel.includes('else next.pendingChanges = [];'), 'Loredeck pending acceptance must pass an explicit empty pendingChanges field through persistence.');
 assert(panel.includes("generated_shell_without_entries"), 'Generated Loredeck planning accepts must skip health rerun while the shell has no accepted Lorecards.');
 assert(!panel.includes('no valid manifest or accepted embedded data yet'), 'Generated Loredeck planning accepts must not warn about missing embedded data after each proposal.');
 assert(stateManager.includes('clearableOptionalFields'), 'Loredeck library upsert must track optional fields that were intentionally supplied.');
