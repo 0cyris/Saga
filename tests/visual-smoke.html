@@ -94,6 +94,13 @@
         import { DEFAULT_SETTINGS, getDefaultState } from '../constants.js';
         import { showLorePanel } from '../lore-panel.js';
 
+        const smokeParams = new URLSearchParams(window.location.search);
+        const smokeActiveTab = ['loredecks', 'context', 'lore', 'continuity', 'injection', 'settings', 'session']
+            .includes(smokeParams.get('tab'))
+            ? smokeParams.get('tab')
+            : 'loredecks';
+        const smokeAutoOpenContextProposals = smokeParams.get('review') === 'context-proposals';
+
         const customPack = {
             packId: 'smoke-arlong-park',
             type: 'custom',
@@ -266,8 +273,99 @@
             drawerHeight: 720,
             railX: 24,
             railY: 24,
-            activeTab: 'loredecks',
+            activeTab: smokeActiveTab,
             selectedLoredeckId: customPack.packId,
+            contextResolutionProposals: [
+                {
+                    packId: customPack.packId,
+                    candidateId: 'window:op_arlong_park',
+                    candidateType: 'window',
+                    label: 'Arlong Park Arc',
+                    summary: 'Smoke fixture proposal for setting the active One Piece Context window.',
+                    confidence: 0.91,
+                    patch: {
+                        schemaVersion: 1,
+                        packId: customPack.packId,
+                        contextType: 'anchor_window',
+                        label: 'Arlong Park Arc',
+                        arc: 'Arlong Park',
+                        anchorFrom: 'op_arlong_park_start',
+                        anchorTo: 'op_arlong_park_start',
+                        contextSortKeyFrom: 1,
+                        contextSortKeyTo: 10,
+                        branchId: 'main',
+                        confidence: 0.91,
+                        source: 'model',
+                        coordinates: { saga: 'East Blue', island: 'Cocoyasi Village' },
+                    },
+                },
+            ],
+            contextResolutionProposalMeta: {
+                createdAt: Date.now(),
+                source: 'manual_reasoner',
+                contextLabel: 'Arlong Park Arc',
+                cached: false,
+            },
+            contextResolutionAudit: {
+                source: 'visual_smoke_fixture',
+                status: 'proposed',
+                reason: 'smoke_fixture',
+                createdAt: Date.now(),
+                counts: {
+                    proposed: 1,
+                    localApplied: 0,
+                    skippedLocked: 0,
+                    skippedLowConfidence: 0,
+                    unresolved: 0,
+                },
+            },
+            contextAutomationAudit: {
+                source: 'visual_smoke_fixture',
+                status: 'skipped',
+                reason: 'context_manual_mode',
+                mode: 'manual',
+                message: 'Visual smoke fixture: background Context automation is in Manual mode.',
+                createdAt: Date.now(),
+                cadence: {
+                    turns: 0,
+                    minTurns: 8,
+                    newChars: 0,
+                    characterThreshold: 8000,
+                },
+            },
+        };
+        state.contextBrief = {
+            schemaVersion: 1,
+            summary: 'The scene is during Arlong Park in Cocoyasi Village.',
+            source: 'visual_smoke_fixture',
+            updatedAt: Date.now(),
+            signals: {
+                fandom: 'One Piece',
+                arc: 'Arlong Park',
+                chapter: '82',
+                positionPhrases: ['during Arlong Park', 'Cocoyasi Village'],
+                coordinates: { saga: 'East Blue', island: 'Cocoyasi Village' },
+            },
+            evidence: [
+                { quote: 'Arlong has leverage over the village.', signal: 'arc' },
+                { quote: 'Cocoyasi Village', signal: 'location' },
+            ],
+            uncertainty: {
+                level: 'low',
+                notes: ['Seeded visual smoke Context Brief.'],
+            },
+            status: {
+                state: 'detected',
+                message: 'Visual smoke Context Brief ready.',
+                fallbackUsed: false,
+            },
+        };
+        state.loreContext = {
+            sceneDate: '',
+            canonBoundary: 'during Arlong Park',
+            branchId: 'main',
+            source: 'visual_smoke_fixture',
+            lastDetectedAt: Date.now(),
         };
         state.loredeckStack = [
             { packId: 'smoke-arlong-park', enabled: true, priority: 100, locked: false, addedAt: Date.now() },
@@ -326,6 +424,18 @@
         window.__sagaSmokeContext.extensionSettings.wandlight = settings;
         window.__sagaSmokeContext.chatMetadata.wandlight = state;
         showLorePanel();
+        if (smokeAutoOpenContextProposals) {
+            requestAnimationFrame(() => {
+                const button = [...document.querySelectorAll('button')]
+                    .find(candidate => (candidate.textContent || '').includes('Review Proposals'));
+                button?.click();
+            });
+        }
+        window.__sagaContextSmoke = {
+            activeTab: smokeActiveTab,
+            proposalCount: state.lorePanel.contextResolutionProposals.length,
+            autoOpenContextProposals: smokeAutoOpenContextProposals,
+        };
         window.__sagaSmokeReady = true;
     </script>
 </body>

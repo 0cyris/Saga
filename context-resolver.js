@@ -317,6 +317,8 @@ function buildResolverText(context = {}, options = {}) {
         context.alias,
         context.notes,
         context.summary,
+        ...(Array.isArray(context.positionPhrases) ? context.positionPhrases : []),
+        ...(Array.isArray(context.eventLabels) ? context.eventLabels : []),
         contextCoordinatesToText(context.coordinates),
         options.sourceText,
     ];
@@ -325,6 +327,33 @@ function buildResolverText(context = {}, options = {}) {
         .filter(Boolean)
         .join(' | ')
         .slice(0, 4000);
+}
+
+function buildResolverTextVariants(context = {}, options = {}) {
+    const values = [
+        buildResolverText(context, options),
+        context.alias,
+        context.label,
+        context.summary,
+        context.canonBoundary,
+        context.notes,
+        ...(Array.isArray(context.positionPhrases) ? context.positionPhrases : []),
+        ...(Array.isArray(context.eventLabels) ? context.eventLabels : []),
+        ...(Array.isArray(context.contextBrief?.signals?.positionPhrases) ? context.contextBrief.signals.positionPhrases : []),
+        ...(Array.isArray(context.contextBrief?.signals?.eventLabels) ? context.contextBrief.signals.eventLabels : []),
+        options.sourceText,
+    ];
+    const output = [];
+    const seen = new Set();
+    for (const value of values) {
+        const cleaned = cleanString(value, 1200);
+        const key = cleaned.toLowerCase();
+        if (!cleaned || seen.has(key)) continue;
+        seen.add(key);
+        output.push(cleaned);
+        if (output.length >= 12) break;
+    }
+    return output;
 }
 
 function getContextBriefSignalValue(signals = {}, key = '', legacyValue = '', options = {}) {
@@ -1083,6 +1112,18 @@ function getResolutionAuditOutcomes(result = {}) {
             label: '',
         });
     }
+    if (!outcomes.length && cleanString(result?.reason, 180)) {
+        outcomes.push({
+            phase: 'system',
+            packId: '',
+            status: cleanString(result?.status, 60) || 'skipped',
+            reason: cleanString(result.reason, 180),
+            confidence: null,
+            changed: false,
+            candidateId: '',
+            label: cleanString(result?.message || '', 240),
+        });
+    }
     return outcomes.filter(outcome => outcome.packId || outcome.phase === 'system').slice(0, 120);
 }
 
@@ -1104,6 +1145,8 @@ export function buildContextResolutionAudit(result = {}, context = {}, options =
         source: cleanString(options.source || 'context_resolver', 80),
         status: cleanString(result?.status, 80) || 'unknown',
         reason: cleanString(result?.reason || '', 180),
+        message: cleanString(result?.message || options.message || '', 240),
+        automationSkipped: result?.automationSkipped === true,
         cached: result?.cached === true,
         inFlight: result?.status === 'in_flight',
         contextLabel: cleanString(options.contextLabel || context.label || context.canonBoundary || context.sceneDate || context.summary, 240),
@@ -1132,6 +1175,7 @@ export function buildContextResolutionAudit(result = {}, context = {}, options =
 export function buildContextModelCandidatesForPack(packId = '', context = {}, options = {}) {
     const index = options.index || getContextIndexSync();
     const resolverText = buildResolverText(context, options);
+    const resolverTextVariants = buildResolverTextVariants(context, options);
     const limit = Math.max(4, Math.min(60, Number(options.candidateLimit) || MODEL_CANDIDATE_CAP_PER_PACK));
     const candidates = [];
     const candidateIndexes = new Map();
@@ -1156,13 +1200,16 @@ export function buildContextModelCandidatesForPack(packId = '', context = {}, op
         if (dateMatch?.window) addCandidate(makeWindowCandidate(dateMatch.window, dateMatch.score, 'date_match'));
     }
 
-    for (const ranked of rankContextAnchors(resolverText, { packId, index, limit: limit * 2 }) || []) {
-        const structuredScore = scoreStructuredContextMatch(ranked.anchor, context, { window: false });
-        addCandidate(makeAnchorCandidate(
-            ranked.anchor,
-            (Number(ranked.score) || 0) + structuredScore,
-            structuredScore > 0 ? 'ranked_anchor_structured' : 'ranked_anchor',
-        ));
+    for (const variantText of resolverTextVariants) {
+        const variantReason = variantText === resolverText ? 'ranked_anchor' : 'ranked_anchor_variant';
+        for (const ranked of rankContextAnchors(variantText, { packId, index, limit: limit * 2 }) || []) {
+            const structuredScore = scoreStructuredContextMatch(ranked.anchor, context, { window: false });
+            addCandidate(makeAnchorCandidate(
+                ranked.anchor,
+                (Number(ranked.score) || 0) + structuredScore,
+                structuredScore > 0 ? `${variantReason}_structured` : variantReason,
+            ));
+        }
     }
 
     for (const anchor of getPackAnchors(index, packId)) {

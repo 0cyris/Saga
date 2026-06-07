@@ -1874,6 +1874,17 @@ export function getLoredeckLibraryRegistry(state = null) {
 }
 
 export function upsertLoredeckLibraryPack(packRecord = {}) {
+    const clearableOptionalFields = [
+        'pendingChanges',
+        'tagRegistry',
+        'timelineRegistry',
+        'healthIssueStates',
+        'manifestData',
+        'assets',
+        'library',
+        'derivedFrom',
+    ];
+    const explicitOptionalFields = new Set(clearableOptionalFields.filter(key => Object.prototype.hasOwnProperty.call(packRecord || {}, key)));
     const normalized = normalizeLoredeckRegistry(
         { schemaVersion: 1, packs: { [packRecord.packId || packRecord.id || '']: packRecord } },
         { schemaVersion: 1, packs: {} }
@@ -1889,12 +1900,17 @@ export function upsertLoredeckLibraryPack(packRecord = {}) {
 
     const settings = getSettings();
     const library = normalizeLoredeckRegistry(settings.loredeckLibrary, DEFAULT_SETTINGS.loredeckLibrary);
-    library.packs[packId] = {
-        ...(library.packs[packId] || {}),
+    const existing = library.packs[packId] || {};
+    const nextPack = {
+        ...existing,
         ...pack,
-        installedAt: library.packs[packId]?.installedAt || pack.installedAt || Date.now(),
+        installedAt: existing.installedAt || pack.installedAt || Date.now(),
         updatedAt: Date.now(),
     };
+    for (const key of explicitOptionalFields) {
+        if (!Object.prototype.hasOwnProperty.call(pack, key)) delete nextPack[key];
+    }
+    library.packs[packId] = nextPack;
     settings.loredeckLibrary = normalizeLoredeckRegistry(library, DEFAULT_SETTINGS.loredeckLibrary);
     saveSettings(settings);
     return { ok: true, pack: settings.loredeckLibrary.packs[packId], library: settings.loredeckLibrary };
@@ -2108,6 +2124,17 @@ export function getSettings() {
     const legacyAutomationMode = normalizeAutomationModeValue(stored.workflowMode, '');
     merged.automationMode = normalizeAutomationModeValue(stored.automationMode, legacyAutomationMode || DEFAULT_SETTINGS.automationMode || 'manual');
     merged.workflowMode = merged.automationMode;
+    merged.contextDetectionMode = normalizeAutomationModeValue(merged.contextDetectionMode, DEFAULT_SETTINGS.contextDetectionMode || 'manual');
+    merged.contextDetectionAutoInterval = Math.max(1, Math.min(100, Number(merged.contextDetectionAutoInterval) || DEFAULT_SETTINGS.contextDetectionAutoInterval || 20));
+    merged.contextDetectionAutoMinTurns = Math.max(1, Math.min(100, Number(merged.contextDetectionAutoMinTurns) || DEFAULT_SETTINGS.contextDetectionAutoMinTurns || 8));
+    if (merged.contextDetectionAutoMinTurns > merged.contextDetectionAutoInterval) {
+        merged.contextDetectionAutoMinTurns = merged.contextDetectionAutoInterval;
+    }
+    merged.contextDetectionAutoCharacterThreshold = Math.max(0, Math.min(50000, Number(merged.contextDetectionAutoCharacterThreshold) || DEFAULT_SETTINGS.contextDetectionAutoCharacterThreshold || 8000));
+    merged.contextModelFallbackMinCharacters = Math.max(0, Math.min(20000, Number(merged.contextModelFallbackMinCharacters) || DEFAULT_SETTINGS.contextModelFallbackMinCharacters || 1200));
+    merged.contextReasonerFallbackEnabled = merged.contextReasonerFallbackEnabled !== false;
+    merged.contextLocalApplyMinConfidence = Math.max(0, Math.min(1, Number(merged.contextLocalApplyMinConfidence) || DEFAULT_SETTINGS.contextLocalApplyMinConfidence || 0.78));
+    merged.contextReasonerProposalMinConfidence = Math.max(0, Math.min(1, Number(merged.contextReasonerProposalMinConfidence) || DEFAULT_SETTINGS.contextReasonerProposalMinConfidence || 0.55));
     if (stored.experienceMode === undefined && hasStoredSettings) {
         merged.experienceMode = 'advanced';
     } else {
@@ -2140,6 +2167,28 @@ export function getSettings() {
             activeStack: clearDefaultHpLoredeckFolderStack(merged.loredeckLibrary?.activeStack),
         }, DEFAULT_SETTINGS.loredeckLibrary);
         merged.emptyLoredeckStackDefaultsMigrated20260605 = true;
+    }
+
+    if (stored.contextAutomationDefaultsMigrated20260606 !== true) {
+        if (stored.contextDetectionAutoInterval === undefined || Number(stored.contextDetectionAutoInterval) === 5) {
+            merged.contextDetectionAutoInterval = 20;
+        }
+        if (stored.contextDetectionAutoMinTurns === undefined) {
+            merged.contextDetectionAutoMinTurns = 8;
+        }
+        if (stored.contextDetectionAutoCharacterThreshold === undefined) {
+            merged.contextDetectionAutoCharacterThreshold = 8000;
+        }
+        if (stored.contextReasonerFallbackEnabled === undefined) {
+            merged.contextReasonerFallbackEnabled = true;
+        }
+        if (stored.contextLocalApplyMinConfidence === undefined) {
+            merged.contextLocalApplyMinConfidence = 0.78;
+        }
+        if (stored.contextReasonerProposalMinConfidence === undefined) {
+            merged.contextReasonerProposalMinConfidence = 0.55;
+        }
+        merged.contextAutomationDefaultsMigrated20260606 = true;
     }
 
     // One-time upgrade from the old conservative story-lore generation defaults.

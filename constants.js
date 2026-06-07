@@ -69,9 +69,15 @@ export const BASIC_EXPERIENCE_SETTINGS = Object.freeze({
     workflowMode: 'manual',
     continuityTrackingMode: 'manual',
     contextDetectionMode: 'manual',
+    contextDetectionAutoInterval: 20,
+    contextDetectionAutoMinTurns: 8,
+    contextDetectionAutoCharacterThreshold: 8000,
     loreGenerationMode: 'manual',
     contextSourceMessageCount: 20,
     contextModelFallbackMinCharacters: 1200,
+    contextReasonerFallbackEnabled: true,
+    contextLocalApplyMinConfidence: 0.78,
+    contextReasonerProposalMinConfidence: 0.55,
     canonLoreDatabaseEnabled: true,
     canonLoreAutoPropose: true,
     canonLoreMaxEntries: 10,
@@ -170,9 +176,14 @@ export const DEFAULT_SETTINGS = {
     automationMode: 'manual',
     continuityTrackingMode: 'manual', // 'manual' | 'automatic'
     continuityAutoInterval: 10, // turns between automatic continuity scans
-    contextDetectionMode: 'manual', // 'manual' | 'automatic'
-    contextDetectionAutoInterval: 5,
+    contextDetectionMode: 'manual', // 'manual' | 'assisted' | 'automatic'
+    contextDetectionAutoInterval: 20,
+    contextDetectionAutoMinTurns: 8,
+    contextDetectionAutoCharacterThreshold: 8000,
     contextModelFallbackMinCharacters: 1200,
+    contextReasonerFallbackEnabled: true,
+    contextLocalApplyMinConfidence: 0.78,
+    contextReasonerProposalMinConfidence: 0.55,
     loreGenerationMode: 'manual', // 'manual' | 'automatic'
     loreGenerationAutoInterval: 50,
     loreGenerationAutoMinTurns: 20,
@@ -221,6 +232,7 @@ export const DEFAULT_SETTINGS = {
     loreBootstrapDefaultsMigrated20260531: true,
     loreAutomationDefaultsMigrated20260602: true,
     continuityPerformanceDefaultsMigrated20260603: true,
+    contextAutomationDefaultsMigrated20260606: true,
     loreReplacementGuard: true,
     loreDuplicateGuard: true,
     loreSimilarityRouting: true,
@@ -699,6 +711,7 @@ export function getDefaultState() {
             contextResolutionProposalMeta: null,
             contextResolutionCache: null,
             contextResolutionAudit: null,
+            contextAutomationAudit: null,
             showOnlyActive: false,
             x: 20,
             y: 220,

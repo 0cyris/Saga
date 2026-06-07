@@ -34,7 +34,7 @@ Weak or incomplete pieces:
 - The global `loreContext` object intentionally remains date/canon-boundary oriented as a compatibility projection for older canon DB and UI readers.
 - The deterministic fallback now extracts obvious dates/headings plus arc, chapter, issue, season/episode, stardate, quest/mission, game-stage, relative before/after/during phrases, and simple coordinates.
 - Slice 3 scores stardates, coordinates, arcs, chapters, and season/episode queries across anchors and windows before model fallback.
-- The main Context tab still exposes legacy-feeling date/canon-boundary controls beside newer Browser controls.
+- The main Context tab now foregrounds the runtime command center and loaded Loredeck Context rows; legacy global date/canon-boundary controls live in the collapsed Advanced Context Brief section.
 - Automatic detection now saves `contextBrief`, repairs malformed detector JSON before local fallback, records detector status metadata, resolves Loredeck Context from rich brief signals, and surfaces the latest detector status in the Context tab.
 
 This is good enough for date-heavy Harry Potter workflows, but not enough for One Piece, Star Trek, manga/anime chapter structures, games, comics, or loose cinematic timelines.
@@ -242,10 +242,12 @@ Application policy:
 
 - Manual apply always allowed.
 - High-confidence local results can apply automatically when the deck is unlocked.
-- Reasoner results should default to review proposals.
-- Automatic mode can apply high-confidence Reasoner results only if the user explicitly enables it.
+- For alpha, model-derived Reasoner Context never auto-applies.
+- Automatic mode can run local-first checks and queue bounded Reasoner proposals, but users must review/apply Reasoner proposals manually.
 - Medium/low confidence results should go to proposal review.
 - Ambiguous results should open the Context Browser with candidate choices.
+
+Post-alpha revisit gate: model auto-apply should only be reconsidered with an explicit opt-in setting, visible audit history, undo support, and deterministic tests proving lock/cadence/proposal behavior.
 
 ## Model Call Performance
 
@@ -257,7 +259,7 @@ Recommended default:
 
 - Manual mode: no background model calls.
 - Assisted mode: local checks after a cadence, model fallback only when drift is likely.
-- Automatic mode: same cadence, but high-confidence results may apply.
+- Automatic mode: same cadence, but only high-confidence local results may apply; Reasoner results stay reviewable through alpha.
 
 Initial cadence:
 
@@ -605,12 +607,30 @@ Next work moves to Slice 6: Context Tab Redesign.
 - Make Browser, Detect, and Review Proposals the primary actions.
 - Add clear status feedback for running checks.
 
+Status: in progress, with the first runtime redesign slices complete. The compact Context tab now renders a Phase 6 command center before the loaded Loredeck rows. The command center exposes `Browse Context`, `Detect Context`, and `Review Proposals` as the primary actions, keeps local/Reasoner resolver actions secondary, shows detector status/proposal/index chips, and keeps automation controls in a compact panel. Loaded Loredeck rows now show source, confidence, manual lock state, last update, and timeline anchor/window coverage, with direct Browse and Lock/Unlock controls. The old global Scene date / Canon reference point / Branch editor has moved into a collapsed `Advanced Context Brief` section with detector signal diagnostics. `Review Proposals` now opens a dedicated fullscreen Context Proposal Review overlay with full proposal rows, patch summaries, Apply All, Dismiss All, and per-proposal Apply/Dismiss actions. Adjacent Lore/canon-preview copy now describes the legacy date fields as the global Context projection instead of presenting date/canon-boundary as the whole Context model.
+
+Current UI contract script:
+
+```powershell
+node scripts\test-visual-smoke-harness.mjs
+```
+
+Remaining Slice 6 work:
+
+- Narrow/mobile shelf pass for chip density, row height, and drawer scrolling.
+
 ### Slice 7: Automation Settings
 
 - Add Manual / Assisted / Automatic modes.
 - Add message-count and character-count cadence settings.
 - Add Reasoner fallback and auto-apply thresholds.
 - Add clear audit/status messaging for last check, skipped check, and failed check.
+
+Status: in progress, automation settings and skipped-check audit slices implemented. Context automation now exposes Manual, Assisted, and Automatic modes in the Context command center. Background Context checks use a conservative hybrid cadence: minimum completed turns plus a new-text character threshold, with a maximum-turn fallback so long scenes still refresh eventually. Existing installs that still carry the old 5-turn Context default migrate to the Saga cadence defaults. The UI now exposes source-message count, Reasoner fallback minimum characters, a Reasoner fallback toggle, local auto-apply confidence, and bounded Reasoner proposal confidence. Automatic and manual resolver paths pass those confidence settings into the resolver. Alpha policy is now explicit: high-confidence local results may apply when the Loredeck is unlocked, but model-derived Reasoner Context remains reviewable proposals and never silently applies. Background automation decisions now persist `contextAutomationAudit` records for Manual mode, cadence-not-reached, no loaded Loredecks, all locked Loredecks, and missing provider settings. Disabled Reasoner fallback now records a skipped resolver audit instead of silently collapsing into a generic unresolved result.
+
+Remaining Slice 7 work:
+
+- Live-provider QA for detector/resolver status copy after real Reasoner calls on loose non-date phrasing.
 
 ### Slice 8: Tests
 
@@ -620,6 +640,16 @@ Next work moves to Slice 6: Context Tab Redesign.
 - Prove locked Contexts are not overwritten.
 - Prove stardate gates work without making stardate the only source of truth.
 
+Status: implemented for deterministic coverage. Existing HP Year 6 integration scripts cover date-heavy bundled Loredeck movement and injection behavior. `test-context-cross-fandom-fixtures.mjs` adds One Piece arc/chapter Context, Star Trek TNG episode/stardate Context, Star Trek VOY two-part episode-window Context, mocked Reasoner proposal review, manual-lock protection, stardate gates, and Context-gate eligibility movement.
+
+`test-context-hp-phrase-fixtures.mjs` adds regression coverage for the exact natural-language Harry Potter phrases that previously exposed brittle matching:
+
+- `After Christmas in their 6th year` -> `hp.y6.post_christmas_return`
+- `Just before Ron is starting to date the blonde girl` -> `hp.y6.ron_lavender_start`
+- `The first time they go to Hogsmeade` -> `hp.y3.secret_hogsmeade_first`
+- `Right before Harry meets Voldemort for the first time, when Voldemort comes back.` -> `hp.y4.voldemort_reborn`
+- `When Cedrick dies. Just after.` -> `hp.y4.cedric_killed`
+
 ### Slice 9: Visual Smoke
 
 - Smoke Context tab opening.
@@ -628,6 +658,73 @@ Next work moves to Slice 6: Context Tab Redesign.
 - Smoke after/before window creation.
 - Smoke Reasoner proposal review with mocked data.
 - Smoke locked Context behavior.
+
+Status: in progress, with repo-local harness coverage and a live installed SillyTavern Context-tab smoke now available. `tests/visual-smoke.html` supports `?tab=context` and `?review=context-proposals`, seeds a rich Context Brief, loaded Loredeck Context, resolver/automation audit rows, and a bounded Reasoner proposal. This gives a current-repo Context visual target without depending on the installed SillyTavern extension copy.
+
+Automated repo-local Context visual smoke now runs through the CDP helper:
+
+```powershell
+$env:SAGA_SMOKE_TARGET='context-harness'
+node scripts\smoke-live-st-cdp.mjs
+```
+
+The helper starts the local harness, opens the Context proposal review, applies the seeded bounded proposal, opens the Context Workbench, captures `context-harness-01-proposal-review.png` and `context-harness-02-workbench.png`, and fails on findings or browser console errors. This pass caught and fixed a Context Workbench `Current Window` layout overlap in the waypoint browser.
+
+Live installed SillyTavern Context smoke now runs through the same CDP helper after the active extension copy is synced:
+
+```powershell
+$env:SAGA_SMOKE_TARGET='live-context'
+node scripts\smoke-live-st-cdp.mjs
+```
+
+The latest live pass against `http://127.0.0.1:8000/` produced `live-context-01-context-tab.png` with no findings, no console errors, and no browser dialogs. The active ST chat had no enabled Loredeck stack, so `Browse Context` and `Review Proposals` correctly exercised guard states instead of opening populated overlays. It also verified that the old date/canon-boundary-first Context tooltip and primary fields were absent from the installed shelf.
+
+Loaded-stack live Context smoke is also available:
+
+```powershell
+$env:SAGA_SMOKE_TARGET='live-context-loaded'
+node scripts\smoke-live-st-cdp.mjs
+```
+
+The latest loaded-stack pass temporarily added `hp-year-6-half-blood-prince` through the real Loredeck Library UI, opened the Context Browser, verified the casual alias `Ron dates the blonde girl` resolves to `Ron Lavender Start`, applied `Post Christmas Return` as the after-bound, applied `Apparition Lessons Begin` as the before-bound, verified the saved manual locked Context window, seeded a synthetic populated Context proposal, opened proposal review, captured `live-context-loaded-01-context-tab.png`, `live-context-loaded-02-workbench.png`, and `live-context-loaded-03-proposals.png`, then restored the original Saga metadata. It passed with no findings, console errors, or dialogs.
+
+The same loaded-stack workflow can run in a compact viewport:
+
+```powershell
+$env:SAGA_SMOKE_TARGET='live-context-loaded-narrow'
+node scripts\smoke-live-st-cdp.mjs
+```
+
+The latest compact pass used the default narrow viewport, captured `live-context-loaded-narrow-01-context-tab.png`, `live-context-loaded-narrow-02-workbench.png`, and `live-context-loaded-narrow-03-proposals.png`, and passed with no findings, console errors, or dialogs. Visual inspection showed the compact Context tab and proposal overlay remain scrollable without obvious text overlap.
+
+Live-provider Context Reasoner QA is now available as an explicit opt-in target:
+
+```powershell
+$env:SAGA_SMOKE_TARGET='live-context-reasoner'
+$env:SAGA_ALLOW_PROVIDER_CALLS='1'
+node scripts\smoke-live-st-cdp.mjs
+```
+
+This target temporarily loads `hp-year-6-half-blood-prince`, snapshots chat metadata and extension settings, seeds a loose non-date Context Brief, raises local auto-apply confidence so ambiguous phrasing can flow to the bounded Reasoner path, clicks the real `Ask Reasoner` control, verifies reviewable proposals or provider readiness errors, captures `live-context-reasoner-01-result.png` and `live-context-reasoner-02-proposals.png` when proposals are produced, then restores the original chat metadata and settings. Without `SAGA_ALLOW_PROVIDER_CALLS=1`, the target fails fast before modifying metadata or spending provider tokens.
+
+Repo-local visual smoke URLs:
+
+```powershell
+node scripts\serve-visual-smoke.mjs --check
+node scripts\serve-visual-smoke.mjs --port 8776
+```
+
+Open:
+
+```text
+http://127.0.0.1:8776/tests/visual-smoke.html?tab=context
+http://127.0.0.1:8776/tests/visual-smoke.html?tab=context&review=context-proposals
+```
+
+Remaining Slice 9 work:
+
+- Run the opt-in `live-context-reasoner` target against the user's configured Reasoning Provider.
+- Add additional opt-in provider smoke seeds for loose arc/chapter/episode requests after the first HP live-provider pass is stable.
 
 ## Non-Goals For This Phase
 

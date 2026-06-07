@@ -139,6 +139,7 @@ const PANEL_ID = 'wandlight-lore-panel';
 const LORE_WORKBENCH_ID = 'wandlight-lore-workbench';
 const LORE_TIMELINE_ID = 'wandlight-lore-timeline';
 const CONTEXT_WORKBENCH_ID = 'wandlight-context-workbench';
+const CONTEXT_PROPOSAL_REVIEW_ID = 'wandlight-context-proposal-review';
 const MIN_PANEL_WIDTH = 420;
 const MIN_PANEL_HEIGHT = 360;
 const MIN_DRAWER_WIDTH = 360;
@@ -164,8 +165,13 @@ const STORED_API_KEY_SETTING_SUFFIXES = Object.freeze(['Encrypted', 'Salt', 'Iv'
 const CONTEXT_DETECTION_SETTING_KEYS = Object.freeze([
     'contextDetectionMode',
     'contextDetectionAutoInterval',
+    'contextDetectionAutoMinTurns',
+    'contextDetectionAutoCharacterThreshold',
     'contextSourceMessageCount',
     'contextModelFallbackMinCharacters',
+    'contextReasonerFallbackEnabled',
+    'contextLocalApplyMinConfidence',
+    'contextReasonerProposalMinConfidence',
 ]);
 const STORY_LORE_SCAN_SCOPE_SETTING_KEYS = Object.freeze([
     'loreBulkScanMode',
@@ -1166,7 +1172,7 @@ const TAB_TOOLTIPS = {
     loredecks: 'Load, order, inspect, and edit Saga Loredecks.',
     session: 'Runtime overview, preset status, instructions, and destructive cleanup actions.',
     continuity: 'Scan, automatically track, view, and edit lightweight live continuity state: scene/timeline, active characters, key items, and active goals/threads.',
-    context: 'Detect, automatically update, view, and edit context: scene date, canon reference point, branch, and source range.',
+    context: 'Detect, browse, resolve, and lock story position across loaded Loredecks.',
     lore: 'Generate pending Lorecards, review generated Lorecards, and manage accepted Lorecards with search, filters, tags, pinning, and muting.',
     injection: 'Choose what Saga sends to the model: continuity state, lore entries, direct/compressed handling, and live split injection previews.',
     settings: 'Configure providers, runtime appearance, and Saga Theme Packs.',
@@ -1487,20 +1493,21 @@ const GUIDE_STEPS = Object.freeze({
             expected: 'These numbers tell you whether Saga has lore to review and whether lore is being selected for injection.',
             when: 'Use this as a quick health check when the model seems unaware of stored lore.',
         }),
-        guideStep('context-detect', 'Detect Context', 'Reads recent chat and fills the scene date, canon boundary, and branch fields.', 'context', 'context.detect', {
-            expected: 'The fields below update with the current date/canon point. Canon lore suggestions become date-aware.',
-            when: 'Run this before canon suggestions and whenever the story jumps dates.',
+        guideStep('context-detect', 'Detect Context', 'Reads recent chat and updates the active Context Brief plus loaded Loredeck Contexts.', 'context', 'context.detect', {
+            expected: 'The Context Brief and unlocked Loredeck Context rows update from current story-position signals.',
+            when: 'Run this before canon suggestions and whenever the story jumps dates, arcs, chapters, episodes, quests, or major events.',
         }),
-        guideStep('context-fields', 'Context Fields', 'Manually correct the Scene date, Canon reference point, and Branch when detection is incomplete.', 'context', 'context.fields', {
-            expected: 'Manual edits immediately affect canon suggestions and story-lore generation.',
-            when: 'Use this for alternate timelines, unclear dates, or scenes where the chat has not stated the date.',
+        guideStep('context-fields', 'Advanced Context Brief', 'Manually correct the legacy global Context Brief projection when detection is incomplete.', 'context', 'context.fields', {
+            expandSections: Object.freeze(['context.advancedBrief']),
+            expected: 'Manual edits still affect legacy canon suggestions and story-lore generation, while loaded Loredeck rows remain the primary Context surface.',
+            when: 'Use this for alternate timelines, unclear dates, or scenes where the chat has not stated the story position.',
         }),
         guideStep('new-lore', 'New Lore', 'Creates a manual pending lore draft from your own judgment.', 'lore', 'lore.new', {
             expandSections: Object.freeze(['lore.generation']),
             expected: 'The draft enters Pending Lore Review so it can be edited before acceptance.',
             when: 'Use this for important objects, rules, promises, relationships, secrets, or story-specific facts.',
         }),
-        guideStep('lore-context', 'Lore Context Status', 'Shows the date and canon reference point used by lore tools on this tab.', 'lore', 'lore.contextStatus', {
+        guideStep('lore-context', 'Lore Context Status', 'Shows the global Context projection used by legacy canon and lore tools on this tab.', 'lore', 'lore.contextStatus', {
             expandSections: Object.freeze(['lore.generation']),
             expected: 'If the context is missing or stale, refresh it before adding canon lore.',
             when: 'Check this before Preview Canon Packs or Scan Story Lore.',
@@ -1599,12 +1606,13 @@ const GUIDE_STEPS = Object.freeze({
             expected: 'Larger windows improve detection but cost more time when model fallback is needed.',
             when: 'Increase it if context detection misses dates stated earlier in the scene.',
         }),
-        guideStep('context-detect', 'Detect Context', 'Runs context detection immediately.', 'context', 'context.detect', {
-            expected: 'Scene date, canon boundary, branch, and detection timestamp update below.',
-            when: 'Run before canon suggestions or after timeline jumps.',
+        guideStep('context-detect', 'Detect Context', 'Runs Context detection immediately.', 'context', 'context.detect', {
+            expected: 'The Context Brief, resolver audit, and unlocked loaded Loredeck Context rows update when Saga finds a reliable match.',
+            when: 'Run before canon suggestions or after timeline, arc, chapter, episode, quest, or event jumps.',
         }),
-        guideStep('context-fields', 'Context Editor', 'Manually correct context fields when detection is ambiguous or the story is alternate-universe.', 'context', 'context.fields', {
-            expected: 'Manual edits immediately affect generation and canon pack previews.',
+        guideStep('context-fields', 'Advanced Context Brief', 'Manually correct the legacy global Context Brief projection when detection is ambiguous or the story is alternate-universe.', 'context', 'context.fields', {
+            expandSections: Object.freeze(['context.advancedBrief']),
+            expected: 'Manual edits immediately affect generation and canon pack previews, while per-Loredeck Context rows remain authoritative for Loredeck gates.',
             when: 'Use this for branches, time travel, unclear dates, or custom fanfiction canon points.',
         }),
         guideStep('continuity-automation', 'Continuity Automation', 'Controls whether continuity state scanning is manual or turn-interval based.', 'continuity', 'continuity.automation', {
@@ -8530,9 +8538,13 @@ function scrollLoredeckCreatorWorkbenchToAnchor(anchorId = '') {
     if (!id) return false;
     const body = document.querySelector('.wandlight-loredeck-creator-workbench-body');
     const selectorId = id.replace(/"/g, '\\"');
-    const target = body?.querySelector(`[data-saga-creator-anchor="${selectorId}"]`);
-    if (!target) return false;
-    const details = target.closest('details');
+    const target = body?.querySelector(`[data-saga-creator-anchor="${selectorId}"]`)
+        || (id === 'review-queue' ? body?.querySelector('.wandlight-loredeck-creator-pending-review') : null);
+    if (!target) {
+        toast(id === 'review-queue' ? 'No pending review queue is available yet.' : 'That Creator section is not available yet.', 'info');
+        return false;
+    }
+    const details = target.matches?.('details') ? target : target.closest('details');
     if (details) details.open = true;
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     return true;
@@ -8900,6 +8912,7 @@ function createLoredeckCreatorPendingReviewCard(cached = {}, pipeline = {}) {
     if (!pack) return null;
     const card = createLoredeckPendingReviewCard(pack);
     card.classList.add('wandlight-loredeck-creator-pending-review');
+    card.dataset.sagaCreatorAnchor = 'review-queue';
     if (pipeline.pendingPlanningCount) {
         const note = document.createElement('div');
         note.className = 'wandlight-runtime-help';
@@ -13162,19 +13175,13 @@ function createLoredeckContextCard(state = getState(), contextIndex = getContext
     const card = document.createElement('div');
     card.className = 'wandlight-runtime-card wandlight-loredeck-context-card';
 
-    const title = document.createElement('h4');
+    const header = document.createElement('div');
+    header.className = 'wandlight-context-section-header';
+    const title = document.createElement('div');
+    title.className = 'wandlight-runtime-card-title';
     title.textContent = 'Loaded Loredeck Contexts';
-    card.appendChild(title);
-
-    const help = document.createElement('div');
-    help.className = 'wandlight-runtime-help';
-    help.textContent = 'Set where this chat sits in each loaded Loredeck. Use the browser for start points, before/after windows, resolver tests, and manual locks.';
-    card.appendChild(help);
-
-    if (!stack.length) {
-        card.appendChild(createEmptyMessage('No enabled Loredecks need active Context.'));
-        return card;
-    }
+    addTooltip(title, 'Current story position for each enabled Loredeck in the active stack.');
+    header.appendChild(title);
 
     const indexMeta = document.createElement('div');
     indexMeta.className = 'wandlight-context-index-summary';
@@ -13182,22 +13189,13 @@ function createLoredeckContextCard(state = getState(), contextIndex = getContext
     if (contextIndex?.summary?.issueCount) {
         indexMeta.appendChild(createStatusPill(`${contextIndex.summary.issueCount} index issue${contextIndex.summary.issueCount === 1 ? '' : 's'}`, 'Timeline registry load warnings or suggestions.'));
     }
-    card.appendChild(indexMeta);
+    header.appendChild(indexMeta);
+    card.appendChild(header);
 
-    const resolveActions = document.createElement('div');
-    resolveActions.className = 'wandlight-primary-actions';
-    resolveActions.appendChild(createButton('Open Context Browser', 'Open the fullscreen Context Browser for timeline search, waypoint selection, resolver testing, and registry tools.', () => {
-        openContextWorkbenchForPack(stack[0]?.packId || '', 'context');
-    }, 'wandlight-primary-button'));
-    resolveActions.appendChild(createButton('Resolve Loaded Decks', 'Use the current Context fields and Loredeck timeline aliases to update unlocked loaded-deck Contexts.', async (btn) => {
-        await handleResolveContextsFromContext(btn);
-    }));
-    resolveActions.appendChild(createButton('Ask Reasoner', 'Ask the configured Reasoning Provider to resolve unresolved loaded-deck Contexts using bounded known candidates.', async (btn) => {
-        await handleModelResolveContexts(btn);
-    }));
-    card.appendChild(resolveActions);
-    card.appendChild(createContextResolutionProposalPanel(state));
-    card.appendChild(createContextResolutionAuditPanel(state));
+    if (!stack.length) {
+        card.appendChild(createEmptyMessage('No enabled Loredecks need active Context.'));
+        return card;
+    }
 
     const list = document.createElement('div');
     list.className = 'wandlight-loredeck-context-list';
@@ -13214,12 +13212,76 @@ function getContextResolutionProposals(state = getState()) {
         : [];
 }
 
+function getContextResolutionProposalKey(proposal = {}) {
+    return [
+        String(proposal.packId || '').trim(),
+        String(proposal.candidateId || '').trim(),
+        String(proposal.candidateType || '').trim(),
+        JSON.stringify(proposal.patch || {}),
+    ].join('|');
+}
+
+function removeContextResolutionProposalsByKeys(keys = []) {
+    const state = getState();
+    if (!state?.lorePanel) return 0;
+    const keySet = new Set((keys || []).map(key => String(key || '')).filter(Boolean));
+    if (!keySet.size) return getContextResolutionProposals(state).length;
+    state.lorePanel.contextResolutionProposals = getContextResolutionProposals(state)
+        .filter(proposal => !keySet.has(getContextResolutionProposalKey(proposal)));
+    if (!state.lorePanel.contextResolutionProposals.length) state.lorePanel.contextResolutionProposalMeta = null;
+    saveState(state, { syncPrompt: false });
+    return state.lorePanel.contextResolutionProposals.length;
+}
+
 function clearContextResolutionProposals() {
     const state = getState();
     if (!state?.lorePanel) return;
     state.lorePanel.contextResolutionProposals = [];
     state.lorePanel.contextResolutionProposalMeta = null;
     saveState(state, { syncPrompt: false });
+}
+
+function applyContextResolutionProposalSet(proposals = getContextResolutionProposals(), options = {}) {
+    const selected = (Array.isArray(proposals) ? proposals : [])
+        .filter(proposal => proposal?.packId && proposal?.patch && typeof proposal.patch === 'object');
+    if (!selected.length) return 0;
+    const current = getState();
+    pushStateSnapshot(
+        current,
+        options.snapshotLabel || `Apply ${selected.length} Context proposal${selected.length === 1 ? '' : 's'}`,
+        getSettings().maxSnapshots,
+    );
+    const applied = applyContextResolutionResults(selected.map(proposal => ({
+        packId: proposal.packId,
+        status: 'resolved',
+        changed: true,
+        patch: proposal.patch,
+    })));
+    if (options.clearAll === true) {
+        clearContextResolutionProposals();
+    } else {
+        removeContextResolutionProposalsByKeys(selected.map(getContextResolutionProposalKey));
+    }
+    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    refreshHeader();
+    refreshContextWorkbench();
+    renderContextProposalReview();
+    return applied;
+}
+
+function dismissContextResolutionProposalSet(proposals = getContextResolutionProposals(), options = {}) {
+    const selected = (Array.isArray(proposals) ? proposals : [])
+        .filter(proposal => proposal?.packId);
+    if (!selected.length) return 0;
+    if (options.clearAll === true) {
+        clearContextResolutionProposals();
+    } else {
+        removeContextResolutionProposalsByKeys(selected.map(getContextResolutionProposalKey));
+    }
+    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    refreshHeader();
+    renderContextProposalReview();
+    return selected.length;
 }
 
 function createContextResolutionAuditPanel(state = getState()) {
@@ -13239,16 +13301,75 @@ function createContextResolutionAuditPanel(state = getState()) {
     const chips = document.createElement('div');
     chips.className = 'wandlight-loredeck-row-meta';
     chips.appendChild(createStatusPill(audit.status || 'unknown', 'Final resolver status for the latest check.'));
+    if (audit.reason) chips.appendChild(createStatusPill(formatContextAuditReason(audit.reason), audit.message || audit.reason));
     if (audit.cached) chips.appendChild(createStatusPill('Cached', 'This result came from the repeated-check cache.'));
     if (audit.inFlight) chips.appendChild(createStatusPill('In flight skipped', 'Saga skipped a duplicate Context Reasoner request because one was already running.'));
     if (audit.counts?.localApplied) chips.appendChild(createStatusPill(`${audit.counts.localApplied} local applied`, 'High-confidence local Context updates applied to unlocked Loredecks.'));
     if (audit.counts?.proposed) chips.appendChild(createStatusPill(`${audit.counts.proposed} proposed`, 'Bounded Reasoner proposals waiting for review.'));
+    if (audit.counts?.skipped && !audit.counts?.skippedLocked && !audit.counts?.skippedLowConfidence) chips.appendChild(createStatusPill(`${audit.counts.skipped} skipped`, 'Resolver or automation skipped one or more Context targets.'));
     if (audit.counts?.skippedLocked) chips.appendChild(createStatusPill(`${audit.counts.skippedLocked} locked`, 'Loredecks skipped because manual lock is enabled.'));
     if (audit.counts?.skippedLowConfidence) chips.appendChild(createStatusPill(`${audit.counts.skippedLowConfidence} low confidence`, 'Local or model results left unresolved because confidence was too low.'));
     if (audit.counts?.unresolved) chips.appendChild(createStatusPill(`${audit.counts.unresolved} unresolved`, 'Loredecks that still need clearer Context or manual selection.'));
     chips.appendChild(createStatusPill(new Date(audit.createdAt).toLocaleTimeString(), 'When this resolver check completed.'));
     header.appendChild(chips);
     wrap.appendChild(header);
+
+    return wrap;
+}
+
+function formatContextAuditReason(reason = '') {
+    const normalized = String(reason || '').trim().toLowerCase();
+    const labels = {
+        context_manual_mode: 'Manual mode',
+        context_cadence_not_reached: 'Cadence waiting',
+        max_turn_cadence: 'Max cadence',
+        turn_and_text_cadence: 'Cadence ready',
+        context_no_loaded_loredecks: 'No loaded decks',
+        context_all_loredecks_locked: 'All locked',
+        context_provider_not_configured: 'Provider missing',
+        context_reasoner_fallback_disabled: 'Reasoner disabled',
+        context_model_resolution_in_flight: 'Already running',
+        manual_lock: 'Manual lock',
+        local_low_confidence: 'Low confidence',
+        model_low_confidence: 'Low confidence',
+    };
+    return labels[normalized] || humanizeScopeKey(normalized || 'unknown');
+}
+
+function createContextAutomationAuditPanel(state = getState()) {
+    const audit = state?.lorePanel?.contextAutomationAudit || null;
+    if (!audit || !audit.createdAt) return document.createDocumentFragment();
+    const wrap = document.createElement('div');
+    wrap.className = 'wandlight-loredeck-context-quick wandlight-context-automation-audit';
+
+    const header = document.createElement('div');
+    header.className = 'wandlight-loredeck-context-quick-header';
+    const title = document.createElement('div');
+    title.className = 'wandlight-runtime-card-title';
+    title.textContent = 'Last Automation Check';
+    addTooltip(title, 'Audit summary for the most recent background Context automation decision, including skipped cadence/provider/lock states.');
+    header.appendChild(title);
+
+    const chips = document.createElement('div');
+    chips.className = 'wandlight-loredeck-row-meta';
+    chips.appendChild(createStatusPill(audit.status || 'unknown', audit.message || 'Latest Context automation status.'));
+    if (audit.reason) chips.appendChild(createStatusPill(formatContextAuditReason(audit.reason), audit.message || audit.reason));
+    if (audit.mode) chips.appendChild(createStatusPill(getContextAutomationModeLabel(audit.mode), 'Context automation mode used for this decision.'));
+    if (audit.cadence) {
+        chips.appendChild(createStatusPill(`${audit.cadence.turns || 0}/${audit.cadence.minTurns || 0} turns`, 'Completed model turns since the last automatic Context check.'));
+        chips.appendChild(createStatusPill(`${audit.cadence.newChars || 0}/${audit.cadence.characterThreshold || 0} chars`, 'New story characters since the last automatic Context check baseline.'));
+    }
+    if (audit.providerError) chips.appendChild(createStatusPill('Provider issue', audit.providerError));
+    chips.appendChild(createStatusPill(new Date(audit.createdAt).toLocaleTimeString(), 'When this automation decision was recorded.'));
+    header.appendChild(chips);
+    wrap.appendChild(header);
+
+    if (audit.message) {
+        const message = document.createElement('div');
+        message.className = 'wandlight-runtime-help';
+        message.textContent = audit.message;
+        wrap.appendChild(message);
+    }
 
     return wrap;
 }
@@ -13299,6 +13420,7 @@ function createContextResolutionProposalPanel(state = getState()) {
     if (!proposals.length) return document.createDocumentFragment();
     const wrap = document.createElement('div');
     wrap.className = 'wandlight-loredeck-context-quick';
+    wrap.dataset.sagaContextProposals = 'true';
 
     const header = document.createElement('div');
     header.className = 'wandlight-loredeck-context-quick-header';
@@ -13340,27 +13462,20 @@ function createContextResolutionProposalPanel(state = getState()) {
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
+    actions.appendChild(createButton('Open Review', 'Open the fullscreen Context proposal review window.', () => {
+        openContextProposalReview();
+    }, 'wandlight-primary-button'));
     actions.appendChild(createButton('Apply Proposals', 'Apply every listed Context proposal to its loaded Loredeck Context.', async () => {
         const ok = await confirmAction('Apply Context proposals?', `Apply ${proposals.length} Reasoner Context proposal${proposals.length === 1 ? '' : 's'}?`);
         if (!ok) return;
-        const current = getState();
-        pushStateSnapshot(current, `Apply ${proposals.length} Context proposal${proposals.length === 1 ? '' : 's'}`, getSettings().maxSnapshots);
-        const applied = applyContextResolutionResults(proposals.map(proposal => ({
-            packId: proposal.packId,
-            status: 'resolved',
-            changed: true,
-            patch: proposal.patch,
-        })));
-        clearContextResolutionProposals();
-        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-        refreshHeader();
-        refreshContextWorkbench();
+        const applied = applyContextResolutionProposalSet(proposals, {
+            clearAll: true,
+            snapshotLabel: `Apply ${proposals.length} Context proposal${proposals.length === 1 ? '' : 's'}`,
+        });
         toast(`Applied ${applied} Context proposal${applied === 1 ? '' : 's'}.`, 'success');
-    }, 'wandlight-primary-button'));
+    }));
     actions.appendChild(createButton('Dismiss', 'Discard these Context proposals without changing loaded Loredeck Contexts.', () => {
-        clearContextResolutionProposals();
-        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-        refreshHeader();
+        dismissContextResolutionProposalSet(proposals, { clearAll: true });
         toast('Context proposals dismissed.', 'info');
     }));
     wrap.appendChild(actions);
@@ -13387,8 +13502,9 @@ function createLoredeckContextRow(item, state = getState(), contextIndex = getCo
     chips.appendChild(createStatusPill(formatContextSource(context.source), 'How this Context was last set.'));
     chips.appendChild(createStatusPill(context.manualLock ? 'Locked' : 'Unlocked', 'Locked Contexts should not be overwritten by automatic resolvers.'));
     chips.appendChild(createStatusPill(`${Math.round((Number(context.confidence) || 0) * 100)}%`, 'Resolver confidence. Manual choices default to high confidence.'));
+    chips.appendChild(createStatusPill(`Updated: ${formatLoredeckContextUpdatedAt(context)}`, 'When this Loredeck Context was last updated.'));
     if (packIndex?.hasIndex) {
-        chips.appendChild(createStatusPill(`${packIndex.anchorCount || 0} anchors`, 'Timeline anchors available from this Loredeck registry.'));
+        chips.appendChild(createStatusPill(`${packIndex.anchorCount || 0}/${packIndex.windowCount || 0}`, 'Timeline anchors/windows available from this Loredeck registry.'));
     } else {
         chips.appendChild(createStatusPill(contextIndex ? 'No index' : 'Index loading', 'This Loredeck has no loaded timeline registry yet.'));
     }
@@ -13400,25 +13516,15 @@ function createLoredeckContextRow(item, state = getState(), contextIndex = getCo
     summary.textContent = formatContextSummary(context);
     row.appendChild(summary);
 
-    const quick = document.createElement('div');
-    quick.className = 'wandlight-loredeck-context-quick';
-    const quickHeader = document.createElement('div');
-    quickHeader.className = 'wandlight-loredeck-context-quick-header';
-    const quickTitle = document.createElement('div');
-    quickTitle.className = 'wandlight-runtime-card-title';
-    quickTitle.textContent = 'Quick Anchor';
-    addTooltip(quickTitle, 'Search loaded anchors for a quick exact Context. Use the Workbench for full window and coordinate editing.');
-    quickHeader.appendChild(quickTitle);
-    quickHeader.appendChild(createButton('Open Editor', 'Open this Loredeck in the fullscreen Context editor.', () => {
-        openContextWorkbenchForPack(packId, 'context');
-    }, 'wandlight-primary-button'));
-    quick.appendChild(quickHeader);
-    quick.appendChild(createContextAnchorLookup(packId, contextIndex));
-    row.appendChild(quick);
-
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions wandlight-loredeck-context-actions';
-    actions.appendChild(createButton('Seed From Context', 'Seed this Context from the current Context fields.', () => {
+    actions.appendChild(createButton('Browse', 'Open this Loredeck in the fullscreen Context Browser.', () => {
+        openContextWorkbenchForPack(packId, 'context');
+    }, 'wandlight-primary-button'));
+    actions.appendChild(createButton(context.manualLock ? 'Unlock' : 'Lock', context.manualLock ? 'Allow automatic Context resolvers to update this Loredeck.' : 'Prevent automatic Context resolvers from overwriting this Loredeck.', () => {
+        toggleLoredeckContextManualLock(packId, !context.manualLock);
+    }));
+    actions.appendChild(createButton('Seed From Brief', 'Seed this Loredeck Context from the advanced global Context Brief projection.', () => {
         seedLoredeckContextFromRuntimeContext(packId, context);
     }));
     actions.appendChild(createButton('Timeline', 'Open this Loredeck in the fullscreen Timeline registry view.', () => {
@@ -13736,13 +13842,25 @@ function applyContextAnchor(packId, anchor = {}) {
 function seedLoredeckContextFromRuntimeContext(packId, context = {}) {
     const current = getState();
     const runtimeContext = current?.loreContext || {};
+    const resolverContext = buildResolverContextFromState(current);
     commitLoredeckContextPatch(packId, {
         contextType: isDefaultHarryPotterLoredeckId(packId) ? 'calendar' : context.contextType || 'custom',
-        sceneDate: runtimeContext.sceneDate || '',
-        subjectiveDate: runtimeContext.subjectiveDate || '',
-        label: runtimeContext.canonBoundary || runtimeContext.sceneDate || context.label || '',
-        alias: runtimeContext.canonBoundary || context.alias || '',
-        branchId: runtimeContext.branchId || 'main',
+        sceneDate: resolverContext.sceneDate || runtimeContext.sceneDate || '',
+        subjectiveDate: resolverContext.subjectiveDate || runtimeContext.subjectiveDate || '',
+        label: resolverContext.label || resolverContext.summary || resolverContext.canonBoundary || resolverContext.sceneDate || context.label || '',
+        alias: resolverContext.alias || resolverContext.canonBoundary || context.alias || '',
+        branchId: resolverContext.branchId || runtimeContext.branchId || 'main',
+        timeTravelMode: resolverContext.timeTravelMode || runtimeContext.timeTravelMode || 'none',
+        arc: resolverContext.arc || context.arc || '',
+        phase: resolverContext.phase || context.phase || '',
+        season: resolverContext.season || context.season || '',
+        episode: resolverContext.episode || context.episode || '',
+        chapter: resolverContext.chapter || context.chapter || '',
+        issue: resolverContext.issue || context.issue || '',
+        quest: resolverContext.quest || context.quest || '',
+        gameStage: resolverContext.gameStage || context.gameStage || '',
+        stardate: resolverContext.stardate || context.stardate || '',
+        coordinates: resolverContext.coordinates && typeof resolverContext.coordinates === 'object' ? { ...resolverContext.coordinates } : (context.coordinates || {}),
     }, `Seed Context from runtime context: ${getLoredeckDisplayName(packId)}`);
 }
 
@@ -13778,11 +13896,13 @@ function buildContextResolutionSourceText(state = {}, resolverContext = {}) {
 async function handleResolveContextsFromContext(btn = null) {
     await runBusyAction(btn, 'Resolving...', async () => {
         const state = getState();
+        const settings = getSettings();
         const context = buildResolverContextFromState(state);
         const sourceText = buildContextResolutionSourceText(state, context);
         const result = await resolveAndApplyContextsFromContext(context, {
             contextSource: 'local_alias',
             sourceText,
+            minLocalConfidence: clampSettingConfidence(settings.contextLocalApplyMinConfidence, 0.78),
         });
         storeContextResolutionAuditFromResult(result, context, sourceText, 'manual_local_resolve');
         refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
@@ -13811,12 +13931,15 @@ async function handleModelResolveContexts(btn = null) {
             return;
         }
         const state = getState();
+        const settings = getSettings();
         const context = buildResolverContextFromState(state);
         const sourceText = buildContextResolutionSourceText(state, context);
         const result = await resolveContextsWithModel(context, {
             explicit: true,
             applyModel: false,
             sourceText,
+            minLocalConfidence: clampSettingConfidence(settings.contextLocalApplyMinConfidence, 0.78),
+            minConfidence: clampSettingConfidence(settings.contextReasonerProposalMinConfidence, 0.55),
             resolutionCache: state?.lorePanel?.contextResolutionCache || null,
         });
         if (result.status === 'in_flight') {
@@ -25610,14 +25733,19 @@ async function acceptLoredeckPendingChanges(pack, changeIds = []) {
 }
 
 function rejectLoredeckPendingChanges(pack, changeIds = []) {
+    const freshPack = getFreshLoredeckLibraryPack(pack?.packId, pack);
+    if (!freshPack?.packId) {
+        toast('Loredeck is no longer available.', 'warning');
+        return false;
+    }
     const idSet = new Set(normalizeLoredeckPendingIdList(changeIds));
-    const pending = getLoredeckPendingChanges(pack);
+    const pending = getLoredeckPendingChanges(freshPack);
     const selected = idSet.size ? pending.filter(change => idSet.has(change.changeId)) : pending;
     if (!selected.length) {
         toast('No pending Loredeck changes selected.', 'warning');
         return false;
     }
-    const rejected = persistLoredeckLibraryRecordMutation(pack, next => {
+    const rejected = persistLoredeckLibraryRecordMutation(freshPack, next => {
         const selectedIds = new Set(selected.map(change => change.changeId));
         next.pendingChanges = normalizeLoredeckPendingChanges(next.pendingChanges).filter(change => !selectedIds.has(change.changeId));
     }, `Rejected ${selected.length} pending Loredeck change${selected.length === 1 ? '' : 's'}.`, {
@@ -28681,12 +28809,526 @@ function renderContextTab(container, state) {
 
     container.appendChild(createSectionHeader(
         'Context',
-        'Detect, browse, resolve, and lock where this chat sits in the active canon timeline.'
+        'Set and audit where this chat sits inside each loaded Loredeck.'
     ));
 
-    container.appendChild(createContextDetectionCard(state));
+    container.appendChild(createContextCommandCenterCard(state, contextIndex));
     container.appendChild(createLoredeckContextCard(state, contextIndex));
-    container.appendChild(createContextEditorCard(state));
+    container.appendChild(createContextAdvancedBriefSection(state));
+}
+
+function createContextCommandCenterCard(state = getState(), contextIndex = getContextIndexSync()) {
+    const stack = getContextWorkbenchStack(state);
+    const proposals = getContextResolutionProposals(state);
+    const briefStatus = state?.contextBrief?.status || {};
+    const card = document.createElement('div');
+    card.className = 'wandlight-runtime-card wandlight-context-command-card';
+    markTourTarget(card, 'context.commandCenter');
+
+    const header = document.createElement('div');
+    header.className = 'wandlight-context-command-header';
+    const titleWrap = document.createElement('div');
+    titleWrap.className = 'wandlight-context-command-title-wrap';
+    const title = document.createElement('div');
+    title.className = 'wandlight-runtime-card-title';
+    title.textContent = 'Runtime Context';
+    addTooltip(title, 'Primary runtime controls for loaded Loredeck Context, detection, proposals, locks, and the Context Browser.');
+    titleWrap.appendChild(title);
+    const help = document.createElement('div');
+    help.className = 'wandlight-runtime-help';
+    help.textContent = 'Choose the current story position per loaded Loredeck. Manual Browser choices and locks outrank automatic detection.';
+    titleWrap.appendChild(help);
+    header.appendChild(titleWrap);
+
+    const chips = document.createElement('div');
+    chips.className = 'wandlight-loredeck-row-meta wandlight-context-command-chips';
+    chips.appendChild(createStatusPill(`${stack.length} loaded`, 'Enabled Loredecks currently participating in Context resolution.'));
+    chips.appendChild(createStatusPill(formatContextIndexSummary(contextIndex), 'Context timeline registry status for the enabled Loredeck stack.'));
+    chips.appendChild(createContextBriefStatusPill(getContextBriefStatusLabel(briefStatus), 'Latest detector status from the saved Context Brief.', getContextBriefStatusTone(briefStatus)));
+    chips.appendChild(createStatusPill(`${proposals.length} proposal${proposals.length === 1 ? '' : 's'}`, 'Reasoner-backed Context proposals waiting for review.'));
+    header.appendChild(chips);
+    card.appendChild(header);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions wandlight-context-command-actions';
+    actions.appendChild(createButton('Browse Context', 'Open the fullscreen Context Browser for loaded Loredecks, anchors, windows, resolver tests, and manual locks.', () => {
+        if (!stack.length) {
+            toast('Load a Loredeck before opening the Context Browser.', 'warning');
+            return;
+        }
+        openContextWorkbenchForPack(stack[0]?.packId || '', 'context');
+    }, 'wandlight-primary-button'));
+    actions.appendChild(markTourTarget(createButton('Detect Context', 'Analyze recent messages and update the Context Brief plus unlocked loaded Loredeck Contexts.', async (btn) => {
+        await handleDetectStoryContext(btn);
+    }, 'wandlight-primary-button'), 'context.detect'));
+    actions.appendChild(createButton(proposals.length ? `Review Proposals (${proposals.length})` : 'Review Proposals', 'Open bounded Reasoner Context proposals waiting for approval.', () => {
+        openContextProposalReview();
+    }));
+    card.appendChild(actions);
+
+    const resolverActions = document.createElement('div');
+    resolverActions.className = 'wandlight-primary-actions wandlight-context-resolver-actions';
+    resolverActions.appendChild(createButton('Resolve Local', 'Use current Context Brief signals and loaded timeline aliases to update unlocked Loredeck Contexts without a model call.', async (btn) => {
+        await handleResolveContextsFromContext(btn);
+    }));
+    resolverActions.appendChild(createButton('Ask Reasoner', 'Ask the configured Reasoning Provider to choose from bounded known timeline candidates for unresolved loaded Loredecks.', async (btn) => {
+        await handleModelResolveContexts(btn);
+    }));
+    card.appendChild(resolverActions);
+
+    appendGenerationStatus(card, state, 'context');
+    card.appendChild(createContextBriefStatusCard(state));
+    card.appendChild(createContextResolutionProposalPanel(state));
+    card.appendChild(createContextResolutionAuditPanel(state));
+    card.appendChild(createContextAutomationAuditPanel(state));
+
+    if (!isBasicExperience(getSettings())) {
+        card.appendChild(createContextAutomationPanel());
+    }
+
+    return card;
+}
+
+function clampSettingConfidence(value, fallback = 0) {
+    const number = Number(value);
+    if (!Number.isFinite(number)) return Math.max(0, Math.min(1, fallback));
+    if (number > 1 && number <= 100) return Math.max(0, Math.min(1, number / 100));
+    return Math.max(0, Math.min(1, number));
+}
+
+function getContextAutomationModeLabel(mode = 'manual') {
+    const normalized = String(mode || 'manual').toLowerCase();
+    if (normalized === 'assisted') return 'Assisted';
+    if (normalized === 'automatic') return 'Automatic';
+    return 'Manual';
+}
+
+function getContextAutomationModeDescription(mode = 'manual') {
+    const normalized = String(mode || 'manual').toLowerCase();
+    if (normalized === 'assisted') {
+        return 'Runs conservative background Context checks on cadence, applies only high-confidence local matches, and queues Reasoner choices for review.';
+    }
+    if (normalized === 'automatic') {
+        return 'Runs the same bounded pipeline on cadence with power-user tuning. Reasoner choices remain review proposals through alpha; only high-confidence local matches can apply automatically.';
+    }
+    return 'No background Context checks. Use Browse Context, Detect Context, Resolve Local, or Ask Reasoner when you want Saga to update Context.';
+}
+
+function createContextToggleSetting(labelText, tooltip, settingKey) {
+    const settings = getSettings();
+    const label = document.createElement('label');
+    label.className = 'wandlight-inline-toggle wandlight-context-automation-toggle';
+    addTooltip(label, tooltip);
+    const input = document.createElement('input');
+    input.type = 'checkbox';
+    input.checked = settings[settingKey] !== false;
+    input.addEventListener('change', () => {
+        const next = getSettings();
+        next[settingKey] = input.checked;
+        saveSettings(next);
+        refreshPanelBody({ preserveScroll: true });
+    });
+    label.appendChild(input);
+    label.appendChild(document.createTextNode(` ${labelText}`));
+    return label;
+}
+
+function createPercentRangeSettingRow(labelPrefix, tooltip, settingKey, fallback = 0.5) {
+    const settings = getSettings();
+    const row = document.createElement('label');
+    row.className = 'wandlight-slider-row wandlight-compact-slider-row';
+    const text = document.createElement('span');
+    const currentValue = clampSettingConfidence(settings[settingKey], fallback);
+    text.textContent = `${labelPrefix}: ${Math.round(currentValue * 100)}%`;
+    addTooltip(text, tooltip);
+    const input = document.createElement('input');
+    input.type = 'range';
+    input.min = '0';
+    input.max = '100';
+    input.step = '1';
+    input.value = String(Math.round(currentValue * 100));
+    input.addEventListener('input', () => {
+        const next = getSettings();
+        const percent = Math.max(0, Math.min(100, parseInt(input.value, 10) || 0));
+        next[settingKey] = percent / 100;
+        saveSettings(next);
+        text.textContent = `${labelPrefix}: ${percent}%`;
+    });
+    row.appendChild(text);
+    row.appendChild(input);
+    return row;
+}
+
+function createContextAutomationPanel() {
+    const settings = getSettings();
+    const selectedMode = String(settings.contextDetectionMode || 'manual').toLowerCase();
+    const wrap = document.createElement('div');
+    wrap.className = 'wandlight-context-automation-panel';
+    markTourTarget(wrap, 'context.automation');
+
+    const header = document.createElement('div');
+    header.className = 'wandlight-loredeck-context-quick-header';
+    const title = document.createElement('div');
+    title.className = 'wandlight-runtime-card-title';
+    title.textContent = 'Automation';
+    addTooltip(title, 'Controls automatic Context detection cadence. Manual locks still prevent overwrites.');
+    header.appendChild(title);
+    const modePill = createStatusPill(getContextAutomationModeLabel(selectedMode), 'Current Context detection automation mode.');
+    header.appendChild(modePill);
+    wrap.appendChild(header);
+
+    const buttons = document.createElement('div');
+    buttons.className = 'wandlight-mode-buttons wandlight-context-mode-buttons';
+    for (const [mode, label, tip] of [
+        ['manual', 'Manual', 'Context detection runs only when you click Detect Context or Ask Reasoner.'],
+        ['assisted', 'Assisted', 'Runs conservative background Context checks and queues uncertain Reasoner results for review.'],
+        ['automatic', 'Automatic', 'Power-user background Context mode. Model-derived Context stays reviewable through alpha.'],
+    ]) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'wandlight-mode-button';
+        if (selectedMode === mode) btn.classList.add('wandlight-mode-button-active');
+        btn.textContent = label;
+        addTooltip(btn, tip);
+        btn.addEventListener('click', () => {
+            const next = getSettings();
+            next.contextDetectionMode = mode;
+            saveSettings(next);
+            refreshPanelBody({ preserveScroll: true });
+            toast(`Context detection mode set to ${label}.`, 'info');
+        });
+        buttons.appendChild(btn);
+    }
+    wrap.appendChild(buttons);
+
+    const modeDescription = document.createElement('div');
+    modeDescription.className = 'wandlight-runtime-help wandlight-context-automation-description';
+    modeDescription.textContent = getContextAutomationModeDescription(selectedMode);
+    wrap.appendChild(modeDescription);
+
+    const grid = document.createElement('div');
+    grid.className = 'wandlight-context-automation-grid';
+
+    grid.appendChild(createRangeSettingRow(
+        'Min cadence',
+        'Minimum completed model turns before Saga considers an automatic Context check. Text volume must also pass the character threshold unless the max cadence is reached.',
+        'contextDetectionAutoMinTurns',
+        { min: 1, max: 100, fallback: 8, suffix: ' turns' }
+    ));
+
+    const intervalRow = document.createElement('label');
+    intervalRow.className = 'wandlight-slider-row wandlight-compact-slider-row';
+    const intervalLabel = document.createElement('span');
+    intervalLabel.textContent = `Max cadence: ${settings.contextDetectionAutoInterval || 20} turns`;
+    addTooltip(intervalLabel, 'Maximum completed model turns before Saga runs a background Context check even if the character threshold has not been reached.');
+    const intervalInput = document.createElement('input');
+    intervalInput.type = 'range';
+    intervalInput.min = '1';
+    intervalInput.max = '100';
+    intervalInput.step = '1';
+    intervalInput.value = String(settings.contextDetectionAutoInterval || 20);
+    intervalInput.addEventListener('input', () => {
+        const next = getSettings();
+        next.contextDetectionAutoInterval = Math.max(1, Math.min(100, parseInt(intervalInput.value, 10) || 20));
+        if (Number(next.contextDetectionAutoMinTurns || 1) > next.contextDetectionAutoInterval) {
+            next.contextDetectionAutoMinTurns = next.contextDetectionAutoInterval;
+        }
+        saveSettings(next);
+        intervalLabel.textContent = `Max cadence: ${next.contextDetectionAutoInterval} turns`;
+    });
+    intervalRow.appendChild(intervalLabel);
+    intervalRow.appendChild(intervalInput);
+    grid.appendChild(intervalRow);
+
+    grid.appendChild(createRangeSettingRow(
+        'New text',
+        'Minimum new recent-message characters before Saga runs an automatic Context check after the minimum turn cadence.',
+        'contextDetectionAutoCharacterThreshold',
+        { min: 0, max: 50000, fallback: 8000, suffix: ' chars', step: 250 }
+    ));
+
+    const sourceRow = document.createElement('label');
+    sourceRow.className = 'wandlight-slider-row wandlight-compact-slider-row';
+    markTourTarget(sourceRow, 'context.sourceMessages');
+    const sourceText = document.createElement('span');
+    sourceText.textContent = `Source messages: ${settings.contextSourceMessageCount || 20}`;
+    addTooltip(sourceText, 'How many recent chat messages are sent to Context detection.');
+    const sourceInput = document.createElement('input');
+    sourceInput.type = 'range';
+    sourceInput.min = '4';
+    sourceInput.max = '200';
+    sourceInput.step = '1';
+    sourceInput.value = String(settings.contextSourceMessageCount || 20);
+    sourceInput.addEventListener('input', () => {
+        const next = getSettings();
+        next.contextSourceMessageCount = Math.max(4, Math.min(200, parseInt(sourceInput.value, 10) || 20));
+        saveSettings(next);
+        sourceText.textContent = `Source messages: ${next.contextSourceMessageCount}`;
+    });
+    sourceRow.appendChild(sourceText);
+    sourceRow.appendChild(sourceInput);
+    grid.appendChild(sourceRow);
+
+    grid.appendChild(createRangeSettingRow(
+        'Reasoner fallback',
+        'Minimum recent-message character count before automatic Context detection stores Reasoner-backed loaded-deck Context proposals. Manual Ask Reasoner ignores this threshold.',
+        'contextModelFallbackMinCharacters',
+        { min: 0, max: 8000, fallback: 1200, suffix: ' chars', step: 100 }
+    ));
+    grid.appendChild(createPercentRangeSettingRow(
+        'Local apply',
+        'Minimum local resolver confidence required before unlocked Loredeck Context rows are updated without review.',
+        'contextLocalApplyMinConfidence',
+        0.78
+    ));
+    grid.appendChild(createPercentRangeSettingRow(
+        'Reasoner proposal',
+        'Minimum bounded Reasoner confidence required before a Context choice becomes a reviewable proposal.',
+        'contextReasonerProposalMinConfidence',
+        0.55
+    ));
+    wrap.appendChild(grid);
+
+    const toggles = document.createElement('div');
+    toggles.className = 'wandlight-context-automation-toggles';
+    toggles.appendChild(createContextToggleSetting(
+        'Allow Reasoner fallback',
+        'When enabled, automatic Context checks can ask the Reasoning Provider after local resolution leaves unlocked Loredecks unresolved. Results are stored as proposals for review.',
+        'contextReasonerFallbackEnabled'
+    ));
+    wrap.appendChild(toggles);
+
+    appendSettingsResetButton(wrap, CONTEXT_DETECTION_SETTING_KEYS, 'Context detection settings');
+    return wrap;
+}
+
+function scrollToContextProposalReview() {
+    const target = document.querySelector('[data-saga-context-proposals="true"]');
+    if (!target) {
+        toast('No Context proposals are waiting for review.', 'info');
+        return;
+    }
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    target.classList.add('wandlight-context-proposal-focus');
+    setTimeout(() => target.classList.remove('wandlight-context-proposal-focus'), 1300);
+}
+
+function openContextProposalReview() {
+    const proposals = getContextResolutionProposals();
+    if (!proposals.length) {
+        toast('No Context proposals are waiting for review.', 'info');
+        return;
+    }
+    renderContextProposalReview();
+}
+
+function closeContextProposalReview() {
+    document.getElementById(CONTEXT_PROPOSAL_REVIEW_ID)?.remove();
+}
+
+function renderContextProposalReview() {
+    const proposals = getContextResolutionProposals();
+    let overlay = document.getElementById(CONTEXT_PROPOSAL_REVIEW_ID);
+    if (!proposals.length) {
+        overlay?.remove();
+        return;
+    }
+    if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.id = CONTEXT_PROPOSAL_REVIEW_ID;
+        overlay.className = 'wandlight-lore-workbench-overlay wandlight-context-proposal-review-overlay';
+        overlay.tabIndex = -1;
+        wireOverlayBackdropClose(overlay, closeContextProposalReview);
+        overlay.addEventListener('keydown', event => {
+            if (event.key === 'Escape') closeContextProposalReview();
+        });
+        document.body.appendChild(overlay);
+    }
+    overlay.replaceChildren(createContextProposalReviewShell(getState()));
+    requestAnimationFrame(() => overlay.focus?.());
+}
+
+function createContextProposalReviewShell(state = getState()) {
+    const proposals = getContextResolutionProposals(state);
+    const meta = state?.lorePanel?.contextResolutionProposalMeta || {};
+    const shell = document.createElement('div');
+    shell.className = 'wandlight-lore-workbench-shell wandlight-context-proposal-review-shell';
+    shell.addEventListener('click', event => event.stopPropagation());
+
+    const header = document.createElement('div');
+    header.className = 'wandlight-lore-workbench-header wandlight-context-proposal-review-header';
+
+    const titleWrap = document.createElement('div');
+    titleWrap.className = 'wandlight-lore-workbench-title-wrap';
+    const title = document.createElement('div');
+    title.className = 'wandlight-lore-workbench-title';
+    title.textContent = 'Context Proposal Review';
+    titleWrap.appendChild(title);
+    const subtitle = document.createElement('div');
+    subtitle.className = 'wandlight-lore-workbench-subtitle';
+    subtitle.textContent = 'Review bounded Reasoner choices before applying them to loaded Loredeck Context.';
+    titleWrap.appendChild(subtitle);
+
+    const chips = document.createElement('div');
+    chips.className = 'wandlight-context-workbench-header-chips';
+    chips.appendChild(createStatusPill(`${proposals.length} proposal${proposals.length === 1 ? '' : 's'}`, 'Pending Context proposals from the Reasoning Provider.'));
+    if (meta.createdAt) chips.appendChild(createStatusPill(`Drafted ${new Date(meta.createdAt).toLocaleTimeString()}`, 'When these Context proposals were drafted.'));
+    if (meta.cached) chips.appendChild(createStatusPill('Cached', 'This proposal batch came from the repeated-check cache.'));
+    if (meta.source) chips.appendChild(createStatusPill(formatContextProposalSource(meta.source), 'Source of this Context proposal batch.'));
+    titleWrap.appendChild(chips);
+    header.appendChild(titleWrap);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions wandlight-context-proposal-review-actions';
+    actions.appendChild(createButton('Apply All', 'Apply every listed Context proposal.', async () => {
+        const ok = await confirmAction('Apply Context proposals?', `Apply ${proposals.length} Reasoner Context proposal${proposals.length === 1 ? '' : 's'}?`);
+        if (!ok) return;
+        const applied = applyContextResolutionProposalSet(proposals, {
+            clearAll: true,
+            snapshotLabel: `Apply ${proposals.length} Context proposal${proposals.length === 1 ? '' : 's'}`,
+        });
+        toast(`Applied ${applied} Context proposal${applied === 1 ? '' : 's'}.`, 'success');
+    }, 'wandlight-primary-button'));
+    actions.appendChild(createButton('Dismiss All', 'Discard every listed Context proposal without changing loaded Loredeck Contexts.', async () => {
+        const ok = await confirmAction('Dismiss Context proposals?', `Dismiss ${proposals.length} Context proposal${proposals.length === 1 ? '' : 's'}?`);
+        if (!ok) return;
+        dismissContextResolutionProposalSet(proposals, { clearAll: true });
+        toast('Context proposals dismissed.', 'info');
+    }));
+    actions.appendChild(createButton('Close', 'Close Context proposal review.', closeContextProposalReview));
+    header.appendChild(actions);
+    shell.appendChild(header);
+
+    const body = document.createElement('div');
+    body.className = 'wandlight-context-proposal-review-body';
+    const list = document.createElement('div');
+    list.className = 'wandlight-context-proposal-review-list';
+    for (const proposal of proposals) {
+        list.appendChild(createContextProposalReviewRow(proposal));
+    }
+    body.appendChild(list);
+    shell.appendChild(body);
+    return shell;
+}
+
+function formatContextProposalSource(source = '') {
+    const normalized = String(source || '').trim();
+    if (normalized === 'manual_reasoner') return 'Manual Reasoner';
+    if (normalized === 'manual_reasoner_cached') return 'Cached Reasoner';
+    if (normalized === 'reasoner_context_resolution') return 'Automatic Reasoner';
+    return normalized || 'Unknown';
+}
+
+function createContextProposalReviewRow(proposal = {}) {
+    const row = document.createElement('div');
+    row.className = 'wandlight-context-proposal-review-row';
+
+    const main = document.createElement('div');
+    main.className = 'wandlight-context-proposal-review-main';
+    const title = document.createElement('div');
+    title.className = 'wandlight-context-proposal-review-title';
+    title.textContent = `${getLoredeckDisplayName(proposal.packId)}: ${proposal.label || proposal.candidateId || 'Context proposal'}`;
+    main.appendChild(title);
+
+    const summary = document.createElement('div');
+    summary.className = 'wandlight-context-proposal-review-summary';
+    summary.textContent = proposal.summary || 'Reasoner selected a bounded timeline candidate.';
+    main.appendChild(summary);
+
+    const chips = document.createElement('div');
+    chips.className = 'wandlight-loredeck-row-meta';
+    chips.appendChild(createStatusPill(`${Math.round((Number(proposal.confidence) || 0) * 100)}%`, 'Reasoner confidence for this bounded proposal.'));
+    if (proposal.candidateType) chips.appendChild(createStatusPill(proposal.candidateType, 'Timeline candidate type.'));
+    if (proposal.candidateId) chips.appendChild(createStatusPill(proposal.candidateId, 'Bounded candidate ID selected by the Reasoner.'));
+    main.appendChild(chips);
+
+    const patchSummary = document.createElement('div');
+    patchSummary.className = 'wandlight-context-proposal-review-patch';
+    patchSummary.textContent = formatContextPatchSummary(proposal.patch);
+    main.appendChild(patchSummary);
+    row.appendChild(main);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions wandlight-context-proposal-review-row-actions';
+    actions.appendChild(createButton('Apply', 'Apply this Context proposal.', () => {
+        const applied = applyContextResolutionProposalSet([proposal], {
+            snapshotLabel: `Apply Context proposal: ${getLoredeckDisplayName(proposal.packId)}`,
+        });
+        toast(`Applied ${applied} Context proposal${applied === 1 ? '' : 's'}.`, applied ? 'success' : 'warning');
+    }, 'wandlight-primary-button'));
+    actions.appendChild(createButton('Dismiss', 'Discard this Context proposal.', () => {
+        dismissContextResolutionProposalSet([proposal]);
+        toast('Context proposal dismissed.', 'info');
+    }));
+    row.appendChild(actions);
+    return row;
+}
+
+function formatContextPatchSummary(patch = {}) {
+    const values = [
+        patch.label,
+        patch.sceneDate,
+        patch.arc ? `Arc: ${patch.arc}` : '',
+        patch.phase ? `Phase: ${patch.phase}` : '',
+        patch.season || patch.episode ? `S${patch.season || '?'} E${patch.episode || '?'}` : '',
+        patch.chapter ? `Chapter: ${patch.chapter}` : '',
+        patch.issue ? `Issue: ${patch.issue}` : '',
+        patch.quest ? `Quest: ${patch.quest}` : '',
+        patch.gameStage ? `Game: ${patch.gameStage}` : '',
+        patch.stardate ? `Stardate: ${patch.stardate}` : '',
+        patch.anchorId ? `Anchor: ${patch.anchorId}` : '',
+        patch.anchorFrom || patch.anchorTo ? `Window: ${patch.anchorFrom || 'start'} -> ${patch.anchorTo || 'open'}` : '',
+    ].map(value => String(value || '').trim()).filter(Boolean);
+    const coordinates = patch.coordinates && typeof patch.coordinates === 'object'
+        ? Object.entries(patch.coordinates).slice(0, 4).map(([key, value]) => `${key}: ${value}`)
+        : [];
+    return [...values, ...coordinates].slice(0, 12).join(' | ') || 'No visible Context patch fields.';
+}
+
+function createContextAdvancedBriefSection(state) {
+    return createCollapsibleSection(
+        'context.advancedBrief',
+        'Advanced Context Brief',
+        getAdvancedContextBriefSummary(state),
+        false,
+        createContextEditorCard(state),
+        {
+            tooltip: 'Legacy global Context projection used by older canon-preview flows. Loaded Loredeck rows are the primary Context surface.',
+            className: 'wandlight-context-advanced-brief-section',
+        }
+    );
+}
+
+function getAdvancedContextBriefSummary(state = getState()) {
+    const context = state?.loreContext || {};
+    const brief = state?.contextBrief || {};
+    const signals = brief?.signals || {};
+    const parts = [
+        context.sceneDate || signals.sceneDate || '',
+        context.canonBoundary || brief.summary || '',
+        context.branchId && context.branchId !== 'main' ? `Branch: ${context.branchId}` : '',
+    ].map(part => String(part || '').trim()).filter(Boolean);
+    return parts.length ? parts.join(' | ') : 'Collapsed legacy/global Context fields';
+}
+
+function getContextBriefSignalSummary(brief = {}) {
+    const signals = brief?.signals || {};
+    const values = [
+        signals.arc ? `Arc: ${signals.arc}` : '',
+        signals.phase ? `Phase: ${signals.phase}` : '',
+        signals.season || signals.episode ? `S${signals.season || '?'} E${signals.episode || '?'}` : '',
+        signals.chapter ? `Chapter: ${signals.chapter}` : '',
+        signals.issue ? `Issue: ${signals.issue}` : '',
+        signals.quest ? `Quest: ${signals.quest}` : '',
+        signals.gameStage ? `Game: ${signals.gameStage}` : '',
+        signals.stardate ? `Stardate: ${signals.stardate}` : '',
+        ...(Array.isArray(signals.positionPhrases) ? signals.positionPhrases.slice(0, 2) : []),
+        ...(Array.isArray(signals.eventLabels) ? signals.eventLabels.slice(0, 2) : []),
+    ].map(value => String(value || '').trim()).filter(Boolean);
+    const coordinates = signals.coordinates && typeof signals.coordinates === 'object'
+        ? Object.entries(signals.coordinates).slice(0, 3).map(([key, value]) => `${key}: ${value}`)
+        : [];
+    return [...values, ...coordinates].slice(0, 8).join(' | ') || 'none';
 }
 
 function createContextDetectionCard(state) {
@@ -28697,7 +29339,7 @@ function createContextDetectionCard(state) {
     const title = document.createElement('div');
     title.className = 'wandlight-runtime-card-title';
     title.textContent = 'Context Detection';
-    addTooltip(title, 'Detects context from recent chat and fills the Context fields below. It does not create lore entries.');
+    addTooltip(title, 'Detects Context from recent chat and updates the Context Brief plus loaded Loredeck Context rows. It does not create lore entries.');
     card.appendChild(title);
 
     const settings = getSettings();
@@ -28746,7 +29388,7 @@ function createContextDetectionCard(state) {
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions wandlight-generation-actions';
-    actions.appendChild(markTourTarget(createButton('Detect Context', 'Analyzes recent messages and fills the Context fields below. It does not create lore entries.', async (btn) => {
+    actions.appendChild(markTourTarget(createButton('Detect Context', 'Analyzes recent messages and updates the Context Brief plus loaded Loredeck Context rows. It does not create lore entries.', async (btn) => {
         await handleDetectStoryContext(btn);
     }, 'wandlight-primary-button'), 'context.detect'));
     card.appendChild(actions);
@@ -28828,6 +29470,26 @@ function createContextBriefStatusCard(state) {
     return row;
 }
 
+function formatLoredeckContextUpdatedAt(context = {}) {
+    const timestamp = Number(context?.updatedAt || context?.lastDetectedAt || 0);
+    if (!Number.isFinite(timestamp) || timestamp <= 0) return 'Never';
+    return formatRelativeHealthTime(timestamp);
+}
+
+function toggleLoredeckContextManualLock(packId, locked) {
+    const current = getState();
+    pushStateSnapshot(current, `${locked ? 'Lock' : 'Unlock'} Context: ${getLoredeckDisplayName(packId)}`, getSettings().maxSnapshots);
+    setLoredeckContext(packId, {
+        manualLock: !!locked,
+        source: 'manual',
+        updatedAt: Date.now(),
+    });
+    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    refreshHeader();
+    refreshContextWorkbench();
+    toast(`${getLoredeckDisplayName(packId)} Context ${locked ? 'locked' : 'unlocked'}.`, 'success');
+}
+
 function createLoreGenerationCard(state) {
     const card = document.createElement('div');
     card.className = 'wandlight-runtime-card wandlight-generation-progress-card wandlight-lore-generation-card';
@@ -28859,7 +29521,7 @@ function createLoreContextStatusCard(state) {
     const label = document.createElement('div');
     label.className = 'wandlight-lore-context-status-label';
     label.textContent = 'Context';
-    addTooltip(label, 'Canon suggestions use Context to know the current date, canon boundary, and branch. Detect or edit this in the Context tab.');
+    addTooltip(label, 'Legacy canon suggestions use the global Context projection for date-aware canon filtering. Loredeck gates use the loaded Loredeck Context rows in the Context tab.');
     card.appendChild(label);
 
     const value = document.createElement('div');
@@ -29665,7 +30327,7 @@ async function performStoryContextDetection(options = {}) {
         return true;
     }
     if (detected) {
-        toast('Context detection completed, but it did not find date/canon fields to populate.', 'warning');
+        toast('Context detection completed, but it did not find global date/reference fields to populate.', 'warning');
         return false;
     }
     const validation = validateLoreProviderConfiguration('lore');
@@ -29696,7 +30358,7 @@ async function ensureStoryContextForCanonAction(actionLabel = 'Canon lore') {
 
     const proceed = await confirmAction(
         'No Context detected',
-        `${actionLabel} needs the story date, canon boundary, and branch. Run Detect Context now?`
+        `${actionLabel} needs a usable global Context projection, usually a scene date or canon reference point. Run Detect Context now?`
     );
     if (!proceed) {
         setFeatureProgress('canon', `${actionLabel} cancelled: no Context.`, 0);
@@ -29803,7 +30465,7 @@ async function handleSuggestCanonLore(btn) {
         if (!hasUsableStoryContext(state?.loreContext || {})) {
             const proceed = await confirmAction(
                 'No Context detected',
-                'Canon lore suggestions need the story date, canon boundary, and branch. Run Detect Context now?'
+                'Canon lore suggestions need a usable global Context projection, usually a scene date or canon reference point. Run Detect Context now?'
             );
             if (!proceed) {
                 setFeatureProgress('canon', 'Canon suggestion cancelled: no Context.', 0);
@@ -30072,18 +30734,27 @@ function createCanonLoreDatabaseCard(state) {
 
 function createContextEditorCard(state) {
     const card = document.createElement('div');
-    card.className = 'wandlight-runtime-card';
+    card.className = 'wandlight-context-advanced-brief-content';
     markTourTarget(card, 'context.editor');
 
     const title = document.createElement('div');
     title.className = 'wandlight-runtime-card-title';
-    title.textContent = 'Context';
-    addTooltip(title, 'Date and canon reference data used by lore generation. Detection can infer these, but you can also set them manually when the story has not stated them clearly.');
+    title.textContent = 'Global Brief Projection';
+    addTooltip(title, 'Legacy date/canon reference projection used by older local canon-preview flows. Per-Loredeck Context rows above remain authoritative for Loredeck gates.');
     card.appendChild(title);
+
+    const brief = state?.contextBrief || {};
+    const diagnostics = document.createElement('div');
+    diagnostics.className = 'wandlight-context-brief-diagnostics';
+    diagnostics.appendChild(createKeyValue('Brief summary', brief.summary || 'not detected', 'Latest detector Context Brief summary.'));
+    diagnostics.appendChild(createKeyValue('Evidence', String((brief.evidence || []).length), 'Evidence snippets captured by the detector.'));
+    diagnostics.appendChild(createKeyValue('Uncertainty', brief.uncertainty?.level || 'low', 'Detector uncertainty level.'));
+    diagnostics.appendChild(createKeyValue('Signals', getContextBriefSignalSummary(brief), 'Structured story-position signals saved in the latest Context Brief.'));
+    card.appendChild(diagnostics);
 
     const help = document.createElement('div');
     help.className = 'wandlight-runtime-help';
-    help.textContent = 'Canon reference point means the latest canon knowledge the roleplay should treat as established, such as “through Prisoner of Azkaban” or “before the Triwizard Tournament.” If it stays “not detected,” set it manually or leave it blank for story-original scenes.';
+    help.textContent = 'Use these fields only when legacy canon preview or story-lore tools need a simple global date/reference point. For arcs, chapters, episodes, quests, stardates, and windows, use the loaded Loredeck Context rows and Browser above.';
     card.appendChild(help);
 
     const grid = document.createElement('div');
@@ -30153,7 +30824,7 @@ function createNumberSettingRow(labelText, tooltip, settingKey, { min = 0, max =
     return row;
 }
 
-function createRangeSettingRow(labelPrefix, tooltip, settingKey, { min = 0, max = 100, fallback = 0, suffix = '' } = {}) {
+function createRangeSettingRow(labelPrefix, tooltip, settingKey, { min = 0, max = 100, fallback = 0, suffix = '', step = 1 } = {}) {
     const settings = getSettings();
     const row = document.createElement('label');
     row.className = 'wandlight-slider-row wandlight-compact-slider-row';
@@ -30167,7 +30838,7 @@ function createRangeSettingRow(labelPrefix, tooltip, settingKey, { min = 0, max 
     input.type = 'range';
     input.min = String(min);
     input.max = String(max);
-    input.step = '1';
+    input.step = String(step);
     input.value = String(currentValue);
     input.addEventListener('input', () => {
         const next = getSettings();

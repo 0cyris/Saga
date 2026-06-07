@@ -901,9 +901,15 @@ function getContextFallbackCharacterThreshold(settings = getSettings()) {
     return Math.max(0, Math.min(20000, Number.isFinite(configured) ? configured : 1200));
 }
 
+function getContextConfidenceSetting(settings = getSettings(), key = '', fallback = 0) {
+    const configured = Number(settings?.[key]);
+    return Math.max(0, Math.min(1, Number.isFinite(configured) ? configured : fallback));
+}
+
 function shouldRunContextModelFallback(sourceText = '', options = {}, settings = getSettings()) {
     if (options.modelFallback === false) return false;
     if (options.forceModelFallback === true || options.explicit === true) return true;
+    if (settings.contextReasonerFallbackEnabled === false) return false;
     const threshold = getContextFallbackCharacterThreshold(settings);
     return String(sourceText || '').trim().length >= threshold;
 }
@@ -959,7 +965,26 @@ async function maybeResolveContextsFromContext(context, options = {}) {
         const local = await resolveAndApplyContextsFromContext(context, {
             contextSource: options.contextSource || 'local_alias',
             sourceText: options.sourceText || '',
+            minLocalConfidence: getContextConfidenceSetting(settings, 'contextLocalApplyMinConfidence', 0.78),
         });
+        if (local.unresolvedCount && settings.contextReasonerFallbackEnabled === false) {
+            const skipped = {
+                ...local,
+                status: 'skipped',
+                reason: 'context_reasoner_fallback_disabled',
+                message: 'Reasoner fallback is disabled; unresolved Loredeck Context rows were left unchanged.',
+                local,
+                appliedCount: local.appliedCount || 0,
+                localAppliedCount: local.appliedCount || 0,
+                skippedCount: Math.max(1, Number(local.skippedCount || 0) + Number(local.unresolvedCount || 0)),
+                targetPackIds: (local.results || [])
+                    .filter(result => result.status === 'unresolved')
+                    .map(result => result.packId)
+                    .filter(Boolean),
+            };
+            storeContextResolutionProposals(skipped, context, options.sourceText || '');
+            return skipped;
+        }
         if (!local.unresolvedCount || !shouldRunContextModelFallback(options.sourceText || '', options, settings)) {
             storeContextResolutionProposals(local, context, options.sourceText || '');
             return local;
@@ -970,6 +995,8 @@ async function maybeResolveContextsFromContext(context, options = {}) {
             sourceText: options.sourceText || '',
             applyLocal: false,
             applyModel: false,
+            minLocalConfidence: getContextConfidenceSetting(settings, 'contextLocalApplyMinConfidence', 0.78),
+            minConfidence: getContextConfidenceSetting(settings, 'contextReasonerProposalMinConfidence', 0.55),
             resolutionCache: getState()?.lorePanel?.contextResolutionCache || null,
         });
         const merged = {

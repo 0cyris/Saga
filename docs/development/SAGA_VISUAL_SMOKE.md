@@ -18,6 +18,13 @@ Open the printed URL:
 http://127.0.0.1:8765/tests/visual-smoke.html
 ```
 
+Context-specific harness URLs:
+
+```text
+http://127.0.0.1:8765/tests/visual-smoke.html?tab=context
+http://127.0.0.1:8765/tests/visual-smoke.html?tab=context&review=context-proposals
+```
+
 The harness seeds:
 
 - Expanded Saga shelf with the Loredecks tab open.
@@ -38,6 +45,24 @@ node scripts\serve-visual-smoke.mjs --check --port 0
 ```
 
 These checks do not replace a browser screenshot pass. They only verify that the harness, fixture, source hooks, and CSS hooks are still wired.
+
+## Repo-Local Context Screenshot Helper
+
+Run the current-code Context smoke without depending on the installed SillyTavern extension copy:
+
+```powershell
+$env:SAGA_SMOKE_TARGET='context-harness'
+node scripts\smoke-live-st-cdp.mjs
+```
+
+This starts the local harness, opens the Context tab with seeded Reasoner proposals, captures:
+
+```text
+Images/documentation/renders/saga-smoke/context-harness-01-proposal-review.png
+Images/documentation/renders/saga-smoke/context-harness-02-workbench.png
+```
+
+It verifies the Runtime Context command center, proposal review overlay, proposal apply flow, loaded Loredeck Context rows, lock state, and Context Workbench tabs.
 
 ## Live ST Screenshot Helper
 
@@ -61,6 +86,85 @@ Images/documentation/renders/saga-smoke/
 ```
 
 The helper safely clicks Custom `Delete Deck`, verifies the Saga-owned confirmation modal, captures `live-st-03-delete-confirm.png`, and clicks `Cancel`. Native browser confirmation dialogs should not appear in this flow.
+
+## Live ST Context Screenshot Helper
+
+To validate the installed Context tab specifically, run:
+
+```powershell
+$env:SAGA_SMOKE_TARGET='live-context'
+node scripts\smoke-live-st-cdp.mjs
+```
+
+This target opens the live installed shelf at `http://127.0.0.1:8000/`, switches to the Context tab, captures:
+
+```text
+Images/documentation/renders/saga-smoke/live-context-01-context-tab.png
+```
+
+It verifies:
+
+- `Runtime Context`, `Browse Context`, `Detect Context`, and `Review Proposals` render in the installed shelf.
+- Manual, Assisted, and Automatic automation modes render.
+- `Advanced Context Brief` is available without making date/canon-boundary fields the primary UI.
+- The old Context tooltip/date-first primary fields are absent.
+- `Browse Context` either opens the Context Workbench or shows the no-loaded-Loredeck guard.
+- `Review Proposals` either opens proposal review or shows the empty-proposal guard.
+
+The latest empty-stack pass after syncing the active installed extension copy produced `live-context-01-context-tab.png` with no findings, no console errors, and no browser dialogs. The active ST chat had no enabled Loredecks, so the Browser and Proposal Review checks exercised guard states.
+
+To validate the installed Context flow with an enabled Loredeck stack, run:
+
+```powershell
+$env:SAGA_SMOKE_TARGET='live-context-loaded'
+node scripts\smoke-live-st-cdp.mjs
+```
+
+This target snapshots the current Saga metadata, adds `Harry Potter Year 6: Half-Blood Prince` through the real Loredeck Library UI, opens the Context Browser, verifies casual alias search for `Ron dates the blonde girl`, applies `Post Christmas Return` as the after-bound, applies `Apparition Lessons Begin` as the before-bound, seeds a synthetic populated proposal review row, captures:
+
+```text
+Images/documentation/renders/saga-smoke/live-context-loaded-01-context-tab.png
+Images/documentation/renders/saga-smoke/live-context-loaded-02-workbench.png
+Images/documentation/renders/saga-smoke/live-context-loaded-03-proposals.png
+```
+
+It restores the original Saga metadata before exiting. The latest pass completed with no findings, no console errors, and no browser dialogs.
+
+For the compact loaded Context pass, run:
+
+```powershell
+$env:SAGA_SMOKE_TARGET='live-context-loaded-narrow'
+node scripts\smoke-live-st-cdp.mjs
+```
+
+The narrow target uses a compact default viewport and writes:
+
+```text
+Images/documentation/renders/saga-smoke/live-context-loaded-narrow-01-context-tab.png
+Images/documentation/renders/saga-smoke/live-context-loaded-narrow-02-workbench.png
+Images/documentation/renders/saga-smoke/live-context-loaded-narrow-03-proposals.png
+```
+
+The latest compact pass completed with no findings, no console errors, no browser dialogs, and no obvious text overlap in the Context tab or proposal overlay.
+
+For an opt-in live Reasoning Provider Context check, run:
+
+```powershell
+$env:SAGA_SMOKE_TARGET='live-context-reasoner'
+$env:SAGA_ALLOW_PROVIDER_CALLS='1'
+node scripts\smoke-live-st-cdp.mjs
+```
+
+This target spends one bounded Reasoning Provider call. It snapshots current chat metadata and Saga settings, loads `Harry Potter Year 6: Half-Blood Prince`, seeds a loose non-date Context Brief, clicks `Ask Reasoner`, verifies bounded proposal state, then restores metadata and settings.
+
+Expected artifacts when proposals render:
+
+```text
+Images/documentation/renders/saga-smoke/live-context-reasoner-01-result.png
+Images/documentation/renders/saga-smoke/live-context-reasoner-02-proposals.png
+```
+
+Without `SAGA_ALLOW_PROVIDER_CALLS=1`, the target exits before modifying metadata or calling the provider.
 
 ## Harness Checklist
 
