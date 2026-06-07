@@ -5,6 +5,7 @@ Saga documentation is being organized into release-facing topic folders. Older i
 ## Release-Facing Docs
 
 - [Loredecks](loredecks/LOREDECK_AND_LORECARD_CREATION_GUIDE.md): Loredeck and Lorecard creation guidance, reference-deck expectations, authoring workflow, and schema links.
+- [LLM Loredeck Generation](loredecks/LLM_LOREDECK_GENERATION_GUIDE.md): compact handoff for another LLM that needs to generate or revise Saga Loredecks and Lorecards.
 
 ## Development Notes
 

@@ -2,7 +2,7 @@
 
 This guide explains how to think about Loredecks and Lorecards when creating reference-quality Saga content. It is written for human authors and for LLMs assisting with deck creation.
 
-The exact schemas already exist and are the source of truth for field names, allowed values, required metadata, registry shapes, and health report details. Do not infer schema details from this guide. Use this guide for intent and workflow, then reference [SAGA_LOREDECK_SCHEMA.md](SAGA_LOREDECK_SCHEMA.md) for the detailed schema contract.
+The exact schemas already exist and are the source of truth for field names, allowed values, required metadata, registry shapes, and health report details. Do not infer schema details from this guide. Use this guide for intent and workflow, reference [SAGA_LOREDECK_SCHEMA.md](SAGA_LOREDECK_SCHEMA.md) for the detailed schema contract, and use [LLM_LOREDECK_GENERATION_GUIDE.md](LLM_LOREDECK_GENERATION_GUIDE.md) when handing Loredeck generation work to another model.
 
 ## What A Loredeck Is
 
@@ -132,6 +132,7 @@ Future deck families should get equivalent health, conformance, and Context fixt
 ## Documentation Map
 
 - [SAGA_LOREDECK_SCHEMA.md](SAGA_LOREDECK_SCHEMA.md): detailed Loredeck, Lorecard, registry, bundle, and Deck Health schema contract.
+- [LLM_LOREDECK_GENERATION_GUIDE.md](LLM_LOREDECK_GENERATION_GUIDE.md): compact LLM handoff for Saga Loredeck generation and revision.
 - [../DOCUMENTATION_INDEX.md](../DOCUMENTATION_INDEX.md): top-level documentation index.
 - [../development](../development): development notes and planning documents that have not yet been rewritten as release-facing docs.
 
