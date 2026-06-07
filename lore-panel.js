@@ -8530,9 +8530,13 @@ function scrollLoredeckCreatorWorkbenchToAnchor(anchorId = '') {
     if (!id) return false;
     const body = document.querySelector('.wandlight-loredeck-creator-workbench-body');
     const selectorId = id.replace(/"/g, '\\"');
-    const target = body?.querySelector(`[data-saga-creator-anchor="${selectorId}"]`);
-    if (!target) return false;
-    const details = target.closest('details');
+    const target = body?.querySelector(`[data-saga-creator-anchor="${selectorId}"]`)
+        || (id === 'review-queue' ? body?.querySelector('.wandlight-loredeck-creator-pending-review') : null);
+    if (!target) {
+        toast(id === 'review-queue' ? 'No pending review queue is available yet.' : 'That Creator section is not available yet.', 'info');
+        return false;
+    }
+    const details = target.matches?.('details') ? target : target.closest('details');
     if (details) details.open = true;
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     return true;
@@ -8900,6 +8904,7 @@ function createLoredeckCreatorPendingReviewCard(cached = {}, pipeline = {}) {
     if (!pack) return null;
     const card = createLoredeckPendingReviewCard(pack);
     card.classList.add('wandlight-loredeck-creator-pending-review');
+    card.dataset.sagaCreatorAnchor = 'review-queue';
     if (pipeline.pendingPlanningCount) {
         const note = document.createElement('div');
         note.className = 'wandlight-runtime-help';
@@ -25528,14 +25533,19 @@ async function acceptLoredeckPendingChanges(pack, changeIds = []) {
 }
 
 function rejectLoredeckPendingChanges(pack, changeIds = []) {
+    const freshPack = getFreshLoredeckLibraryPack(pack?.packId, pack);
+    if (!freshPack?.packId) {
+        toast('Loredeck is no longer available.', 'warning');
+        return false;
+    }
     const idSet = new Set(normalizeLoredeckPendingIdList(changeIds));
-    const pending = getLoredeckPendingChanges(pack);
+    const pending = getLoredeckPendingChanges(freshPack);
     const selected = idSet.size ? pending.filter(change => idSet.has(change.changeId)) : pending;
     if (!selected.length) {
         toast('No pending Loredeck changes selected.', 'warning');
         return false;
     }
-    const rejected = persistLoredeckLibraryRecordMutation(pack, next => {
+    const rejected = persistLoredeckLibraryRecordMutation(freshPack, next => {
         const selectedIds = new Set(selected.map(change => change.changeId));
         next.pendingChanges = normalizeLoredeckPendingChanges(next.pendingChanges).filter(change => !selectedIds.has(change.changeId));
     }, `Rejected ${selected.length} pending Loredeck change${selected.length === 1 ? '' : 's'}.`, {

@@ -1744,6 +1744,17 @@ export function getLoredeckLibraryRegistry(state = null) {
 }
 
 export function upsertLoredeckLibraryPack(packRecord = {}) {
+    const clearableOptionalFields = [
+        'pendingChanges',
+        'tagRegistry',
+        'timelineRegistry',
+        'healthIssueStates',
+        'manifestData',
+        'assets',
+        'library',
+        'derivedFrom',
+    ];
+    const explicitOptionalFields = new Set(clearableOptionalFields.filter(key => Object.prototype.hasOwnProperty.call(packRecord || {}, key)));
     const normalized = normalizeLoredeckRegistry(
         { schemaVersion: 1, packs: { [packRecord.packId || packRecord.id || '']: packRecord } },
         { schemaVersion: 1, packs: {} }
@@ -1759,12 +1770,17 @@ export function upsertLoredeckLibraryPack(packRecord = {}) {
 
     const settings = getSettings();
     const library = normalizeLoredeckRegistry(settings.loredeckLibrary, DEFAULT_SETTINGS.loredeckLibrary);
-    library.packs[packId] = {
-        ...(library.packs[packId] || {}),
+    const existing = library.packs[packId] || {};
+    const nextPack = {
+        ...existing,
         ...pack,
-        installedAt: library.packs[packId]?.installedAt || pack.installedAt || Date.now(),
+        installedAt: existing.installedAt || pack.installedAt || Date.now(),
         updatedAt: Date.now(),
     };
+    for (const key of explicitOptionalFields) {
+        if (!Object.prototype.hasOwnProperty.call(pack, key)) delete nextPack[key];
+    }
+    library.packs[packId] = nextPack;
     settings.loredeckLibrary = normalizeLoredeckRegistry(library, DEFAULT_SETTINGS.loredeckLibrary);
     saveSettings(settings);
     return { ok: true, pack: settings.loredeckLibrary.packs[packId], library: settings.loredeckLibrary };

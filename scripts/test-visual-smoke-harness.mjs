@@ -92,6 +92,8 @@ assert(panel.includes("panel.dataset.sagaCreatorAnchor = 'review-status'"), 'Cre
 assert(panel.includes('createLoredeckCreatorPendingReviewCard'), 'Creator wizard must render an actionable Pending Review card after planning proposals are queued.');
 assert(panel.includes('Review Context and Tags'), 'Creator Context stage must guide users to review queued Context and Tag proposals.');
 assert(panel.includes('openLoredeckLibraryDetails'), 'Creator deck inspection buttons must open the visible Loredeck Library details window.');
+assert(panel.includes("card.dataset.sagaCreatorAnchor = 'review-queue'"), 'Creator Pending Review card must expose a direct review-queue anchor.');
+assert(panel.includes('No pending review queue is available yet.'), 'Creator review-queue jump must report when no queue is rendered.');
 assert(panel.includes('wandlight-loredeck-creator-done-button'), 'Creator Context rows must show planned sets as compact Done controls.');
 assert(style.includes('wandlight-loredeck-creator-done-button'), 'Creator Context Done controls must have a dedicated success style.');
 assert(!panel.includes("appendLoredeckCreatorGenerationStatus(main, cached, ['planning_batch_draft'], { batchId: batch.id, compact: true });"), 'Creator Context rows must not render duplicate compact success bars.');
@@ -148,6 +150,8 @@ assert(panel.includes('acceptLoredeckPendingChanges(pack, pending.map(change => 
 assert(panel.includes('const freshPack = getFreshLoredeckLibraryPack(pack?.packId, pack);'), 'Loredeck pending acceptance must re-read the freshest pack before applying changes.');
 assert(panel.includes("generated_shell_without_entries"), 'Generated Loredeck planning accepts must skip health rerun while the shell has no accepted Lorecards.');
 assert(!panel.includes('no valid manifest or accepted embedded data yet'), 'Generated Loredeck planning accepts must not warn about missing embedded data after each proposal.');
+assert(stateManager.includes('clearableOptionalFields'), 'Loredeck library upsert must track optional fields that were intentionally supplied.');
+assert(stateManager.includes('delete nextPack[key]'), 'Loredeck library upsert must clear optional fields that normalize to empty.');
 assert(panel.includes('Finalize as Custom'), 'Generated Loredecks must expose reviewed Generated-to-Custom finalization.');
 assert(panel.includes('buildFinalizedCustomLoredeckRecordFromGenerated'), 'Generated-to-Custom finalization must use an explicit conversion builder.');
 assert(panel.includes('generated_finalized'), 'Finalized Custom Loredecks must retain generated-source provenance.');
