@@ -1,6 +1,6 @@
 # Saga Lore Panel Decomposition Plan
 
-Status: Phase 7 Context tab display-card, command-center, advanced brief, automation settings, proposal review, Context Workbench shell, Workbench Context table/editor shell, Workbench Timeline view, Workbench waypoint browser, Workbench resolver tester, Workbench Context picker, Workbench Aliases view, and Workbench Validation view extraction implemented. Next queued phase: Phase 8 Settings and Theme panel extraction.
+Status: Phase 8 provider/API Settings card extraction implemented. Next queued Phase 8 slice: Theme Pack UI extraction to `theme-panel.js`.
 
 Date: 2026-06-07.
 
@@ -88,19 +88,27 @@ Phase 7 progress:
 - SillyTavern browser smoke for the Workbench resolver tester extraction was limited by browser automation click timeouts on the Context rail tab. After reload, Saga mounted, the runtime shelf was present, the page reached `complete`, Context rail text was present, and no browser console errors were observed. Resolver tester rendering/action behavior is covered by the fake-DOM smoke above.
 - SillyTavern browser smoke for the Workbench Context picker extraction passed at the mount level: after reload, Saga mounted, the runtime shelf was present, the page reached `complete`, Context rail text was present, and no browser console errors were observed. Context picker rendering/action behavior is covered by the fake-DOM smoke above.
 
+Phase 8 progress:
+
+- `settings-panel.js` now owns the runtime Settings tab provider/API card, Utility and Reasoning provider blocks, provider source selector, Connection Profile selector, OpenAI-compatible endpoint/model controls, API key store/clear controls, provider generation parameter controls, and Provider Preset status/install/download UI.
+- `lore-panel.js` configures the Settings module through `configureSettingsPanel(...)` with callbacks for runtime-body refresh, header refresh, and JSON download. Theme Pack UI remains in `lore-panel.js` until the next Phase 8 slice.
+- The extracted provider preset status uses a local SillyTavern Chat Completion preset-manager lookup in `settings-panel.js`, matching the current extension-menu cleanup path and avoiding the stale runtime helper name that was left in `lore-panel.js`.
+- Current post-extraction line count: `lore-panel.js` is 26,198 lines, `settings-panel.js` is 887 lines, `context-panel.js` is 841 lines, `context-workbench-panel.js` is 1,858 lines, `loredeck-creator-panel.js` is 1,615 lines, `loredecks-tab-panel.js` is 793 lines, `loredeck-library-panel.js` is 4,402 lines, `loredeck-health-panel.js` is 1,668 lines, `runtime-theme.js` is 776 lines, and `runtime-ui-kit.js` is 584 lines.
+- Validation passed with `node --check` on `settings-panel.js`, `context-workbench-panel.js`, `context-panel.js`, `lore-panel.js`, `loredeck-creator-panel.js`, `loredecks-tab-panel.js`, `loredeck-library-panel.js`, `loredeck-health-panel.js`, `runtime-theme.js`, `runtime-ui-kit.js`, and `index.js`; ES module import smoke passed for `settings-panel.js` and `lore-panel.js`; fake-DOM smoke verified the extracted provider card renders Utility/Reasoning provider blocks, OpenAI-compatible controls, Connection Profile controls, API key controls, and Provider Preset status.
+
 Large responsibility clusters:
 
 ```text
-1-1902        imports, constants, runtime settings, top-level UI state
-1903-2342     public panel API and runtime shell
-2343-8082     Loredecks tab, Creator project shelf, Loredeck Library
-8083-13172    Loredeck Creator pipeline and workbench
-13173-16450   Context tab, Context rows, Context Workbench
-16451-19057   Deck Health Center
-19058-26000   import/export, duplicate, metadata, override, tag/timeline dialogs
-26001-33459   Settings, themes, session, context, lore generation, injection
-33460-36818   Lorecard review/workbench/timeline/cards
-36819-38316   tags, mutations, drag/resize, dialogs, tooltips, UI helpers
+1-2100        imports, configuration bridges, public panel API, runtime shell
+2101-6700     Loredeck Creator provider-call and mutation controllers
+6701-7800     Context editor/workbench controller behavior
+7801-14900    Loredeck import/export, editor details, assistant, pending review, tag/timeline mutation surfaces
+14901-17000   Settings tab shell and Theme Pack UI
+17001-17700   Loredeck stack helpers, Session tab, danger/reset cards
+17701-19700   Context tab controller helpers, progress state, advanced editor behavior
+19701-21300   Continuity and Injection tab controller behavior
+21301-25500   Lorecards tab, Lorecard Workbench, timeline/review/list/tag UI
+25501-26198   layout, tour, drag/resize, dialog and residual UI helpers
 ```
 
 ## Core Principle
@@ -309,16 +317,16 @@ Responsibilities:
 - Workbench Validation view.
 - Context validation issue builder.
 
-Current extracted role: shell plus Context table/editor shell, waypoint browser, resolver tester, Context picker, Aliases view, and Validation view. The timeline table, resolver action/controller behavior, timeline mutation actions, and model-call controller behavior still live in `lore-panel.js` until they can be moved in smaller Workbench-specific slices.
+Current extracted role: shell plus Context table/editor shell, Timeline view, waypoint browser, resolver tester, Context picker, Aliases view, and Validation view. Resolver action/controller behavior, timeline dialog mutation behavior, and model-call controller behavior still live in `lore-panel.js` until they can be moved in smaller Workbench-specific slices.
 
 ### `settings-panel.js`
 
 Responsibilities:
 
-- Runtime Settings tab.
-- provider/API settings.
-- automation settings.
-- danger-zone/settings reset cards.
+- Runtime Settings tab provider/API settings.
+- Utility and Reasoning provider blocks.
+- Provider Preset status/install/download controls.
+- Future slices can add remaining Settings-tab cards if they are still worth extracting after Theme Pack UI moves.
 
 This is distinct from existing `ui.js`, which currently owns legacy SillyTavern extension dropdown cleanup and provider settings wiring.
 
