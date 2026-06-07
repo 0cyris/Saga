@@ -49,6 +49,8 @@ The HP reference-deck conformance check now exists at `scripts/test-hp-reference
 
 The shelf, tabs, fullscreen workbenches, reset behavior, settings routing, and overall Saga runtime surface. This includes removing or hiding stale Wandlight UI and ensuring major windows open, close, reset, and preserve scroll state correctly.
 
+`lore-panel.js` has grown into a monolithic runtime/controller file. The decomposition roadmap lives in [SAGA_LORE_PANEL_DECOMPOSITION_PLAN.md](SAGA_LORE_PANEL_DECOMPOSITION_PLAN.md) and should be followed as a cross-system hardening effort rather than a UI redesign pass.
+
 ### 2. Settings System
 
 Provider/API settings, Reasoner Provider settings, automation thresholds, theme/icon preferences, and persistent user configuration. API/model settings should live in the Saga Settings tab, not the legacy SillyTavern extension dropdown.
