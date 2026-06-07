@@ -125,15 +125,24 @@ Context-aware Loredeck retrieval:
 - Done: upgrade Reasoner-backed Context resolution so automatic fallback follows the existing message-count and character-count cadence, chooses from bounded anchor/window candidates, and stores structured, confirmable Context patches for user review.
 - Done: revise timeline densification policy around high-value candidate quality rather than alias sprawl. Deck Health now gives non-blocking sparse-candidate, concentrated-anchor, and missing-window suggestions.
 - Done: chunk Loredeck Creator full-entry drafting into resumable micro-batches. The Creator now drafts the next small approved-title set per provider call, can optionally run a bounded sequence of separate calls, and preserves successful draft batches if a later call fails.
+- Done: make accepted Lorecard injection Context-aware. Accepted Lorecards now remain in the accepted set when Context advances, but prompt memo selection and injection audit re-check active Loredeck Context gates and report stale accepted entries as `context_blocked` instead of injecting future/out-of-window lore.
+- Done: lock the Jan. 25, 1997 / `before Apparition lessons` resolver edge. Explicit `sceneDate` now remains authoritative over loose supporting boundary text, so the resolver selects the post-Christmas/pre-Apparition window instead of jumping to the upcoming Apparition anchor.
+- Done: expand deterministic core integration coverage into Year 1 with `scripts/test-core-integration-hp-year1.mjs`. The Year 1 harness validates Core + Philosopher's Stone stack loading, Sorting to Stone-aftermath Context progression, late Quirrell/Stone suggestion blocking/activation, accepted stale-lore Context blocking, and current aftermath-lore injection.
+- Done: expand deterministic core integration coverage into Year 2 with `scripts/test-core-integration-hp-year2.mjs`. The Year 2 harness validates Core + Chamber of Secrets stack loading, first-attack to Ginny-rescue Context progression, pre-reveal spoiler guard preview/blocking, active Chamber-crisis stale-lore Context blocking, and current Chamber-resolution injection.
+- Done: expand deterministic core integration coverage beyond Year 6 with `scripts/test-core-integration-hp-year3.mjs`. The Year 3 harness validates Core + Prisoner of Azkaban stack loading, winter-to-rescue Context progression, suggestion-set changes, accepted stale-lore Context blocking, and current rescue-lore injection.
+- Done: expand deterministic core integration coverage into Year 4 with `scripts/test-core-integration-hp-year4.mjs`. The Year 4 harness validates Core + Goblet of Fire stack loading, early Triwizard setup to post-graveyard Context progression, late Voldemort-return suggestion blocking/activation, accepted stale-lore Context blocking, and current aftermath-lore injection.
+- Done: expand deterministic core integration coverage into Year 5 with `scripts/test-core-integration-hp-year5.mjs`. The Year 5 harness validates Core + Order of the Phoenix stack loading, DA-formation to post-Department Context progression, late Sirius/public-return suggestion blocking/activation, accepted stale-lore Context blocking, and current aftermath-lore injection.
+- Done: expand deterministic core integration coverage into Year 7 with `scripts/test-core-integration-hp-year7.mjs`. The Year 7 harness validates Core + Deathly Hallows stack loading, locket-camping to Battle Aftermath Context progression, Battle death-state guard preview/blocking, accepted stale-lore Context blocking, and current aftermath-lore injection.
+- Done: expand deterministic core integration coverage into Epilogue/Post-War with `scripts/test-core-integration-hp-epilogue-post-war.mjs`. The Post-War harness validates Core + Post-War stack loading, 1998 rebuilding to 2014 World Cup to 2017 King's Cross Context progression, pre-epilogue guard blocking, accepted stale-lore Context blocking, and current epilogue-lore injection.
 - Done: scaffold the Harry Potter Golden Trio split-deck family. `hp-core` plus Year 1-7 folders now exist with dense first-class timelines generated from the anchor plan, including the Year 6 post-Christmas/Apparition window and a single dense Year 7 deck. These are intentionally not registered as bundled Library decks until entries are split and conformance checks pass.
+- Done: add HP reference-deck conformance coverage with `scripts/test-hp-reference-deck-conformance.mjs`. It verifies the bundled HP defaults, `Loredecks/index.json`, duplicated manifests, Deck Health summaries, deck-local covers, tag registries, file lists, empty active-stack defaults, and absence of the legacy monolithic `hp-golden-trio` deck from runtime defaults.
 ## Next Production Slice
 
-Core integration hardening:
+Loredeck Library and stack stabilization:
 
-- Build deterministic HP integration fixtures around `hp-core` plus `hp-year-6-half-blood-prince`.
-- Prove Context checkpoints can drive expected inclusion and exclusion behavior.
-- Prove candidate suggestions only come from enabled stack items.
-- Prove accepted Lorecards preserve schema v3 Context and retrieval metadata.
-- Prove pinned, muted, relevance-tiered, and Context-blocked Lorecards combine correctly.
-- Prove injection preview and prompt output agree.
+- Stabilize folders, drag/drop, selection, bulk actions, and active-stack persistence at larger Library scale.
+- Prove Library and stack state survive refresh/reopen without stale selections, duplicated stack records, or unexpected scroll resets.
+- Keep HP reference-deck conformance and deterministic integration coverage passing as the baseline regression suite.
+- Keep proving candidate suggestions only come from enabled stack items.
+- Keep proving accepted Lorecards preserve schema v3 Context and retrieval metadata across different year decks.
 - Keep real SillyTavern chat files local-only; derive compact synthetic fixtures before committing anything.

@@ -7,7 +7,11 @@
  * snapshots; it does not mutate accepted lore or SillyTavern World Info.
  */
 
-import { normalizeLoreMatrix, getInjectableLoreEntriesByRelevance } from './lore-matrix.js';
+import { normalizeLoreMatrix } from './lore-matrix.js';
+import {
+    getInjectableLoreEntriesByRelevanceForInjection,
+    getLoreEntryInjectionContextGate,
+} from './lore-injection-filter.js';
 import { normalizeLoreRelevance } from './lore-relevance.js';
 
 const RELEVANCE_TIERS = Object.freeze(['high', 'normal', 'low']);
@@ -202,7 +206,7 @@ export function buildLoreInjectionAudit(state = {}, settings = {}, promptInfo = 
     for (const tier of RELEVANCE_TIERS) {
         const enabled = settings.injectLore !== false && settings[tierSettingKey(tier, 'InjectionEnabled')] !== false;
         const maxEntries = Math.max(0, Number(settings[tierSettingKey(tier, 'MaxEntries')]) || 0);
-        const selected = enabled ? getInjectableLoreEntriesByRelevance(state, tier, maxEntries) : [];
+        const selected = enabled ? getInjectableLoreEntriesByRelevanceForInjection(state, tier, maxEntries) : [];
         const selectedIds = new Set(selected.map(entry => entry.id));
         tierSelections[tier] = selectedIds;
         tierSummary[tier] = {
@@ -224,6 +228,7 @@ export function buildLoreInjectionAudit(state = {}, settings = {}, promptInfo = 
         disabled: 0,
         nonInjectable: 0,
         tierDisabled: 0,
+        contextBlocked: 0,
         overCap: 0,
         notInjected: 0,
     };
@@ -238,6 +243,7 @@ export function buildLoreInjectionAudit(state = {}, settings = {}, promptInfo = 
         const tier = entry.relevance;
         const tierEnabled = tierSummary[tier]?.enabled === true;
         const selected = tierSelections[tier]?.has(entry.id) === true;
+        const contextGate = getLoreEntryInjectionContextGate(entry, state);
         let decision = 'not_injected';
         let reason = 'not selected for this prompt sync';
 
@@ -253,6 +259,10 @@ export function buildLoreInjectionAudit(state = {}, settings = {}, promptInfo = 
             decision = 'muted';
             reason = 'muted by user';
             summary.muted += 1;
+        } else if (!contextGate.eligible) {
+            decision = 'context_blocked';
+            reason = contextGate.reason || 'blocked by active Loredeck Context';
+            summary.contextBlocked += 1;
         } else if (!tierEnabled) {
             decision = 'tier_disabled';
             reason = `${tier} tier disabled`;
@@ -274,11 +284,13 @@ export function buildLoreInjectionAudit(state = {}, settings = {}, promptInfo = 
             tier,
             decision,
             reason,
+            contextGateStatus: contextGate.status,
+            contextGateReason: contextGate.reason,
             injectionChars: text(entry.content?.injection || entry.content?.fact || entry.fact || '', 2000).length,
         }));
     }
 
-    summary.notInjected += summary.muted + summary.disabled + summary.nonInjectable + summary.tierDisabled + summary.overCap;
+    summary.notInjected += summary.muted + summary.disabled + summary.nonInjectable + summary.contextBlocked + summary.tierDisabled + summary.overCap;
 
     return {
         schemaVersion: 1,

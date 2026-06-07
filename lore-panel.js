@@ -25580,16 +25580,16 @@ function persistLoredeckLibraryRecordMutation(pack, mutator, message, options = 
     mutator(next);
     const normalizedTagRegistry = normalizeLoredeckTagRegistry(next.tagRegistry);
     if (getLoredeckTagRegistryCount(normalizedTagRegistry)) next.tagRegistry = normalizedTagRegistry;
-    else delete next.tagRegistry;
+    else next.tagRegistry = { schemaVersion: 1, tags: {} };
     const normalizedTimelineRegistry = normalizeLoredeckTimelineRegistry(next.timelineRegistry);
     if (getLoredeckTimelineRegistryCount(normalizedTimelineRegistry)) next.timelineRegistry = normalizedTimelineRegistry;
-    else delete next.timelineRegistry;
+    else next.timelineRegistry = { schemaVersion: 1, timelineMode: 'hybrid', sortKeyScale: 'pack_local', anchors: [], windows: [] };
     const normalizedPendingChanges = normalizeLoredeckPendingChanges(next.pendingChanges);
     if (normalizedPendingChanges.length) next.pendingChanges = normalizedPendingChanges;
-    else delete next.pendingChanges;
+    else next.pendingChanges = [];
     const normalizedHealthIssueStates = normalizeLoredeckHealthIssueStates(next.healthIssueStates);
     if (Object.keys(normalizedHealthIssueStates).length) next.healthIssueStates = normalizedHealthIssueStates;
-    else delete next.healthIssueStates;
+    else next.healthIssueStates = {};
     if (isVirtualLoredeckPack(next)) {
         next.manifestData = buildEmbeddedCustomManifest(next.manifestData, next);
     }

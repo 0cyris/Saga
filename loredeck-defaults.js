@@ -85,7 +85,7 @@ const HP_SPLIT_LOREDECKS = Object.freeze([
     {
         packId: 'hp-year-5-order-of-the-phoenix',
         title: 'Harry Potter Year 5: Order of the Phoenix',
-        description: 'Year 5 Golden Trio Loredeck for Ministry denial, Umbridge, Dumbledore\'s Army, Occlumency, OWLs, and the Department of Mysteries.',
+        description: 'Year 5 Golden Trio Loredeck for Ministry denial, Umbridge, Dumbledore’s Army, Occlumency, OWLs, and the Department of Mysteries.',
         era: 'Year 5: Order of the Phoenix',
         familyOrder: 60,
         tags: ['fandom:harry-potter', 'era:golden-trio', 'structure:split-loredeck', 'quality:human-vetted', 'school-year:5'],
@@ -132,8 +132,8 @@ const HP_SPLIT_LOREDECKS = Object.freeze([
         familyOrder: 90,
         tags: ['fandom:harry-potter', 'era:golden-trio', 'structure:split-loredeck', 'quality:human-vetted', 'scope:post-war', 'era:post-war'],
         stats: {
-            entryCount: 1,
-            categoryCounts: { event: 1 },
+            entryCount: 5,
+            categoryCounts: { event: 3, location: 1, timeline: 1 },
             timelineAnchorCount: 29,
             timelineWindowCount: 7,
         },

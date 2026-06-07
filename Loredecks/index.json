@@ -415,9 +415,11 @@
       ],
       "updatedAt": 1780617600000,
       "stats": {
-        "entryCount": 1,
+        "entryCount": 5,
         "categoryCounts": {
-          "event": 1
+          "event": 3,
+          "location": 1,
+          "timeline": 1
         },
         "timelineAnchorCount": 29,
         "timelineWindowCount": 7

@@ -148,6 +148,25 @@ assert.equal(dateResolution.results[0].patch.source, 'header');
 assert.equal(dateResolution.results[0].patch.sceneDate, 'Saturday, Jan 25, 1997');
 assert.equal(dateResolution.results[0].patch.contextSortKey, Math.floor(Date.UTC(1997, 0, 25) / 86400000));
 
+const dateWithBoundaryPhraseResolution = resolveContextsFromContext({
+  sceneDate: 'Saturday, Jan 25, 1997',
+  canonBoundary: 'Half-Blood Prince era, Year 6 before Apparition lessons',
+  alias: 'before Apparition lessons',
+  branchId: 'main',
+}, {
+  state: baseState,
+  index,
+  contextSource: 'header',
+});
+const dateWithBoundaryPhraseMatch = dateWithBoundaryPhraseResolution.results.find(result => result.packId === YEAR_6_DECK_ID);
+assert.equal(dateWithBoundaryPhraseMatch?.status, 'resolved');
+assert.equal(
+  dateWithBoundaryPhraseMatch?.window?.id,
+  'hp.y6.window.post_christmas_before_apparition',
+  'Explicit sceneDate should stay authoritative when loose boundary text mentions an upcoming anchor.',
+);
+assert.equal(dateWithBoundaryPhraseMatch?.matchType, 'date');
+
 const thresholdedDateResolution = resolveContextsFromContext({
   sceneDate: 'Saturday, Jan 25, 1997',
   canonBoundary: 'Half-Blood Prince era, Year 6',

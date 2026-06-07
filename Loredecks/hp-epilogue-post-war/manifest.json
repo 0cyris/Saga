@@ -66,7 +66,8 @@
     "tokenBudget": null
   },
   "registries": {
-    "timeline": "timeline.json"
+    "timeline": "timeline.json",
+    "tags": "tags.json"
   },
   "files": [
     "expanded_books/book_7_deathly_hallows_expansion.json"
@@ -76,9 +77,11 @@
     "sagaSchemaMax": 3
   },
   "stats": {
-    "entryCount": 1,
+    "entryCount": 5,
     "categoryCounts": {
-      "event": 1
+      "event": 3,
+      "location": 1,
+      "timeline": 1
     },
     "timelineAnchorCount": 29,
     "timelineWindowCount": 7

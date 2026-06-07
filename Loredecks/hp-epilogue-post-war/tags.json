@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "tags": {
+    "calendar-year:1998": {
+      "label": "1998",
+      "description": "Harry Potter bundled Loredeck calendar year tag."
+    },
+    "calendar-year:2014": {
+      "label": "2014",
+      "description": "Harry Potter bundled Loredeck calendar year tag."
+    },
+    "calendar-year:2017": {
+      "label": "2017",
+      "description": "Harry Potter bundled Loredeck calendar year tag."
+    },
+    "era:post-war": {
+      "label": "Post-War",
+      "description": "Harry Potter bundled Loredeck era tag."
+    },
+    "event:post-war-reconstruction": {
+      "label": "Post-War Reconstruction",
+      "description": "Harry Potter bundled Loredeck event tag."
+    },
+    "event:quidditch-world-cup-2014": {
+      "label": "2014 Quidditch World Cup",
+      "description": "Harry Potter bundled Loredeck event tag."
+    },
+    "event:kings-cross-epilogue": {
+      "label": "King's Cross Epilogue",
+      "description": "Harry Potter bundled Loredeck event tag."
+    },
+    "scope:post-war": {
+      "label": "Post-War Scope",
+      "description": "Harry Potter bundled Loredeck scope tag."
+    }
+  }
+}

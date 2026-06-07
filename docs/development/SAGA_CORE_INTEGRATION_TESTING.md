@@ -76,6 +76,69 @@ It proves the next downstream layer:
 
 Important product boundary: current Auto-Relevance changes relevance tiers only. It does **not** change mute or pin state. Manual pin/mute behavior is covered by the first harness.
 
+The third accepted-injection harness is:
+
+```powershell
+node scripts\test-core-integration-hp-year6-accepted-context.mjs
+```
+
+It proves the alpha-critical accepted Lorecard behavior:
+
+- Accepts a narrow post-Christmas Year 6 Lorecard while its Context gate matches.
+- Confirms that accepted Lorecard injects while the active Loredeck Context is inside its gate.
+- Advances Context to Ron's poisoning.
+- Accepts current Ron poisoning lore.
+- Forces both stale and current accepted Lorecards to High relevance.
+- Confirms the stale accepted Lorecard remains accepted but is blocked from injection by its Context gate.
+- Confirms the current accepted Lorecard injects.
+- Confirms the injection audit reports the stale Lorecard as `context_blocked`.
+
+The fourth committed harness expands coverage beyond Year 6:
+
+```powershell
+node scripts\test-core-integration-hp-year3.mjs
+```
+
+It proves the same Context-to-injection contract against `hp-core` plus `hp-year-3-prisoner-of-azkaban`:
+
+- Resolves a winter Year 3 checkpoint to `hp.y3.dementor_quidditch_collapse`.
+- Confirms early active suggestions include Hermione's hidden Time-Turner schedule state.
+- Confirms late rescue/reveal lore is blocked before the story reaches that Context.
+- Advances Context to `hp.y3.sirius_escapes`.
+- Confirms the late Time-Turner rescue and Shrieking Shack reveal Lorecards enter the suggestion set.
+- Accepts lore from both checkpoints.
+- Confirms stale accepted Year 3 lore remains accepted but is blocked from prompt injection by active Loredeck Context.
+- Confirms current late Year 3 rescue lore injects and the audit reports the stale Lorecard as `context_blocked`.
+
+The fifth committed harness expands the same contract into Year 4:
+
+```powershell
+node scripts\test-core-integration-hp-year4.mjs
+```
+
+It proves `hp-core` plus `hp-year-4-goblet-of-fire` against tournament-to-aftermath progression:
+
+- Resolves early Year 4 setup to `hp.y4.moody_unforgivables_lesson`.
+- Confirms early active suggestions include Triwizard selection/binding constraints.
+- Confirms graveyard aftermath and third-task reveal lore are blocked before the story reaches the climax.
+- Advances Context to `hp.y4.train_home_after_cedric`.
+- Confirms post-graveyard Voldemort-return lore and the third-task graveyard reveal enter the suggestion set.
+- Accepts lore from both checkpoints.
+- Confirms stale accepted tournament setup lore remains accepted but is blocked from prompt injection by active Loredeck Context.
+- Confirms current graveyard aftermath lore injects and the audit reports the stale Lorecard as `context_blocked`.
+
+The HP split-deck family now also includes deterministic progression harnesses for Year 1, Year 2, Year 5, Year 7, and Epilogue/Post-War:
+
+```powershell
+node scripts\test-core-integration-hp-year1.mjs
+node scripts\test-core-integration-hp-year2.mjs
+node scripts\test-core-integration-hp-year5.mjs
+node scripts\test-core-integration-hp-year7.mjs
+node scripts\test-core-integration-hp-epilogue-post-war.mjs
+```
+
+The Epilogue/Post-War harness proves the transition from immediate 1998 rebuilding to the 2014 Quidditch World Cup/DA reunion and then to the 2017 King's Cross epilogue. It confirms that pre-epilogue next-generation guards stop appearing when epilogue Context is current, stale immediate-rebuilding lore remains accepted but becomes `context_blocked`, and current 2017 platform lore injects.
+
 Planned extension: Auto-Relevance should eventually support optional pin/mute recommendations or high-confidence actions. This should be treated as stronger than High/Normal/Low tiering because pin and mute directly affect injection authority. It needs explicit user-facing controls, review behavior, and its own integration coverage before it is enabled.
 
 Recommended future modes:
@@ -131,7 +194,7 @@ This should use deterministic fixtures first:
 
 Live model calls should not be part of default regression tests. Model-backed Context tests can exist as optional QA scripts, but the core test suite must run offline and produce stable results.
 
-Known follow-up: local alias scoring can currently override a clean date result when the Context text contains phrases like `before Apparition lessons`. A date-based Jan. 25, 1997 checkpoint correctly resolves to the post-Christmas/pre-Apparition window when the boundary text is neutral, but the phrase `before Apparition lessons` can pull the resolver toward the Apparition anchor. This should become a targeted resolver test before we trust vague phrase handling.
+Implemented resolver edge coverage: `scripts/test-context-resolver.mjs` now asserts that a clean `sceneDate` remains authoritative when supporting Context text contains loose boundary phrases such as `before Apparition lessons`. The Jan. 25, 1997 checkpoint resolves to `hp.y6.window.post_christmas_before_apparition`, not the upcoming Apparition anchor. Phrase-only inputs remain covered by `scripts/test-context-hp-phrase-fixtures.mjs`.
 
 ### 3. Context-Gated Retrieval
 
@@ -168,7 +231,7 @@ Proves that accepted Lorecards remain stable while their injection eligibility c
 - Future Auto-Relevance can optionally suggest or apply pin/mute state when configured.
 - Manual pin/mute choices survive Context changes.
 
-Current implementation note: accepted Lorecard injection does not yet re-run full Loredeck Context gates for every accepted Lorecard. Context gates currently govern candidate suggestion/retrieval. Accepted injection uses relevance, lifecycle, branch/date windows, pin/mute, and tier caps. If alpha requires accepted canon Lorecards to auto-drop purely by Loredeck Context gate, add that as a separate implementation step and test.
+Current implementation note: accepted Lorecard injection now re-runs Loredeck Context gates before memo construction and injection audit selection. Accepted Lorecards remain in the user's accepted set when Context advances, but mismatched gated entries are omitted from prompt output and audited as `context_blocked`. Pin remains an ordering/authority signal for eligible Lorecards; it does not override Context gates.
 
 ### 6. Injection Output
 
@@ -196,7 +259,7 @@ Do not copy that raw chat into the repository. If we need committed fixtures, de
 
 ## First HP Scenario Family
 
-The first integration family should target the split Harry Potter reference decks because they are Saga's bundled example and because HP gives us date, school-year, arc, and event-window stress tests.
+The first integration family targets the split Harry Potter reference decks because they are Saga's bundled example and because HP gives us date, school-year, arc, and event-window stress tests.
 
 Recommended starting stack:
 
@@ -214,6 +277,8 @@ Recommended Context checkpoints:
 - Later Year 6 checkpoints that should still block Year 7 and Epilogue/Post-War lore.
 
 The point is not to assert every possible canon fact. The point is to assert clear, high-value inclusion and exclusion behavior.
+
+The family has now expanded into the main HP reference split decks. Year 1 stresses early-school onboarding, Sorting, first-year gates, and late Philosopher's Stone aftermath. Year 2 stresses Chamber mystery progression, pre-reveal spoiler guards, and late basilisk/Riddle resolution. Year 3 stresses broad fugitive/security lore, hidden knowledge, Hogsmeade/Map gates, and late Time-Turner/Shack reveal gates. Year 4 stresses tournament/task structure and late Voldemort-return leakage. Year 5 stresses Ministry denial, Umbridge/DA progression, and Department of Mysteries escalation. Year 7 stresses Horcrux-hunt pressure, Battle of Hogwarts spoiler guards, and post-battle aftermath activation. Epilogue/Post-War stresses the shift from immediate rebuilding to mid-postwar public life and then to the 2017 next-generation platform scene.
 
 ## Integration Boundaries
 
@@ -257,7 +322,9 @@ Live-provider QA should never commit API keys, provider settings, raw private ch
 Before alpha, Saga should have deterministic tests proving:
 
 - Split HP Loredecks load through the same loader path used by runtime.
+- HP bundled defaults, `Loredecks/index.json`, duplicated manifests, Deck Health summaries, covers, tag registries, file lists, and empty active-stack defaults stay aligned.
 - Context patches select the expected timeline windows.
+- Multiple HP years prove the Context-to-suggestion-to-injection loop, not only Year 6.
 - Future Lorecards are blocked at the right Context positions.
 - Candidate suggestions come from the enabled stack only.
 - Accepted Lorecards preserve schema v3 metadata.

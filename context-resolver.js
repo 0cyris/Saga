@@ -680,10 +680,18 @@ function getBestAliasMatch(packId, context = {}, index = {}, options = {}) {
     };
 }
 
-function chooseBestMatch(dateMatch = null, aliasMatch = null) {
+function sameResolvedCandidate(a = null, b = null) {
+    if (!a || !b) return false;
+    if (a.anchor?.id && a.anchor.id === b.anchor?.id) return true;
+    if (a.window?.id && a.window.id === b.window?.id) return true;
+    return false;
+}
+
+function chooseBestMatch(dateMatch = null, aliasMatch = null, context = {}) {
     if (!dateMatch) return aliasMatch;
     if (!aliasMatch) return dateMatch;
-    if (dateMatch.anchor?.id && dateMatch.anchor.id === aliasMatch.anchor?.id) return dateMatch;
+    if (sameResolvedCandidate(dateMatch, aliasMatch)) return dateMatch;
+    if (parseContextDate(context)) return dateMatch;
     if (aliasMatch.score >= 80 && aliasMatch.score >= dateMatch.score - 8) return aliasMatch;
     return dateMatch;
 }
@@ -1601,7 +1609,7 @@ export function resolveContextsFromContext(context = {}, options = {}) {
 
         const dateMatch = getBestDateMatch(packId, context, index);
         const aliasMatch = getBestAliasMatch(packId, context, index, options);
-        const match = chooseBestMatch(dateMatch, aliasMatch);
+        const match = chooseBestMatch(dateMatch, aliasMatch, context);
         if (!match) {
             results.push({
                 packId,

@@ -5,12 +5,250 @@
   "entries": [
     {
       "schemaVersion": 3,
-      "id": "dh_epilogue_optional_postwar_seed",
-      "title": "Nineteen years later optional postwar seed",
+      "id": "postwar_immediate_reconstruction_ministry_transition",
+      "title": "Immediate postwar reconstruction and Ministry transition",
+      "kind": "institution_state",
+      "gateType": "institution_state",
+      "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 90,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.postwar.kingsley_caretaker_minister",
+        "validToAnchor": "hp.postwar.harry_joins_aurors",
+        "sortKeyFrom": 10348,
+        "sortKeyTo": 10591,
+        "precision": "postwar_window",
+        "windowKind": "story_phase",
+        "label": "Post-War Years: Immediate Rebuilding",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger",
+          "Kingsley Shacklebolt"
+        ],
+        "locations": [
+          "Hogwarts",
+          "Ministry of Magic",
+          "Wizarding Britain"
+        ],
+        "factions": [
+          "Ministry of Magic",
+          "Order of the Phoenix"
+        ],
+        "topics": [
+          "postwar rebuilding",
+          "Ministry transition",
+          "Second Wizarding War aftermath",
+          "reconstruction"
+        ],
+        "books": [
+          "Deathly Hallows Epilogue"
+        ],
+        "phases": [
+          "immediate_rebuilding"
+        ]
+      },
+      "tags": [
+        "calendar-year:1998",
+        "era:post-war",
+        "scope:post-war",
+        "event:post-war-reconstruction"
+      ],
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger",
+            "Kingsley Shacklebolt"
+          ],
+          "locationsAny": [
+            "Hogwarts",
+            "Ministry of Magic",
+            "Wizarding Britain"
+          ],
+          "topicsAny": [
+            "postwar rebuilding",
+            "Ministry transition",
+            "Second Wizarding War aftermath",
+            "reconstruction"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Voldemort's defeat, wizarding Britain enters an immediate reconstruction phase with Kingsley Shacklebolt stabilizing the Ministry and war survivors processing losses.",
+        "injection": "In the immediate postwar period, wizarding Britain is rebuilding under Kingsley Shacklebolt's stabilizing Ministry leadership while survivors are still processing battle losses."
+      },
+      "effects": {
+        "addsTags": [
+          "calendar-year:1998",
+          "era:post-war",
+          "scope:post-war",
+          "event:post-war-reconstruction",
+          "immediate_rebuilding",
+          "institution_state",
+          "event"
+        ]
+      },
+      "sourceInfo": {
+        "id": "saga-expanded-lore-v1",
+        "work": "Harry Potter canon summary",
+        "book": "Deathly Hallows Epilogue",
+        "confidence": 0.84,
+        "notes": "Compact postwar continuity entry for roleplay state management."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-epilogue-post-war",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "postwar_auror_reforms_and_azkaban_state",
+      "title": "Auror reforms and Azkaban without Dementors",
+      "kind": "institution_state",
+      "gateType": "institution_state",
+      "category": "location",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 75,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 80,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.postwar.dementors_removed_from_azkaban",
+        "validToAnchor": "hp.postwar.harry_head_auror_department",
+        "sortKeyFrom": 10957,
+        "sortKeyTo": 13878,
+        "precision": "postwar_window",
+        "windowKind": "story_phase",
+        "label": "Post-War Years: Early Ministry Reforms",
+        "approximate": true
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Kingsley Shacklebolt"
+        ],
+        "locations": [
+          "Ministry of Magic",
+          "Azkaban"
+        ],
+        "factions": [
+          "Auror Department",
+          "Ministry of Magic"
+        ],
+        "topics": [
+          "Auror reforms",
+          "Azkaban reform",
+          "Dementors removed",
+          "Ministry reform"
+        ],
+        "books": [
+          "Deathly Hallows Epilogue"
+        ],
+        "phases": [
+          "early_ministry_reforms"
+        ]
+      },
+      "tags": [
+        "era:post-war",
+        "scope:post-war",
+        "event:post-war-reconstruction"
+      ],
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Kingsley Shacklebolt"
+          ],
+          "locationsAny": [
+            "Ministry of Magic",
+            "Azkaban"
+          ],
+          "topicsAny": [
+            "Auror reforms",
+            "Azkaban reform",
+            "Dementors removed",
+            "Ministry reform"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In the postwar reform period, the Ministry moves away from Dementor-run Azkaban and Harry's Auror career belongs to a rebuilt law-enforcement order rather than the old wartime Ministry.",
+        "injection": "In the postwar reform period, Azkaban is no longer treated as a Dementor-run institution and Harry's Auror career sits inside a rebuilt Ministry order."
+      },
+      "effects": {
+        "addsTags": [
+          "era:post-war",
+          "scope:post-war",
+          "event:post-war-reconstruction",
+          "early_ministry_reforms",
+          "institution_state",
+          "location"
+        ]
+      },
+      "sourceInfo": {
+        "id": "saga-expanded-lore-v1",
+        "work": "Harry Potter canon summary",
+        "book": "Deathly Hallows Epilogue",
+        "confidence": 0.82,
+        "notes": "Compact postwar continuity entry for roleplay state management."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-epilogue-post-war",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "postwar_quidditch_world_cup_2014_da_reunion",
+      "title": "2014 Quidditch World Cup and Dumbledore's Army reunion",
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "low",
+      "relevance": "normal",
       "lorePurpose": "event_anchor",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -18,21 +256,21 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 50,
+      "priority": 80,
       "status": "active",
       "protected": false,
       "locked": true,
       "userEditable": true,
       "context": {
         "scope": "window",
-        "validFromAnchor": "hp.postwar.draco_family_platform",
-        "sortKeyFrom": 17410,
-        "sortKeyTo": 17411,
-        "precision": "school_year_window",
-        "windowKind": "school_year",
-        "label": "Deathly Hallows: Year 7",
-        "approximate": false,
-        "validToAnchor": "hp.postwar.macusa_quahog_era"
+        "validFromAnchor": "hp.postwar.quidditch_world_cup_2014_opening",
+        "validToAnchor": "hp.postwar.quidditch_world_cup_2014_final",
+        "sortKeyFrom": 16172,
+        "sortKeyTo": 16262,
+        "precision": "postwar_window",
+        "windowKind": "story_phase",
+        "label": "Post-War Years: 2014 Quidditch World Cup",
+        "approximate": false
       },
       "scope": {
         "characters": [
@@ -40,28 +278,282 @@
           "Ginny Weasley",
           "Ron Weasley",
           "Hermione Granger",
-          "Draco Malfoy"
+          "Viktor Krum"
+        ],
+        "locations": [
+          "Quidditch World Cup",
+          "Patagonian Desert"
+        ],
+        "topics": [
+          "2014 Quidditch World Cup",
+          "Dumbledore's Army reunion",
+          "Viktor Krum",
+          "postwar public life"
+        ],
+        "books": [
+          "Deathly Hallows Epilogue"
+        ],
+        "phases": [
+          "quidditch_world_cup_2014"
+        ]
+      },
+      "tags": [
+        "calendar-year:2014",
+        "era:post-war",
+        "scope:post-war",
+        "event:quidditch-world-cup-2014"
+      ],
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ginny Weasley",
+            "Ron Weasley",
+            "Hermione Granger",
+            "Viktor Krum"
+          ],
+          "locationsAny": [
+            "Quidditch World Cup",
+            "Patagonian Desert"
+          ],
+          "topicsAny": [
+            "2014 Quidditch World Cup",
+            "Dumbledore's Army reunion",
+            "Viktor Krum",
+            "postwar public life"
+          ]
+        }
+      },
+      "content": {
+        "fact": "By the 2014 Quidditch World Cup, the Golden Trio and many former Dumbledore's Army members are adults in public postwar life rather than school-era combatants.",
+        "injection": "At the 2014 Quidditch World Cup, the Golden Trio and former Dumbledore's Army members should read as adults with public postwar lives, not as school-era combatants."
+      },
+      "effects": {
+        "addsTags": [
+          "calendar-year:2014",
+          "era:post-war",
+          "scope:post-war",
+          "event:quidditch-world-cup-2014",
+          "quidditch_world_cup_2014",
+          "event_anchor",
+          "event"
+        ]
+      },
+      "sourceInfo": {
+        "id": "saga-expanded-lore-v1",
+        "work": "Harry Potter canon summary",
+        "book": "Deathly Hallows Epilogue",
+        "confidence": 0.82,
+        "notes": "Compact postwar continuity entry for roleplay state management."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-epilogue-post-war",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "dh_epilogue_optional_postwar_seed",
+      "title": "Pre-epilogue next-generation guard",
+      "kind": "future_guard",
+      "gateType": "future_guard",
+      "category": "timeline",
+      "relevance": "low",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "priority": 80,
+      "status": "active",
+      "protected": true,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.postwar.kingsley_caretaker_minister",
+        "validToAnchor": "hp.postwar.new_generation_kings_cross",
+        "sortKeyFrom": 10348,
+        "sortKeyTo": 17409,
+        "precision": "postwar_window",
+        "windowKind": "story_phase",
+        "label": "Post-War Years: Before Epilogue Platform",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ginny Weasley",
+          "Ron Weasley",
+          "Hermione Granger",
+          "Draco Malfoy",
+          "Albus Severus Potter",
+          "Rose Granger-Weasley",
+          "Scorpius Malfoy"
         ],
         "locations": [
           "King's Cross"
         ],
         "topics": [
           "epilogue",
-          "postwar",
+          "next generation",
           "children",
-          "aftermath",
-          "year 7"
-        ],
-        "schoolYears": [
-          "7"
+          "platform",
+          "postwar"
         ],
         "books": [
-          "Deathly Hallows"
+          "Deathly Hallows Epilogue"
         ],
         "phases": [
-          "postwar"
+          "pre_epilogue"
         ]
       },
+      "tags": [
+        "era:post-war",
+        "scope:post-war",
+        "event:kings-cross-epilogue"
+      ],
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ginny Weasley",
+            "Ron Weasley",
+            "Hermione Granger",
+            "Draco Malfoy",
+            "Albus Severus Potter",
+            "Rose Granger-Weasley",
+            "Scorpius Malfoy"
+          ],
+          "locationsAny": [
+            "King's Cross"
+          ],
+          "topicsAny": [
+            "epilogue",
+            "next generation",
+            "children",
+            "platform",
+            "postwar"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before the 2017 King's Cross epilogue, next-generation platform details should not be treated as current scene knowledge unless custom story lore establishes them early.",
+        "injection": "Before the 2017 King's Cross epilogue, next-generation platform details should not be treated as current scene knowledge unless custom story lore establishes them early.",
+        "constraints": [
+          "Do not inject 2017 platform details into earlier postwar scenes."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "era:post-war",
+          "scope:post-war",
+          "event:kings-cross-epilogue",
+          "pre_epilogue",
+          "future_guard",
+          "timeline"
+        ]
+      },
+      "sourceInfo": {
+        "id": "saga-expanded-lore-v1",
+        "work": "Harry Potter canon summary",
+        "book": "Deathly Hallows Epilogue",
+        "confidence": 0.84,
+        "notes": "Compact postwar continuity entry for roleplay state management."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-epilogue-post-war",
+          "splitAt": "2026-06-05"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "postwar_kings_cross_epilogue_platform_state",
+      "title": "King's Cross epilogue platform state",
+      "kind": "event_anchor",
+      "gateType": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 95,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.postwar.new_generation_kings_cross",
+        "validToAnchor": "hp.postwar.draco_family_platform",
+        "sortKeyFrom": 17410,
+        "sortKeyTo": 17410,
+        "precision": "postwar_anchor",
+        "windowKind": "story_phase",
+        "label": "Post-War Years: King's Cross Epilogue",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ginny Weasley",
+          "Ron Weasley",
+          "Hermione Granger",
+          "Draco Malfoy",
+          "Albus Severus Potter",
+          "Rose Granger-Weasley",
+          "Scorpius Malfoy",
+          "Teddy Lupin",
+          "Victoire Weasley"
+        ],
+        "locations": [
+          "King's Cross",
+          "Platform Nine and Three-Quarters"
+        ],
+        "topics": [
+          "nineteen years later",
+          "new generation",
+          "Hogwarts Express",
+          "family platform scene",
+          "epilogue"
+        ],
+        "books": [
+          "Deathly Hallows Epilogue"
+        ],
+        "phases": [
+          "kings_cross_epilogue"
+        ]
+      },
+      "tags": [
+        "calendar-year:2017",
+        "era:post-war",
+        "scope:post-war",
+        "event:kings-cross-epilogue"
+      ],
       "visibility": {
         "revealPolicy": "public"
       },
@@ -75,29 +567,37 @@
             "Ginny Weasley",
             "Ron Weasley",
             "Hermione Granger",
-            "Draco Malfoy"
+            "Draco Malfoy",
+            "Albus Severus Potter",
+            "Rose Granger-Weasley",
+            "Scorpius Malfoy",
+            "Teddy Lupin",
+            "Victoire Weasley"
           ],
           "locationsAny": [
-            "King's Cross"
+            "King's Cross",
+            "Platform Nine and Three-Quarters"
           ],
           "topicsAny": [
-            "epilogue",
-            "postwar",
-            "children",
-            "aftermath",
-            "year 7"
+            "nineteen years later",
+            "new generation",
+            "Hogwarts Express",
+            "family platform scene",
+            "epilogue"
           ]
         }
       },
       "content": {
-        "fact": "The epilogue belongs to a much later postwar timeline and should not appear in ordinary 1991-1998 suggestions unless a postwar preset or date requests it.",
-        "injection": "The epilogue belongs to a much later postwar timeline and should not appear in ordinary 1991-1998 suggestions unless a postwar preset or date requests it."
+        "fact": "By the 2017 King's Cross epilogue, Harry, Ginny, Ron, Hermione, and Draco are adults seeing the next generation onto the Hogwarts Express.",
+        "injection": "At the 2017 King's Cross epilogue, Harry, Ginny, Ron, Hermione, and Draco are adults seeing the next generation onto the Hogwarts Express."
       },
       "effects": {
         "addsTags": [
-          "Deathly Hallows",
-          "Year 7",
-          "aftermath",
+          "calendar-year:2017",
+          "era:post-war",
+          "scope:post-war",
+          "event:kings-cross-epilogue",
+          "kings_cross_epilogue",
           "event_anchor",
           "event"
         ]
@@ -105,9 +605,9 @@
       "sourceInfo": {
         "id": "saga-expanded-lore-v1",
         "work": "Harry Potter canon summary",
-        "book": "Deathly Hallows",
+        "book": "Deathly Hallows Epilogue",
         "confidence": 0.86,
-        "notes": "Compact continuity entry for roleplay state management."
+        "notes": "Compact postwar continuity entry for roleplay state management."
       },
       "extensions": {
         "sagaSplitLoredeck": {

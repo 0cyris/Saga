@@ -8,7 +8,11 @@ import {
     MAX_ACTIVE_THREADS_IN_MEMO,
 } from './constants.js';
 import { getSettings } from './state-manager.js';
-import { getInjectableLoreEntries, getInjectableLoreEntriesByRelevance, getResolvedLoreInjection } from './lore-matrix.js';
+import { getResolvedLoreInjection } from './lore-matrix.js';
+import {
+    getInjectableLoreEntriesForInjection,
+    getInjectableLoreEntriesByRelevanceForInjection,
+} from './lore-injection-filter.js';
 import { normalizeLoreRelevance, LORE_RELEVANCE_LABELS } from './lore-relevance.js';
 
 export function buildMemo(state, settingsOverride = {}) {
@@ -253,7 +257,9 @@ function buildLoreDirectMemo(state, settingsOverride = {}) {
     const tier = settings.relevanceTier ? normalizeLoreRelevance(settings.relevanceTier) : '';
     const maxKey = tier ? tierSettingKey(tier, 'MaxEntries') : 'maxLoreEntriesInMemo';
     const maxEntries = Number(settings[maxKey] || 0);
-    const activeLore = tier ? getInjectableLoreEntriesByRelevance(state, tier, maxEntries) : getInjectableLoreEntries(state, maxEntries);
+    const activeLore = tier
+        ? getInjectableLoreEntriesByRelevanceForInjection(state, tier, maxEntries)
+        : getInjectableLoreEntriesForInjection(state, { limit: maxEntries });
     if (!activeLore.length) return '';
 
     const lines = [];
