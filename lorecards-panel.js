@@ -35,6 +35,13 @@ import {
 
 let lorecardsPanelDeps = {};
 let acceptedLoreSearchRenderTimer = null;
+const LORE_WORKBENCH_ID = 'wandlight-lore-workbench';
+let loreWorkbenchSearchTimer = null;
+let loreWorkbenchOpen = false;
+let loreWorkbenchMode = 'accepted';
+let loreWorkbenchSelectedId = '';
+let loreWorkbenchPendingQuery = '';
+let loreWorkbenchFocusSelector = '';
 
 const AUTO_RELEVANCE_SETTING_KEYS = Object.freeze([
     'autoRelevanceEnabled',
@@ -99,7 +106,515 @@ function getPendingLoreBatchLabel(state) {
 }
 
 function createLoreWorkbenchLaunchRow(mode, summaryText) {
-    return dep('createLoreWorkbenchLaunchRow')(mode, summaryText);
+    const row = document.createElement('div');
+    row.className = 'wandlight-lore-workbench-launch-row';
+    markTourTarget(row, mode === 'pending' ? 'lore.pending.workbench' : 'lore.accepted.workbench');
+
+    const text = document.createElement('div');
+    text.className = 'wandlight-lore-workbench-launch-text';
+    text.textContent = summaryText || (mode === 'pending' ? 'Review pending lore in a larger surface.' : 'Manage accepted lore in a larger surface.');
+    row.appendChild(text);
+
+    const btn = createButton(
+        'Open Workbench',
+        mode === 'pending'
+            ? 'Open a larger Pending Lore Review workspace with dense rows and a detail pane.'
+            : 'Open a larger Accepted Lore workspace with filters, bulk actions, dense rows, and a detail pane.',
+        () => openLoreWorkbench(mode),
+        'wandlight-small-button wandlight-lore-workbench-open-button'
+    );
+    row.appendChild(btn);
+    return row;
+}
+
+function openLoreWorkbench(mode = 'accepted') {
+    loreWorkbenchOpen = true;
+    loreWorkbenchMode = mode === 'pending' ? 'pending' : 'accepted';
+    ensureLoreWorkbenchSelection(getState());
+    renderLoreWorkbench();
+}
+
+function closeLoreWorkbench() {
+    flushScheduledStateSave();
+    loreWorkbenchOpen = false;
+    const existing = document.getElementById(LORE_WORKBENCH_ID);
+    if (existing) existing.remove();
+}
+
+export function refreshLoreWorkbench() {
+    if (!loreWorkbenchOpen) return;
+    ensureLoreWorkbenchSelection(getState());
+    renderLoreWorkbench();
+}
+
+function scheduleLoreWorkbenchRefresh() {
+    if (loreWorkbenchSearchTimer) clearTimeout(loreWorkbenchSearchTimer);
+    loreWorkbenchSearchTimer = setTimeout(() => {
+        loreWorkbenchSearchTimer = null;
+        refreshLoreWorkbench();
+    }, getSearchRenderDebounceMs());
+}
+
+function ensureLoreWorkbenchSelection(state = getState()) {
+    if (loreWorkbenchMode === 'pending') {
+        const rows = getPendingWorkbenchRows(state);
+        if (!rows.some(row => getLoreReviewId(row.entry) === loreWorkbenchSelectedId)) {
+            loreWorkbenchSelectedId = rows[0] ? getLoreReviewId(rows[0].entry) : '';
+        }
+        return;
+    }
+
+    const accepted = getFilteredLoreEntries(state);
+    if (!accepted.some(entry => entry.id === loreWorkbenchSelectedId)) {
+        loreWorkbenchSelectedId = accepted[0]?.id || '';
+    }
+}
+
+function renderLoreWorkbench() {
+    if (!loreWorkbenchOpen) return;
+    const state = getState();
+    ensureLoreWorkbenchSelection(state);
+
+    let overlay = document.getElementById(LORE_WORKBENCH_ID);
+    if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.id = LORE_WORKBENCH_ID;
+        overlay.className = 'wandlight-lore-workbench-overlay';
+        overlay.tabIndex = -1;
+        wireOverlayBackdropClose(overlay, closeLoreWorkbench);
+        overlay.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') closeLoreWorkbench();
+        });
+        document.body.appendChild(overlay);
+    }
+
+    const focusSelector = loreWorkbenchFocusSelector;
+    loreWorkbenchFocusSelector = '';
+    overlay.replaceChildren(createLoreWorkbenchShell(state));
+    requestAnimationFrame(() => {
+        const focusTarget = focusSelector ? overlay.querySelector(focusSelector) : overlay;
+        focusTarget?.focus?.();
+        if (focusTarget && typeof focusTarget.setSelectionRange === 'function') {
+            const len = String(focusTarget.value || '').length;
+            focusTarget.setSelectionRange(len, len);
+        }
+    });
+}
+
+function createLoreWorkbenchShell(state) {
+    const shell = document.createElement('div');
+    shell.className = 'wandlight-lore-workbench-shell';
+    shell.addEventListener('click', event => event.stopPropagation());
+
+    shell.appendChild(createLoreWorkbenchHeader(state));
+
+    const body = document.createElement('div');
+    body.className = 'wandlight-lore-workbench-body';
+    body.appendChild(loreWorkbenchMode === 'pending'
+        ? createPendingLoreWorkbenchView(state)
+        : createAcceptedLoreWorkbenchView(state));
+    shell.appendChild(body);
+
+    return shell;
+}
+
+function createLoreWorkbenchHeader(state) {
+    const header = document.createElement('div');
+    header.className = 'wandlight-lore-workbench-header';
+
+    const titleWrap = document.createElement('div');
+    titleWrap.className = 'wandlight-lore-workbench-title-wrap';
+    const title = document.createElement('div');
+    title.className = 'wandlight-lore-workbench-title';
+    title.textContent = 'Lore Workbench';
+    titleWrap.appendChild(title);
+
+    const acceptedCount = normalizeLoreMatrix(state?.loreMatrix || []).length;
+    const pendingCount = normalizeLoreMatrix(state?.pendingLoreEntries || []).length;
+    const subtitle = document.createElement('div');
+    subtitle.className = 'wandlight-lore-workbench-subtitle';
+    subtitle.textContent = `${acceptedCount} accepted | ${pendingCount} pending`;
+    titleWrap.appendChild(subtitle);
+    header.appendChild(titleWrap);
+
+    const modeTabs = document.createElement('div');
+    modeTabs.className = 'wandlight-lore-workbench-mode-tabs';
+    for (const [mode, label, count] of [
+        ['accepted', 'Accepted', acceptedCount],
+        ['pending', 'Pending', pendingCount],
+    ]) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'wandlight-lore-workbench-mode-tab';
+        if (loreWorkbenchMode === mode) btn.classList.add('wandlight-lore-workbench-mode-tab-active');
+        btn.textContent = `${label} (${count})`;
+        btn.addEventListener('click', () => {
+            loreWorkbenchMode = mode;
+            loreWorkbenchSelectedId = '';
+            ensureLoreWorkbenchSelection(getState());
+            renderLoreWorkbench();
+        });
+        modeTabs.appendChild(btn);
+    }
+    header.appendChild(modeTabs);
+
+    const close = createButton('Close', 'Close the Lore Workbench.', () => closeLoreWorkbench(), 'wandlight-small-button wandlight-lore-workbench-close');
+    header.appendChild(close);
+    return header;
+}
+
+function createAcceptedLoreWorkbenchView(state) {
+    const view = document.createElement('div');
+    view.className = 'wandlight-lore-workbench-view wandlight-lore-workbench-view-accepted';
+
+    view.appendChild(createAcceptedWorkbenchControls(state));
+
+    const bulk = document.createElement('div');
+    bulk.className = 'wandlight-workbench-bulk-toolbar wandlight-workbench-accepted-bulk-toolbar';
+    bulk.appendChild(createAcceptedLoreBulkControls(state));
+    view.appendChild(bulk);
+
+    const main = document.createElement('div');
+    main.className = 'wandlight-lore-workbench-main';
+
+    const filtered = getFilteredLoreEntries(state);
+    main.appendChild(createAcceptedWorkbenchTable(filtered, state));
+    main.appendChild(createAcceptedWorkbenchDetail(filtered, state));
+    view.appendChild(main);
+
+    return view;
+}
+
+function createAcceptedWorkbenchControls(state) {
+    const controls = document.createElement('div');
+    controls.className = 'wandlight-lore-workbench-controls';
+    const panelState = state?.lorePanel || {};
+    const loreState = getPanelLoreState(state);
+
+    const search = document.createElement('input');
+    search.type = 'text';
+    search.className = 'wandlight-lore-workbench-search';
+    search.dataset.workbenchFocus = 'accepted-search';
+    search.placeholder = 'Search accepted lore...';
+    search.value = panelState.search || '';
+    search.addEventListener('input', () => {
+        setPanelState({ search: search.value, acceptedLoreVisibleLimit: getAcceptedLoreInitialVisibleLimit() }, { deferSave: true });
+        loreWorkbenchFocusSelector = '[data-workbench-focus="accepted-search"]';
+        scheduleAcceptedLoreListRender(getPanelRoot());
+        scheduleLoreWorkbenchRefresh();
+    });
+    controls.appendChild(search);
+
+    const category = document.createElement('select');
+    category.className = 'wandlight-lore-workbench-select';
+    for (const cat of loreState.categories || ['all']) {
+        if (cat === 'pending') continue;
+        const opt = document.createElement('option');
+        opt.value = cat;
+        opt.textContent = `${getLoreDisplayLabel('category', cat)} (${getCategoryCount(cat, loreState.entries, loreState.counts)})`;
+        if ((panelState.selectedCategory || 'all') === cat) opt.selected = true;
+        category.appendChild(opt);
+    }
+    category.addEventListener('change', () => {
+        setPanelState({ selectedCategory: category.value, acceptedLoreVisibleLimit: getAcceptedLoreInitialVisibleLimit() }, { deferSave: true });
+        refreshAcceptedLoreCategoryTabs(category.value);
+        refreshAcceptedLoreFilterResults({ resetListScroll: true });
+        refreshLoreWorkbench();
+    });
+    controls.appendChild(category);
+
+    const source = document.createElement('select');
+    source.className = 'wandlight-lore-workbench-select';
+    for (const [value, label] of [
+        ['all', 'Source: All'],
+        ['canon-db', 'Canon Database'],
+        ['story-generation', 'Story Generation'],
+        ['manual', 'Manual / User'],
+    ]) {
+        const opt = document.createElement('option');
+        opt.value = value;
+        opt.textContent = label;
+        if ((panelState.sourceFilter || 'all') === value) opt.selected = true;
+        source.appendChild(opt);
+    }
+    source.addEventListener('change', () => {
+        setPanelState({ sourceFilter: source.value, acceptedLoreVisibleLimit: getAcceptedLoreInitialVisibleLimit() }, { deferSave: true });
+        refreshAcceptedLoreFilterResults({ resetListScroll: true });
+        refreshLoreWorkbench();
+    });
+    controls.appendChild(source);
+
+    const count = document.createElement('div');
+    count.className = 'wandlight-lore-workbench-count';
+    count.textContent = `${getFilteredLoreEntries(state).length} matching`;
+    controls.appendChild(count);
+
+    return controls;
+}
+
+function createAcceptedWorkbenchTable(entries, state) {
+    const table = document.createElement('div');
+    table.className = 'wandlight-lore-workbench-table wandlight-lore-workbench-accepted-table';
+
+    const header = document.createElement('div');
+    header.className = 'wandlight-lore-workbench-row wandlight-lore-workbench-row-header';
+    for (const label of ['', 'Title', 'Relevance', 'Source', 'Category', 'Canon', 'Priority', 'Flags']) {
+        const cell = document.createElement('div');
+        cell.textContent = label;
+        header.appendChild(cell);
+    }
+    table.appendChild(header);
+
+    const visible = entries.slice(0, getLoreWorkbenchRowLimit());
+    if (!visible.length) {
+        table.appendChild(createEmptyMessage('No accepted lore entries match the current filters.'));
+        return table;
+    }
+
+    const selected = getAcceptedSelectionSet(state);
+    for (const entry of visible) {
+        const row = document.createElement('div');
+        row.className = 'wandlight-lore-workbench-row wandlight-lore-workbench-entry-row';
+        if (entry.id === loreWorkbenchSelectedId) row.classList.add('wandlight-lore-workbench-row-active');
+        row.addEventListener('click', () => {
+            loreWorkbenchSelectedId = entry.id;
+            renderLoreWorkbench();
+        });
+
+        const checkCell = document.createElement('div');
+        const check = document.createElement('input');
+        check.type = 'checkbox';
+        check.checked = selected.has(entry.id);
+        check.addEventListener('click', event => event.stopPropagation());
+        check.addEventListener('change', () => {
+            toggleAcceptedLoreSelection(entry.id, check.checked);
+            refreshAcceptedLoreList({ preserveScroll: true });
+            refreshAcceptedLoreBulkToolbar();
+            refreshLoreWorkbench();
+        });
+        checkCell.appendChild(check);
+        row.appendChild(checkCell);
+
+        row.appendChild(createWorkbenchTextCell(entry.title || '(Untitled lore)', entry.fact || ''));
+        row.appendChild(createWorkbenchTextCell(RELEVANCE_META[getLifecycleStatus(entry)]?.label || getLifecycleStatus(entry)));
+        row.appendChild(createWorkbenchTextCell(getLoreSourceBucketLabel(getLoreSourceBucket(entry))));
+        row.appendChild(createWorkbenchTextCell(getLoreDisplayLabel('category', entry.category || 'other')));
+        row.appendChild(createWorkbenchTextCell(getLoreDisplayLabel('canonStatus', entry.canon || entry.canonStatus || 'canon')));
+        row.appendChild(createWorkbenchTextCell(`P${Number(entry.priority || 50)}`));
+        row.appendChild(createWorkbenchTextCell([
+            entry.isPinned ? 'Pinned' : '',
+            entry.isSuppressed ? 'Muted' : '',
+        ].filter(Boolean).join(', ') || '-'));
+
+        table.appendChild(row);
+    }
+
+    if (entries.length > visible.length) {
+        const more = document.createElement('div');
+        more.className = 'wandlight-lore-workbench-row-note';
+        more.textContent = `Showing first ${visible.length} of ${entries.length} matching entries. Narrow filters or search to reduce the set.`;
+        table.appendChild(more);
+    }
+
+    return table;
+}
+
+function createAcceptedWorkbenchDetail(entries, state) {
+    const detail = document.createElement('div');
+    detail.className = 'wandlight-lore-workbench-detail';
+
+    const entry = entries.find(item => item.id === loreWorkbenchSelectedId) || entries[0];
+    if (!entry) {
+        detail.appendChild(createEmptyMessage('Select an accepted lore entry to inspect it.'));
+        return detail;
+    }
+
+    const detailState = {
+        ...state,
+        lorePanel: {
+            ...(state?.lorePanel || {}),
+            selectedEntryId: entry.id,
+        },
+    };
+    const card = createEntryCard(entry, detailState);
+    card.classList.add('wandlight-lore-workbench-detail-card');
+    detail.appendChild(card);
+    return detail;
+}
+
+function createPendingLoreWorkbenchView(state) {
+    const view = document.createElement('div');
+    view.className = 'wandlight-lore-workbench-view wandlight-lore-workbench-view-pending';
+
+    view.appendChild(createPendingWorkbenchControls(state));
+
+    const pending = normalizeLoreMatrix(state?.pendingLoreEntries || []);
+    if (pending.length) {
+        const bulk = document.createElement('div');
+        bulk.className = 'wandlight-workbench-bulk-toolbar wandlight-workbench-pending-bulk-toolbar';
+        bulk.appendChild(createPendingLoreBulkControls(pending, state));
+        view.appendChild(bulk);
+    }
+
+    const main = document.createElement('div');
+    main.className = 'wandlight-lore-workbench-main';
+    const rows = getPendingWorkbenchRows(state);
+    main.appendChild(createPendingWorkbenchTable(rows, state));
+    main.appendChild(createPendingWorkbenchDetail(rows, state));
+    view.appendChild(main);
+
+    return view;
+}
+
+function createPendingWorkbenchControls(state) {
+    const controls = document.createElement('div');
+    controls.className = 'wandlight-lore-workbench-controls';
+
+    const search = document.createElement('input');
+    search.type = 'text';
+    search.className = 'wandlight-lore-workbench-search';
+    search.dataset.workbenchFocus = 'pending-search';
+    search.placeholder = 'Search pending lore...';
+    search.value = loreWorkbenchPendingQuery || '';
+    search.addEventListener('input', () => {
+        loreWorkbenchPendingQuery = search.value;
+        loreWorkbenchFocusSelector = '[data-workbench-focus="pending-search"]';
+        scheduleLoreWorkbenchRefresh();
+    });
+    controls.appendChild(search);
+
+    const rows = getPendingWorkbenchRows(state);
+    const count = document.createElement('div');
+    count.className = 'wandlight-lore-workbench-count';
+    count.textContent = `${rows.length} matching pending`;
+    controls.appendChild(count);
+
+    const selectFiltered = createButton('Select Filtered', 'Select every pending entry matching the current Workbench search.', () => {
+        setPendingReviewSelection(rows.map(row => getLoreReviewId(row.entry)));
+        refreshPanelBody({ preserveScroll: true });
+        refreshLoreWorkbench();
+    }, 'wandlight-small-button');
+    controls.appendChild(selectFiltered);
+
+    const clear = createButton('Clear Selection', 'Clear pending lore selection.', () => {
+        clearPendingReviewSelection();
+        refreshPanelBody({ preserveScroll: true });
+        refreshLoreWorkbench();
+    }, 'wandlight-small-button');
+    controls.appendChild(clear);
+
+    return controls;
+}
+
+function createPendingWorkbenchTable(rows, state) {
+    const table = document.createElement('div');
+    table.className = 'wandlight-lore-workbench-table wandlight-lore-workbench-pending-table';
+
+    const header = document.createElement('div');
+    header.className = 'wandlight-lore-workbench-row wandlight-lore-workbench-row-header';
+    for (const label of ['', 'Title', 'Operation', 'Route', 'Category', 'Canon', 'Priority']) {
+        const cell = document.createElement('div');
+        cell.textContent = label;
+        header.appendChild(cell);
+    }
+    table.appendChild(header);
+
+    const visible = rows.slice(0, getLoreWorkbenchRowLimit());
+    if (!visible.length) {
+        table.appendChild(createEmptyMessage('No pending lore entries match the current search.'));
+        return table;
+    }
+
+    const selected = getPendingReviewSelectedIds(state);
+    for (const rowInfo of visible) {
+        const entry = rowInfo.entry;
+        const reviewId = getLoreReviewId(entry);
+        const generation = entry.extensions?.wandlightGeneration || {};
+        const reviewMeta = entry.extensions?.wandlightPendingReview || {};
+        const row = document.createElement('div');
+        row.className = 'wandlight-lore-workbench-row wandlight-lore-workbench-entry-row';
+        if (reviewId === loreWorkbenchSelectedId) row.classList.add('wandlight-lore-workbench-row-active');
+        row.addEventListener('click', () => {
+            loreWorkbenchSelectedId = reviewId;
+            renderLoreWorkbench();
+        });
+
+        const checkCell = document.createElement('div');
+        const check = document.createElement('input');
+        check.type = 'checkbox';
+        check.checked = selected.has(reviewId);
+        check.addEventListener('click', event => event.stopPropagation());
+        check.addEventListener('change', () => {
+            togglePendingReviewSelection(reviewId, check.checked);
+            refreshPanelBody({ preserveScroll: true });
+            refreshLoreWorkbench();
+        });
+        checkCell.appendChild(check);
+        row.appendChild(checkCell);
+
+        row.appendChild(createWorkbenchTextCell(entry.title || '(Untitled pending lore)', entry.fact || ''));
+        row.appendChild(createWorkbenchTextCell(generation.operation || reviewMeta.reviewRoute || 'create'));
+        row.appendChild(createWorkbenchTextCell(generation.similarityRoute || reviewMeta.reviewRoute || '-'));
+        row.appendChild(createWorkbenchTextCell(getLoreDisplayLabel('category', entry.category || 'other')));
+        row.appendChild(createWorkbenchTextCell(getLoreDisplayLabel('canonStatus', entry.canon || entry.canonStatus || 'canon')));
+        row.appendChild(createWorkbenchTextCell(`P${Number(entry.priority || 50)}`));
+        table.appendChild(row);
+    }
+
+    if (rows.length > visible.length) {
+        const more = document.createElement('div');
+        more.className = 'wandlight-lore-workbench-row-note';
+        more.textContent = `Showing first ${visible.length} of ${rows.length} matching pending entries. Narrow search to reduce the set.`;
+        table.appendChild(more);
+    }
+    return table;
+}
+
+function createPendingWorkbenchDetail(rows, state) {
+    const detail = document.createElement('div');
+    detail.className = 'wandlight-lore-workbench-detail';
+
+    const selected = rows.find(row => getLoreReviewId(row.entry) === loreWorkbenchSelectedId) || rows[0];
+    if (!selected) {
+        detail.appendChild(createEmptyMessage('Select a pending lore entry to inspect it.'));
+        return detail;
+    }
+    detail.appendChild(createPendingLoreReviewCard(selected.entry, selected.index, isPendingLoreSelected(state, selected.entry)));
+    return detail;
+}
+
+function getPendingWorkbenchRows(state = getState()) {
+    const pending = normalizeLoreMatrix(state?.pendingLoreEntries || []);
+    const query = String(loreWorkbenchPendingQuery || '').trim().toLowerCase();
+    const rows = pending.map((entry, index) => ({ entry, index }));
+    if (!query) return rows;
+    return rows
+        .map(row => ({ ...row, score: scoreSearchEntry(row.entry, query) }))
+        .filter(row => row.score > 0)
+        .sort((a, b) => b.score - a.score || String(a.entry.title || '').localeCompare(String(b.entry.title || '')));
+}
+
+function createWorkbenchTextCell(primary, secondary = '') {
+    const cell = document.createElement('div');
+    cell.className = 'wandlight-lore-workbench-cell';
+    const main = document.createElement('span');
+    main.className = 'wandlight-lore-workbench-cell-main';
+    main.textContent = primary || '-';
+    cell.appendChild(main);
+    if (secondary) {
+        const sub = document.createElement('span');
+        sub.className = 'wandlight-lore-workbench-cell-sub';
+        sub.textContent = truncateText(secondary, 150);
+        cell.appendChild(sub);
+    }
+    return cell;
+}
+
+function getLoreSourceBucketLabel(bucket) {
+    if (bucket === 'canon-db') return 'Canon DB';
+    if (bucket === 'story-generation') return 'Story';
+    if (bucket === 'manual') return 'Manual';
+    return 'Other';
 }
 
 export function createPendingLoreBulkControls(pendingLore, state) {
@@ -718,10 +1233,6 @@ function rejectPendingLoreEntry(index) {
     return dep('rejectPendingLoreEntry', () => null)(index);
 }
 
-function refreshLoreWorkbench() {
-    return dep('refreshLoreWorkbench', () => null)();
-}
-
 function refreshHeader() {
     return dep('refreshHeader', () => null)();
 }
@@ -768,6 +1279,14 @@ function scheduleAcceptedLoreLayoutUpdate() {
 
 function getSearchRenderDebounceMs() {
     return Math.max(0, Number(dep('getSearchRenderDebounceMs', () => 160)()) || 0);
+}
+
+function getLoreWorkbenchRowLimit() {
+    return Math.max(25, Number(dep('getLoreWorkbenchRowLimit', () => 500)()) || 500);
+}
+
+function flushScheduledStateSave() {
+    return dep('flushScheduledStateSave', () => null)();
 }
 
 export function refreshAcceptedLoreCategoryTabs(activeCategory) {
