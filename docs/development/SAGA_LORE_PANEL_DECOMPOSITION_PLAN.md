@@ -1,6 +1,6 @@
 # Saga Lore Panel Decomposition Plan
 
-Status: Phase 8 provider/API Settings card extraction implemented. Next queued Phase 8 slice: Theme Pack UI extraction to `theme-panel.js`.
+Status: Phase 9 Lorecards tab shell, compact Lore Timeline card, Pending Lorecard Review wrapper/cards/bulk controls, Accepted Lorecards section shell/list renderer/bulk controls, New Lore dialog, Auto-Relevance card, and accepted Lorecard card/tag-row rendering extraction implemented. Next queued Phase 9 slice: accepted Lorecard edit controls/mutation helpers or full Lore Timeline workbench.
 
 Date: 2026-06-07.
 
@@ -91,10 +91,45 @@ Phase 7 progress:
 Phase 8 progress:
 
 - `settings-panel.js` now owns the runtime Settings tab provider/API card, Utility and Reasoning provider blocks, provider source selector, Connection Profile selector, OpenAI-compatible endpoint/model controls, API key store/clear controls, provider generation parameter controls, and Provider Preset status/install/download UI.
-- `lore-panel.js` configures the Settings module through `configureSettingsPanel(...)` with callbacks for runtime-body refresh, header refresh, and JSON download. Theme Pack UI remains in `lore-panel.js` until the next Phase 8 slice.
+- `lore-panel.js` configures the Settings module through `configureSettingsPanel(...)` with callbacks for runtime-body refresh, header refresh, and JSON download.
+- `theme-panel.js` now owns Theme Pack accessibility summary card, contrast row rendering, Theme Pack emblem rendering, Theme Pack swatch strip rendering, preview CSS variable application, Theme Pack style/source labels, Active Theme panel, Installed Theme Pack gallery, Theme Pack gallery card, import tile, icon-set panel, icon-set selector, icon preview/mapping rendering, color override panel, color group/field rendering, advanced Theme panel, and icon coverage helpers. Apply/import/forget/icon/color/advanced behavior remains callback-driven from `lore-panel.js`.
+- `theme-actions.js` now owns Theme Pack mutation and file behavior: Theme Pack apply/reset/forget, color override enable/reset/input handling, Icon Set import/apply/reset behavior, Theme Pack import/export/library export, Theme Pack JSON dialogs, icon-surface refreshes, runtime theme application, rail icon refresh calls, and settings/header/body refresh handoff.
+- `lore-panel.js` now configures Theme actions through `configureThemeActions(...)` and creates Theme panel callbacks through `createThemePanelOptions()`. It still owns the Settings tab card assembly and the shelf icon-item list because those are runtime-shell details.
 - The extracted provider preset status uses a local SillyTavern Chat Completion preset-manager lookup in `settings-panel.js`, matching the current extension-menu cleanup path and avoiding the stale runtime helper name that was left in `lore-panel.js`.
-- Current post-extraction line count: `lore-panel.js` is 26,198 lines, `settings-panel.js` is 887 lines, `context-panel.js` is 841 lines, `context-workbench-panel.js` is 1,858 lines, `loredeck-creator-panel.js` is 1,615 lines, `loredecks-tab-panel.js` is 793 lines, `loredeck-library-panel.js` is 4,402 lines, `loredeck-health-panel.js` is 1,668 lines, `runtime-theme.js` is 776 lines, and `runtime-ui-kit.js` is 584 lines.
-- Validation passed with `node --check` on `settings-panel.js`, `context-workbench-panel.js`, `context-panel.js`, `lore-panel.js`, `loredeck-creator-panel.js`, `loredecks-tab-panel.js`, `loredeck-library-panel.js`, `loredeck-health-panel.js`, `runtime-theme.js`, `runtime-ui-kit.js`, and `index.js`; ES module import smoke passed for `settings-panel.js` and `lore-panel.js`; fake-DOM smoke verified the extracted provider card renders Utility/Reasoning provider blocks, OpenAI-compatible controls, Connection Profile controls, API key controls, and Provider Preset status.
+- Current post-extraction line count: `lore-panel.js` is 23,453 lines, `theme-actions.js` is 333 lines, `theme-panel.js` is 570 lines, `settings-panel.js` is 797 lines, `context-panel.js` is 764 lines, `context-workbench-panel.js` is 1,729 lines, `loredeck-creator-panel.js` is 1,489 lines, `loredecks-tab-panel.js` is 728 lines, `loredeck-library-panel.js` is 4,103 lines, `loredeck-health-panel.js` is 1,580 lines, `runtime-theme.js` is 740 lines, and `runtime-ui-kit.js` is 507 lines.
+- Validation passed with `node --check` on `theme-panel.js`, `settings-panel.js`, `context-workbench-panel.js`, `context-panel.js`, `lore-panel.js`, `loredeck-creator-panel.js`, `loredecks-tab-panel.js`, `loredeck-library-panel.js`, `loredeck-health-panel.js`, `runtime-theme.js`, `runtime-ui-kit.js`, and `index.js`; ES module import smoke passed for `theme-panel.js` and `lore-panel.js`; fake-DOM smoke verified the extracted Theme helpers render emblems, swatches, compact/full accessibility summaries, style labels, and source labels; fake-DOM smoke verified the extracted Active Theme and Installed Theme Pack gallery panels render and route Apply, Import, and Forget actions through callbacks; fake-DOM smoke verified extracted icon-set, color override, and advanced Theme panels render and route Import Icon Set, Apply Icon Set, Enable/Reset Overrides, Export Active Theme, color input/change, Show Raw Tokens, Show Theme JSON, and Export Theme Library actions through callbacks.
+- Latest Theme action-controller validation passed with `node --check` on `theme-actions.js`, `theme-panel.js`, and `lore-panel.js`; ES module import smoke passed for `theme-actions.js`, `theme-panel.js`, and `lore-panel.js`; no moved Theme action definitions or stale `getThemePanelOptions()` references remain in `lore-panel.js`.
+- SillyTavern browser smoke passed at `http://127.0.0.1:8000/`: after reload, the visible Settings rail tab opened, extracted Providers card rendered, Utility and Reasoning provider blocks rendered, Provider Preset status rendered, the still-local Theme Pack card rendered, and no browser console errors were observed.
+- SillyTavern browser smoke after Theme accessibility extraction passed at `http://127.0.0.1:8000/`: after opening the Settings rail tab from a closed drawer, the extracted Providers card, still-local Theme Pack card, and extracted Theme accessibility card rendered with no browser console errors.
+- SillyTavern browser smoke after Theme visual-helper extraction passed at `http://127.0.0.1:8000/`: after expanding the compact rail and opening Settings, the Theme Pack card rendered with extracted Theme emblems, swatch strips, and accessibility card, and no browser console errors were observed.
+- SillyTavern browser smoke after Active Theme/gallery extraction passed at `http://127.0.0.1:8000/`: the Settings tab rendered the Theme Pack card, extracted Active Theme panel, extracted Installed Theme Pack gallery, gallery cards, import tile, swatch strips, accessibility card, remaining icon-set panel, and remaining color override panel with no browser console errors.
+- SillyTavern browser smoke after full Theme panel rendering extraction passed at `http://127.0.0.1:8000/`: the Settings tab rendered the Theme Pack card, extracted Active Theme panel, Installed Theme Pack gallery, icon-set panel, icon-set selector, icon tiles, color override panel, color fields, advanced Theme panel, and accessibility card with no browser console errors.
+- SillyTavern browser smoke after Theme action-controller extraction passed at `http://127.0.0.1:8000/`: after reload, the Settings tab rendered the provider card and Theme Pack card, extracted Active Theme, Installed Theme Pack gallery, icon-set selector, icon tiles, color override panel, advanced Theme panel, and accessibility card; the non-mutating Show Theme JSON controller path opened a Theme Pack JSON dialog and closed it cleanly; no browser console errors were observed.
+
+Phase 9 progress:
+
+- `lorecards-panel.js` now owns the Lorecards tab shell: section header, compact Timeline card placement, Lorecard Generation section, Auto-Relevance section, Pending Lorecard Review section wrapper, Accepted Lorecards section wrapper, and accepted/injectable count display.
+- `lorecards-panel.js` now also owns the Pending Lorecard Review section body wrapper, pending cards, and bulk controls: pending count launch row placement, batch label placement, pending bulk toolbar/card rendering, select-all display, Apply/Dismiss Selected buttons, Apply/Dismiss All buttons, pending list shell, pending card rendering, pending checkbox rendering, targeted-entry preview, Apply/Apply-as-New/Dismiss buttons, pending pagination button, and empty state. Selected-state calculation, selection persistence, accept/reject mutations, badge metadata rendering, workbench launch behavior, and pagination persistence remain callback-driven from `lore-panel.js`.
+- `lorecards-panel.js` now also owns the Accepted Lorecards section shell, list renderer, card renderer, tag-row UI, and bulk-control UI: accepted workbench launch placement, category tab row, source/search filter row, pin/mute help text, accepted bulk toolbar placement, Select Filtered/Clear Selection buttons, Pin/Unpin/Mute/Unmute/Delete action buttons, bulk metadata dropdowns, Add Tag input/button, confirmation text, accepted list region shell, list summary, empty state, paged accepted-card placement, show-more pagination button, accepted card header/actions, collapsed/expanded metadata rows, detail-row display, active-when condition display, and inline tag add/remove UI. Filter execution, accepted bulk state/timeline mutations, row refresh, pin/mute mutations, editable metadata widgets, detail-editor widgets, and tag mutations remain callback-driven from `lore-panel.js`.
+- `lorecards-panel.js` now also owns the New Lore dialog behavior and shared New Lore field helpers: overlay shell, manual draft fields, metadata selects, validation, pending-draft creation, timeline-event recording callback route, refresh callback route, and close/focus behavior.
+- `lorecards-panel.js` now also owns the Auto-Relevance card: enable/mode/tuning/model controls, setting reset row placement, current-tier counts, pending suggestion rows, apply/reject actions, and manual Run Auto-Relevance action. Settings persistence, reset behavior, and Auto-Relevance mutation/model execution remain callback-driven from `lore-panel.js`.
+- `lore-timeline-panel.js` now owns the compact Lore Timeline launch card, latest-event mini rail, timeline event CSS classification helper, New Lore callback routing, and Open Timeline callback routing. The full Lore Timeline workbench remains in `lore-panel.js` for a later Phase 9 slice.
+- `lore-panel.js` configures these modules through `configureLorecardsPanel(...)` and `configureLoreTimelinePanel(...)`. Pending selection/mutation behavior, accepted bulk mutation behavior, accepted card edit/action callbacks, Auto-Relevance action callbacks, and the full Lore Timeline visualizer remain callback-driven from `lore-panel.js`.
+- Current source-line count: `lore-panel.js` is 24,033 lines, `lorecards-panel.js` is 1,665 lines, `lore-timeline-panel.js` is 123 lines, `theme-actions.js` is 366 lines, `theme-panel.js` is 618 lines, `settings-panel.js` is 887 lines, `context-panel.js` is 841 lines, `context-workbench-panel.js` is 1,858 lines, `loredeck-creator-panel.js` is 1,615 lines, `loredecks-tab-panel.js` is 793 lines, `loredeck-library-panel.js` is 4,402 lines, `loredeck-health-panel.js` is 1,668 lines, `runtime-theme.js` is 776 lines, and `runtime-ui-kit.js` is 584 lines.
+- Validation passed with `node --check` on `lorecards-panel.js`, `lore-timeline-panel.js`, `lore-panel.js`, and `index.js`; ES module import smoke passed for `lore-timeline-panel.js`, `lorecards-panel.js`, and `lore-panel.js`; fake-DOM smoke verified the extracted Lorecards tab shell renders the timeline card and all four section wrappers while routing inner cards through configured callbacks.
+- Latest Pending Review wrapper validation passed with `node --check` on `lorecards-panel.js`, `lore-timeline-panel.js`, `lore-panel.js`, and `index.js`; ES module import smoke passed for `lorecards-panel.js`, `lore-timeline-panel.js`, and `lore-panel.js`; fake-DOM smoke verified the extracted Pending Lorecard Review wrapper renders the workbench launch row, batch label, bulk toolbar slot, pending list, selected pending-card callback state, and pagination button through configured callbacks.
+- Latest Accepted Lorecards shell validation passed with `node --check` on `lorecards-panel.js`, `lore-timeline-panel.js`, `lore-panel.js`, and `index.js`; ES module import smoke passed for `lorecards-panel.js`, `lore-timeline-panel.js`, and `lore-panel.js`; fake-DOM smoke verified the extracted Accepted Lorecards section renders the accepted workbench launch row, category tabs, search/source filters, pin/mute help text, accepted bulk toolbar slot, accepted list region, and list-render callback.
+- Latest accepted list renderer validation passed with `node --check` on `lorecards-panel.js`, `lore-timeline-panel.js`, `lore-panel.js`, and `index.js`; ES module import smoke passed for `lorecards-panel.js`, `lore-timeline-panel.js`, and `lore-panel.js`; fake-DOM smoke verified the extracted accepted list renderer displays the list summary, renders the first 10 accepted cards through the card callback, adds the show-more button for larger lists, and routes pagination through configured callbacks.
+- Latest Pending Review bulk controls validation passed with `node --check` on `lorecards-panel.js`, `lore-timeline-panel.js`, `lore-panel.js`, and `index.js`; ES module import smoke passed for `lorecards-panel.js` and `lore-panel.js`; fake-DOM smoke verified the extracted pending bulk card renders selected-count state, select-all routing, Apply/Dismiss Selected callbacks, Apply/Dismiss All callbacks, clear-selection routing, header refresh routing, workbench refresh routing, and toast routing.
+- Latest Pending Review card validation passed with `node --check` on `lorecards-panel.js`, `lore-timeline-panel.js`, `lore-panel.js`, and `index.js`; ES module import smoke passed for `lorecards-panel.js`, `lore-timeline-panel.js`, and `lore-panel.js`; fake-DOM smoke verified the extracted pending card renders selected state, title, metadata badges, targeted-entry help, tags, injection/constraint previews, checkbox selection routing, Apply Update, Apply as New, Dismiss, state-save routing for target clearing, refresh routing, header/workbench refresh routing, and toast routing.
+- Latest Accepted Lorecards bulk controls validation passed with `node --check` on `lorecards-panel.js`, `lore-timeline-panel.js`, `lore-panel.js`, and `index.js`; ES module import smoke passed for `lorecards-panel.js`, `lore-timeline-panel.js`, and `lore-panel.js`; fake-DOM smoke verified the extracted accepted bulk card renders selection summary, Select Filtered, Clear Selection, Pin, Unpin, Mute, Unmute, Delete, six metadata dropdowns, Add Tag, confirmation routing through the shared confirm helper, refresh routing, workbench refresh routing, bulk mutation callbacks, and readable tag normalization.
+- Latest New Lore dialog validation passed with `node --check` on `lorecards-panel.js`, `lore-timeline-panel.js`, `lore-panel.js`, and `index.js`; ES module import smoke passed for `lorecards-panel.js`, `lore-timeline-panel.js`, and `lore-panel.js`; fake-DOM smoke verified the extracted New Lore overlay renders, creates a normalized manual pending Lorecard, records a timeline event through the callback bridge, saves state, refreshes panel/header/timeline/workbench surfaces, toasts success, and closes.
+- Latest Auto-Relevance card validation passed with `node --check` on `lorecards-panel.js`, `lore-timeline-panel.js`, `lore-panel.js`, and `index.js`; ES module import smoke passed for `lorecards-panel.js`, `lore-timeline-panel.js`, and `lore-panel.js`; fake-DOM smoke verified the extracted Auto-Relevance card renders settings controls, reset row callback, tier counts, pending suggestion rows, per-suggestion Apply/Reject callbacks, Run Auto-Relevance callback, Apply Suggestions callback, Reject All callback, setting persistence, refresh routing, and toast routing.
+- Latest accepted Lorecard card renderer validation passed with `node --check` on `lorecards-panel.js`, `lore-timeline-panel.js`, `lore-panel.js`, and `index.js`; ES module import smoke passed for `lorecards-panel.js`, `lore-timeline-panel.js`, and `lore-panel.js`; fake-DOM smoke verified the extracted accepted card renders expanded details, editable metadata callback slots, detail-editor callback slot, selection checkbox routing, pin/mute routing, row-refresh/list-refresh fallback routing, Workbench refresh routing, inline tag remove, inline tag add, and selected-entry expansion routing.
+- SillyTavern browser smoke passed at `http://127.0.0.1:8000/`: after reload, the Lorecards rail tab opened, the extracted Lore Timeline card rendered, Lorecard Generation/Pending/Accepted sections rendered, the Open Timeline callback opened the existing full timeline workbench and closed it cleanly, and no browser console errors were observed.
+- SillyTavern browser smoke after Pending Review wrapper extraction passed at `http://127.0.0.1:8000/`: after reload, the Lorecards rail tab opened, the extracted Pending Lorecard Review section rendered its workbench launch row and empty state for the current chat, no runtime render error card appeared, and no browser console errors were observed.
+- SillyTavern browser smoke after Accepted Lorecards shell extraction passed at `http://127.0.0.1:8000/`: after reload, the Lorecards rail tab opened, the extracted Accepted Lorecards section rendered category tabs, search/source filters, bulk toolbar, accepted list region, and no runtime render error card or browser console errors were observed.
+- SillyTavern browser smoke after accepted list renderer extraction passed at `http://127.0.0.1:8000/`: after reload, the Lorecards rail tab opened via the visible-DOM control, the extracted Accepted Lorecards list region rendered the current empty accepted-list state, no runtime render error card appeared, and no browser console errors were observed.
 
 Large responsibility clusters:
 
@@ -103,12 +138,13 @@ Large responsibility clusters:
 2101-6700     Loredeck Creator provider-call and mutation controllers
 6701-7800     Context editor/workbench controller behavior
 7801-14900    Loredeck import/export, editor details, assistant, pending review, tag/timeline mutation surfaces
-14901-17000   Settings tab shell and Theme Pack UI
-17001-17700   Loredeck stack helpers, Session tab, danger/reset cards
-17701-19700   Context tab controller helpers, progress state, advanced editor behavior
-19701-21300   Continuity and Injection tab controller behavior
-21301-25500   Lorecards tab, Lorecard Workbench, timeline/review/list/tag UI
-25501-26198   layout, tour, drag/resize, dialog and residual UI helpers
+14901-16103   Settings tab shell and Theme Pack composition bridge
+16104-16990   Loredeck stack helpers, Session tab, danger/reset cards
+16991-18991   Context tab controller helpers, progress state, advanced editor behavior
+18992-20565   Continuity and Injection tab controller behavior
+20609-22554   Lorecard Workbench and full Lore Timeline workbench
+22555-23415   Accepted Lorecard refresh/filter logic, editable metadata widgets, accepted mutations, and tag mutations
+23416-24033   layout, tour, drag/resize, dialog and residual UI helpers
 ```
 
 ## Core Principle
@@ -334,35 +370,63 @@ This is distinct from existing `ui.js`, which currently owns legacy SillyTavern 
 
 Responsibilities:
 
-- Theme Pack section.
+- Theme Pack accessibility card.
+- contrast summary and contrast row rendering.
+- Theme Pack emblem helper.
+- Theme Pack swatch strip helper.
+- Theme Pack preview CSS variable helper.
+- Theme Pack style/source label helpers.
+- Active Theme panel.
 - installed Theme Pack gallery.
-- color overrides.
-- icon set selector.
-- accessibility summary.
+- Theme Pack gallery cards and import tile.
+- icon-set panel and selector.
+- icon preview/mapping rendering.
+- color override panel.
+- color groups and color fields.
+- advanced Theme Pack panel.
+- icon coverage helpers.
 
 This depends on `runtime-theme.js` and `runtime-ui-kit.js`.
+
+### `theme-actions.js`
+
+Responsibilities:
+
+- Theme Pack apply/reset/forget actions.
+- Theme Pack import/export and library export.
+- Icon Set import/apply/reset actions.
+- color override enable/reset/input handling.
+- Theme Pack JSON dialog behavior.
+- Theme Pack surface refresh after theme/icon changes.
+- runtime theme application handoff.
+- rail icon/header/body refresh handoff.
+
+This depends on `state-manager.js`, `runtime-theme.js`, `runtime-ui-kit.js`, and `theme-panel.js`.
 
 ### `lorecards-panel.js`
 
 Responsibilities:
 
-- Lorecards tab.
-- accepted Lorecard list.
-- pending Lorecard review section.
-- bulk edit controls.
-- Lorecard entry cards.
-- tag chip UI.
-- new Lorecard dialog.
+- Lorecards tab shell.
+- Lorecards section header.
+- Lorecard Generation, Auto-Relevance, Pending Review, and Accepted Lorecard section composition.
+- Pending Lorecard Review section body wrapper, pending review cards, pending checkbox rendering, pending bulk-control card, empty state, list shell, and pagination button.
+- Accepted Lorecards section body wrapper, category tabs, source/search filters, pin/mute help, bulk toolbar/card controls, accepted list region, list summary, empty state, accepted card rendering, accepted tag-row UI, and show-more pagination button.
+- accepted/injectable count display.
+- New Lore dialog overlay, form fields, metadata selects, manual pending-draft creation flow, and callback bridge to timeline/state refresh behavior.
+- Auto-Relevance card rendering, settings controls, suggestion list UI, and action callback bridge.
+- callback bridge to current Lorecard generation, review, and accepted-list internals.
+- Future slices should move accepted Lorecard editable metadata/detail widgets and mutation helpers here or into smaller dedicated modules.
 
 ### `lore-timeline-panel.js`
 
 Responsibilities:
 
-- Lore timeline window.
-- timeline graph.
-- minimap.
-- timeline event detail.
-- timeline recovery actions.
+- compact Lore Timeline launch card.
+- compact Timeline mini-rail.
+- Lore Timeline event CSS classification helper.
+- New Lore and Open Timeline callback bridge.
+- Future slices should move the full Lore Timeline window, graph, minimap, event detail, and recovery actions here.
 
 May be extracted before or after `lorecards-panel.js` depending on coupling.
 
@@ -630,6 +694,7 @@ Tasks:
 
 - Move Settings tab provider/API sections to `settings-panel.js`.
 - Move Theme Pack UI to `theme-panel.js`.
+- Move Theme Pack mutation/file actions to `theme-actions.js`.
 - Use `runtime-theme.js` for theme/icon lookups.
 
 Constraints:

@@ -1,0 +1,2025 @@
+import {
+    getPanelLoreState,
+    getLoreRelevanceCounts,
+    normalizeLoreMatrix,
+    normalizeLoreEntry,
+    normalizeLoreTag,
+} from './lore-matrix.js';
+import {
+    LORE_CATEGORY_VALUES,
+    LORE_RELEVANCE_LABELS,
+    LORE_RELEVANCE_TIERS,
+    normalizeLoreRelevance,
+} from './lore-relevance.js';
+import {
+    addTooltip,
+    createBadge,
+    createButton,
+    createEmptyMessage,
+    confirmAction,
+    createIconButton,
+    createKeyValue,
+    createSectionHeader,
+    hasDisplayableScope,
+    wireOverlayBackdropClose,
+} from './runtime-ui-kit.js';
+import {
+    createLoreTimelineCard,
+} from './lore-timeline-panel.js';
+
+let lorecardsPanelDeps = {};
+
+const AUTO_RELEVANCE_SETTING_KEYS = Object.freeze([
+    'autoRelevanceEnabled',
+    'autoRelevanceMode',
+    'autoRelevanceEveryTurns',
+    'autoRelevanceRecentMessages',
+    'autoRelevanceCandidateCap',
+    'autoRelevanceMinConfidence',
+    'autoRelevanceNearFutureDays',
+    'autoRelevanceRecentPastDays',
+    'autoRelevanceProtectPinned',
+    'autoRelevanceEvaluateMuted',
+    'autoRelevanceUseModel',
+    'autoRelevanceModelCandidateCap',
+    'autoRelevanceModelMaxTokens',
+    'autoRelevanceModelRecentChars',
+]);
+
+const RELEVANCE_META = Object.freeze({
+    high: { label: 'High', color: '#166534', textColor: '#dcfce7', tooltip: 'Current-scene or immediate story relevance. Injects in the High-Relevance lore group.' },
+    normal: { label: 'Normal', color: '#1e3a8a', textColor: '#dbeafe', tooltip: 'Recent, branch-defining, or medium-range story relevance. Injects in the Normal-Relevance lore group.' },
+    low: { label: 'Low', color: '#4b5563', textColor: '#f9fafb', tooltip: 'Long-term background or distant past/future lore. Injects in the Low-Relevance lore group if enabled.' },
+});
+
+export function configureLorecardsPanel(deps = {}) {
+    lorecardsPanelDeps = { ...lorecardsPanelDeps, ...(deps || {}) };
+}
+
+function dep(name, fallback = null) {
+    const value = lorecardsPanelDeps?.[name];
+    if (typeof value === 'function') return value;
+    if (typeof fallback === 'function') return fallback;
+    throw new Error(`Saga Lorecards panel dependency is not configured: ${name}`);
+}
+
+function isBasicExperience() {
+    return dep('isBasicExperience', () => false)();
+}
+
+function getSettings() {
+    return dep('getSettings', () => ({}))();
+}
+
+function saveSettings(settings) {
+    return dep('saveSettings', () => null)(settings);
+}
+
+function markTourTarget(el, target) {
+    return dep('markTourTarget', element => element)(el, target);
+}
+
+function createCollapsibleSection(...args) {
+    return dep('createCollapsibleSection')(...args);
+}
+
+function getSelectedLoreInjectionCount(state, settings) {
+    return dep('getSelectedLoreInjectionCount', () => 0)(state, settings);
+}
+
+function getPendingLoreBatchLabel(state) {
+    return dep('getPendingLoreBatchLabel', () => '')(state);
+}
+
+function createLoreWorkbenchLaunchRow(mode, summaryText) {
+    return dep('createLoreWorkbenchLaunchRow')(mode, summaryText);
+}
+
+export function createPendingLoreBulkControls(pendingLore, state) {
+    const selectedIds = getPendingReviewSelectedIds(state);
+    const pendingIds = pendingLore.map(getLoreReviewId);
+    const selectedCount = pendingIds.filter(id => selectedIds.has(id)).length;
+
+    const card = document.createElement('div');
+    card.className = 'wandlight-runtime-card wandlight-review-bulk-card';
+
+    const header = document.createElement('label');
+    header.className = 'wandlight-review-select-all';
+    const selectAll = document.createElement('input');
+    selectAll.type = 'checkbox';
+    selectAll.checked = selectedCount > 0 && selectedCount === pendingIds.length;
+    selectAll.indeterminate = selectedCount > 0 && selectedCount < pendingIds.length;
+    addTooltip(selectAll, 'Select or clear all pending lore entries in this batch.');
+    selectAll.addEventListener('change', () => {
+        setPendingReviewSelection(selectAll.checked ? pendingIds : []);
+        refreshPanelBody({ preserveScroll: true });
+        refreshLoreWorkbench();
+    });
+    header.appendChild(selectAll);
+    const label = document.createElement('span');
+    label.textContent = selectedCount ? `${selectedCount} of ${pendingIds.length} selected` : `Select all ${pendingIds.length} pending entries`;
+    header.appendChild(label);
+    card.appendChild(header);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    actions.appendChild(createButton('Apply Selected', 'Accepts only the selected pending lore entries. Use Select All for large batches.', () => {
+        applySelectedPendingLore();
+    }, 'wandlight-primary-button'));
+    actions.appendChild(createButton('Dismiss Selected', 'Rejects only the selected pending lore entries.', () => {
+        dismissSelectedPendingLore();
+    }));
+    actions.appendChild(createButton('Apply All', 'Accepts every pending lore entry in the current batch.', () => {
+        const current = getState();
+        const count = (current.pendingLoreEntries || []).length;
+        acceptPendingLoreEntries();
+        clearPendingReviewSelection();
+        refreshPanelBody({ preserveScroll: false });
+        refreshHeader();
+        refreshLoreWorkbench();
+        toast(`${count} lore entries accepted.`);
+    }));
+    actions.appendChild(createButton('Dismiss All', 'Rejects every pending lore entry in the current batch.', () => {
+        const current = getState();
+        const count = (current.pendingLoreEntries || []).length;
+        rejectPendingLoreEntries();
+        clearPendingReviewSelection();
+        refreshPanelBody({ preserveScroll: false });
+        refreshHeader();
+        refreshLoreWorkbench();
+        toast(`${count} lore entries dismissed.`, 'info');
+    }));
+    card.appendChild(actions);
+
+    return card;
+}
+
+export function createPendingLoreReviewCard(entry, index, selected = false) {
+    const card = document.createElement('div');
+    card.className = 'wandlight-lore-entry-card wandlight-lore-entry-pending wandlight-pending-review-entry-card';
+    markTourTarget(card, 'lore.pending.entry');
+    if (selected) card.classList.add('wandlight-review-lore-card-selected');
+
+    const headerRow = document.createElement('div');
+    headerRow.className = 'wandlight-lore-entry-header';
+    headerRow.appendChild(createPendingLoreCheckbox(entry, selected));
+
+    const titleWrap = document.createElement('div');
+    titleWrap.className = 'wandlight-lore-entry-title-wrap';
+    const title = document.createElement('span');
+    title.className = 'wandlight-lore-entry-title';
+    title.textContent = entry.title || `Pending lore ${index + 1}`;
+    addTooltip(title, 'Generated lore entry title. This entry is pending until accepted.');
+    titleWrap.appendChild(title);
+    headerRow.appendChild(titleWrap);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-lore-entry-actions';
+    actions.appendChild(createEditableLifecycleBadge(entry, { pending: true }));
+    const status = document.createElement('span');
+    status.className = 'wandlight-lore-badge wandlight-lore-badge-pending';
+    status.textContent = 'pending';
+    addTooltip(status, 'This lore entry has not been accepted into the accepted lore matrix yet.');
+    actions.appendChild(status);
+    headerRow.appendChild(actions);
+    card.appendChild(headerRow);
+
+    const meta = document.createElement('div');
+    meta.className = 'wandlight-lore-entry-meta';
+    meta.appendChild(createRegistryBadge('category', entry.category || 'other', `Category: ${entry.category || 'other'}. Pending cards use the same compact metadata style as accepted cards.`));
+    meta.appendChild(createLorePurposeBadge(entry));
+    meta.appendChild(createRegistryBadge('canonStatus', entry.canon || entry.canonStatus || 'canon', `Canon/Story: ${entry.canon || entry.canonStatus || 'canon'}.`));
+    appendEntrySourceAndContextBadges(meta, entry);
+    meta.appendChild(createBadge(`P${Number(entry.priority || 50)}`, 'Priority used for sorting, injection preference, and canon-lore suggestion limits.'));
+    const generation = entry.extensions?.wandlightGeneration || {};
+    const reviewMeta = entry.extensions?.wandlightPendingReview || {};
+    if (generation.operation) meta.appendChild(createBadge(`Op: ${generation.operation}`, 'Generated lore operation proposed by the story-lore scan.'));
+    if (generation.qualityRoute || reviewMeta.qualityRoute) meta.appendChild(createBadge(`Quality: ${generation.qualityRoute || reviewMeta.qualityRoute}`, generation.qualityReason || reviewMeta.qualityReason || 'Generated-lore quality route.'));
+    if (generation.similarityRoute || reviewMeta.reviewRoute) meta.appendChild(createBadge(`Route: ${generation.similarityRoute || reviewMeta.reviewRoute}`, generation.similarityReason || reviewMeta.similarityReason || 'Similarity/update routing result.'));
+    if (generation.recommendedPin) meta.appendChild(createBadge('pin suggested', 'Generator recommends pinning/protecting this entry after acceptance.'));
+    if (generation.recommendedMute) meta.appendChild(createBadge('mute suggested', 'Generator recommends storing but muting this entry after acceptance.'));
+    meta.appendChild(createSpellMetadataBadges(entry));
+    if (entry.confidence !== undefined) meta.appendChild(createBadge(`confidence ${entry.confidence}`, 'Model-provided confidence for this entry.'));
+    card.appendChild(meta);
+
+    const targetId = generation.targetEntryId || reviewMeta.targetEntryId || '';
+    if (targetId) {
+        const target = normalizeLoreMatrix(getState()?.loreMatrix || []).find(item => item.id === targetId);
+        const targetBox = document.createElement('div');
+        targetBox.className = 'wandlight-runtime-help wandlight-pending-target-help';
+        targetBox.textContent = target
+            ? `Targets existing lore: ${target.title || target.id}${target.fact ? ` - ${target.fact}` : ''}`
+            : `Targets existing lore id: ${targetId}`;
+        addTooltip(targetBox, generation.similarityReason || reviewMeta.similarityReason || 'Accepting this candidate will update or merge into the target if it still exists and is not locked.');
+        card.appendChild(targetBox);
+    }
+
+    if (Array.isArray(entry.tags) && entry.tags.length) {
+        const tags = createReadOnlyTags(entry.tags);
+        tags.classList.add('wandlight-pending-readonly-tags');
+        card.appendChild(tags);
+    }
+
+    const fact = document.createElement('div');
+    fact.className = 'wandlight-lore-entry-fact';
+    fact.textContent = entry.fact || '(No fact text)';
+    addTooltip(fact, 'The fact that will be merged into the accepted lore matrix if applied.');
+    card.appendChild(fact);
+
+    if (entry.content?.injection && entry.content.injection !== entry.fact) {
+        const injection = document.createElement('div');
+        injection.className = 'wandlight-runtime-help wandlight-pending-injection-preview';
+        injection.textContent = `Injection: ${entry.content.injection}`;
+        addTooltip(injection, 'Model-facing lore text that will be injected after acceptance.');
+        card.appendChild(injection);
+    }
+    if (Array.isArray(entry.content?.constraints) && entry.content.constraints.length) {
+        const constraints = document.createElement('div');
+        constraints.className = 'wandlight-runtime-help wandlight-pending-constraints-preview';
+        constraints.textContent = `Constraints: ${entry.content.constraints.join(' ')}`;
+        addTooltip(constraints, 'Specific constraints captured by generated lore.');
+        card.appendChild(constraints);
+    }
+
+    const actionsRow = document.createElement('div');
+    actionsRow.className = 'wandlight-primary-actions wandlight-pending-entry-actions';
+    markTourTarget(actionsRow, 'lore.pending.actions');
+    const applyLabel = targetId ? 'Apply Update' : 'Apply';
+    actionsRow.appendChild(createButton(applyLabel, targetId ? 'Accepts this generated update and merges it into the targeted accepted lore entry.' : 'Accepts this single lore entry and merges it into the accepted lore matrix.', () => {
+        acceptPendingLoreEntry(index);
+        togglePendingReviewSelection(getLoreReviewId(entry), false);
+        refreshPanelBody({ preserveScroll: true });
+        refreshHeader();
+        refreshLoreWorkbench();
+        toast('Lore entry accepted.');
+    }, 'wandlight-primary-button'));
+    if (targetId) {
+        actionsRow.appendChild(createButton('Apply as New', 'Accepts this generated lore as a separate new entry instead of updating the routed target.', () => {
+            const current = getState();
+            const pending = normalizeLoreMatrix(current.pendingLoreEntries || []);
+            if (pending[index]) {
+                const generationMeta = pending[index].extensions?.wandlightGeneration || {};
+                const reviewMeta = pending[index].extensions?.wandlightPendingReview || {};
+                pending[index] = normalizeLoreEntry({
+                    ...pending[index],
+                    extensions: {
+                        ...(pending[index].extensions || {}),
+                        wandlightGeneration: {
+                            ...generationMeta,
+                            operation: 'create',
+                            targetEntryId: '',
+                            similarityRoute: 'kept_separate',
+                        },
+                        wandlightPendingReview: {
+                            ...reviewMeta,
+                            reviewRoute: 'kept_separate',
+                            targetEntryId: '',
+                        },
+                    },
+                });
+                current.pendingLoreEntries = pending;
+                saveState(current, { syncPrompt: false });
+            }
+            acceptPendingLoreEntry(index);
+            togglePendingReviewSelection(getLoreReviewId(entry), false);
+            refreshPanelBody({ preserveScroll: true });
+            refreshHeader();
+            refreshLoreWorkbench();
+            toast('Lore entry accepted as new.');
+        }));
+    }
+    actionsRow.appendChild(createButton('Dismiss', 'Rejects this single lore entry without changing accepted lore.', () => {
+        rejectPendingLoreEntry(index);
+        togglePendingReviewSelection(getLoreReviewId(entry), false);
+        refreshPanelBody({ preserveScroll: true });
+        refreshHeader();
+        refreshLoreWorkbench();
+        toast('Lore entry dismissed.', 'info');
+    }));
+    card.appendChild(actionsRow);
+
+    return card;
+}
+
+function createPendingLoreCheckbox(entry, checked) {
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.className = 'wandlight-review-lore-checkbox wandlight-lore-entry-select';
+    checkbox.checked = checked;
+    addTooltip(checkbox, checked ? 'Remove this lore entry from the current bulk selection.' : 'Add this lore entry to the current bulk selection.');
+    checkbox.addEventListener('click', e => e.stopPropagation());
+    checkbox.addEventListener('change', () => {
+        togglePendingReviewSelection(getLoreReviewId(entry), checkbox.checked);
+        refreshPanelBody({ preserveScroll: true });
+        refreshLoreWorkbench();
+    });
+    return checkbox;
+}
+
+function createReadOnlyTags(tags) {
+    const row = document.createElement('div');
+    row.className = 'wandlight-lore-entry-tags';
+    for (const tag of tags) {
+        const chip = document.createElement('span');
+        chip.className = 'wandlight-lore-tag-chip';
+        const label = document.createElement('span');
+        label.className = 'wandlight-lore-tag-label';
+        label.textContent = tag;
+        chip.appendChild(label);
+        row.appendChild(chip);
+    }
+    return row;
+}
+
+function getLifecycleStatus(entry) {
+    return normalizeLoreRelevance(entry.relevance || entry.lifecycleStatus || entry.lifecycle?.status || entry.lifecycle?.computedStatus || 'normal');
+}
+
+function getLoreFieldRegistry(field) {
+    if (field === 'category') return 'categories';
+    if (field === 'canonStatus') return 'canonStatuses';
+    if (field === 'truthStatus') return 'truthStatuses';
+    if (field === 'revealPolicy') return 'revealPolicies';
+    return '';
+}
+
+function getLoreRegistryMeta(registryName, value) {
+    return dep('getLoreRegistryMeta', () => null)(registryName, value);
+}
+
+function applyLoreRegistryStyle(el, field, value) {
+    return dep('applyLoreRegistryStyle', element => element)(el, field, value);
+}
+
+function createEditableLifecycleBadge(entry, options = {}) {
+    const value = getLifecycleStatus(entry);
+    const meta = RELEVANCE_META[value] || RELEVANCE_META.normal;
+    const wrap = document.createElement('label');
+    wrap.className = 'wandlight-lore-lifecycle-select-wrap';
+    wrap.style.setProperty('--wandlight-chip-bg', meta.color);
+    wrap.style.setProperty('--wandlight-chip-fg', meta.textColor);
+    addTooltip(wrap, `${meta.label} Relevance: ${meta.tooltip}`);
+
+    const select = document.createElement('select');
+    select.className = 'wandlight-lore-lifecycle-select';
+    select.setAttribute('aria-label', 'Lore relevance');
+    select.addEventListener('click', e => e.stopPropagation());
+    select.addEventListener('mousedown', e => e.stopPropagation());
+
+    for (const status of LORE_RELEVANCE_TIERS) {
+        const option = document.createElement('option');
+        option.value = status;
+        option.textContent = RELEVANCE_META[status]?.label || status;
+        if (status === value) option.selected = true;
+        select.appendChild(option);
+    }
+
+    select.addEventListener('change', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const nextRelevance = normalizeLoreRelevance(select.value);
+        updateLoreEntryById(entry.id, raw => ({
+            ...raw,
+            relevance: nextRelevance,
+            lifecycle: {
+                ...(raw.lifecycle || {}),
+                status: '',
+                computedStatus: '',
+                manualOverride: false,
+                reason: `Relevance manually set to ${nextRelevance}.`,
+                lastEvaluatedAt: Date.now(),
+            },
+            extensions: {
+                ...(raw.extensions || {}),
+                autoRelevance: {
+                    ...(raw.extensions?.autoRelevance || {}),
+                    mode: 'manual',
+                    confidence: 1,
+                    reason: `User manually set relevance to ${nextRelevance}.`,
+                    updatedAt: Date.now(),
+                },
+            },
+        }), { deferSave: true });
+        if (options.pending) refreshPanelBody({ preserveScroll: true });
+        else if (!refreshAcceptedLoreRow(entry.id)) refreshAcceptedLoreList({ preserveScroll: true });
+        refreshAcceptedLoreBulkToolbar();
+        refreshHeader();
+        refreshLoreWorkbench();
+        toast(`${entry.title || 'Lore entry'} relevance set to ${RELEVANCE_META[nextRelevance]?.label || nextRelevance}.`, 'info');
+    });
+
+    wrap.appendChild(select);
+    return wrap;
+}
+
+function createRegistryBadge(field, value, tooltip = '') {
+    const label = getLoreDisplayLabel(field, value);
+    const badge = createBadge(label, tooltip || `${field}: ${label}. Expand the entry to edit.`);
+    badge.classList.add('wandlight-lore-registry-badge');
+    applyLoreRegistryStyle(badge, field, value);
+    return badge;
+}
+
+function createLorePurposeBadge(entry) {
+    return dep('createLorePurposeBadge')(entry);
+}
+
+function appendEntrySourceAndContextBadges(meta, entry) {
+    return dep('appendEntrySourceAndContextBadges')(meta, entry);
+}
+
+function createSpellMetadataBadges(entry) {
+    return dep('createSpellMetadataBadges')(entry);
+}
+
+function isPendingLoreSelected(state, entry) {
+    return dep('isPendingLoreSelected', () => false)(state, entry);
+}
+
+function getLoreReviewId(entry) {
+    return dep('getLoreReviewId', raw => raw?.id || `${raw?.title || 'pending'}:${raw?.fact || ''}`)(entry);
+}
+
+function getPendingReviewSelectedIds(state) {
+    return dep('getPendingReviewSelectedIds', () => new Set())(state);
+}
+
+function setPendingReviewSelection(ids) {
+    return dep('setPendingReviewSelection', () => null)(ids);
+}
+
+function togglePendingReviewSelection(id, selected) {
+    return dep('togglePendingReviewSelection', () => null)(id, selected);
+}
+
+function clearPendingReviewSelection() {
+    return dep('clearPendingReviewSelection', () => null)();
+}
+
+function applySelectedPendingLore() {
+    return dep('applySelectedPendingLore', () => null)();
+}
+
+function dismissSelectedPendingLore() {
+    return dep('dismissSelectedPendingLore', () => null)();
+}
+
+function acceptPendingLoreEntries() {
+    return dep('acceptPendingLoreEntries', () => null)();
+}
+
+function rejectPendingLoreEntries() {
+    return dep('rejectPendingLoreEntries', () => null)();
+}
+
+function acceptPendingLoreEntry(index) {
+    return dep('acceptPendingLoreEntry', () => null)(index);
+}
+
+function rejectPendingLoreEntry(index) {
+    return dep('rejectPendingLoreEntry', () => null)(index);
+}
+
+function refreshLoreWorkbench() {
+    return dep('refreshLoreWorkbench', () => null)();
+}
+
+function refreshHeader() {
+    return dep('refreshHeader', () => null)();
+}
+
+function toast(message, type) {
+    return dep('toast', () => null)(message, type);
+}
+
+function getState() {
+    return dep('getState', () => ({}))();
+}
+
+function saveState(state, options) {
+    return dep('saveState', () => null)(state, options);
+}
+
+function refreshPanelBody(options = {}) {
+    return dep('refreshPanelBody', () => null)(options);
+}
+
+function getLoreDisplayLabel(field, value) {
+    return dep('getLoreDisplayLabel', (fieldName, rawValue) => String(rawValue || fieldName || ''))(field, value);
+}
+
+function getCategoryCount(category, entries, counts) {
+    return dep('getCategoryCount', () => 0)(category, entries, counts);
+}
+
+function getCategoryTooltip(category) {
+    return dep('getCategoryTooltip', () => String(category || ''))(category);
+}
+
+function setPanelState(patch, options = {}) {
+    return dep('setPanelState', () => null)(patch, options);
+}
+
+function refreshAcceptedLoreCategoryTabs(activeCategory) {
+    return dep('refreshAcceptedLoreCategoryTabs', () => null)(activeCategory);
+}
+
+function refreshAcceptedLoreFilterResults(options = {}) {
+    return dep('refreshAcceptedLoreFilterResults', () => null)(options);
+}
+
+function scheduleAcceptedLoreListRender(container) {
+    return dep('scheduleAcceptedLoreListRender', () => null)(container);
+}
+
+function getAcceptedSelectionSet(state) {
+    const result = dep('getAcceptedSelectionSet', () => new Set())(state);
+    return result instanceof Set ? result : new Set(Array.isArray(result) ? result : []);
+}
+
+function getFilteredAcceptedLoreIds(state) {
+    return dep('getFilteredAcceptedLoreIds', () => [])(state);
+}
+
+function setAcceptedLoreSelection(ids, options = {}) {
+    return dep('setAcceptedLoreSelection', () => null)(ids, options);
+}
+
+function bulkUpdateAcceptedLore(ids, updater) {
+    return dep('bulkUpdateAcceptedLore', () => false)(ids, updater);
+}
+
+function bulkSetAcceptedPinned(ids, pinned) {
+    return dep('bulkSetAcceptedPinned', () => null)(ids, pinned);
+}
+
+function bulkSetAcceptedMuted(ids, muted) {
+    return dep('bulkSetAcceptedMuted', () => null)(ids, muted);
+}
+
+function bulkAddTagToAcceptedLore(ids, tag) {
+    return dep('bulkAddTagToAcceptedLore', () => false)(ids, tag);
+}
+
+function bulkDeleteAcceptedLore(ids) {
+    return dep('bulkDeleteAcceptedLore', () => null)(ids);
+}
+
+function getLoreRegistryValues(registryName, fallback = []) {
+    return dep('getLoreRegistryValues', (_registryName, values = []) => values)(registryName, fallback);
+}
+
+function getLorePriorityValues() {
+    return dep('getLorePriorityValues', () => [10, 25, 50, 75, 90, 100])();
+}
+
+function appendPendingLoreEntries(entries, batch, options = {}) {
+    return dep('appendPendingLoreEntries')(entries, batch, options);
+}
+
+function recordLoreTimelineEvent(state, event) {
+    return dep('recordLoreTimelineEvent', () => null)(state, event);
+}
+
+function captureLoreTimelineState(state) {
+    return dep('captureLoreTimelineState', () => null)(state);
+}
+
+function scheduleStateSave(state, delay) {
+    return dep('scheduleStateSave', saveState)(state, delay);
+}
+
+function refreshLoreTimeline() {
+    return dep('refreshLoreTimeline', () => null)();
+}
+
+function appendSettingsResetButton(container, settingKeys, label = 'Settings') {
+    return dep('appendSettingsResetButton', () => null)(container, settingKeys, label);
+}
+
+function runAutoRelevance(options = {}) {
+    return dep('runAutoRelevance')(options);
+}
+
+function applyAutoRelevanceSuggestions(ids = null) {
+    return dep('applyAutoRelevanceSuggestions', () => ({ applied: 0 }))(ids);
+}
+
+function rejectAutoRelevanceSuggestions(ids = null) {
+    return dep('rejectAutoRelevanceSuggestions', () => ({ rejected: 0 }))(ids);
+}
+
+function clearAutoRelevanceSuggestions() {
+    return dep('clearAutoRelevanceSuggestions', () => null)();
+}
+
+export function createAutoRelevanceCard(state) {
+    const settings = getSettings();
+    const card = document.createElement('div');
+    card.className = 'wandlight-runtime-card wandlight-auto-relevance-card';
+    const title = document.createElement('div');
+    title.className = 'wandlight-runtime-card-title';
+    title.textContent = 'Auto-Relevance';
+    addTooltip(title, 'Periodically rescans recent context and adjusts accepted lore relevance tiers. Mute remains the hard injection on/off control.');
+    card.appendChild(title);
+    const help = document.createElement('div');
+    help.className = 'wandlight-runtime-help';
+    help.textContent = 'Auto-Relevance uses local scoring for performance. It can promote or demote High/Normal/Low relevance, but it does not change mute or pin.';
+    card.appendChild(help);
+    appendSettingsResetButton(card, AUTO_RELEVANCE_SETTING_KEYS, 'Auto-Relevance settings');
+
+    const enabled = document.createElement('label');
+    enabled.className = 'wandlight-inline-toggle';
+    markTourTarget(enabled, 'lore.autoRelevance.toggle');
+    const cb = document.createElement('input');
+    cb.type = 'checkbox';
+    cb.checked = !!settings.autoRelevanceEnabled;
+    cb.addEventListener('change', () => {
+        const next = getSettings();
+        next.autoRelevanceEnabled = cb.checked;
+        if (cb.checked && (!next.autoRelevanceMode || next.autoRelevanceMode === 'off')) next.autoRelevanceMode = 'suggest';
+        saveSettings(next);
+        refreshPanelBody({ preserveScroll: true });
+    });
+    enabled.appendChild(cb);
+    enabled.appendChild(document.createTextNode(' Enable Auto-Relevance'));
+    card.appendChild(enabled);
+
+    const modeRow = document.createElement('div');
+    modeRow.className = 'wandlight-runtime-grid';
+    markTourTarget(modeRow, 'lore.autoRelevance.mode');
+    const modeLabel = document.createElement('label');
+    modeLabel.className = 'wandlight-inline-field';
+    const modeSpan = document.createElement('span');
+    modeSpan.textContent = 'Action when enabled';
+    addTooltip(modeSpan, 'The checkbox turns Auto-Relevance on or off. This selector controls what Auto-Relevance does when it runs.');
+    const modeSelect = document.createElement('select');
+    const selectedMode = (settings.autoRelevanceMode || 'suggest') === 'off' ? 'suggest' : (settings.autoRelevanceMode || 'suggest');
+    for (const [value, label] of [['suggest', 'Suggest changes for review'], ['apply_high_confidence', 'Apply high-confidence changes']]) {
+        const option = document.createElement('option');
+        option.value = value;
+        option.textContent = label;
+        if (selectedMode === value) option.selected = true;
+        modeSelect.appendChild(option);
+    }
+    modeSelect.addEventListener('change', () => {
+        const next = getSettings();
+        next.autoRelevanceMode = modeSelect.value;
+        saveSettings(next);
+        refreshPanelBody({ preserveScroll: true });
+    });
+    modeLabel.appendChild(modeSpan);
+    modeLabel.appendChild(modeSelect);
+    modeRow.appendChild(modeLabel);
+    card.appendChild(modeRow);
+
+    const row = document.createElement('div');
+    row.className = 'wandlight-runtime-grid';
+    markTourTarget(row, 'lore.autoRelevance.tuning');
+    row.appendChild(createNumberSettingMini('Run every turns', 'autoRelevanceEveryTurns', settings.autoRelevanceEveryTurns || 5, 1, 50));
+    row.appendChild(createNumberSettingMini('Recent messages', 'autoRelevanceRecentMessages', settings.autoRelevanceRecentMessages || 20, 1, 200));
+    row.appendChild(createNumberSettingMini('Candidate cap', 'autoRelevanceCandidateCap', settings.autoRelevanceCandidateCap || 40, 1, 500));
+    row.appendChild(createNumberSettingMini('Min confidence %', 'autoRelevanceMinConfidence', Math.round((settings.autoRelevanceMinConfidence || 0.7) * 100), 1, 100, value => Number(value) / 100));
+    card.appendChild(row);
+
+    const modelRow = document.createElement('div');
+    modelRow.className = 'wandlight-runtime-grid';
+    markTourTarget(modelRow, 'lore.autoRelevance.model');
+    const modelToggle = document.createElement('label');
+    modelToggle.className = 'wandlight-inline-toggle';
+    const modelCb = document.createElement('input');
+    modelCb.type = 'checkbox';
+    modelCb.checked = !!settings.autoRelevanceUseModel;
+    modelCb.addEventListener('change', () => {
+        const next = getSettings();
+        next.autoRelevanceUseModel = modelCb.checked;
+        saveSettings(next);
+        refreshPanelBody({ preserveScroll: true });
+    });
+    modelToggle.appendChild(modelCb);
+    modelToggle.appendChild(document.createTextNode(' Use Utility Provider adjudication'));
+    addTooltip(modelToggle, 'Optional second-stage model review. Saga still scores locally first and sends only the candidate cap subset.');
+    modelRow.appendChild(modelToggle);
+    modelRow.appendChild(createNumberSettingMini('Model candidate cap', 'autoRelevanceModelCandidateCap', settings.autoRelevanceModelCandidateCap || 30, 1, 80));
+    modelRow.appendChild(createNumberSettingMini('Model max tokens', 'autoRelevanceModelMaxTokens', settings.autoRelevanceModelMaxTokens || 2048, 512, 4096));
+    card.appendChild(modelRow);
+    const counts = getLoreRelevanceCounts(state);
+    card.appendChild(createKeyValue('Current tiers', `High ${counts.high} | Normal ${counts.normal} | Low ${counts.low} | Muted ${counts.muted}`, 'Current accepted lore counts by relevance.'));
+
+    const suggestions = Array.isArray(state.autoRelevanceSuggestions) ? state.autoRelevanceSuggestions : [];
+    if (suggestions.length) {
+        const box = document.createElement('div');
+        box.className = 'wandlight-auto-relevance-suggestions';
+        markTourTarget(box, 'lore.autoRelevance.suggestions');
+        const heading = document.createElement('div');
+        heading.className = 'wandlight-runtime-help';
+        heading.textContent = `Pending relevance suggestions: ${suggestions.length}`;
+        box.appendChild(heading);
+        for (const suggestion of suggestions.slice(0, 12)) {
+            const row = document.createElement('div');
+            row.className = 'wandlight-auto-relevance-suggestion-row';
+            const summary = document.createElement('div');
+            summary.className = 'wandlight-auto-relevance-suggestion-summary';
+            summary.textContent = `${suggestion.title || suggestion.id}: ${suggestion.currentRelevance || '?'} -> ${suggestion.suggestedRelevance} (${Math.round((suggestion.confidence || 0) * 100)}%, ${suggestion.source || 'local'})`;
+            addTooltip(summary, suggestion.reason || 'Auto-Relevance suggestion.');
+            row.appendChild(summary);
+            const applyOne = createButton('Apply', 'Apply this relevance suggestion only.', () => {
+                const result = applyAutoRelevanceSuggestions([suggestion.id]);
+                refreshPanelBody({ preserveScroll: true });
+                refreshHeader();
+                toast(`Applied ${result.applied || 0} relevance suggestion.`, 'success');
+            }, 'wandlight-mini-button');
+            const rejectOne = createButton('Reject', 'Reject this relevance suggestion only.', () => {
+                const result = rejectAutoRelevanceSuggestions([suggestion.id]);
+                refreshPanelBody({ preserveScroll: true });
+                toast(`Rejected ${result.rejected || 0} relevance suggestion.`, 'info');
+            }, 'wandlight-mini-button');
+            row.appendChild(applyOne);
+            row.appendChild(rejectOne);
+            box.appendChild(row);
+        }
+        if (suggestions.length > 12) {
+            const more = document.createElement('div');
+            more.className = 'wandlight-runtime-help';
+            more.textContent = `${suggestions.length - 12} additional suggestions hidden. Use Apply Suggestions or Clear Suggestions for the full queue.`;
+            box.appendChild(more);
+        }
+        card.appendChild(box);
+    }
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    markTourTarget(actions, 'lore.autoRelevance.actions');
+    actions.appendChild(createButton('Run Auto-Relevance Now', 'Runs Auto-Relevance immediately. Local scoring always runs first; optional Utility Provider adjudication reviews only the candidate set.', async (btn) => {
+        const original = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = 'Running...';
+        try {
+            const result = await runAutoRelevance({ force: true });
+            refreshPanelBody({ preserveScroll: true });
+            refreshHeader();
+            toast(`Auto-Relevance ${result.status}: ${result.changed || 0} changed, ${result.suggested || 0} suggested, ${result.considered || 0} considered${result.modelStatus ? `, model ${result.modelStatus}` : ''}.`, 'info');
+        } catch (e) {
+            console.error(e);
+            toast(`Auto-Relevance failed: ${e?.message || e}`, 'error');
+        } finally {
+            btn.disabled = false;
+            btn.textContent = original;
+        }
+    }, 'wandlight-primary-button'));
+    if (suggestions.length) {
+        actions.appendChild(createButton('Apply Suggestions', 'Applies all pending Auto-Relevance suggestions.', () => {
+            const result = applyAutoRelevanceSuggestions();
+            refreshPanelBody({ preserveScroll: true });
+            refreshHeader();
+            toast(`Auto-Relevance suggestions applied: ${result.applied || 0}.`, 'success');
+        }, 'wandlight-small-button'));
+        actions.appendChild(createButton('Reject All Suggestions', 'Rejects all pending Auto-Relevance suggestions without applying them.', () => {
+            clearAutoRelevanceSuggestions();
+            refreshPanelBody({ preserveScroll: true });
+            toast('Auto-Relevance suggestions rejected.', 'info');
+        }, 'wandlight-small-button'));
+    }
+    card.appendChild(actions);
+    return card;
+}
+
+function createNumberSettingMini(labelText, settingKey, value, min, max, transform = null) {
+    const label = document.createElement('label');
+    label.className = 'wandlight-inline-field';
+    const span = document.createElement('span');
+    span.textContent = labelText;
+    const input = document.createElement('input');
+    input.type = 'number';
+    input.min = String(min);
+    input.max = String(max);
+    input.value = String(value);
+    input.addEventListener('change', () => {
+        const next = getSettings();
+        const raw = Math.max(min, Math.min(max, Number(input.value) || Number(value) || min));
+        next[settingKey] = transform ? transform(raw) : raw;
+        saveSettings(next);
+        refreshPanelBody({ preserveScroll: true });
+    });
+    label.appendChild(span);
+    label.appendChild(input);
+    return label;
+}
+
+export function openNewLoreDialog() {
+    const existing = document.querySelector('.wandlight-new-lore-overlay');
+    existing?.remove();
+
+    const overlay = document.createElement('div');
+    overlay.className = 'wandlight-new-lore-overlay';
+    wireOverlayBackdropClose(overlay, () => overlay.remove());
+    document.body.appendChild(overlay);
+
+    const shell = document.createElement('div');
+    shell.className = 'wandlight-new-lore-shell';
+    overlay.appendChild(shell);
+
+    const header = document.createElement('div');
+    header.className = 'wandlight-lore-workbench-header';
+    const titleWrap = document.createElement('div');
+    titleWrap.className = 'wandlight-lore-workbench-title-wrap';
+    const title = document.createElement('div');
+    title.className = 'wandlight-lore-workbench-title';
+    title.textContent = 'New Lorecard';
+    titleWrap.appendChild(title);
+    const subtitle = document.createElement('div');
+    subtitle.className = 'wandlight-lore-workbench-subtitle';
+    subtitle.textContent = 'Creates a pending draft for review, editing, and acceptance.';
+    titleWrap.appendChild(subtitle);
+    header.appendChild(titleWrap);
+    header.appendChild(createButton('Close', 'Close without creating lore.', () => overlay.remove()));
+    shell.appendChild(header);
+
+    const form = document.createElement('div');
+    form.className = 'wandlight-new-lore-form';
+    shell.appendChild(form);
+
+    const titleInput = createNewLoreInput(form, 'Title', 'Short descriptive title', '', false, 'Conundrum Confidicus opening hazard');
+    const factInput = createNewLoreInput(form, 'Lore Text', 'The durable fact, rule, constraint, or state to remember', '', true, 'The Conundrum Confidicus is an ancient book that whispers whenever it is opened and chills the room around it.');
+    const injectionInput = createNewLoreInput(form, 'Injection Override', 'Optional model-facing phrasing; blank uses Lore Text', '', true, 'When this book opens, describe faint whispers and an unnatural chill before any spell effect is revealed.');
+    const notesInput = createNewLoreInput(form, 'Notes', 'Optional private notes for the user', '', true, 'Introduced during the Restricted Section scene. Keep as AU unless later tied to canon.');
+
+    const metaGrid = document.createElement('div');
+    metaGrid.className = 'wandlight-new-lore-meta-grid';
+    form.appendChild(metaGrid);
+    const categorySelect = createNewLoreSelect(metaGrid, 'Category', getLoreRegistryValues('categories', LORE_CATEGORY_VALUES), 'knowledge');
+    const canonSelect = createNewLoreSelect(metaGrid, 'Canon', getLoreRegistryValues('canonStatuses', ['canon', 'au']), 'au');
+    const relevanceSelect = createNewLoreSelect(metaGrid, 'Relevance', LORE_RELEVANCE_TIERS, 'normal', value => LORE_RELEVANCE_LABELS[value] || value);
+    const prioritySelect = createNewLoreSelect(metaGrid, 'Priority', getLorePriorityValues().map(String), '50');
+    const truthSelect = createNewLoreSelect(metaGrid, 'Truth', getLoreRegistryValues('truthStatuses', ['true', 'rumor', 'contested', 'hidden']), 'true');
+    const revealSelect = createNewLoreSelect(metaGrid, 'Reveal', getLoreRegistryValues('revealPolicies', ['private', 'public', 'do_not_reveal']), 'private');
+    const tagsInput = createNewLoreInput(form, 'Tags', 'Comma-separated tags', '', false, 'restricted-section, cursed-book, whispers');
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    actions.appendChild(createButton('Create Pending Lore', 'Adds this draft to Pending Lore Review.', () => {
+        const title = titleInput.value.trim();
+        const fact = factInput.value.trim();
+        if (!title || !fact) {
+            toast('New lore needs both a title and lore text.', 'warning');
+            return;
+        }
+
+        const entry = normalizeLoreEntry({
+            title,
+            fact,
+            category: categorySelect.value,
+            canon: canonSelect.value,
+            canonStatus: canonSelect.value,
+            relevance: relevanceSelect.value,
+            priority: Number(prioritySelect.value) || 50,
+            truthStatus: truthSelect.value,
+            revealPolicy: revealSelect.value,
+            tags: tagsInput.value,
+            source: 'manual',
+            sourceInfo: {
+                work: 'Manual Lore',
+                notes: 'Created manually by the user.',
+                confidence: 1,
+            },
+            content: {
+                fact,
+                injection: injectionInput.value.trim() || fact,
+                notes: notesInput.value.trim(),
+            },
+            userEditable: true,
+            userEdited: true,
+            extensions: {
+                wandlightManualDraft: {
+                    createdAt: Date.now(),
+                    reviewRoute: 'manual_pending',
+                },
+            },
+        });
+
+        const result = appendPendingLoreEntries([entry], {
+            source: 'manual',
+            status: 'pending',
+            summary: `Manual lore draft: ${entry.title}`,
+            normalizedEntryCount: 1,
+            rawEntryCount: 1,
+        }, { snapshot: false, snapshotLabel: 'Create manual lore draft' });
+        recordLoreTimelineEvent(result.state, {
+            type: 'manual_create_pending',
+            source: 'manual',
+            summary: `Created manual pending lore: ${entry.title}`,
+            counts: { pending: 1 },
+            refs: [{ id: entry.id, title: entry.title, category: entry.category, relevance: entry.relevance, canon: entry.canon }],
+            patch: { pendingEntries: [entry] },
+            reversible: false,
+            force: true,
+        });
+        saveState(result.state);
+        overlay.remove();
+        refreshPanelBody({ preserveScroll: true });
+        refreshHeader();
+        refreshLoreTimeline();
+        refreshLoreWorkbench();
+        toast('Manual lore draft added to Pending Review.', 'success');
+    }, 'wandlight-primary-button'));
+    actions.appendChild(createButton('Cancel', 'Close without creating lore.', () => overlay.remove()));
+    form.appendChild(actions);
+
+    const schedule = typeof requestAnimationFrame === 'function'
+        ? requestAnimationFrame
+        : callback => setTimeout(callback, 0);
+    schedule(() => titleInput.focus());
+}
+
+export function createNewLoreInput(container, labelText, tooltip, value = '', multiline = false, placeholder = '') {
+    const label = document.createElement('label');
+    label.className = 'wandlight-new-lore-field';
+    const span = document.createElement('span');
+    span.textContent = labelText;
+    addTooltip(span, tooltip);
+    label.appendChild(span);
+    const input = multiline ? document.createElement('textarea') : document.createElement('input');
+    input.className = multiline ? 'wandlight-lore-editor-textarea' : 'wandlight-lore-editor-input';
+    if (!multiline) input.type = 'text';
+    input.value = value || '';
+    input.placeholder = placeholder || '';
+    label.appendChild(input);
+    container.appendChild(label);
+    return input;
+}
+
+export function createNewLoreSelect(container, labelText, values, selected, display = null) {
+    const label = document.createElement('label');
+    label.className = 'wandlight-new-lore-field';
+    const span = document.createElement('span');
+    span.textContent = labelText;
+    label.appendChild(span);
+    const select = document.createElement('select');
+    select.className = 'wandlight-lore-editor-input';
+    for (const value of values) {
+        const option = document.createElement('option');
+        option.value = String(value);
+        option.textContent = display ? display(value) : getLoreDisplayLabel(labelToField(labelText), value);
+        if (String(value) === String(selected)) option.selected = true;
+        select.appendChild(option);
+    }
+    label.appendChild(select);
+    container.appendChild(label);
+    return select;
+}
+
+export function createAcceptedLoreBulkControls(state) {
+    const wrap = document.createElement('div');
+    wrap.className = 'wandlight-lore-bulk-controls-card';
+
+    const selected = getAcceptedSelectionSet(state);
+    const filteredIds = getFilteredAcceptedLoreIds(state);
+    const selectedCount = selected.size;
+    const disabled = selectedCount === 0;
+
+    const summary = document.createElement('div');
+    summary.className = 'wandlight-lore-bulk-summary';
+    summary.textContent = `${selectedCount} selected | ${filteredIds.length} matching current filters`;
+    addTooltip(summary, 'Bulk actions apply to selected accepted lore entries. Use Select Filtered to select every accepted entry matching the current search and filters, not just the rendered page.');
+    wrap.appendChild(summary);
+
+    const selectRow = document.createElement('div');
+    selectRow.className = 'wandlight-lore-bulk-row';
+    const selectFiltered = createButton('Select Filtered', 'Selects every accepted lore entry matching the current search and filters, including entries not currently rendered by paging.', () => {
+        setAcceptedLoreSelection(filteredIds, { deferSave: true });
+        refreshAcceptedLoreList({ preserveScroll: true });
+        refreshAcceptedLoreBulkToolbar();
+        refreshLoreWorkbench();
+    }, 'wandlight-small-button');
+    selectRow.appendChild(selectFiltered);
+
+    const clearSelection = createButton('Clear Selection', 'Clears the accepted-lore selection.', () => {
+        setAcceptedLoreSelection([], { deferSave: true });
+        refreshAcceptedLoreList({ preserveScroll: true });
+        refreshAcceptedLoreBulkToolbar();
+        refreshLoreWorkbench();
+    }, 'wandlight-small-button');
+    clearSelection.disabled = disabled;
+    selectRow.appendChild(clearSelection);
+    wrap.appendChild(selectRow);
+
+    const actionRow = document.createElement('div');
+    actionRow.className = 'wandlight-lore-bulk-row';
+
+    const addAction = (label, tooltip, fn, className = 'wandlight-small-button', detail = '') => {
+        const btn = createButton(label, tooltip, async () => {
+            const ids = Array.from(getAcceptedSelectionSet(getState()));
+            if (!ids.length) {
+                toast('Select one or more accepted lore entries first.', 'warning');
+                return;
+            }
+            const proceed = await confirmBulkAcceptedAction(label, ids, detail || tooltip);
+            if (!proceed) return;
+            await fn(ids);
+        }, className);
+        btn.disabled = disabled;
+        actionRow.appendChild(btn);
+        return btn;
+    };
+
+    addAction('Pin', 'Pins selected accepted lore entries so they are prioritized for injection.', ids => bulkSetAcceptedPinned(ids, true), 'wandlight-small-button', 'Selected entries will be pinned and prioritized for lore injection.');
+    addAction('Unpin', 'Removes selected accepted lore entries from pinned lore.', ids => bulkSetAcceptedPinned(ids, false), 'wandlight-small-button', 'Selected entries will no longer be pinned. They may still inject if unmuted and active.');
+    addAction('Mute', 'Mutes selected accepted lore entries so they are excluded from injection.', ids => bulkSetAcceptedMuted(ids, true), 'wandlight-small-button', 'Selected entries will be muted and excluded from injection.');
+    addAction('Unmute', 'Unmutes selected accepted lore entries.', ids => bulkSetAcceptedMuted(ids, false), 'wandlight-small-button', 'Selected entries will be unmuted and may be injected again.');
+    addAction('Delete', 'Deletes selected accepted lore entries from this chat after confirmation.', ids => bulkDeleteAcceptedLore(ids), 'wandlight-small-button wandlight-danger-button', 'Deleted accepted lore can be restored to Pending Review from Lore Timeline while the recovery payload is retained.');
+    wrap.appendChild(actionRow);
+
+    const editRow = document.createElement('div');
+    editRow.className = 'wandlight-lore-bulk-row wandlight-lore-bulk-edit-row';
+    const selectedIdsNow = () => Array.from(getAcceptedSelectionSet(getState()));
+    editRow.appendChild(createBulkSelect('Relevance', LORE_RELEVANCE_TIERS, 'Set relevance tier for selected entries.', async value => {
+        const ids = selectedIdsNow();
+        if (!(await confirmBulkAcceptedAction('Set Relevance', ids, `Selected entries will have relevance set to ${value}.`))) return;
+        bulkUpdateAcceptedLore(ids, raw => ({
+            ...raw,
+            relevance: normalizeLoreRelevance(value),
+            lifecycle: { ...(raw.lifecycle || {}), status: '', computedStatus: '', manualOverride: false, reason: 'Relevance replaced lifecycle state.' },
+            extensions: { ...(raw.extensions || {}), autoRelevance: { ...(raw.extensions?.autoRelevance || {}), mode: 'manual', confidence: 1, reason: `Bulk relevance set to ${value}.`, updatedAt: Date.now() } },
+        }));
+    }, disabled, value => LORE_RELEVANCE_LABELS[value] || value));
+    editRow.appendChild(createBulkSelect('Category', getLoreRegistryValues('categories', LORE_CATEGORY_VALUES), 'Set category for selected entries.', async value => {
+        const ids = selectedIdsNow();
+        if (!(await confirmBulkAcceptedAction('Set Category', ids, `Selected entries will have category set to ${value}.`))) return;
+        bulkUpdateAcceptedLore(ids, raw => ({ ...raw, category: value }));
+    }, disabled));
+    editRow.appendChild(createBulkSelect('Canon', getLoreRegistryValues('canonStatuses', ['canon', 'au']), 'Set canon status for selected entries.', async value => {
+        const ids = selectedIdsNow();
+        if (!(await confirmBulkAcceptedAction('Set Canon Status', ids, `Selected entries will have canon status set to ${value}.`))) return;
+        bulkUpdateAcceptedLore(ids, raw => ({ ...raw, canon: value, canonStatus: value }));
+    }, disabled));
+    editRow.appendChild(createBulkSelect('Truth', getLoreRegistryValues('truthStatuses', ['true', 'false', 'public_belief', 'rumor', 'contested', 'hidden']), 'Set truth status for selected entries.', async value => {
+        const ids = selectedIdsNow();
+        if (!(await confirmBulkAcceptedAction('Set Truth Status', ids, `Selected entries will have truth status set to ${value}.`))) return;
+        bulkUpdateAcceptedLore(ids, raw => ({ ...raw, truthStatus: value }));
+    }, disabled));
+    editRow.appendChild(createBulkSelect('Reveal', getLoreRegistryValues('revealPolicies', ['public', 'private', 'do_not_reveal', 'only_if_knower_present', 'only_if_user_reveals']), 'Set reveal policy for selected entries.', async value => {
+        const ids = selectedIdsNow();
+        if (!(await confirmBulkAcceptedAction('Set Reveal Policy', ids, `Selected entries will have reveal policy set to ${value}.`))) return;
+        bulkUpdateAcceptedLore(ids, raw => ({ ...raw, revealPolicy: value }));
+    }, disabled));
+    editRow.appendChild(createBulkSelect('Priority', getLorePriorityValues().map(String), 'Set priority for selected entries.', async value => {
+        const ids = selectedIdsNow();
+        if (!(await confirmBulkAcceptedAction('Set Priority', ids, `Selected entries will have priority set to P${value}.`))) return;
+        bulkUpdateAcceptedLore(ids, raw => ({ ...raw, priority: Number(value) || 50 }));
+    }, disabled, value => `P${value}`));
+    wrap.appendChild(editRow);
+
+    const tagRow = document.createElement('div');
+    tagRow.className = 'wandlight-lore-bulk-row wandlight-lore-bulk-tag-row';
+    const tagInput = document.createElement('input');
+    tagInput.type = 'text';
+    tagInput.className = 'wandlight-lore-bulk-tag-input';
+    tagInput.placeholder = 'Add tag to selected...';
+    tagInput.disabled = disabled;
+    addTooltip(tagInput, 'Adds one searchable tag to all selected accepted lore entries.');
+    tagInput.addEventListener('click', e => e.stopPropagation());
+    tagRow.appendChild(tagInput);
+    const addTagBtn = createButton('Add Tag', 'Adds the typed tag to selected entries.', () => {
+        const ids = Array.from(getAcceptedSelectionSet(getState()));
+        const tag = normalizeLoreTag(tagInput.value);
+        if (!ids.length || !tag) {
+            toast(ids.length ? 'Enter a tag first.' : 'Select entries first.', 'warning');
+            return;
+        }
+        confirmBulkAcceptedAction('Add Tag', ids, `The tag "${tag}" will be added to selected accepted lore entries.`).then(proceed => {
+            if (!proceed) return;
+            bulkAddTagToAcceptedLore(ids, tag);
+            tagInput.value = '';
+        });
+    }, 'wandlight-small-button');
+    addTagBtn.disabled = disabled;
+    tagRow.appendChild(addTagBtn);
+    wrap.appendChild(tagRow);
+
+    return wrap;
+}
+
+async function confirmBulkAcceptedAction(actionLabel, ids, detail = '') {
+    const safeIds = Array.isArray(ids) ? ids : [];
+    if (!safeIds.length) {
+        toast('Select one or more accepted lore entries first.', 'warning');
+        return false;
+    }
+    const state = getState();
+    const byId = new Map(normalizeLoreMatrix(state?.loreMatrix || []).map(entry => [entry.id, entry]));
+    const names = safeIds
+        .map(id => byId.get(id)?.title || id)
+        .filter(Boolean)
+        .slice(0, 6);
+    const extra = safeIds.length > names.length ? `\n...and ${safeIds.length - names.length} more.` : '';
+    const message = [
+        `You are about to perform this bulk action on ${safeIds.length} accepted lore entr${safeIds.length === 1 ? 'y' : 'ies'}:`,
+        '',
+        actionLabel,
+        detail ? `\n${detail}` : '',
+        names.length ? `\nSelected entries:\n- ${names.join('\n- ')}${extra}` : '',
+        '',
+        'Continue?'
+    ].join('\n');
+    return await confirmAction(`Confirm bulk lore action: ${actionLabel}`, message);
+}
+
+function createBulkSelect(label, values, tooltip, onChange, disabled = false, display = null) {
+    const select = document.createElement('select');
+    select.className = 'wandlight-lore-bulk-select';
+    select.disabled = disabled;
+    addTooltip(select, tooltip);
+    const placeholder = document.createElement('option');
+    placeholder.value = '';
+    placeholder.textContent = `Set ${label}...`;
+    placeholder.selected = true;
+    select.appendChild(placeholder);
+    for (const value of values) {
+        const option = document.createElement('option');
+        option.value = String(value);
+        option.textContent = display ? display(value) : getLoreDisplayLabel(labelToField(label), value);
+        select.appendChild(option);
+    }
+    select.addEventListener('click', e => e.stopPropagation());
+    select.addEventListener('change', async () => {
+        if (!select.value) return;
+        const value = select.value;
+        select.value = '';
+        await onChange(value);
+    });
+    return select;
+}
+
+function labelToField(label) {
+    if (label === 'Category') return 'category';
+    if (label === 'Canon') return 'canonStatus';
+    if (label === 'Relevance') return 'relevance';
+    if (label === 'Priority') return 'priority';
+    if (label === 'Truth') return 'truthStatus';
+    if (label === 'Reveal') return 'revealPolicy';
+    return 'category';
+}
+
+function getAcceptedLoreInitialVisibleLimit() {
+    return dep('getAcceptedLoreInitialVisibleLimit', () => 40)();
+}
+
+function getAcceptedLorePageIncrement() {
+    return dep('getAcceptedLorePageIncrement', () => 40)();
+}
+
+function getFilteredLoreEntries(state) {
+    return dep('getFilteredLoreEntries', () => [])(state);
+}
+
+function toggleAcceptedLoreSelection(entryId, selected) {
+    return dep('toggleAcceptedLoreSelection', () => null)(entryId, selected);
+}
+
+function refreshAcceptedLoreRow(entryId) {
+    return dep('refreshAcceptedLoreRow', () => false)(entryId);
+}
+
+function togglePinEntry(entryId, options = {}) {
+    const state = getState();
+    if (!state?.loreSelection) return;
+    const beforeTimeline = captureLoreTimelineState(state);
+    const sel = state.loreSelection;
+    sel.pinnedIds = Array.isArray(sel.pinnedIds) ? sel.pinnedIds : [];
+    sel.suppressedIds = Array.isArray(sel.suppressedIds) ? sel.suppressedIds : [];
+    const idx = sel.pinnedIds.indexOf(entryId);
+    if (idx >= 0) {
+        sel.pinnedIds.splice(idx, 1);
+    } else {
+        sel.pinnedIds.push(entryId);
+        const supIdx = sel.suppressedIds.indexOf(entryId);
+        if (supIdx >= 0) sel.suppressedIds.splice(supIdx, 1);
+    }
+    recordLoreTimelineEvent(state, {
+        before: beforeTimeline,
+        after: captureLoreTimelineState(state),
+        type: idx >= 0 ? 'unpin' : 'pin',
+        source: 'manual',
+        summary: `${idx >= 0 ? 'Unpinned' : 'Pinned'} lore entry.`,
+    });
+    if (options.deferSave) scheduleStateSave(state);
+    else saveState(state);
+}
+
+function toggleSuppressEntry(entryId, options = {}) {
+    const state = getState();
+    if (!state?.loreSelection) return;
+    const beforeTimeline = captureLoreTimelineState(state);
+    const sel = state.loreSelection;
+    sel.pinnedIds = Array.isArray(sel.pinnedIds) ? sel.pinnedIds : [];
+    sel.suppressedIds = Array.isArray(sel.suppressedIds) ? sel.suppressedIds : [];
+    const idx = sel.suppressedIds.indexOf(entryId);
+    if (idx >= 0) {
+        sel.suppressedIds.splice(idx, 1);
+    } else {
+        sel.suppressedIds.push(entryId);
+        const pinIdx = sel.pinnedIds.indexOf(entryId);
+        if (pinIdx >= 0) sel.pinnedIds.splice(pinIdx, 1);
+    }
+    recordLoreTimelineEvent(state, {
+        before: beforeTimeline,
+        after: captureLoreTimelineState(state),
+        type: idx >= 0 ? 'unmute' : 'mute',
+        source: 'manual',
+        summary: `${idx >= 0 ? 'Unmuted' : 'Muted'} lore entry.`,
+    });
+    if (options.deferSave) scheduleStateSave(state);
+    else saveState(state);
+}
+
+function createEditableLoreMetaBadge(entry, field, value, values = null, tooltip = '') {
+    const fallbackValues = {
+        category: LORE_CATEGORY_VALUES,
+        canon: ['canon', 'au'],
+        canonStatus: ['canon', 'au'],
+        truthStatus: ['true', 'false', 'public_belief', 'rumor', 'contested', 'hidden'],
+        revealPolicy: ['public', 'private', 'do_not_reveal', 'only_if_knower_present', 'only_if_user_reveals'],
+    };
+    const registryName = getLoreFieldRegistry(field);
+    const effectiveValues = Array.from(new Set((Array.isArray(values) && values.length
+        ? values
+        : getLoreRegistryValues(registryName, fallbackValues[field] || [])
+    ).map(v => String(v || '').trim()).filter(Boolean)));
+
+    const currentValue = String(value || effectiveValues[0] || '').trim();
+    const currentLabel = getLoreDisplayLabel(field, currentValue);
+    const meta = registryName ? getLoreRegistryMeta(registryName, currentValue) : null;
+    const help = tooltip || meta?.description || `${field}: ${currentLabel}. Choose a new value from the dropdown.`;
+
+    const wrap = document.createElement('label');
+    wrap.className = 'wandlight-lore-meta-select-wrap';
+    applyLoreRegistryStyle(wrap, field, currentValue);
+    addTooltip(wrap, help);
+
+    const prefix = document.createElement('span');
+    prefix.className = 'wandlight-lore-meta-select-prefix';
+    prefix.textContent = (field === 'canonStatus' || field === 'canon')
+        ? 'Canon'
+        : field === 'truthStatus'
+            ? 'Truth'
+            : field === 'revealPolicy'
+                ? 'Reveal'
+                : 'Category';
+    wrap.appendChild(prefix);
+
+    const select = document.createElement('select');
+    select.className = 'wandlight-lore-meta-select';
+    select.setAttribute('aria-label', `${prefix.textContent} metadata`);
+    select.addEventListener('click', e => e.stopPropagation());
+    select.addEventListener('mousedown', e => e.stopPropagation());
+
+    for (const optionValue of effectiveValues) {
+        const option = document.createElement('option');
+        option.value = optionValue;
+        option.textContent = getLoreDisplayLabel(field, optionValue);
+        if (optionValue === currentValue) option.selected = true;
+        select.appendChild(option);
+    }
+
+    if (currentValue && !effectiveValues.includes(currentValue)) {
+        const option = document.createElement('option');
+        option.value = currentValue;
+        option.textContent = getLoreDisplayLabel(field, currentValue);
+        option.selected = true;
+        select.insertBefore(option, select.firstChild);
+    }
+
+    select.addEventListener('change', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const nextValue = select.value;
+        updateLoreEntryById(entry.id, raw => field === 'canonStatus' || field === 'canon'
+            ? ({ ...raw, canon: nextValue, canonStatus: nextValue })
+            : ({ ...raw, [field]: nextValue }), { deferSave: true });
+        if (!refreshAcceptedLoreRow(entry.id)) refreshAcceptedLoreList({ preserveScroll: true });
+        refreshHeader();
+        refreshLoreWorkbench();
+        toast(`${entry.title || 'Lore entry'} ${prefix.textContent.toLowerCase()} set to ${getLoreDisplayLabel(field, nextValue)}.`, 'info');
+    });
+
+    wrap.appendChild(select);
+    return wrap;
+}
+
+function createEditablePriorityBadge(entry) {
+    const current = Number(entry.priority || 50);
+    const wrap = document.createElement('label');
+    wrap.className = 'wandlight-lore-meta-select-wrap wandlight-lore-meta-select-priority';
+    addTooltip(wrap, 'Priority controls sorting and injection preference. Choose P10 through P100.');
+
+    const prefix = document.createElement('span');
+    prefix.className = 'wandlight-lore-meta-select-prefix';
+    prefix.textContent = 'Priority';
+    wrap.appendChild(prefix);
+
+    const select = document.createElement('select');
+    select.className = 'wandlight-lore-meta-select';
+    select.setAttribute('aria-label', 'Priority metadata');
+    select.addEventListener('click', e => e.stopPropagation());
+    select.addEventListener('mousedown', e => e.stopPropagation());
+
+    for (const value of getLorePriorityValues()) {
+        const option = document.createElement('option');
+        option.value = String(value);
+        option.textContent = `P${value}`;
+        if (value === current) option.selected = true;
+        select.appendChild(option);
+    }
+
+    select.addEventListener('change', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const nextValue = Math.max(0, Math.min(100, Number(select.value) || 50));
+        updateLoreEntryById(entry.id, raw => ({ ...raw, priority: nextValue }), { deferSave: true });
+        if (!refreshAcceptedLoreRow(entry.id)) refreshAcceptedLoreList({ preserveScroll: true });
+        refreshHeader();
+        refreshLoreWorkbench();
+        toast(`${entry.title || 'Lore entry'} priority set to P${nextValue}.`, 'info');
+    });
+
+    wrap.appendChild(select);
+    return wrap;
+}
+
+function createEditableLoreEntryEditor(entry) {
+    const editor = document.createElement('div');
+    editor.className = 'wandlight-lore-entry-editor';
+    addTooltip(editor, 'Edit accepted lore directly. Changes are saved only when you click Save Entry.');
+
+    const makeField = (labelText, value, multiline = false) => {
+        const label = document.createElement('label');
+        label.className = 'wandlight-lore-editor-field';
+        const span = document.createElement('span');
+        span.textContent = labelText;
+        label.appendChild(span);
+        const input = multiline ? document.createElement('textarea') : document.createElement('input');
+        input.className = multiline ? 'wandlight-lore-editor-textarea' : 'wandlight-lore-editor-input';
+        if (!multiline) input.type = 'text';
+        input.value = value || '';
+        input.addEventListener('click', e => e.stopPropagation());
+        input.addEventListener('mousedown', e => e.stopPropagation());
+        label.appendChild(input);
+        editor.appendChild(label);
+        return input;
+    };
+
+    const titleInput = makeField('Title', entry.title || '', false);
+    const factInput = makeField('Lore text / fact', entry.fact || entry.content?.fact || '', true);
+    const injectionInput = makeField('Injection override', entry.content?.injection || '', true);
+    const notesInput = makeField('Notes', entry.notes || entry.content?.notes || '', true);
+    const metaGrid = document.createElement('div');
+    metaGrid.className = 'wandlight-new-lore-meta-grid wandlight-lore-editor-meta-grid';
+    editor.appendChild(metaGrid);
+    const categorySelect = createNewLoreSelect(metaGrid, 'Category', getLoreRegistryValues('categories', LORE_CATEGORY_VALUES), entry.category || 'other');
+    const canonSelect = createNewLoreSelect(metaGrid, 'Canon', getLoreRegistryValues('canonStatuses', ['canon', 'au']), entry.canon || entry.canonStatus || 'canon');
+    const relevanceSelect = createNewLoreSelect(metaGrid, 'Relevance', LORE_RELEVANCE_TIERS, entry.relevance || 'normal', value => RELEVANCE_META[value]?.label || value);
+    const prioritySelect = createNewLoreSelect(metaGrid, 'Priority', getLorePriorityValues().map(String), String(entry.priority || 50));
+    const truthSelect = createNewLoreSelect(metaGrid, 'Truth', getLoreRegistryValues('truthStatuses', ['true', 'rumor', 'contested', 'hidden']), entry.truthStatus || 'true');
+    const revealSelect = createNewLoreSelect(metaGrid, 'Reveal', getLoreRegistryValues('revealPolicies', ['private', 'public', 'do_not_reveal']), entry.revealPolicy || 'private');
+    const tagsInput = makeField('Tags', (entry.tags || []).join(', '), false);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    const saveBtn = createButton('Save Entry', 'Saves the edited title, lore text, injection override, and notes for this accepted lore entry.', (btn, e) => {
+        e?.stopPropagation?.();
+        const title = titleInput.value.trim() || entry.title || '(Untitled lore)';
+        const fact = factInput.value.trim();
+        const injection = injectionInput.value.trim();
+        const notes = notesInput.value.trim();
+        updateLoreEntryById(entry.id, raw => ({
+            ...raw,
+            title,
+            fact,
+            notes,
+            category: categorySelect.value,
+            canon: canonSelect.value,
+            canonStatus: canonSelect.value,
+            relevance: normalizeLoreRelevance(relevanceSelect.value),
+            priority: Number(prioritySelect.value) || 50,
+            truthStatus: truthSelect.value,
+            revealPolicy: revealSelect.value,
+            tags: tagsInput.value,
+            content: {
+                ...(raw.content || {}),
+                fact,
+                injection,
+                notes,
+            },
+            userEdited: true,
+        }), { deferSave: false });
+        if (!refreshAcceptedLoreRow(entry.id)) refreshAcceptedLoreList({ preserveScroll: true });
+        refreshHeader();
+        refreshLoreWorkbench();
+        toast('Lore entry saved.', 'success');
+    }, 'wandlight-primary-button');
+    actions.appendChild(saveBtn);
+    editor.appendChild(actions);
+    return editor;
+}
+
+function updateLoreEntryById(entryId, updater, options = {}) {
+    const state = getState();
+    if (!entryId || typeof updater !== 'function') return false;
+    const beforeTimeline = captureLoreTimelineState(state);
+
+    for (const key of ['loreMatrix', 'pendingLoreEntries']) {
+        const list = Array.isArray(state[key]) ? state[key] : [];
+        const idx = list.findIndex(item => item?.id === entryId);
+        if (idx < 0) continue;
+
+        const updated = normalizeLoreEntry(updater(list[idx]));
+        updated.userEdited = true;
+        list[idx] = updated;
+        state[key] = list;
+        if (key === 'loreMatrix') {
+            recordLoreTimelineEvent(state, {
+                before: beforeTimeline,
+                after: captureLoreTimelineState(state),
+                type: options.timelineType || 'edit',
+                source: options.timelineSource || 'manual',
+                summary: options.timelineSummary || `Edited lore entry: ${updated.title || updated.id}.`,
+            });
+        }
+        if (options.deferSave) scheduleStateSave(state);
+        else saveState(state);
+        return true;
+    }
+
+    return false;
+}
+
+function addLoreTag(entryId, tag, options = {}) {
+    const clean = normalizeLoreTag(tag);
+    if (!clean) return false;
+    return updateLoreEntryById(entryId, (entry) => {
+        const tags = Array.isArray(entry.tags) ? entry.tags.map(normalizeLoreTag).filter(Boolean) : [];
+        const exists = tags.some(t => t.toLowerCase() === clean.toLowerCase());
+        return { ...entry, tags: exists ? tags : [...tags, clean] };
+    }, options);
+}
+
+function removeLoreTag(entryId, tag, options = {}) {
+    const clean = normalizeLoreTag(tag).toLowerCase();
+    return updateLoreEntryById(entryId, (entry) => ({
+        ...entry,
+        tags: (Array.isArray(entry.tags) ? entry.tags : [])
+            .map(normalizeLoreTag)
+            .filter(t => t && t.toLowerCase() !== clean),
+    }), options);
+}
+
+function refreshAcceptedLoreList(options = {}) {
+    return dep('refreshAcceptedLoreList', () => null)(options);
+}
+
+function refreshAcceptedLoreBulkToolbar() {
+    return dep('refreshAcceptedLoreBulkToolbar', () => null)();
+}
+
+export function createEntryCard(entry, state) {
+    const card = document.createElement('div');
+    card.className = 'wandlight-lore-entry-card';
+    markTourTarget(card, entry.isPending ? 'lore.pending.entry' : 'lore.accepted.entry');
+    if (entry.id) card.dataset.entryId = entry.id;
+
+    if (entry.isPending) card.classList.add('wandlight-lore-entry-pending');
+    if (entry.isActive) card.classList.add('wandlight-lore-entry-active');
+    if (entry.isPinned) card.classList.add('wandlight-lore-entry-pinned');
+    if (entry.isSuppressed) card.classList.add('wandlight-lore-entry-suppressed');
+    if (getAcceptedSelectionSet(state).has(entry.id)) card.classList.add('wandlight-lore-entry-selected');
+
+    const panelState = state?.lorePanel || {};
+    const isExpanded = panelState.selectedEntryId === entry.id;
+    if (isExpanded) card.classList.add('wandlight-lore-entry-expanded');
+
+    const headerRow = document.createElement('div');
+    headerRow.className = 'wandlight-lore-entry-header';
+
+    const selectBox = document.createElement('input');
+    selectBox.type = 'checkbox';
+    selectBox.className = 'wandlight-lore-entry-select';
+    selectBox.checked = getAcceptedSelectionSet(state).has(entry.id);
+    selectBox.setAttribute('aria-label', 'Select accepted lore entry for bulk actions');
+    addTooltip(selectBox, selectBox.checked ? 'Remove this accepted lore entry from the bulk selection.' : 'Select this accepted lore entry for bulk actions.');
+    selectBox.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleAcceptedLoreSelection(entry.id, selectBox.checked);
+        if (!refreshAcceptedLoreRow(entry.id)) refreshAcceptedLoreList({ preserveScroll: true });
+        refreshAcceptedLoreBulkToolbar();
+    });
+    headerRow.appendChild(selectBox);
+
+    const titleWrap = document.createElement('div');
+    titleWrap.className = 'wandlight-lore-entry-title-wrap';
+
+    const titleEl = document.createElement('span');
+    titleEl.className = 'wandlight-lore-entry-title';
+    titleEl.textContent = entry.title || '(Untitled lore)';
+    addTooltip(titleEl, 'Click the card to expand details. Tags beside this title are editable search tags.');
+    titleWrap.appendChild(titleEl);
+    headerRow.appendChild(titleWrap);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-lore-entry-actions';
+    actions.appendChild(createEditableLifecycleBadge(entry));
+
+    const pinBtn = createIconButton(
+        entry.isPinned ? 'Pinned' : 'Pin',
+        entry.isPinned ? 'Remove this entry from pinned lore. Pinned lore is prioritized for injection.' : 'Pin this entry so it is prioritized for injection.',
+        'wandlight-lore-entry-btn',
+        (e) => {
+            e.stopPropagation();
+            togglePinEntry(entry.id, { deferSave: true });
+            if (!refreshAcceptedLoreRow(entry.id)) refreshAcceptedLoreList({ preserveScroll: true });
+            refreshAcceptedLoreBulkToolbar();
+            refreshHeader();
+            refreshLoreWorkbench();
+        }
+    );
+    actions.appendChild(pinBtn);
+
+    const suppressBtn = createIconButton(
+        entry.isSuppressed ? 'Muted' : 'Mute',
+        entry.isSuppressed ? 'Unmute this entry so it can become active again.' : 'Mute this entry so it will not be injected into prompts.',
+        'wandlight-lore-entry-btn',
+        (e) => {
+            e.stopPropagation();
+            toggleSuppressEntry(entry.id, { deferSave: true });
+            if (!refreshAcceptedLoreRow(entry.id)) refreshAcceptedLoreList({ preserveScroll: true });
+            refreshAcceptedLoreBulkToolbar();
+            refreshHeader();
+            refreshLoreWorkbench();
+        }
+    );
+    actions.appendChild(suppressBtn);
+
+    headerRow.appendChild(actions);
+    card.appendChild(headerRow);
+
+    const metaRow = document.createElement('div');
+    metaRow.className = 'wandlight-lore-entry-meta';
+    if (isExpanded) {
+        metaRow.appendChild(createEditableLoreMetaBadge(entry, 'category', entry.category || 'other', null, `Category: ${entry.category || 'canon'}. Use dropdown to change.`));
+        metaRow.appendChild(createLorePurposeBadge(entry));
+        metaRow.appendChild(createEditableLoreMetaBadge(entry, 'canonStatus', entry.canon || entry.canonStatus || 'canon', null, `Canon/Story: ${entry.canon || entry.canonStatus || 'canon'}. Use dropdown to change.`));
+        metaRow.appendChild(createEditableLoreMetaBadge(entry, 'truthStatus', entry.truthStatus || 'true', null, `Truth/reveal status: ${entry.truthStatus || 'true'}. Use dropdown to change.`));
+        metaRow.appendChild(createEditableLoreMetaBadge(entry, 'revealPolicy', entry.revealPolicy || 'private', null, `Reveal policy: ${entry.revealPolicy || 'private'}. Use dropdown to change.`));
+        metaRow.appendChild(createEditablePriorityBadge(entry));
+    } else {
+        metaRow.appendChild(createRegistryBadge('category', entry.category || 'other', `Category: ${entry.category || 'canon'}. Expand the entry to edit.`));
+        metaRow.appendChild(createLorePurposeBadge(entry));
+        metaRow.appendChild(createRegistryBadge('canonStatus', entry.canon || entry.canonStatus || 'canon', `Canon/Story: ${entry.canon || entry.canonStatus || 'canon'}. Expand the entry to edit.`));
+        metaRow.appendChild(createBadge(`P${Number(entry.priority || 50)}`, 'Priority. Expand the entry to edit.'));
+    }
+    metaRow.appendChild(createSpellMetadataBadges(entry));
+    if (entry.isPending) metaRow.appendChild(createBadge('pending', 'This entry is pending review.'));
+    if (entry.isPinned) metaRow.appendChild(createBadge('pinned', 'Pinned entries are prioritized for injection.'));
+    if (entry.isSuppressed) metaRow.appendChild(createBadge('muted', 'Muted entries are excluded from injection.'));
+    card.appendChild(metaRow);
+
+    card.appendChild(createTagsRow(entry));
+
+    const factEl = document.createElement('div');
+    factEl.className = 'wandlight-lore-entry-fact';
+    factEl.textContent = truncateText(entry.fact || '', 140);
+    addTooltip(factEl, 'Lore fact text. Expand the card to inspect the full entry.');
+    card.appendChild(factEl);
+
+    card.addEventListener('click', () => {
+        const currentPanelState = getState()?.lorePanel || {};
+        const newId = currentPanelState.selectedEntryId === entry.id ? '' : entry.id;
+        setPanelState({ selectedEntryId: newId }, { deferSave: true });
+        if (!refreshAcceptedLoreRow(entry.id)) refreshAcceptedLoreList({ preserveScroll: true });
+    });
+
+    if (isExpanded) {
+        const details = document.createElement('div');
+        details.className = 'wandlight-lore-entry-details';
+
+        details.appendChild(createEditableLoreEntryEditor(entry));
+
+        if (entry.fact && entry.fact.length > 140) {
+            const fullFact = document.createElement('div');
+            fullFact.className = 'wandlight-lore-entry-full-fact';
+            fullFact.textContent = entry.fact;
+            details.appendChild(fullFact);
+        }
+
+        const detailRows = [];
+        if (entry.source) detailRows.push(['Source', entry.source]);
+        if (hasDisplayableScope(entry.scope)) detailRows.push(['Scope', entry.scope]);
+        if (entry.appliesTo?.length) detailRows.push(['Applies to', entry.appliesTo.join(', ')]);
+        if (entry.publicVersion) detailRows.push(['Public version', entry.publicVersion]);
+        if (entry.whoKnowsTruth?.length) detailRows.push(['Who knows truth', entry.whoKnowsTruth.join(', ')]);
+        if (entry.whoSuspects?.length) detailRows.push(['Who suspects', entry.whoSuspects.join(', ')]);
+        if (entry.revealPolicy) detailRows.push(['Reveal policy', entry.revealPolicy]);
+        if (entry.validFrom || entry.validTo) detailRows.push(['Valid window', `${entry.validFrom || '...'} to ${entry.validTo || '...'}`]);
+        if (entry.notes) detailRows.push(['Notes', entry.notes]);
+
+        for (const [label, value] of detailRows) {
+            details.appendChild(createKeyValue(label, value, `${label} metadata for this lore entry.`));
+        }
+
+        const aw = entry.activeWhen || {};
+        const conditions = [];
+        if (aw.erasAny?.length) conditions.push(`Eras: ${aw.erasAny.join(', ')}`);
+        if (aw.locationsAny?.length) conditions.push(`Locations: ${aw.locationsAny.join(', ')}`);
+        if (aw.charactersPresentAny?.length) conditions.push(`Cast: ${aw.charactersPresentAny.join(', ')}`);
+        if (aw.tagsAny?.length) conditions.push(`Tags: ${aw.tagsAny.join(', ')}`);
+        if (conditions.length) {
+            const cond = document.createElement('div');
+            cond.className = 'wandlight-lore-entry-conditions';
+            cond.textContent = `Relevant when: ${conditions.join(' | ')}`;
+            addTooltip(cond, 'Context conditions used to determine whether this lore entry should be active.');
+            details.appendChild(cond);
+        }
+
+        if (entry.isPending) {
+            const pendingActions = document.createElement('div');
+            pendingActions.className = 'wandlight-lore-entry-pending-actions';
+            pendingActions.appendChild(createButton('Apply', 'Accepts this pending entry into the lore matrix.', (btn, e) => {
+                e?.stopPropagation?.();
+                const current = getState();
+                const pending = normalizeLoreMatrix(current?.pendingLoreEntries || []);
+                const idx = pending.findIndex(pe => pe.id === entry.id);
+                if (idx >= 0) {
+                    acceptPendingLoreEntry(idx);
+                    refreshPanelBody({ preserveScroll: true });
+                    refreshHeader();
+                }
+            }, 'wandlight-primary-button'));
+            pendingActions.appendChild(createButton('Dismiss', 'Rejects this pending entry.', (btn, e) => {
+                e?.stopPropagation?.();
+                const current = getState();
+                const pending = normalizeLoreMatrix(current?.pendingLoreEntries || []);
+                const idx = pending.findIndex(pe => pe.id === entry.id);
+                if (idx >= 0) {
+                    rejectPendingLoreEntry(idx);
+                    refreshPanelBody({ preserveScroll: true });
+                    refreshHeader();
+                }
+            }));
+            details.appendChild(pendingActions);
+        }
+
+        card.appendChild(details);
+    }
+
+    return card;
+}
+
+function createTagsRow(entry) {
+    const row = document.createElement('div');
+    row.className = 'wandlight-lore-entry-tags';
+    addTooltip(row, 'Tags are editable search labels. Search matches tags as well as entry titles.');
+
+    const tags = Array.isArray(entry.tags) ? entry.tags : [];
+    for (const tag of tags) {
+        const chip = document.createElement('span');
+        chip.className = 'wandlight-lore-tag-chip';
+
+        const removeBtn = document.createElement('button');
+        removeBtn.className = 'wandlight-lore-tag-remove';
+        removeBtn.type = 'button';
+        removeBtn.textContent = 'x';
+        addTooltip(removeBtn, `Remove tag: ${tag}`);
+        removeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            removeLoreTag(entry.id, tag, { deferSave: true });
+            if (!refreshAcceptedLoreRow(entry.id)) refreshAcceptedLoreList({ preserveScroll: true });
+            refreshLoreWorkbench();
+        });
+        chip.appendChild(removeBtn);
+
+        const label = document.createElement('span');
+        label.className = 'wandlight-lore-tag-label';
+        label.textContent = tag;
+        chip.appendChild(label);
+        row.appendChild(chip);
+    }
+
+    const addBtn = document.createElement('button');
+    addBtn.className = 'wandlight-lore-tag-add';
+    addBtn.type = 'button';
+    addBtn.textContent = '+';
+    addTooltip(addBtn, 'Add a searchable tag to this lore entry.');
+    addBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        showInlineTagInput(row, entry.id, addBtn);
+    });
+    row.appendChild(addBtn);
+
+    return row;
+}
+
+function showInlineTagInput(row, entryId, addBtn) {
+    if (row.querySelector('.wandlight-lore-tag-input')) return;
+
+    const input = document.createElement('input');
+    input.className = 'wandlight-lore-tag-input';
+    input.type = 'text';
+    input.placeholder = 'tag';
+    addTooltip(input, 'Type a tag and press Enter. Press Escape to cancel.');
+
+    input.addEventListener('click', e => e.stopPropagation());
+    input.addEventListener('mousedown', e => e.stopPropagation());
+    input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            e.stopPropagation();
+            input.dataset.committed = '1';
+            commitInlineTagInput(entryId, input.value);
+        } else if (e.key === 'Escape') {
+            e.preventDefault();
+            e.stopPropagation();
+            input.remove();
+        }
+    });
+    input.addEventListener('blur', () => {
+        if (input.dataset.committed === '1') return;
+        if (input.value.trim()) {
+            input.dataset.committed = '1';
+            commitInlineTagInput(entryId, input.value);
+        } else {
+            input.remove();
+        }
+    });
+
+    row.insertBefore(input, addBtn);
+    const schedule = typeof requestAnimationFrame === 'function'
+        ? requestAnimationFrame
+        : callback => setTimeout(callback, 0);
+    schedule(() => input.focus());
+}
+
+function commitInlineTagInput(entryId, rawTag) {
+    const tag = normalizeLoreTag(rawTag);
+    if (!tag) {
+        refreshPanelBody({ preserveScroll: true });
+        return;
+    }
+    addLoreTag(entryId, tag, { deferSave: true });
+    if (!refreshAcceptedLoreRow(entryId)) refreshAcceptedLoreList({ preserveScroll: true });
+    refreshLoreWorkbench();
+}
+
+function truncateText(text, maxLen) {
+    const clean = String(text || '').replace(/\s+/g, ' ').trim();
+    if (clean.length <= maxLen) return clean;
+    return `${clean.slice(0, Math.max(0, maxLen - 1))}...`;
+}
+
+export function renderLorecardsTab(container, state) {
+    const basic = isBasicExperience();
+    container.appendChild(createSectionHeader(
+        'Lorecards',
+        'Suggest canon Lorecards from the local database, generate story-specific Lorecards with the model, review pending cards, and manage accepted Lorecards.'
+    ));
+    container.appendChild(createLoreTimelineCard(state));
+
+    const generationSection = createCollapsibleSection(
+        'lore.generation',
+        'Lorecard Generation',
+        'canon suggestions + story generation',
+        true,
+        dep('createLoreGenerationCard')(state),
+        { tooltip: 'Suggest canon Lorecards from the local database or generate story-specific Lorecards from recent chat messages.', className: 'wandlight-lore-generation-collapsible' }
+    );
+    markTourTarget(generationSection, 'lore.generation.section');
+    container.appendChild(generationSection);
+
+    if (!basic) {
+        const autoRelevanceSection = createCollapsibleSection(
+            'lore.autoRelevance',
+            'Auto-Relevance',
+            getSettings().autoRelevanceEnabled ? `every ${getSettings().autoRelevanceEveryTurns || 5} turns` : 'off',
+            false,
+            createAutoRelevanceCard(state),
+            { tooltip: 'Automatically promotes or demotes accepted lore between High, Normal, and Low relevance tiers.' }
+        );
+        markTourTarget(autoRelevanceSection, 'lore.autoRelevance');
+        container.appendChild(autoRelevanceSection);
+    }
+
+    const pendingCount = (state?.pendingLoreEntries || []).length;
+    const pendingSection = createCollapsibleSection(
+        basic ? 'lore.basic.pendingReview' : 'lore.pendingReview',
+        'Pending Lorecard Review',
+        pendingCount ? `${pendingCount} pending` : 'none',
+        basic ? true : pendingCount > 0,
+        createPendingLoreReviewSection(state),
+        { tooltip: 'Review suggested/generated Lorecards before accepting them.', className: 'wandlight-lore-pending-collapsible' }
+    );
+    markTourTarget(pendingSection, 'lore.pending');
+    container.appendChild(pendingSection);
+
+    const loreState = getPanelLoreState(state);
+    const acceptedCount = Math.max(0, (loreState.counts?.all || 0) - (loreState.counts?.pending || 0));
+    const injectableCount = getSelectedLoreInjectionCount(state, getSettings());
+    const acceptedSection = createCollapsibleSection(
+        basic ? 'lore.basic.acceptedEntries' : 'lore.acceptedEntries',
+        'Accepted Lorecards',
+        `${acceptedCount} accepted \u00b7 ${injectableCount} injectable`,
+        true,
+        createAcceptedLoreEntriesSection(state),
+        { tooltip: 'Search, filter, bulk edit, tag, pin, mute, and edit accepted Lorecards.', className: 'wandlight-lore-accepted-collapsible' }
+    );
+    markTourTarget(acceptedSection, 'lore.accepted');
+    container.appendChild(acceptedSection);
+}
+
+export function createPendingLoreReviewSection(state) {
+    const pendingLore = normalizeLoreMatrix(state?.pendingLoreEntries || []);
+    const section = document.createElement('div');
+    section.className = 'wandlight-review-section wandlight-pending-lore-section';
+
+    section.appendChild(createLoreWorkbenchLaunchRow('pending', pendingLore.length ? `${pendingLore.length} pending entries` : 'No pending entries yet'));
+
+    if (pendingLore.length > 0) {
+        const batchInfo = document.createElement('div');
+        batchInfo.className = 'wandlight-runtime-help';
+        batchInfo.textContent = getPendingLoreBatchLabel(state);
+        section.appendChild(batchInfo);
+
+        section.appendChild(markTourTarget(createPendingLoreBulkControls(pendingLore, state), 'lore.pending.bulk'));
+
+        const visibleLimit = Math.max(5, Math.min(1000, Number(state?.lorePanel?.pendingReviewVisibleLimit) || 10));
+        const list = document.createElement('div');
+        list.className = 'wandlight-review-lore-list wandlight-pending-lore-list';
+        markTourTarget(list, 'lore.pending.list');
+        pendingLore.slice(0, visibleLimit).forEach((entry, idx) => list.appendChild(createPendingLoreReviewCard(entry, idx, isPendingLoreSelected(state, entry))));
+        section.appendChild(list);
+
+        if (pendingLore.length > visibleLimit) {
+            const more = createButton(`Show ${Math.min(25, pendingLore.length - visibleLimit)} more`, 'Renders more pending lore cards. Keeping this list paged prevents large canon batches from freezing the browser.', () => {
+                const current = getState();
+                current.lorePanel.pendingReviewVisibleLimit = Math.min(pendingLore.length, visibleLimit + 25);
+                saveState(current);
+                refreshPanelBody({ preserveScroll: true });
+            });
+            more.classList.add('wandlight-small-button');
+            section.appendChild(more);
+        }
+    } else {
+        section.appendChild(createEmptyMessage('No lore entries are waiting for review. Use Suggest Canon Lore or Scan Story Lore above.'));
+    }
+
+    return section;
+}
+
+export function createAcceptedLoreEntriesSection(state) {
+    const section = document.createElement('div');
+    section.className = 'wandlight-accepted-lore-section';
+
+    const controls = document.createElement('div');
+    controls.className = 'wandlight-lore-controls';
+
+    const panelState = state?.lorePanel || { selectedCategory: 'all', search: '' };
+    const loreState = getPanelLoreState(state);
+    const { entries, categories, counts } = loreState;
+    const acceptedCount = Math.max(0, (counts?.all || 0) - (counts?.pending || 0));
+
+    controls.appendChild(createLoreWorkbenchLaunchRow('accepted', `${acceptedCount} accepted entries`));
+
+    const tabs = document.createElement('div');
+    tabs.className = 'wandlight-lore-tabs';
+    markTourTarget(tabs, 'lore.accepted.categoryTabs');
+    for (const cat of categories) {
+        const tab = document.createElement('button');
+        tab.className = 'wandlight-lore-tab';
+        if (cat === panelState.selectedCategory) tab.classList.add('wandlight-lore-tab-active');
+        tab.type = 'button';
+        const label = getLoreDisplayLabel('category', cat);
+        const catCount = getCategoryCount(cat, entries, counts);
+        tab.textContent = `${label} (${catCount})`;
+        tab.dataset.category = cat;
+        addTooltip(tab, getCategoryTooltip(cat));
+        tab.addEventListener('click', () => {
+            setPanelState({ selectedCategory: cat, acceptedLoreVisibleLimit: getAcceptedLoreInitialVisibleLimit() }, { deferSave: true });
+            refreshAcceptedLoreCategoryTabs(cat);
+            refreshAcceptedLoreFilterResults({ resetListScroll: true });
+        });
+        tabs.appendChild(tab);
+    }
+    controls.appendChild(tabs);
+
+    const filterRow = document.createElement('div');
+    filterRow.className = 'wandlight-lore-filter-row';
+    markTourTarget(filterRow, 'lore.accepted.filters');
+
+    const searchInput = document.createElement('input');
+    searchInput.type = 'text';
+    searchInput.className = 'wandlight-lore-search';
+    searchInput.placeholder = 'Search titles and tags...';
+    searchInput.value = panelState.search || '';
+    addTooltip(searchInput, 'Searches lore entry titles and tags first. Fact text, notes, and IDs are searched as fallback.');
+    searchInput.addEventListener('input', (e) => {
+        setPanelState({ search: e.target.value, acceptedLoreVisibleLimit: getAcceptedLoreInitialVisibleLimit() }, { deferSave: true });
+        scheduleAcceptedLoreListRender(section);
+    });
+    filterRow.appendChild(searchInput);
+
+    const sourceSelect = document.createElement('select');
+    sourceSelect.className = 'wandlight-lore-source-filter';
+    addTooltip(sourceSelect, 'Filter accepted lore by origin: canon database, story generation, or manual/user-created entries.');
+    const sourceOptions = [
+        ['all', 'Source: All'],
+        ['canon-db', 'Canon Database'],
+        ['story-generation', 'Story Generation'],
+        ['manual', 'Manual / User'],
+    ];
+    for (const [value, label] of sourceOptions) {
+        const opt = document.createElement('option');
+        opt.value = value;
+        opt.textContent = label;
+        if ((panelState.sourceFilter || 'all') === value) opt.selected = true;
+        sourceSelect.appendChild(opt);
+    }
+    sourceSelect.addEventListener('change', () => {
+        setPanelState({ sourceFilter: sourceSelect.value, acceptedLoreVisibleLimit: getAcceptedLoreInitialVisibleLimit() }, { deferSave: true });
+        refreshAcceptedLoreFilterResults({ resetListScroll: true });
+    });
+    filterRow.appendChild(sourceSelect);
+    controls.appendChild(filterRow);
+
+    const pinHelp = document.createElement('div');
+    pinHelp.className = 'wandlight-runtime-help wandlight-pin-help';
+    markTourTarget(pinHelp, 'lore.accepted.pinMuteHelp');
+    pinHelp.textContent = 'Pinned = prioritized/protected. Muted = excluded from injection. Relevance controls tier placement, sorting, and compression budget.';
+    addTooltip(pinHelp, 'Pin important facts you always want kept prominent. Mute facts that should stay stored but not be sent to the model.');
+    controls.appendChild(pinHelp);
+
+    const bulkMount = document.createElement('div');
+    bulkMount.className = 'wandlight-lore-bulk-toolbar';
+    markTourTarget(bulkMount, 'lore.accepted.bulk');
+    bulkMount.appendChild(createAcceptedLoreBulkControls(state));
+    controls.appendChild(bulkMount);
+
+    section.appendChild(controls);
+
+    const list = document.createElement('div');
+    list.className = 'wandlight-lore-entry-list wandlight-accepted-lore-scroll-region';
+    markTourTarget(list, 'lore.accepted.list');
+    list.setAttribute('role', 'region');
+    list.setAttribute('aria-label', 'Accepted lore entries');
+    renderAcceptedLoreEntryList(list, state);
+    section.appendChild(list);
+    return section;
+}
+
+export function renderAcceptedLoreEntryList(list, state) {
+    if (!list) return;
+    list.replaceChildren();
+
+    const filtered = getFilteredLoreEntries(state);
+    if (filtered.length === 0) {
+        list.appendChild(createEmptyMessage('No lore entries match the current filter.'));
+        return;
+    }
+
+    const panelState = state?.lorePanel || {};
+    const visibleLimit = Math.max(10, Math.min(
+        filtered.length,
+        Number(panelState.acceptedLoreVisibleLimit) || getAcceptedLoreInitialVisibleLimit()
+    ));
+    const visible = filtered.slice(0, visibleLimit);
+    const fragment = document.createDocumentFragment();
+
+    const summary = document.createElement('div');
+    summary.className = 'wandlight-lore-list-summary';
+    summary.textContent = filtered.length > visible.length
+        ? `Showing ${visible.length} of ${filtered.length} accepted lore entries.`
+        : `Showing ${filtered.length} accepted lore entr${filtered.length === 1 ? 'y' : 'ies'}.`;
+    fragment.appendChild(summary);
+
+    for (const entry of visible) {
+        fragment.appendChild(createEntryCard(entry, state));
+    }
+
+    if (filtered.length > visible.length) {
+        const more = document.createElement('button');
+        more.type = 'button';
+        more.className = 'wandlight-secondary-button wandlight-lore-show-more';
+        const pageIncrement = getAcceptedLorePageIncrement();
+        const nextCount = Math.min(pageIncrement, filtered.length - visible.length);
+        more.textContent = `Show ${nextCount} more`;
+        addTooltip(more, 'Renders more accepted lore entries. Keeping the list paged prevents large lore matrices from slowing the browser.');
+        more.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setPanelState({ acceptedLoreVisibleLimit: visible.length + pageIncrement }, { deferSave: true });
+            refreshAcceptedLoreList({ preserveScroll: true });
+            refreshAcceptedLoreBulkToolbar();
+        });
+        fragment.appendChild(more);
+    }
+
+    list.appendChild(fragment);
+}
